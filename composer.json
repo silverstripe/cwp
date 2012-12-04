@@ -1,11 +1,13 @@
 {
 	"name": "silverstripe/express",
 	"description": "The SilverStripe Express module",
+	"type": "silverstripe-module",
 	"require": {
 		"php": ">=5.3.2",
-		"silverstripe/cms": "*",
-		"silverstripe/framework": "*",
-		"silverstripe-themes/express": "*",
+		"composer/installers": "*",
+		"silverstripe/cms": ">=3.0",
+		"silverstripe/framework": ">=3.0",
+		"silverstripe/express-theme": "*",
 		"silverstripe/accessibility": "*",
 		"silverstripe/translatable": "*",
 		"silverstripe/userforms": "*",
