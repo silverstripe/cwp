@@ -41,6 +41,24 @@ You can also let your site visitors share pages on your site through their own s
 
 When using the default SilverStripe Express theme, this will add a 'Share' button on the top right of each page.
 
+## Customising logos
+
+With the default SilverStripe Express theme two default logos are shown:
+* An organisation logo in the top left, next to the site name.
+* The newzealand.govt.nz logo in the bottom right.
+
+These can be overridden as follows:
+
+* Open the CMS, and proceed to the Settings section
+* Open the 'Logos' tab
+* Customise the organisation logo by attaching an image to the `Logo, to appear in the top left.`
+* Replace the newzealand.govt.nz logo by attaching an image to the `Footer logo, to appear in the bottom right.`
+** Set a custom link by filling the `Footer Logo link` field.
+** Set a custom description (`title` and `alt` attributes) by filling the `Footer Logo description` field.
+* Save the settings
+
+The logos aren't resized, so make sure they are the size you'd like them to appear before uploading them.
+
 ## Embedding iframes
 
 SS Express bundles an iframe page type for easy embedding of external resources. It has the following settings:
