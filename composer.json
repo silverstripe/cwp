@@ -7,7 +7,7 @@
 		"composer/installers": "*",
 		"silverstripe/cms": ">=3.0",
 		"silverstripe/framework": ">=3.0",
-		"silverstripe/express-theme": "*",
+		"silverstripe-themes/express": "*",
 		"silverstripe/accessibility": "*",
 		"silverstripe/translatable": "*",
 		"silverstripe/userforms": "*",
