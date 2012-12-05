@@ -16,11 +16,11 @@ where "./my/website/folder" is the location of the new site, so "C:/inetpub/wwwr
 
 ## Working with the templates
 
-We recommend creating a new template for each site you build. The `ssexpress` template supplied with the base install is a good baseline to start from - you can just copy it to a new folder so you won't overwrite it on upgrade.
+We recommend creating a new template for each site you build. The `express` template supplied with the base install is a good baseline to start from - you can just copy it to a new folder so you won't overwrite it on upgrade.
 
 ### From source
 
-If you want to work from source it's recommended that you edit the SCSS instead of the CSS directly, and use the Compass framework to compile the SCSS. Once you've installed Compass from [http://compass-style.org/install/](http://compass-style.org/install/) you can start the automatic compilation process by running `compass watch -e production` in the `themes/ssexpress` directory. This will require that you've got module_bootstrap present in your themes directory (you may not if you've installed from source and omitted it) as the SCSS files in the ssexpress theme depend on it.
+If you want to work from source it's recommended that you edit the SCSS instead of the CSS directly, and use the Compass framework to compile the SCSS. Once you've installed Compass from [http://compass-style.org/install/](http://compass-style.org/install/) you can start the automatic compilation process by running `compass watch -e production` in the `themes/express` directory. This will require that you've got module_bootstrap present in your themes directory (you may not if you've installed from source and omitted it) as the SCSS files in the express theme depend on it.
 
 ## Working with the code
 
@@ -32,7 +32,7 @@ You can remove modules by editing the composer.json file and removing the releva
 
 Fuller instructions can be found in the [SilverStripe Composer documentation](http://doc.silverstripe.org/framework/en/installation/composer#advanced-usage).
 
-The SilverStripe Express-specific code are all located in `ssexpress` directory.
+The SilverStripe Express-specific code are all located in `express` directory.
 
 Use `mysite/_config.php` to fine-tune the site configuration. More information is available in the [configuration reference](http://doc.silverstripe.org/framework/en/topics/configuration).
 

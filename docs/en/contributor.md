@@ -59,7 +59,7 @@ Modules within SS Express source are handled via phing. To add modules:
 
 The webmaster's perspective needs to be taken into consideration. When you add new features, ask yourself if it will be easy for a webmaster to deploy it, remove it or modify it? The easier it is, the simpler the future maintenance of the site will be.
 
-For this reason it is preferred to keep all the SilverStripe Express-related code in the `ssexpress` directory, only making modifications to `mysite` when necessary.
+For this reason it is preferred to keep all the SilverStripe Express-related code in the `express` directory, only making modifications to `mysite` when necessary.
 
 ## Prerequisites
 

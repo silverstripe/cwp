@@ -3,7 +3,7 @@
 class NewsHolder extends Page {
 	static $allowed_children = array('NewsPage');
 	static $default_child = 'NewsPage';
-	static $icon = "themes/ssexpress/images/icons/sitetree_images/news_listing.png";
+	static $icon = "themes/express/images/icons/sitetree_images/news_listing.png";
 	public $pageIcon =  "images/icons/sitetree_images/news_listing.png";
 
 	public function MenuChildren() {

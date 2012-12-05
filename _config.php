@@ -1,6 +1,6 @@
 <?php
 
-LeftAndMain::require_css('ssexpress/css/custom.css');	
+LeftAndMain::require_css('express/css/custom.css');	
 
 Object::add_extension('SiteTree', 'ExpressSiteTree');
 Object::add_extension('ContentController', 'ExpressSiteTree_Controller');

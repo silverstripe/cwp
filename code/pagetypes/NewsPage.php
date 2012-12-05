@@ -3,7 +3,7 @@
 class NewsPage extends Page {
 	static $default_parent = 'NewsHolderPage';
 	static $can_be_root = false;
-	static $icon = "themes/ssexpress/images/icons/sitetree_images/news.png";
+	static $icon = "themes/express/images/icons/sitetree_images/news.png";
 	public $pageIcon =  "images/icons/sitetree_images/news.png";
 
 	static $db = array(
