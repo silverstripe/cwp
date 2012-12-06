@@ -54,8 +54,10 @@ class ExpressHomePage extends Page {
 		$fields->addFieldToTab('Root.Features',ToggleCompositeField::create('FeatureOne', _t('SiteTree.FeatureOne', 'Feature One'),
 			array(
 				new TextField('FeatureOneTitle', 'Title'),
+				new DropdownField('FeatureOneCategory', 'Category', singleton('ExpressHomePage')->dbObject('FeatureOneCategory')->enumValues(), '', null, 'none'),
+				new HTMLEditorField('FeatureOneContent', 'Content'),
 				new TreeDropdownField('FeatureOneLinkID', 'Page to link to', 'SiteTree'),
-				new HTMLEditorField('FeatureOneContent', 'Content')				
+				new TextField('FeatureOneButtonText', 'Button text')
 				)
 			)->setHeadingLevel(3)
 		);
@@ -63,8 +65,10 @@ class ExpressHomePage extends Page {
 		$fields->addFieldToTab('Root.Features',ToggleCompositeField::create('FeatureTwo', _t('SiteTree.FeatureTwo', 'Feature Two'),
 			array(
 				new TextField('FeatureTwoTitle', 'Title'),
+				new DropdownField('FeatureTwoCategory', 'Category', singleton('ExpressHomePage')->dbObject('FeatureTwoCategory')->enumValues(), '', null, 'none'),
+				new HTMLEditorField('FeatureTwoContent', 'Content'),
 				new TreeDropdownField('FeatureTwoLinkID', 'Page to link to', 'SiteTree'),
-				new HTMLEditorField('FeatureTwoContent', 'Content')
+				new TextField('FeatureTwoButtonText', 'Button text')
 				)
 			)->setHeadingLevel(3)
 		);
