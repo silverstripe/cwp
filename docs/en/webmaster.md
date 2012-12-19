@@ -19,6 +19,8 @@ Then, run the following command in the directory of your new site:
 
 That will fetch the Express module and all of its dependencies.
 
+If you haven't set up your environment with an _ss_environment.php file (described [here](http://doc.silverstripe.org/framework/en/topics/environment-management) then browse to the site and go through the install process.
+
 Then edit the mysite/_config.php file and change the theme from `simple` to `express`.
 
 ## Working with the templates
