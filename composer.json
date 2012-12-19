@@ -8,8 +8,11 @@
 		"silverstripe/framework": ">=3.0",
 		"silverstripe-themes/express": "dev-master",
 		"silverstripe/accessibility": "*",
+		"silverstripe/iframe": "*",
+		"silverstripe/testdata": "*",
 		"silverstripe/translatable": "*",
 		"silverstripe/userforms": "*",
+		"silverstripe/versionedfiles": "*",
 		"silverstripe/versionfeed": "*"
 	},
 	"extra": {
