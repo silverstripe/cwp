@@ -15,7 +15,7 @@ First, create a default SilverStripe site with the following command:
 where "./my/website/folder" is the location of the new site, so "C:/inetpub/wwwroot/mynewsite", "~/Sites/mynewsite", etc.
 Then, run the following command in the directory of your new site:
 
-	composer require silverstripe/express *
+	composer require silverstripe/express:*
 
 That will fetch the Express module and all of its dependencies.
 
