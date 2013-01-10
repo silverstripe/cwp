@@ -25,7 +25,8 @@ Then edit the mysite/_config.php file and change the theme from `simple` to `exp
 
 ## Working with the templates
 
-We recommend creating new templates for each site you build. The `express` theme supplied with the base install is a good baseline to start from - just duplicate and rename it so you won't overwrite it on upgrade.
+We recommend creating new templates for each site you build. The `express` theme supplied with the base install is a
+good baseline to start from - just duplicate and rename it so you won't overwrite it on upgrade.
 
 ### From source
 
