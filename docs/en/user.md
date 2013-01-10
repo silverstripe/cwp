@@ -1,6 +1,6 @@
 # User Howto
 
-This howto is intended for the users of the CMS. It details all additional options provided by SS Express. For standard SilverStripe functions please refer to the [general user documentation](http://userhelp.silverstripe.org/).
+This howto is intended for the users of the CMS. It details all additional options provided by SilverStripe Express. For standard SilverStripe functions please refer to the [general user documentation](http://userhelp.silverstripe.org/).
 
 ## Setting up Google Analytics
 
@@ -76,3 +76,9 @@ On top of that, three content areas are supplied:
 * Alternate content: used if the client browser does not support iframes, or refuses to handle them.
 
 *Caveats:* When setting the sizes, check under different browsers if everything fits correctly. Also, the autosetting is one-off only. The scrollbars will appear if the content of the iframed page changes dynamically, for example when expanding menus or showing other animations. The recommended approach is to disable automatic height.
+
+## Adding links to your footer
+To add links to the footer of you site, there is a special FooterHolder page type. This is a custom Virtual Page set up to hold the collection of sub-pages shown in the footer. To add a page to you footer, simply nest the page beneath a page of the FooterHolder page type. To link to an existing page elsewhere on your site, create a redirector page in the footer pointing to your page.
+
+
+
