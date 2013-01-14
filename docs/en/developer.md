@@ -29,9 +29,9 @@ We recommend creating new templates for each site you build. The `express` theme
 
 ### From source
 
-If you want to work from source it's recommended that you edit the SCSS instead of the CSS directly, and use the Compass framework to compile the SCSS. Once you've installed Compass from [http://compass-style.org/install/](http://compass-style.org/install/) (`gem install compass` in terminal) you can start the automatic compilation process by running `compass watch -e production` on the `themes/express` directory. This will require that you've got module_bootstrap present in your themes directory (you may not if you've installed from source and omitted it, but it should be there if you have used composor) as the express themes depend on it for SCSS and some javascript files.
+If you want to work from source it's recommended that you edit the SCSS instead of the CSS directly, and use the Compass framework to compile the SCSS. Once you've installed Compass from [http://compass-style.org/install/](http://compass-style.org/install/) (`gem install compass` in terminal) you can start the automatic compilation process by running `compass watch -e production` on the `themes/express` directory.
 
-## Working with the php
+## Working with PHP
 
 SilverStripe Express comes with a set of page types and preconfigured modules. 
 
@@ -60,7 +60,7 @@ SilverStripe Express has no dependencies on the other modules that ship with it 
 
 ## Future upgrades
 
-Directly modify module files is not recommended. The best way to work with the site is to putall your modifications in your own theme (`themes/<yourname>`) and in `mysite`.
+Directly modifying module files is not recommended. The best way to work with the site is to putall your modifications in your own theme (`themes/<yourname>`) and in `mysite`.
 
 If you wish to amend the original page types, use inheritance:
 
