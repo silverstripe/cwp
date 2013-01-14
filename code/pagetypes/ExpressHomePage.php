@@ -94,6 +94,10 @@ class ExpressHomePage_Controller extends Page_Controller {
 		}
 	}
 
+	public function getNews(){
+		return DataObject::get_one("NewsHolder");
+	}
+
 	/**
 	 * Overrides the ContentControllerSearchExtension and adds snippets to results.
 	 */
