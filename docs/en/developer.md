@@ -60,7 +60,7 @@ SilverStripe Express has no dependencies on the other modules that ship with it 
 
 ## Future upgrades
 
-Directly modifying module files is not recommended. The best way to work with the site is to putall your modifications in your own theme (`themes/<yourname>`) and in `mysite`.
+Directly modifying module files is not recommended. The best way to work with the site is to put all your modifications in your own theme (`themes/<yourname>`) and in `mysite`.
 
 If you wish to amend the original page types, use inheritance:
 
