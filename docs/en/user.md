@@ -90,7 +90,7 @@ expanding menus or showing other animations. The recommended approach is to disa
 
 ## Adding links to your footer
 
-To add links to the footer of your site, there is a special FooterHolder page type. This is a custom Virtual Page set
+To add links to the footer of your site, there is a special FooterHolder page type. This is a custom Redirector Page set
 up to hold the collection of sub-pages shown in the footer. To add a page to your footer, simply nest the page beneath
 a page of the FooterHolder page type. To link to an existing page elsewhere on your site, create a redirector page in
 the footer pointing to your page.
