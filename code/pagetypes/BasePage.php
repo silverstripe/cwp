@@ -2,6 +2,10 @@
 
 class BasePage extends SiteTree {
 
+	static $icon = 'cwsp/images/icons/sitetree_images/page.png';
+
+	public $pageIcon = 'images/icons/sitetree_images/page.png';
+
 	// Hide this page type from the CMS. hide_ancestor is slightly misnamed, should really be just "hide"
 	static $hide_ancestor = 'BasePage';
 
