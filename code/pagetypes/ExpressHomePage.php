@@ -1,7 +1,7 @@
 <?php
 class ExpressHomePage extends Page {
 
-	static $icon = "themes/express/images/icons/sitetree_images/home.png";
+	static $icon = "themes/default/images/icons/sitetree_images/home.png";
 	public $pageIcon =  "images/icons/sitetree_images/home.png";
 
 	static $db = array(
