@@ -6,8 +6,8 @@ class NewsHolder extends Page {
 	static $icon = "themes/default/images/icons/sitetree_images/news_listing.png";
 	public $pageIcon =  "images/icons/sitetree_images/news_listing.png";
 
-	public function MenuChildren() {
-		return parent::MenuChildren()->exclude('ClassName', 'NewsPage');
+	public function Children() {
+		return parent::Children()->exclude('ClassName', 'NewsPage');
 	}
 
 	public function getCategories() {

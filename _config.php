@@ -2,8 +2,6 @@
 
 LeftAndMain::require_css('express/css/custom.css');	
 
-Object::add_extension('SiteTree', 'ExpressSiteTree');
-Object::add_extension('ContentController', 'ExpressSiteTree_Controller');
 Object::add_extension('SiteConfig', 'CustomSiteConfig');
 
 // Don't allow h1 in the editor
