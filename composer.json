@@ -1,12 +1,12 @@
 {
-	"name": "silverstripe/express",
-	"description": "The SilverStripe Express module",
+	"name": "cwsp/cwsp",
+	"description": "CWSP Main Extension Module",
 	"type": "silverstripe-module",
 	"require": {
 		"composer/installers": "*",
 		"silverstripe/cms": ">=3.0",
 		"silverstripe/framework": ">=3.0",
-		"silverstripe-themes/express": "dev-master",
+		"cwsp-themes/default": "dev-master",
 		"silverstripe/accessibility": "*",
 		"silverstripe/iframe": "*",
 		"silverstripe/testdata": "*",
