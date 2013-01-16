@@ -1,5 +1,5 @@
 {
-	"name": "cwsp/cwsp",
+	"name": "cwp/cwp",
 	"description": "CWSP Main Extension Module",
 	"type": "silverstripe-module",
 	"require": {
