@@ -77,7 +77,7 @@ class CustomContentController extends Extension {
 			if ($file) {
 				$size = $file->getSize();
 				$ext = strtoupper($file->getExtension());
-				$newLink = $matches[0][$i] . "<span class='fileExt'> [$ext, $size]</span>";
+				$newLink = substr($matches[0][$i], 0, strlen($matches[0][$i]) - 4) . "<span class='fileExt'> [$ext, $size]</span></a>";
 				$content = str_replace($matches[0][$i], $newLink, $content);
 			}
 		}
