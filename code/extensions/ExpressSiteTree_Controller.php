@@ -54,7 +54,7 @@ class ExpressSiteTree_Controller extends Extension {
 		}
 
 		// Extra folder to keep the relative paths consistent when combining.
-		Requirements::set_combined_files_folder(ASSETS_DIR . '/_compiled/p');
+		Requirements::set_combined_files_folder(ASSETS_DIR . '/_combinedfiles/cwp');
 	}
 
 	function getFooter() {
