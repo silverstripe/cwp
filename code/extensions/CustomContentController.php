@@ -11,8 +11,8 @@ class CustomContentController extends Extension {
 		} else {
 			$themeDir = SSViewer::get_theme_folder();
 			$scripts = array(
-				"$themeDir/js/lib/jquery.js",
-				"$themeDir/js/lib/jquery-ui-1.8.21.custom.js",
+				THIRDPARTY_DIR .'/jquery/jquery.js',
+				THIRDPARTY_DIR .'/jquery-ui/jquery-ui.js',
 				'themes/module_bootstrap/js/bootstrap-transition.js',
 				'themes/module_bootstrap/js/bootstrap-scrollspy.js',
 				'themes/module_bootstrap/js/bootstrap-collapse.js',
