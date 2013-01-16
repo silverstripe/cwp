@@ -1,6 +1,6 @@
 {
 	"name": "cwp/cwp",
-	"description": "CWSP Main Extension Module",
+	"description": "CWP Main Extension Module",
 	"type": "silverstripe-module",
 	"require": {
 		"composer/installers": "*",
