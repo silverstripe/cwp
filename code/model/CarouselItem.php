@@ -8,7 +8,7 @@ class CarouselItem extends DataObject {
 	);
 
 	static $has_one = array(
-		'Parent' => 'ExpressHomePage',
+		'Parent' => 'HomePage',
 		'Image' => 'Image',
 		'Link' => 'SiteTree'
 	);
