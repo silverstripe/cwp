@@ -32,6 +32,7 @@ class ExpressSiteTree_Controller extends Extension {
 		} else {
 			$styles = array(
 				"$themeDir/css/layout.css",
+				"$themeDir/css/form.css",
 				"$themeDir/css/typography.css"
 			);
 			if (method_exists($this->owner, 'getStyleIncludes')) {
