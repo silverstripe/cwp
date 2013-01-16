@@ -1,6 +1,7 @@
 <?php
 
-class ExpressSiteTree_Controller extends Extension {
+class CustomContentController extends Extension {
+
 	public static $allowed_actions = array();
 
 	function onAfterInit() {
