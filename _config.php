@@ -1,6 +1,5 @@
 <?php
-
-LeftAndMain::require_css('express/css/custom.css');	
+LeftAndMain::require_css('cwp/css/custom.css');	
 
 Object::add_extension('SiteConfig', 'CustomSiteConfig');
 

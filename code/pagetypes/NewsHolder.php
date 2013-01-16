@@ -6,7 +6,7 @@ class NewsHolder extends Page {
 
 	static $default_child = 'NewsPage';
 
-	static $icon = 'cwsp/images/icons/sitetree_images/news_listing.png';
+	static $icon = 'cwp/images/icons/sitetree_images/news_listing.png';
 
 	public $pageIcon =  'images/icons/sitetree_images/news_listing.png';
 

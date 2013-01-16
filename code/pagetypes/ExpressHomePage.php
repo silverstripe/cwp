@@ -1,7 +1,7 @@
 <?php
 class ExpressHomePage extends Page {
 
-	static $icon = 'cwsp/images/icons/sitetree_images/home.png';
+	static $icon = 'cwp/images/icons/sitetree_images/home.png';
 
 	public $pageIcon =  'images/icons/sitetree_images/home.png';
 

@@ -2,7 +2,7 @@
 
 class BasePage extends SiteTree {
 
-	static $icon = 'cwsp/images/icons/sitetree_images/page.png';
+	static $icon = 'cwp/images/icons/sitetree_images/page.png';
 
 	public $pageIcon = 'images/icons/sitetree_images/page.png';
 

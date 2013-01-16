@@ -6,7 +6,7 @@ class NewsPage extends Page {
 
 	static $can_be_root = false;
 
-	static $icon = 'cwsp/images/icons/sitetree_images/news.png';
+	static $icon = 'cwp/images/icons/sitetree_images/news.png';
 
 	public $pageIcon =  'images/icons/sitetree_images/news.png';
 
