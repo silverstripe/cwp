@@ -3,6 +3,7 @@ LeftAndMain::require_css('cwp/css/custom.css');
 
 Object::add_extension('ContentController', 'CustomContentController');
 Object::add_extension('Security', 'CustomContentController');
+Object::add_extension('DevelopmentAdmin', 'CustomContentController');
 Object::add_extension('SiteConfig', 'CustomSiteConfig');
 
 // Don't allow h1 in the editor
