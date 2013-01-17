@@ -3,6 +3,18 @@
 This howto is intended for the users of the CMS. It details all additional options provided by SilverStripe Express.
 For standard SilverStripe functions please refer to the [general user documentation](http://userhelp.silverstripe.org/).
 
+## Customising the site-wide title
+
+The site-wide title can be configured through *Settings* section, *Main* subsection in the CMS - enter the title in the
+*Site title* field, and press *Save*. 
+
+![Site-wide title in default template](_images/site-wide-title.jpg)
+
+This change will affect several areas in the site, but specifics depend on the template used. Default template will
+display the title in the header area, in the footer copyright and in the page title.
+
+Note: *Site Tagline/Slogan* field is not used in the default template.
+
 ## Setting up Google Analytics
 
 SilverStripe Express comes with an ability to configure Google Analytics via the CMS. To set it up, follow these steps:
