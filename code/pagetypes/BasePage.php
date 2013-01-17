@@ -13,7 +13,7 @@ class BasePage extends SiteTree {
 	 * Give external links the external class, and affix size and type prefixes to files.
 	 */
 	function Content() {
-		$content = parent::Content();
+		$content = $this->getField('Content');
 
 		// Internal links.
 		preg_match_all('/<a.*href="\[file_link,id=([0-9]+)\].*".*>.*<\/a>/U', $content, $matches);
