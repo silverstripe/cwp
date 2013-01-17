@@ -13,6 +13,7 @@ class CustomContentController extends Extension {
 			$scripts = array(
 				THIRDPARTY_DIR .'/jquery/jquery.js',
 				THIRDPARTY_DIR .'/jquery-ui/jquery-ui.js',
+				"$themeDir/js/lib/modernizr.js",
 				'themes/module_bootstrap/js/bootstrap-transition.js',
 				'themes/module_bootstrap/js/bootstrap-scrollspy.js',
 				'themes/module_bootstrap/js/bootstrap-collapse.js',
