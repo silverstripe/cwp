@@ -46,59 +46,56 @@ class BasePage extends SiteTree {
 
 class BasePage_Controller extends ContentController {
 
-	function init() {
-		parent::init();
+	protected function getBaseScripts() {
+		$themeDir = SSViewer::get_theme_folder();
 
-		// Add the combined scripts.
-		if (method_exists($this, 'getScriptOverrides')) {
-			$scripts = $this->getScriptOverrides();
-		} else {
-			$themeDir = SSViewer::get_theme_folder();
-			$scripts = array(
-				THIRDPARTY_DIR .'/jquery/jquery.js',
-				THIRDPARTY_DIR .'/jquery-ui/jquery-ui.js',
-				"$themeDir/js/lib/modernizr.js",
-				'themes/module_bootstrap/js/bootstrap-transition.js',
-				'themes/module_bootstrap/js/bootstrap-scrollspy.js',
-				'themes/module_bootstrap/js/bootstrap-collapse.js',
-				'themes/module_bootstrap/js/bootstrap-carousel.js',
-				"$themeDir/js/general.js",
-				"$themeDir/js/express.js",
-				"$themeDir/js/forms.js"
-			);
-			if (method_exists($this, 'getScriptIncludes')) {
-				$scripts = array_merge($scripts, $this->getScriptIncludes());
-			}
-		}
-		Requirements::combine_files('scripts.js', $scripts);
+		return array(
+			THIRDPARTY_DIR .'/jquery/jquery.js',
+			THIRDPARTY_DIR .'/jquery-ui/jquery-ui.js',
+			"$themeDir/js/lib/modernizr.js",
+			'themes/module_bootstrap/js/bootstrap-transition.js',
+			'themes/module_bootstrap/js/bootstrap-scrollspy.js',
+			'themes/module_bootstrap/js/bootstrap-collapse.js',
+			'themes/module_bootstrap/js/bootstrap-carousel.js',
+			"$themeDir/js/general.js",
+			"$themeDir/js/express.js",
+			"$themeDir/js/forms.js"
+		);
+	}
 
-		// Add the combined styles.
-		if (method_exists($this, 'getStyleOverrides')) {
-			$scripts = $this->getStyleOverrides();
-		} else {
-			$styles = array(
+	protected function getBaseStyles() {
+		$themeDir = SSViewer::get_theme_folder();
+
+		return array(
+			'all' => array(
 				"$themeDir/css/layout.css",
 				"$themeDir/css/form.css",
 				"$themeDir/css/typography.css"
-			);
-			if (method_exists($this, 'getStyleIncludes')) {
-				$styles = array_merge($styles, $this->getStyleIncludes());
-			}
-		}
-		Requirements::combine_files('styles.css', $styles);
+			),
+			'screen' => array(
+				"$themeDir/css/responsive.css"
+			),
+			'print' => array(
+				"$themeDir/css/print.css"
+			)
+		);
+	}
 
-		// Print styles
-		if (method_exists($this, 'getPrintStyleOverrides')) {
-			$printStyles = $this->getPrintStyleOverrides();
-		} else {
-			$printStyles = array("$themeDir/css/print.css");
-			if (method_exists($this, 'getPrintStyleIncludes')) {
-				$printStyles = array_merge($printStyles, $this->getPrintStyleIncludes());
-			}
-		}
-		foreach ($printStyles as $printStyle) {
-			Requirements::css($printStyle, 'print');
-		}
+	function init() {
+		parent::init();
+
+		// Include base scripts that are needed on all pages
+		Requirements::combine_files('scripts.js', $this->getBaseScripts());
+
+		// Include base styles that are needed on all pages
+		$styles = $this->getBaseStyles();
+		// By media type - first, everything that's global
+		Requirements::combine_files('styles.css', $styles['all']);
+		// then everything that's screen only
+		foreach ($styles['screen'] as $style) Requirements::css($style, 'screen');
+		// then everything that's print only
+		foreach ($styles['print'] as $style) Requirements::css($style, 'print');
+
 
 		// Extra folder to keep the relative paths consistent when combining.
 		Requirements::set_combined_files_folder(ASSETS_DIR . '/_combinedfiles/cwp');
