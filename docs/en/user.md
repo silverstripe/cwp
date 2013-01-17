@@ -49,21 +49,25 @@ When using the default SilverStripe Express theme, this will add a 'Share' butto
 
 ## Customising logos
 
-With the default SilverStripe Express theme two default logos are shown:
+With the default CWP theme two default logos are shown:
+
 * An organisation logo in the top left, next to the site name.
 * The newzealand.govt.nz logo in the bottom right.
 
+![Logo customisation screen](_images/customising_logos.jpg)
+
 These can be overridden as follows:
 
-* Open the CMS, and proceed to the Settings section
-* Open the 'Logos' tab
-* Customise the organisation logo by attaching an image to the `Logo, to appear in the top left.`
-* Replace the newzealand.govt.nz logo by attaching an image to the `Footer logo, to appear in the bottom right.`
-** Set a custom link by filling the `Footer Logo link` field.
-** Set a custom description (`title` and `alt` attributes) by filling the `Footer Logo description` field.
-* Save the settings
+* Open the CMS, and proceed to the *Settings* section, *Logos* subsection.
+* Customise the organisation logo by attaching an image to the *Logo, to appear in the top left.*
+* Replace the "newzealand.govt.nz" logo by attaching an image to the *Footer logo, to appear in the bottom right.*
+  * Set a custom link by filling the *Footer Logo link* field.
+  * Set an accessibility description (that will propagate to "title" and "alt" attributes) by filling the *Footer Logo
+  description* field.
+* Press *Save*.
 
-The logos aren't resized, so make sure they are the size you'd like them to appear before uploading them.
+The logos aren't automatically resized, so make sure they are exactly the size you'd like them to appear before
+uploading them.
 
 ## Embedding iframes
 
@@ -94,6 +98,6 @@ To add links to the footer of your site, add pages beneath the **Footer Holder**
 the top level of your site tree if it does not exist yet. Make sure to keep the *URL Segment* tidy, as it may show
 within the footer page links.
 
-![](_images/footer-links.jpg)
+![**Footer Holder** and footer links placement](_images/footer-links.jpg)
 
 To link to an existing page elsewhere on your site, use a **Redirector Page**.

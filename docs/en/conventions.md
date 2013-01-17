@@ -2,10 +2,14 @@
 
 ## General
 
+Use informal voice when writing documentation: "isn't" instead of "is not", "I'am" instead of "I am".
+
 Page types are highlighted as follows: **News Holder**, and written as they appear in the *Add page* screen.
 
 Any names that appear in the CMS as they are presented are written as: *Page name*. This includes area names, field 
 names, buttons and so on.
+
+For example links, use "http://newzealand.govt.nz/".
 
 ## CMS areas
 
