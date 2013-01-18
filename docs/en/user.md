@@ -1,6 +1,6 @@
 # User Howto
 
-This howto is intended for the users of the CMS. It details all additional options provided by SilverStripe Express.
+This howto is intended for the users of the CMS. It details all additional options provided by CWP.
 For standard SilverStripe functions please refer to the [general user documentation](http://userhelp.silverstripe.org/).
 
 ## Customising the site-wide title
@@ -17,7 +17,7 @@ Note: *Site Tagline/Slogan* field is not used in the default template.
 
 ## Setting up Google Analytics
 
-SilverStripe Express comes with an ability to configure Google Analytics via the CMS. To set it up, follow these steps:
+CWP comes with an ability to configure Google Analytics via the CMS. To set it up, follow these steps:
 
 * Find out your GA Account number, by visiting Google Analytics' website
 * Open the CMS, and proceed to Settings section
@@ -44,8 +44,7 @@ In a similar way, you can add a link to your organisation's Twitter account:
 * Enter your Twitter username into the `Twitter username` field
 * Save the settings
 
-When using the default SilverStripe Express theme, these two options will add linked icons in the bottom right of each
-page.
+When using the default theme, these two options will add linked icons in the bottom right of each page.
 
 You can also let your site visitors share pages on your site through their own social networks by setting up AddThis.
 To do this:
@@ -57,7 +56,7 @@ To do this:
 * Enter your AddThis profile ID into the `AddThis Profile Id` field
 * Save the settings
 
-When using the default SilverStripe Express theme, this will add a 'Share' button on the top right of each page.
+When using the default default theme, this will add a 'Share' button on the top right of each page.
 
 ## Customising logos
 
@@ -83,7 +82,7 @@ uploading them.
 
 ## Embedding iframes
 
-SS Express bundles an iframe page type for easy embedding of external resources. It has the following settings:
+An iframe page type is bundled for easy embedding of external resources. It has the following settings:
 
 * URL: this is a resource URL to be included into the page. If you want the height autosetting to work, the supplied URL
 needs to be either relative, or at least match the name of your site's domain.
