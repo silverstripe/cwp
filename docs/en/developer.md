@@ -90,7 +90,7 @@ SilverStripe developer documentation.
 Because of additional code merging, if modifications are made directly to module files, upgrades will require more
 effort and testing.
 
-## Setting the favicon and icon for Apple devices
+## Setting the favicon and home screen icon for Apple iOS devices
 
 The favicon.ico is set in the root folder of the project code. A placeholder favicon.ico file already resides there.
 To set your new favicon, simply replace this placefolder favicon.ico file with a 16x16 ico file.
@@ -107,11 +107,4 @@ icons, which can be replaced. Here is what the HTML looks like:
 To change the icons, simply replace the files with the appropriate resolutons in the ico folder of the theme.
 
 More information on [configuring Apple icons on the Apple developer site](http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html).
-
-## Building a new theme
-
-tbd
-(c.f. [Theme docs](https://github.com/silverstripe-labs/silverstripe-express-theme/blob/master/Readme.md) )
-
-
 
