@@ -27,7 +27,17 @@ on the public SilverStripe developer documentation.
 
 ## Working with the default theme
 
-TODO
+### Building a theme
+
+CWP initially comes with a clean and simple default theme for you to work with. This has been developed both as a base
+for more complex themes to be built on top of and as a reference example for meeting Government standards and
+accessibility guidelines.
+
+For more information on how a SilverStripe theme is constructed, see the [Developing Themes](http://doc.silverstripe.org/framework/en/topics/theme-development) page in the SilverStripe documentation.
+
+### Bootstrap template
+
+Information about the bootstrap rows and spans layout system. Link to Bootstrap docs.
 
 ### Compass SCSS
 

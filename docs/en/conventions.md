@@ -2,7 +2,7 @@
 
 ## General
 
-Use informal voice when writing documentation: "isn't" instead of "is not", "I'am" instead of "I am".
+Use informal voice when writing documentation: "isn't" instead of "is not", "I'm" instead of "I am".
 
 Page types are highlighted as follows: **News Holder**, and written as they appear in the *Add page* screen.
 
