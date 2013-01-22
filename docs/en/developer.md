@@ -39,7 +39,7 @@ accessibility guidelines.
 For more information on how a SilverStripe theme is constructed, see the [Developing
 Themes](http://doc.silverstripe.org/framework/en/topics/theme-development) page in the SilverStripe documentation.
 
-### Bootstrap template
+### Bootstrap
 
 The *default* theme is built with a fork of the Twitter [Bootstrap](http://twitter.github.com/bootstrap/) front-end
 framework.  Bootstrap helps create grid-based templates that work well across a wide variety of displays, and also
@@ -48,15 +48,17 @@ offers a lot of functionality with JavaScript plugins.
 From Bootstrap's [GitHub page](http://twitter.github.com/bootstrap/) you can find links about the basics of the system
 and the full documentation.
 
+The *basic* recipe pulls in Bootsrap as a module into `themes/module_bootstrap`.
+
+#### Bootstrap in the *default* theme
+
 If you just want to dive in without reading the manual, the most important thing to understand is the [grid
 system](http://twitter.github.com/bootstrap/scaffolding.html#gridSystem). You can see a very basic implemention of this
 in the `/themes/default/templates/Layout/Page.ss` - a `.row` including the `.span3` sidenav and the `.span9` main
 content area.
 
-#### Bootstrap in the *default* theme
-
-The basic page layout uses a span 3 on the left for the navigation and a span 9 for the main content area. There is a
-slightly more complex layout in the homepage - the hero unit/carousel is built with a span 4/8 and the
+The basic page layout uses a `.span3` on the left for the navigation and a `.span9` for the main content area. There is
+a slightly more complex layout in the homepage - the hero unit/carousel is built with a `.span4`/`.span8` and the
 quicklinks/features/news snippets have a 3/4/5 structure.
 
 The carousel on the homepage is built with the
