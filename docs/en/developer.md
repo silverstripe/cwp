@@ -24,9 +24,9 @@ will come with a `composer.json` file that lists all the required dependencies. 
 
 	$ composer install --dev
 
-You should also have a working in or above the webroot of your development environment. Documentation on [setting up
-your environment](http://doc.silverstripe.org/framework/en/topics/environment-management) file can be found on the
-public SilverStripe developer documentation.
+You should also have a working `_ss_environment.php` file in or above the webroot of your development environment.
+Documentation on [setting up your environment](http://doc.silverstripe.org/framework/en/topics/environment-management)
+file can be found on the public SilverStripe developer documentation.
 
 ## Working with the *default* theme
 
@@ -44,8 +44,8 @@ not used.
 
 ### Bootstrap
 
-The *default* theme is built on top of a fork of the Twitter [Bootstrap](http://twitter.github.com/bootstrap/) front-end
-framework.
+The *default* theme is built on top of a fork of the Twitter [Bootstrap](http://twitter.github.com/bootstrap/)
+front-end framework.
 
 Twitter Bootstrap is a free collection of tools for creating websites and web applications. It contains HTML and
 CSS-based design templates for typography, forms, buttons, charts, navigation and other interface components, as well
@@ -60,13 +60,14 @@ The *basic* recipe pulls in Bootstrap as a module into `themes/module_bootstrap`
 #### Bootstrap in the *default* theme
 
 If you just want to dive in without reading the manual, the most important thing to understand is the [grid
-system](http://twitter.github.com/bootstrap/scaffolding.html#gridSystem). You can see a very basic implemention of this
-in the `/themes/default/templates/Layout/Page.ss` - a `.row` including the `.span3` sidenav and the `.span9` main
-content area.
+system](http://twitter.github.com/bootstrap/scaffolding.html#gridSystem). In a nutshell, `.row` is a full-width
+container that can contain 12 columns. Elements define the number of columns they take up by using `.span*` classes:
+`.span3` takes up three columns, `.span5` takes up five columns, etc. Take a look at the simple example in 
+`/themes/default/templates/Layout/Page.ss` and see how the sidenav and content sit beside each other.
 
 The basic page layout uses a `.span3` on the left for the navigation and a `.span9` for the main content area. There is
 a slightly more complex layout in the homepage - the hero unit/carousel is built with a `.span4`/`.span8` and the
-quicklinks/features/news snippets have a 3/4/5 structure.
+quicklinks/features/news snippets have a `.span3`/`.span4`/`.span5` structure.
 
 The carousel on the homepage is built with the
 [Bootstrap carousel](http://twitter.github.com/bootstrap/javascript.html#carousel).
@@ -77,8 +78,8 @@ The sitemap uses the [Bootstrap collapse](http://twitter.github.com/bootstrap/ja
 
 CSS files in the *default* theme are compiled from SCSS files using Compass.
 
-Compass is an open-source CSS Authoring Framework. To keep things simple, we have only made minor use of the compass
-framework (to allow gradients in IE9). However, if you wish to use more of the features provided by compass, just import
+Compass is an open-source CSS Authoring Framework. To keep things simple, we have only made minor use of the Compass
+framework (to allow gradients in IE9). However, if you wish to use more of the features provided by Compass, just import
 the libraries you are interested in at the top of the relevant `.scss` files.
 
 More information on Compass can be found here: http://compass-style.org/ .
@@ -89,7 +90,7 @@ Sass based on CSS syntax.
 
 For more information on how to use SCSS, and full API documentation see: http://sass-lang.com/ .
 
-Compass is distributed in the form of ruby gems. You may need to install them on your system:
+Compass is distributed in the form of Ruby gems. You may need to install them on your system:
 
 	# gem install sass
 	# gem install compass
