@@ -81,7 +81,7 @@ class BasePage_Controller extends ContentController {
 		);
 	}
 
-	function init() {
+	public function init() {
 		parent::init();
 
 		// Include base scripts that are needed on all pages
@@ -89,16 +89,23 @@ class BasePage_Controller extends ContentController {
 
 		// Include base styles that are needed on all pages
 		$styles = $this->getBaseStyles();
+
 		// By media type - first, everything that's global
 		Requirements::combine_files('styles.css', $styles['all']);
-		// then everything that's screen only
-		foreach ($styles['screen'] as $style) Requirements::css($style, 'screen');
-		// then everything that's print only
-		foreach ($styles['print'] as $style) Requirements::css($style, 'print');
 
+		// then everything that's screen only
+		foreach ($styles['screen'] as $style) {
+			Requirements::css($style, 'screen');
+		}
+
+		// then everything that's print only
+		foreach ($styles['print'] as $style) {
+			Requirements::css($style, 'print');
+		}
 
 		// Extra folder to keep the relative paths consistent when combining.
 		Requirements::set_combined_files_folder(ASSETS_DIR . '/_combinedfiles/cwp');
 	}
+
 }
 
