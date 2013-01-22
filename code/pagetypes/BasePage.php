@@ -35,7 +35,7 @@ class BasePage extends SiteTree {
 
 		// Inject class into the external links.
 		$pattern = '/<a href=\"(h[^\"]*)\">(.*)<\/a>/iU';
-		$replacement = '<a href="$1" class="external">$2</a>';
+		$replacement = '<a href="$1" class="external" rel="external">$2</a>';
 		$content = preg_replace($pattern, $replacement, $content, -1);
 
 		return $content;
