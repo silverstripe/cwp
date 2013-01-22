@@ -54,6 +54,16 @@ A degree of flexibility in area paths is assumed.
 
 For any code snippets and file paths use fixed-width typeface: `mysite/_confir` or `_ss_environment.php`.
 
-Command line examples should also use fixed-width typeface: `composer install`.
+Command line examples should also use fixed-width typeface. Prefix the root commands with a `#`:
+
+	# gem install compass
+
+Prefix user-level commands with a `$`:
+	
+	$ composer install
 
 References to specific concepts and names within CWP should be hihglighted as well: *basic* recipe, *default* theme.
+
+### Todos
+
+Mark the things to do with leading "TODO", so we can find things to fix later easily.

@@ -22,7 +22,7 @@ installation documentation on the [Composer site](http://getcomposer.org/doc/00-
 First of all, check out your project using Git's `git clone` command. If you have forked the *basic* recipe, the project
 will come with a `composer.json` file that lists all the required dependencies. You will be able to install them with:
 
-	composer install --dev
+	$ composer install --dev
 
 You should also have a working in or above the webroot of your development environment. Documentation on [setting up
 your environment](http://doc.silverstripe.org/framework/en/topics/environment-management) file can be found on the
@@ -32,23 +32,30 @@ public SilverStripe developer documentation.
 
 ### Building a theme
 
-CWP initially comes with a clean and simple *default* theme for you to work with. This has been developed both as a base
-for more complex themes to be built on top of and as a reference example for meeting Government standards and
-accessibility guidelines.
+CWP provides a *default* theme for you to work with. This has been developed both as a base for more complex themes to
+be built on top of and as a reference example for meeting Government standards and accessibility guidelines.
 
 For more information on how a SilverStripe theme is constructed, see the [Developing
 Themes](http://doc.silverstripe.org/framework/en/topics/theme-development) page in the SilverStripe documentation.
 
+When customising the theme, you can choose to work either with the powerful SCSS framework (as explained below), or to
+use the CSS stylesheets directly. In the latter case we recommend you to remove the SCSS files to make it clear they are
+not used.
+
 ### Bootstrap
 
-The *default* theme is built with a fork of the Twitter [Bootstrap](http://twitter.github.com/bootstrap/) front-end
-framework.  Bootstrap helps create grid-based templates that work well across a wide variety of displays, and also
-offers a lot of functionality with JavaScript plugins.
+The *default* theme is built on top of a fork of the Twitter [Bootstrap](http://twitter.github.com/bootstrap/) front-end
+framework.
+
+Twitter Bootstrap is a free collection of tools for creating websites and web applications. It contains HTML and
+CSS-based design templates for typography, forms, buttons, charts, navigation and other interface components, as well
+as optional JavaScript extensions. Bootstrap was originally written in Less, but has been ported to SCSS. This theme
+uses the SCSS port of Bootstrap.
 
 From Bootstrap's [GitHub page](http://twitter.github.com/bootstrap/) you can find links about the basics of the system
 and the full documentation.
 
-The *basic* recipe pulls in Bootsrap as a module into `themes/module_bootstrap`.
+The *basic* recipe pulls in Bootstrap as a module into `themes/module_bootstrap`.
 
 #### Bootstrap in the *default* theme
 
@@ -66,21 +73,34 @@ The carousel on the homepage is built with the
 
 The sitemap uses the [Bootstrap collapse](http://twitter.github.com/bootstrap/javascript.html#collapse) module.
 
-### Compass SCSS
+### SCSS/SASS
 
-CSS files in the *default* theme are compiled from SCSS files.
+CSS files in the *default* theme are compiled from SCSS files using Compass.
 
-If you want to work from source it's recommended that you edit the SCSS instead of the CSS directly, and use the Compass
-framework to compile the SCSS.
+Compass is an open-source CSS Authoring Framework. To keep things simple, we have only made minor use of the compass
+framework (to allow gradients in IE9). However, if you wish to use more of the features provided by compass, just import
+the libraries you are interested in at the top of the relevant `.scss` files.
 
-[Installing Compass](http://compass-style.org/install/):
+More information on Compass can be found here: http://compass-style.org/ .
 
-	gem install compass
+Sass (Syntactically Awesome Stylesheets) is a preprocessed stylesheet language, compiling to CSS. Sass adds nested
+rules, variables, mixins, selector inheritance, functions and other such useful things to CSS3. SCSS is a syntax of
+Sass based on CSS syntax.
 
-You can use Compass to automatically poll for the changes done to `.scss` files and generate `.css` on the fly with:
+For more information on how to use SCSS, and full API documentation see: http://sass-lang.com/ .
 
-	cd themes/default
-	compass watch -e production &
+Compass is distributed in the form of ruby gems. You may need to install them on your system:
+
+	# gem install sass
+	# gem install compass
+
+See [Installing Compass](http://compass-style.org/install/) for more information.
+
+When working with `.scss` files you can use Compass to automatically poll for the changes and generate `.css` on the fly
+with:
+
+	$ cd themes/default
+	$ compass watch -e production &
 
 ## Working with PHP
 
