@@ -52,7 +52,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab('Root.Logos/Icons', new TextField('FooterLogoDescription', 'Footer Logo description'));
 
-		$fields->addFieldToTab('Root.Logos/Icons', $favIconField = new UploadField('FavIcon', 'Favicon, in .ico format, dimensions of either 16x16, 32x32, or 48x48'));
+		$fields->addFieldToTab('Root.Logos/Icons', $favIconField = new UploadField('FavIcon', 'Favicon, in .ico format, dimensions of 16x16, 32x32, or 48x48'));
 		$favIconField->getValidator()->setAllowedExtensions(array('ico'));
 		$favIconField->setConfig('allowedMaxFileNumber', 1);
 
