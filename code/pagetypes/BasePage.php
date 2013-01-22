@@ -1,4 +1,9 @@
 <?php
+/**
+ * **BasePage** is the foundation which can be used for constructing your own pages.
+ * By default it is hidden from the CMS - we rely on developers creating their own
+ * `Page` class in the `mysite/code` which will extend from the **BasePage**.
+ */
 
 class BasePage extends SiteTree {
 
@@ -10,12 +15,12 @@ class BasePage extends SiteTree {
 	static $hide_ancestor = 'BasePage';
 
 	/**
-	 * Give external links the external class, and affix size and type prefixes to files.
+	 * Parse the content to augment links with extra attributes and meta information.
 	 */
 	function Content() {
 		$content = $this->getField('Content');
 
-		// Internal links.
+		// Attach sizes to external links.
 		preg_match_all('/<a.*href="\[file_link,id=([0-9]+)\].*".*>.*<\/a>/U', $content, $matches);
 
 		for ($i = 0; $i < count($matches[0]); $i++){
@@ -28,7 +33,7 @@ class BasePage extends SiteTree {
 			}
 		}
 
-		// and now external links
+		// Inject class into the external links.
 		$pattern = '/<a href=\"(h[^\"]*)\">(.*)<\/a>/iU';
 		$replacement = '<a href="$1" class="external">$2</a>';
 		$content = preg_replace($pattern, $replacement, $content, -1);
@@ -37,7 +42,7 @@ class BasePage extends SiteTree {
 	}
 
 	/**
-	 * Get the footer page
+	 * Get the footer holder.
 	 */
 	function getFooter() {
 		return FooterHolder::get_one('FooterHolder');
@@ -46,6 +51,10 @@ class BasePage extends SiteTree {
 
 class BasePage_Controller extends ContentController {
 
+	/**
+	 * Provide scripts as needed by the *default* theme.
+	 * Override this function if you are using a custom theme based on the *default*.
+	 */
 	protected function getBaseScripts() {
 		$themeDir = SSViewer::get_theme_folder();
 
@@ -63,6 +72,10 @@ class BasePage_Controller extends ContentController {
 		);
 	}
 
+	/**
+	 * Provide stylesheets, as needed by the *default* theme assumed by this recipe.
+	 * Override this function if you are using a custom theme based on the *default*.
+	 */
 	protected function getBaseStyles() {
 		$themeDir = SSViewer::get_theme_folder();
 

@@ -1,4 +1,9 @@
 <?php
+/**
+ * FooterHolder is intended as an invisible container for footer links and pages.
+ * All child pages will be shown within the footer area of the site.
+ * Use **RedirectorPage** if you just need a link.
+ */
 
 class FooterHolder extends RedirectorPage {
 	static $defaults = array(
