@@ -100,21 +100,3 @@ SilverStripe developer documentation.
 Because of additional code merging, if modifications are made directly to module files, upgrades will require more
 effort and testing.
 
-## Setting the favicon and home screen icon for Apple iOS devices
-
-The favicon.ico is set in the root folder of the project code. A placeholder favicon.ico file already resides there.
-To set your new favicon, simply replace this placefolder favicon.ico file with a 16x16 ico file.
-
-Apple devices use a LINK element in the page HTML to define which icons should be used on Apple devices when
-someone sets the website as a "Web Clip". The default Page.ss template has already defined some placeholder
-icons, which can be replaced. Here is what the HTML looks like:
-
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="$Themedir/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="$Themedir/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="$Themedir/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="$Themedir/ico/apple-touch-icon-57-precomposed.png">
-
-To change the icons, simply replace the files with the appropriate resolutons in the ico folder of the theme.
-
-More information on [configuring Apple icons on the Apple developer site](http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html).
-

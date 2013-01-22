@@ -67,9 +67,9 @@ With the default CWP theme two default logos are shown:
 
 ![Logo customisation screen](_images/customising_logos.jpg)
 
-These can be overridden as follows:
+These can be changed as follows:
 
-* Open the CMS, and proceed to the *Settings* section, *Logos* subsection.
+* Open the CMS, and proceed to the *Settings* section, *Logos/Icons* tab.
 * Customise the organisation logo by attaching an image to the *Logo, to appear in the top left.*
 * Replace the "newzealand.govt.nz" logo by attaching an image to the *Footer logo, to appear in the bottom right.*
   * Set a custom link by filling the *Footer Logo link* field.
@@ -79,6 +79,23 @@ These can be overridden as follows:
 
 The logos aren't automatically resized, so make sure they are exactly the size you'd like them to appear before
 uploading them.
+
+## Customising favicon and Apple Touch Web Clip icons
+
+With the default CWP theme, icons in `themes/default/ico` are used by default to display the favicon and Apple Touch
+Web Clip icons, the latter are used when you bookmark the website to the home screen of an iOS device.
+
+These can be changed as follows:
+
+ * Open the CMS and proceed to the *Settings* section, *Logos/Icons* tab
+ * Find the fields for favicon and Apple Touch and drop in new images for each
+ * Press *Save*
+
+Please ensure the favicon.ico file you upload is either 16x16, 32x32 or 48x48 in dimension and is in a Windows
+compatible ICO format.
+
+Apple Touch Web Clip icons *must* be uploaded in the correct dimensions as per the label next to each field,
+and they must be in PNG format.
 
 ## Embedding iframes
 
