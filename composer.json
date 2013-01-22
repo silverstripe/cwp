@@ -1,13 +1,12 @@
 {
-	"name": "cwsp/cwsp",
-	"description": "CWSP Main Extension Module",
+	"name": "cwp/cwp",
+	"description": "CWP Main Extension Module",
 	"type": "silverstripe-module",
 	"require": {
 		"composer/installers": "*",
 		"silverstripe/cms": ">=3.0",
 		"silverstripe/framework": ">=3.0",
 		"cwsp-themes/default": "dev-master",
-		"silverstripe/accessibility": "*",
 		"silverstripe/iframe": "*",
 		"silverstripe/testdata": "*",
 		"silverstripe/translatable": "*",

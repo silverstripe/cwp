@@ -1,10 +1,14 @@
 <?php
 
 class NewsPage extends Page {
+
 	static $default_parent = 'NewsHolderPage';
+
 	static $can_be_root = false;
-	static $icon = "themes/default/images/icons/sitetree_images/news.png";
-	public $pageIcon =  "images/icons/sitetree_images/news.png";
+
+	static $icon = 'cwp/images/icons/sitetree_images/news.png';
+
+	public $pageIcon =  'images/icons/sitetree_images/news.png';
 
 	static $db = array(
 		'Date' => 'SS_Datetime',

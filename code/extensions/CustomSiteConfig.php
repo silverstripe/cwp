@@ -16,7 +16,12 @@ class CustomSiteConfig extends DataExtension {
 			),
 			'has_one' => array(
 				'Logo' => 'Image',
-				'FooterLogo' => 'Image'
+				'FooterLogo' => 'Image',
+				'FavIcon' => 'File',
+				'AppleTouchIcon144' => 'File',
+				'AppleTouchIcon114' => 'File',
+				'AppleTouchIcon72' => 'File',
+				'AppleTouchIcon57' => 'File'
 			)
 		);
 	}
@@ -34,17 +39,37 @@ class CustomSiteConfig extends DataExtension {
 		$fields->addFieldToTab('Root.SocialMedia', $addThisID = new TextField('AddThisProfileID', 'AddThis Profile ID'));
 		$addThisID->setRightTitle('Profile ID to be used all across the site (in the format <strong>ra-XXXXXXXXXXXXXXXX</strong>)');
 
-		$fields->addFieldToTab('Root.Logos', $logoField = new UploadField('Logo', 'Logo, to appear in the top left.'));
+		$fields->addFieldToTab('Root.Logos/Icons', $logoField = new UploadField('Logo', 'Logo, to appear in the top left.'));
 		$logoField->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
 		$logoField->setConfig('allowedMaxFileNumber', 1);
 
-		$fields->addFieldToTab('Root.Logos', $footerLogoField = new UploadField('FooterLogo', 'Footer logo, to appear in the bottom right.'));
+		$fields->addFieldToTab('Root.Logos/Icons', $footerLogoField = new UploadField('FooterLogo', 'Footer logo, to appear in the bottom right.'));
 		$footerLogoField->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
 		$footerLogoField->setConfig('allowedMaxFileNumber', 1);
 
-		$fields->addFieldToTab('Root.Logos', $footerLink = new TextField('FooterLogoLink', 'Footer Logo link'));
+		$fields->addFieldToTab('Root.Logos/Icons', $footerLink = new TextField('FooterLogoLink', 'Footer Logo link'));
 		$footerLink->setRightTitle('Please include the protocol (ie, http:// or https://) unless it is an internal link.');
 
-		$fields->addFieldToTab('Root.Logos', new TextField('FooterLogoDescription', 'Footer Logo description'));
+		$fields->addFieldToTab('Root.Logos/Icons', new TextField('FooterLogoDescription', 'Footer Logo description'));
+
+		$fields->addFieldToTab('Root.Logos/Icons', $favIconField = new UploadField('FavIcon', 'Favicon, in .ico format, dimensions of 16x16, 32x32, or 48x48'));
+		$favIconField->getValidator()->setAllowedExtensions(array('ico'));
+		$favIconField->setConfig('allowedMaxFileNumber', 1);
+
+		$fields->addFieldToTab('Root.Logos/Icons', $atIcon144 = new UploadField('AppleTouchIcon144', 'Apple Touch Web Clip Icon (dimensions of 144x144, PNG format)'));
+		$atIcon144->getValidator()->setAllowedExtensions(array('png'));
+		$atIcon144->setConfig('allowedMaxFileNumber', 1);
+
+		$fields->addFieldToTab('Root.Logos/Icons', $atIcon114 = new UploadField('AppleTouchIcon114', 'Apple Touch Web Clip Icon (dimensions of 114x114, PNG format)'));
+		$atIcon114->getValidator()->setAllowedExtensions(array('png'));
+		$atIcon114->setConfig('allowedMaxFileNumber', 1);
+
+		$fields->addFieldToTab('Root.Logos/Icons', $atIcon72 = new UploadField('AppleTouchIcon72', 'Apple Touch Web Clip Icon (dimensions of 72x72, PNG format)'));
+		$atIcon72->getValidator()->setAllowedExtensions(array('png'));
+		$atIcon72->setConfig('allowedMaxFileNumber', 1);
+
+		$fields->addFieldToTab('Root.Logos/Icons', $atIcon57 = new UploadField('AppleTouchIcon57', 'Apple Touch Web Clip Icon (dimensions of 57x57, PNG format)'));
+		$atIcon57->getValidator()->setAllowedExtensions(array('png'));
+		$atIcon57->setConfig('allowedMaxFileNumber', 1);
 	}
 }

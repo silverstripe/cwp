@@ -1,13 +1,17 @@
 <?php
 
 class NewsHolder extends Page {
-	static $allowed_children = array('NewsPage');
-	static $default_child = 'NewsPage';
-	static $icon = "themes/default/images/icons/sitetree_images/news_listing.png";
-	public $pageIcon =  "images/icons/sitetree_images/news_listing.png";
 
-	public function MenuChildren() {
-		return parent::MenuChildren()->exclude('ClassName', 'NewsPage');
+	static $allowed_children = array('NewsPage');
+
+	static $default_child = 'NewsPage';
+
+	static $icon = 'cwp/images/icons/sitetree_images/news_listing.png';
+
+	public $pageIcon =  'images/icons/sitetree_images/news_listing.png';
+
+	public function Children() {
+		return parent::Children()->exclude('ClassName', 'NewsPage');
 	}
 
 	public function getCategories() {
