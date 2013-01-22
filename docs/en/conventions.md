@@ -1,8 +1,13 @@
 # Documentation conventions
 
-## General
+## Voice
 
-Use informal voice when writing documentation: "isn't" instead of "is not", "I'm" instead of "I am".
+Use direct and informal voice. I.e. use "You can set up" instead of "To set up", "X can be set up", or "agency can set
+up". Also use "isn't" instead of "is not", "I'm" instead of "I am".
+
+## User docs
+
+### Basics
 
 Page types are highlighted as follows: **News Holder**, and written as they appear in the *Add page* screen.
 
@@ -11,7 +16,7 @@ names, buttons and so on.
 
 For example links, use "http://newzealand.govt.nz/".
 
-## CMS areas
+### CMS areas
 
 For the purpose of documentation, CMS is a collection of "areas", each one mapping to distinct URL.
 
@@ -30,7 +35,7 @@ subsections of this section refer to the areas presented when a page has been se
 CMS areas that are self-contained and often provide extra capabilities are called "panels". E.g. tree panel in the
 *Pages* section, or *Filter* panel in *Files* section.
 
-## Area paths
+### Area paths
 
 This is a method of pointing out a CMS area in a very concise way. It is assumed the reader has a general knowledge
 about the CMS navigation here.
@@ -42,3 +47,13 @@ If the tab is not available, the last element provided could become a field inst
 type*. The screens could also be included in the paths, as in *Pages / Add new* or *Pages / Edit tree*.
 
 A degree of flexibility in area paths is assumed.
+
+## Dev docs
+
+### Basics
+
+For any code snippets and file paths use fixed-width typeface: `mysite/_confir` or `_ss_environment.php`.
+
+Command line examples should also use fixed-width typeface: `composer install`.
+
+References to specific concepts and names within CWP should be hihglighted as well: *basic* recipe, *default* theme.
