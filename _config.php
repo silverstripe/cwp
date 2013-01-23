@@ -1,12 +1,12 @@
 <?php
-LeftAndMain::require_css('cwp/css/custom.css');	
+LeftAndMain::require_css('cwp/css/custom.css');
 
 Object::add_extension('SiteConfig', 'CustomSiteConfig');
 
 // Don't allow h1 in the editor
 HtmlEditorConfig::get('cms')->setOption('theme_advanced_blockformats', 'p,pre,address,h2,h3,h4,h5,h6');
-// Add in start and type attributes for ol
-HtmlEditorConfig::get('cms')->setOption('extended_valid_elements', 'img[class|src|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|usemap],iframe[src|name|width|height|title|align|allowfullscreen|frameborder|marginwidth|marginheight|scrolling],object[width|height|data|type],param[name|value],map[class|name|id],area[shape|coords|href|target|alt],ol[start|type]');
+// Add in start and type attributes for ol, add object and embed with all attributes.
+HtmlEditorConfig::get('cms')->setOption('extended_valid_elements', 'img[class|src|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|usemap],iframe[src|name|width|height|title|align|allowfullscreen|frameborder|marginwidth|marginheight|scrolling],object[classid|codebase|width|height|data|type],embed[src|type|pluginspage|width|height|autoplay],param[name|value],map[class|name|id],area[shape|coords|href|target|alt],ol[start|type]');
 // Macrons
 HtmlEditorConfig::get('cms')->enablePlugins(array('ssmacron' => '../../../framework/thirdparty/tinymce_ssmacron/editor_plugin_src.js'));
 HtmlEditorConfig::get('cms')->insertButtonsAfter('charmap', 'ssmacron');
