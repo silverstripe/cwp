@@ -39,3 +39,6 @@ if (class_exists('Translatable')) {
 
 i18n::$common_locales['mi_NZ'][0] = 'Māori';
 i18n::$common_languages['mi'][0] = 'Māori';
+
+// Add the ability to augment links with extra classes and meta information.
+Object::add_extension('DBField', 'RichLinksExtension');
