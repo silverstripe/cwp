@@ -3,14 +3,6 @@ LeftAndMain::require_css('cwp/css/custom.css');
 
 Object::add_extension('SiteConfig', 'CustomSiteConfig');
 
-// Don't allow h1 in the editor
-HtmlEditorConfig::get('cms')->setOption('theme_advanced_blockformats', 'p,pre,address,h2,h3,h4,h5,h6');
-// Add in start and type attributes for ol, add object and embed with all attributes.
-HtmlEditorConfig::get('cms')->setOption('extended_valid_elements', 'img[class|src|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|usemap],iframe[src|name|width|height|title|align|allowfullscreen|frameborder|marginwidth|marginheight|scrolling],object[classid|codebase|width|height|data|type],embed[src|type|pluginspage|width|height|autoplay],param[name|value],map[class|name|id],area[shape|coords|href|target|alt],ol[start|type]');
-// Macrons
-HtmlEditorConfig::get('cms')->enablePlugins(array('ssmacron' => '../../../framework/thirdparty/tinymce_ssmacron/editor_plugin_src.js'));
-HtmlEditorConfig::get('cms')->insertButtonsAfter('charmap', 'ssmacron');
-
 GD::set_default_quality(90);
 
 FulltextSearchable::enable();
@@ -42,3 +34,26 @@ i18n::$common_languages['mi'][0] = 'Māori';
 
 // Add the ability to augment links with extra classes and meta information.
 Object::add_extension('DBField', 'RichLinksExtension');
+
+// Customise TinyMCE
+$cmsEditor = HtmlEditorConfig::get('cms');
+$cmsEditor->enablePlugins(array('ssmacron' => '../../../framework/thirdparty/tinymce_ssmacron/editor_plugin_src.js'));
+$cmsEditor->enablePlugins('template');
+$cmsEditor->enablePlugins('visualchars');
+$cmsEditor->enablePlugins('xhtmlxtras');
+// Don't allow h1 in the editor
+$cmsEditor->setOption('theme_advanced_blockformats', 'p,pre,address,h2,h3,h4,h5,h6');
+// Add b, abbr, article, aside, cite, code, col, colgroup, del, details, dfn, figure, figcaption, footer, header, ins, kbd, mark, menu, meter, nav, pre, q, small, summary, time, var and attributes for ol
+// Remove iframe (done with IFramePages or shortcodes)
+$cmsEditor->setOption('extended_valid_elements', 'img[class|src|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name|usemap|data*],object[classid|codebase|width|height|data|type],embed[src|type|pluginspage|width|height|autoplay],param[name|value],map[class|name|id],area[shape|coords|href|target|alt],cite,abbr,ins[cite|datetime],del[cite|datetime],b,article,aside,code,col,colgroup,details,dfn,figure,figcaption,footer,header,kbd,mark,menu,meter,nav,pre,q,small,summary,time,var,ol[start|type]');
+// First line changes:
+$cmsEditor->removeButtons('underline');
+$cmsEditor->insertButtonsAfter('strikethrough', 'sub', 'sup');
+$cmsEditor->insertButtonsAfter('charmap', 'ssmacron');
+// Second line changes:
+$cmsEditor->insertButtonsAfter('pasteword', 'removeformat');
+$cmsEditor->insertButtonsAfter('selectall', 'visualchars');
+$cmsEditor->removeButtons('visualaid');
+$cmsEditor->addButtonsToLine(2, 'template');
+// Third line changes:
+$cmsEditor->setButtonsForLine(3, 'cite', 'abbr', 'ins', 'del', 'separator');
