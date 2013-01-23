@@ -137,3 +137,13 @@ propagated to the master repository. This ensures upgrade-ability and moreover e
 given back to the community and the platform's users.
 
 TODO: mention how to request changes to platform modules.
+
+## Customising the WYSIWYG editor
+
+The TinyMCE editor is the default WYSIWYG editor used with all *Content* fields in the CMS. SilverStripe Framework
+allows developers to configure it through the `HtmlEditorField` wrapper.
+
+The details are documented in SilverStripe documentation at [Rich-Text Editing (WYSIWYG)
+documentation](http://doc.silverstripe.org/framework/en/trunk/topics/rich-text-editing).
+
+TinyMCE options are doucmented at [Configuration Reference](http://www.tinymce.com/wiki.php/Configuration).
