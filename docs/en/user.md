@@ -91,11 +91,13 @@ These can be changed as follows:
  * Find the fields for favicon and Apple Touch and drop in new images for each
  * Press *Save*
 
+<div class="notice" markdown='1'>
 Please ensure the favicon.ico file you upload is either 16x16, 32x32 or 48x48 in dimension and is in a Windows
 compatible ICO format.
 
 Apple Touch Web Clip icons *must* be uploaded in the correct dimensions as per the label next to each field,
 and they must be in PNG format.
+</div>
 
 ## Embedding iframes
 
@@ -116,9 +118,11 @@ On top of that, three content areas are supplied:
 * Content below the iframe
 * Alternate content: used if the client browser does not support iframes, or refuses to handle them.
 
+<div class="notice" markdown='1'>
 *Caveats:* When setting the sizes, check under different browsers if everything fits correctly. Also, the autosetting
 is one-off only. The scrollbars will appear if the content of the iframed page changes dynamically, for example when
 expanding menus or showing other animations. The recommended approach is to disable automatic height.
+</div>
 
 ## Adding links to your footer
 
