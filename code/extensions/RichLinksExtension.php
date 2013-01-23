@@ -5,14 +5,22 @@
  * Usage in the templates:
  *		$Content.RichLinks
  *
- * (Will work with any type of field derived from DBField)
+ * Note: will only work with content produced by HtmlEditorField.
  */
 class RichLinksExtension extends Extension {
 
+	function extraStatics($class = null, $extension = null) {
+		return array(
+			'casting' => array(
+				'RichLinks' => 'HTMLText'
+			)
+		);
+	}
+
 	function RichLinks() {
 		// Note:
-		// Assume we can use Regexes because the link will always be formatted in
-		// The same way coming from the CMS.
+		// Assume we can use Regexes because the link will always be formatted
+		// in the same way coming from the CMS.
 
 		$content = $this->owner->value;
 

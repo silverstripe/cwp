@@ -9,12 +9,17 @@ The following abilities are included:
 
 ## Usage
 
-To use the feature, explicitly invoke the parser within the template.
+To use the feature, explicitly invoke the parser function within the template.
 
 	:::html
 	$Content.RichLinks
 
-Note: the ability might not work as expected on fields not edited with *HtmlEditorField*, as it relies on the content
+You can also chain it with other functions to achieve more complex outputs.
+
+	:::html
+	$Content.RichLinks.LimitWordCountXML(10)
+
+Note: this parser might not work as expected on fields not edited with *HtmlEditorField*, as it relies on the content
 being provided in this specific format.
 
 ## Code
