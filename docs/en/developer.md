@@ -25,8 +25,16 @@ will come with a `composer.json` file that lists all the required dependencies. 
 	$ composer install --dev
 
 You should also have a working `_ss_environment.php` file in or above the webroot of your development environment.
-Documentation on [setting up your environment](http://doc.silverstripe.org/framework/en/topics/environment-management)
-file can be found on the public SilverStripe developer documentation.
+Documentation on [setting up your environment](framework/en/topics/environment-management)
+file can be found in the SilverStripe documentation.
+
+## Starting out with SilverStripe
+
+The best way to start with SilverStripe is to read through
+[tutorials](http://doc.silverstripe.org/framework/en/tutorials) found in the SilverStripe documentation.
+
+These tutorials will guide you through basic concepts of the CMS, and how to extend the default functionality creating
+new page types, additional fields and more.
 
 ## Working with the *default* theme
 
