@@ -95,8 +95,8 @@ $cwpEditor->enablePlugins(array(
 ));
 
 // First line:
-$cwpEditor->removeButtons('underline');
 $cwpEditor->insertButtonsAfter('strikethrough', 'sub', 'sup');
+$cwpEditor->removeButtons('underline', 'strikethrough');
 
 // Second line:
 $cwpEditor->insertButtonsBefore('formatselect', 'styleselect');
@@ -110,5 +110,5 @@ $cwpEditor->removeButtons('visualaid');
 
 // Third line:
 $cwpEditor->removeButtons('tablecontrols');
-$cwpEditor->addButtonsToLine(3, 'tablecontrols', 'separator', 'ssmacron', 'cite', 'abbr', 'ins', 'del');
+$cwpEditor->addButtonsToLine(3, 'cite', 'abbr', 'ins', 'del', 'separator', 'tablecontrols');
 

@@ -11,15 +11,14 @@ features of the editor are in the
 of the [SilverStripe User Help](http://3.0.userhelp.silverstripe.org/) site, however there is a small set of features
 added for CWP:
 
-* Use the subscript and superscript buttons (first row, fourth and fifth from the left respectively) when you wish to
+* Use the subscript and superscript buttons (first row, third and fourth from the left respectively) when you wish to
 add footnotes. Note that this text can also be linked, potentially to an anchor at the bottom of the page containing
 the actual footnote.
 * Use the remove formatting button (second row, eighth from the left, looks like a white eraser) to remove formatting
 from the selected text. This doesn't remove structural formatting (eg heading levels, paragraphs), only visual
 formatting (eg bold, italic).
-* Add pre-existing templates of content by clicking on the template button (second row, next to the image button). The
-CWP default site doesn't come with templates, but you can ask your development agency to set up templates for you to
-use.
+* Add pre-existing templates of content by clicking on the template button (second row, second from the right). The CWP
+default site doesn't come with templates, but you can ask your development agency to set up templates for you to use.
 * The citation and abbreviation buttons (third row, first and second from the left respectively) work in exactly the
 same way but for slightly different effect. By selecting text and then clicking on them you will be able to enter in a
 citation or abbreviation explanation. Type the explanation in the "Title" field and click on "Insert" - when the user
