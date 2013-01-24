@@ -4,8 +4,9 @@ The CWP module comes with an extension that allows developers to augment the lin
 compliant attributes and markup.
 
 The following abilities are included:
-* Adding a `class="external"` and a `rel="external"` attributes to external links.
-* Inserting file type and file size into file download links.
+
+ * Adding a `class="external"` and a `rel="external"` attributes to external links.
+ * Inserting file type and file size into file download links.
 
 ## Usage
 
@@ -30,5 +31,4 @@ The capability is built as a simple extension to `DBField`. It is applied in `cw
 	Object::add_extension('DBField', 'RichLinksExtension');
 
 It provides all fields with a `RichLinks` function.
-
 
