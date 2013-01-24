@@ -10,8 +10,11 @@ This project will be used by any test and production servers - the code which en
 
 ## Configure Your Gitlab Profile and Primary Project
 
-Once you've logged in to your Gitlab repository (your password would've been e-mailed to your given e-mail address) then go to your profile and
+Once you've logged in to your Gitlab repository (your password would've been e-mailed to your given e-mail address) then go to your profile and:
+
 * Verify your details are correct
 * Add your public SSH key(s)
 * Ensure that the correct starting point exists (with the default CWP or CMS recipe)
-* Create README.md and LICENSE, commit and push to the primary project 
+* Create README.md and LICENSE, commit and push to the primary project
+
+
