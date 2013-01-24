@@ -15,33 +15,6 @@ class BasePage extends SiteTree {
 	static $hide_ancestor = 'BasePage';
 
 	/**
-	 * Parse the content to augment links with extra attributes and meta information.
-	 */
-	function Content() {
-		$content = $this->getField('Content');
-
-		// Attach sizes to external links.
-		preg_match_all('/<a.*href="\[file_link,id=([0-9]+)\].*".*>.*<\/a>/U', $content, $matches);
-
-		for ($i = 0; $i < count($matches[0]); $i++){
-			$file = DataObject::get_by_id('File', $matches[1][$i]);
-			if ($file) {
-				$size = $file->getSize();
-				$ext = strtoupper($file->getExtension());
-				$newLink = substr($matches[0][$i], 0, strlen($matches[0][$i]) - 4) . "<span class='fileExt'> [$ext, $size]</span></a>";
-				$content = str_replace($matches[0][$i], $newLink, $content);
-			}
-		}
-
-		// Inject class into the external links.
-		$pattern = '/<a href=\"(h[^\"]*)\">(.*)<\/a>/iU';
-		$replacement = '<a href="$1" class="external">$2</a>';
-		$content = preg_replace($pattern, $replacement, $content, -1);
-
-		return $content;
-	}
-
-	/**
 	 * Get the footer holder.
 	 */
 	function getFooter() {
