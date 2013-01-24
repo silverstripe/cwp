@@ -38,7 +38,7 @@ new page types, additional fields and more.
 
 ## Working with the *default* theme
 
-### Building a theme
+### Introduction
 
 CWP provides a *default* theme for you to work with. This has been developed both as a base for more complex themes to
 be built on top of and as a reference example for meeting Government standards and accessibility guidelines.
