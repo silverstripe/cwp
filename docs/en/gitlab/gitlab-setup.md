@@ -19,7 +19,6 @@ Once you've logged in to your Gitlab account (your password would've been e-mail
 * Add your public SSH key(s)
 * Ensure that the correct starting point exists (with the default CWP or CMS recipe)
 * Checkout the primary repository on your local/dev computer
-	mkdir <Primary Repo>
 	git checkout git@gitlabserver.cwp.govt.nz:<User>/<Primary-Repo>.git <Primary-Repo>
 * Create your new LICENSE file
 * Commit and push the LICENSE file to the primary repository
