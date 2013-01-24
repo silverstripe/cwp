@@ -150,18 +150,18 @@ TODO: mention how to request changes to platform modules.
 
 [Tutorial 2](http://doc.silverstripe.org/framework/en/tutorials/2-extending-a-basic-site) contains a section
 [Adding date and author fields](http://doc.silverstripe.org/framework/en/tutorials/2-extending-a-basic-site#adding-date-and-author-fields)
-describing how to add additional fields to a page type, so an editor can add content to those fields, in addition
-to the generic "Content" HTML editor field in the CMS.
+describing how to add additional fields to a page type. An editor could then add content to those fields as he would
+with the default *Content* field.
 
-Taking an example, if we want to add an additional abstract field which contains an excerpt of "Content" field's
-content, and have it apply to *all* page types, then your code might look something like this:
+Taking an example, if we want to add an additional *Abstract* field (which is intended to contain a summary of the page)
+and have it apply to *all* page types, then your code might look something like this:
 
-Page.php page type definition:
+`Page.php` page type definition:
 
 	:::php
 	<?php
 	class Page extends BasePage {
-		...	
+		...
 		public static $db = array(
 			'Abstract' => 'HTMLText'
 		);
@@ -175,20 +175,19 @@ Page.php page type definition:
 		...
 	}
 
-Page.ss template:
+`Page.ss` template:
 
 	:::html
 	...
 	$Abstract.RichLinks
 	...
 
-Because all page types extend from `Page`, this will apply the editor field to *all* page types that extend from `Page`.
-If you only want your new editor field on a specific page type, you'd apply the above `$db` and `getCMSFields()`
-code to a specific page type class instead.
+Because all page types extend from **Page**, this will apply the editor field to *all* page types that extend from
+**Page**. If you only want your new editor field on a specific page type, you'd apply the above `$db` and
+`getCMSFields()` code to a specific page type class instead.
 
 If you want your field to be a plain-text area field instead, simply replace `HTMLText` with `Text` and
 `HtmlEditorField` with `TextareaField`.
-
 
 <div class="notice" markdown='1'>
 The "RichLinks" part of the template variable provides additional processing to the links in the content.
