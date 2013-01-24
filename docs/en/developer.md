@@ -154,4 +154,4 @@ allows developers to configure it through the `HtmlEditorField` wrapper.
 The details are documented in SilverStripe documentation at [Rich-Text Editing (WYSIWYG)
 documentation](http://doc.silverstripe.org/framework/en/trunk/topics/rich-text-editing).
 
-TinyMCE options are doucmented at [Configuration Reference](http://www.tinymce.com/wiki.php/Configuration).
+TinyMCE options are documented at [Configuration Reference](http://www.tinymce.com/wiki.php/Configuration).
