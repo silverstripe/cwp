@@ -59,7 +59,7 @@ Command line examples should also use fixed-width typeface. Prefix the root comm
 	# gem install compass
 
 Prefix user-level commands with a `$`:
-	
+
 	$ composer install
 
 References to specific concepts and names within CWP should be highlighted as well: *basic* recipe, *default* theme.
