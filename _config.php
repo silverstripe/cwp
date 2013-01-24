@@ -79,8 +79,11 @@ $cwpEditor->setOptions(array(
 		. 'param[name|value],'
 		. 'map[class|name|id],'
 		. 'area[shape|coords|href|target|alt],'
-		. 'cite,abbr,ins[cite|datetime],del[cite|datetime],b,article,aside,code,col,colgroup,details,dfn,figure,figcaption,'
-		. 'footer,header,kbd,mark,menu,meter,nav,pre,q,small,summary,time,var,ol[start|type]',
+		. 'ins[cite|datetime],del[cite|datetime],'
+		. 'menu[label|type],'
+		. 'meter[form|high|low|max|min|optimum|value],'
+		. 'cite,abbr,,b,article,aside,code,col,colgroup,details[open],dfn,figure,figcaption,'
+		. 'footer,header,kbd,mark,,nav,pre,q[cite],small,summary,time[datetime],var,ol[start|type]',
 	'spellchecker_rpc_url' => THIRDPARTY_DIR . '/tinymce-spellchecker/rpc.php',
 	'theme_advanced_blockformats' => 'p,pre,address,h2,h3,h4,h5,h6'
 ));
