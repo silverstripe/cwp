@@ -4,7 +4,8 @@
 You can generate SSH keys on Windows using PuTTY - a free SSH client for Windows.
 
 * Download the [latest PuTTY installer](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-[PuTTY SSH KeyGen](_images/gitlab-putty-keygen.png)
+
+![PuTTY SSH KeyGen](_images/gitlab-putty-keygen.png)
 
 * Open PuTTYgen.exe and press the Generate button and move the mouse around the blank area in the PuTTYgen window until the progress bar completly fills in. Once the keys are generated, type in a key passphrase (recommended) then "Save Public key" and "Save Private key".
 
@@ -26,7 +27,8 @@ Once the generation process is complete, your public and private keys should be 
 # Adding Your Public Key to Your Profile
 
 To add public SSH keys to your profile, go to your "My Profile" section
-[Gitlab My Profile](_images/gitlab-myprofile.png)
+
+![Gitlab My Profile](_images/gitlab-myprofile.png)
 
 * Click on SSH Keys in the menu
 * Click on "Add new"
