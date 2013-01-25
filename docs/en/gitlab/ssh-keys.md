@@ -24,7 +24,7 @@ It is easiest to accept the default values, but it is recommended to also supply
 
 Once the generation process is complete, your public and private keys should be available in ~/.ssh
 
-# Adding Your Public Key to Your Profile
+## Adding Your Public Key to Your Profile
 
 To add public SSH keys to your profile, go to your "My Profile" section
 
