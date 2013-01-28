@@ -90,6 +90,7 @@ $cwpEditor->setOptions(array(
 
 $cwpEditor->enablePlugins('media', 'fullscreen', 'inlinepopups');
 $cwpEditor->enablePlugins('template');
+$cwpEditor->enablePlugins('lists');
 $cwpEditor->enablePlugins('visualchars');
 $cwpEditor->enablePlugins('xhtmlxtras');
 $cwpEditor->enablePlugins(array(
