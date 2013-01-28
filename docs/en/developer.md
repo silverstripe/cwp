@@ -203,3 +203,18 @@ The details are documented in SilverStripe documentation at [Rich-Text Editing (
 documentation](http://doc.silverstripe.org/framework/en/trunk/topics/rich-text-editing).
 
 TinyMCE options are documented at [Configuration Reference](http://www.tinymce.com/wiki.php/Configuration).
+
+## Configuring the WYSIWYG spellchecker
+
+TinyMCE bundled with SilverStripe uses Google for the spellchecker out of the box.
+
+Note that the spellchecker doesn't distinguish between English US and English UK. This means that the spellchecker
+will not detect "color" or "colour" as misspelled.
+
+If you wish to configure this in a different way, such as use a different spellchecker altogether,
+[TinyMCE spellchecker docs](http://www.tinymce.com/wiki.php/Plugin:spellchecker) provides information on how to
+change this.
+
+Note that there is no way to configure the spellchecker with TinyMCE without modifying the framework code.
+This means you will need to fork the framework Git repository, change the `composer.json` in your project to the new
+fork repository URL, and then run `compass update` on project environments that need the new framework code.
