@@ -56,7 +56,7 @@ class CustomSiteConfig extends DataExtension {
 		$favIconField->getValidator()->setAllowedExtensions(array('ico'));
 		$favIconField->setConfig('allowedMaxFileNumber', 1);
 
-		$fields->addFieldToTab('Root.Logos/Icons', $atIcon144 = new UploadField('AppleTouchIcon144', 'Apple Touch Web Clip Icon (dimensions of 144x144, PNG format)'));
+		$fields->addFieldToTab('Root.Logos/Icons', $atIcon144 = new UploadField('AppleTouchIcon144', 'Apple Touch Web Clip and Windows 8 Tile Icon (dimensions of 144x144, PNG format)'));
 		$atIcon144->getValidator()->setAllowedExtensions(array('png'));
 		$atIcon144->setConfig('allowedMaxFileNumber', 1);
 
