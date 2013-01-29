@@ -47,6 +47,8 @@ Object::add_extension('Group', 'CwpHtmlEditorConfig');
  ********************************************************************************/
 $cwpEditor = HtmlEditorConfig::get('cwp');
 
+Object::add_extension('HtmlEditorField_Toolbar', 'CustomHtmlEditorFieldToolbar');
+
 // Start with the same configuration as 'cms' config (defined in framework/admin/_config.php).
 $cwpEditor->setOptions(array(
 	'friendly_name' => 'Default CWP',
