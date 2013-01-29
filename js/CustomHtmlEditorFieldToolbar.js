@@ -19,7 +19,7 @@
 					if(input.val().length == 0) {
 						container.height('auto');
 						input.css('border', '1px solid red');
-						alert('Please specify alternative text for ' + self.attr('data-url'));
+						alert('Please specify alternative text for ' + $.trim(self.find('.ss-uploadfield-item-name span').html()));
 						return false;
 					}
 				}
