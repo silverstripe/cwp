@@ -53,6 +53,28 @@ display the title in the header area, in the footer copyright and in the page ti
 
 Note: *Site Tagline/Slogan* field is not used in the default template.
 
+## Accessibility
+
+There are a few easy ways to add extra information to the media on your website to enable it to be accessed by people
+of all abilities and disabilities. Doing so will not only increase your potential audience and not discriminate against
+some of your users, but will also open up your rich video and audio content to be indexed by search engines such as
+Google and Bing.
+
+### Images
+
+When uploading an image, you can specify the alt text (short for alternative text). This is used to describe the image
+when the user is using a text reader to interact with the website.
+
+### Video and Audio
+
+After adding video or audio content to your site you should provide a transcript. This is a text description of the
+content so that a user unable to view or listen to the media will be able to read through the content it contains.
+This should be regular page content directly after the video or audio, or on a separate page linked to from near the
+media.
+
+For more information see the best practices page of the SilverStripe user help:
+http://3.0.userhelp.silverstripe.org/for-website-content-editors/web-content-best-practices/
+
 ## Setting up Google Analytics
 
 CWP comes with an ability to configure Google Analytics via the CMS. To set it up, follow these steps:
