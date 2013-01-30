@@ -119,22 +119,32 @@ class BasePage_Controller extends ContentController {
 		// prepare the paths
 		$pdfFile = $this->dataRecord->getPdfFilename();
 		$bodyFile = str_replace('.pdf', '_pdf.html', $pdfFile);
+		$footerFile = str_replace('.pdf', '_pdffooter.html', $pdfFile);
 
 		// make sure the work directory exists
 		if(!file_exists(dirname($pdfFile))) Filesystem::makeFolder(dirname($pdfFile));
 
+		$bodyViewer = $this->getViewer('pdf');
+
 		// write the output of this page to HTML, ready for conversion to PDF
-		file_put_contents($bodyFile, $this->render());
+		file_put_contents($bodyFile, $bodyViewer->process($this));
+
+		// get the viewer for the current template with _pdffooter
+		$footerViewer = $this->getViewer('pdffooter');
+
+		// write the output of the footer template to HTML, ready for conversion to PDF
+		file_put_contents($footerFile, $footerViewer->process($this));
 
 		// finally, generate the PDF
 		$command = WKHTMLTOPDF_BINARY . ' --outline -B 40pt -L 20pt -R 20pt -T 20pt --encoding utf-8 ' .
 			'--orientation Portrait --disable-javascript --quiet --print-media-type ';
 		$retVal = 0;
 		$output = array();
-		exec($command . " \"$bodyFile\" \"$pdfFile\" &> /dev/stdout", $output, $return_val);
+		exec($command . " --footer-html \"$footerFile\" \"$bodyFile\" \"$pdfFile\" &> /dev/stdout", $output, $return_val);
 
 		// remove temporary file
 		unlink($bodyFile);
+		unlink($footerFile);
 
 		// output any errors
 		if($return_val != 0) {

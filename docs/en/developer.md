@@ -238,6 +238,10 @@ Whenever a CMS user publishes or unpublishes a page, the cached PDF file stored 
 `assets/_generated_pdfs` is deleted. This means that the user is either forced to download a newly generated PDF, or in
 the case of a page being removed from the site via unpublishing, the cached PDF file is no longer available to download.
 
+The PDF is treated as a print view of the page, so any CSS that applies to the "print" media is applied, just like what
+a user would see when print previewing a page in their browser. This can be removed so the PDF shows as a normal page
+by removing the `--print-media-type` parameter to `wkhtmltopdf`.
+
 ### Limitations
 
 Draft content cannot be exported to PDF, due to the fact that generated PDF files are publically accessible by anyone
@@ -302,9 +306,11 @@ user would see them in their browser. That means if you have a specific page typ
 be rendered using the same template when exporting the page to PDF.
 
 You can override the template specifically for the PDF by creating a new template in your theme and suffix it
-with `_downloadpdf` in the file name. For example, to override the generic `Page` template and add something that only
-shows in the exported PDF, you would create a file called `Page_downloadpdf.ss` in your theme's template/Layout
+with `_pdf` in the file name. For example, to override the generic `Page` template and add something that only
+shows in the exported PDF, you would create a file called `Page_pdf.ss` in your theme's template/Layout
 folder.
+
+To customise the footer of the PDF, you can modify the `Page_pdffooter.ss` template in your theme.
 
 ### Customising parameters to wkhtmltopdf
 
@@ -319,6 +325,9 @@ changing the code to suit. The newly overloaded method will be used instead of t
 `BasePage.php`
 
 `wkhtmltopdf -H` provides more documentation on additional parameters and options available.
+
+[More detailed documentation can be found](http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltopdf-0.9.9-doc.html)
+describing the different parameters you can use with `wkhtmltopdf`.
 
 ### Scheduled tasks
 
