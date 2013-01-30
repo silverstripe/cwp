@@ -322,10 +322,8 @@ You can overload `generatePDF()` into your `Page_Controller` class (in `Page.php
 changing the code to suit. The newly overloaded method will be used instead of the one provided out of the box in
 `BasePage.php`
 
-`wkhtmltopdf -H` provides more documentation on additional parameters and options available.
-
-[More detailed documentation can be found](http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltopdf-0.9.9-doc.html)
-describing the different parameters you can use with `wkhtmltopdf`.
+[More detailed documentation](http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltopdf-0.9.9-doc.html)
+is available describing the different parameters you can use with `wkhtmltopdf`.
 
 ### Scheduled tasks
 
