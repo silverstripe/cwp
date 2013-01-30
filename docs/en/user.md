@@ -72,8 +72,9 @@ content so that a user unable to view or listen to the media will be able to rea
 This should be regular page content directly after the video or audio, or on a separate page linked to from near the
 media.
 
-For more information see the best practices page of the SilverStripe user help:
-http://3.0.userhelp.silverstripe.org/for-website-content-editors/web-content-best-practices/
+For more information see the
+[best practices page](http://3.0.userhelp.silverstripe.org/for-website-content-editors/web-content-best-practices/)
+of the SilverStripe user help.
 
 ## Setting up Google Analytics
 
