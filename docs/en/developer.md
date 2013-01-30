@@ -223,8 +223,8 @@ fork repository URL, and then run `compass update` on project environments that 
 
 CWP provides some tools out of the box for generating downloadable PDF versions of pages.
 
-We are using [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/) to generate the PDF, internally it uses WebKit to
-render the HTML into a PDF.
+[wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/) is being used to generate the PDF, it is a command line utility
+using WebKit to render the HTML into PDF format.
 
 ### How it works
 
