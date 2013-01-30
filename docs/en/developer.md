@@ -282,6 +282,8 @@ wkhtmltopdf *must* be version 0.10.0 rc2 static, other newer and older versions 
 
 ### Enabling PDF export functionality
 
+Export to PDF functionality is disabled by default. You need to add a line of code to enable it.
+
 In your `mysite/_config.php` file, add the following:
 
 	define('PDF_EXPORT_ENABLED', true);
