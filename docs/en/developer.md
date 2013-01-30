@@ -312,7 +312,7 @@ folder.
 ### Customising parameters to wkhtmltopdf
 
 Sometimes you'll need to override the default parameters to `wkhtmltopdf` to customise the PDF export, such as change
-the way the table of contents displays.
+the way the table of contents will display.
 
 `BasePage_Controller` contains a method called `generatePDF()` is responsible for exporting the currently viewed page
 into an HTML file, then passing it along to the `wkhtmltopdf` binary for conversion into a PDF file.
