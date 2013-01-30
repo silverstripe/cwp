@@ -256,16 +256,12 @@ binary for `wkhtmltopdf` but they have not been tested.
 
  1. [Download wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/downloads/list) for your system type:
 
-	wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.10.0_rc2-static-amd64.tar.bz2
+	wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.9.9-static-amd64.tar.bz2
 
  2. Install it into `/usr/local/bin` so that it can be accessed on the path:
 
-	tar -jxvf wkhtmltopdf-0.10.0_rc2-static-amd64.tar.bz2
+	tar -jxvf wkhtmltopdf-0.9.9-static-amd64.tar.bz2
 	mv wkhtmltopdf-amd64 /usr/local/bin/wkhtmltopdf
-
-<div class="notice" markdown="1">
-wkhtmltopdf *must* be version 0.10.0 rc2 static, other newer and older versions are not tested and may not work.
-</div>
 
  3. Test it works:
 

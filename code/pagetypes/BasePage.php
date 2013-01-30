@@ -127,7 +127,7 @@ class BasePage_Controller extends ContentController {
 		file_put_contents($bodyFile, $this->render());
 
 		// finally, generate the PDF
-		$command = WKHTMLTOPDF_BINARY . ' -B 40pt -L 20pt -R 20pt -T 20pt --encoding utf-8 ' .
+		$command = WKHTMLTOPDF_BINARY . ' --outline -B 40pt -L 20pt -R 20pt -T 20pt --encoding utf-8 ' .
 			'--orientation Portrait --disable-javascript --quiet --print-media-type ';
 		$retVal = 0;
 		$output = array();
