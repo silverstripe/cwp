@@ -247,7 +247,7 @@ viewing the website, there are no permission checks when accessing files directl
 Notes:
 
 The CWP test and production servers you'll be deploying your site to already have `wkhtmltopdf` installed.
-These instructions are only necessary if you want to develop the PDF export functionality in your development
+These instructions are only necessary if you want to develop or use the PDF export functionality in your development
 environment.
 
 The instructions below assume you're on a Linux environment. There is a Mac OS X download, and there may be a Windows
