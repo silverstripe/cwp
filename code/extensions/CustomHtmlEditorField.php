@@ -2,7 +2,8 @@
 class CustomHtmlEditorFieldToolbar extends Extension {
 
 	public function updateMediaForm($form) {
-		Requirements::javascript('cwp/js/CustomHtmlEditorFieldToolbar.js');
+		Requirements::add_i18n_javascript('cwp/javascript/lang');
+		Requirements::javascript('cwp/javascript/CustomHtmlEditorFieldToolbar.js');
 	}
 
 }
