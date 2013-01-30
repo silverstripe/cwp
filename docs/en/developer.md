@@ -294,6 +294,7 @@ In your `mysite/_config.php` file, add the following:
 	BasePage::$pdf_export_enabled = true;
 
 Now you can use `$PdfLink` in your templates which gives you a link to generate the page as a PDF.
+Note that a default "Export PDF" link is provided near the "Print" link at the bottom of the default template.
 
 ### Overriding the template for PDFs
 
