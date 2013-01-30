@@ -100,16 +100,16 @@ For more information on how to use SCSS, and full API documentation see: http://
 
 Compass is distributed in the form of Ruby gems. You may need to install them on your system:
 
-	# gem install sass
-	# gem install compass
+	gem install sass
+	gem install compass
 
 See [Installing Compass](http://compass-style.org/install/) for more information.
 
 When working with `.scss` files you can use Compass to automatically poll for the changes and generate `.css` on the fly
 with:
 
-	$ cd themes/default
-	$ compass watch -e production &
+	cd themes/default
+	compass watch -e production &
 
 ## Working with PHP
 
@@ -273,6 +273,7 @@ wkhtmltopdf *must* be version 0.10.0 rc2 static, other newer and older versions 
 
  4. Update your `_ss_environment.php` file to point your site to the binary:
 
+	:::php
 	define('WKHTMLTOPDF_BINARY', '/usr/local/bin/wkhtmltopdf');
 
  5. Install extra fonts:
@@ -281,6 +282,7 @@ wkhtmltopdf *must* be version 0.10.0 rc2 static, other newer and older versions 
 
  6. Test the generation, e.g. Page.ss:
 
+	:::html
 	<a href="$PdfLink">Export to PDF</a>
 
 ### Enabling PDF export functionality
