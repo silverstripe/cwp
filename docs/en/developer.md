@@ -299,7 +299,7 @@ By default, the PDF is rendered the standard SilverStripe template system and te
 user would see them in their browser. That means if you have a specific page type and template, then that template will
 be rendered using the same template when exporting the page to PDF.
 
-You can of course, override the template specifically for the PDF by creating a new template in your theme and suffix it
+You can override the template specifically for the PDF by creating a new template in your theme and suffix it
 with `_downloadpdf` in the file name. For example, to override the generic `Page` template and add something that only
 shows in the exported PDF, you would create a file called `Page_downloadpdf.ss` in your theme's template/Layout
 folder.
