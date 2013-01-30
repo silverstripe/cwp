@@ -330,6 +330,6 @@ is available describing the different parameters you can use with `wkhtmltopdf`.
 Each night, `CleanupGeneratedPdfDailyTask` is run which removes all files found within the generated PDFs folder
 `assets/_generated_pdfs`. The code for this can be found in the `cwp` module within the `tasks` directory.
 
-This task can be run from the browser directly on demand by accessing `dev/tasks/CleanupGeneratedPdfBuildTask`.
+This task can be run from the browser on demand by accessing `dev/tasks/CleanupGeneratedPdfBuildTask`.
 One example of where this is useful might be directly after deploying new templates to the site, so the cached
 PDF files can be regenerated with the new templates.
