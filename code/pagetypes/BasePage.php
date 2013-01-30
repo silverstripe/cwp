@@ -12,6 +12,8 @@ class BasePage extends SiteTree {
 	// Hide this page type from the CMS. hide_ancestor is slightly misnamed, should really be just "hide"
 	public static $hide_ancestor = 'BasePage';
 
+	public static $pdf_export_enabled = false;
+
 	public static $generated_pdf_path = 'assets/_generated_pdfs';
 
 	public $pageIcon = 'images/icons/sitetree_images/page.png';
@@ -26,7 +28,7 @@ class BasePage extends SiteTree {
 	/**
 	 * Return the full filename of the pdf file, including path & extension
 	 */
-	public function pdfFilename() {
+	public function getPdfFilename() {
 		$baseName = "{$this->URLSegment}-{$this->ID}";
 
 		$folderPath = self::$generated_pdf_path;
@@ -40,7 +42,7 @@ class BasePage extends SiteTree {
 	 * as it would be out of date.
 	 */
 	public function onAfterPublish(&$original) {
-		$filepath = $this->pdfFilename();
+		$filepath = $this->getPdfFilename();
 		if(file_exists($filepath)) {
 			unlink($filepath);
 		}
@@ -53,7 +55,7 @@ class BasePage extends SiteTree {
 	public function doUnpublish() {
 		if(!parent::doUnpublish()) return;
 
-		$filepath = $this->pdfFilename();
+		$filepath = $this->getPdfFilename();
 		if(file_exists($filepath)) {
 			unlink($filepath);
 		}
@@ -72,12 +74,12 @@ class BasePage_Controller extends ContentController {
 	 * Serve the page rendered as PDF.
 	 */
 	public function downloadpdf() {
-		if(!(defined('PDF_EXPORT_ENABLED') && PDF_EXPORT_ENABLED)) return false;
+		if(!BasePage::$pdf_export_enabled) return false;
 
 		// We only allow producing live pdf. There is no way to secure the draft files.
 		Versioned::reading_stage('Live');
 
-		$path = $this->dataRecord->pdfFilename();
+		$path = $this->dataRecord->getPdfFilename();
 		if(!file_exists($path)) {
 			$this->generatePDF();
 		}
@@ -89,7 +91,7 @@ class BasePage_Controller extends ContentController {
 	 * Render the page as PDF using wkhtmltopdf.
 	 */
 	public function generatePDF() {
-		if(!(defined('PDF_EXPORT_ENABLED') && PDF_EXPORT_ENABLED)) return false;
+		if(!BasePage::$pdf_export_enabled) return false;
 
 		if(!defined('WKHTMLTOPDF_BINARY')) return user_error('WKHTMLTOPDF_BINARY not defined.', E_USER_ERROR);
 
@@ -100,7 +102,7 @@ class BasePage_Controller extends ContentController {
 		set_time_limit(60);
 
 		// prepare the paths
-		$pdfFile = $this->dataRecord->pdfFilename();
+		$pdfFile = $this->dataRecord->getPdfFilename();
 		$bodyFile = str_replace('.pdf', '_pdf.html', $pdfFile);
 
 		// make sure the work directory exists
@@ -133,9 +135,9 @@ class BasePage_Controller extends ContentController {
 	 * Build pdf link for template.
 	 */
 	public function PDFLink() {
-		if(!(defined('PDF_EXPORT_ENABLED') && PDF_EXPORT_ENABLED)) return false;
+		if(!BasePage::$pdf_export_enabled) return false;
 
-		$path = $this->dataRecord->pdfFilename();
+		$path = $this->dataRecord->getPdfFilename();
 
 		if((Versioned::current_stage() == 'Live') && file_exists($path)) {
 			return Director::baseURL().preg_replace('#^/#', '', Director::makeRelative($path));

@@ -286,7 +286,7 @@ Export to PDF functionality is disabled by default. You need to add a line of co
 
 In your `mysite/_config.php` file, add the following:
 
-	define('PDF_EXPORT_ENABLED', true);
+	BasePage::$pdf_export_enabled = true;
 
 Now you can use `$PDFLink` in your templates which gives you a link to generate the page as a PDF.
 
