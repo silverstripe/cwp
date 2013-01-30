@@ -273,7 +273,6 @@ binary for `wkhtmltopdf` but they have not been tested.
 
  4. Update your `_ss_environment.php` file to point your site to the binary:
 
-	:::php
 	define('WKHTMLTOPDF_BINARY', '/usr/local/bin/wkhtmltopdf');
 
  5. Install extra fonts:
@@ -282,7 +281,6 @@ binary for `wkhtmltopdf` but they have not been tested.
 
  6. Test the generation, e.g. Page.ss:
 
-	:::html
 	<a href="$PdfLink">Export to PDF</a>
 
 ### Enabling PDF export functionality
