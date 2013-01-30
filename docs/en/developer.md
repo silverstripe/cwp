@@ -219,21 +219,39 @@ Note that there is no way to configure the spellchecker with TinyMCE without mod
 This means you will need to fork the framework Git repository, change the `composer.json` in your project to the new
 fork repository URL, and then run `compass update` on project environments that need the new framework code.
 
-## Installing wkhtmltopdf for HTML to PDF export
+## HTML to PDF export
 
 CWP provides some tools out of the box for generating downloadable PDF versions of pages.
 
 We are using [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/) to generate the PDF, internally it uses WebKit to
 render the HTML into a PDF.
 
+### How it works
+
+A special `$PDFLink` variable is provided to the templates, which gives you a link to access and download a PDF.
+The first time the PDF is generated, a cached copy is stored into `assets/_generated_pdfs` which means subsequent users
+will download the cached copy.
+
+Whenever a CMS user publishes or unpublishes a page, the cached PDF file in `assets/_generated_pdfs` is deleted.
+This means that the user is either forced to download a newly generated PDF, or in the case of unpublishing a page
+altogether, the cached PDF file is no longer available to download.
+
+### Limitations
+
+Draft content cannot be exported to PDF, due to the fact that generated PDF files are publically accessible by anyone
+viewing the website, there are no permission checks when accessing files directly in the browser.
+
+### Installing wkhtmltopdf in your development environment
+
 <div class="notice" markdown='1'>
 Notes:
 
-The CWP test and production servers you'll be deploying your site on already contain the `wkhtmltopdf` binary installed,
-so the following steps are only necessary to follow if you're setting this up on your local development machine.
+The CWP test and production servers you'll be deploying your site to already have `wkhtmltopdf` installed.
+These instructions are only necessary if you want to develop the PDF export functionality in your development
+environment.
 
 The instructions below assume you're on a Linux environment. There is a Mac OS X download, and there may be a Windows
-binary for `wkhtmltopdf`, but they have not been tested.
+binary for `wkhtmltopdf` but they have not been tested.
 </div>
 
  1. [Download wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/downloads/list) for your system type:
@@ -250,7 +268,7 @@ wkhtmltopdf *must* be version 0.10.0 rc2 static, other newer and older versions 
 
 	wkhtmltopdf -V
 
- 4. Update your `_ss_environment.php` file - add the binary path:
+ 4. Update your `_ss_environment.php` file to point your site to the binary:
 
 	define('WKHTMLTOPDF_BINARY', '/usr/local/bin/wkhtmltopdf');
 
@@ -258,20 +276,51 @@ wkhtmltopdf *must* be version 0.10.0 rc2 static, other newer and older versions 
 
 	apt-get install ttf-mscorefonts-installer
 
- 6. Test the generation: put `$PDFLink` somewhere in your Page.ss template and click the rendered link to generate a PDF.
+ 6. Test the generation, e.g. Page.ss:
 
-## Configuring wkhtmltopdf for HTML to PDF export
+	<a href="$PDFLink">Export to PDF</a>
 
-This guide assumes you've already installed `wkhtmltopdf` and can generate a PDF successfully.
+### Enabling PDF export functionality
 
-`wkhtmltopdf -H` can be used to provide more detailed documentation on the options available.
+In your `mysite/_config.php` file, add the following:
 
-`BasePage.php` contains all the code dealing with exporting SilverStripe generated HTML pages into PDF files.
+	define('PDF_EXPORT_ENABLED', true);
+
+Now you can use `$PDFLink` in your templates which gives you a link to generate the page as a PDF.
 
 ### Overriding the template for PDFs
 
-TODO
+`BasePage_Controller` has an action called `downloadpdf()` which is called when you need to generate or send an existing
+generated PDF to the browser. `$PDFLink` is the template variable which uses this to send the PDF to the user's browser.
 
-### Overriding the default parameters to wkhtmltopdf
+By default, the PDF is rendered the standard SilverStripe template system and templates are chosen the same way the
+user would see them in their browser. That means if you have a specific page type and template, then that template will
+be rendered using the same template when exporting the page to PDF.
 
-TODO
+You can of course, override the template specifically for the PDF by creating a new template in your theme and suffix it
+with `_downloadpdf` in the file name. For example, to override the generic `Page` template and add something that only
+shows in the exported PDF, you would create a file called `Page_downloadpdf.ss` in your theme's template/Layout
+folder.
+
+### Customising parameters to wkhtmltopdf
+
+Sometimes you'll need to override the default parameters to `wkhtmltopdf` to customise the PDF export, such as change
+the way the table of contents displays.
+
+`BasePage_Controller` contains a method called `generatePDF()` is responsible for exporting the currently viewed page
+into an HTML file, then passing it along to the `wkhtmltopdf` binary for conversion into a PDF file.
+
+You can overload `generatePDF()` into your `Page_Controller` class (in `Page.php`) by copying the method across and
+changing the code to suit. The newly overloaded method will be used instead of the one provided out of the box in
+`BasePage.php`
+
+`wkhtmltopdf -H` provides more documentation on additional parameters and options available.
+
+### Scheduled tasks
+
+Each night, `CleanupGeneratedPdfDailyTask` is run which removes all files found within the generated PDFs folder
+`assets/_generated_pdfs`. The code for this can be found in the `cwp` module within the `tasks` directory.
+
+This task can be run from the browser directly on demand by accessing `dev/tasks/CleanupGeneratedPdfBuildTask`.
+One example of where this is useful might be directly after deploying new templates to the site, so the cached
+PDF files can be regenerated with the new templates.

@@ -12,7 +12,7 @@ class BasePage extends SiteTree {
 	// Hide this page type from the CMS. hide_ancestor is slightly misnamed, should really be just "hide"
 	public static $hide_ancestor = 'BasePage';
 
-	public static $pdf_folder_path = 'assets/_generated_pdfs';
+	public static $generated_pdf_path = 'assets/_generated_pdfs';
 
 	public $pageIcon = 'images/icons/sitetree_images/page.png';
 
@@ -29,7 +29,7 @@ class BasePage extends SiteTree {
 	public function pdfFilename() {
 		$baseName = "{$this->URLSegment}-{$this->ID}";
 
-		$folderPath = self::$pdf_folder_path;
+		$folderPath = self::$generated_pdf_path;
 		if($folderPath[0] != "/") $folderPath = BASE_PATH . '/' . $folderPath;
 
 		return "{$folderPath}/{$baseName}.pdf";
@@ -72,11 +72,15 @@ class BasePage_Controller extends ContentController {
 	 * Serve the page rendered as PDF.
 	 */
 	public function downloadpdf() {
+		if(!(defined('PDF_EXPORT_ENABLED') && PDF_EXPORT_ENABLED)) return false;
+
 		// We only allow producing live pdf. There is no way to secure the draft files.
 		Versioned::reading_stage('Live');
 
 		$path = $this->dataRecord->pdfFilename();
-		if(!file_exists($path)) $this->generatePDF();
+		if(!file_exists($path)) {
+			$this->generatePDF();
+		}
 
 		return SS_HTTPRequest::send_file(file_get_contents($path), basename($path), 'application/pdf');
 	}
@@ -85,41 +89,43 @@ class BasePage_Controller extends ContentController {
 	 * Render the page as PDF using wkhtmltopdf.
 	 */
 	public function generatePDF() {
+		if(!(defined('PDF_EXPORT_ENABLED') && PDF_EXPORT_ENABLED)) return false;
+
 		if(!defined('WKHTMLTOPDF_BINARY')) return user_error('WKHTMLTOPDF_BINARY not defined.', E_USER_ERROR);
-		if(Versioned::get_reading_mode() == "Stage.Stage") {
-			user_error("Generating PDFs on draft is not allowed.", E_USER_ERROR);
+
+		if(Versioned::get_reading_mode() == 'Stage.Stage') {
+			user_error('Generating PDFs on draft is not supported', E_USER_ERROR);
 		}
 
 		set_time_limit(60);
 
-		// Prepare paths.
+		// prepare the paths
 		$pdfFile = $this->dataRecord->pdfFilename();
 		$bodyFile = str_replace('.pdf', '_pdf.html', $pdfFile);
 
-		// Make sure the work directory exists.
+		// make sure the work directory exists
 		if(!file_exists(dirname($pdfFile))) Filesystem::makeFolder(dirname($pdfFile));
 
 		// write the output of this page to HTML, ready for conversion to PDF
 		file_put_contents($bodyFile, $this->render());
 
-		// Finally, generate the PDF.
+		// finally, generate the PDF
 		$command = WKHTMLTOPDF_BINARY . ' -B 40pt -L 20pt -R 20pt -T 20pt --encoding utf-8 ' .
 			'--orientation Portrait --disable-javascript --quiet --print-media-type ';
 		$retVal = 0;
 		$output = array();
 		$execCommand = $command . " \"$bodyFile\" \"$pdfFile\" &> /dev/stdout";
-		@exec($execCommand, $output, $retVal);
+		exec($execCommand, $output, $return_val);
 
-		// Remove intermediate files.
+		// remove temporary file
 		unlink($bodyFile);
 
-		// Check for errors.
-		array_unshift($output, $command);
-		if($retVal != 0) {
+		// output any errors
+		if($return_val != 0) {
 			user_error("wkhtmltopdf failed: " . implode("\n", $output), E_USER_ERROR);
 		}
 
-		// Serve the generated file.
+		// serve the generated file
 		return SS_HTTPRequest::send_file(file_get_contents($pdfFile), basename($pdfFile), 'application/pdf');
 	}
 
@@ -127,6 +133,8 @@ class BasePage_Controller extends ContentController {
 	 * Build pdf link for template.
 	 */
 	public function PDFLink() {
+		if(!(defined('PDF_EXPORT_ENABLED') && PDF_EXPORT_ENABLED)) return false;
+
 		$path = $this->dataRecord->pdfFilename();
 
 		if((Versioned::current_stage() == 'Live') && file_exists($path)) {
