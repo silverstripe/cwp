@@ -29,12 +29,27 @@ class BasePage extends SiteTree {
 	 * Return the full filename of the pdf file, including path & extension
 	 */
 	public function getPdfFilename() {
-		$baseName = "{$this->URLSegment}-{$this->ID}";
+		$baseName = sprintf('%s-%s', $this->URLSegment, $this->ID);
 
 		$folderPath = self::$generated_pdf_path;
-		if($folderPath[0] != "/") $folderPath = BASE_PATH . '/' . $folderPath;
+		if($folderPath[0] != '/') $folderPath = BASE_PATH . '/' . $folderPath;
 
-		return "{$folderPath}/{$baseName}.pdf";
+		return sprintf('%s/%s.pdf', $folderPath, $baseName);
+	}
+
+	/**
+	 * Build pdf link for template.
+	 */
+	public function PdfLink() {
+		if(!self::$pdf_export_enabled) return false;
+
+		$path = $this->getPdfFilename();
+
+		if((Versioned::current_stage() == 'Live') && file_exists($path)) {
+			return Director::baseURL() . preg_replace('#^/#', '', Director::makeRelative($path));
+		} else {
+			return $this->Link() . 'downloadpdf';
+		}
 	}
 
 	/**
@@ -93,7 +108,7 @@ class BasePage_Controller extends ContentController {
 	public function generatePDF() {
 		if(!BasePage::$pdf_export_enabled) return false;
 
-		if(!defined('WKHTMLTOPDF_BINARY')) return user_error('WKHTMLTOPDF_BINARY not defined.', E_USER_ERROR);
+		if(!defined('WKHTMLTOPDF_BINARY')) return user_error('WKHTMLTOPDF_BINARY not defined', E_USER_ERROR);
 
 		if(Versioned::get_reading_mode() == 'Stage.Stage') {
 			user_error('Generating PDFs on draft is not supported', E_USER_ERROR);
@@ -116,34 +131,18 @@ class BasePage_Controller extends ContentController {
 			'--orientation Portrait --disable-javascript --quiet --print-media-type ';
 		$retVal = 0;
 		$output = array();
-		$execCommand = $command . " \"$bodyFile\" \"$pdfFile\" &> /dev/stdout";
-		exec($execCommand, $output, $return_val);
+		exec($command . " \"$bodyFile\" \"$pdfFile\" &> /dev/stdout", $output, $return_val);
 
 		// remove temporary file
 		unlink($bodyFile);
 
 		// output any errors
 		if($return_val != 0) {
-			user_error("wkhtmltopdf failed: " . implode("\n", $output), E_USER_ERROR);
+			user_error('wkhtmltopdf failed: ' . implode("\n", $output), E_USER_ERROR);
 		}
 
 		// serve the generated file
 		return SS_HTTPRequest::send_file(file_get_contents($pdfFile), basename($pdfFile), 'application/pdf');
-	}
-
-	/**
-	 * Build pdf link for template.
-	 */
-	public function PDFLink() {
-		if(!BasePage::$pdf_export_enabled) return false;
-
-		$path = $this->dataRecord->getPdfFilename();
-
-		if((Versioned::current_stage() == 'Live') && file_exists($path)) {
-			return Director::baseURL().preg_replace('#^/#', '', Director::makeRelative($path));
-		} else {
-			return $this->Link() . 'downloadpdf';
-		}
 	}
 
 	/**

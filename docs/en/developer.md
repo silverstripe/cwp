@@ -228,7 +228,7 @@ render the HTML into a PDF.
 
 ### How it works
 
-A special `$PDFLink` variable is provided to the templates, which gives you a link to access and download a PDF.
+A special `$PdfLink` variable is provided to the templates, which gives you a link to access and download a PDF.
 The first time the PDF is generated, a cached copy is stored into `assets/_generated_pdfs` which means subsequent users
 will download the cached copy.
 
@@ -278,7 +278,7 @@ wkhtmltopdf *must* be version 0.10.0 rc2 static, other newer and older versions 
 
  6. Test the generation, e.g. Page.ss:
 
-	<a href="$PDFLink">Export to PDF</a>
+	<a href="$PdfLink">Export to PDF</a>
 
 ### Enabling PDF export functionality
 
@@ -288,12 +288,12 @@ In your `mysite/_config.php` file, add the following:
 
 	BasePage::$pdf_export_enabled = true;
 
-Now you can use `$PDFLink` in your templates which gives you a link to generate the page as a PDF.
+Now you can use `$PdfLink` in your templates which gives you a link to generate the page as a PDF.
 
 ### Overriding the template for PDFs
 
 `BasePage_Controller` has an action called `downloadpdf()` which is called when you need to generate or send an existing
-generated PDF to the browser. `$PDFLink` is the template variable which uses this to send the PDF to the user's browser.
+generated PDF to the browser. `$PdfLink` is the template variable which uses this to send the PDF to the user's browser.
 
 By default, the PDF is rendered the standard SilverStripe template system and templates are chosen the same way the
 user would see them in their browser. That means if you have a specific page type and template, then that template will
