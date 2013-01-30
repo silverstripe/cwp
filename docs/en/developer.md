@@ -228,13 +228,15 @@ using WebKit to render the HTML into PDF format.
 
 ### How it works
 
-A special `$PdfLink` variable is provided to the templates, which gives you a link to access and download a PDF.
-The first time the PDF is generated, a cached copy is stored into `assets/_generated_pdfs` which means subsequent users
-will download the cached copy.
+A special `$PdfLink` variable is provided to the templates, which if applied as the value of an `href` value to an
+anchor in the template, will provide users with a way to download the a PDF version of the current page.
 
-Whenever a CMS user publishes or unpublishes a page, the cached PDF file in `assets/_generated_pdfs` is deleted.
-This means that the user is either forced to download a newly generated PDF, or in the case of unpublishing a page
-altogether, the cached PDF file is no longer available to download.
+The first time the PDF is generated, a cached copy is stored into `assets/_generated_pdfs` which means subsequent users
+will download the cached copy instead.
+
+Whenever a CMS user publishes or unpublishes a page, the cached PDF file stored for that page in
+`assets/_generated_pdfs` is deleted. This means that the user is either forced to download a newly generated PDF, or in
+the case of a page being removed from the site via unpublishing, the cached PDF file is no longer available to download.
 
 ### Limitations
 
@@ -244,11 +246,9 @@ viewing the website, there are no permission checks when accessing files directl
 ### Installing wkhtmltopdf in your development environment
 
 <div class="notice" markdown='1'>
-Notes:
-
 The CWP test and production servers you'll be deploying your site to already have `wkhtmltopdf` installed.
-These instructions are only necessary if you want to develop or use the PDF export functionality in your development
-environment.
+These instructions are only necessary if you want to develop or use the PDF export functionality in your local
+development environment.
 
 The instructions below assume you're on a Linux environment. There is a Mac OS X download, and there may be a Windows
 binary for `wkhtmltopdf` but they have not been tested.
@@ -257,6 +257,9 @@ binary for `wkhtmltopdf` but they have not been tested.
  1. [Download wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/downloads/list) for your system type:
 
 	wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.10.0_rc2-static-amd64.tar.bz2
+
+ 2. Install it into `/usr/local/bin` so that it can be accessed on the path:
+
 	tar -jxvf wkhtmltopdf-0.10.0_rc2-static-amd64.tar.bz2
 	mv wkhtmltopdf-amd64 /usr/local/bin/wkhtmltopdf
 
