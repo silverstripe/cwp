@@ -42,6 +42,11 @@ Object::add_extension('DBField', 'RichLinksExtension');
 // Override the default HtmlEditorConfig for all groups.
 Object::add_extension('Group', 'CwpHtmlEditorConfig');
 
+// default to the binary being in the usual path on Linux
+if(!defined('WKHTMLTOPDF_BINARY')) {
+	define('WKHTMLTOPDF_BINARY', '/usr/local/bin/wkhtmltopdf');
+}
+
 /********************************************************************************
  * Custom TinyMCE configuration for CWP
  ********************************************************************************/

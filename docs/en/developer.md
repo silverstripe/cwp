@@ -218,3 +218,60 @@ change this.
 Note that there is no way to configure the spellchecker with TinyMCE without modifying the framework code.
 This means you will need to fork the framework Git repository, change the `composer.json` in your project to the new
 fork repository URL, and then run `compass update` on project environments that need the new framework code.
+
+## Installing wkhtmltopdf for HTML to PDF export
+
+CWP provides some tools out of the box for generating downloadable PDF versions of pages.
+
+We are using [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/) to generate the PDF, internally it uses WebKit to
+render the HTML into a PDF.
+
+<div class="notice" markdown='1'>
+Notes:
+
+The CWP test and production servers you'll be deploying your site on already contain the `wkhtmltopdf` binary installed,
+so the following steps are only necessary to follow if you're setting this up on your local development machine.
+
+The instructions below assume you're on a Linux environment. There is a Mac OS X download, and there may be a Windows
+binary for `wkhtmltopdf`, but they have not been tested.
+</div>
+
+ 1. [Download wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/downloads/list) for your system type:
+
+	wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.10.0_rc2-static-amd64.tar.bz2
+	tar -jxvf wkhtmltopdf-0.10.0_rc2-static-amd64.tar.bz2
+	mv wkhtmltopdf-amd64 /usr/local/bin/wkhtmltopdf
+
+<div class="notice" markdown="1">
+wkhtmltopdf *must* be version 0.10.0 rc2 static, other newer and older versions are not tested and may not work.
+</div>
+
+ 3. Test it works:
+
+	wkhtmltopdf -V
+
+ 4. Update your `_ss_environment.php` file - add the binary path:
+
+	define('WKHTMLTOPDF_BINARY', '/usr/local/bin/wkhtmltopdf');
+
+ 5. Install extra fonts:
+
+	apt-get install ttf-mscorefonts-installer
+
+ 6. Test the generation: put `$PDFLink` somewhere in your Page.ss template and click the rendered link to generate a PDF.
+
+## Configuring wkhtmltopdf for HTML to PDF export
+
+This guide assumes you've already installed `wkhtmltopdf` and can generate a PDF successfully.
+
+`wkhtmltopdf -H` can be used to provide more detailed documentation on the options available.
+
+`BasePage.php` contains all the code dealing with exporting SilverStripe generated HTML pages into PDF files.
+
+### Overriding the template for PDFs
+
+TODO
+
+### Overriding the default parameters to wkhtmltopdf
+
+TODO
