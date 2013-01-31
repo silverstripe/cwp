@@ -123,3 +123,5 @@ $cwpEditor->removeButtons('visualaid');
 $cwpEditor->removeButtons('tablecontrols');
 $cwpEditor->addButtonsToLine(3, 'cite', 'abbr', 'ins', 'del', 'separator', 'tablecontrols');
 
+// Taxonomies
+Object::add_extension('TaxonomyTerm', 'TaxonomyTermExtension');

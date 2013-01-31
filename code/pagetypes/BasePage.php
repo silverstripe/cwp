@@ -18,6 +18,10 @@ class BasePage extends SiteTree {
 
 	public $pageIcon = 'images/icons/sitetree_images/page.png';
 
+	static $many_many = array(
+		'Terms' => 'TaxonomyTerm'
+	);
+
 	/**
 	 * Get the footer holder.
 	 */
@@ -74,6 +78,18 @@ class BasePage extends SiteTree {
 		if(file_exists($filepath)) {
 			unlink($filepath);
 		}
+	}
+
+
+	public function getCMSFields() {
+		$fields = parent::getCMSFields();
+
+		$tagField = new TagField('Terms', null, null, 'SiteTree', 'Name');
+		$tagField->setSeparator(',');
+		$tagField->createNewTags = false;
+		$fields->addFieldToTab('Root.Tags', $tagField);
+
+		return $fields;
 	}
 
 }
