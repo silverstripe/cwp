@@ -254,7 +254,7 @@ The CWP test and production servers you'll be deploying your site to already hav
 These instructions are only necessary if you want to develop or use the PDF export functionality in your local
 development environment.
 
-The instructions below assume you're on a Linux Debian or Ubuntu environment.
+The instructions below assume you're on a Debian or Ubuntu Linux environment.
 There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf` but they have not been tested.
 </div>
 
