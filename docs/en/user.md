@@ -211,10 +211,14 @@ expanding menus or showing other animations. The recommended approach is to disa
 ## Adding links to your footer
 
 Locate the pages for which you require footer links beneath the **Footer Holder**. The holder may need to be created at
-the top level of your site tree if it does not already exist. Ensure that the information in the URL Segment field is
-concise as the text in this field will show within the footer page links.
+the top level of your site tree if it does not already exist.
 
 ![**Footer Holder** and footer links placement](_images/footer-links.jpg)
+
+<div class="notice" markdown='1'>
+Ensure that the *URL Segment* of the **Footer Holder** is concise as the text in this field will show within the footer
+page links.
+</div>
 
 If you have a page elsewhere on your site that you require footer links for but you do not wish to move this page to
 under the **Footer Holder**, you can create a **Redirector Page** which links to that page.
