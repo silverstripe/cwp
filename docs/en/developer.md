@@ -231,8 +231,9 @@ using WebKit to render the HTML into PDF format.
 A special `$PdfLink` variable is provided to the templates, which if applied as the value of an `href` value to an
 anchor in the template, will provide users with a way to download the a PDF version of the current page.
 
-The first time the PDF is generated, a cached copy is stored into `assets/_generated_pdfs` which means subsequent users
-will download the cached copy instead.
+When the user requests a PDF of the page, the page is exported as HTML by SilverStripe and then passed along to
+`wkhtmltopdf` which generates a PDF of the HTML. The PDF is then stored in `assets/_generated_pdfs` and subsequent
+requests for that page are served directly from the assets.
 
 Whenever a CMS user publishes or unpublishes a page, the cached PDF file stored for that page in
 `assets/_generated_pdfs` is deleted. This means that the user is either forced to download a newly generated PDF, or in
@@ -247,7 +248,7 @@ by removing the `--print-media-type` parameter to `wkhtmltopdf`.
 Draft content cannot be exported to PDF, due to the fact that generated PDF files are publically accessible by anyone
 viewing the website, there are no permission checks when accessing files directly in the browser.
 
-### Installing wkhtmltopdf in your development environment
+### Installation
 
 <div class="notice" markdown='1'>
 The CWP test and production servers you'll be deploying your site to already have `wkhtmltopdf` installed.
