@@ -233,7 +233,7 @@ anchor in the template, will provide users with a way to download the a PDF vers
 
 When the user requests a PDF of the page, the page is exported as HTML by SilverStripe and then passed along to
 `wkhtmltopdf` which generates a PDF of the HTML. The PDF is then stored in `assets/_generated_pdfs` and subsequent
-requests for that page are served directly from the assets.
+requests for that PDF are served directly from the assets.
 
 Whenever a CMS user publishes or unpublishes a page, the cached PDF file stored for that page in
 `assets/_generated_pdfs` is deleted. This means that the user is either forced to download a newly generated PDF, or in
