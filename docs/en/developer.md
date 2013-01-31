@@ -254,8 +254,8 @@ The CWP test and production servers you'll be deploying your site to already hav
 These instructions are only necessary if you want to develop or use the PDF export functionality in your local
 development environment.
 
-The instructions below assume you're on a Linux environment. There is a Mac OS X download, and there may be a Windows
-binary for `wkhtmltopdf` but they have not been tested.
+The instructions below assume you're on a Linux Debian or Ubuntu environment.
+There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf` but they have not been tested.
 </div>
 
  1. [Download wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/downloads/list) for your system type:
@@ -275,13 +275,13 @@ binary for `wkhtmltopdf` but they have not been tested.
 
 	define('WKHTMLTOPDF_BINARY', '/usr/local/bin/wkhtmltopdf');
 
- 5. Install extra fonts:
+ 5. Install extra Microsoft fonts, such as Arial:
 
 	apt-get install ttf-mscorefonts-installer
 
- 6. Test the generation, e.g. Page.ss:
-
-	<a href="$PdfLink">Export to PDF</a>
+Note the [licensing information](http://www.microsoft.com/typography/RedistributionFAQ.mspx) provided by Microsoft.
+This means those fonts such as Arial can be embedded in the PDF document, provided they are for "Print and preview"
+only.
 
 ### Enabling PDF export functionality
 
