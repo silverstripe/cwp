@@ -84,7 +84,7 @@ class BasePage extends SiteTree {
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-		$tagField = new TagField('Terms', null, null, 'SiteTree', 'Name');
+		$tagField = new TagField('Terms', null, null, 'BasePage', 'Name');
 		$tagField->setSeparator(',');
 		$tagField->createNewTags = false;
 		$fields->addFieldToTab('Root.Tags', $tagField);
