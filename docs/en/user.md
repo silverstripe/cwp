@@ -3,6 +3,19 @@
 This howto is intended for the users of the CMS. It details all additional options provided by CWP.
 For standard SilverStripe functions please refer to the [general user documentation](http://userhelp.silverstripe.org/).
 
+## Definitions
+
+* *Page types*: words highlighted **as follows** signify page types. These are the pages that can be created through the
+*Add page* screen and include some defaults such as **Page** and **Redirector page**. See [Managing your
+site](http://3.0.userhelp.silverstripe.org/for-website-content-editors/managing-your-site/) for more details.
+* *Sections*: large areas of the CMS that can be navigated through the CMS menu on the left, for example *Pages* section.
+* *Subsections and tabs*: these are seen on the top right of the interface and can be navigated accordingly. Some sections
+will not have subsections at all - just tabs.
+* *Screens*: standalone areas that perform specific functions in the CMS, such as the *Add page* screen accessible from
+the *Pages* section.
+* *Panels*: self-contained areas that often provide extra capabilities, for example the tree panel in the *Pages* section,
+or *Filter* panel in *Files* section.
+
 ## Content editing
 
 Most of the content on the website is edited by using the rich text editor (by default this is TinyMCE). Most of the
@@ -11,20 +24,28 @@ features of the editor are detailed in the
 of the [SilverStripe User Help](http://3.0.userhelp.silverstripe.org/) site, however there is a small set of features
 added for CWP.
 
+### Sub- and superscript
+
 ![Sub- and superscript buttons](_images/editor-sub-sup.jpg)
 
 Use the subscript and superscript buttons when you wish to add footnotes. Note that this text can also be linked,
 potentially to an anchor at the bottom of the page containing the actual footnote.
+
+### Remove formatting
 
 ![Remove formatting button](_images/editor-eraser.jpg)
 
 Use the remove formatting button to remove formatting from the selected text. This doesn't remove structural
 formatting (eg heading levels, paragraphs), only visual formatting (eg bold, italic).
 
+### Add template
+
 ![Add template button](_images/editor-template.jpg)
 
 Add pre-existing templates of content by clicking on the template button. The CWP default site doesn't come with
 templates, but you can ask your development agency to set up templates for you to use.
+
+### Citation and abbreviation
 
 ![Citation and abbreviation buttons](_images/editor-cite-abbrev.jpg)
 
@@ -34,12 +55,16 @@ in the "Title" field and click on "Insert" - when the user hovers over the text 
 popup displaying the text you entered. There will usually be an indication to the user that this information is
 available, this will depend on the way your development agency has built your site.
 
+### Insert and delete
+
 ![Insert and delete buttons](_images/editor-insert-delete.jpg)
 
-The insertion and deletions buttons give you the capability to show to the user that certain text has been inserted or
-deleted. Select the text that you wish to highlight and click the relevant button. You will be prompted to enter the
-date of the change as well as a citation reference. Once entered (this information is optional) click on the "Insert"
-button.
+The insertion and deletion buttons give you the capability to show to the user that certain text has been inserted or
+deleted. Select the text that you wish to highlight and click the relevant button. A popup will come up that will allow
+you to specify some optional parameters. Click *Update* to proceed.
+
+To remove the insertion or deletion markup, position the cursor within the word and press the relevant editor button.
+You will then be able to press the *Remove* button to remove the markup.
 
 ## Customising the site-wide title
 
@@ -60,10 +85,14 @@ of all abilities and disabilities. Doing so will not only increase your potentia
 some of your users, but will also open up your rich video and audio content to be indexed by search engines such as
 Google and Bing.
 
+Further guidelines on accessibility can be found in [Making your web content
+accessible](http://3.0.userhelp.silverstripe.org/for-website-content-editors/web-content-best-practices/#making-your-content-accessible).
+
 ### Images
 
-When uploading an image, you can specify the alt text (short for alternative text). This is used to describe the image
-when the user is using a text reader to interact with the website.
+When using the *Insert Media* editor button for adding or editing embedded images, it is recommended to configure the
+alternative text. This is used to describe the image when the user is using a screen reader to interact with the
+website. See the link above for more details.
 
 ### Video and Audio
 
@@ -71,10 +100,6 @@ After adding video or audio content to your site you should provide a transcript
 content so that a user unable to view or listen to the media will be able to read through the content it contains.
 This should be regular page content directly after the video or audio, or on a separate page linked to from near the
 media.
-
-For more information see the
-[best practices page](http://3.0.userhelp.silverstripe.org/for-website-content-editors/web-content-best-practices/)
-of the SilverStripe user help.
 
 ## Setting up Google Analytics
 
@@ -116,8 +141,6 @@ To do this:
 * Open the 'Social Media' tab
 * Enter your AddThis profile ID into the `AddThis Profile Id` field
 * Save the settings
-
-When using the default default theme, this will add a 'Share' button on the top right of each page.
 
 ## Customising logos
 
@@ -187,10 +210,13 @@ expanding menus or showing other animations. The recommended approach is to disa
 
 ## Adding links to your footer
 
-To add links to the footer of your site, add pages beneath the **Footer Holder**. The holder may need to be created at
-the top level of your site tree if it does not exist yet. Make sure to keep the *URL Segment* tidy, as it may show
-within the footer page links.
+Locate the pages for which you require footer links beneath the **Footer Holder**. The holder may need to be created at
+the top level of your site tree if it does not already exist. Ensure that the information in the URL Segment field is
+concise as the text in this field will show within the footer page links.
 
 ![**Footer Holder** and footer links placement](_images/footer-links.jpg)
 
-To link to an existing page elsewhere on your site, use a **Redirector Page**.
+If you have a page elsewhere on your site that you require footer links for but you do not wish to move this page to
+under the **Footer Holder**, you can create a **Redirector Page** which links to that page.
+
+![Adding **Redirector Page** to the footer](_images/footer-redirector.jpg)
