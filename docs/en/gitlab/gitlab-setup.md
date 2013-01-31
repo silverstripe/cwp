@@ -2,6 +2,9 @@
 
 This how to is intended for the development agencies. It details the initial process you should follow to configure your Gitlab repository.
 
+It's assumed that the reader is familiar with Git. If not, we recommend first going through one of the many tutorials available online. The [Pro Git](http://git-scm.com/book) book is a good reference freely available online.
+
+
 ## Your Gitlab Repository
 
 When an instance is created you will be given a primary repository on the Gitlab server for the project.
