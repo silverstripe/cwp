@@ -258,24 +258,24 @@ The instructions below assume you're on a Debian or Ubuntu Linux environment.
 There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf` but they have not been tested.
 </div>
 
- 1. [Download wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/downloads/list) for your system type:
+ * [Download wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/downloads/list) for your system type:
 
 	wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.9.9-static-amd64.tar.bz2
 
- 2. Install it into `/usr/local/bin` so that it can be accessed on the path:
+ * Install it into `/usr/local/bin` so that it can be accessed on the path:
 
 	tar -jxvf wkhtmltopdf-0.9.9-static-amd64.tar.bz2
 	mv wkhtmltopdf-amd64 /usr/local/bin/wkhtmltopdf
 
- 3. Test it works:
+ * Test it works:
 
 	wkhtmltopdf -V
 
- 4. Update your `_ss_environment.php` file to point your site to the binary:
+ * Update your `_ss_environment.php` file to point your site to the binary:
 
 	define('WKHTMLTOPDF_BINARY', '/usr/local/bin/wkhtmltopdf');
 
- 5. Install extra Microsoft fonts, such as Arial:
+ * Install extra Microsoft fonts, such as Arial:
 
 	apt-get install ttf-mscorefonts-installer
 
