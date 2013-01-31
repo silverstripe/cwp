@@ -1,4 +1,5 @@
 Page:
 	test-page-one:
 		Title: Test Page One
-
+	home-page:
+		Title: Home
