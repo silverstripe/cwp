@@ -300,9 +300,9 @@ Note that a default "Export PDF" link is provided near the "Print" link at the b
 `BasePage_Controller` has an action called `downloadpdf()` which is called when you need to generate or send an existing
 generated PDF to the browser. `$PdfLink` is the template variable which uses this to send the PDF to the user's browser.
 
-By default, the PDF is rendered the standard SilverStripe template system and templates are chosen the same way the
-user would see them in their browser. That means if you have a specific page type and template, then that template will
-be rendered using the same template when exporting the page to PDF.
+By default, the PDF is rendered by the standard SilverStripe template system and templates are chosen in the same way
+the user would see them in their browser. That means if you have a specific page type and template, then that template
+will be rendered using the same template when exporting the page to PDF.
 
 You can override the template specifically for the PDF by creating a new template in your theme and suffix it
 with `_pdf` in the file name. For example, to override the generic `Page` template and add something that only
