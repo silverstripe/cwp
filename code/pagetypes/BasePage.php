@@ -48,7 +48,7 @@ class BasePage extends SiteTree {
 		if((Versioned::current_stage() == 'Live') && file_exists($path)) {
 			return Director::baseURL() . preg_replace('#^/#', '', Director::makeRelative($path));
 		} else {
-			return $this->Link() . 'downloadpdf';
+			return $this->Link('downloadpdf');
 		}
 	}
 
