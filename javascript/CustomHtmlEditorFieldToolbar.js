@@ -1,6 +1,17 @@
 (function($) {
 	$.entwine('ss', function($) {
 
+		$('.ss-uploadfield-item').entwine({
+			/**
+			 * Default alt inputs to empty for upload items.
+			 */
+			onmatch: function() {
+				this.find('input[name="AltText"]').val('');
+
+				this._super();
+			}
+		});
+
 		$('form.htmleditorfield-mediaform').entwine({
 			/**
 			 * Validate the form for the presence of the alt attribute.
