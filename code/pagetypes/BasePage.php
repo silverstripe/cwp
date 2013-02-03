@@ -84,10 +84,22 @@ class BasePage extends SiteTree {
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-		$tagField = new TagField('Terms', null, null, 'BasePage', 'Name');
-		$tagField->setSeparator(',');
-		$tagField->createNewTags = false;
-		$fields->addFieldToTab('Root.Tags', $tagField);
+		$components = GridFieldConfig_RelationEditor::create();
+		$components->removeComponentsByType('GridFieldAddNewButton');
+		$components->removeComponentsByType('GridFieldEditButton');
+
+		$autocompleter = $components->getComponentByType('GridFieldAddExistingAutocompleter');
+		$autocompleter->setResultsFormat('$Name ($TaxonomyName)');
+
+		$fields->addFieldToTab(
+			'Root.Tags',
+			new GridField(
+				'Terms',
+				'Terms',
+				$this->Terms(),
+				$components
+			)
+		);
 
 		return $fields;
 	}
