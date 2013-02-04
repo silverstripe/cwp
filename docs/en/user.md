@@ -224,3 +224,14 @@ If you have a page elsewhere on your site that you require footer links for but 
 under the **Footer Holder**, you can create a **Redirector Page** which links to that page.
 
 ![Adding **Redirector Page** to the footer](_images/footer-redirector.jpg)
+
+## Adding taxonomy terms to a page
+
+Terms can be added to pages by switching to the *Tags* tab while editing the page and searching through the taxonomy
+terms previously created in the *Taxonomy* section of the CMS (see the module documentation for information how to
+build the taxonomy).
+
+![Linking terms to pages](_images/taxonomy-linking.jpg)
+
+The terms can only be linked and unlinked from the page in this way - the taxonomy data and structure cannot be changed
+through this interface.
