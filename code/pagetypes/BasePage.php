@@ -18,6 +18,10 @@ class BasePage extends SiteTree {
 
 	public $pageIcon = 'images/icons/sitetree_images/page.png';
 
+	static $many_many = array(
+		'Terms' => 'TaxonomyTerm'
+	);
+
 	/**
 	 * Get the footer holder.
 	 */
@@ -74,6 +78,36 @@ class BasePage extends SiteTree {
 		if(file_exists($filepath)) {
 			unlink($filepath);
 		}
+	}
+
+
+	public function getCMSFields() {
+		$fields = parent::getCMSFields();
+
+		$components = GridFieldConfig_RelationEditor::create();
+		$components->removeComponentsByType('GridFieldAddNewButton');
+		$components->removeComponentsByType('GridFieldEditButton');
+
+		$autoCompleter = $components->getComponentByType('GridFieldAddExistingAutocompleter');
+		$autoCompleter->setResultsFormat('$Name ($TaxonomyName)');
+
+		$dataColumns = $components->getComponentByType('GridFieldDataColumns');
+		$dataColumns->setDisplayFields(array(
+			'Name' => 'Term',
+			'TaxonomyName' => 'Taxonomy'
+		));
+
+		$fields->addFieldToTab(
+			'Root.Tags',
+			new GridField(
+				'Terms',
+				'Terms',
+				$this->Terms(),
+				$components
+			)
+		);
+
+		return $fields;
 	}
 
 }
