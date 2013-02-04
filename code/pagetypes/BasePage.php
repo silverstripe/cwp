@@ -19,7 +19,8 @@ class BasePage extends SiteTree {
 	public $pageIcon = 'images/icons/sitetree_images/page.png';
 
 	static $many_many = array(
-		'Terms' => 'TaxonomyTerm'
+		'Terms' => 'TaxonomyTerm',
+		'RelatedPages' => 'BasePage'
 	);
 
 	/**
@@ -84,6 +85,21 @@ class BasePage extends SiteTree {
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
+		// Related Pages
+		$components = GridFieldConfig_RecordEditor::create();
+		$components->addComponent(new GridFieldSortableRows('Sort'));
+
+		$fields->addFieldToTab(
+			'Root.RelatedPages',
+			new GridField(
+				'RelatedPages',
+				'RelatedPages',
+				$this->RelatedPages(),
+				$components
+			)
+		);
+
+		// Taxonomies
 		$components = GridFieldConfig_RelationEditor::create();
 		$components->removeComponentsByType('GridFieldAddNewButton');
 		$components->removeComponentsByType('GridFieldEditButton');
