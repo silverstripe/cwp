@@ -88,8 +88,14 @@ class BasePage extends SiteTree {
 		$components->removeComponentsByType('GridFieldAddNewButton');
 		$components->removeComponentsByType('GridFieldEditButton');
 
-		$autocompleter = $components->getComponentByType('GridFieldAddExistingAutocompleter');
-		$autocompleter->setResultsFormat('$Name ($TaxonomyName)');
+		$autoCompleter = $components->getComponentByType('GridFieldAddExistingAutocompleter');
+		$autoCompleter->setResultsFormat('$Name ($TaxonomyName)');
+
+		$dataColumns = $components->getComponentByType('GridFieldDataColumns');
+		$dataColumns->setDisplayFields(array(
+			'Name' => 'Term',
+			'TaxonomyName' => 'Taxonomy'
+		));
 
 		$fields->addFieldToTab(
 			'Root.Tags',
