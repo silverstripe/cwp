@@ -19,8 +19,17 @@ class BasePage extends SiteTree {
 	public $pageIcon = 'images/icons/sitetree_images/page.png';
 
 	static $many_many = array(
-		'Terms' => 'TaxonomyTerm'
+		'Terms' => 'TaxonomyTerm',
+		'RelatedPages' => 'BasePage'
 	);
+
+	public static $many_many_extraFields = array(
+		'RelatedPages' => array(
+			'SortOrder' => 'Int'
+		)
+	);
+
+	public static $plural_name = 'Base Pages';
 
 	/**
 	 * Get the footer holder.
@@ -56,6 +65,10 @@ class BasePage extends SiteTree {
 		}
 	}
 
+	public function RelatedPages() {
+		return $this->getManyManyComponents('RelatedPages')->sort('SortOrder');
+	}
+
 	/**
 	 * Remove linked pdf when publishing the page,
 	 * as it would be out of date.
@@ -84,6 +97,29 @@ class BasePage extends SiteTree {
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
+		// Related Pages
+		$components = GridFieldConfig_RelationEditor::create();
+		$components->removeComponentsByType('GridFieldAddNewButton');
+		$components->removeComponentsByType('GridFieldEditButton');
+		$components->addComponent(new GridFieldSortableRows('SortOrder'));
+
+		$dataColumns = $components->getComponentByType('GridFieldDataColumns');
+		$dataColumns->setDisplayFields(array(
+			'Title' => 'Title',
+			'ClassName' => 'Page Type'
+		));
+
+		$fields->addFieldToTab(
+			'Root.RelatedPages',
+			new GridField(
+				'RelatedPages',
+				'Related Pages',
+				$this->RelatedPages(),
+				$components
+			)
+		);
+
+		// Taxonomies
 		$components = GridFieldConfig_RelationEditor::create();
 		$components->removeComponentsByType('GridFieldAddNewButton');
 		$components->removeComponentsByType('GridFieldEditButton');
@@ -259,4 +295,3 @@ class BasePage_Controller extends ContentController {
 	}
 
 }
-
