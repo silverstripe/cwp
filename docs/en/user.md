@@ -237,3 +237,16 @@ build the taxonomy).
 
 The terms can only be linked and unlinked from the page in this way - the taxonomy data and structure cannot be changed
 through this interface.
+
+## Linking related pages
+
+When viewing a page in the CMS, a "Related Pages" tab allows marking other pages as related to this page.
+These related pages apppear as a list when a website visitor views the page.
+
+![Linking related pages](_images/relatedpages-linking.jpg)
+
+When you start typing in the input as shown above, results in a dropdown will appear. Click the result
+you want, then hit "Link Existing" to link it as a related page.
+
+Check "Allow Drag and Drop" to allow dragging the rows up and down which affect the order these related
+pages appear on the website.
