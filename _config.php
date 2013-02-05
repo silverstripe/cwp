@@ -59,7 +59,7 @@ if(class_exists('Solr')) {
 			// e.g. outside of the webroot
 			'path' => defined('SOLR_PATH') ? SOLR_PATH : BASE_PATH . '/.solr'
 		),
-		'extraspath' => Director::baseFolder() . '/mysite/data/solr/',
+		'extraspath' => BASE_PATH . '/mysite/data/solr/',
 	));
 }
 
