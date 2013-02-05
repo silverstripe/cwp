@@ -152,7 +152,9 @@ class BasePage_Controller extends ContentController {
 
 	public static $allowed_actions = array(
 		'pdf',
-		'downloadpdf'
+		'downloadpdf',
+		'SearchForm',
+		'results'
 	);
 
 	/**
@@ -223,6 +225,81 @@ class BasePage_Controller extends ContentController {
 
 		// serve the generated file
 		return SS_HTTPRequest::send_file(file_get_contents($pdfFile), basename($pdfFile), 'application/pdf');
+	}
+
+	/**
+	 * Site search form
+	 */
+	public function SearchForm() {
+		$searchText =  _t('SearchForm.SEARCH', 'Search');
+
+		if($this->owner->request && $this->owner->request->getVar('Search')) {
+			$searchText = $this->owner->request->getVar('Search');
+		}
+
+		$fields = new FieldList(
+			new TextField('Search', false, $searchText)
+		);
+		$actions = new FieldList(
+			new FormAction('results', _t('SearchForm.GO', 'Go'))
+		);
+
+		$form = new SearchForm($this->owner, 'SearchForm', $fields, $actions);
+
+		return $form;
+	}
+
+	/**
+	 * Process and render search results.
+	 *
+	 * @param array $data The raw request data submitted by user
+	 * @param SearchForm $form The form instance that was submitted
+	 * @param SS_HTTPRequest $request Request generated for this action
+	 */
+	public function results($data, $form, $request) {
+		$start = 0;
+		$limit = 10;
+
+		$query = new SearchQuery();
+		$query->classes = array(
+			array('class' => 'Page', 'includeSubclasses' => true)
+		);
+		$query->search($form->getSearchQuery());
+
+		$result = singleton('SolrSearchIndex')->search(
+			$query,
+			$start,
+			$limit,
+			array(
+				'spellcheck' => 'true',
+				'spellcheck.collate' => 'true'
+			)
+		);
+
+		$results = $result->Matches;
+		// Add context summaries based on the queries.
+		foreach ($results as $result) {
+			$contextualTitle = new Text();
+			$contextualTitle->setValue($result->MenuTitle ? $result->MenuTitle : $result->Title);
+			$result->ContextualTitle = $contextualTitle->ContextSummary(300, $form->getSearchQuery());
+
+			if (!$result->Content && $result->ClassName=='File') {
+				// Fake some content for the files.
+				$result->ContextualContent = "A file named \"$result->Name\" ($result->Size).";
+			}
+			else {
+				$result->ContextualContent = $result->obj('Content')->ContextSummary(300, $form->getSearchQuery());
+			}
+		}
+
+		$data = array(
+			'Results' => $results,
+			'Suggestion' => $result->Suggestion,
+			'Query' => $form->getSearchQuery(),
+			'Title' => _t('SearchForm.SearchResults', 'Search Results')
+		);
+
+		return $this->owner->customise($data)->renderWith(array('Page_results', 'Page'));
 	}
 
 	/**

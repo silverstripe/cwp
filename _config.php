@@ -9,8 +9,6 @@ Object::add_extension('SiteConfig', 'CustomSiteConfig');
 
 GD::set_default_quality(90);
 
-FulltextSearchable::enable();
-
 // Configure document converter.
 if (class_exists('DocumentConverterDecorator')) {
 	DocumentImportIFrameField_Importer::set_docvert_username('ss-express');
