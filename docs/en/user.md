@@ -227,6 +227,8 @@ under the **Footer Holder**, you can create a **Redirector Page** which links to
 
 ## Adding taxonomy terms to a page
 
+Documentation on managing taxonomy terms is [available in the taxonomies module](../../taxonomy).
+
 Terms can be added to pages by switching to the *Tags* tab while editing the page and searching through the taxonomy
 terms previously created in the *Taxonomy* section of the CMS (see the module documentation for information how to
 build the taxonomy).
