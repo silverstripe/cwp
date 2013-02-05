@@ -50,6 +50,11 @@ if(!defined('WKHTMLTOPDF_BINARY')) {
 if(class_exists('Solr')) {
 	SearchUpdater::bind_manipulation_capture();
 
+	$extrasPath = BASE_PATH . '/mysite/conf/extras';
+	if(!file_exists($extrasPath)) {
+		$extrasPath = BASE_PATH . '/fulltextsearch/conf/extras';
+	}
+
 	Solr::configure_server(array(
 		'host' => defined('SOLR_SERVER') ? SOLR_SERVER : 'localhost',
 		'port' => defined('SOLR_PORT') ? SOLR_PORT : 8983,
@@ -59,7 +64,7 @@ if(class_exists('Solr')) {
 			// e.g. outside of the webroot
 			'path' => defined('SOLR_PATH') ? SOLR_PATH : BASE_PATH . '/.solr'
 		),
-		'extraspath' => BASE_PATH . '/mysite/data/solr/',
+		'extraspath' => $extrasPath
 	));
 }
 
