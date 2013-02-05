@@ -23,6 +23,12 @@ class BasePage extends SiteTree {
 		'RelatedPages' => 'BasePage'
 	);
 
+	public static $many_many_extraFields = array(
+		'RelatedPages' => array(
+			'SortOrder' => 'Int'
+		)
+	);
+
 	/**
 	 * Get the footer holder.
 	 */
@@ -57,6 +63,10 @@ class BasePage extends SiteTree {
 		}
 	}
 
+	public function RelatedPages() {
+		return $this->getManyManyComponents('RelatedPages')->sort('SortOrder');
+	}
+
 	/**
 	 * Remove linked pdf when publishing the page,
 	 * as it would be out of date.
@@ -86,14 +96,22 @@ class BasePage extends SiteTree {
 		$fields = parent::getCMSFields();
 
 		// Related Pages
-		$components = GridFieldConfig_RecordEditor::create();
-		$components->addComponent(new GridFieldSortableRows('Sort'));
+		$components = GridFieldConfig_RelationEditor::create();
+		$components->removeComponentsByType('GridFieldAddNewButton');
+		$components->removeComponentsByType('GridFieldEditButton');
+		$components->addComponent(new GridFieldSortableRows('SortOrder'));
+
+		$dataColumns = $components->getComponentByType('GridFieldDataColumns');
+		$dataColumns->setDisplayFields(array(
+			'Title' => 'Title',
+			'ClassName' => 'Page Type'
+		));
 
 		$fields->addFieldToTab(
 			'Root.RelatedPages',
 			new GridField(
 				'RelatedPages',
-				'RelatedPages',
+				'Related Pages',
 				$this->RelatedPages(),
 				$components
 			)
@@ -275,4 +293,3 @@ class BasePage_Controller extends ContentController {
 	}
 
 }
-
