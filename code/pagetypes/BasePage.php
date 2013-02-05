@@ -158,6 +158,12 @@ class BasePage_Controller extends ContentController {
 	);
 
 	/**
+	 * How many search results should be shown per-page?
+	 * @var int
+	 */
+	public static $results_per_page = 10;
+
+	/**
 	 * Serve the page rendered as PDF.
 	 */
 	public function downloadpdf() {
@@ -258,12 +264,16 @@ class BasePage_Controller extends ContentController {
 	 */
 	public function results($data, $form, $request) {
 		$start = 0;
-		$limit = 10;
+		$limit = self::$results_per_page;
 
 		$query = new SearchQuery();
 		$query->classes = array(
-			array('class' => 'Page', 'includeSubclasses' => true)
+			array(
+				'class' => 'Page',
+				'includeSubclasses' => true
+			)
 		);
+
 		$query->search($form->getSearchQuery());
 
 		$result = singleton('SolrSearchIndex')->search(
@@ -277,19 +287,14 @@ class BasePage_Controller extends ContentController {
 		);
 
 		$results = $result->Matches;
+
 		// Add context summaries based on the queries.
 		foreach ($results as $result) {
 			$contextualTitle = new Text();
 			$contextualTitle->setValue($result->MenuTitle ? $result->MenuTitle : $result->Title);
-			$result->ContextualTitle = $contextualTitle->ContextSummary(300, $form->getSearchQuery());
 
-			if (!$result->Content && $result->ClassName=='File') {
-				// Fake some content for the files.
-				$result->ContextualContent = "A file named \"$result->Name\" ($result->Size).";
-			}
-			else {
-				$result->ContextualContent = $result->obj('Content')->ContextSummary(300, $form->getSearchQuery());
-			}
+			$result->ContextualTitle = $contextualTitle->ContextSummary(300, $form->getSearchQuery());
+			$result->ContextualContent = $result->obj('Content')->ContextSummary(300, $form->getSearchQuery());
 		}
 
 		$data = array(
