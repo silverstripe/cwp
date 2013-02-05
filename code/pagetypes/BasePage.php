@@ -29,6 +29,8 @@ class BasePage extends SiteTree {
 		)
 	);
 
+	public static $plural_name = 'Base Pages';
+
 	/**
 	 * Get the footer holder.
 	 */
