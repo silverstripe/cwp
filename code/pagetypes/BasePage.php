@@ -263,7 +263,7 @@ class BasePage_Controller extends ContentController {
 	 * @param SS_HTTPRequest $request Request generated for this action
 	 */
 	public function results($data, $form, $request) {
-		$start = 0;
+		$start = isset($data['start']) ? $data['start'] : 0;
 		$limit = self::$results_per_page;
 
 		$query = new SearchQuery();
