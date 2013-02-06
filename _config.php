@@ -58,7 +58,7 @@ if(class_exists('Solr')) {
 		'port' => defined('SOLR_PORT') ? SOLR_PORT : 8983,
 		'path' => defined('SOLR_PATH') ? SOLR_PATH : '/solr/',
 		'indexstore' => array(
-			'mode' => 'webdav',
+			'mode' => defined('SOLR_MODE') ? SOLR_MODE : 'webdav',
 			// Allow storing the solr index and config data in an arbitrary location,
 			// e.g. outside of the webroot
 			'path' => defined('SOLR_PATH') ? SOLR_PATH : BASE_PATH . '/.solr',
