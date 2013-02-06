@@ -56,11 +56,13 @@ if(class_exists('Solr')) {
 	Solr::configure_server(array(
 		'host' => defined('SOLR_SERVER') ? SOLR_SERVER : 'localhost',
 		'port' => defined('SOLR_PORT') ? SOLR_PORT : 8983,
+		'path' => defined('SOLR_PATH') ? SOLR_PATH : '/solr/',
 		'indexstore' => array(
-			'mode' => 'file',
+			'mode' => 'webdav',
 			// Allow storing the solr index and config data in an arbitrary location,
 			// e.g. outside of the webroot
-			'path' => defined('SOLR_PATH') ? SOLR_PATH : BASE_PATH . '/.solr'
+			'path' => defined('SOLR_PATH') ? SOLR_PATH : BASE_PATH . '/.solr',
+			'remotepath' => defined('SOLR_REMOTE_PATH') ? SOLR_REMOTE_PATH : ''
 		),
 		'extraspath' => $extrasPath
 	));
