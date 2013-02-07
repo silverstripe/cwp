@@ -250,3 +250,27 @@ you want, then hit "Link Existing" to link it as a related page.
 
 Check "Allow Drag and Drop" to allow dragging the rows up and down which affect the order these related
 pages appear on the website.
+
+## Events
+
+The CWP module allows you to create events (**Event Pages**) and event listings (**Event Holders**).
+
+Creating events is as straightforward as creating new **Event Pages**. Apart from ordinary fields available to all
+**Pages**, this page type allows you to specify the date and time of the event. The template will display this details,
+along with any taxonomy terms you associate with the page (see "Adding taxonomy terms to a page" above).
+
+![Event as shown on the site](_images/events-frontend.jpg)
+
+This alone will not allow visitors to browse the events easily. To list the events in a more structured way you have
+to create an **Event holder** and place all the events to be included underneath. You can create many **Event
+Holders**, each with its own set of events too.
+
+![Event Holder structure](_images/events-holder-structure.jpg)
+
+This provides you with an automated listing which includes the following features:
+
+* Events are sorted by date, descending (most recent on the top).
+* Sidebar shows the taxonomy terms associated with underlying events.
+* Months (and years) for which events are available can be navigated.
+
+![Event listing](_images/events-listing.jpg)
