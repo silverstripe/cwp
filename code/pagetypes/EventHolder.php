@@ -98,16 +98,20 @@ class EventHolder extends Page {
 				$years[$year] = array('YearName'=>$year, 'Months'=>array());
 			}
 
-			// Build the link (retains the current GET params).
-			$link = HTTP::setGetVar('year', $year, $link, '&');
-			$link = HTTP::setGetVar('month', $monthNumber, $link, '&');
-			$link = HTTP::setGetVar('start', 0, $link, '&');
-
 			// Check if the currently processed month is the one that is selected via GET params.
 			$active = false;
 			if (isset($year) && isset($monthNumber)) {
 				$active = (((int)$currentYear)==$year && ((int)$currentMonthNumber)==$monthNumber);
 			}
+
+			// Build the link (retains the current GET params).
+			$link = HTTP::setGetVar('year', $year, $link, '&');
+			if ($active) {
+				$link = HTTP::setGetVar('month', null, $link, '&');
+			} else {
+				$link = HTTP::setGetVar('month', $monthNumber, $link, '&');
+			}
+			$link = HTTP::setGetVar('start', 0, $link, '&');
 
 			$years[$year]['Months'][$monthNumber] = array(
 				'MonthName'=>$monthName,
