@@ -61,8 +61,8 @@ if(class_exists('Solr')) {
 			'mode' => defined('SOLR_MODE') ? SOLR_MODE : 'webdav',
 			// Allow storing the solr index and config data in an arbitrary location,
 			// e.g. outside of the webroot
-			'path' => defined('SOLR_PATH') ? SOLR_PATH : BASE_PATH . '/.solr',
-			'remotepath' => defined('SOLR_REMOTE_PATH') ? SOLR_REMOTE_PATH : ''
+			'path' => defined('SOLR_INDEXSTORE_PATH') ? SOLR_INDEXSTORE_PATH : BASE_PATH . '/.solr',
+			'remotepath' => defined('SOLR_REMOTE_PATH') ? SOLR_REMOTE_PATH : null
 		),
 		'extraspath' => $extrasPath
 	));
