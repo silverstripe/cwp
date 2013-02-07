@@ -9,14 +9,16 @@ class RichLinksExtensionTest extends SapphireTest {
 		$field->setValue('<a href="http://newzealand.govt.nz">New Zealand Government</a>');
 		$this->assertEquals(
 			$field->RichLinks(),
-			'<a class="external" rel="external" href="http://newzealand.govt.nz">New Zealand Government</a>',
+			'<a class="external" rel="external" href="http://newzealand.govt.nz">New Zealand Government '
+			.'<span class="nonvisual-indicator">(external link)</span> </a>',
 			'Injects attributes to external link without target.'
 		);
 
 		$field->setValue('<a href="http://newzealand.govt.nz" target="_blank">New Zealand Government</a>');
 		$this->assertEquals(
 			$field->RichLinks(),
-			'<a class="external" rel="external" href="http://newzealand.govt.nz" target="_blank">New Zealand Government</a>',
+			'<a class="external" rel="external" href="http://newzealand.govt.nz" target="_blank">New Zealand Government '
+			.'<span class="nonvisual-indicator">(external link)</span> </a>',
 			'Injects attributes to external link with target, while keeping the existing attributes.'
 		);
 
