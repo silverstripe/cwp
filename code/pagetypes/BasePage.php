@@ -376,4 +376,11 @@ class BasePage_Controller extends ContentController {
 		Requirements::set_combined_files_folder(ASSETS_DIR . '/_combinedfiles/cwp');
 	}
 
+	/**
+	 * Provide current year.
+	 */
+	public function CurrentDatetime() {
+		return SS_Datetime::now();
+	}
+
 }
