@@ -34,7 +34,8 @@ class EventHolder extends Page {
 	 * @returns DataList | PaginatedList
 	 */
 	public function Events($tagID = null, $year = null, $monthNumber = null) {
-		$items = EventPage::get()->sort('Date', 'DESC');
+		// For starters, get all events belonging under current holder.
+		$items = EventPage::get()->filter(array('ParentID'=>$this->ID))->sort('Date', 'DESC');
 
 		// Filter down to a single tag.
 		if (isset($tagID)) {
