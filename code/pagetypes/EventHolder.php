@@ -182,7 +182,7 @@ class EventHolder_Controller extends Page_Controller {
 	/**
 	 * Get the events based on the current query.
 	 */
-	public function FilteredEvents($pageSize = 1) {
+	public function FilteredEvents($pageSize = 20) {
 		$tagID = $this->request->getVar('tag');
 		$year = $this->request->getVar('year');
 		$monthNumber = $this->request->getVar('month');
