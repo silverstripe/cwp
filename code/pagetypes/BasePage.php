@@ -101,6 +101,7 @@ class BasePage extends SiteTree {
 		$components = GridFieldConfig_RelationEditor::create();
 		$components->removeComponentsByType('GridFieldAddNewButton');
 		$components->removeComponentsByType('GridFieldEditButton');
+		$components->removeComponentsByType('GridFieldFilterHeader');
 		$components->addComponent(new GridFieldSortableRows('SortOrder'));
 
 		$dataColumns = $components->getComponentByType('GridFieldDataColumns');
