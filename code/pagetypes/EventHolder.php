@@ -14,8 +14,10 @@ class EventHolder extends Page {
 		return parent::Children()->exclude('ClassName', 'EventPage');
 	}
 
+	/**
+	 * Find all distinct tags (TaxonomyTerms) associated with the EventPages under this holder.
+	 */
 	public function EventTags() {
-		// Find all terms associated with the EventPages under this holder.
 		$tags = TaxonomyTerm::get()
 			->innerJoin('BasePage_Terms', '"TaxonomyTerm"."ID"="BasePage_Terms"."TaxonomyTermID"')
 			->innerJoin('EventPage', '"BasePage_Terms"."BasePageID"="EventPage"."ID"')
@@ -30,6 +32,17 @@ class EventHolder extends Page {
 	}
 }
 
+/**
+ * # About GET parameter priority #
+ *
+ * The GET parameters used in this page type apply in the current preference order:
+ *  - Tag (highest priority)
+ *  - Month & Year
+ *  - Pagination page
+ *
+ * So, when the user click on a tag link, the pagination, and month will be reset. When the user selects a month,
+ * pagination will be reset, but tags retained.
+ */
 class EventHolder_Controller extends Page_Controller {
 
 	public function init() {
@@ -38,27 +51,87 @@ class EventHolder_Controller extends Page_Controller {
 		RSSFeed::linkToFeed($this->Link() . 'rss', SiteConfig::current_site_config()->Title . ' news');
 	}
 
+
 	/**
-	 * Check if the currently filtered tag matches the one passed as the argument.
-	 *
-	 * @param Boolean
+	 * Get the TaxonomyTerm related to the current tag GET parameter.
 	 */
-	public function IsActiveTag($tag) {
-		$current = $this->CurrentTag();
-
-		if ($current) {
-			return $current->ID==$tag->ID;
+	public function CurrentTag() {
+		$tagID = $this->request->getVar('tag');
+		if (isset($tagID)) {
+			return TaxonomyTerm::get_by_id('TaxonomyTerm', (int)$tagID);
 		}
-
-		return false;
 	}
 
-	public function EventItems($pageSize = 10) {
+	/**
+	 * Produce an array of available months out of the events from the currently selected tag.
+	 *
+	 * Here is an example of the returned structure:
+	 * ArrayList:
+	 *   ArrayData:
+	 *     YearName => 2013
+	 *     Months => ArrayList:
+	 *       MonthName => Jan
+	 *       MonthNumber => 1
+	 *       MonthLink => (page URL)year=2012&month=1&start=0
+	 *       Active => true
+	 *   ArrayData:
+	 *     YearName => 2012
+	 *     Months => ArrayList:
+	 *     ...
+	 */
+	public function CurrentMonths() {
+		$items = $this->EventsWithTag();
+
+		$currentYear = $this->request->getVar('year');
+		$currentMonthNumber = $this->request->getVar('month');
+
+		$years = array();
+		foreach ($items as $item) {
+			$year = $item->obj('Date')->Format('Y');
+			$monthNumber = $item->obj('Date')->Format('n');
+			$monthName = $item->obj('Date')->Format('M');
+
+			// Set up the relevant year array, if not yet available.
+			if (!isset($years[$year])) {
+				$years[$year] = array('YearName'=>$year, 'Months'=>array());
+			}
+
+			// Build the link (retains the current GET params).
+			$link = HTTP::setGetVar('year', $year, null, '&');
+			$link = HTTP::setGetVar('month', $monthNumber, $link, '&');
+			$link = HTTP::setGetVar('start', 0, $link, '&');
+
+			// Check if the currently processed month is the one that is selected via GET params.
+			$active = false;
+			if (isset($year) && isset($monthNumber)) {
+				$active = (((int)$currentYear)==$year && ((int)$currentMonthNumber)==$monthNumber);
+			}
+
+			$years[$year]['Months'][$monthNumber] = array(
+				'MonthName'=>$monthName,
+				'MonthNumber'=>$monthNumber,
+				'MonthLink'=>$link,
+				'Active'=>$active
+			);
+		}
+
+		// ArrayList will not recursively walk through the supplied array, so manually build nested ArrayLists.
+		foreach ($years as &$year) {
+			$year['Months'] = new ArrayList($year['Months']);
+		}
+
+		return new ArrayList($years);
+	}
+
+	/**
+	 * Query for Events, apply tag filter.
+	 */
+	public function EventsWithTag() {
 		$tag = $this->CurrentTag();
 
 		$items = EventPage::get()->sort('Date', 'DESC');
 
-		// Filter by currently selected tag.
+		// Filter down to a single tag.
 		if ($tag) {
 			$items = $items->innerJoin(
 					'BasePage_Terms',
@@ -69,16 +142,33 @@ class EventHolder_Controller extends Page_Controller {
 				);
 		}
 
+		return $items;
+	}
+
+	/**
+	 * Apply the month filter to the tag-prefiltered events.
+	 * Apply pagination on top of that.
+	 */
+	public function EventsWithMonth($pageSize = 20) {
+		$items = $this->EventsWithTag();
+
+		$year = $this->request->getVar('year');
+		$monthNumber = $this->request->getVar('month');
+
+		// Filter down to single month, if requested.
+		if (isset($year) && isset($monthNumber)) {
+			$year = (int)$year;
+			$monthNumber = (int)$monthNumber;
+
+			$beginDate = "$year-$monthNumber-01 00:00:00";
+			$endDate = date('Y-m-d H:i:s', strtotime("$year-$monthNumber-1 00:00:00 +1 month"));
+
+			$items = $items->where("(\"EventPage\".\"Date\">='$beginDate' AND \"EventPage\".\"Date\"<'$endDate')");
+		}
+
 		$list = new PaginatedList($items, $this->request);
 		$list->setPageLength($pageSize);
 		return $list;
-	}
-
-	public function CurrentTag() {
-		$tagID = $this->request->getVar('tag');
-		if (isset($tagID)) {
-			return TaxonomyTerm::get_by_id('TaxonomyTerm', (int)$tagID);
-		}
 	}
 
 	public function rss() {
