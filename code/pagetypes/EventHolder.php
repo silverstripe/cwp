@@ -86,7 +86,7 @@ class EventHolder extends Page {
 	 *
 	 * @returns ArrayList
 	 */
-	public function ExtractMonths(DataList $items, $link, $currentYear, $currentMonthNumber) {
+	public static function ExtractMonths(DataList $items, $link, $currentYear, $currentMonthNumber) {
 		$years = array();
 		foreach ($items as $item) {
 			$year = $item->obj('Date')->Format('Y');
@@ -171,7 +171,7 @@ class EventHolder_Controller extends Page_Controller {
 		$currentYear = $this->request->getVar('year');
 		$currentMonthNumber = $this->request->getVar('month');
 
-		return $this->ExtractMonths(
+		return EventHolder::ExtractMonths(
 			$this->Events($tagID),
 			Director::makeRelative($_SERVER['REQUEST_URI']),
 			$currentYear,
