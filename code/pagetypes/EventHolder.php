@@ -50,21 +50,16 @@ class EventHolder extends Page {
 
 		// Filter by date
 		if (isset($dateFrom)) {
-			$parser = new SS_Datetime;
-
-			$parser->setValue("$dateFrom");
-			$dateFrom = $parser->Format('Y-m-d') . ' 00:00:00';
 
 			if (isset($dateTo)) {
 				// Date range
-				$parser = new SS_Datetime;
-				$parser->setValue("$dateTo");
-				$dateTo = $parser->Format('Y-m-d') . ' 23:59:59';
+				$dateTo = "$dateTo 23:59:59";
+				$dateFrom = "$dateFrom 00:00:00";
 			}
 			else {
 				// Single date, set the dateTo based on the dateFrom.
-				$parser->setValue("$dateFrom");
-				$dateTo = $parser->Format('Y-m-d') . ' 23:59:59';
+				$dateTo = "$dateFrom 23:59:59";
+				$dateFrom = "$dateFrom 00:00:00";
 			}
 
 			$items = $items->where("(\"EventPage\".\"Date\">='$dateFrom' AND \"EventPage\".\"Date\"<='$dateTo')");
@@ -194,12 +189,25 @@ class EventHolder_Controller extends Page_Controller {
 		$year = $this->request->getVar('year');
 		$month = $this->request->getVar('month');
 
+		if ($tag=='') $tag = null;
 		if ($from=='') $from = null;
 		if ($to=='') $to = null;
+		if ($year=='') $year = null;
+		if ($month=='') $month = null;
 
 		if (isset($tag)) $tag = (int)$tag;
-		if (isset($from)) $from = Convert::raw2sql(urldecode($from));
-		if (isset($to)) $to = Convert::raw2sql(urldecode($to));
+		if (isset($from)) {
+			$from = urldecode($from);
+			$parser = new SS_Datetime;
+			$parser->setValue($from);
+			$from = $parser->Format('Y-m-d');
+		}
+		if (isset($to)) {
+			$to = urldecode($to);
+			$parser = new SS_Datetime;
+			$parser->setValue($to);
+			$to = $parser->Format('Y-m-d');
+		}
 		if (isset($year)) $year = (int)$year;
 		if (isset($month)) $month = (int)$month;
 
@@ -282,7 +290,8 @@ class EventHolder_Controller extends Page_Controller {
 
 		$fields = new FieldList(
 			$dateFrom = new DateField('from'),
-			$dateTo = new DateField('to')
+			$dateTo = new DateField('to'),
+			new HiddenField('tag')
 		);
 		$dateFrom->setConfig('showcalendar', true);
 		$dateTo->setConfig('showcalendar', true);
