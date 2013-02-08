@@ -133,6 +133,11 @@ class EventHolder extends Page {
 	public function getDefaultRSSLink() {
 		return $this->Link('rss');
 	}
+
+	public function getSubscriptionTitle() {
+		return SiteConfig::current_site_config()->Title . ' events';
+	}
+
 }
 
 /**
@@ -155,7 +160,7 @@ class EventHolder_Controller extends Page_Controller {
 	public function init() {
 		parent::init();
 
-		RSSFeed::linkToFeed($this->Link() . 'rss', SiteConfig::current_site_config()->Title . ' news');
+		RSSFeed::linkToFeed($this->Link() . 'rss', $this->getSubscriptionTitle());
 	}
 
 	/**
@@ -212,7 +217,7 @@ class EventHolder_Controller extends Page_Controller {
 		$rss = new RSSFeed(
 			$this->Children()->limit(20),
 			$this->Link,
-			SiteConfig::current_site_config()->Title . ' events'
+			$this->getSubscriptionTitle()
 		);
 		return $rss->outputToBrowser();
 	}
