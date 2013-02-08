@@ -152,7 +152,6 @@ class BasePage extends SiteTree {
 class BasePage_Controller extends ContentController {
 
 	public static $allowed_actions = array(
-		'pdf',
 		'downloadpdf',
 		'SearchForm',
 		'results'
