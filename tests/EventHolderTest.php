@@ -27,7 +27,7 @@ class EventHolderTest extends SapphireTest {
 	function testEventsWithMonthFilter() {
 		$holder = $this->objFromFixture('EventHolder', 'EventHolder1');
 
-		$items = $holder->Events(null, 2013, 7);
+		$items = $holder->Events(null, null, null, 2013, 7);
 		
 		$this->assertNotNull($items->find('URLSegment', 'future-event-1'), 'Finds the event in 2013-07.');
 		$this->assertNull($items->find('URLSegment', 'past-event-1'), 'Does not find events at other dates.');
