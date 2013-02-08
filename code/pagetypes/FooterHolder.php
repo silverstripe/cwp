@@ -51,4 +51,5 @@ class FooterHolder extends RedirectorPage {
 }
 
 class FooterHolder_Controller extends RedirectorPage_Controller {
+
 }

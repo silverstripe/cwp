@@ -25,6 +25,10 @@ class NewsHolder extends Page {
 
 class NewsHolder_Controller extends Page_Controller {
 
+	public static $allowed_actions = array(
+		'rss'
+	);
+
 	public function init() {
 		parent::init();
 

@@ -148,6 +148,10 @@ class EventHolder extends Page {
  */
 class EventHolder_Controller extends Page_Controller {
 
+	public static $allowed_actions = array(
+		'rss'
+	);
+
 	public function init() {
 		parent::init();
 
@@ -203,7 +207,6 @@ class EventHolder_Controller extends Page_Controller {
 		$list->setPageLength($pageSize);
 		return $list;
 	}
-
 
 	public function rss() {
 		$rss = new RSSFeed(
