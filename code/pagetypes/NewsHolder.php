@@ -21,6 +21,11 @@ class NewsHolder extends Page {
 	public function getDefaultRSSLink() {
 		return $this->Link('rss');
 	}
+
+	public function getSubscriptionTitle() {
+		return SiteConfig::current_site_config()->Title . ' news';
+	}
+
 }
 
 class NewsHolder_Controller extends Page_Controller {
@@ -32,7 +37,7 @@ class NewsHolder_Controller extends Page_Controller {
 	public function init() {
 		parent::init();
 
-		RSSFeed::linkToFeed($this->Link() . 'rss', SiteConfig::current_site_config()->Title . ' news');
+		RSSFeed::linkToFeed($this->Link() . 'rss', $this->getSubscriptionTitle());
 	}
 
 	public function getNewsItems($pageSize = 10) {
@@ -52,7 +57,7 @@ class NewsHolder_Controller extends Page_Controller {
 	}
 
 	public function rss() {
-		$rss = new RSSFeed($this->Children(), $this->Link, SiteConfig::current_site_config()->Title . ' news');
+		$rss = new RSSFeed($this->Children(), $this->Link(), $this->getSubscriptionTitle());
 		return $rss->outputToBrowser();
 	}
 }

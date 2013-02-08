@@ -214,11 +214,7 @@ class EventHolder_Controller extends Page_Controller {
 	}
 
 	public function rss() {
-		$rss = new RSSFeed(
-			$this->Children()->limit(20),
-			$this->Link,
-			$this->getSubscriptionTitle()
-		);
+		$rss = new RSSFeed($this->Children()->limit(20), $this->Link(), $this->getSubscriptionTitle());
 		return $rss->outputToBrowser();
 	}
 }
