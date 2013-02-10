@@ -220,13 +220,30 @@ class EventHolder_Controller extends Page_Controller {
 		);
 	}
 
+	/**
+	 * Build the link - keep the date range, reset the rest.
+	 */
+	public function AllTagsLink() {
+		$params = $this->parseParams();
+
+		$link = HTTP::setGetVar('tag', null, null, '&');
+		$link = HTTP::setGetVar('month', null, $link, '&');
+		$link = HTTP::setGetVar('year', null, $link, '&');
+		$link = HTTP::setGetVar('start', null, $link, '&');
+
+		return $link;
+	}
+
+	/**
+	 * List tags and attach links.
+	 */
 	public function EventTagsWithLinks() {
 		$tags = $this->EventTags();
 
 		$processed = new ArrayList();
 
 		foreach ($tags as $tag) {
-			// Build the link - keep the tag, but reset month, year and pagination.
+			// Build the link - keep the tag, and date range, but reset month, year and pagination.
 			$link = HTTP::setGetVar('tag', $tag->ID, null, '&');
 			$link = HTTP::setGetVar('month', null, $link, '&');
 			$link = HTTP::setGetVar('year', null, $link, '&');
