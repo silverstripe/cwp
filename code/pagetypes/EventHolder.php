@@ -176,6 +176,10 @@ class EventHolder_Controller extends Page_Controller {
 	public function init() {
 		parent::init();
 
+		// Include the DateRangeForm JS manually. We use custom form and $DateRangeForm is never invoked directly.
+		Requirements::javascript('framework/javascript/DateField.js');
+		Requirements::css('framework/thirdparty/jquery-ui-themes/smoothness/jquery-ui.css');
+
 		RSSFeed::linkToFeed($this->Link() . 'rss', SiteConfig::current_site_config()->Title . ' news');
 	}
 
