@@ -215,8 +215,10 @@ class EventHolder_Controller extends Page_Controller {
 
 	/**
 	 * Parse URL parameters.
+	 *
+	 * @param $produceErrorMessages Set to false to omit session messages.
 	 */
-	public function parseParams() {
+	public function parseParams($produceErrorMessages = true) {
 		$tag = $this->request->getVar('tag');
 		$from = $this->request->getVar('from');
 		$to = $this->request->getVar('to');
@@ -253,12 +255,21 @@ class EventHolder_Controller extends Page_Controller {
 		// Flip the dates if the order is wrong.
 		if (isset($to) && isset($from) && strtotime($from)>strtotime($to)) {
 			list($to, $from) = array($from, $to);
-			Session::setFormMessage('Form_DateRangeForm', 'Filter has been applied with the dates reversed.', 'warning');
+
+			if ($produceErrorMessages) {
+				Session::setFormMessage(
+					'Form_DateRangeForm',
+					'Filter has been applied with the dates reversed.',
+					'warning'
+				);
+			}
 		}
 
-		// Notify the user that filtering by single date is taking place (not From X to infinity as could be assumed).
+		// Notify the user that filtering by single date is taking place.
 		if (isset($from) && !isset($to)) {
-			Session::setFormMessage('Form_DateRangeForm', 'Filtered by a single date.', 'warning');
+			if ($produceErrorMessages) {
+				Session::setFormMessage('Form_DateRangeForm', 'Filtered by a single date.', 'warning');
+			}
 		}
 
 		return array(
@@ -392,7 +403,7 @@ class EventHolder_Controller extends Page_Controller {
 	}
 
 	public function doDateReset() {
-		$params = $this->parseParams();
+		$params = $this->parseParams(false);
 
 		// Reset the link - only include the tag.
 		$link = $this->AbsoluteLink();
