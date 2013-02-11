@@ -245,14 +245,20 @@ class EventHolder_Controller extends Page_Controller {
 		if (isset($year)) $year = (int)$year;
 		if (isset($month)) $month = (int)$month;
 
-		// We don't allow "From" to be empty when "To" is filled.
+		// If only "To" has been provided filter by single date. Normalise by swapping with "From".
 		if (isset($to) && !isset($from)) {
-			$to = null;
+			list($to, $from) = array($from, $to);
 		}
 
 		// Flip the dates if the order is wrong.
 		if (isset($to) && isset($from) && strtotime($from)>strtotime($to)) {
 			list($to, $from) = array($from, $to);
+			Session::setFormMessage('Form_DateRangeForm', 'Filter has been applied with the dates reversed.', 'warning');
+		}
+
+		// Notify the user that filtering by single date is taking place (not From X to infinity as could be assumed).
+		if (!isset($to)) {
+			Session::setFormMessage('Form_DateRangeForm', 'Filtered by single date.', 'warning');
 		}
 
 		return array(
@@ -365,6 +371,11 @@ class EventHolder_Controller extends Page_Controller {
 		$form = new Form($this, 'DateRangeForm', $fields, $actions);
 		$form->loadDataFrom($this->request->getVars());
 		$form->setFormMethod('get');
+
+		// Manually extract the message so we can clear it.
+		$form->ErrorMessage = $form->Message();
+		$form->ErrorMessageType = $form->MessageType();
+		$form->clearMessage();
 
 		return $form;
 	}
