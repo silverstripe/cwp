@@ -245,6 +245,16 @@ class EventHolder_Controller extends Page_Controller {
 		if (isset($year)) $year = (int)$year;
 		if (isset($month)) $month = (int)$month;
 
+		// We don't allow "From" to be empty when "To" is filled.
+		if (isset($to) && !isset($from)) {
+			$to = null;
+		}
+
+		// Flip the dates if the order is wrong.
+		if (isset($to) && isset($from) && strtotime($from)>strtotime($to)) {
+			list($to, $from) = array($from, $to);
+		}
+
 		return array(
 			'tag' => $tag,
 			'from' => $from,
