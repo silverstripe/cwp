@@ -118,7 +118,7 @@ month so we can highlight it in the frontend.
 	:::php
 	public function SiteEventMonths() {
 		$params = $this->parseEventParams();
-
+		
 		return EventHolder::ExtractMonths(
 			// This is the list of events to walk through.
 			EventHolder::AllEvents(),
@@ -138,14 +138,14 @@ listing).
 	<%-- Loop through years first --%>
 	<% loop SiteEventMonths %>
 		<h6 class="year">$YearName:</h6>
-
+	
 		<%-- Then loop through months within each year --%>
 		<ol class="nav nav-pills unstyled months">
 			<% loop Months %>
-
+	
 				<%-- use the Active, MonthLink and MonthName to produce the pagination --%>
 				<li <% if Active %>class="active"<% end_if %>><a href="$MonthLink.XML">$MonthName</a></li>
-
+	
 			<% end_loop %>
 		</ol>
 	<% end_loop %>
@@ -193,25 +193,25 @@ Code for `Page_Controller` class (or your custom page type):
 		$month = $this->request->getVar('month');
 		if (isset($year)) $year = (int)$year;
 		if (isset($month)) $month = (int)$month;
-
+	
 		// Default to current month if either not provided.
 		if (!isset($month) || !isset($year)) {
 			$year = SS_Datetime::now()->Format('Y');
 			$month = SS_Datetime::now()->Format('m');
 		}
-
+	
 		return array(
 			'year' => $year,
 			'month' => $month
 		);
 	}
-
+	
 	/**
 	 * Prepare the data structure on which navigation can be built.
 	 */
 	public function SiteEventMonths() {
 		$params = $this->parseEventParams();
-
+	
 		return EventHolder::ExtractMonths(
 			EventHolder::AllEvents(),
 			null,
@@ -220,13 +220,13 @@ Code for `Page_Controller` class (or your custom page type):
 		);
 	
 	}
-
+	
 	/**
 	 * Produce a list of events, as assigned to the current or currently selected month.
 	 */
 	public function SiteEvents() {
 		$params = $this->parseEventParams();
-
+	
 		return EventHolder::AllEvents(null, null, null, null, $params['year'], $params['month']);
 	}
 
@@ -234,9 +234,9 @@ Code for `Page.ss` template:
 
 	:::ss
 	<div class="span3 well">
-
+	
 		<h3>Site events</h3>
-
+	
 		<% if SiteEvents %>
 			<% loop SiteEvents %>
 				<div class="event-listing">
@@ -247,10 +247,10 @@ Code for `Page.ss` template:
 		<% else %>
 			<p>No events. Please use the month picker below to select another period.</p>
 		<% end_if %>
-
+	
 		<div class="event-listing-pagination">
 			<h5>Pick a month</h5>
-
+	
 			<% if SiteEventMonths %>
 				<div class="month-filter">
 					<% loop SiteEventMonths %>
