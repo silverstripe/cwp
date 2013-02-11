@@ -229,24 +229,23 @@ under the **Footer Holder**, you can create a **Redirector Page** which links to
 
 Documentation on managing taxonomy terms is [available in the taxonomies module](../../taxonomy).
 
-Terms can be added to pages by switching to the *Tags* tab while editing the page and searching through the taxonomy
-terms previously created in the *Taxonomy* section of the CMS (see the module documentation for information how to
-build the taxonomy).
+Taxonomy terms previously created in the Taxonomy section of the CMS can be added to pages from the *Tags* tab.
+Type the first few characters of the desired term into the search field and select the term from the search
+results displayed below the search field. Click the *Link Existing* button to add the term to the page and save
+when all desired terms have been added.
 
 ![Linking terms to pages](_images/taxonomy-linking.jpg)
 
-The terms can only be linked and unlinked from the page in this way - the taxonomy data and structure cannot be changed
-through this interface.
+The terms can only be linked and unlinked from the page from this tab - the taxonomy data and structure
+cannot be changed through this interface. See the module documentation for information on how to build the taxonomy.
 
 ## Linking related pages
 
-When viewing a page in the CMS, a "Related Pages" tab allows marking other pages as related to this page.
-These related pages apppear as a list when a website visitor views the page.
+Other pages can be marked as related to a page from the *Related Pages* tab. A website visitor can view a list of
+these related pages on the page. Start typing the page name in the search field as shown below and search results
+will appear in a dropdown. Select the page name and click the *Link Existing* button to link it as a related page.
 
 ![Linking related pages](_images/relatedpages-linking.jpg)
-
-When you start typing in the input as shown above, results in a dropdown will appear. Click the result
-you want, then hit "Link Existing" to link it as a related page.
 
 Check "Allow Drag and Drop" to allow dragging the rows up and down which affect the order these related
 pages appear on the website.
@@ -255,23 +254,27 @@ pages appear on the website.
 
 The CWP module allows you to create events (**Event Pages**) and event listings (**Event Holders**).
 
-Creating events is as straightforward as creating new **Event Pages**. Apart from ordinary fields available to all
-**Pages**, this page type allows you to specify the date and time of the event. The template will display this details,
-along with any taxonomy terms you associate with the page (see "Adding taxonomy terms to a page" above).
+Specialised pages can be created to allow website visitors to view individual events (**Event Pages**) and event
+listings (**Event Holders**).
+
+To create a page to display information for an event, add a new page of the type **Event Page**. In addition to the
+fields available on other pages, this page type allows you to specify the date and time of the event. These
+details will be displayed on the template along with any taxonomy terms you associate with the page (see "Adding
+taxonomy terms to a page" above).
 
 ![Event as shown on the site](_images/events-frontend.jpg)
 
-This alone will not allow visitors to browse the events easily. To list the events in a more structured way you have
-to create an **Event holder** and place all the events to be included underneath. You can create many **Event
-Holders**, each with its own set of events too.
+The events must be listed in a structured way to allow visitors to easily browse them. This is acheived with an **Event
+Holder** which contains the **Event Pages**. Any number of **Event Holders** can be created, each with its own set of
+events.
 
 ![Event Holder structure](_images/events-holder-structure.jpg)
 
-This provides you with an automated listing which includes the following features:
+The events listing for the above events holder and pages is shown below and includes the following features:
 
 * Events are sorted by date, descending (most recent on the top).
 * Sidebar shows the taxonomy terms associated with underlying events.
-* Months (and years) for which events are available can be navigated.
+* Months (and years) for which events are scheduled can be navigated.
 
 ![Event listing](_images/events-listing.jpg)
 
