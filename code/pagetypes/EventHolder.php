@@ -28,14 +28,34 @@ class EventHolder extends Page {
 	}
 
 	/**
-	 * Find all underlying events, based on some filters.
-	 * Omitting parameters will prevent relevant filters from being applied.
+	 * Wrapper to find all event's belonging to this holder, based on some filters.
+	 */
+	public function Events($tagID = null, $dateFrom = null, $dateTo = null, $year = null, $monthNumber = null) {
+		return self::AllEvents($this->ID, $tagID, $dateFrom, $dateTo, $year, $monthNumber);
+	}
+
+	/**
+	 * Find all site's events, based on some filters.
+	 * Omitting parameters will prevent relevant filters from being applied. The filters are ANDed together.
+	 *
+	 * @param $parentID The ID of the holder to extract the events from.
+	 * @param $tagID The ID of the tag to filter the events by.
+	 * @param $dateFrom The beginning of a date filter range.
+	 * @param $dateTo The end of the date filter range. If empty, only one day will be searched for.
+	 * @param $year Numeric value of the year to show.
+	 * @param $monthNumber Numeric value of the month to show.
 	 *
 	 * @returns DataList | PaginatedList
 	 */
-	public function Events($tagID = null, $dateFrom = null, $dateTo = null, $year = null, $monthNumber = null) {
-		// For starters, get all events belonging under current holder.
-		$items = EventPage::get()->filter(array('ParentID'=>$this->ID))->sort('Date', 'DESC');
+	public static function AllEvents($parentID = null, $tagID = null, $dateFrom = null, $dateTo = null, $year = null,
+			$monthNumber = null) {
+
+		$items = EventPage::get()->sort('Date', 'DESC');
+
+		// Filter by parent holder.
+		if (isset($parentID)) {
+			$items = $items->filter(array('ParentID'=>$parentID));
+		}
 
 		// Filter down to a single tag.
 		if (isset($tagID)) {
@@ -104,7 +124,12 @@ class EventHolder extends Page {
 	 *
 	 * @returns ArrayList
 	 */
-	public static function ExtractMonths(DataList $items, $link, $currentYear, $currentMonthNumber) {
+	public static function ExtractMonths(DataList $items, $link = null, $currentYear = null, $currentMonthNumber = null) {
+		// Set the link to current URL in the same way the HTTP::setGetVar does it.
+		if (!isset($link)) {
+			$link = Director::makeRelative($_SERVER['REQUEST_URI']);
+		}
+
 		$years = array();
 		foreach ($items as $item) {
 			$year = $item->obj('Date')->Format('Y');

@@ -12,6 +12,15 @@ class EventHolderTest extends SapphireTest {
 		$this->assertNull($tags->find('Name', 'Carrot'), 'Does not find terms that are not applied.');
 	}
 
+	function testEventWithParentFilter() {
+		$holder = $this->objFromFixture('EventHolder', 'EventHolder2');
+
+		$items = $holder->Events();
+		
+		$this->assertNotNull($items->find('URLSegment', 'other-holder'), 'Event from the holder is shown.');
+		$this->assertNull($items->find('URLSegment', 'future-event-1'), 'Events from other holders are not shown.');
+	}
+
 	function testEventsWithTagFilter() {
 		$holder = $this->objFromFixture('EventHolder', 'EventHolder1');
 
