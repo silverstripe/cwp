@@ -257,8 +257,8 @@ class EventHolder_Controller extends Page_Controller {
 		}
 
 		// Notify the user that filtering by single date is taking place (not From X to infinity as could be assumed).
-		if (!isset($to)) {
-			Session::setFormMessage('Form_DateRangeForm', 'Filtered by single date.', 'warning');
+		if (isset($from) && !isset($to)) {
+			Session::setFormMessage('Form_DateRangeForm', 'Filtered by a single date.', 'warning');
 		}
 
 		return array(
