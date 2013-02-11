@@ -33,7 +33,7 @@ class EventHolder extends Page {
 	 *
 	 * @returns DataList | PaginatedList
 	 */
-	public function Events($tagID = null, $year = null, $monthNumber = null) {
+	public function Events($tagID = null, $dateFrom = null, $dateTo = null, $year = null, $monthNumber = null) {
 		// For starters, get all events belonging under current holder.
 		$items = EventPage::get()->filter(array('ParentID'=>$this->ID))->sort('Date', 'DESC');
 
@@ -46,6 +46,23 @@ class EventHolder extends Page {
 					'TaxonomyTerm',
 					"\"BasePage_Terms\".\"TaxonomyTermID\"=\"TaxonomyTerm\".\"ID\" AND \"TaxonomyTerm\".\"ID\"='$tagID'"
 				);
+		}
+
+		// Filter by date
+		if (isset($dateFrom)) {
+
+			if (isset($dateTo)) {
+				// Date range
+				$dateTo = "$dateTo 23:59:59";
+				$dateFrom = "$dateFrom 00:00:00";
+			}
+			else {
+				// Single date, set the dateTo based on the dateFrom.
+				$dateTo = "$dateFrom 23:59:59";
+				$dateFrom = "$dateFrom 00:00:00";
+			}
+
+			$items = $items->where("(\"EventPage\".\"Date\">='$dateFrom' AND \"EventPage\".\"Date\"<='$dateTo')");
 		}
 
 		// Filter down to single month.
@@ -73,7 +90,7 @@ class EventHolder extends Page {
 	 *     Months => ArrayList:
 	 *       MonthName => Jan
 	 *       MonthNumber => 1
-	 *       MonthLink => (page URL)year=2012&month=1&start=0
+	 *       MonthLink => (page URL)year=2012&month=1
 	 *       Active => true
 	 *   ArrayData:
 	 *     YearName => 2012
@@ -105,14 +122,16 @@ class EventHolder extends Page {
 				$active = (((int)$currentYear)==$year && ((int)$currentMonthNumber)==$monthNumber);
 			}
 
-			// Build the link (retains the current GET params).
-			$link = HTTP::setGetVar('year', $year, $link, '&');
+			// Build the link - keep the tag and date filter, but reset the pagination.
 			if ($active) {
+				// Allow clicking to deselect the month.
 				$link = HTTP::setGetVar('month', null, $link, '&');
+				$link = HTTP::setGetVar('year', null, $link, '&');
 			} else {
 				$link = HTTP::setGetVar('month', $monthNumber, $link, '&');
+				$link = HTTP::setGetVar('year', $year, $link, '&');
 			}
-			$link = HTTP::setGetVar('start', 0, $link, '&');
+			$link = HTTP::setGetVar('start', null, $link, '&');
 
 			$years[$year]['Months'][$monthNumber] = array(
 				'MonthName'=>$monthName,
@@ -141,26 +160,109 @@ class EventHolder extends Page {
 }
 
 /**
- * About the GET params priority.
+ * The parameters apply in the following preference order:
+ *  - Highest priority: Tag & date (or date range)
+ *  - Month (and Year)
+ *  - Pagination
  *
- * The GET parameters used in this page type apply in the current preference order:
- *  - Tag (highest priority)
- *  - Month & Year
- *  - Pagination page
+ * So, when the user click on a tag link, the pagination, and month will be reset, but not the date filter. Also,
+ * changing the date will not affect the tag, but will reset the month and pagination.
  *
- * So, when the user click on a tag link, the pagination, and month will be reset. When the user selects a month,
- * pagination will be reset, but tags retained.
+ * When the user clicks on a month, pagination will be reset, but tags retained. Pagination retains all other
+ * parameters.
  */
 class EventHolder_Controller extends Page_Controller {
 
 	public static $allowed_actions = array(
-		'rss'
+		'rss',
+		'DateRangeForm'
 	);
 
 	public function init() {
 		parent::init();
 
+		// Include the DateRangeForm JS manually. We use custom form and $DateRangeForm is never invoked directly.
+		Requirements::javascript('framework/javascript/DateField.js');
+		Requirements::css('framework/thirdparty/jquery-ui-themes/smoothness/jquery-ui.css');
+
 		RSSFeed::linkToFeed($this->Link() . 'rss', $this->getSubscriptionTitle());
+	}
+
+	/**
+	 * Parse URL parameters.
+	 */
+	public function parseParams() {
+		$tag = $this->request->getVar('tag');
+		$from = $this->request->getVar('from');
+		$to = $this->request->getVar('to');
+		$year = $this->request->getVar('year');
+		$month = $this->request->getVar('month');
+
+		if ($tag=='') $tag = null;
+		if ($from=='') $from = null;
+		if ($to=='') $to = null;
+		if ($year=='') $year = null;
+		if ($month=='') $month = null;
+
+		if (isset($tag)) $tag = (int)$tag;
+		if (isset($from)) {
+			$from = urldecode($from);
+			$parser = new SS_Datetime;
+			$parser->setValue($from);
+			$from = $parser->Format('Y-m-d');
+		}
+		if (isset($to)) {
+			$to = urldecode($to);
+			$parser = new SS_Datetime;
+			$parser->setValue($to);
+			$to = $parser->Format('Y-m-d');
+		}
+		if (isset($year)) $year = (int)$year;
+		if (isset($month)) $month = (int)$month;
+
+		return array(
+			'tag' => $tag,
+			'from' => $from,
+			'to' => $to,
+			'year' => $year,
+			'month' => $month
+		);
+	}
+
+	/**
+	 * Build the link - keep the date range, reset the rest.
+	 */
+	public function AllTagsLink() {
+		$params = $this->parseParams();
+
+		$link = HTTP::setGetVar('tag', null, null, '&');
+		$link = HTTP::setGetVar('month', null, $link, '&');
+		$link = HTTP::setGetVar('year', null, $link, '&');
+		$link = HTTP::setGetVar('start', null, $link, '&');
+
+		return $link;
+	}
+
+	/**
+	 * List tags and attach links.
+	 */
+	public function EventTagsWithLinks() {
+		$tags = $this->EventTags();
+
+		$processed = new ArrayList();
+
+		foreach ($tags as $tag) {
+			// Build the link - keep the tag, and date range, but reset month, year and pagination.
+			$link = HTTP::setGetVar('tag', $tag->ID, null, '&');
+			$link = HTTP::setGetVar('month', null, $link, '&');
+			$link = HTTP::setGetVar('year', null, $link, '&');
+			$link = HTTP::setGetVar('start', null, $link, '&');
+
+			$tag->Link = $link;
+			$processed->push($tag);
+		}
+
+		return $processed;
 	}
 
 	/**
@@ -179,17 +281,13 @@ class EventHolder_Controller extends Page_Controller {
 	 * Only tag is respected. Pagination and months are ignored.
 	 */
 	public function AvailableMonths() {
-		$tagID = $this->request->getVar('tag');
-		if (isset($tagID)) $tagID = (int)$tagID;
-
-		$currentYear = $this->request->getVar('year');
-		$currentMonthNumber = $this->request->getVar('month');
+		$params = $this->parseParams();
 
 		return EventHolder::ExtractMonths(
-			$this->Events($tagID),
+			$this->Events($params['tag'], $params['from'], $params['to']),
 			Director::makeRelative($_SERVER['REQUEST_URI']),
-			$currentYear,
-			$currentMonthNumber
+			$params['year'],
+			$params['month']
 		);
 	}
 
@@ -197,20 +295,64 @@ class EventHolder_Controller extends Page_Controller {
 	 * Get the events based on the current query.
 	 */
 	public function FilteredEvents($pageSize = 20) {
-		$tagID = $this->request->getVar('tag');
-		$year = $this->request->getVar('year');
-		$monthNumber = $this->request->getVar('month');
+		$params = $this->parseParams();
 
-		if (isset($tagID)) $tagID = (int)$tagID;
-		if (isset($year)) $year = (int)$year;
-		if (isset($monthNumber)) $monthNumber = (int)$monthNumber;
-
-		$items = $this->Events($tagID, $year, $monthNumber);
+		$items = $this->Events(
+			$params['tag'],
+			$params['from'],
+			$params['to'],
+			$params['year'],
+			$params['month']
+		);
 
 		// Apply pagination
 		$list = new PaginatedList($items, $this->request);
 		$list->setPageLength($pageSize);
 		return $list;
+	}
+	
+	public function DateRangeForm() {
+		$params = $this->parseParams();
+
+		$fields = new FieldList(
+			$dateFrom = new DateField('from'),
+			$dateTo = new DateField('to'),
+			new HiddenField('tag')
+		);
+		$dateFrom->setConfig('showcalendar', true);
+		$dateTo->setConfig('showcalendar', true);
+
+		$actions = new FieldList(
+			FormAction::create("doDateFilter")->setTitle("Filter")->addExtraClass('btn btn-primary'),
+			FormAction::create("doDateReset")->setTitle("Clear")->addExtraClass('btn')
+		);
+
+		$form = new Form($this, 'DateRangeForm', $fields, $actions);
+		$form->loadDataFrom($this->request->getVars());
+		$form->setFormMethod('get');
+
+		return $form;
+	}
+
+	public function doDateFilter() {
+		$params = $this->parseParams();
+
+		// Build the link - keep the tag, but reset month, year and pagination.
+		$link = HTTP::setGetVar('from', $params['from'], $this->AbsoluteLink(), '&');
+		$link = HTTP::setGetVar('to', $params['to'], $link, '&');
+		if (isset($params['tag'])) $link = HTTP::setGetVar('tag', $params['tag'], $link, '&');
+
+		$this->redirect($link);
+	}
+
+	public function doDateReset() {
+		$params = $this->parseParams();
+
+		// Reset the link - only include the tag.
+		$link = $this->AbsoluteLink();
+		if (isset($params['tag'])) $link = HTTP::setGetVar('tag', $params['tag'], $link, '&');
+
+		$this->redirect($link);
 	}
 
 	public function rss() {

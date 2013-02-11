@@ -324,7 +324,6 @@ class BasePage_Controller extends ContentController {
 			'themes/module_bootstrap/js/bootstrap-carousel.js',
 			"$themeDir/js/general.js",
 			"$themeDir/js/express.js",
-			"$themeDir/js/forms.js"
 		);
 	}
 
