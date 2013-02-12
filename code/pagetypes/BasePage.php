@@ -358,18 +358,10 @@ class BasePage_Controller extends ContentController {
 		// Include base styles that are needed on all pages
 		$styles = $this->getBaseStyles();
 
-		// By media type - first, everything that's global
+		// Combine by media type.
 		Requirements::combine_files('styles.css', $styles['all']);
-
-		// then everything that's screen only
-		foreach ($styles['screen'] as $style) {
-			Requirements::css($style, 'screen');
-		}
-
-		// then everything that's print only
-		foreach ($styles['print'] as $style) {
-			Requirements::css($style, 'print');
-		}
+		Requirements::combine_files('screen.css', $styles['screen'], 'screen');
+		Requirements::combine_files('print.css', $styles['print'], 'print');
 
 		// Extra folder to keep the relative paths consistent when combining.
 		Requirements::set_combined_files_folder(ASSETS_DIR . '/_combinedfiles/cwp');
