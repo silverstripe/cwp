@@ -1,4 +1,4 @@
-# Developer Howto
+# Developer manual
 
 This how-to guides the Development Agency programmer through the general concepts applicable to the CWP platform.
 
@@ -334,3 +334,39 @@ Each night, `CleanupGeneratedPdfDailyTask` is run which removes all files found 
 This task can be run from the browser on demand by accessing `dev/tasks/CleanupGeneratedPdfBuildTask`.
 One example of where this is useful might be directly after deploying new templates to the site, so the cached
 PDF files can be regenerated with the new templates.
+
+## Adding JS and CSS files
+
+The *cwp* module is configured to combine all scripts and css where possible. This is accomplished in `BasePage::init`.
+Files to be combined are obtained by calling `BasePage::getBaseScripts` and `BasePage::getBaseStyles`.
+
+It is likely that you will want to customise the list of required CSS or JS files. Since the `Page` class inherits from
+the `BasePage`, you can simply override the getters. Here is an example for CSS to be included without any @media
+attribute:
+
+	:::php
+	public function getBaseStyles() {
+		$styles = parent::getBaseStyles();
+	
+		$themeDir = SSViewer::get_theme_folder();
+		array_push($styles['all'], "$themeDir/css/my.css");
+	
+		return $styles;
+	}
+
+Print and screen styles need to go into `$styles['print']` and `$styles['screen']` respectively, and they will be
+included as such.
+
+Here is an example of adjusting the list of JS files to be combined. We use `array_push` to have our custom script
+loaded last:
+
+	:::php
+	public function getBaseScripts() {
+		$scripts = parent::getBaseScripts();
+	
+		$themeDir = SSViewer::get_theme_folder();
+		array_push($scripts, "$themeDir/js/my.js");
+	
+		return $scripts;
+	}
+
