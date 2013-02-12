@@ -175,7 +175,7 @@ class EventHolder extends Page {
 	}
 
 	public function getSubscriptionTitle() {
-		return SiteConfig::current_site_config()->Title . ' events';
+		return $this->Title;
 	}
 
 }
@@ -409,7 +409,7 @@ class EventHolder_Controller extends Page_Controller {
 	}
 
 	public function rss() {
-		$rss = new RSSFeed($this->Children()->limit(20), $this->Link(), $this->getSubscriptionTitle());
+		$rss = new RSSFeed($this->Events()->limit(20), $this->Link(), $this->getSubscriptionTitle());
 		return $rss->outputToBrowser();
 	}
 }
