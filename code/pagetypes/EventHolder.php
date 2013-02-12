@@ -10,10 +10,6 @@ class EventHolder extends Page {
 
 	public $pageIcon =  'images/icons/sitetree_images/event_holder.png';
 
-	public function Children() {
-		return parent::Children()->exclude('ClassName', 'EventPage');
-	}
-
 	/**
 	 * Find all distinct tags (TaxonomyTerms) associated with the EventPages under this holder.
 	 */
