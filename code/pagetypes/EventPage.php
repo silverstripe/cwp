@@ -13,6 +13,7 @@ class EventPage extends Page {
 	public static $related_pages_title = 'Related Events';
 
 	static $db = array(
+		'Abstract' => 'HTMLText',
 		'Date' => 'SS_Datetime',
 	);
 
@@ -34,6 +35,10 @@ class EventPage extends Page {
 		$dateTimeField->getDateField()->setConfig('showcalendar', true);
 		$dateTimeField->getDateField()->setConfig('dateformat', Member::currentUser()->getDateFormat());
 		$dateTimeField->getTimeField()->setConfig('timeformat', Member::currentUser()->getTimeFormat());
+
+		$fields->addfieldToTab('Root.Main', $abstractField = new HTMLEditorField('Abstract'), 'Content');
+		$abstractField->addExtraClass('stacked');
+		$abstractField->setRows(15);
 
 		return $fields;
 	}
