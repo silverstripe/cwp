@@ -24,7 +24,7 @@ class EventHolder extends Page {
 	}
 
 	/**
-	 * Wrapper to find all event's belonging to this holder, based on some filters.
+	 * Wrapper to find all events belonging to this holder, based on some filters.
 	 */
 	public function Events($tagID = null, $dateFrom = null, $dateTo = null, $year = null, $monthNumber = null) {
 		return self::AllEvents($this->ID, $tagID, $dateFrom, $dateTo, $year, $monthNumber);
@@ -444,6 +444,18 @@ class EventHolder_Controller extends Page_Controller {
 		if (isset($params['tag'])) $link = HTTP::setGetVar('tag', $params['tag'], $link, '&');
 
 		$this->redirect($link);
+	}
+
+	public function anyFilters() {
+		$params = $this->parseParams();
+
+		foreach ($params as $key => $value) {
+			if ($value) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	public function rss() {
