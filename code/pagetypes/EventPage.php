@@ -32,7 +32,7 @@ class EventPage extends Page {
 
 		$fields->addFieldToTab('Root.Main', $dateTimeField = new DatetimeField('Date'), 'Content');
 		$dateTimeField->getDateField()->setConfig('showcalendar', true);
-		$dateTimeField->getTimeField()->setConfig('timeformat', Member::currentUser()->getDateFormat());
+		$dateTimeField->getDateField()->setConfig('dateformat', Member::currentUser()->getDateFormat());
 		$dateTimeField->getTimeField()->setConfig('timeformat', Member::currentUser()->getTimeFormat());
 
 		return $fields;
