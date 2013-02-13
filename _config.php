@@ -31,6 +31,11 @@ if (class_exists('Translatable')) {
 	Object::add_extension('SiteConfig', 'Translatable');
 }
 
+// set the system locale to en_GB. This also means locale dropdowns
+// and date formatting etc will default to this locale. Note there is no
+// English (New Zealand) option
+i18n::set_locale('en_GB');
+
 i18n::$common_locales['mi_NZ'][0] = 'Māori';
 i18n::$common_languages['mi'][0] = 'Māori';
 
