@@ -298,6 +298,7 @@ class BasePage_Controller extends ContentController {
 		}
 
 		$data = array(
+			'PdfLink' => '',
 			'Results' => $results,
 			'Suggestion' => $result->Suggestion,
 			'Query' => $form->getSearchQuery(),
