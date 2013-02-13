@@ -199,6 +199,44 @@ class EventHolder_Controller extends Page_Controller {
 		'DateRangeForm'
 	);
 
+	/**
+	 * Returns a customised title based on the filter parameters.
+	 */
+	public function getTitle() {
+		$params = $this->parseParams();
+
+		$filters = array();
+		if ($params['tag']) {
+			$filters[] = ' tagged with ' . TaxonomyTerm::get_by_id('TaxonomyTerm', $params['tag'])->Name;
+		}
+
+		if ($params['from'] || $params['to']) {
+			if ($params['from']) {
+				$from = strtotime($params['from']);
+				if ($params['to']) {
+					$to = strtotime($params['to']);
+					$filters[] = ' between ' . date('j/m/Y', $from) . ' and ' . date('j/m/Y', $to);
+				} else {
+					$filters[] = ' on ' . date('j/m/Y', $from);
+				}
+			} else {
+				$to = strtotime($params['to']);
+				$filters[] = ' on ' . date('j/m/Y', $to);
+			}
+		}
+
+		if ($params['year'] && $params['month']) {
+			$timestamp = mktime(1, 1, 1, $params['month'], 1, $params['year']);
+			$filters[] = ' in ' . date('F', $timestamp) . ' ' . $params['year'];
+		}
+
+		if ($filters) {
+			return 'Events ' . implode(' ', $filters);
+		}
+
+		return $this->dataRecord->getField('Title');
+	}
+
 	public function init() {
 		parent::init();
 
