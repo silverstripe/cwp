@@ -16,6 +16,8 @@ class BasePage extends SiteTree {
 
 	public static $generated_pdf_path = 'assets/_generated_pdfs';
 
+	public static $related_pages_title = 'Related Pages';
+
 	public $pageIcon = 'images/icons/sitetree_images/page.png';
 
 	static $many_many = array(
@@ -67,6 +69,10 @@ class BasePage extends SiteTree {
 
 	public function RelatedPages() {
 		return $this->getManyManyComponents('RelatedPages')->sort('SortOrder');
+	}
+
+	public function RelatedPagesTitle() {
+		return $this->stat('related_pages_title');
 	}
 
 	/**
