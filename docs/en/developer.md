@@ -370,3 +370,39 @@ loaded last:
 		return $scripts;
 	}
 
+## Configuring Solr locally
+
+Page search in CWP is done using an external Solr server, with the help of the *fulltextsearch* module. The default
+configuration allows developers to set up their machines quickly - it uses the "file" mode for communicating with the
+Solr server.
+
+To start the local server instance, from your website root do:
+
+	$ cd fulltextsearch/thirdparty/solr/server
+	$ java -jar start.jar
+
+The screen should start filling with server messages.
+
+Now you can create the configuration files in another terminal. Run the following from your website root:
+
+	$ framework/sake dev/tasks/Solr_configure
+
+And finally, reindex the pages on your website (this could take some time):
+
+	$ framework/sake dev/tasks/Solr_reindex
+
+You should be able to search your site now.
+
+### WebDAV mode
+
+If you wish to run the Solr through WebDAV (as we do on the live instances), you have to obtain the configuration
+parameters and then use the following configuration constants in your `_ss_environment.php`:
+
+	define('SOLR_SERVER', '<url>');
+	define('SOLR_PORT', '<port>');
+	define('SOLR_PATH', '<path>');
+	define('SOLR_MODE', 'webdav');
+	define('SOLR_INDEXSTORE_PATH', '<webdav_indexstore_path>');
+	define('SOLR_REMOTEPATH', '<webdav_indexstore_remote_path>');
+
+For further information about these options see the top of the `Solr.php` file in *fulltextsearch* module.
