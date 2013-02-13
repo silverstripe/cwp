@@ -163,6 +163,8 @@ class BasePage_Controller extends ContentController {
 	 */
 	public static $results_per_page = 10;
 
+	public static $search_index_class = 'SolrSearchIndex';
+
 	/**
 	 * Serve the page rendered as PDF.
 	 */
@@ -276,31 +278,31 @@ class BasePage_Controller extends ContentController {
 
 		$query->search($form->getSearchQuery());
 
-		$result = singleton('SolrSearchIndex')->search(
-			$query,
-			$start,
-			$limit,
-			array(
-				'spellcheck' => 'true',
-				'spellcheck.collate' => 'true'
-			)
-		);
+		$results = new ArrayList();
+		$suggestion = null;
 
-		$results = $result->Matches;
+		try {
+			$result = singleton(self::$search_index_class)->search(
+				$query,
+				$start,
+				$limit,
+				array(
+					'hl' => 'true',
+					'spellcheck' => 'true',
+					'spellcheck.collate' => 'true'
+				)
+			);
 
-		// Add context summaries based on the queries.
-		foreach ($results as $result) {
-			$contextualTitle = new Text();
-			$contextualTitle->setValue($result->MenuTitle ? $result->MenuTitle : $result->Title);
-
-			$result->ContextualTitle = $contextualTitle->ContextSummary(300, $form->getSearchQuery());
-			$result->ContextualContent = $result->obj('Content')->ContextSummary(300, $form->getSearchQuery());
+			$results = $result->Matches;
+			$suggestion = $result->Suggestion;
+		} catch(Exception $e) {
+			SS_Log::log($e, SS_Log::WARN);
 		}
 
 		$data = array(
 			'PdfLink' => '',
 			'Results' => $results,
-			'Suggestion' => $result->Suggestion,
+			'Suggestion' => $suggestion,
 			'Query' => $form->getSearchQuery(),
 			'Title' => _t('SearchForm.SearchResults', 'Search Results')
 		);
