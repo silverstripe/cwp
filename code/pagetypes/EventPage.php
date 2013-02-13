@@ -14,7 +14,9 @@ class EventPage extends Page {
 
 	static $db = array(
 		'Abstract' => 'HTMLText',
-		'Date' => 'SS_Datetime',
+		'Date' => 'Date',
+		'StartTime' => 'Time',
+		'EndTime' => 'Time',
 	);
 
 	/**
@@ -24,17 +26,35 @@ class EventPage extends Page {
 		parent::populateDefaults();
 
 		if(!isset($this->Date) || $this->Date === null) {
-			$this->Date = SS_Datetime::now()->Format('Y-m-d H:i:s');
+			$this->Date = SS_Datetime::now()->Format('Y-m-d');
+		}
+
+		if(!isset($this->StartTime) || $this->StartTime === null) {
+			$this->EndTime = '09:00:00';
+		}
+
+		if(!isset($this->EndTime) || $this->EndTime === null) {
+			$this->EndTime = '17:00:00';
 		}
 	}
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-		$fields->addFieldToTab('Root.Main', $dateTimeField = new DatetimeField('Date'), 'Content');
-		$dateTimeField->getDateField()->setConfig('showcalendar', true);
-		$dateTimeField->getDateField()->setConfig('dateformat', Member::currentUser()->getDateFormat());
-		$dateTimeField->getTimeField()->setConfig('timeformat', Member::currentUser()->getTimeFormat());
+		$dateTimeFields = array();
+
+		$dateTimeFields[] = $dateField = new DateField('Date', '');
+		$dateField->setConfig('showcalendar', true);
+		$dateField->setConfig('dateformat', Member::currentUser()->getDateFormat());
+
+		$dateTimeFields[] = $startTimeField = new TimeField('StartTime');
+		$startTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
+
+		$dateTimeFields[] = $endTimeField = new TimeField('EndTime');
+		$endTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
+
+		$fields->addfieldToTab('Root.Main', $dateTimeField = new FieldGroup('Date and time', $dateTimeFields), 'Content');
+		//$dateTimeField->setColumnCount(3);
 
 		$fields->addfieldToTab('Root.Main', $abstractField = new HTMLEditorField('Abstract'), 'Content');
 		$abstractField->addExtraClass('stacked');
