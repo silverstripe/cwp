@@ -30,7 +30,7 @@ class EventPage extends Page {
 		}
 
 		if(!isset($this->StartTime) || $this->StartTime === null) {
-			$this->EndTime = '09:00:00';
+			$this->StartTime = '09:00:00';
 		}
 
 		if(!isset($this->EndTime) || $this->EndTime === null) {
@@ -47,14 +47,14 @@ class EventPage extends Page {
 		$dateField->setConfig('showcalendar', true);
 		$dateField->setConfig('dateformat', Member::currentUser()->getDateFormat());
 
-		$dateTimeFields[] = $startTimeField = new TimeField('StartTime');
-		$startTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
-
+		$dateTimeFields[] = $startTimeField = new TimeField('StartTime', '&nbsp;&nbsp;Start Time');
 		$dateTimeFields[] = $endTimeField = new TimeField('EndTime');
-		$endTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
+		// Would like to do this, but the width of the form field doesn't scale based on the time
+		// format. OS ticket raised: http://open.silverstripe.org/ticket/8260
+		//$startTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
+		//$endTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
 
 		$fields->addfieldToTab('Root.Main', $dateTimeField = new FieldGroup('Date and time', $dateTimeFields), 'Content');
-		//$dateTimeField->setColumnCount(3);
 
 		$fields->addfieldToTab('Root.Main', $abstractField = new HTMLEditorField('Abstract'), 'Content');
 		$abstractField->addExtraClass('stacked');
