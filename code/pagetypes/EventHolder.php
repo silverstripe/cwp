@@ -200,14 +200,14 @@ class EventHolder_Controller extends Page_Controller {
 	);
 
 	/**
-	 * Returns a customised title based on the filter parameters.
+	 * Returns a description of the current filter
 	 */
-	public function getTitle() {
+	public function FilterDescription() {
 		$params = $this->parseParams();
 
 		$filters = array();
 		if ($params['tag']) {
-			$filters[] = ' tagged with ' . TaxonomyTerm::get_by_id('TaxonomyTerm', $params['tag'])->Name;
+			$filters[] = 'tagged with "' . TaxonomyTerm::get_by_id('TaxonomyTerm', $params['tag'])->Name . '"';
 		}
 
 		if ($params['from'] || $params['to']) {
@@ -215,26 +215,24 @@ class EventHolder_Controller extends Page_Controller {
 				$from = strtotime($params['from']);
 				if ($params['to']) {
 					$to = strtotime($params['to']);
-					$filters[] = ' between ' . date('j/m/Y', $from) . ' and ' . date('j/m/Y', $to);
+					$filters[] = 'between ' . date('j/m/Y', $from) . ' and ' . date('j/m/Y', $to);
 				} else {
-					$filters[] = ' on ' . date('j/m/Y', $from);
+					$filters[] = 'on ' . date('j/m/Y', $from);
 				}
 			} else {
 				$to = strtotime($params['to']);
-				$filters[] = ' on ' . date('j/m/Y', $to);
+				$filters[] = 'on ' . date('j/m/Y', $to);
 			}
 		}
 
 		if ($params['year'] && $params['month']) {
 			$timestamp = mktime(1, 1, 1, $params['month'], 1, $params['year']);
-			$filters[] = ' in ' . date('F', $timestamp) . ' ' . $params['year'];
+			$filters[] = 'in ' . date('F', $timestamp) . ' ' . $params['year'];
 		}
 
 		if ($filters) {
 			return 'Events ' . implode(' ', $filters);
 		}
-
-		return $this->dataRecord->getField('Title');
 	}
 
 	public function init() {
@@ -444,18 +442,6 @@ class EventHolder_Controller extends Page_Controller {
 		if (isset($params['tag'])) $link = HTTP::setGetVar('tag', $params['tag'], $link, '&');
 
 		$this->redirect($link);
-	}
-
-	public function anyFilters() {
-		$params = $this->parseParams();
-
-		foreach ($params as $key => $value) {
-			if ($value) {
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	public function rss() {
