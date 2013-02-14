@@ -13,7 +13,7 @@ class EventPage extends Page {
 	public static $related_pages_title = 'Related Events';
 
 	static $db = array(
-		'Abstract' => 'HTMLText',
+		'Abstract' => 'Text',
 		'Date' => 'Date',
 		'StartTime' => 'Time',
 		'EndTime' => 'Time',
@@ -55,10 +55,16 @@ class EventPage extends Page {
 		//$endTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
 
 		$fields->addfieldToTab('Root.Main', $dateTimeField = new FieldGroup('Date and time', $dateTimeFields), 'Content');
+		
+		$abstractContainer = new ToggleCompositeField('Abstract', 'Abstract', array($abstractField = new TextareaField('Abstract', '')));
+		$abstractContainer->setHeadingLevel(4);
 
-		$fields->addfieldToTab('Root.Main', $abstractField = new HTMLEditorField('Abstract'), 'Content');
+		$fields->addfieldToTab('Root.Main', $abstractContainer, 'Content');
+
 		$abstractField->addExtraClass('stacked');
-		$abstractField->setRows(15);
+		$abstractField->setRows(10);
+		$abstractField->setRightTitle('This is displayed in the event listing pages instead of the first two sentences of content.');
+		$abstractField->addExtraClass('help');
 
 		return $fields;
 	}
