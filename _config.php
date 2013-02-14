@@ -64,6 +64,7 @@ if(class_exists('Solr')) {
 		'path' => defined('SOLR_PATH') ? SOLR_PATH : '/solr/',
 		'indexstore' => array(
 			'mode' => defined('SOLR_MODE') ? SOLR_MODE : 'file',
+			'auth' => defined('SOLR_AUTH') ? SOLR_AUTH : NULL,
 			// Allow storing the solr index and config data in an arbitrary location,
 			// e.g. outside of the webroot
 			'path' => defined('SOLR_INDEXSTORE_PATH') ? SOLR_INDEXSTORE_PATH : BASE_PATH . '/.solr',
