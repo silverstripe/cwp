@@ -53,6 +53,8 @@ class EventPage extends Page {
 		// format. OS ticket raised: http://open.silverstripe.org/ticket/8260
 		//$startTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
 		//$endTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
+		$startTimeField->setConfig('timeformat', 'h:ma');
+		$endTimeField->setConfig('timeformat', 'h:ma');
 
 		$fields->addfieldToTab('Root.Main', $dateTimeField = new FieldGroup('Date and time', $dateTimeFields), 'Content');
 		
