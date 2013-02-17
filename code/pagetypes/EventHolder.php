@@ -407,7 +407,7 @@ class EventHolder_Controller extends Page_Controller {
 		$dateTo->setConfig('showcalendar', true);
 
 		$actions = new FieldList(
-			FormAction::create("doDateFilter")->setTitle("Filter")->addExtraClass('btn primary'),
+			FormAction::create("doDateFilter")->setTitle("Filter")->addExtraClass('btn btn-primary primary'),
 			FormAction::create("doDateReset")->setTitle("Clear")->addExtraClass('btn')
 		);
 
