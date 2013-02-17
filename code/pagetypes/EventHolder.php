@@ -207,7 +207,10 @@ class EventHolder_Controller extends Page_Controller {
 
 		$filters = array();
 		if ($params['tag']) {
-			$filters[] = 'tagged with "' . TaxonomyTerm::get_by_id('TaxonomyTerm', $params['tag'])->Name . '"';
+			$term = TaxonomyTerm::get_by_id('TaxonomyTerm', $params['tag']);
+			if ($term) {
+				$filters[] = 'tagged with "' . $term->Name . '"';
+			}
 		}
 
 		if ($params['from'] || $params['to']) {
