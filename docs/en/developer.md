@@ -422,6 +422,7 @@ This `DataObject` class has the minimum code necessary to allow it to be viewed 
 `Link()` will return a URL for where a user goes to view the data in more detail in the search results.
 `Name` will be used as the result title, and `Abstract` the summary of the staff member which will show under the
 search result title.
+`getShowInSearch` is required to get the record to show in search, since all results are filtered by `ShowInSearch`.
 
 So with that, let's create a new class called `MySolrSearchIndex`:
 
@@ -435,7 +436,7 @@ So with that, let's create a new class called `MySolrSearchIndex`:
 			$this->addAllFulltextFields();
 			$this->addFilterField('ShowInSearch');
 		}
-
+		
 	}
 
 This is a copy/paste of the existing configuration but with the addition of `StaffMember`.
