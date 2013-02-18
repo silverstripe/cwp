@@ -412,7 +412,7 @@ So, let's take an example of `StaffMember`:
 			return Controller::join_links('my-controller', $action, $this->ID);
 		}
 		
-		public function getShowInSeearch() {
+		public function getShowInSearch() {
 			return 1;
 		}
 	}
