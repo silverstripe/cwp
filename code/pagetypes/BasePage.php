@@ -273,36 +273,40 @@ class BasePage_Controller extends ContentController {
 	public function results($data, $form, $request) {
 		$start = isset($data['start']) ? $data['start'] : 0;
 		$limit = self::$results_per_page;
-
-		$query = new SearchQuery();
-		$query->classes = array(
-			array(
-				'class' => 'Page',
-				'includeSubclasses' => true
-			)
-		);
-
-		$query->search($form->getSearchQuery());
-
 		$results = new ArrayList();
 		$suggestion = null;
+		$keywords = $form->getSearchQuery();
 
-		try {
-			$result = singleton(self::$search_index_class)->search(
-				$query,
-				$start,
-				$limit,
+		if($keywords) {
+			$query = new SearchQuery();
+			$query->classes = array(
 				array(
-					'hl' => 'true',
-					'spellcheck' => 'true',
-					'spellcheck.collate' => 'true'
+					'class' => 'Page',
+					'includeSubclasses' => true
 				)
 			);
 
-			$results = $result->Matches;
-			$suggestion = $result->Suggestion;
-		} catch(Exception $e) {
-			SS_Log::log($e, SS_Log::WARN);
+			$query->filter('SiteTree_ShowInSearch', '1');
+
+			$query->search($keywords);
+
+			try {
+				$result = singleton(self::$search_index_class)->search(
+					$query,
+					$start,
+					$limit,
+					array(
+						'hl' => 'true',
+						'spellcheck' => 'true',
+						'spellcheck.collate' => 'true'
+					)
+				);
+
+				$results = $result->Matches;
+				$suggestion = $result->Suggestion;
+			} catch(Exception $e) {
+				SS_Log::log($e, SS_Log::WARN);
+			}
 		}
 
 		$data = array(
