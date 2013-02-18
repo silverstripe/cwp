@@ -406,3 +406,12 @@ parameters and then use the following configuration constants in your `_ss_envir
 	define('SOLR_REMOTEPATH', '<webdav_indexstore_remote_path>');
 
 For further information about these options see the top of the `Solr.php` file in *fulltextsearch* module.
+
+## Related Pages
+
+For each page, editors can define a list of other related pages. By default these are shown in a list at the bottom of
+every page. In the templates this is all handled by including `RelatedPages.ss`. You can customise this by looping over
+the page control `RelatedPages`, this will provide you with a Page object from which you can read `Title`, `Link`, etc.
+
+The title defaults to "Related Pages". For any page type you can override this by defining a static variable called
+`$related_pages_title`. You can see this in action in `EventPage.php`.
