@@ -172,6 +172,17 @@ class BasePage_Controller extends ContentController {
 	public static $search_index_class = 'SolrSearchIndex';
 
 	/**
+	 * Which classes should be queried when searching?
+	 * @var array
+	 */
+	public static $classes_to_search = array(
+		array(
+			'class' => 'Page',
+			'includeSubclasses' => true
+		)
+	);
+
+	/**
 	 * Serve the page rendered as PDF.
 	 */
 	public function downloadpdf() {
@@ -279,15 +290,7 @@ class BasePage_Controller extends ContentController {
 
 		if($keywords) {
 			$query = new SearchQuery();
-			$query->classes = array(
-				array(
-					'class' => 'Page',
-					'includeSubclasses' => true
-				)
-			);
-
-			$query->filter('SiteTree_ShowInSearch', '1');
-
+			$query->classes = self::$classes_to_search;
 			$query->search($keywords);
 
 			try {
@@ -307,6 +310,10 @@ class BasePage_Controller extends ContentController {
 			} catch(Exception $e) {
 				SS_Log::log($e, SS_Log::WARN);
 			}
+		}
+
+		foreach($results as $result) {
+			if(!$result->ShowInSearch) $results->remove($result);
 		}
 
 		$data = array(
