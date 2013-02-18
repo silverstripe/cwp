@@ -12,6 +12,10 @@ class EventPage extends Page {
 
 	public static $related_pages_title = 'Related Events';
 
+	static $defaults = array(
+		'ShowInMenus' => false
+	);
+
 	static $db = array(
 		'Abstract' => 'Text',
 		'Date' => 'Date',
