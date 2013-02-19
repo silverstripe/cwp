@@ -1,7 +1,7 @@
 # Gitlab Setup
 
 This documentation describes how to setup Git in your local development environment, and how to access the Gitlab admin
-interface for managing Git repositories.
+interface for managing code repositories.
 
 It's assumed you're familiar with Git. If not, we recommend reading through tutorials on using Git, available online.
 The [Pro Git](http://git-scm.com/book) book is a good reference to start with.
