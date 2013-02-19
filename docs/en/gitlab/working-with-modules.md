@@ -1,6 +1,6 @@
 # Working with modules
 
-Public (or private) modules are available as separate repositories (projects) within the GitLabs. They can be included
+Public (or private) modules are available as separate repositories (projects) within the Gitlab. They can be included
 then in any other projects through Composer. For more information about Composer usage with SilverStripe see
 [Installing and Upgrading with Composer](http://doc.silverstripe.org/framework/en/installation/composer).
 
@@ -44,7 +44,7 @@ requirement):
 
 <div class="notice" markdown='1'>
 The first part of the "name" in the `composer.json` file constitutes a namespace - please use the same namespace that
-you are using in Gitlabs, to distinguish between the officially supported CWP modules (that reside in the "cwp"
+you are using in Gitlab, to distinguish between the officially supported CWP modules (that reside in the "cwp"
 namespace) and private modules.
 </div>
 
