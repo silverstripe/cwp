@@ -1,9 +1,9 @@
-# Sharing Repositories With Others
+# Sharing reposiories with others
 
 This how-to will show you how to share a repository with other Gitlab users. This could be used for etiher collaborative
 development, or simply sharing files.
 
-## Allow Others to View Your Repositories
+## Allow others to view your repositories
 
 You can add any user of the Gitlab site to one of your repositories.
 
