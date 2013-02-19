@@ -6,7 +6,6 @@
 		"composer/installers": "*",
 		"silverstripe/cms": ">=3.0",
 		"silverstripe/framework": ">=3.0",
-		"cwp-themes/default": "dev-master",
 		"silverstripe/iframe": "*",
 		"silverstripe/testdata": "*",
 		"silverstripe/translatable": "*",
