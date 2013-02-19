@@ -2,18 +2,20 @@
 
 This how-to guides the Development Agency programmer through the general concepts applicable to the CWP platform.
 
-## Recipes
+## Starting out with SilverStripe CMS/Framework
 
-The CWP platform comes with template projects that contain all the elements of the basic site. For the purpose of this
-how-to we will be using a *basic* recipe. These recipes can be copied ("forked") to quickly create your own project.
+The best way to start with SilverStripe is to read through
+[tutorials](http://doc.silverstripe.org/framework/en/tutorials) found in the SilverStripe documentation.
 
-## Forking a project
-
-TODO
+These tutorials will guide you through basic concepts of the CMS, and how to extend the default functionality creating
+new page types, additional fields and more.
 
 ## Preparing developer's environment
 
-Once you have your project set up, you can install it on your development machine.
+First start with [Gitlab setup](gitlab/gitlab-setup) documentation which describes setting up Git and accessing
+Gitlab to manage your code repositories on the CWP platform.
+
+TODO: The rest here needs to be explained further when starting from scratch:
 
 CWP is installed with the Composer PHP package management tool. To learn about the Composer, visit the
 [SilverStripe Composer documentation](http://doc.silverstripe.org/framework/en/installation/composer) or read the
@@ -28,13 +30,10 @@ You should also have a working `_ss_environment.php` file in or above the webroo
 Documentation on [setting up your environment](framework/en/topics/environment-management)
 file can be found in the SilverStripe documentation.
 
-## Starting out with SilverStripe
+## Recipes
 
-The best way to start with SilverStripe is to read through
-[tutorials](http://doc.silverstripe.org/framework/en/tutorials) found in the SilverStripe documentation.
-
-These tutorials will guide you through basic concepts of the CMS, and how to extend the default functionality creating
-new page types, additional fields and more.
+The CWP platform comes with template projects that contain all the elements of the basic site. For the purpose of this
+how-to we will be using a *basic* recipe. These recipes can be copied ("forked") to quickly create your own project.
 
 ## Working with the *default* theme
 
