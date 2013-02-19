@@ -1,35 +1,93 @@
-# Gitlab Setup 
+# Gitlab Setup
 
-This how to is intended for the development agencies. It details the initial process you should follow to configure your Gitlab repository.
+This documentation describes how to setup Git in your local development environment, and how to access the Gitlab admin
+interface for managing Git repositories.
 
-It's assumed that the reader is familiar with Git. If not, we recommend first going through one of the many tutorials available online. The [Pro Git](http://git-scm.com/book) book is a good reference freely available online.
+It's assumed you're familiar with Git. If not, we recommend reading through tutorials on using Git, available online.
+The [Pro Git](http://git-scm.com/book) book is a good reference to start with.
 
+## Accessing Gitlab
 
-## Your Gitlab Repository
+Gitlab is available by accessing [http://gitlab.cwp.govt.nz](http://gitlab.cwp.govt.nz).
 
-When an instance is created you will be given a primary repository on the Gitlab server for the project.
+Once you're there, you'll be asked for an email and password. These details should've been emailed to you, so you can
+enter these details now to access Gitlab.
 
-During the deployment process, the UAT and production servers will retrieve the code from the primary repository so all code changes need to be pushed to the primary repository before they can be deployed to the UAT and Production servers.
+## Installing Git
 
-## Configure Your Gitlab Profile and Primary Repository
+If you're on Mac OS X, Git is already installed.
 
-Once you've logged in to your Gitlab account (your password would've been e-mailed to your given e-mail address) then you should
+Depending on your flavour of Linux, the package manager should have Git available so you can install it.
+On Debian or Ubuntu Linux `apt-get install git` should be enough to get you started.
 
-* Verify your profile details are correct
-* Setup your global user name and e-mail
+Windows is a bit trickier, but fortunately there's a third-party application [mysysgit](http://code.google.com/p/msysgit)
+which provides Git support on Windows.
+
+## Create an SSH public key
+
+Git uses SSH keys for authorisation of users.
+
+Check you don't already have an SSH public key by opening `~/your_username/.ssh/id_rsa.pub`.
+If the file exists, you already have one, in which case you can skip this step. If not, let's create one:
+
+	ssh-keygen -t rsa "your_email@youremail.com"
+
+You can press enter to all prompts as defaults, and it's recommended you enter a passphrase for security.
+
+Once that's done, you'll have a new file at `~/your_username/.ssh/id_rsa.pub`, this contains your key.
+
+## Entering your SSH key into Gitlab
+
+Your SSH key needs to be entered into Gitlab so you have authorisation to checkout and commit code to your
+repositories. Let's do that now.
+
+![Enter SSH key](_images/gitlab-ssh-key.jpg)
+
+Hover over your avatar icon in the top right of Gitlab and click **My profile** that pops up.
+
+Now we're in your user profile. Click **Add Public Key**
+
+Enter a name for the key in the **Title** field, this will help you identify the key. It's especially useful if you
+have multiple development environments with different SSH keys. A good example might be your username and the name
+of the computer.
+
+Enter the contents of the `~/your_username/.ssh/id_rsa.pub` file into the **Key** field
+
+Hit **Save**.
+
+## Configuring Git
+
+Setup your global user name and e-mail:
+
 	git config --global user.name "<Your Name>"
 	git config --global user.email "<Your E-mail Address"
-* Add your public SSH key(s)
-* Ensure that the correct starting point exists (with the default CWP or CMS recipe)
-* Checkout the primary repository on your local/dev computer
-	git checkout git@gitlabserver.cwp.govt.nz:<User>/<Primary-Repo>.git <Primary-Repo>
-* Create your new LICENSE file
-* Commit and push the LICENSE file to the primary repository
-	git add LICENSE
-	git commit -m "Project License"
-	git push -u origin master
-* Check the README file, commit and push any changes which are required to the primary repository
+
+These will identify you in code commits.
+
+## Checking out your repository
+
+When given access to Gitlab you should have access to a single project to start with.
+
+![Gitlab projects](_images/gitlab-projects.jpg)
+
+The above screenshot shows where you can find your projects. Access your project
+to get a screen with more details on that project, including the repository URL:
+
+![Gitlab project repository URL](_images/gitlab-project-repo-url.jpg)
+
+Now that you have the URL, you can check it out into your environment with the following command:
+
+	git checkout <url> /path/to/webroot/myproject
+
+Replace `/path/to...` with the path on your computer where you wish to store the project code.
+
+## Your first commit to the repository
+
+Create a new empty README file and commit it:
+
 	git add README
-	git commit -m 'My Commit'
+	git commit -m 'Adding README file'
 	git push -u origin master
+
+You've just done your first commit. Congratulations!
 
