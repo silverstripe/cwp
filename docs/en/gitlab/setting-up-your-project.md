@@ -36,7 +36,7 @@ Now that the remote is setup, we can pull the "recipes-basic" code:
 
 A bunch of code should now reside in the directory you're in.
 
- * Edit `composer.json`, find the **name** entry and change it so it's in the format of "your-agency/basic"
+ * Edit `composer.json`, find the **name** entry and change it so it's in the format of "my-agency/basic"
  * Edit `composer.json`, remove the "cwp-themes/default" line from the **require** list
  * Edit the `.gitignore` file and remove the "themes/" line
 
@@ -73,3 +73,6 @@ Custom code should be added and committed to the `mysite` directory, such as pag
 
 `themes/default` is the theme folder you'll be doing your template work, adding templates, adjusting CSS, etc.
 
+## Including or creating a module in your project
+
+See [Working with modules](../gitlab/working-with-modules)
