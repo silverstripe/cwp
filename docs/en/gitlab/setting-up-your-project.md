@@ -89,7 +89,7 @@ Now when you jump into Gitlab **Dashboard**, you'll see a commit from yourself "
 
 `mysite` should contain your custom project code, such as page types, PHP files etc.
 
-`themes/default` is the theme folder you'll be doing your template work, adding templates, adjusting CSS, etc.
+`themes/my-theme` is the theme folder you'll be doing your template work, adding templates, adjusting CSS, etc.
 
 The rest of the folders in a project are Composer managed. See [Working with modules](../gitlab/working-with-modules) for more
 information.
