@@ -244,7 +244,7 @@ by removing the `--print-media-type` parameter to `wkhtmltopdf`.
 
 ### Limitations
 
-Draft content cannot be exported to PDF, due to the fact that generated PDF files are publically accessible by anyone
+Draft content cannot be exported to PDF, due to the fact that generated PDF files are publicly accessible by anyone
 viewing the website, there are no permission checks when accessing files directly in the browser.
 
 ### Installation
