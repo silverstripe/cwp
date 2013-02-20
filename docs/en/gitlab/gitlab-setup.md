@@ -38,6 +38,8 @@ Once that's done, you'll have a new file at `~/your_username/.ssh/id_rsa.pub`, t
 
 ## Entering your SSH key into Gitlab
 
+Upon accessing Gitlab, you'll find a **Dashboard** page containing a summary of activity.
+
 Your SSH key needs to be entered into Gitlab so you have authorisation to checkout and commit code to your
 repositories. Let's do that now.
 
@@ -45,11 +47,9 @@ repositories. Let's do that now.
 
 Hover over your avatar icon in the top right of Gitlab and click **My profile** that pops up.
 
-Now we're in your user profile. Click **Add Public Key**
+You'll find yourself in the **Profile** page where you can edit your Gitlab profile details.
 
-Enter a name for the key in the **Title** field, this will help you identify the key. It's especially useful if you
-have multiple development environments with different SSH keys. A good example might be your username and the name
-of the computer.
+Hit **Add Public Key**.
 
 Enter the contents of the `~/your_username/.ssh/id_rsa.pub` file into the **Key** field
 
@@ -66,16 +66,15 @@ These will identify you in code commits.
 
 ## Checking out your repository
 
-When given access to Gitlab you should have access to a single project to start with.
+When accessing Gitlab, you'll see a page like this. On the right hand side is a listing of your projects you have
+access to. Access a project from here to find more information including the repository details:
 
 ![Gitlab projects](_images/gitlab-projects.jpg)
 
-The above screenshot shows where you can find your projects. Access your project
-to get a screen with more details on that project, including the repository URL:
-
 ![Gitlab project repository URL](_images/gitlab-project-repo-url.jpg)
 
-Now that you have the URL, you can check it out into your environment with the following command:
+Now that you have the repository URL for the project, you can check it out into your environment with the following
+command:
 
 	git checkout <url> /path/to/webroot/myproject
 
@@ -83,11 +82,20 @@ Replace `/path/to...` with the path on your computer where you wish to store the
 
 ## Your first commit to the repository
 
+`cd` into the path where you checked out your repository.
+
 Create a new empty README file and commit it:
 
 	git add README
 	git commit -m 'Adding README file'
 	git push -u origin master
 
-You've just done your first commit. Congratulations!
+You've just pushed your first commit to Gitlab. Congratulations!
+
+If you go back to the project page in Gitlab, and access the **Commits** tab you'll see your change.
+
+## Where to from here?
+
+[Setting up your project](../gitlab/setting-up-your-project) documentation will help you get started setting up
+SilverStripe CMS and framework code, along with default templates.
 
