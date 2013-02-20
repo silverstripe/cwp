@@ -50,8 +50,8 @@ namespace) and private modules.
 
 After your module is running and tested, you can publish it. Since your module is a self-contained piece of software, it
 will constitute a project in itself. From your module directory follow the instructions at [Creating
-repositories](../gitlab/creating-repositories). Once the module is pushed upstream (`git push -u origin master`) it
-will be available for others to install.
+repositories](../gitlab/creating-repositories). Once the module is pushed to the repository
+(`git push -u origin master`) it will be available for others to install.
 
 Check out instructions at [Sharing repositories](../gitlab/sharing-repositories) on how to control module access
 settings.
