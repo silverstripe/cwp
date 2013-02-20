@@ -10,8 +10,6 @@ class EventPage extends Page {
 
 	public $pageIcon =  'images/icons/sitetree_images/event_page.png';
 
-	public static $related_pages_title = 'Related Events';
-
 	static $defaults = array(
 		'ShowInMenus' => false
 	);
