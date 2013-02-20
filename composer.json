@@ -7,7 +7,6 @@
 		"silverstripe/cms": ">=3.0",
 		"silverstripe/framework": ">=3.0",
 		"silverstripe/iframe": "*",
-		"silverstripe/testdata": "*",
 		"silverstripe/translatable": "*",
 		"silverstripe/userforms": "*",
 		"silverstripe/versionedfiles": "*",
