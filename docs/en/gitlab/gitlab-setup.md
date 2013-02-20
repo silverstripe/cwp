@@ -11,30 +11,35 @@ The [Pro Git](http://git-scm.com/book) book is a good reference to start with.
 Gitlab is available by accessing [http://gitlab.cwp.govt.nz](http://gitlab.cwp.govt.nz).
 
 Once you're there, you'll be asked for an email and password. These details should've been emailed to you, so you can
-enter these details now to access Gitlab.
+enter these details now.
 
 ## Installing Git
 
-If you're on Mac OS X, Git is already installed.
+If you're on Mac OS X, one way to get Git installed is to get Xcode with command line tools component included. Git will
+be included in that package.
 
-Depending on your flavour of Linux, the package manager should have Git available so you can install it.
-On Debian or Ubuntu Linux `apt-get install git` should be enough to get you started.
+On Linux, depending on your flavour, the package manager should have Git available so you can install it.  On Debian or
+Ubuntu Linux `apt-get install git` should be enough to get you started.
 
-Windows is a bit trickier, but fortunately there's a third-party application [mysysgit](http://code.google.com/p/msysgit)
-which provides Git support on Windows.
+On Windows install [mysysgit](http://msysgit.github.com/) which provides Git support on Windows.
 
 ## Create an SSH public key
 
-Git uses SSH keys for authorisation of users.
+Git uses public-key cryptography for authorisation of users. You will need to generate a key pair for use with your
+Gitlab account.
 
-Check you don't already have an SSH public key by opening `~/your_username/.ssh/id_rsa.pub`.
-If the file exists, you already have one, in which case you can skip this step. If not, let's create one:
+Start by checking if you don't already have a public key by opening `~/.ssh/id_rsa.pub`.  If the file exists, you
+already have one, in which case you can skip this step. If not, let's create one:
 
-	ssh-keygen -t rsa "your_email@youremail.com"
+	$ ssh-keygen -t rsa "your_email@youremail.com"
 
-You can press enter to all prompts as defaults, and it's recommended you enter a passphrase for security.
+You can leave default answers to most of the questions, but we recommend selecting a passphrase for your key.
 
-Once that's done, you'll have a new file at `~/your_username/.ssh/id_rsa.pub`, this contains your key.
+Once that's done, you'll have two new files at `~/.ssh`. `id_rsa` contains your private key and should be kept secret.
+`id_rsa.pub` is your public key and should be used with Gitlab.
+
+Installing msysgit on Windows will give you access to `ssh-keygen.exe` programme that works similarly to the Unix/Linux
+variant.
 
 ## Entering your SSH key into Gitlab
 
@@ -47,7 +52,7 @@ repositories. Click the **Add Public Key** button.
 
 ![Enter SSH key](_images/gitlab-ssh-key.jpg)
 
-Enter the contents of `~/your_username/.ssh/id_rsa.pub` into the **Key** field
+Enter the contents of your public key (`~/.ssh/id_rsa.pub`) into the **Key** field.
 
 Hit **Save**.
 
