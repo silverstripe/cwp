@@ -485,7 +485,5 @@ The title defaults to "Related Pages". For any page type you can override this b
 
 	class StaffMemberPage extends Page {
 		public static $related_pages_title = 'Offices';
-
 		...
-		
 	}
