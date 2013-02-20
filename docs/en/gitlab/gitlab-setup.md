@@ -40,18 +40,14 @@ Once that's done, you'll have a new file at `~/your_username/.ssh/id_rsa.pub`, t
 
 Upon accessing Gitlab, you'll find a **Dashboard** page containing a summary of activity.
 
+Open up **Profile** by hoving over your avatar and accessing **My profile**
+
 Your SSH key needs to be entered into Gitlab so you have authorisation to checkout and commit code to your
-repositories. Let's do that now.
+repositories. Click the **Add Public Key** button.
 
 ![Enter SSH key](_images/gitlab-ssh-key.jpg)
 
-Hover over your avatar icon in the top right of Gitlab and click **My profile** that pops up.
-
-You'll find yourself in the **Profile** page where you can edit your Gitlab profile details.
-
-Hit **Add Public Key**.
-
-Enter the contents of the `~/your_username/.ssh/id_rsa.pub` file into the **Key** field
+Enter the contents of `~/your_username/.ssh/id_rsa.pub` into the **Key** field
 
 Hit **Save**.
 

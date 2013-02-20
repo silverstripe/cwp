@@ -2,19 +2,18 @@
 
 [Gitlab Setup](../gitlab/gitlab-setup) described setting up your development environment to work with Gitlab.
 
+Now we'll describe how to setup your project code in that repository.
+
 We use [Composer](http://getcomposer.org) as the package manager for SilverStripe CMS/framework and modules.
+[Installing and Upgrading with Composer](http://doc.silverstripe.org/framework/en/installation/composer) describes
+how to install Composer in your development environment.
 
-[Installing and Upgrading with Composer](http://doc.silverstripe.org/framework/en/installation/composer) in the
-SilverStripe documentation describes how to install Composer in your development environment. You'll need Composer
-to setup your project code.
+## Starting with some useful project code
 
-## Getting basic code into your project
+Gitlab contains some public repositories with code to help you get started. Rather than start from scratch, you can have
+a basic website up and running in little time.
 
-In CWP we have a concept of a project recipe. It's much like how you'd think a recipe is, where you have ingredients
-that are combined to form a complete project. In this case, the ingredients are packages defined in `composer.json`
-that Composer uses when you run `composer update`. This will be explained in more detail as we walk through the process.
-
-This assumes you've been given a project that has no code. Except for maybe a README file.
+This assumes you've been given a project that has no code in it. Except for maybe a README file.
 
 First of all, let's change directory into the project repository we setup in [Gitlab Setup](../gitlab/gitlab-setup)
 
@@ -67,9 +66,12 @@ run `composer install`. This gives them the complete project code.
 
 ## Structure of the project
 
-Custom code should be added and committed to the `mysite` directory, such as page types, PHP files etc.
+`mysite` should contain your custom project code, such as page types, PHP files etc.
 
 `themes/default` is the theme folder you'll be doing your template work, adding templates, adjusting CSS, etc.
+
+The rest of the folders in a project are Composer managed. See [Working with modules](../gitlab/working-with-modules) for more
+information.
 
 ## Including or creating a module in your project
 
