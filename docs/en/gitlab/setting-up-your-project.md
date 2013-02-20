@@ -50,7 +50,7 @@ Let's add the theme directly to the project:
 	cd ..
 	git add themes
 
-Of course, at this point we should push back this bunch of code to Gitlab:
+Let's push this code to Gitlab:
 
 	git commit -a "Initial project setup"
 	git push origin master
