@@ -6,6 +6,17 @@ Create a new one by clicking the **New Project** button in the Gitlab **Dashboar
 
 ![Gitlab New Project button on dashboard](_images/gitlab-new-project.jpg)
 
+## Assigning access to the project
+
+The **Team** tab in your project view in Gitlab allows you to add new team members, import an entire team of other
+users to the project, or modify existing team member permissions to the project.
+
+![Gitlab Team tab for changing project access](_images/gitlab-team-access.jpg)
+
+There are different levels of access a user can have to your project.
+[Gitlab permissions help](http://gitlab.cwp.govt.nz/help/permissions) has more information on the levels of permission
+you can give users.
+
 ## Making the project public
 
 Unless you don't want others to see it, you can create your project public by going to **Edit** tab while
