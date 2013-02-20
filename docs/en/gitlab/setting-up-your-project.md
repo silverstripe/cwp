@@ -2,13 +2,11 @@
 
 [Gitlab Setup](../gitlab/gitlab-setup) described setting up your development environment to work with Gitlab.
 
-Now that we've got a project and a code repository ready to go, let's setup some useful code to start with.
-
-SilverStripe uses [Composer](http://getcomposer.org) as a package manager for the SilverStripe software and its
-modules.
+We use [Composer](http://getcomposer.org) as the package manager for SilverStripe CMS/framework and modules.
 
 [Installing and Upgrading with Composer](http://doc.silverstripe.org/framework/en/installation/composer) in the
-SilverStripe documentation describes how to install Composer.
+SilverStripe documentation describes how to install Composer in your development environment. You'll need Composer
+to setup your project code.
 
 ## Getting basic code into your project
 
