@@ -38,8 +38,8 @@ You can leave default answers to most of the questions, but we recommend selecti
 Once that's done, you'll have two new files at `~/.ssh`. `id_rsa` contains your private key and should be kept secret.
 `id_rsa.pub` is your public key and should be used with Gitlab.
 
-Installing msysgit on Windows will give you access to `ssh-keygen.exe` programme that works similarly to the Unix/Linux
-variant.
+Installing msysgit on Windows will give you access to `ssh-keygen.exe` which works similarly to the Unix style
+equivalent.
 
 ## Entering your SSH key into Gitlab
 
