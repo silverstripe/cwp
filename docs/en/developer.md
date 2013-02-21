@@ -279,6 +279,9 @@ There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf
 
 	apt-get install ttf-mscorefonts-installer ttf-liberation
 
+If you're on Debian "squeeze" you might need to add `contrib` to the `squeeze` sources in `/etc/apt/sources.list` if
+the above command cannot find `ttf-mscorefonts-installer`.
+
 Note the [licensing information](http://www.microsoft.com/typography/RedistributionFAQ.mspx) provided by Microsoft.
 This means those fonts such as Arial can be embedded in the PDF document, provided they are for "Print and preview"
 only.
