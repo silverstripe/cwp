@@ -277,7 +277,7 @@ There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf
 
 * Install extra Microsoft fonts, such as Arial:
 
-	apt-get install ttf-mscorefonts-installer
+	apt-get install ttf-mscorefonts-installer ttf-liberation
 
 Note the [licensing information](http://www.microsoft.com/typography/RedistributionFAQ.mspx) provided by Microsoft.
 This means those fonts such as Arial can be embedded in the PDF document, provided they are for "Print and preview"
