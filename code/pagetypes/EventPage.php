@@ -19,6 +19,7 @@ class EventPage extends Page {
 		'Date' => 'Date',
 		'StartTime' => 'Time',
 		'EndTime' => 'Time',
+		'Location' => 'Text'
 	);
 
 	/**
@@ -59,18 +60,20 @@ class EventPage extends Page {
 		$endTimeField->setConfig('timeformat', 'h:ma');
 
 		$fields->addfieldToTab('Root.Main', $dateTimeField = new FieldGroup('Date and time', $dateTimeFields), 'Content');
-		
-		$abstractContainer = new ToggleCompositeField('Abstract', 'Abstract', array($abstractField = new TextareaField('Abstract', '')));
-		$abstractContainer->setHeadingLevel(4);
 
-		$fields->addfieldToTab('Root.Main', $abstractContainer, 'Content');
+		$fields->addfieldToTab('Root.Main', $locationField = new TextareaField('Location'), 'Content');
+		$locationField->setRows(4);
 
+		$fields->addfieldToTab('Root.Main', $abstractField = new TextareaField('Abstract'), 'Content');
 		$abstractField->addExtraClass('stacked');
-		$abstractField->setRows(10);
-		$abstractField->setRightTitle('This is displayed in the event listing pages instead of the first two sentences of content.');
-		$abstractField->addExtraClass('help');
+		$abstractField->setAttribute('maxlength', '160');
+		$abstractField->setRows(6);
 
 		return $fields;
+	}
+
+	public function NiceLocation() {
+		return (nl2br(Convert::raw2xml($this->Location), true));
 	}
 }
 
