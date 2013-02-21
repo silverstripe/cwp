@@ -76,13 +76,13 @@ We can now access the events for the currently selected (or default) month in th
 to iteratively loop through the events:
 
 	:::ss
+		<h3>Site Events</h3>
 		<% loop SiteEvents %>
 			<div class="event-listing">
 				<h4><a href="$Link">$Title</a></h4>
-				<p>$Date.Nice</p>
+				<p>$Date.Nice $StartTime.Nice - $EndTime.Nice</p>
 			</div>
 		<% end_loop %>
-
 
 We can also provide an alternative string if no events are found:
 
@@ -135,20 +135,24 @@ control. Here is an example of this with some extra comments added in (see at th
 listing).
 
 	:::ss
-	<%-- Loop through years first --%>
-	<% loop SiteEventMonths %>
-		<h6 class="year">$YearName:</h6>
+	<h5>Pick a month</h5>
 	
-		<%-- Then loop through months within each year --%>
-		<ol class="nav nav-pills unstyled months">
-			<% loop Months %>
-	
-				<%-- use the Active, MonthLink and MonthName to produce the pagination --%>
-				<li <% if Active %>class="active"<% end_if %>><a href="$MonthLink.XML">$MonthName</a></li>
-	
-			<% end_loop %>
-		</ol>
-	<% end_loop %>
+	<div class="month-filter">
+		<%-- Loop through years first --%>
+		<% loop SiteEventMonths %>
+			<h6 class="year">$YearName:</h6>
+		
+			<%-- Then loop through months within each year --%>
+			<ol class="nav nav-pills unstyled months">
+				<% loop Months %>
+		
+					<%-- use the Active, MonthLink and MonthName to produce the pagination --%>
+					<li <% if Active %>class="active"<% end_if %>><a href="$MonthLink.XML">$MonthName</a></li>
+		
+				<% end_loop %>
+			</ol>
+		<% end_loop %>
+	</div>
 
 The `Active` will be set to true for the month that is the same as the currently selected one. The `MonthLink` is the
 link built on the basis of the current URL, plus the `year` and `month` GET params needed for selecting the relevant
@@ -241,7 +245,7 @@ Code for `Page.ss` template:
 			<% loop SiteEvents %>
 				<div class="event-listing">
 					<h4><a href="$Link">$Title</a></h4>
-					<p>$Date.Nice</p>
+					<p>$Date.Nice $StartTime.Nice - $EndTime.Nice</p>
 				</div>
 			<% end_loop %>
 		<% else %>
