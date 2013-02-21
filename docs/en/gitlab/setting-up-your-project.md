@@ -9,7 +9,26 @@ We use [Composer](http://getcomposer.org) as the package manager for SilverStrip
 [Installing and Upgrading with Composer](http://doc.silverstripe.org/framework/en/installation/composer) describes
 how to install Composer in your development environment.
 
-## Duplicating the basic recipe
+## Repository already provided
+
+If you are starting with an empty repository or if you have been following the "Gitlab setup" howto, skip to "Empty
+repository - duplicating the basic recipe" section.
+
+However if you have been provided with a respository with a duplicated basic recipe, you will need to clone it using
+the address provided to you:
+
+	$ git clone ssh://git@gitlab.cwp.govt.nz:2222/my-agency/my-project my-project
+
+Run composer update on it to get all the required modules pulled in:
+
+	$ composer update
+
+You can skip straight to "Accessing the site" now.
+
+## Empty repository - duplicating the basic recipe
+
+This section is for those who have followed the "Gitlab setup" howto, or created empty repository on their own. We
+assume you have cloned it already to your local machine with `git clone`.
 
 Gitlab contains some public repositories with code to help you get started. Rather than start from scratch, you can have
 a basic website up and running in little time.
@@ -41,25 +60,34 @@ Again, from the root of your checked out project (this will take some time):
 
 	$ composer update
 
-At this stage you should be able to run the website on the default theme included in this recipe locally by visiting it
-in your browser (assuming that your LAMP stack is properly configured). Go straight to the admin to create pages:
-`http://localhost/your-project/admin`.
+## Accessing the site
 
+At this stage you should be able to run the website on the default theme included in this recipe locally by visiting it
+in your browser (assuming that your LAMP stack is properly configured).
+
+<div class="notice" markdown='1'>
+The basic recipe does not create any pages by default. You need to visit the admin panel first and create some,
+otherwise you will get a "Page not found" message. Go straight to the admin to create pages:
+`http://localhost/your-project/admin`.
+</div>
+
+<div class="hint" markdown='1'>
 You might need to configure your admin access credentials in the `_ss_environment.php` file to be able to access the
 site (see [environment management](http://doc.silverstripe.org/framework/en/topics/environment-management) docs).
+</div>
 
 ## Customising the project
 
-The point of duplicating the basic recipe is to be able to customise it. Here is a list of first likely customisations.
+You have now a private repository that you can modify. Here is a list of likely initial customisations:
 
- * Edit `composer.json`, find the **name** entry and change it so it's in the format of "my-agency/basic" - "cwp"
-namespace is reserved for platform-endorsed modules and recipes.
- * Edit `composer.json`, remove the "cwp-themes/default" line from the **require** list - we will be creating our own
-theme so we don't need to keep it here as an automatic dependency.
+ * Editing the name of the project in `composer.json` - find the **name** entry and change it so it's in the format of
+"my-agency/basic" - "cwp" namespace is reserved for platform-endorsed modules and recipes.
+ * Customising the `mysite/_config.php` to configure your project.
  * Customise the theme (explained further below).
+ * Adding more modules (see [Working with modules](../gitlab/working-with-modules)).
  * Do any other housekeeping as necessary, for example remove the extraneous `README` file.
 
-Let's convert the theme from module to project code, so we can customise it. Remove the version control directory:
+Let's convert the theme from module to project code so we can modify it. Remove the version control directory:
 
 	$ rm -fr themes/default/.git
 
@@ -71,10 +99,12 @@ Edit the `mysite/_config.php` to point to the new theme:
 
 	SSViewer::set_theme('my-theme');
 
-Finally, edit the `composer.json` and remove the `cwp-themes/default` from requirements so it is no longer managed by
-composer.
+Finally, remove the "cwp-themes/default" line from the **require** list of `composer.json`. This will prevent composer
+from re-adding the *default* theme to your project.
 
-Don't forget to `flush` by visiting `http://localhost/your-project/?flush=1` to get the new template running.
+<div class="notice" markdown='1'>
+Don't forget to `flush` by visiting `http://localhost/your-project/?flush=1` to get the new template running!
+</div>
 
 Commit all changed files to your repository so other collaborators can see it. This will include `composer.lock` file
 that "freezes" the current version of the modules to the ones you have currently included.
@@ -91,8 +121,8 @@ Now when you jump into Gitlab **Dashboard**, you'll see a commit from yourself "
 
 `themes/my-theme` is the theme folder you'll be doing your template work, adding templates, adjusting CSS, etc.
 
-The rest of the folders in a project are Composer managed. See [Working with modules](../gitlab/working-with-modules) for more
-information.
+The rest of the folders in a project are Composer managed. See [Working with modules](../gitlab/working-with-modules)
+for more information.
 
 ## Opening to collaborators
 
