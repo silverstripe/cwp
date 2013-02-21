@@ -46,7 +46,7 @@ class EventHolder extends Page {
 	public static function AllEvents($parentID = null, $tagID = null, $dateFrom = null, $dateTo = null, $year = null,
 			$monthNumber = null) {
 
-		$items = EventPage::get()->sort('Date', 'DESC');
+		$items = EventPage::get()->sort('Date', 'ASC');
 
 		// Filter by parent holder.
 		if (isset($parentID)) {
@@ -167,7 +167,8 @@ class EventHolder extends Page {
 			$year['Months'] = new ArrayList($year['Months']);
 		}
 
-		return new ArrayList($years);
+		// Reverse the list so the most recent years appear first.
+		return new ArrayList(array_reverse($years));
 	}
 
 	public function getDefaultRSSLink() {
@@ -234,7 +235,8 @@ class EventHolder_Controller extends Page_Controller {
 		}
 
 		if ($filters) {
-			return 'Events ' . implode(' ', $filters);
+			$description = $params['upcomingOnly'] ? 'Upcoming events ' : 'Events ';
+			return $description . implode(' ', $filters);
 		}
 	}
 
@@ -312,7 +314,8 @@ class EventHolder_Controller extends Page_Controller {
 			'from' => $from,
 			'to' => $to,
 			'year' => $year,
-			'month' => $month
+			'month' => $month,
+			'upcomingOnly' => !($from || $to || $year || $month)
 		);
 	}
 
@@ -320,8 +323,6 @@ class EventHolder_Controller extends Page_Controller {
 	 * Build the link - keep the date range, reset the rest.
 	 */
 	public function AllTagsLink() {
-		$params = $this->parseParams();
-
 		$link = HTTP::setGetVar('tag', null, null, '&');
 		$link = HTTP::setGetVar('month', null, $link, '&');
 		$link = HTTP::setGetVar('year', null, $link, '&');
@@ -392,6 +393,10 @@ class EventHolder_Controller extends Page_Controller {
 			$params['month']
 		);
 
+		if ($params['upcomingOnly']) {
+			$items = $items->filter(array('Date:LessThan:Not' => SS_Datetime::now()->Format('Y-m-d')));
+		}
+
 		// Apply pagination
 		$list = new PaginatedList($items, $this->request);
 		$list->setPageLength($pageSize);
@@ -399,8 +404,6 @@ class EventHolder_Controller extends Page_Controller {
 	}
 	
 	public function DateRangeForm() {
-		$params = $this->parseParams();
-
 		$fields = new FieldList(
 			$dateFrom = new DateField('from'),
 			$dateTo = new DateField('to'),
