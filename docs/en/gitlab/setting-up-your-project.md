@@ -37,9 +37,11 @@ First of all, let's change directory into the project repository we setup in [Gi
 
 	$ cd /path/to/my/project-repo
 
-Then we create the remote "recipes-basic" from which we will obtain the base code.
+Now check out the list of [public CWP repositories](http://gitlab.cwp.govt.nz/public). Here you will find all recipes
+you can use as a base for your project. Let's pull the recipe in by first creating the remote "recipes-basic" from which
+we will obtain the code.
 
-	$ git remote add recipes-basic ssh://git@gitlab.cwp.govt.nz:2222/cwp/recipe-basic
+	$ git remote add recipes-basic http://gitlab.cwp.govt.nz/cwp/recipe-basic.git
 
 We now have a new remote called "recipies-basic". Git has a default remote called "origin" which points to Gitlab so
 you push code to that so others can pull it. The remote for "recipes-basic" is the same concept, except it points to
@@ -53,12 +55,19 @@ file):
 
 	$ git pull recipes-basic master
 
-Accept the merge message as it is. Project files should now appear in your project directory.
+Accept the merge message as it is (if there is one). Project files should now appear in your project directory.
 
 Now, let's pull down the latest versions packages defined in the `composer.json` **require** rules.
 Again, from the root of your checked out project (this will take some time):
 
 	$ composer update
+
+Commit the resulting composer.lock file to the repository and push back to your origin so your project becomes available
+on the Gitlab.
+
+	$ git add composer.lock
+	$ git commit -m "Commiting composer.lock"
+	$ git push origin master
 
 ## Accessing the site
 

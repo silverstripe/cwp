@@ -31,7 +31,7 @@ Gitlab account.
 Start by checking if you don't already have a public key by opening `~/.ssh/id_rsa.pub`.  If the file exists, you
 already have one, in which case you can skip this step. If not, let's create one:
 
-	$ ssh-keygen -t rsa "your_email@youremail.com"
+	$ ssh-keygen -t rsa
 
 You can leave default answers to most of the questions, but we recommend selecting a passphrase for your key.
 
