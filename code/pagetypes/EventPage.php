@@ -11,7 +11,6 @@ class EventPage extends DatedUpdatePage {
 	public $pageIcon =  'images/icons/sitetree_images/event_page.png';
 
 	static $db = array(
-		'Abstract' => 'Text',
 		'StartTime' => 'Time',
 		'EndTime' => 'Time',
 		'Location' => 'Text'

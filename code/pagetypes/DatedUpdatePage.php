@@ -11,7 +11,7 @@ class DatedUpdatePage extends Page {
 
 	static $db = array(
 		'Abstract' => 'Text',
-		'Date' => 'Datetime',
+		'Date' => 'Datetime'
 	);
 
 	/**
