@@ -1,6 +1,6 @@
 <?php
 
-class EventPage extends Page {
+class EventPage extends DatedUpdatePage {
 
 	static $default_parent = 'EventHolder';
 
@@ -10,13 +10,8 @@ class EventPage extends Page {
 
 	public $pageIcon =  'images/icons/sitetree_images/event_page.png';
 
-	static $defaults = array(
-		'ShowInMenus' => false
-	);
-
 	static $db = array(
 		'Abstract' => 'Text',
-		'Date' => 'Date',
 		'StartTime' => 'Time',
 		'EndTime' => 'Time',
 		'Location' => 'Text'
@@ -26,8 +21,6 @@ class EventPage extends Page {
 	 * Add the default for the Date being the current day.
 	 */
 	public function populateDefaults() {
-		parent::populateDefaults();
-
 		if(!isset($this->Date) || $this->Date === null) {
 			$this->Date = SS_Datetime::now()->Format('Y-m-d');
 		}
@@ -39,10 +32,14 @@ class EventPage extends Page {
 		if(!isset($this->EndTime) || $this->EndTime === null) {
 			$this->EndTime = '17:00:00';
 		}
+
+		parent::populateDefaults();
 	}
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
+
+		$fields->removeByName('Date');
 
 		$dateTimeFields = array();
 
@@ -59,15 +56,10 @@ class EventPage extends Page {
 		$startTimeField->setConfig('timeformat', 'h:ma');
 		$endTimeField->setConfig('timeformat', 'h:ma');
 
-		$fields->addfieldToTab('Root.Main', $dateTimeField = new FieldGroup('Date and time', $dateTimeFields), 'Content');
+		$fields->addfieldToTab('Root.Main', $dateTimeField = new FieldGroup('Date and time', $dateTimeFields), 'Abstract');
 
-		$fields->addfieldToTab('Root.Main', $locationField = new TextareaField('Location'), 'Content');
+		$fields->addfieldToTab('Root.Main', $locationField = new TextareaField('Location'), 'Abstract');
 		$locationField->setRows(4);
-
-		$fields->addfieldToTab('Root.Main', $abstractField = new TextareaField('Abstract'), 'Content');
-		$abstractField->addExtraClass('stacked');
-		$abstractField->setAttribute('maxlength', '160');
-		$abstractField->setRows(6);
 
 		return $fields;
 	}

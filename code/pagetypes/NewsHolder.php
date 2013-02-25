@@ -1,63 +1,36 @@
 <?php
 
-class NewsHolder extends Page {
+class NewsHolder extends DatedUpdateHolder {
 
 	static $allowed_children = array('NewsPage');
 
 	static $default_child = 'NewsPage';
 
+	public static $update_name = 'News';
+
 	static $icon = 'cwp/images/icons/sitetree_images/news_listing.png';
 
 	public $pageIcon =  'images/icons/sitetree_images/news_listing.png';
 
-	public function Children() {
-		return parent::Children()->exclude('ClassName', 'NewsPage');
-	}
+	/**
+	 * Find all site's news items, based on some filters.
+	 * Omitting parameters will prevent relevant filters from being applied. The filters are ANDed together.
+	 *
+	 * @param $parentID The ID of the holder to extract the news items from.
+	 * @param $tagID The ID of the tag to filter the news items by.
+	 * @param $dateFrom The beginning of a date filter range.
+	 * @param $dateTo The end of the date filter range. If empty, only one day will be searched for.
+	 * @param $year Numeric value of the year to show.
+	 * @param $monthNumber Numeric value of the month to show.
+	 *
+	 * @returns DataList | PaginatedList
+	 */
+	public static function AllUpdates($parentID = null, $tagID = null, $dateFrom = null, $dateTo = null, $year = null,
+			$monthNumber = null) {
 
-	public function getCategories() {
-		return NewsCategory::get()->sort('Title', 'DESC');
+		return parent::AllUpdates($parentID, $tagID, $dateFrom, $dateTo, $year, $monthNumber)->Sort('Date', 'DESC');
 	}
-
-	public function getDefaultRSSLink() {
-		return $this->Link('rss');
-	}
-
-	public function getSubscriptionTitle() {
-		return SiteConfig::current_site_config()->Title . ' news';
-	}
-
 }
 
-class NewsHolder_Controller extends Page_Controller {
-
-	public static $allowed_actions = array(
-		'rss'
-	);
-
-	public function init() {
-		parent::init();
-
-		RSSFeed::linkToFeed($this->Link() . 'rss', $this->getSubscriptionTitle());
-	}
-
-	public function getNewsItems($pageSize = 10) {
-		$items = DataObject::get('NewsPage', "ParentID = $this->ID")->sort('Date', 'DESC');
-		$category = $this->getCategory();
-		if ($category) $items = $items->filter('CategoryID', $category->ID);
-		$list = new PaginatedList($items, $this->request);
-		$list->setPageLength($pageSize);
-		return $list;
-	}
-
-	public function getCategory() {
-		$categoryID = $this->request->getVar('category');
-		if (!is_null($categoryID)) {
-			return NewsCategory::get_by_id('NewsCategory', $categoryID);
-		}
-	}
-
-	public function rss() {
-		$rss = new RSSFeed($this->Children(), $this->Link(), $this->getSubscriptionTitle());
-		return $rss->outputToBrowser();
-	}
+class NewsHolder_Controller extends DatedUpdateHolder_Controller {
 }
