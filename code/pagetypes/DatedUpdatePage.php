@@ -32,8 +32,8 @@ class DatedUpdatePage extends Page {
 		$dateTimeField->getDateField()->setConfig('showcalendar', true);
 
 		$fields->addfieldToTab('Root.Main', $abstractField = new TextareaField('Abstract'), 'Content');
-		$abstractField->addExtraClass('stacked');
 		$abstractField->setAttribute('maxlength', '160');
+		$abstractField->setRightTitle('The abstract is used as a summary on the listing pages. It is limited to 160 characters.');
 		$abstractField->setRows(6);
 
 		return $fields;
@@ -41,5 +41,4 @@ class DatedUpdatePage extends Page {
 }
 
 class DatedUpdatePage_Controller extends Page_Controller {
-
 }
