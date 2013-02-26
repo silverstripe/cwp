@@ -16,7 +16,7 @@ class BasePage extends SiteTree {
 
 	public static $generated_pdf_path = 'assets/_generated_pdfs';
 
-	public static $related_pages_title = 'Related Pages';
+	public static $related_pages_title = 'Related pages';
 
 	public $pageIcon = 'images/icons/sitetree_images/page.png';
 
@@ -120,7 +120,7 @@ class BasePage extends SiteTree {
 			'Root.RelatedPages',
 			new GridField(
 				'RelatedPages',
-				'Related Pages',
+				'Related pages',
 				$this->RelatedPages(),
 				$components
 			)
