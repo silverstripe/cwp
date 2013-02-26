@@ -17,7 +17,7 @@ repository - duplicating the basic recipe" section.
 However if you have been provided with a respository with a duplicated basic recipe, you will need to clone it using
 the address provided to you:
 
-	$ git clone ssh://git@gitlab.cwp.govt.nz:2222/my-agency/my-project my-project
+	$ git clone https://gitlab.cwp.govt.nz/my-agency/my-project my-project
 
 Run composer update on it to get all the required modules pulled in:
 
@@ -41,7 +41,7 @@ Now check out the list of [public CWP repositories](http://gitlab.cwp.govt.nz/pu
 you can use as a base for your project. Let's pull the recipe in by first creating the remote "recipes-basic" from which
 we will obtain the code.
 
-	$ git remote add recipes-basic http://gitlab.cwp.govt.nz/cwp/recipe-basic.git
+	$ git remote add recipes-basic https://gitlab.cwp.govt.nz/cwp/recipe-basic.git
 
 We now have a new remote called "recipies-basic". Git has a default remote called "origin" which points to Gitlab so
 you push code to that so others can pull it. The remote for "recipes-basic" is the same concept, except it points to
