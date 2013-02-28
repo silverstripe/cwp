@@ -28,7 +28,7 @@ class CustomSiteConfig extends DataExtension {
 
 	function updateCMSFields(FieldList $fields) {
 		// subsite theme setting is managed in SubsiteAdmin instead
-		if(Subsite::currentSubsiteID()) {
+		if(class_exists('Subsite') && Subsite::currentSubsiteID()) {
 			$fields->removeByName('Theme');
 		}
 
