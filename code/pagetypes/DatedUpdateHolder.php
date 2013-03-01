@@ -13,8 +13,7 @@ class DatedUpdateHolder extends Page {
 	public function UpdateTags() {
 		$tags = TaxonomyTerm::get()
 			->innerJoin('BasePage_Terms', '"TaxonomyTerm"."ID"="BasePage_Terms"."TaxonomyTermID"')
-			->innerJoin('DatedUpdatePage', '"BasePage_Terms"."BasePageID"="DatedUpdatePage"."ID"')
-			->innerJoin('SiteTree', "\"SiteTree\".\"ID\"=\"DatedUpdatePage\".\"ID\" AND \"SiteTree\".\"ParentID\"='$this->ID'")
+			->innerJoin('SiteTree', "\"SiteTree\".\"ID\"=\"BasePage_Terms\".\"BasePageID\" AND \"SiteTree\".\"ParentID\"='$this->ID'")
 			->sort('Name');
 
 		return $tags;
