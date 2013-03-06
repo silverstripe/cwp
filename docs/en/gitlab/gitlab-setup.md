@@ -84,12 +84,12 @@ thread](http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-passwo
 more information.
 
 Another way to approach this is to store the password in a keychain on your machine using the software built by GitHub.
-This will allow you to remember the password permanently. The software is available from the [GitHub
-page](https://help.github.com/articles/set-up-git).
+This will allow you to remember the password permanently. The software is available from [GitHub
+](https://help.github.com/articles/set-up-git).
 
 <div class="notice" markdown='1'>
-GitHub is an entirely different product to Gitlab! The software provided by GitHub is proprietary and will probably
-not work with open-source Gitlab platform.
+GitHub is an entirely different product than Gitlab. It is a company and a maker of a popular website
+[github.com](http://github.com). Their software is purpose-built and as such may not always work well with Gitlab.
 </div>
 
 ## Where to from here?
