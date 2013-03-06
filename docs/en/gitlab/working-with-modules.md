@@ -72,7 +72,7 @@ following lines to your `composer.json` file in the root directory of your main 
 	"repositories": [
 		{
 			"type": "vcs",
-			"url": "git@gitlab.cwp.govt.nz:my-agency/foobar.git"
+			"url": "https://gitlab.cwp.govt.nz/my-agency/my-project.git"
 		}
 	]
 

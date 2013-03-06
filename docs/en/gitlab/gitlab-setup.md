@@ -23,39 +23,6 @@ Ubuntu Linux `apt-get install git` should be enough to get you started.
 
 On Windows install [mysysgit](http://msysgit.github.com/) which provides Git support on Windows.
 
-## Create an SSH public key
-
-Git uses public-key cryptography for authorisation of users. You will need to generate a key pair for use with your
-Gitlab account.
-
-Start by checking if you don't already have a public key by opening `~/.ssh/id_rsa.pub`.  If the file exists, you
-already have one, in which case you can skip this step. If not, let's create one:
-
-	$ ssh-keygen -t rsa
-
-You can leave default answers to most of the questions, but we recommend selecting a passphrase for your key.
-
-Once that's done, you'll have two new files at `~/.ssh`. `id_rsa` contains your private key and should be kept secret.
-`id_rsa.pub` is your public key and should be used with Gitlab.
-
-Installing msysgit on Windows will give you access to `ssh-keygen.exe` which works similarly to the Unix style
-equivalent.
-
-## Entering your SSH key into Gitlab
-
-Upon accessing Gitlab, you'll find a **Dashboard** page containing a summary of activity.
-
-Open up **Profile** by hoving over your avatar and accessing **My profile**
-
-Your SSH key needs to be entered into Gitlab so you have authorisation to checkout and commit code to your
-repositories. Click the **Add Public Key** button.
-
-![Enter SSH key](_images/gitlab-ssh-key.jpg)
-
-Enter the contents of your public key (`~/.ssh/id_rsa.pub`) into the **Key** field.
-
-Hit **Save**.
-
 ## Configuring Git
 
 Setup your global user name and e-mail:
@@ -74,6 +41,10 @@ access to. Access a project from here to find more information including the rep
 
 ![Gitlab project repository URL](_images/gitlab-project-repo-url.jpg)
 
+<div class="notice" markdown='1'>
+Use HTTPS address for interacting with your repository - SSH transport is not available currently.
+</div>
+
 Now that you have the repository URL for the project, you can check it out into your environment with the following
 command:
 
@@ -91,9 +62,35 @@ Create a new empty README file and commit it:
 	git commit -m 'Adding README file'
 	git push -u origin master
 
-You've just pushed your first commit to Gitlab. Congratulations!
+You will be asked for Gitlab credentials. After providing them, your commit will be pushed into the remote repository.
 
-If you go back to the project page in Gitlab, and access the **Commits** tab you'll see your change.
+If you go back to the project page in Gitlab, and access the **Commits** tab you should see your change.
+Congratulations!
+
+## Caching Gitlab passwords
+
+You can avoid having to type the password in every time by using Git credential helper.
+
+The easiest way is to use the in-built cacher:
+
+	git config --global credential.helper cache
+
+You can adjust the timeout period from the default 15 minutes:
+
+	git config credential.helper 'cache --timeout=3600'
+
+See [this stackoverflow
+thread](http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github) for
+more information.
+
+Another way to approach this is to store the password in a keychain on your machine using the software built by GitHub.
+This will allow you to remember the password permanently. The software is available from the [GitHub
+page](https://help.github.com/articles/set-up-git).
+
+<div class="notice" markdown='1'>
+GitHub is an entirely different product to Gitlab! The software provided by GitHub is proprietary and will probably
+not work with open-source Gitlab platform.
+</div>
 
 ## Where to from here?
 

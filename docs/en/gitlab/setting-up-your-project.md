@@ -17,7 +17,7 @@ repository - duplicating the basic recipe" section.
 However if you have been provided with a respository with a duplicated basic recipe, you will need to clone it using
 the address provided to you:
 
-	$ git clone https://gitlab.cwp.govt.nz/my-agency/my-project my-project
+	$ git clone https://gitlab.cwp.govt.nz/my-agency/my-project.git my-project
 
 Run composer update on it to get all the required modules pulled in:
 
