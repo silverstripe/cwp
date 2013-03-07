@@ -34,9 +34,6 @@ Choose **General** when asked for which project to select.
 Now we get a screen with some fields to fill out about the request. **Summary** is a one-liner describing the request,
 and **Description** is where you explain your request in further detail.
 
-**View Status** is how you want other helpdesk users to see the ticket or not. By default, it is **private** so only
-the CWP team can see your request. If you set it to **public** then other users of the helpdesk can see it.
-
 Once you've filled out the fields, click **Submit Report** and you're done. The platform team will be emailed about
 your request and you'll receive emails when the ticket is updated with progress.
 
