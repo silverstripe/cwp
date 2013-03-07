@@ -321,15 +321,24 @@ class BasePage_Controller extends ContentController {
 			if(!$result->ShowInSearch) $results->remove($result);
 		}
 
+		$rssUrl = $this->Link('SearchForm?Search=' . $keywords . '&format=rss');
+		RSSFeed::linkToFeed($rssUrl, 'Search results for "' . $keywords . '"');
+
 		$data = array(
 			'PdfLink' => '',
 			'Results' => $results,
 			'Suggestion' => $suggestion,
 			'Query' => $form->getSearchQuery(),
-			'Title' => _t('SearchForm.SearchResults', 'Search Results')
+			'Title' => _t('SearchForm.SearchResults', 'Search Results'),
+			'RSSLink' => $rssUrl
 		);
 
-		return $this->owner->customise($data)->renderWith(array('Page_results', 'Page'));
+		$templates = array('Page_results', 'Page');
+		if ($request->getVar('format') == 'rss') {
+			array_unshift($templates, 'Page_results_rss');
+		}
+
+		return $this->owner->customise($data)->renderWith($templates);
 	}
 
 	/**
