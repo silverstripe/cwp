@@ -12,7 +12,7 @@ The helpdesk is located at [http://mantis.cwp.govt.nz](http://mantis.cwp.govt.nz
 You'll receive an email with login details to the Helpdesk system. Follow the link in the email to set yourself a
 password and then log into [http://mantis.cwp.govt.nz](http://mantis.cwp.govt.nz).
 
-## Filing a general request
+## Creating a ticket
 
 Once logged in you should see a page with a summary of your tickets. For the first time, you'll see nothing here, but
 it'll be useful later to see the current status of your tickets.
