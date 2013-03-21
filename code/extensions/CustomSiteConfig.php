@@ -4,27 +4,24 @@
  */
 
 class CustomSiteConfig extends DataExtension {
-	function extraStatics($class = null, $extension = null) {
-		return array(
-			'db' => array(
-				'GACode' => 'Varchar(16)',
-				'FacebookURL' => 'Varchar(256)', // multitude of ways to link to Facebook accounts, best to leave it open.
-				'TwitterUsername' => 'Varchar(16)', // max length of Twitter username 15
-				'AddThisProfileID' => 'Varchar(32)',
-				'FooterLogoLink' => 'Varchar(255)',
-				'FooterLogoDescription' => 'Varchar(255)'
-			),
-			'has_one' => array(
-				'Logo' => 'Image',
-				'FooterLogo' => 'Image',
-				'FavIcon' => 'File',
-				'AppleTouchIcon144' => 'File',
-				'AppleTouchIcon114' => 'File',
-				'AppleTouchIcon72' => 'File',
-				'AppleTouchIcon57' => 'File'
-			)
-		);
-	}
+	static $db = array(
+		'GACode' => 'Varchar(16)',
+		'FacebookURL' => 'Varchar(256)', // multitude of ways to link to Facebook accounts, best to leave it open.
+		'TwitterUsername' => 'Varchar(16)', // max length of Twitter username 15
+		'AddThisProfileID' => 'Varchar(32)',
+		'FooterLogoLink' => 'Varchar(255)',
+		'FooterLogoDescription' => 'Varchar(255)'
+	);
+
+	static $has_one = array(
+		'Logo' => 'Image',
+		'FooterLogo' => 'Image',
+		'FavIcon' => 'File',
+		'AppleTouchIcon144' => 'File',
+		'AppleTouchIcon114' => 'File',
+		'AppleTouchIcon72' => 'File',
+		'AppleTouchIcon57' => 'File'
+	);
 
 	function updateCMSFields(FieldList $fields) {
 		// subsite theme setting is managed in SubsiteAdmin instead
