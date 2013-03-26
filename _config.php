@@ -5,7 +5,7 @@
 
 LeftAndMain::require_css('cwp/css/custom.css');
 
-Object::add_extension('SiteConfig', 'CustomSiteConfig');
+SiteConfig::add_extension('CustomSiteConfig');
 
 GD::set_default_quality(90);
 
@@ -14,7 +14,7 @@ if (class_exists('DocumentConverterDecorator')) {
 	DocumentImportIFrameField_Importer::set_docvert_username('ss-express');
 	DocumentImportIFrameField_Importer::set_docvert_password('hLT7pCaJrYVz');
 	DocumentImportIFrameField_Importer::set_docvert_url('http://docvert.silverstripe.com:8888/');
-	Object::add_extension('Page', 'DocumentConverterDecorator');
+	Page::add_extension('DocumentConverterDecorator');
 }
 
 // Default translations
@@ -27,8 +27,8 @@ if (class_exists('Translatable')) {
 		'en_GB' // Needed to be able to create users in the CMS
 	));
 
-	Object::add_extension('SiteTree', 'Translatable');
-	Object::add_extension('SiteConfig', 'Translatable');
+	SiteTree::add_extension('Translatable');
+	SiteConfig::add_extension('Translatable');
 }
 
 // set the system locale to en_GB. This also means locale dropdowns
@@ -36,14 +36,11 @@ if (class_exists('Translatable')) {
 // English (New Zealand) option
 i18n::set_locale('en_GB');
 
-i18n::$common_locales['mi_NZ'][0] = 'Māori';
-i18n::$common_languages['mi'][0] = 'Māori';
-
 // Add the ability to augment links with extra classes and meta information.
-Object::add_extension('DBField', 'RichLinksExtension');
+DBField::add_extension('RichLinksExtension');
 
 // Override the default HtmlEditorConfig for all groups.
-Object::add_extension('Group', 'CwpHtmlEditorConfig');
+Group::add_extension('CwpHtmlEditorConfig');
 
 // default to the binary being in the usual path on Linux
 if(!defined('WKHTMLTOPDF_BINARY')) {
@@ -79,7 +76,7 @@ if(class_exists('Solr')) {
  ********************************************************************************/
 $cwpEditor = HtmlEditorConfig::get('cwp');
 
-Object::add_extension('HtmlEditorField_Toolbar', 'CustomHtmlEditorFieldToolbar');
+HtmlEditorField_Toolbar::add_extension('CustomHtmlEditorFieldToolbar');
 
 // Start with the same configuration as 'cms' config (defined in framework/admin/_config.php).
 $cwpEditor->setOptions(array(
@@ -151,4 +148,4 @@ $cwpEditor->removeButtons('tablecontrols');
 $cwpEditor->addButtonsToLine(3, 'cite', 'abbr', 'ins', 'del', 'separator', 'tablecontrols');
 
 // Taxonomies
-Object::add_extension('TaxonomyTerm', 'TaxonomyTermExtension');
+TaxonomyTerm::add_extension('TaxonomyTermExtension');

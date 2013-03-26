@@ -84,8 +84,8 @@ A better way to do it is with extensions. If you created these two class definit
 and then added this to your `_config.php`:
 
 	:::php
-	Object::add_extension('SubmittedForm', 'SubmittedFormExtension');
-	Object::add_extension('SubmittedFormField', 'SubmittedFormFieldExtension');
+	SubmittedForm::add_extension('SubmittedFormExtension');
+	SubmittedFormField::add_extension('SubmittedFormFieldExtension');
 
 then you'll expose them to the REST API without modifying any core or module code.
 

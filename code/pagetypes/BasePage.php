@@ -25,12 +25,12 @@ class BasePage extends SiteTree {
 
 	public $pageIcon = 'images/icons/sitetree_images/page.png';
 
-	static $many_many = array(
+	private static $many_many = array(
 		'Terms' => 'TaxonomyTerm',
 		'RelatedPages' => 'BasePage'
 	);
 
-	public static $many_many_extraFields = array(
+	private static $many_many_extraFields = array(
 		'RelatedPages' => array(
 			'SortOrder' => 'Int'
 		)
@@ -162,7 +162,7 @@ class BasePage extends SiteTree {
 
 class BasePage_Controller extends ContentController {
 
-	public static $allowed_actions = array(
+	private static $allowed_actions = array(
 		'downloadpdf',
 		'SearchForm',
 		'results'
