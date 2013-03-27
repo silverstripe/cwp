@@ -7,3 +7,4 @@ This section is intended for developers.
 * [Working with modules](../gitlab/working-with-modules)
 * [Creating a project/repository](../gitlab/creating-repositories)
 * [Sharing repositories with others](../gitlab/sharing-repositories)
+* [Deploying your code to instances](../gitlab/deploying-code)
