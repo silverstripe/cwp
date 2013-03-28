@@ -55,7 +55,7 @@ Let's create a new tag. You can name the tag anything, but a typical scheme invo
 
 Create a new tag called 0.1:
 
-	git tag -a 0.1 -m "Tagging 0.1 release"
+	git tag 0.1
 
 Tags don't get pushed automatically when you use `git push`, so we need to push the tags to Gitlab so that the
 deploy.cwp.govt.nz site can see it:
