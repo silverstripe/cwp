@@ -505,19 +505,19 @@ To do this, define the fields that you'd like specified on your page type and ad
 			'MetaAuthor' => 'Varchar(255)',
 			'MetaCopyright' => 'Varchar(255)'
 		);
-
+		
 		...
-
+		
 		public function getCMSFields() {
 			$fields = parent::getCMSFields();
-
+			
 			$metaField = $fields->fieldByName('Root.Main.Metadata');
 			$metaField->push(new TextareaField('MetaAuthor', 'Author'));
 			$metaField->push(new TextareaField('MetaCopyright', 'Copyright'));
-
+			
 			return $fields;
 		}
-
+		
 		...
 	}
 
@@ -528,7 +528,7 @@ To display them, you'll need to override the MetaTags function in your page type
 
 	class Publication extends Page {
 		...
-
+		
 		public function MetaTags($includeTitle = true) {
 			$tags = parent::MetaTags($includeTitle);
 			
@@ -549,12 +549,12 @@ We could automatically generate some of our own easily enough:
 
 class Publication extends Page {
 		...
-
+		
 		public function MetaTags($includeTitle = true) {
 			$tags = $parent->MetaTags($includeTitle);
 			
 			...
-
+			
 			$tags .= "<meta name=\"last-modified\" content=\"" . date('Y-m-d@G:i:s T', strtotime($this->LastEdited)) . "\" />\n";
 			
 			return $tags;
