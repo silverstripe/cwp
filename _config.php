@@ -3,6 +3,11 @@
  * General configuration.
  ********************************************************************************/
 
+// redirect admin requests to the secure domain
+if(defined('CWP_SECURE_DOMAIN')) {
+	Director::forceSSL(array('/^admin/', '/^Security/'), CWP_SECURE_DOMAIN);
+}
+
 LeftAndMain::require_css('cwp/css/custom.css');
 
 SiteConfig::add_extension('CustomSiteConfig');
