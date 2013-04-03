@@ -4,7 +4,7 @@
  ********************************************************************************/
 
 // redirect admin requests to the secure domain
-if(defined('CWP_SECURE_DOMAIN')) {
+if(defined('CWP_SECURE_DOMAIN') && @$_SERVER['HTTP_X_FORWARDED_PROTOCOL'] != 'https') {
 	Director::forceSSL(array('/^admin/', '/^Security/'), CWP_SECURE_DOMAIN);
 }
 
