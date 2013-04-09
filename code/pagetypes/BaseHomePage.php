@@ -7,10 +7,10 @@
 
 class BaseHomePage extends Page {
 
-	static $icon = "cwp/images/icons/sitetree_images/home.png";
+	private static $icon = "cwp/images/icons/sitetree_images/home.png";
 	public $pageIcon =  "images/icons/sitetree_images/home.png";
 
-	public static $hide_ancestor = 'BaseHomePage';
+	private static $hide_ancestor = 'BaseHomePage';
 
 	private static $db = array(
 		'FeatureOneTitle' => 'Varchar(255)',

@@ -73,12 +73,12 @@ A better way to do it is with extensions. If you created these two class definit
 
 	:::php
 	class SubmittedFormExtension extends DataExtension {
-		public static $api_access = true;
+		private static $api_access = true;
 	}
 
 	:::php
 	class SubmittedFormFieldExtension extends DataExtension {
-		public static $api_access = true;
+		private static $api_access = true;
 	}
 
 and then added this to your `_config.php`:

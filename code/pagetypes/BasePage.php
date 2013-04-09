@@ -7,10 +7,10 @@
 
 class BasePage extends SiteTree {
 
-	public static $icon = 'cwp/images/icons/sitetree_images/page.png';
+	private static $icon = 'cwp/images/icons/sitetree_images/page.png';
 
 	// Hide this page type from the CMS. hide_ancestor is slightly misnamed, should really be just "hide"
-	public static $hide_ancestor = 'BasePage';
+	private static $hide_ancestor = 'BasePage';
 
 	public static $pdf_export_enabled = false;
 
@@ -36,7 +36,7 @@ class BasePage extends SiteTree {
 		)
 	);
 
-	public static $plural_name = 'Base Pages';
+	private static $plural_name = 'Base Pages';
 
 	/**
 	 * Get the footer holder.

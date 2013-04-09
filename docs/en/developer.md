@@ -161,7 +161,7 @@ and have it apply to *all* page types, then your code might look something like 
 	<?php
 	class Page extends BasePage {
 		...
-		public static $db = array(
+		private static $db = array(
 			'Abstract' => 'HTMLText'
 		);
 		
@@ -404,7 +404,7 @@ So, let's take an example of `StaffMember`:
 
 	<?php
 	class StaffMember extends DataObject {
-		public static $db = array(
+		private static $db = array(
 			'Name' => 'Varchar(255)',
 			'Abstract' => 'Text',
 			'PhoneNumber' => 'Varchar(50)'

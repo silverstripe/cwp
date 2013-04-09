@@ -3,7 +3,7 @@
 class DatedUpdateHolder extends Page {
 
 	// Meant as an abstract base class.
-	public static $hide_ancestor = 'DatedUpdateHolder';
+	private static $hide_ancestor = 'DatedUpdateHolder';
 
 	public static $update_name = 'Updates';
 	public static $update_class = 'DatedUpdatePage';
@@ -200,7 +200,7 @@ class DatedUpdateHolder extends Page {
  */
 class DatedUpdateHolder_Controller extends Page_Controller {
 
-	public static $allowed_actions = array(
+	private static $allowed_actions = array(
 		'rss',
 		'DateRangeForm'
 	);
