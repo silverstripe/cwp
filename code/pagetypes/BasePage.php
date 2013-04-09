@@ -354,6 +354,7 @@ class BasePage_Controller extends ContentController {
 			"$themeDir/js/lib/modernizr.js",
 			'themes/module_bootstrap/js/bootstrap-transition.js',
 			'themes/module_bootstrap/js/bootstrap-collapse.js',
+			'themes/module_bootstrap/js/bootstrap-carousel.js',
 			"$themeDir/js/general.js",
 			"$themeDir/js/express.js",
 		);
