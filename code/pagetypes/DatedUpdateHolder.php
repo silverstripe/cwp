@@ -6,6 +6,7 @@ class DatedUpdateHolder extends Page {
 	public static $hide_ancestor = 'DatedUpdateHolder';
 
 	public static $update_name = 'Updates';
+	public static $update_class = 'DatedUpdatePage';
 
 	/**
 	 * Find all distinct tags (TaxonomyTerms) associated with the DatedUpdatePages under this holder.
@@ -23,13 +24,15 @@ class DatedUpdateHolder extends Page {
 	 * Wrapper to find all updates belonging to this holder, based on some filters.
 	 */
 	public function Updates($tagID = null, $dateFrom = null, $dateTo = null, $year = null, $monthNumber = null) {
-		return static::AllUpdates($this->ID, $tagID, $dateFrom, $dateTo, $year, $monthNumber);
+		$className = Config::inst()->get($this->ClassName, 'update_class');
+		return static::AllUpdates($className, $this->ID, $tagID, $dateFrom, $dateTo, $year, $monthNumber);
 	}
 
 	/**
 	 * Find all site's updates, based on some filters.
 	 * Omitting parameters will prevent relevant filters from being applied. The filters are ANDed together.
 	 *
+	 * @param $className The name of the class to fetch.
 	 * @param $parentID The ID of the holder to extract the updates from.
 	 * @param $tagID The ID of the tag to filter the updates by.
 	 * @param $dateFrom The beginning of a date filter range.
@@ -39,10 +42,10 @@ class DatedUpdateHolder extends Page {
 	 *
 	 * @returns DataList | PaginatedList
 	 */
-	public static function AllUpdates($parentID = null, $tagID = null, $dateFrom = null, $dateTo = null, $year = null,
-			$monthNumber = null) {
+	public static function AllUpdates($className = 'DatedUpdatePage', $parentID = null, $tagID = null, $dateFrom = null,
+			$dateTo = null, $year = null, $monthNumber = null) {
 
-		$items = DatedUpdatePage::get();
+		$items = $className::get();
 
 		// Filter by parent holder.
 		if (isset($parentID)) {
@@ -242,7 +245,7 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 	}
 
 	public function getUpdateName() {
-		return $this->data()->stat('update_name');
+		return Config::inst()->get($this->data()->ClassName, 'update_name');
 	}
 
 	public function init() {

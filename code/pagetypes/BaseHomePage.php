@@ -93,14 +93,18 @@ class BaseHomePage extends Page {
 
 class BaseHomePage_Controller extends Page_Controller {
 
+	public function getNewsPage() {
+		return NewsHolder::get_one('NewsHolder');
+	}
+
 	/**
 	 * @param int $amount The amount of items to provide.
 	 */
 	public function getNewsItems($amount = 2) {
-		$newsHolder = NewsHolder::get_one('NewsHolder');
+		$newsHolder = $this->getNewsPage();
 		if ($newsHolder) {
 			$controller = new NewsHolder_Controller($newsHolder);
-			return $controller->AllUpdates()->limit($amount);
+			return $controller->Updates()->limit($amount);
 		}
 	}
 

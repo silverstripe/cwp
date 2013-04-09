@@ -3,19 +3,19 @@
 class EventHolder extends DatedUpdateHolder {
 
 	static $allowed_children = array('EventPage');
-
 	static $default_child = 'EventPage';
 
 	public static $update_name = 'Events';
+	public static $update_class = 'EventPage';
 
 	static $icon = 'cwp/images/icons/sitetree_images/event_holder.png';
-
 	public $pageIcon =  'images/icons/sitetree_images/event_holder.png';
 
 	/**
 	 * Find all site's news items, based on some filters.
 	 * Omitting parameters will prevent relevant filters from being applied. The filters are ANDed together.
 	 *
+	 * @param $className The name of the class to fetch.
 	 * @param $parentID The ID of the holder to extract the news items from.
 	 * @param $tagID The ID of the tag to filter the news items by.
 	 * @param $dateFrom The beginning of a date filter range.
@@ -25,10 +25,10 @@ class EventHolder extends DatedUpdateHolder {
 	 *
 	 * @returns DataList | PaginatedList
 	 */
-	public static function AllUpdates($parentID = null, $tagID = null, $dateFrom = null, $dateTo = null, $year = null,
-			$monthNumber = null) {
+	public static function AllUpdates($className = 'Events', $parentID = null, $tagID = null, $dateFrom = null,
+		$dateTo = null, $year = null, $monthNumber = null) {
 
-		return parent::AllUpdates($parentID, $tagID, $dateFrom, $dateTo, $year, $monthNumber)->Sort('Date', 'ASC');
+		return parent::AllUpdates($className, $parentID, $tagID, $dateFrom, $dateTo, $year, $monthNumber)->Sort('Date', 'ASC');
 	}
 }
 
