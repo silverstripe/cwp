@@ -40,8 +40,8 @@ class CwpLogger extends SiteTreeExtension {
 		if(!($currentMember && $currentMember->exists())) return false;
 
 		foreach($manipulation as $table => $details) {
-			// logging writes to specific tables
-			if(in_array($table, array('Member', 'Group', 'SiteTree_Live'))) {
+			// logging writes to specific tables (just not when logging in, as it's noise)
+			if(in_array($table, array('Member', 'Group', 'SiteTree_Live')) && !preg_match('/Security/', @$_SERVER['REQUEST_URI'])) {
 				if($table == 'SiteTree_Live') {
 					$data = SiteTree::get()->byId($details['id']);
 				} else {
@@ -65,7 +65,7 @@ class CwpLogger extends SiteTreeExtension {
 				$group = Group::get()->byId($details['fields']['GroupID']);
 
 				self::log(sprintf(
-					'"%s" (ID: %s) added "%s" (ID: %s) was added to Group "%s" (ID: %s)',
+					'"%s" (ID: %s) added "%s" (ID: %s) to Group "%s" (ID: %s)',
 					$currentMember->Email ?: $currentMember->Title,
 					$currentMember->ID,
 					$member->Email ?: $member->Title,
