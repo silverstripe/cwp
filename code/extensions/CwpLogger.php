@@ -3,13 +3,97 @@ class CwpLogger extends SiteTreeExtension {
 
 	const PRIORITY = 6;
 
+	public static function bind_manipulation_capture() {
+		global $databaseConfig;
+
+		$current = DB::getConn();
+		if (!$current || @$current->isManipulationLoggingCapture) return; // If not yet set, or its already captured, just return
+
+		$type = get_class($current);;
+		$file = TEMP_FOLDER . "/.cache.CLC.$type";
+		$dbClass = 'CwpLoggerManipulateCapture_' . $type;
+
+		if (!is_file($file)) {
+			file_put_contents($file, "<?php
+				class $dbClass extends $type {
+					public \$isManipulationLoggingCapture = true;
+
+					function manipulate(\$manipulation) {
+						\$res = parent::manipulate(\$manipulation);
+						CwpLogger::handle_manipulation(\$manipulation);
+						return \$res;
+					}
+				}
+			");
+		}
+
+		require_once($file);
+
+		$captured = new $dbClass($databaseConfig);
+		// The connection might have had it's name changed (like if we're currently in a test)
+		$captured->selectDatabase($current->currentDatabase());
+		DB::setConn($captured);
+	}
+
+	public static function handle_manipulation($manipulation) {
+		$currentMember = Member::currentUser();
+		if(!($currentMember && $currentMember->exists())) return false;
+
+		foreach($manipulation as $table => $details) {
+			// logging writes to specific tables
+			if(in_array($table, array('Member', 'Group', 'SiteTree_Live'))) {
+				if($table == 'SiteTree_Live') {
+					$data = SiteTree::get()->byId($details['id']);
+				} else {
+					$data = $table::get()->byId($details['id']);
+				}
+
+				self::log(sprintf(
+					'"%s" (ID: %s) wrote to %s (ID: %s, ClassName: %s, Title: "%s")',
+					$currentMember->Email ?: $currentMember->Title,
+					$currentMember->ID,
+					$table,
+					$details['id'],
+					$data->ClassName,
+					$data->Title
+				));
+			}
+
+			// logging adding members to a group
+			if($table == 'Group_Members') {
+				$member = Member::get()->byId($details['fields']['MemberID']);
+				$group = Group::get()->byId($details['fields']['GroupID']);
+
+				self::log(sprintf(
+					'"%s" (ID: %s) added "%s" (ID: %s) was added to Group "%s" (ID: %s)',
+					$currentMember->Email ?: $currentMember->Title,
+					$currentMember->ID,
+					$member->Email ?: $member->Title,
+					$member->ID,
+					$group->Title,
+					$group->ID
+				));
+			}
+		}
+	}
+
+	/**
+	 * Log the message, {@link CwpLoggerFormatter} will format the log line entry
+	 * with IP address and date before writing to the log file.
+	 */
+	protected static function log($message) {
+		if(isset($_SERVER['HTTP_REFERER'])) $message .= sprintf(' (Referer: %s)', $_SERVER['HTTP_REFERER']);
+		SS_Log::log($message, self::PRIORITY);
+	}
+
 	/**
 	 * Log successful login attempts.
 	 */
 	public function memberLoggedIn() {
-		$this->log(sprintf(
-			'%s successfully logged in',
-			$this->owner->Email ?: $this->owner->Title
+		self::log(sprintf(
+			'"%s" (ID: %s) successfully logged in',
+			$this->owner->Email ?: $this->owner->Title,
+			$this->owner->ID
 		));
 	}
 
@@ -17,10 +101,14 @@ class CwpLogger extends SiteTreeExtension {
 	 * Log failed login attempts.
 	 */
 	public function authenticationFailed($data) {
-		$this->log(sprintf(
+		self::log(sprintf(
 			'Failed login attempt using email "%s"',
 			$data['Email']
 		));
+	}
+
+	public function onBeforeInit() {
+		self::bind_manipulation_capture();
 	}
 
 	/**
@@ -35,10 +123,11 @@ class CwpLogger extends SiteTreeExtension {
 	}
 
 	protected function logPermissionDenied($statusCode, $member) {
-		$this->log(sprintf(
-			'HTTP code %s - %s denied access to %s',
+		self::log(sprintf(
+			'HTTP code %s - "%s" (ID: %s) denied access to %s',
 			$statusCode,
 			$member->Email ?: $member->Title,
+			$member->ID,
 			$_SERVER['REQUEST_URI']
 		));
 	}
@@ -47,94 +136,11 @@ class CwpLogger extends SiteTreeExtension {
 	 * Log successful logout.
 	 */
 	public function memberLoggedOut() {
-		$this->log(sprintf(
-			'%s successfully logged out',
-			$this->owner->Email ?: $this->owner->Title
+		self::log(sprintf(
+			'"%s" (ID: %s) successfully logged out',
+			$this->owner->Email ?: $this->owner->Title,
+			$this->owner->ID
 		));
-	}
-
-	/**
-	 * Log created records.
-	 */
-	public function onBeforeWrite() {
-		if(!$this->owner->exists()) {
-			$currentMember = Member::currentUser();
-			if(!($currentMember && $currentMember->exists())) return false;
-
-			$this->log(sprintf(
-				'%s created %s (no ID yet) (Name: "%s")',
-				$currentMember->Email ?: $currentMember->Title,
-				get_class($this->owner),
-				$this->owner->Title
-			));
-		}
-	}
-
-	/**
-	 * Log save of data. Summarises the user who saved the extended record
-	 * along with which fields were changed.
-	 */
-	public function onAfterWrite() {
-		$currentMember = Member::currentUser();
-		$changedFields = array_keys($this->owner->getChangedFields(true));
-		if(!$changedFields || !($currentMember && $currentMember->exists())) return false;
-
-
-		// don't log saved pages, we'll log publishing though onAfterPublish
-		if($this->owner instanceof SiteTree) return false;
-
-		// don't log member being saved when logging in, it's just noise
-		if($this->owner instanceof Member && preg_match('/Security/', @$_SERVER['HTTP_REFERER'])) return false;
-
-		$this->log(sprintf(
-			'%s saved %s ID %s (Name: "%s") (changed fields: "%s")',
-			$currentMember->Email ?: $currentMember->Title,
-			get_class($this->owner),
-			$this->owner->ID,
-			$this->owner->Title,
-			implode('","', $changedFields)
-		));
-	}
-
-	/**
-	 * Log publish of pages
-	 */
-	public function onAfterPublish(&$original) {
-		$currentMember = Member::currentUser();
-		if(!($currentMember && $currentMember->exists())) return false;
-
-		$this->log(sprintf(
-			'%s published %s ID %s (Name: "%s")',
-			$currentMember->Email ?: $currentMember->Title,
-			get_class($this->owner),
-			$this->owner->ID,
-			$this->owner->Title
-		));
-	}
-
-	/**
-	 * Log deletion of record.
-	 */
-	public function onAfterDelete() {
-		$currentMember = Member::currentUser();
-		if(!($currentMember && $currentMember->exists())) return false;
-
-		$this->log(sprintf(
-			'%s deleted %s ID %s (Name: "%s")',
-			$currentMember->Email ?: $currentMember->Title,
-			get_class($this->owner),
-			$this->owner->ID,
-			$this->owner->Title
-		));
-	}
-
-	/**
-	 * Log the message, {@link CwpLoggerFormatter} will format the log line entry
-	 * with IP address and date before writing to the log file.
-	 */
-	protected function log($message) {
-		if(isset($_SERVER['HTTP_REFERER'])) $message .= sprintf(' (Referer: %s)', $_SERVER['HTTP_REFERER']);
-		SS_Log::log($message, self::PRIORITY);
 	}
 
 }

@@ -58,8 +58,6 @@ if(!defined('WKHTMLTOPDF_BINARY')) {
 }
 
 if(class_exists('Solr')) {
-	SearchUpdater::bind_manipulation_capture();
-
 	$extrasPath = BASE_PATH . '/mysite/conf/extras';
 	if(!file_exists($extrasPath)) {
 		$extrasPath = BASE_PATH . '/fulltextsearch/conf/extras';
@@ -170,5 +168,4 @@ RequestHandler::add_extension('CwpLogger');
 Controller::add_extension('CwpLogger');
 Member::add_extension('CwpLogger');
 Group::add_extension('CwpLogger');
-SiteTree::add_extension('CwpLogger');
 
