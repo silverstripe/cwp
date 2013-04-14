@@ -48,11 +48,17 @@ class CwpLogger extends SiteTreeExtension {
 					$data = $table::get()->byId($details['id']);
 				}
 
+				if($table == 'SiteTree_Live') {
+					$actionText = 'published a page';
+				} else {
+					$actionText = 'modified ' . $table;
+				}
+
 				self::log(sprintf(
-					'"%s" (ID: %s) wrote to %s (ID: %s, ClassName: %s, Title: "%s")',
+					'"%s" (ID: %s) %s (ID: %s, ClassName: %s, Title: "%s")',
 					$currentMember->Email ?: $currentMember->Title,
 					$currentMember->ID,
-					$table,
+					$actionText,
 					$details['id'],
 					$data->ClassName,
 					$data->Title
