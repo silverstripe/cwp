@@ -19,8 +19,8 @@ class CwpLogger extends SiteTreeExtension {
 					public \$isManipulationLoggingCapture = true;
 
 					function manipulate(\$manipulation) {
-						\$res = parent::manipulate(\$manipulation);
 						CwpLogger::handle_manipulation(\$manipulation);
+						\$res = parent::manipulate(\$manipulation);
 						return \$res;
 					}
 				}
@@ -70,15 +70,22 @@ class CwpLogger extends SiteTreeExtension {
 				$member = Member::get()->byId($details['fields']['MemberID']);
 				$group = Group::get()->byId($details['fields']['GroupID']);
 
-				self::log(sprintf(
-					'"%s" (ID: %s) added "%s" (ID: %s) to Group "%s" (ID: %s)',
-					$currentMember->Email ?: $currentMember->Title,
-					$currentMember->ID,
-					$member->Email ?: $member->Title,
-					$member->ID,
-					$group->Title,
-					$group->ID
-				));
+				// if the user isn't already in the group, log they've been added
+				if(!DB::query(sprintf(
+					'SELECT "ID" FROM "Group_Members" WHERE "GroupID" = %s AND "MemberID" = %s',
+					$details['fields']['GroupID'],
+					$details['fields']['MemberID']
+				))->value()) {
+					self::log(sprintf(
+						'"%s" (ID: %s) added "%s" (ID: %s) to Group "%s" (ID: %s)',
+						$currentMember->Email ?: $currentMember->Title,
+						$currentMember->ID,
+						$member->Email ?: $member->Title,
+						$member->ID,
+						$group->Title,
+						$group->ID
+					));
+				}
 			}
 		}
 	}
