@@ -167,5 +167,4 @@ Security::add_extension('CwpLogger');
 RequestHandler::add_extension('CwpLogger');
 Controller::add_extension('CwpLogger');
 Member::add_extension('CwpLogger');
-Group::add_extension('CwpLogger');
 
