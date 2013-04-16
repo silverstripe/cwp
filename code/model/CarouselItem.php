@@ -21,6 +21,11 @@ class CarouselItem extends DataObject {
 		'ArchivedReadable' => 'Current Status' 		
 	);
 
+	private static $searchable_fields = array(
+		'Title',
+		'Caption'
+	);
+
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();	
 		$fields->removeByName('Archived');
