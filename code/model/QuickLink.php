@@ -1,23 +1,23 @@
 <?php
 
 class Quicklink extends DataObject {
-	static $db = array(
+	private static $db = array(
 		'Name' => 'Varchar(255)',
 		'ExternalLink' => 'Varchar(255)'
 	);
 
-	static $has_one = array(
+	private static $has_one = array(
 		'Parent' => 'HomePage',
 		'InternalLink' => 'SiteTree'
 	);
 
-	static $summary_fields = array(
+	private static $summary_fields = array(
 		'Name' => 'Name',
 		'InternalLink.Title' => 'Internal Link',
 		'ExternalLink' => 'External Link'
 	);
 
-	function getLink() {
+	public function getLink() {
 		if ($this->ExternalLink) {
 			return $this->ExternalLink;
 		} elseif ($this->InternalLinkID) {
@@ -25,7 +25,23 @@ class Quicklink extends DataObject {
 		}
 	}
 
-	function getCMSFields() {
+	public function canCreate($member = null) {
+		return $this->Parent()->canCreate($member);
+	}
+
+	public function canEdit($member = null) {
+		return $this->Parent()->canEdit($member);
+	}
+
+	public function canDelete($member = null) {
+		return $this->Parent()->canDelete($member);
+	}
+
+	public function canView($member = null) {
+		return $this->Parent()->canView($member);
+	}
+
+	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
 		$fields->removeByName('ParentID');

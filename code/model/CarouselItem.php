@@ -1,19 +1,19 @@
 <?php
 
 class CarouselItem extends DataObject {
-	static $db = array(
+	private static $db = array(
 		'Title' => 'Varchar(255)',
 		'Caption' => 'Text',
 		'Archived' => 'Boolean' 
 	);
 
-	static $has_one = array(
+	private static $has_one = array(
 		'Parent' => 'HomePage',
 		'Image' => 'Image',
 		'Link' => 'SiteTree'
 	);
 
-	static $summary_fields = array(
+	private static $summary_fields = array(
 		'ImageThumb' => 'Image',
 		'Title' => 'Title',
 		'Caption' => 'Text',
@@ -21,7 +21,7 @@ class CarouselItem extends DataObject {
 		'ArchivedReadable' => 'Current Status' 		
 	);
 
-	function getCMSFields() {
+	public function getCMSFields() {
 		$fields = parent::getCMSFields();	
 		$fields->removeByName('Archived');
 
@@ -45,27 +45,27 @@ class CarouselItem extends DataObject {
 		return $fields;
 	}
 
-	function canCreate($member = null) {
+	public function canCreate($member = null) {
 		return $this->Parent()->canCreate($member);
 	}
 
-	function canEdit($member = null) {
+	public function canEdit($member = null) {
 		return $this->Parent()->canEdit($member);
 	}
 
-	function canDelete($member = null) {
+	public function canDelete($member = null) {
 		return $this->Parent()->canDelete($member);
 	}
 
-	function canView($member = null) {
+	public function canView($member = null) {
 		return $this->Parent()->canView($member);
 	}
 
-	function ImageThumb(){ 
+	public function ImageThumb(){ 
 	   return $this->Image()->SetWidth(50); 
 	}
 
-	function ArchivedReadable(){
+	public function ArchivedReadable(){
 		if($this->Archived == 1) return _t('GridField.Archived', 'Archived');
 		return _t('GridField.Live', 'Live');
 	}
