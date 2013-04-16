@@ -45,6 +45,22 @@ class CarouselItem extends DataObject {
 		return $fields;
 	}
 
+	function canCreate($member = null) {
+		return $this->Parent()->canCreate($member);
+	}
+
+	function canEdit($member = null) {
+		return $this->Parent()->canEdit($member);
+	}
+
+	function canDelete($member = null) {
+		return $this->Parent()->canDelete($member);
+	}
+
+	function canView($member = null) {
+		return $this->Parent()->canView($member);
+	}
+
 	function ImageThumb(){ 
 	   return $this->Image()->SetWidth(50); 
 	}
