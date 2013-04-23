@@ -6,7 +6,7 @@ class EventHolderTest extends SapphireTest {
 	function testEventTags() {
 		$holder = $this->objFromFixture('EventHolder', 'EventHolder1');
 
-		$tags = $holder->EventTags();
+		$tags = $holder->UpdateTags();
 		$this->assertNotNull($tags->find('Name', 'Future'), 'Finds present terms.');
 		$this->assertNull($tags->find('Name', 'Event types', 'Does not find top level taxonomy.'));
 		$this->assertNull($tags->find('Name', 'Carrot'), 'Does not find terms that are not applied.');
@@ -15,7 +15,7 @@ class EventHolderTest extends SapphireTest {
 	function testEventWithParentFilter() {
 		$holder = $this->objFromFixture('EventHolder', 'EventHolder2');
 
-		$items = $holder->Events();
+		$items = $holder->Updates();
 		
 		$this->assertNotNull($items->find('URLSegment', 'other-holder'), 'Event from the holder is shown.');
 		$this->assertNull($items->find('URLSegment', 'future-event-1'), 'Events from other holders are not shown.');
@@ -27,7 +27,7 @@ class EventHolderTest extends SapphireTest {
 		//Get the "Future" tag.
 		$tag = $this->objFromFixture('TaxonomyTerm', 'TaxonomyTerm1');
 
-		$items = $holder->Events($tag->ID);
+		$items = $holder->Updates($tag->ID);
 		
 		$this->assertNotNull($items->find('URLSegment', 'future-event-1'), 'Finds the tagged page.');
 		$this->assertNull($items->find('URLSegment', 'past-event-1'), 'Does not find pages that are not tagged.');
@@ -36,7 +36,7 @@ class EventHolderTest extends SapphireTest {
 	function testEventsWithMonthFilter() {
 		$holder = $this->objFromFixture('EventHolder', 'EventHolder1');
 
-		$items = $holder->Events(null, null, null, 2013, 7);
+		$items = $holder->Updates(null, null, null, 2013, 7);
 		
 		$this->assertNotNull($items->find('URLSegment', 'future-event-1'), 'Finds the event in 2013-07.');
 		$this->assertNull($items->find('URLSegment', 'past-event-1'), 'Does not find events at other dates.');
@@ -45,11 +45,11 @@ class EventHolderTest extends SapphireTest {
 	function testEventsWithDateRangeFilter() {
 		$holder = $this->objFromFixture('EventHolder', 'EventHolder1');
 
-		$items = $holder->Events(null, '2013-01-19', null);
+		$items = $holder->Updates(null, '2013-01-19', null);
 		$this->assertNotNull($items->find('URLSegment', 'past-event-2'), 'Finds the event at the date');
 		$this->assertNull($items->find('URLSegment', 'future-event-1'), 'Does not find the event at another date');
 
-		$items = $holder->Events(null, '2013-01-01', '2013-01-19');
+		$items = $holder->Updates(null, '2013-01-01', '2013-01-19');
 		$this->assertNotNull($items->find('URLSegment', 'past-event-2'), 'Finds events in the date range');
 		$this->assertNull($items->find('URLSegment', 'future-event-1'), 'Does not find event out of range');
 	}
@@ -58,7 +58,7 @@ class EventHolderTest extends SapphireTest {
 		$holder = $this->objFromFixture('EventHolder', 'EventHolder1');
 
 		$months = EventHolder::ExtractMonths(
-			$holder->Events(),
+			$holder->Updates(),
 			'http://mybase.org/?tag=12&start=10&from=2010-10-10&to=2010-10-11', // Used for link generation
 			2013, // Currently selected
 			1 // Currently selected
