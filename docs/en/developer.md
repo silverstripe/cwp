@@ -460,6 +460,7 @@ index. You'll have to make some changes to add it in.
 
 So, let's take an example of `StaffMember`:
 
+	:::php
 	<?php
 	class StaffMember extends DataObject {
 		private static $db = array(
@@ -486,6 +487,7 @@ search result title.
 
 So with that, let's create a new class called `MySolrSearchIndex`:
 
+	:::php
 	<?php
 	class MySolrSearchIndex extends SolrIndex {
 		
@@ -507,6 +509,7 @@ index.
 
 Now in your `mysite/_config.php` file, add the following:
 
+	:::php
 	Page_Controller::$search_index_class = 'MySolrSearchIndex';
 	Page_Controller::$classes_to_search[] = array(
 		'class' => 'StaffMember'
@@ -519,6 +522,7 @@ Now when you search on the site, `StaffMember` results will show alongside norma
 If you wish to run the Solr through WebDAV (as we do on the live instances), you have to obtain the configuration
 parameters and then use the following configuration constants in your `_ss_environment.php`:
 
+	:::php
 	define('SOLR_SERVER', '<url>');
 	define('SOLR_PORT', '<port>');
 	define('SOLR_PATH', '<path>');
@@ -535,6 +539,7 @@ every page. In the templates this is all handled by including `RelatedPages.ss`.
 the page control `RelatedPages`, this will provide you with a Page object from which you can read `Title`, `Link`, and
 any other variable or action defined on the page. This is a snippet from how it is implemented in `RelatedPages.ss`:
 
+	:::html
 	<ul>
 		<% loop RelatedPages %>
 			<li><a href="$Link">$Title</a></li>
@@ -544,6 +549,7 @@ any other variable or action defined on the page. This is a snippet from how it 
 The title defaults to "Related Pages". For any page type you can override this by defining a static variable called
 `$related_pages_title`. For example:
 
+	:::php
 	class StaffMemberPage extends Page {
 		public static $related_pages_title = 'Offices';
 		...
@@ -558,6 +564,7 @@ date of publication, etc.
 
 To do this, define the fields that you'd like specified on your page type and add the fields to the CMS view:
 
+	:::php
 	class Publication extends Page {
 		private static $db = array(
 			'MetaAuthor' => 'Varchar(255)',
@@ -584,6 +591,7 @@ expandable Meta Tags area on the main Page edit view.
 
 To display them, you'll need to override the MetaTags function in your page type:
 
+	:::php
 	class Publication extends Page {
 		...
 		
@@ -605,7 +613,8 @@ That will take all of the tags that the Page::MetaTags() function defines and th
 
 We could automatically generate some of our own easily enough:
 
-class Publication extends Page {
+	:::php
+	class Publication extends Page {
 		...
 		
 		public function MetaTags($includeTitle = true) {
@@ -618,3 +627,4 @@ class Publication extends Page {
 			return $tags;
 		}
 	}
+
