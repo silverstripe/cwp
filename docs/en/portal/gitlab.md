@@ -1,4 +1,4 @@
-# Gitlab
+# Gitlab overview
 
 Git is the version control system that CWP uses to manage the code powering websites on the platform. Gitlab is Git
 management software that allows easy browsing and sharing of source-code and user access control.

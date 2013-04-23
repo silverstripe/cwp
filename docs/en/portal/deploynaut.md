@@ -1,4 +1,4 @@
-# Deploynaut
+# Deploynaut overview
 
 Deploynaut is the deployment management system that CWP uses to manage deployments to the different instances.
 
