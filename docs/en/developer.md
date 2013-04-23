@@ -337,7 +337,7 @@ This task can be run from the browser on demand by accessing `dev/tasks/CleanupG
 One example of where this is useful might be directly after deploying new templates to the site, so the cached
 PDF files can be regenerated with the new templates.
 
-## External HTTP requests
+## External HTTP requests with proxy
 
 Sometimes you'll be needing to make external requests to sites on the internet from your site. A simple example of this
 is fetching tweets to show on your website.
