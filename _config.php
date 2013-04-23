@@ -149,15 +149,12 @@ $cwpEditor->addButtonsToLine(3, 'cite', 'abbr', 'ins', 'del', 'separator', 'tabl
 TaxonomyTerm::add_extension('TaxonomyTermExtension');
 
 // configure administrative logging
-// don't log when in dev mode
-if(!Director::isDev()) {
-	$logFileWriter = new SS_SysLogWriter('SilverStripe', null, LOG_AUTH);
-	$logFileWriter->setFormatter(new CwpLoggerFormatter());
-	SS_Log::add_writer($logFileWriter, CwpLogger::PRIORITY, '=');
-	MemberLoginForm::add_extension('CwpLogger');
-	Security::add_extension('CwpLogger');
-	RequestHandler::add_extension('CwpLogger');
-	Controller::add_extension('CwpLogger');
-	Member::add_extension('CwpLogger');
-}
+$logFileWriter = new SS_SysLogWriter('SilverStripe', null, LOG_AUTH);
+$logFileWriter->setFormatter(new CwpLoggerFormatter());
+SS_Log::add_writer($logFileWriter, CwpLogger::PRIORITY, '=');
+MemberLoginForm::add_extension('CwpLogger');
+Security::add_extension('CwpLogger');
+RequestHandler::add_extension('CwpLogger');
+Controller::add_extension('CwpLogger');
+Member::add_extension('CwpLogger');
 
