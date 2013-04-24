@@ -11,9 +11,9 @@ GD::set_default_quality(90);
 
 // Configure document converter.
 if (class_exists('DocumentConverterDecorator')) {
-	DocumentImportIFrameField_Importer::set_docvert_username('ss-express');
-	DocumentImportIFrameField_Importer::set_docvert_password('hLT7pCaJrYVz');
-	DocumentImportIFrameField_Importer::set_docvert_url('http://docvert.silverstripe.com:8888/');
+	DocumentImportIFrameField_Importer::set_docvert_username(DOCVERT_USERNAME);
+	DocumentImportIFrameField_Importer::set_docvert_password(DOCVERT_PASSWORD);
+	DocumentImportIFrameField_Importer::set_docvert_url(DOCVERT_URL);
 	Page::add_extension('DocumentConverterDecorator');
 }
 
