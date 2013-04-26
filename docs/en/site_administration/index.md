@@ -1,7 +1,7 @@
-# Site Administrator
+# Site Administration
 
-As a site administrator CWP takes care of most of your traditional concerns: deployments, backups, security,
-reliability.
+The Common Web Platform takes care of most of your traditional site administration concerns: deployments, backups,
+security, reliability.
 
 CWP offers some features that you can configure to add extra options to your site. These are features that usually
 require set up and tweaking just once, unlike the majority of regular content administration tasks. Overviews of these
