@@ -10,7 +10,7 @@ it.
 ## Page
 
 This is the standard content page, used for all pages that have no other requirements. Note that it also comes with a
-lot of extra features anyway, such as being able to add related pages and tags from a taxonomy.
+lot of extra features such as being able to add related pages and tags from a taxonomy.
 
 ## Error Page
 
