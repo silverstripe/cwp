@@ -7,7 +7,8 @@ CWP offers some features that you can configure to add extra options to your sit
 require set up and tweaking just once, unlike the majority of regular content administration tasks. Overviews of these
 features are given below with links to fuller documentation.
 
- 1. [Content migration](content_migration): Importing page structure and content from an existing site.
- 1. [Sharing assets](sharing_assets): How to share files and other resources between instances.
- 1. [Subsites](subsites): How to run multiple websites from a single instance.
- 1. [Workflow](workflow): Require that all content edits pass through an approval chain before going live.
+ * [Content migration](content_migration): Importing page structure and content from an existing site.
+ * [Sharing assets](sharing_assets): How to share files and other resources between instances.
+ * [Subsites](subsites): How to run multiple websites from a single instance.
+ * [Workflow](workflow): Require that all content edits pass through an approval chain before going live.
+ * [Google Analytics](google_analytics): How to set up Google Analytics tracking.
