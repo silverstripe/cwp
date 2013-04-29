@@ -1,6 +1,8 @@
 <?php
 
 class EventHolder extends DatedUpdateHolder {
+	
+	private static $description = 'Container page for Event Pages, provides event filtering and pagination';
 
 	static $allowed_children = array('EventPage');
 	static $default_child = 'EventPage';

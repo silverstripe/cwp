@@ -2,6 +2,8 @@
 
 class NewsPage extends DatedUpdatePage {
 
+	private static $description = 'Describes an item of news';
+
 	static $default_parent = 'NewsHolderPage';
 
 	static $can_be_root = false;

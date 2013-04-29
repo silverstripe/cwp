@@ -6,6 +6,9 @@
  */
 
 class FooterHolder extends RedirectorPage {
+
+	private static $description = 'Holder page that displays all child pages as links in the footer';
+
 	static $defaults = array(
 		"ShowInMenus" => 0,
 		"ShowInSearch" => 0

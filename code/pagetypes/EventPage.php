@@ -2,6 +2,8 @@
 
 class EventPage extends DatedUpdatePage {
 
+	private static $description = 'Describes an event occurring on a specific date.';
+
 	static $default_parent = 'EventHolder';
 
 	static $can_be_root = false;
