@@ -110,7 +110,7 @@ under the **Footer Holder**, you can create a **Redirector Page** which links to
 
 ## Related pages
 
-You can mark other pages as related to the a page from the *Related Pages* tab. A website visitor can view a list of
+You can mark other pages as related to a page from the *Related Pages* tab. A website visitor can view a list of
 these related pages on the page. Start typing the page name in the search field as shown below and search results will
 appear in a dropdown. Select the page name and click the *Link Existing* button to link it as a related page.
 

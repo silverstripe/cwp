@@ -1,7 +1,7 @@
 # Taxonomy
 
 The taxonomy module allows you to create heirarchical sets of tags that you can apply to content within your site. This
-can allow users to find relevant content more easily.
+allows users to find relevant content more easily.
 
 Documentation on managing taxonomy terms is available in the [taxonomies module](../../../taxonomy/en).
 
@@ -15,4 +15,5 @@ when all desired terms have been added.
 ![Linking terms to pages](_images/taxonomy-linking.jpg)
 
 The terms can only be linked and unlinked from the page from this tab - the taxonomy data and structure
-cannot be changed through this interface. See the module documentation for information on how to build the taxonomy.
+cannot be changed through this interface. See the [module documentation](../../../taxonomy/en) for information on how
+to build the taxonomy.

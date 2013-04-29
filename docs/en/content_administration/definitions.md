@@ -1,6 +1,6 @@
 # Definitions
 
-* *Page types*: words highlighted **as follows** signify page types. These are the pages that can be created through the
+* *Page types*: words highlighted **in bold** signify page types. These are the pages that can be created through the
 *Add page* screen and include some defaults such as **Page** and **Redirector page**. See [Managing your
 site](http://userhelp.silverstripe.org/for-website-content-editors/managing-your-site/) and
 [CWP page types](page_types) for more details.

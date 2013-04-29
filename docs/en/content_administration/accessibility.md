@@ -17,6 +17,6 @@ website. See the link above for more details.
 ## Video and Audio
 
 After adding video or audio content to your site you should provide a transcript. This is a text description of the
-content so that a user unable to view or listen to the media will be able to read through the content it contains.
-This should be regular page content directly after the video or audio, or on a separate page linked to from near the
-media.
+content so that a user unable to view or listen to the media will be able to read through the content it contains using
+a screen reader. This should be regular page content directly after the video or audio, or on a separate page linked to
+from near the media.

@@ -11,6 +11,6 @@ If you wish to read the general user documentation for SilverStripe, they are av
  * [Text editor enhancements](text_editor_options): The extra options that have been added to the text editor toolbar.
  * [Theme customisation](theme_customisation): How you can customise your site with no templating work.
  * [Accessibility](accessibility): Steps you can take to make your site more accessible.
- * [News and events](news_events): How to use the news and events systems.
+ * [News and events](news_and_events): How to use the news and events systems.
  * [Taxonomy](taxonomy): How to tag your pages to make your site more easily navigable.
  * [Subsites](subsites): How to share assets across subsites running on the same instance.

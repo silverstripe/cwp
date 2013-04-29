@@ -7,8 +7,8 @@ listings (**Event Holders**).
 
 To create a page to display information for an event, add a new page of the type **Event Page**. In addition to the
 fields available on other pages, this page type allows you to specify the date and time of the event. These
-details will be displayed on the template along with any taxonomy terms you associate with the page (see "Adding
-taxonomy terms to a page" above).
+details will be displayed on the template along with any taxonomy terms you associate with the page. For more
+information see the [taxonomy page](taxonomy).
 
 ![Event as shown on the site](_images/events-frontend.jpg)
 

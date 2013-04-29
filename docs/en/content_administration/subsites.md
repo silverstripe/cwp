@@ -1,8 +1,8 @@
 # Subsites
 
-The subsites module is a method of running two or more sites from the same instance. Setting up subsites is beyond the
-scope of this article (that is covered more in-depth in the Site Administrator documentation). The following describes
-how you can share files across subsites running on your instance to reduce content duplication.
+The subsites module is a method of running two or more sites from the same instance. The following describes how you
+can share files across subsites running on your instance to reduce content duplication. Setting up subsites is covered
+in the [site administration documentation](../../en/site_administration/subsites). 
 
 ## Sharing assets
 

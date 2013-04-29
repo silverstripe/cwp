@@ -1,16 +1,16 @@
 # CWP page types
 
-Your SilverStripe site comes with a lot of page types that you can use:
+Your SilverStripe site comes with a wide variety of different page types that you can use:
 
 ![The list of page types](_images/page-types.jpg)
 
-This page describes each page type, how to use it, and any extra information you need to know to get the most out of
+This page describes each page type, how to use it, and extra information you need to know to get the most out of
 it.
 
 ## Page
 
-This is the standard content page, used for all pages that have no other requirements. Note that it also comes with a
-lot of extra features such as being able to add related pages and tags from a taxonomy.
+This is the standard content page, used for all pages that have no other requirements. Note that it comes with extra
+features such as being able to add related pages and tags from a taxonomy.
 
 ## Error Page
 
@@ -25,12 +25,12 @@ of HTTP error codes at [Wikipedia](http://en.wikipedia.org/wiki/List_of_HTTP_sta
 
 This page is used to display all of its child event pages in a useful manner, with pagination and filtering options.
 This is the only page that can have **EventPages** as child pages. For more information see the
-[News and Events](news_events) section.
+[News and Events](news_and_events) section.
 
 ## Event Page
 
 This page is used to describe an event. It can only be created underneath a **EventHolder** page. For more information
-see the [News and Events](news_events) section.
+see the [News and Events](news_and_events) section.
 
 ## Footer Holder
 
@@ -44,7 +44,7 @@ feature parts of your site, a list of quicklinks, two feature sections and a new
 
 ### Carousel
 
-The carousel is made up of one of more carousel items. These can be viewed and edited in the *Carousel* tab. Each
+The carousel is made up of one or more carousel items. These can be viewed and edited in the *Carousel* tab. Each
 carousel item contains the following:
 
  * *Title*: This is displayed at the top of the caption. If there is no caption, it is not shown.
@@ -57,7 +57,7 @@ page. You can unset the link by clicking on the small 'x' besides the dropdown a
 
 Quicklinks are a set of pages that are linked to from the homepage. In the default theme they are shown in the bottom
 left of the main content area. To add quicklinks, got to the *Quicklinks* tab when editing the homepage. Click on the
-*Add Quicklink* button. You will see the following field:
+*Add Quicklink* button. You will see the following fields:
 
  * *Name*: The text that will appear in the list.
  * *Internal Link*: A page within your site that the link will point to.
@@ -94,7 +94,7 @@ content.
 * *Fixed height*: explicit size, used also as a fallback if autosetting fails.
 * *Fixed width*: explicit size.
 
-On top of that, three content areas are supplied:
+In addition, three content areas are supplied:
 
 * Content above the iframe
 * Content below the iframe
@@ -110,12 +110,12 @@ expanding menus or showing other animations. The recommended approach is to disa
 
 This page is used to display all of its child news pages in a useful manner, with pagination and filtering options.
 This is the only page that can have **NewsPages** as child pages. For more information see the
-[News and Events](news_events) section.
+[News and Events](news_and_events) section.
 
 ## News Page
 
 This page is used to describe a news item. It can only be created underneath a **NewsHolder** page. For more
-information see the [News and Events](news_events) section.
+information see the [News and Events](news_and_events) section.
 
 ## Redirector Page
 
@@ -128,8 +128,8 @@ website* and *Another website*, and the dropdown to select the page or the text 
 
 ## Registry Page
 
-This page is used to allow your site users to browse a large set of data in an easy manner. It is part of the registry
-module and it explained better the [documentation for that module](../../../registry/en).
+This page is used to allow your site users to browse a large set of data in an easy manner. For more information refer
+to the [registry module](../../../registry/en) documentation.
 
 ## Sitemap Page
 
@@ -141,16 +141,13 @@ This is just like a *VirtualPage* (see below), but can also display content from
 
 ## User Defined Form
 
-This page type displays a custom form and stores the results. You can set up the form by adding fields in the *Form*
-tab.
+This page type displays a custom form that websites visitors can fill out and submit. It can email the submissions to
+a nominated recipient and stores them all in a database.
 
-In the *Configuration* tab you can customise the text to show users after they have submitted the form, who to email
-after the form has been submitted, and a couple of other form customisation options.
-
-You can see all the submissions in the *Submissions* tab. You can export them to CSV by clicking on the *Export to CSV*
-button.
+You can view more detailed information in the
+[forms documentation](http://userhelp.silverstripe.org/for-website-content-editors/forms/).
 
 ## Virtual Page
 
-This page type is similar to a *RedirectorPage* in that it is used to duplicate content from another page. Instead of
+This page type is similar to a *RedirectorPage* and is used to duplicate content from another page. Instead of
 linking to the other page like the *RedirectorPage* page, the *VirtualPage* displays the content from the linked page.

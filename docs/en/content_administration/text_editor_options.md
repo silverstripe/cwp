@@ -3,8 +3,8 @@
 The majority of the content on the website is edited by using the rich text editor (by default this is TinyMCE). Most
 of the features of the editor are detailed in the "Formatting content" section of the 
 [creating and editing content](http://userhelp.silverstripe.org/for-website-content-editors/creating-and-editing-content/)
-page of the [SilverStripe User Help](http://3.0.userhelp.silverstripe.org/) site, however there is a small set of features
-added for CWP.
+page of the [SilverStripe User Help](http://3.0.userhelp.silverstripe.org/) site, however a number of features have
+been added for CWP.
 
 ## Subscript and superscript
 
@@ -35,7 +35,7 @@ The citation and abbreviation buttons work in exactly the same way but for sligh
 text and then clicking on them you will be able to enter in a citation or abbreviation explanation. Type the explanation
 in the "Title" field and click on "Insert" - when the user hovers over the text on the website they will get a small
 popup displaying the text you entered. There will usually be an indication to the user that this information is
-available, this will depend on the way your development agency has built your site.
+available, dependent on the way your development agency has built your site.
 
 ## Insert and delete
 
