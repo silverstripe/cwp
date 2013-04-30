@@ -148,13 +148,16 @@ $cwpEditor->addButtonsToLine(3, 'cite', 'abbr', 'ins', 'del', 'separator', 'tabl
 // Taxonomies
 TaxonomyTerm::add_extension('TaxonomyTermExtension');
 
-// configure administrative logging
-$logFileWriter = new SS_SysLogWriter('SilverStripe', null, LOG_AUTH);
-$logFileWriter->setFormatter(new CwpLoggerFormatter());
-SS_Log::add_writer($logFileWriter, CwpLogger::PRIORITY, '=');
-MemberLoginForm::add_extension('CwpLogger');
-Security::add_extension('CwpLogger');
-RequestHandler::add_extension('CwpLogger');
-Controller::add_extension('CwpLogger');
-Member::add_extension('CwpLogger');
+// configure administrative logging for web requests only
+// it's disabled for cli, as it fills up logs even for unit tests
+if(!Director::is_cli()) {
+	$logFileWriter = new SS_SysLogWriter('SilverStripe', null, LOG_AUTH);
+	$logFileWriter->setFormatter(new CwpLoggerFormatter());
+	SS_Log::add_writer($logFileWriter, CwpLogger::PRIORITY, '=');
+	MemberLoginForm::add_extension('CwpLogger');
+	Security::add_extension('CwpLogger');
+	RequestHandler::add_extension('CwpLogger');
+	Controller::add_extension('CwpLogger');
+	Member::add_extension('CwpLogger');
+}
 
