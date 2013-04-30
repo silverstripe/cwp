@@ -370,7 +370,6 @@ class BasePage_Controller extends ContentController {
 		return array(
 			'all' => array(
 				"$themeDir/css/layout.css",
-				"$themeDir/css/form.css",
 				"$themeDir/css/typography.css"
 			),
 			'screen' => array(
