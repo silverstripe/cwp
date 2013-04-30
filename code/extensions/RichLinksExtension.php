@@ -9,13 +9,9 @@
  */
 class RichLinksExtension extends Extension {
 
-	function extraStatics($class = null, $extension = null) {
-		return array(
-			'casting' => array(
-				'RichLinks' => 'HTMLText'
-			)
-		);
-	}
+	static $casting = array(
+		'RichLinks' => 'HTMLText'
+	);
 
 	function RichLinks() {
 		// Note:
