@@ -48,6 +48,8 @@ class CwpLogger extends SiteTreeExtension {
 					$data = $table::get()->byId($details['id']);
 				}
 
+				if(!$data) continue;
+
 				if($table == 'SiteTree_Live') {
 					$actionText = 'published a page';
 				} else {
