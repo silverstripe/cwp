@@ -21,7 +21,7 @@ be included in that package.
 On Linux, depending on your flavour, the package manager should have Git available so you can install it.  On Debian or
 Ubuntu Linux `apt-get install git` should be enough to get you started.
 
-On Windows install [mysysgit](http://msysgit.github.com/) which provides Git support on Windows.
+On Windows install [msysgit](http://msysgit.github.com/) which provides Git support on Windows.
 
 ## Configuring Git
 
@@ -48,7 +48,7 @@ Use HTTPS address for interacting with your repository - SSH transport is not av
 Now that you have the repository URL for the project, you can check it out into your environment with the following
 command:
 
-	git checkout <url> /path/to/webroot/myproject
+	git clone <url> /path/to/webroot/myproject
 
 Replace `/path/to...` with the path on your computer where you wish to store the project code.
 
