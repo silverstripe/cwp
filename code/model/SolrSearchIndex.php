@@ -2,7 +2,7 @@
 class SolrSearchIndex extends SolrIndex {
 
 	public function init() {
-		$this->addClass('BasePage');
+		$this->addClass('SiteTree');
 		$this->addAllFulltextFields();
 		$this->addFilterField('ShowInSearch');
 	}
