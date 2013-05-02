@@ -43,36 +43,48 @@ requirement):
 	}
 
 <div class="notice" markdown='1'>
-The first part of the "name" in the `composer.json` file constitutes a namespace - please use the same namespace that
-you are using in Gitlab, to distinguish between the officially supported CWP modules (that reside in the "cwp"
-namespace) and private modules.
+Please change the module name and namespace. The first part of the "name" in the `composer.json` file constitutes a
+namespace - please use the same namespace that you are using in Gitlab, to distinguish between the officially supported
+CWP modules (that reside in the "cwp" namespace) and private modules.
 </div>
 
 After your module is running and tested, you can publish it. Since your module is a self-contained piece of software, it
 will constitute a project in itself. From your module directory follow the instructions at [Creating
-repositories](../gitlab/creating-repositories). Once the module is pushed to the repository
-(`git push -u origin master`) it will be available for others to install.
+repositories](../gitlab/creating-repositories).
+
+Now push your module to the upstream, to the empty repository just created:
+
+	git init
+	git add -A
+	git commit -m 'first commit'
+	git remote add origin https://gitlab.cwp.govt.nz/mateusz/foobar.git
+	git push -u origin master
+
+Once the module is pushed to the repository you should see the code on Gitlab. From now on it will be available for
+others to include, as long as they have at least a "Reporter" level access. Alternatively you can make the repo public,
+it will then be listed on the [Gitlab public repository listing](https://gitlab.cwp.govt.nz/public).
 
 Check out instructions at [Sharing repositories](../gitlab/sharing-repositories) on how to control module access
 settings.
 
 ## Including a module in your project
 
-To include a new **publicly** available module in your project, such as *silverstripe-blog*, follow the instructions in the
+To include a new **Packagist-based** module in your project, such as *silverstripe-blog*, follow the instructions in the
 chapter [Adding modules to your
 project](http://doc.silverstripe.org/framework/en/installation/composer#adding-modules-to-your-project).
 
 To inlude a CWP-hosted module, you will need to follow the instructions at [Working with
 project forks and unreleased
 modules](http://doc.silverstripe.org/framework/en/installation/composer#working-with-project-forks-and-unreleased-modules).
+Let's step through these.
 
-So for our *foobar* example module we have just pushed upstream - assuming that you have access to it - add the
+For our *foobar* example module we have just pushed upstream - assuming that you have access to it - add the
 following lines to your `composer.json` file in the root directory of your main project.
 
 	"repositories": [
 		{
 			"type": "vcs",
-			"url": "https://gitlab.cwp.govt.nz/my-agency/my-project.git"
+			"url": "https://gitlab.cwp.govt.nz/my-agency/foobar.git"
 		}
 	]
 
@@ -84,13 +96,19 @@ now include the following requirement in the same `composer.json`:
 		"my-agency/foobar": "*"
 	},
 
-Add the module directory name to `.gitignore` - we will rely on the *composer* to update the dependencies so we don't
-need to version-control it through the master repository.
+Add the module directory name (`foobar/`) to `.gitignore` - we will rely on the *composer* to update the dependencies so
+we don't need to version-control it through the master repository.
 
 Run `composer update` to pull the module in and update all other dependencies as well.
 
-Finally, commit the resulting `composer.lock` file to the repository as well. This serves as a snapshot marker for the
-dependencies - other developers will be able to `composer install` exactly the version of the modules you have used in
-your project, as well as the correct version will be used for the deployment. Some additional information is available
-in the [Deploying projects with
+<div class="notice" markdown='1'>
+If you get cryptic composer errors it's worth checking that your module code is fully pushed. This is because composer
+can only access the code you have actually pushed to the upstream repository, and it may be trying to use the stale
+versions of the files especially if you have some commited some local fixes.
+</div>
+
+Finally, commit the the modified `composer.json`, `composer.lock`  and `.gitignore` files to the repository. The
+`composer.lock` serves as a snapshot marker for the dependencies - other developers will be able to `composer install`
+exactly the version of the modules you have used in your project, as well as the correct version will be used for the
+deployment. Some additional information is available in the [Deploying projects with
 composer](http://doc.silverstripe.org/framework/en/installation/composer#deploying-projects-with-composer).

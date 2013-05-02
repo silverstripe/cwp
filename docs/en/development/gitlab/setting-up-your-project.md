@@ -74,12 +74,6 @@ on the Gitlab.
 At this stage you should be able to run the website on the default theme included in this recipe locally by visiting it
 in your browser (assuming that your LAMP stack is properly configured).
 
-<div class="notice" markdown='1'>
-The basic recipe does not create any pages by default. You need to visit the admin panel first and create some,
-otherwise you will get a "Page not found" message. Go straight to the admin to create pages:
-`http://localhost/your-project/admin`.
-</div>
-
 <div class="hint" markdown='1'>
 You might need to configure your admin access credentials in the `_ss_environment.php` file to be able to access the
 site (see [environment management](http://doc.silverstripe.org/framework/en/topics/environment-management) docs).
