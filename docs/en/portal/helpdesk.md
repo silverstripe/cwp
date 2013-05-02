@@ -44,18 +44,19 @@ your request and you'll receive emails when the ticket is updated with progress.
 
 ## Ticket categories
 
-### Deploy UAT to production
+### CMS
 
-This ticket is used to deploy the exact code (not page content or files) that exist on the UAT environment to the
-production environment. In other words, update the live site.
+Tickets in this category are to do with the CMS itself, rather than the platform
 
-This is deemed a "dangerous" action and requires the approval of a technical contact.
+#### Bug Report
 
-### General
+If you encounter a problem that you believe to be a bug in the SilverStripe CMS then this is the place to file it.
 
-This is used for all tickets that don't fall into the other categories.
+### Instances
 
-### Add Additional Test Environment
+Tickets in this category are about changing your instances or creating new ones.
+
+#### Add Additional Test Environment
 
 This is used to create a new test environment inside the requested instance. This should be used in the case that an
 extra test environment is necessary for development - one development team might be working on an different feature
@@ -63,13 +64,31 @@ from the main development team, so require a separate testing environment to wor
 
 This will incur additional costs and requires the approval of a technical contact.
 
-### Alter domains
+#### Alter domains
 
 This is used if an instance should be responding to different domains that it currently is. Please note that this will
 not take care of the DNS, that is left up to the agency to manage. This just controls which sites CWP will serve up to
 visitors based on the domain they're asking to browse.
 
-### Request new instance
+#### Alter size or DR level
+
+This is used if you wish to change an instance's size (ie, small, medium, or large) or the disaster recovery level
+(backups, passive or active).
+
+There maybe costs involved so this requires the approval of a technical contact.
+
+#### Deploy UAT to production
+
+This ticket is used to deploy the exact code (not page content or files) that exist on the UAT environment to the
+production environment. In other words, update the live site.
+
+This is deemed a "dangerous" action and requires the approval of a technical contact.
+
+#### General
+
+This is used for all tickets that don't fall into the other categories.
+
+#### Request new instance
 
 This is used to create an entirely new instance controlled by the participating agency. This requires a substantial
 amount of information and is usually filled out with assistance from a representative of the service provider, at least
@@ -77,13 +96,26 @@ for an agency's first instance.
 
 This will incur ongoing costs and requires the approval of the agency-wide technical contact.
 
-### Transfer database and assets
+#### Request system logs
+
+This is used when you would like access to the system logs of one of your instances. You will receive the logs from the
+live environment (and UAT too, if requested) for the last 20 days.
+
+#### Service issue / outage report
+
+This is used when you have experienced a problem with CWP service and haven't been informed about it first.
+
+#### Transfer database and assets
 
 This is used to syncronise the content (page content and files) between environments within an instance. This is
 commonly used when wanting to work with the production content on the UAT environment, or if the content has been
 entered on the UAT environment to be "deployed" to the production environment.
 
-### Add new user
+### Portal users
+
+Tickets in this category are about creating, removing or editing your portal users and their access.
+
+#### Add new user
 
 This will create a new user and give that user access to the portal, helpdesk, documentation and deploynaut sites. It
 won't give them access to Gitlab or any of the CMS instances - these have to be set up as necessary.
@@ -93,20 +125,20 @@ instances. If you choose "All instances" this will include every instance owned 
 the future. If you choose "Specified instances only" then you will need to list the instance IDs that you wish to
 grant the user access to.
 
-### Alter access to isntances
+#### Alter access to instances
 
 This will grant or remove access to the instances that you specify for the user that you specify.
 
 If the specified user has agency-wide access and there are instance IDs to be removed, then the user will keep access
 to all of the agency's instances that are not specified.
 
-### Remove existing user
+#### Remove existing user
 
 This will remove the user from access to the CWP portal, helpdesk, documentation and deploynaut sites. Note that it
 will not remove access to Gitlab or any instance's CMS as these aren't managed through the portal. These will have to
 be removed manually.
 
-### Reset password
+#### Reset password
 
 This will reset the specified user's password on the CWP portal, helpdesk, documentation and deploynaut sites. Their
 new password will be emailed to them.
@@ -116,6 +148,11 @@ new password will be emailed to them.
 Many of the tickets require the "Instance ID" to be specified. This is the unique identifier that each instance is
 given when it is created. It is usually, but not always, the primary domain name of the instance. It can be found on
 the portal for that instance.
+
+## Purchase order / responsibility code
+
+This field is provided for all tickets that may incur a financial cost. If your organisation requires a code with the
+invoice so that the bill gets to the right business group, please add this in this field.
 
 ## Email notification preferences
 
