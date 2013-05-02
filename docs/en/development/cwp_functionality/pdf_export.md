@@ -32,7 +32,8 @@ viewing the website, there are no permission checks when accessing files directl
 <div class="notice" markdown='1'>
 The CWP test and production servers you'll be deploying your site to already have `wkhtmltopdf` installed.
 These instructions are only necessary if you want to develop or use the PDF export functionality in your local
-development environment, skip to "Enabling PDF export ..." below instead.
+development environment. Skip to "Enabling PDF export ..." below if you simply want to enable the PDF export
+functionality.
 
 The instructions below assume you're on a Debian or Ubuntu Linux environment.
 There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf` but they have not been tested.
