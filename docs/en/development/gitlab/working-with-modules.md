@@ -104,7 +104,7 @@ Run `composer update` to pull the module in and update all other dependencies as
 <div class="notice" markdown='1'>
 If you get cryptic composer errors it's worth checking that your module code is fully pushed. This is because composer
 can only access the code you have actually pushed to the upstream repository, and it may be trying to use the stale
-versions of the files especially if you have some commited some local fixes.
+versions of the files.
 </div>
 
 Finally, commit the the modified `composer.json`, `composer.lock`  and `.gitignore` files to the repository. The
