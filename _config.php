@@ -42,6 +42,14 @@ DBField::add_extension('RichLinksExtension');
 // Override the default HtmlEditorConfig for all groups.
 Group::add_extension('CwpHtmlEditorConfig');
 
+// RestfulService needs to know about the CWP proxy when the site in live mode
+if(Director::isLive()) {
+	Config::inst()->update('RestfulService', 'default_curl_options', array(
+		CURLOPT_PROXY => 'gateway.cwp.govt.nz',
+		CURLOPT_PROXYPORT => 8888
+	));
+}
+
 // default to the binary being in the usual path on Linux
 if(!defined('WKHTMLTOPDF_BINARY')) {
 	define('WKHTMLTOPDF_BINARY', '/usr/local/bin/wkhtmltopdf');
