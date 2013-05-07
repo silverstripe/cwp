@@ -28,8 +28,8 @@ The agency technical contact is also the only user that can authorise the creati
 
 ## User management
 
-Management portal users can be managed through the [CWP helpdesk](http://helpdesk.cwp.govt.nz). Requests can be made to
-add a new user, change instance access, remove users or reset a users's password. This will provide access to the core
+Management Services users can be managed through the [CWP helpdesk](http://helpdesk.cwp.govt.nz). Requests can be made to
+add a new user, change instance access, remove users or reset a users's password. This will provide access to the
 portal site, Deploynaut and the helpdesk.
 
 Other systems have their own separate pool of users and are handled solely by the technical contact. These are Gitlab

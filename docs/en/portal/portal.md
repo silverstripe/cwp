@@ -1,7 +1,7 @@
 # Portal
 
-The core portal site is the first port of call of the entire CWP management portal. It contains a high-level overview
-of your instances as well as links to the other parts of the management portal.
+The portal site is the first port of call of the entire CWP Management Services. It contains a high-level overview
+of your instances as well as links to the other parts of the Management Services.
 
 ## Instances
 

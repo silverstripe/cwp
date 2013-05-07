@@ -17,10 +17,13 @@ to *UAT* (accessible to internal testers), or from UAT to *Production* (accessib
  * **Git:** The version control software that CWP uses to store website code. Allows multiple users and teams to collaborate
 on a single project. See *Repository*.
  * **Gitlab:** The repository management software that CWP uses.
+ * **Helpdesk:** System for managing platform-related issues (a ticket system).
  * **Instance:** A group of *environments* for a single website. Will consist of at least two, *UAT* and *Production*,
  but can contain more.
  * **Live:**  An informal way of referring to the *Production* environment.
+ * **Management Services:** All tools for managing the platform - includes the *Portal*, *Helpdesk*, *Deploynaut*, *Gitlab*.
  * **Platform:** An informal way of referring to the Common Web Platform.
+ * **Portal:** The landing page where the information about the *instances* and their performance can be found.
  * **Production:** The *environment* that hosts the version of the website that is accessible to all the website's
 users. Usually this means the general public, but access may be restricted in the case of an intranet or other private
 site.
