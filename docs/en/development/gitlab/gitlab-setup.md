@@ -67,6 +67,14 @@ You will be asked for Gitlab credentials. After providing them, your commit will
 If you go back to the project page in Gitlab, and access the **Commits** tab you should see your change.
 Congratulations!
 
+## Increase the default post size
+
+Git via HTTP is susceptible to 411 errors due to the size of post requests made through the remote web server.
+
+The default post size for GIT is 1MB. To increase the value run the below command to increase the limit to 500MB:
+
+	git config http.postBuffer 524288000
+
 ## Caching Gitlab passwords
 
 You can avoid having to type the password in every time by using Git credential helper.
