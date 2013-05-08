@@ -1,13 +1,13 @@
 # Helpdesk
 
-A [helpdesk system](http://helpdesk.cwp.govt.nz) is provided, allowing participating agencies to file a ticket when
-platform assistance is needed or when they wish to create a new server instance.
+The [Helpdesk](http://helpdesk.cwp.govt.nz) is the system used by Management Services users for interaction with the
+platform.
 
 This document describes basic use of the helpdesk system to create a new ticket.
 
 The helpdesk is located at [http://helpdesk.cwp.govt.nz](http://helpdesk.cwp.govt.nz)
 
-When a new user is created in the CWP system they will receive an email with login details to the helpdesk system.
+When a new user is created on Management Services they will receive an email with login details to the helpdesk system.
 Follow the link in the email to set yourself a password and then log into
 [http://helpdesk.cwp.govt.nz](http://helpdesk.cwp.govt.nz).
 

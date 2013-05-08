@@ -7,16 +7,19 @@ step-by-step guides see the developer documentation.
 
 ## Access
 
-Like Gitlab, the technical contact is given an account for Deploynaut and controls the users and who has access to
-deploy which sites.
-
-If a technical contact loses access and needs their password reset they can request this through the helpdesk.
+The access to deploy to UAT as well as any additional environments is given to PTCs, ITCs, PA Managers and Instance Managers as
+part of the Management Services account.
 
 ## Deployments
 
-A user that has access to make deployments can perform an instant deployment to the UAT environment from the latest
-version of the code in Gitlab. A deployment the production environment cannot be done by any user via Deploynaut,
-regardless of access level. They must be requested through the helpdesk and get the approval of the techincal contact.
+Each instance is tied to a primary repository, and it is only from this repository that deployments are possible. A user
+that has access to deployments can choose a Gitlab revision to deploy and schedule it. The deployment is scheduled in a
+queue and will be performed as soon as a backend worker becomes available.
+
+To roll a deployment back, choose a historical revision from the dropdown.
+
+Production deployments are only requestable via helpdesk and are enacted by the platform operator upon explicit
+confirmation from ITC (or PTC).
 
 ## Historic data
 

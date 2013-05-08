@@ -5,8 +5,7 @@ SilverStripe CMS.
 
 ## Access
 
-Every user on the CWP platform has access to the entire CWP documentation site. There is no need to manually manage
-access to the documentation or different sections of it.
+Docs are public resource.
 
 ## Modules
 

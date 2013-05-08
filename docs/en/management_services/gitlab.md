@@ -8,9 +8,10 @@ step-by-step guides see the developer documentation.
 
 ## Access
 
-When a new instance is created, the technical contact is given an account for Gitlab and access to all the applicable
-repositories. From this point on, all user management for Gitlab is left in the hands of the technical contact. They
+As part of the Management Services login PTCs and ITCs are given initial Gitlab account that has ability to create
+more users. From this point on, all user management for Gitlab is left in the hands of the ITC (or PTC). They
 are free to create as many users as they want and as many additional repositories as they need. New users can be
 created with the privileges to create new users and new repositories.
 
-If a technical contact loses access and needs their password reset they can request this through the helpdesk.
+If a technical contact loses access and needs their Management Services password reset they can request this through the
+helpdesk.
