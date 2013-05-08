@@ -13,9 +13,9 @@ Follow the link in the email to set yourself a password and then log into
 
 ## Access
 
-Every user on the CWP platform has access to the helpdesk and is able to make requests. If any request is deemed
-"dangerous" (possible to cause an outage) or requires a financial expenditure from the partipating agency, then the
-request is sent to a technical contact for approval before any action is taken.
+Every user on the CWP Management Services has access to the helpdesk and is able to make requests. If any request is
+sensitive (has the potential to cause an outage) or requires a financial expenditure from the partipating agency, then
+the request is sent to a ITC or PTC for approval before any action is taken.
 
 ## Raising a ticket
 
@@ -62,7 +62,7 @@ This is used to create a new test environment inside the requested instance. Thi
 extra test environment is necessary for development - one development team might be working on an different feature
 from the main development team, so require a separate testing environment to work on.
 
-This will incur additional costs and requires the approval of a technical contact.
+This will incur additional costs and requires the approval of an ITC or PTC.
 
 #### Alter domains
 
@@ -75,14 +75,14 @@ visitors based on the domain they're asking to browse.
 This is used if you wish to change an instance's size (ie, small, medium, or large) or the disaster recovery level
 (backups, passive or active).
 
-There maybe costs involved so this requires the approval of a technical contact.
+There maybe costs involved so this requires the approval of an ITC or PTC.
 
 #### Deploy UAT to production
 
 This ticket is used to deploy the exact code (not page content or files) that exist on the UAT environment to the
 production environment. In other words, update the live site.
 
-This is deemed a "dangerous" action and requires the approval of a technical contact.
+This is deemed a "dangerous" action and requires the approval of an ITC or PTC.
 
 #### General
 
@@ -94,7 +94,7 @@ This is used to create an entirely new instance controlled by the participating 
 amount of information and is usually filled out with assistance from a representative of the service provider, at least
 for an agency's first instance.
 
-This will incur ongoing costs and requires the approval of the agency-wide technical contact.
+This will incur ongoing costs and requires the approval of the PTC.
 
 #### Request system logs
 
@@ -103,13 +103,15 @@ live environment (and UAT too, if requested) for the last 20 days.
 
 #### Service issue / outage report
 
-This is used when you have experienced a problem with CWP service and haven't been informed about it first.
+This can be used if you have experienced a problem with CWP service and haven't been notified about it yet.
 
 #### Transfer database and assets
 
-This is used to syncronise the content (page content and files) between environments within an instance. This is
+This is used to synchronise the content (page content and files) between environments within an instance. This is
 commonly used when wanting to work with the production content on the UAT environment, or if the content has been
 entered on the UAT environment to be "deployed" to the production environment.
+
+Deploying the database and assets to production requires the approval of ITC or PTC.
 
 ### Portal users
 
@@ -117,8 +119,8 @@ Tickets in this category are about creating, removing or editing your portal use
 
 #### Add new user
 
-This will create a new user and give that user access to the portal, helpdesk, documentation and deploynaut sites. It
-won't give them access to Gitlab or any of the CMS instances - these have to be set up as necessary.
+This will create a new user and give that user access to the Management Services (portal, helpdesk and deploynaut). It
+won't give them access to Gitlab or any of the CMS instances - these are self-managed by ITC or PTC.
 
 When you create a user you have the choice of granting access to all of the agency's websites or just a set of
 instances. If you choose "All instances" this will include every instance owned by the agency, even those created in
@@ -134,20 +136,18 @@ to all of the agency's instances that are not specified.
 
 #### Remove existing user
 
-This will remove the user from access to the CWP portal, helpdesk, documentation and deploynaut sites. Note that it
-will not remove access to Gitlab or any instance's CMS as these aren't managed through the portal. These will have to
-be removed manually.
+This will remove the user from access to the CWP Management Services. Note that it will not remove access to Gitlab or
+any instance's CMS as these aren't managed through the portal - these are up to the agency ITC or PTC to manage.
 
 #### Reset password
 
-This will reset the specified user's password on the CWP portal, helpdesk, documentation and deploynaut sites. Their
-new password will be emailed to them.
+This will reset the specified user's password on the CWP Management Services. Their new password will be emailed to
+them.
 
 ## Instance ID
 
-Many of the tickets require the "Instance ID" to be specified. This is the unique identifier that each instance is
-given when it is created. It is usually, but not always, the primary domain name of the instance. It can be found on
-the portal for that instance.
+Many of the tickets require the "Instance ID" to be specified. This is the unique identifier that each instance is given
+when it is created. It can be found on the portal for that instance.
 
 ## Purchase order / responsibility code
 
