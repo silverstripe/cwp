@@ -1,39 +1,51 @@
 # Users and Access
 
-There are two different groups of users in the Common Web Platform, and two different levels of access.
+Some of the Management Services require login, which should have already been provided to you.
 
-## Groups
+The Management Services access is always understood as access to Portal, Helpdesk and Deploynaut jointly. There is no
+possibility to provide access just for one of these subsystems.
 
-Access can be agency-wide or restricted to certain instances.
+On the other hand, Gitlab and CMS administrative panels are self-managed and treated separately from Management
+Services. Docs are publicly visible.
 
-Agency-wide users have access to all instances run by their agency. This will be the typical arrangement for smaller
-agencies or once with just a few websites.
+## Management Services Roles
 
-Instance users just have access to just the instances they have been allowed access to. This could be used for large
-agencies with multiple business groups, each with their own set of websites. It also could be used for external
-development agencies that are contracted to work on only one or two websites from an agency. Actually the instances
-that they have access to could be across multiple agencies and CWP supports this arrangement.
+There are four roles applicable to the users of the Management Services.
 
-## Level of access
+Agency-wide roles:
 
-All users have the ability to request actions through the helpdesk - actions such as deploying to live, creating a new
-user, or creating a new instance. Some of these actions, those that carry some expense or could possibly lead to an
-outage (such as a deployment) require authorisation by a more privileged user, the technical contact.
+* **PTC (Primary Technical Contact)**: the highest level of access. Apart from all other actions available in the system,
+This role can approve sensitive requests for all agency's instances, as well as create new Management Services users.
+This role also gets initial access to Gitlab, can create Gitlab users, and gets CMS credentials to all instances.
+* **PA Manager**: can file helpdesk requests for all PA instances, but sensitive requests have to be approved by a PTC
+or ITC. Can deploy to UAT.
 
-When such a request is made, first the service provider will contact the instance-specific technical contact (if there
-is one). If there is no instance-specific technical contact, or if no reply is received, then the request is escalated
-up to the agency technical contact.
+Instance roles:
 
-The agency technical contact is also the only user that can authorise the creation of a new instance for that agency.
+* **ITC (Instance Technical Contact)**: an instance-specific counterpart of ITC. Can approve all sensitive requests
+pertaining to the specific instance, gets initial access to Gitlab, can create Gitlab users, and gets CMS credentials
+to the instance.
+* **Instance Manager**: an instance-specific counterpart of a PA manager. Sensitive requests for the instance need to
+be approved by the ITC. Can deploy to UAT.
 
-## User management
+## Other roles
 
-Management Services users can be managed through the [CWP helpdesk](http://helpdesk.cwp.govt.nz). Requests can be made to
-add a new user, change instance access, remove users or reset a users's password. This will provide access to the
-portal site, Deploynaut and the helpdesk.
+There are also other roles which are not represented on the Management Services in any way. They are self-managed in the
+sense that the user accounts have to be maintained by the users themselves.
 
-Other systems have their own separate pool of users and are handled solely by the technical contact. These are Gitlab
-and the CMS on each environment. Note that this means that if you create a user on a UAT environment it will not
-automatically be duplicated on the production environment and vice versa.
+* **Gitlab users**: PTC and ITC are given initial accounts on Gitlab with the ability to create more users. Contact your
+ITC (or PTC) if you need an account.
+* **CMS users**: include CMS administrators, editors, publishers etc. The first administrative account is created by
+PTC or ITC using the provided credentials, further accounts can be created by nominated administrators.
 
-For more information, see the [helpdesk](helpdesk) documentation.
+## Creating/removing Management Services users
+
+Management Services users can be maintained through the [Helpdesk](http://helpdesk.cwp.govt.nz). Requests can be made to
+add a new user, change instance access, remove users, reset a users's password etc.
+
+## Note on Helpdesk access
+
+All users have the ability to request actions through the helpdesk. The permission to execute the action will be checked
+by the helpdesk operator when the ticket is being resolved. The operator might also seek approval from the ITC (or PTC
+if ITC is not defined, or not contactable) when certain sensitive actions are being requested, or seek additional
+confirmation from the requester.
