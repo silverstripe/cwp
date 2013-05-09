@@ -161,3 +161,5 @@ if(!Director::is_cli()) {
 	Member::add_extension('CwpLogger');
 }
 
+Controller::add_extension('CwpControllerExtension');
+
