@@ -19,6 +19,13 @@ class Quicklink extends DataObject {
 
 	public function getLink() {
 		if ($this->ExternalLink) {
+			$url = parse_url($this->ExternalLink);
+
+			// if no scheme set in the link, default to http
+			if(!isset($url['scheme'])) {
+				return 'http://' . $this->ExternalLink;
+			}
+
 			return $this->ExternalLink;
 		} elseif ($this->InternalLinkID) {
 			return $this->InternalLink()->Link();
