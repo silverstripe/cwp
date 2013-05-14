@@ -352,7 +352,7 @@ class BasePage_Controller extends ContentController {
 			THIRDPARTY_DIR .'/jquery/jquery.js',
 			THIRDPARTY_DIR .'/jquery-ui/jquery-ui.js',
 			"$themeDir/js/lib/modernizr.js",
-			'themes/module_bootstrap/js/bootstrap-transition.js',
+			"$themeDir/js/bootstrap-transition.2.3.1.js",
 			'themes/module_bootstrap/js/bootstrap-collapse.js',
 			"$themeDir/js/bootstrap-carousel.2.3.1.js",
 			"$themeDir/js/general.js",
