@@ -3,11 +3,12 @@
 class Quicklink extends DataObject {
 	private static $db = array(
 		'Name' => 'Varchar(255)',
-		'ExternalLink' => 'Varchar(255)'
+		'ExternalLink' => 'Varchar(255)',
+		'SortOrder' => 'Int'
 	);
 
 	private static $has_one = array(
-		'Parent' => 'HomePage',
+		'Parent' => 'BaseHomePage',
 		'InternalLink' => 'SiteTree'
 	);
 
@@ -54,15 +55,15 @@ class Quicklink extends DataObject {
 		$fields->removeByName('ParentID');
 
 		$externalLinkField = $fields->fieldByName('Root.Main.ExternalLink');
-		$internalLinkField = $fields->fieldByName('Root.Main.InternalLinkID');
+
 		$fields->removeByName('ExternalLink');
 		$fields->removeByName('InternalLinkID');
-		$internalLinkField->addExtraClass('noBorder');
+		$fields->removeByName('SortOrder');
 		$externalLinkField->addExtraClass('noBorder');
 
 		$fields->addFieldToTab('Root.Main',CompositeField::create(
 			array(
-				$internalLinkField,
+				new TreeDropdownField('InternalLinkID', 'Internal Link', 'SiteTree'),
 				$externalLinkField,
 				$wrap = new CompositeField(
 					$extraLabel = new LiteralField('NoteOverride', '<div class="message good notice">Note:  If you specify an External Link, the Internal Link will be ignored.</div>')

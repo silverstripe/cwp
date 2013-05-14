@@ -4,7 +4,8 @@ class CarouselItem extends DataObject {
 	private static $db = array(
 		'Title' => 'Varchar(255)',
 		'Caption' => 'Text',
-		'Archived' => 'Boolean' 
+		'Archived' => 'Boolean',
+		'SortOrder' => 'Int'
 	);
 
 	private static $has_one = array(

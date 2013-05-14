@@ -31,8 +31,16 @@ class BaseHomePage extends Page {
 
 	private static $has_many = array(
 		'CarouselItems' => 'CarouselItem',
-		'Quicklinks' => 'Quicklink'
+		'Quicklinks' => 'Quicklink.Parent'
 	);
+
+	public function CarouselItems() {
+		return $this->getComponents('CarouselItems')->sort('SortOrder');
+	}
+
+	public function Quicklinks() {
+		return $this->getComponents('Quicklinks')->sort('SortOrder');
+	}
 
 	function getCMSFields() {
 		$fields = parent::getCMSFields();
@@ -43,17 +51,33 @@ class BaseHomePage extends Page {
 		$gridField = new GridField(
 			'CarouselItems',
 			'Carousel',
-			$this->CarouselItems()->sort('Archived'),
-			GridFieldConfig_RelationEditor::create());
+			$this->CarouselItems()->sort('SortOrder'),
+			GridFieldConfig_RelationEditor::create()
+		);
+		$gridConfig = $gridField->getConfig();
+		$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName('Add Step');
+		$gridConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
+		$gridConfig->removeComponentsByType('GridFieldDeleteAction');
+		$gridConfig->addComponent(new GridFieldDeleteAction());
+		$gridConfig->addComponent(new GridFieldSortableRows('SortOrder'));
 		$gridField->setModelClass('CarouselItem');
+
 		$fields->addFieldToTab('Root.Carousel', $gridField);
 
 		$gridField = new GridField(
 			'Quicklinks',
 			'Quicklinks',
 			$this->Quicklinks(),
-			GridFieldConfig_RelationEditor::create());
+			GridFieldConfig_RelationEditor::create()
+		);
+		$gridConfig = $gridField->getConfig();
+		$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName('Add Step');
+		$gridConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
+		$gridConfig->removeComponentsByType('GridFieldDeleteAction');
+		$gridConfig->addComponent(new GridFieldDeleteAction());
+		$gridConfig->addComponent(new GridFieldSortableRows('SortOrder'));
 		$gridField->setModelClass('Quicklink');
+
 		$fields->addFieldToTab('Root.Quicklinks', $gridField);
 
 		$fields->removeByName('Translations');
