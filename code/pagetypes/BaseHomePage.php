@@ -55,7 +55,7 @@ class BaseHomePage extends Page {
 			GridFieldConfig_RelationEditor::create()
 		);
 		$gridConfig = $gridField->getConfig();
-		$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName('Add Step');
+		$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName('Add');
 		$gridConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
 		$gridConfig->removeComponentsByType('GridFieldDeleteAction');
 		$gridConfig->addComponent(new GridFieldDeleteAction());
@@ -71,7 +71,7 @@ class BaseHomePage extends Page {
 			GridFieldConfig_RelationEditor::create()
 		);
 		$gridConfig = $gridField->getConfig();
-		$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName('Add Step');
+		$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName('Add');
 		$gridConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
 		$gridConfig->removeComponentsByType('GridFieldDeleteAction');
 		$gridConfig->addComponent(new GridFieldDeleteAction());
