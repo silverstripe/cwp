@@ -40,6 +40,7 @@ class CarouselItem extends DataObject {
 		$label->addExtraClass("left");
 
 		$fields->removeByName('ParentID');
+		$fields->removeByName('SortOrder');
 
 		$fields->insertBefore(			
 		$wrap = new CompositeField(
