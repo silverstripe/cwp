@@ -7,7 +7,7 @@
 
 class BaseHomePage extends Page {
 
-	private static $icon = "cwp/images/icons/sitetree_images/home.png";
+	private static $icon = 'cwp/images/icons/sitetree_images/home.png';
 
 	private static $hide_ancestor = 'BaseHomePage';
 
@@ -33,7 +33,7 @@ class BaseHomePage extends Page {
 		'Quicklinks' => 'Quicklink.Parent'
 	);
 
-	public $pageIcon =  "images/icons/sitetree_images/home.png";
+	public $pageIcon = 'images/icons/sitetree_images/home.png';
 
 	public function CarouselItems() {
 		return $this->getComponents('CarouselItems')->sort('SortOrder');
@@ -43,7 +43,7 @@ class BaseHomePage extends Page {
 		return $this->getComponents('Quicklinks')->sort('SortOrder');
 	}
 
-	function getCMSFields() {
+	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
 		// Main Content tab
@@ -52,7 +52,7 @@ class BaseHomePage extends Page {
 		$gridField = new GridField(
 			'CarouselItems',
 			'Carousel',
-			$this->CarouselItems()->sort('SortOrder'),
+			$this->CarouselItems(),
 			GridFieldConfig_RelationEditor::create()
 		);
 		$gridConfig = $gridField->getConfig();
@@ -111,7 +111,7 @@ class BaseHomePage extends Page {
 		return $fields;
 	}
 
-	function getVisibleCarouselItems() {
+	public function getVisibleCarouselItems() {
 		return $this->CarouselItems()->filter('Archived', false);
 	}
 }

@@ -14,7 +14,7 @@ class FooterHolder extends RedirectorPage {
 		'ShowInSearch' => 0
 	);
 
-	function getCMSFields() {
+	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
 		$fields->removeByName('RedirectorDescHeader');
@@ -28,7 +28,7 @@ class FooterHolder extends RedirectorPage {
 	/**
 	 * Return the link to the first child page.
 	 */
-	function redirectionLink() {
+	public function redirectionLink() {
 		$childPage = $this->Children()->first();
 
 		if($childPage) {
@@ -45,7 +45,7 @@ class FooterHolder extends RedirectorPage {
 		}
 	}
 	
-	function syncLinkTracking() {
+	public function syncLinkTracking() {
 		// If we don't have anything to link to, then we have a broken link.
 		if (!$this->Children()) {
 			$this->HasBrokenLink = true;

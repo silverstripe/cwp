@@ -18,7 +18,7 @@ class CwpLogger extends SiteTreeExtension {
 				class $dbClass extends $type {
 					public \$isManipulationLoggingCapture = true;
 
-					function manipulate(\$manipulation) {
+					public function manipulate(\$manipulation) {
 						CwpLogger::handle_manipulation(\$manipulation);
 						\$res = parent::manipulate(\$manipulation);
 						return \$res;
