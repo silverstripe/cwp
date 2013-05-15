@@ -81,11 +81,15 @@ A better way to do it is with extensions. If you created these two class definit
 		private static $api_access = true;
 	}
 
-and then added this to your `_config.php`:
+and then added this to your `mysite/_config/config.yml`:
 
-	:::php
-	SubmittedForm::add_extension('SubmittedFormExtension');
-	SubmittedFormField::add_extension('SubmittedFormFieldExtension');
+	:::yml
+	SubmittedForm:
+	  extensions:
+	   - SubmittedFormExtension
+	SubmittedFormField:
+	  extensions:
+	   - SubmittedFormFieldExtension
 
 then you'll expose them to the REST API without modifying any core or module code.
 

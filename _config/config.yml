@@ -1,0 +1,24 @@
+DBField:
+  extensions:
+   - RichLinksExtension
+Controller:
+  extensions:
+   - CwpControllerExtension
+SiteConfig:
+  extensions:
+   - CustomSiteConfig
+Group:
+  extensions:
+   - CwpHtmlEditorConfig
+HtmlEditorField_Toolbar:
+  extensions:
+   - CustomHtmlEditorFieldToolbar
+TaxonomyTerm:
+  extensions:
+   - TaxonomyTermExtension
+GDBackend:
+  default_quality: 90
+LeftAndMain:
+  extra_requirements_css:
+   - 'cwp/css/custom.css'
+

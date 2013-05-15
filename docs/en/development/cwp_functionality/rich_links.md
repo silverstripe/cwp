@@ -25,10 +25,12 @@ being provided in this specific format.
 
 ## Code
 
-The capability is built as a simple extension to `DBField`. It is applied in `cwp/_config.php`:
+The capability is built as a simple extension to `DBField`. It is applied in `cwp/_config/config.yml`:
 
-	:::php
-	DBField::add_extension('RichLinksExtension');
+	:::yml
+	DBField:
+	  extensions:
+	   - RichLinksExtension
 
 It provides all fields with a `RichLinks` function.
 

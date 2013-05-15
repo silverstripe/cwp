@@ -1,13 +1,10 @@
 <?php
 /********************************************************************************
  * General configuration.
+ *
+ * _config/config.yml contains more configuration.
+ *
  ********************************************************************************/
-
-LeftAndMain::require_css('cwp/css/custom.css');
-
-SiteConfig::add_extension('CustomSiteConfig');
-
-GD::set_default_quality(90);
 
 // Configure document converter.
 if (class_exists('DocumentConverterDecorator')) {
@@ -35,12 +32,6 @@ if (class_exists('Translatable')) {
 // and date formatting etc will default to this locale. Note there is no
 // English (New Zealand) option
 i18n::set_locale('en_GB');
-
-// Add the ability to augment links with extra classes and meta information.
-DBField::add_extension('RichLinksExtension');
-
-// Override the default HtmlEditorConfig for all groups.
-Group::add_extension('CwpHtmlEditorConfig');
 
 // default to the binary being in the usual path on Linux
 if(!defined('WKHTMLTOPDF_BINARY')) {
@@ -73,8 +64,6 @@ if(class_exists('Solr')) {
  * Custom TinyMCE configuration for CWP
  ********************************************************************************/
 $cwpEditor = HtmlEditorConfig::get('cwp');
-
-HtmlEditorField_Toolbar::add_extension('CustomHtmlEditorFieldToolbar');
 
 // Start with the same configuration as 'cms' config (defined in framework/admin/_config.php).
 $cwpEditor->setOptions(array(
@@ -145,9 +134,6 @@ $cwpEditor->removeButtons('visualaid');
 $cwpEditor->removeButtons('tablecontrols');
 $cwpEditor->addButtonsToLine(3, 'cite', 'abbr', 'ins', 'del', 'separator', 'tablecontrols');
 
-// Taxonomies
-TaxonomyTerm::add_extension('TaxonomyTermExtension');
-
 // configure administrative logging for web requests only
 // it's disabled for cli, as it fills up logs even for unit tests
 if(!Director::is_cli()) {
@@ -160,6 +146,4 @@ if(!Director::is_cli()) {
 	Controller::add_extension('CwpLogger');
 	Member::add_extension('CwpLogger');
 }
-
-Controller::add_extension('CwpControllerExtension');
 
