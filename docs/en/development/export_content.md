@@ -58,7 +58,7 @@ So if you have added:
 then you might always want to add:
 
 	:::php
-	static $api_access = array('Locale', 'URLSegment' ... 'ParentID', 'ID', 'Author', 'Thumbnail');
+	private static $api_access = array('Locale', 'URLSegment' ... 'ParentID', 'ID', 'Author', 'Thumbnail');
 
 This will include the extra fields in the XML result.
 
@@ -91,7 +91,7 @@ and then added this to your `mysite/_config/config.yml`:
 	  extensions:
 	   - SubmittedFormFieldExtension
 
-then you'll expose them to the REST API without modifying any core or module code.
+Now the `SubmittedForm` and `SubmittedFormField` classes are exposed to the REST API without modifying them directly.
 
 ## Fetching relations
 

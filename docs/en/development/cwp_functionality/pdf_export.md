@@ -77,7 +77,8 @@ In your `mysite/_config/config.yml` file, add the following:
 	BasePage:
 	  pdf_export: 1
 
-Note the yml files do not accept tabs, only spaces.
+Note the yml files do not accept tabs, only spaces. You'll also have to call `flush=1` to have the new YML configuration
+take effect.
 
 Now you can use `$PdfLink` in your templates which gives you a link to generate the page as a PDF.
 Note that a default "Export PDF" link is provided near the "Print" link at the bottom of the default template.
