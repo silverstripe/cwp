@@ -44,27 +44,35 @@ class CwpLogger extends SiteTreeExtension {
 			if(in_array($table, array('Member', 'Group', 'SiteTree_Live')) && !preg_match('/Security/', @$_SERVER['REQUEST_URI'])) {
 				if($table == 'SiteTree_Live') {
 					$data = SiteTree::get()->byId($details['id']);
+					if(!$data) continue;
+					$actionText = 'published a page';
+
+					self::log(sprintf(
+						'"%s" (ID: %s) %s (ID: %s, Version: %s, ClassName: %s, Title: "%s")',
+						$currentMember->Email ?: $currentMember->Title,
+						$currentMember->ID,
+						$actionText,
+						$details['id'],
+						$details['fields']['Version'],
+						$data->ClassName,
+						$data->Title
+					));
 				} else {
 					$data = $table::get()->byId($details['id']);
-				}
-
-				if(!$data) continue;
-
-				if($table == 'SiteTree_Live') {
-					$actionText = 'published a page';
-				} else {
+					if(!$data) continue;
 					$actionText = 'modified ' . $table;
+
+					self::log(sprintf(
+						'"%s" (ID: %s) %s (ID: %s, ClassName: %s, Title: "%s")',
+						$currentMember->Email ?: $currentMember->Title,
+						$currentMember->ID,
+						$actionText,
+						$details['id'],
+						$data->ClassName,
+						$data->Title
+					));
 				}
 
-				self::log(sprintf(
-					'"%s" (ID: %s) %s (ID: %s, ClassName: %s, Title: "%s")',
-					$currentMember->Email ?: $currentMember->Title,
-					$currentMember->ID,
-					$actionText,
-					$details['id'],
-					$data->ClassName,
-					$data->Title
-				));
 			}
 
 			// logging adding members to a group
