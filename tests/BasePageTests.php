@@ -6,8 +6,8 @@ class BasePageTests extends SapphireTest {
 	public function setUp() {
 		parent::setUp();
 
-		BasePage::$pdf_export_enabled = true;
-		BasePage::$generated_pdf_path = 'assets/_generated_pdfs';
+		Config::inst()->update('BasePage', 'pdf_export', true);
+		Config::inst()->update('BasePage', 'generated_pdf_path', 'assets/_generated_pdfs');
 	}
 
 	public function testPdfFilename() {
@@ -26,7 +26,7 @@ class BasePageTests extends SapphireTest {
 	}
 
 	public function testPdfLinkDisabled() {
-		BasePage::$pdf_export_enabled = false;
+		Config::inst()->update('BasePage', 'pdf_export', false);
 		$page = $this->objFromFixture('Page', 'test-page-one');
 		$this->assertFalse($page->PdfLink(), 'No PDF link as the functionality is disabled');
 	}

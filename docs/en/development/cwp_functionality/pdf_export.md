@@ -71,9 +71,12 @@ only.
 
 Export to PDF functionality is disabled by default. You need to add a line of code to enable it.
 
-In your `mysite/_config.php` file, add the following:
+In your `mysite/_config/config.yml` file, add the following:
 
-	BasePage::$pdf_export_enabled = true;
+	BasePage:
+	  pdf_export: 1
+
+Note the yml files do not accept tabs, only spaces.
 
 Now you can use `$PdfLink` in your templates which gives you a link to generate the page as a PDF.
 Note that a default "Export PDF" link is provided near the "Print" link at the bottom of the default template.

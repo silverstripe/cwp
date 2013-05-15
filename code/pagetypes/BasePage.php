@@ -12,9 +12,9 @@ class BasePage extends SiteTree {
 	// Hide this page type from the CMS. hide_ancestor is slightly misnamed, should really be just "hide"
 	private static $hide_ancestor = 'BasePage';
 
-	public static $pdf_export_enabled = false;
+	private static $pdf_export = false;
 
-	public static $generated_pdf_path = 'assets/_generated_pdfs';
+	private static $generated_pdf_path = 'assets/_generated_pdfs';
 
 	static $api_access = array(
 		'view' => array('Locale', 'URLSegment', 'Title', 'MenuTitle', 'Content', 'MetaDescription', 'ExtraMenu', 'Sort', 'Version', 'ParentID', 'ID'),
@@ -51,7 +51,7 @@ class BasePage extends SiteTree {
 	public function getPdfFilename() {
 		$baseName = sprintf('%s-%s', $this->URLSegment, $this->ID);
 
-		$folderPath = self::$generated_pdf_path;
+		$folderPath = Config::inst()->get('BasePage', 'generated_pdf_path');
 		if($folderPath[0] != '/') $folderPath = BASE_PATH . '/' . $folderPath;
 
 		return sprintf('%s/%s.pdf', $folderPath, $baseName);
@@ -61,7 +61,7 @@ class BasePage extends SiteTree {
 	 * Build pdf link for template.
 	 */
 	public function PdfLink() {
-		if(!self::$pdf_export_enabled) return false;
+		if(!Config::inst()->get('BasePage', 'pdf_export')) return false;
 
 		$path = $this->getPdfFilename();
 
@@ -191,7 +191,7 @@ class BasePage_Controller extends ContentController {
 	 * Serve the page rendered as PDF.
 	 */
 	public function downloadpdf() {
-		if(!BasePage::$pdf_export_enabled) return false;
+		if(!Config::inst()->get('BasePage', 'pdf_export')) return false;
 
 		// We only allow producing live pdf. There is no way to secure the draft files.
 		Versioned::reading_stage('Live');
@@ -208,7 +208,7 @@ class BasePage_Controller extends ContentController {
 	 * Render the page as PDF using wkhtmltopdf.
 	 */
 	public function generatePDF() {
-		if(!BasePage::$pdf_export_enabled) return false;
+		if(!Config::inst()->get('BasePage', 'pdf_export')) return false;
 
 		if(!defined('WKHTMLTOPDF_BINARY')) return user_error('WKHTMLTOPDF_BINARY not defined', E_USER_ERROR);
 
