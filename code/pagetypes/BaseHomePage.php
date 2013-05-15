@@ -13,11 +13,11 @@ class BaseHomePage extends Page {
 
 	private static $db = array(
 		'FeatureOneTitle' => 'Varchar(255)',
-		'FeatureOneCategory' => "Enum('bell,comments,film,globe,group,flag,rss,time,list,phone,user','comments')",
+		'FeatureOneCategory' => "Enum('bell,comments,film,flag,globe,group,list,phone,rss,time,user','comments')",
 		'FeatureOneContent' => 'HTMLText',
 		'FeatureOneButtonText' => 'Varchar(255)',
 		'FeatureTwoTitle' => 'Varchar(255)',
-		'FeatureTwoCategory' => "Enum('bell,comments,film,globe,group,flag,rss,time,list,phone,user','comments')",
+		'FeatureTwoCategory' => "Enum('bell,comments,film,flag,globe,group,list,phone,rss,time,user','comments')",
 		'FeatureTwoContent' => 'HTMLText',
 		'FeatureTwoButtonText' => 'Varchar(255)'
 	);
