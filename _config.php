@@ -2,7 +2,7 @@
 
 ## General CWP configuration
 
-## More configuration is applied in _config/config.yml for APIs that use
+## More configuration is applied in cwp/_config/config.yml for APIs that use
 ## {@link Config} instead of setting statics directly.
 
 ## NOTE: Put your custom site configuration into mysite/_config/config.yml
