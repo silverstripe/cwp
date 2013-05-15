@@ -1,12 +1,14 @@
 <?php
-/********************************************************************************
- * General configuration.
- *
- * _config/config.yml contains more configuration.
- *
- ********************************************************************************/
 
-// Configure document converter.
+## General CWP configuration
+
+## More configuration is applied in _config/config.yml for APIs that use
+## {@link Config} instead of setting statics directly.
+
+## NOTE: Put your custom site configuration into mysite/_config/config.yml
+## and if absolutely necessary if you can't use the yml file, mysite/_config.php instead.
+
+// configure document converter.
 if (class_exists('DocumentConverterDecorator')) {
 	DocumentImportIFrameField_Importer::set_docvert_username(DOCVERT_USERNAME);
 	DocumentImportIFrameField_Importer::set_docvert_password(DOCVERT_PASSWORD);
@@ -60,9 +62,7 @@ if(class_exists('Solr')) {
 	));
 }
 
-/********************************************************************************
- * Custom TinyMCE configuration for CWP
- ********************************************************************************/
+// TinyMCE configuration
 $cwpEditor = HtmlEditorConfig::get('cwp');
 
 // Start with the same configuration as 'cms' config (defined in framework/admin/_config.php).
