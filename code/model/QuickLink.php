@@ -1,6 +1,6 @@
 <?php
-
 class Quicklink extends DataObject {
+
 	private static $db = array(
 		'Name' => 'Varchar(255)',
 		'ExternalLink' => 'Varchar(255)',

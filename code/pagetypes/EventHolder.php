@@ -4,13 +4,16 @@ class EventHolder extends DatedUpdateHolder {
 	
 	private static $description = 'Container page for Event Pages, provides event filtering and pagination';
 
-	static $allowed_children = array('EventPage');
-	static $default_child = 'EventPage';
+	private static $allowed_children = array('EventPage');
 
-	public static $update_name = 'Events';
-	public static $update_class = 'EventPage';
+	private static $default_child = 'EventPage';
 
-	static $icon = 'cwp/images/icons/sitetree_images/event_holder.png';
+	private static $update_name = 'Events';
+
+	private static $update_class = 'EventPage';
+
+	private static $icon = 'cwp/images/icons/sitetree_images/event_holder.png';
+
 	public $pageIcon =  'images/icons/sitetree_images/event_holder.png';
 
 	/**

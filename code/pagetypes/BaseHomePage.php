@@ -8,7 +8,6 @@
 class BaseHomePage extends Page {
 
 	private static $icon = "cwp/images/icons/sitetree_images/home.png";
-	public $pageIcon =  "images/icons/sitetree_images/home.png";
 
 	private static $hide_ancestor = 'BaseHomePage';
 
@@ -33,6 +32,8 @@ class BaseHomePage extends Page {
 		'CarouselItems' => 'CarouselItem',
 		'Quicklinks' => 'Quicklink.Parent'
 	);
+
+	public $pageIcon =  "images/icons/sitetree_images/home.png";
 
 	public function CarouselItems() {
 		return $this->getComponents('CarouselItems')->sort('SortOrder');

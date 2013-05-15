@@ -1,6 +1,6 @@
 <?php
-
 class CarouselItem extends DataObject {
+
 	private static $db = array(
 		'Title' => 'Varchar(255)',
 		'Caption' => 'Text',

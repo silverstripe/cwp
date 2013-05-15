@@ -4,7 +4,8 @@
  */
 
 class CustomSiteConfig extends DataExtension {
-	static $db = array(
+
+	private static $db = array(
 		'GACode' => 'Varchar(16)',
 		'FacebookURL' => 'Varchar(256)', // multitude of ways to link to Facebook accounts, best to leave it open.
 		'TwitterUsername' => 'Varchar(16)', // max length of Twitter username 15
@@ -13,7 +14,7 @@ class CustomSiteConfig extends DataExtension {
 		'FooterLogoDescription' => 'Varchar(255)'
 	);
 
-	static $has_one = array(
+	private static $has_one = array(
 		'Logo' => 'Image',
 		'FooterLogo' => 'Image',
 		'FavIcon' => 'File',
@@ -23,7 +24,7 @@ class CustomSiteConfig extends DataExtension {
 		'AppleTouchIcon57' => 'File'
 	);
 
-	function updateCMSFields(FieldList $fields) {
+	public function updateCMSFields(FieldList $fields) {
 		// subsite theme setting is managed in SubsiteAdmin instead
 		if(class_exists('Subsite') && Subsite::currentSubsiteID()) {
 			$fields->removeByName('Theme');
@@ -74,4 +75,5 @@ class CustomSiteConfig extends DataExtension {
 		$atIcon57->getValidator()->setAllowedExtensions(array('png'));
 		$atIcon57->setConfig('allowedMaxFileNumber', 1);
 	}
+
 }

@@ -4,13 +4,16 @@ class NewsHolder extends DatedUpdateHolder {
 	
 	private static $description = 'Container page for News Pages, provides news filtering and pagination';
 
-	static $allowed_children = array('NewsPage');
-	static $default_child = 'NewsPage';
+	private static $allowed_children = array('NewsPage');
 
-	public static $update_name = 'News';
-	public static $update_class = 'NewsPage';
+	private static $default_child = 'NewsPage';
 
-	static $icon = 'cwp/images/icons/sitetree_images/news_listing.png';
+	private static $update_name = 'News';
+
+	private static $update_class = 'NewsPage';
+
+	private static $icon = 'cwp/images/icons/sitetree_images/news_listing.png';
+
 	public $pageIcon =  'images/icons/sitetree_images/news_listing.png';
 
 	/**

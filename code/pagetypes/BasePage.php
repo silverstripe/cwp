@@ -16,14 +16,12 @@ class BasePage extends SiteTree {
 
 	private static $generated_pdf_path = 'assets/_generated_pdfs';
 
-	static $api_access = array(
+	private static $api_access = array(
 		'view' => array('Locale', 'URLSegment', 'Title', 'MenuTitle', 'Content', 'MetaDescription', 'ExtraMenu', 'Sort', 'Version', 'ParentID', 'ID'),
 		'edit' => array('Locale', 'URLSegment', 'Title', 'MenuTitle', 'Content', 'MetaDescription', 'ExtraMenu', 'Sort', 'Version', 'ParentID', 'ID')
 	);
 
 	public static $related_pages_title = 'Related pages';
-
-	public $pageIcon = 'images/icons/sitetree_images/page.png';
 
 	private static $many_many = array(
 		'Terms' => 'TaxonomyTerm',
@@ -37,6 +35,8 @@ class BasePage extends SiteTree {
 	);
 
 	private static $plural_name = 'Base Pages';
+
+	public $pageIcon = 'images/icons/sitetree_images/page.png';
 
 	/**
 	 * Get the footer holder.

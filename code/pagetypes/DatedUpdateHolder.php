@@ -5,8 +5,9 @@ class DatedUpdateHolder extends Page {
 	// Meant as an abstract base class.
 	private static $hide_ancestor = 'DatedUpdateHolder';
 
-	public static $update_name = 'Updates';
-	public static $update_class = 'DatedUpdatePage';
+	private static $update_name = 'Updates';
+
+	private static $update_class = 'DatedUpdatePage';
 
 	/**
 	 * Find all distinct tags (TaxonomyTerms) associated with the DatedUpdatePages under this holder.

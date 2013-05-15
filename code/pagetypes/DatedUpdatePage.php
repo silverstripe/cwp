@@ -1,15 +1,14 @@
 <?php
-
 class DatedUpdatePage extends Page {
 
 	// Meant as an abstract base class.
-	static $hide_ancestor = 'DatedUpdatePage';
+	private static $hide_ancestor = 'DatedUpdatePage';
 
-	static $defaults = array(
+	private static $defaults = array(
 		'ShowInMenus' => false
 	);
 
-	static $db = array(
+	private static $db = array(
 		'Abstract' => 'Text',
 		'Date' => 'Datetime'
 	);

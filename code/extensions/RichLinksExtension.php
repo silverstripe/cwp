@@ -9,11 +9,11 @@
  */
 class RichLinksExtension extends Extension {
 
-	static $casting = array(
+	private static $casting = array(
 		'RichLinks' => 'HTMLText'
 	);
 
-	function RichLinks() {
+	public function RichLinks() {
 		// Note:
 		// Assume we can use Regexes because the link will always be formatted
 		// in the same way coming from the CMS.
