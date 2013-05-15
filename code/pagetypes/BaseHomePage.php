@@ -13,11 +13,11 @@ class BaseHomePage extends Page {
 
 	private static $db = array(
 		'FeatureOneTitle' => 'Varchar(255)',
-		'FeatureOneCategory' => "Enum('comments, group, news', 'comments')",
+		'FeatureOneCategory' => "Enum('bell,comments,film,globe,group,flag,rss,time,list,phone,user','comments')",
 		'FeatureOneContent' => 'HTMLText',
 		'FeatureOneButtonText' => 'Varchar(255)',
 		'FeatureTwoTitle' => 'Varchar(255)',
-		'FeatureTwoCategory' => "Enum('comments, group, news', 'group')",
+		'FeatureTwoCategory' => "Enum('bell,comments,film,globe,group,flag,rss,time,list,phone,user','comments')",
 		'FeatureTwoContent' => 'HTMLText',
 		'FeatureTwoButtonText' => 'Varchar(255)'
 	);
@@ -87,7 +87,7 @@ class BaseHomePage extends Page {
 		$fields->addFieldToTab('Root.Features', ToggleCompositeField::create('FeatureOne', _t('SiteTree.FeatureOne', 'Feature One'),
 			array(
 				new TextField('FeatureOneTitle', 'Title'),
-				$dropdownField = new DropdownField('FeatureOneCategory', 'Category', singleton('BaseHomePage')->dbObject('FeatureOneCategory')->enumValues()),
+				$dropdownField = new DropdownField('FeatureOneCategory', 'Category icon', singleton('BaseHomePage')->dbObject('FeatureOneCategory')->enumValues()),
 				new HTMLEditorField('FeatureOneContent', 'Content'),
 				new TreeDropdownField('FeatureOneLinkID', 'Page to link to', 'SiteTree'),
 				new TextField('FeatureOneButtonText', 'Button text')
@@ -99,7 +99,7 @@ class BaseHomePage extends Page {
 		$fields->addFieldToTab('Root.Features', ToggleCompositeField::create('FeatureTwo', _t('SiteTree.FeatureTwo', 'Feature Two'),
 			array(
 				new TextField('FeatureTwoTitle', 'Title'),
-				$dropdownField = new DropdownField('FeatureTwoCategory', 'Category', singleton('BaseHomePage')->dbObject('FeatureTwoCategory')->enumValues()),
+				$dropdownField = new DropdownField('FeatureTwoCategory', 'Category icon', singleton('BaseHomePage')->dbObject('FeatureTwoCategory')->enumValues()),
 				new HTMLEditorField('FeatureTwoContent', 'Content'),
 				new TreeDropdownField('FeatureTwoLinkID', 'Page to link to', 'SiteTree'),
 				new TextField('FeatureTwoButtonText', 'Button text')
