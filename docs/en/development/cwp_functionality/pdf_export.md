@@ -73,6 +73,7 @@ Export to PDF functionality is disabled by default. You need to add a line of co
 
 In your `mysite/_config/config.yml` file, add the following:
 
+	:::yml
 	BasePage:
 	  pdf_export: 1
 
