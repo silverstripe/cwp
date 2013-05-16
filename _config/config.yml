@@ -1,3 +1,7 @@
+---
+Name: cwpconfig
+After: 'framework/*','cms/*'
+---
 DBField:
   extensions:
    - RichLinksExtension
