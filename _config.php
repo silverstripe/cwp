@@ -19,13 +19,6 @@ if (class_exists('DocumentConverterDecorator')) {
 // Default translations
 if (class_exists('Translatable')) {
 	Translatable::set_default_locale('en_NZ');
-	Translatable::set_allowed_locales(array(
-		'en_NZ', // NZ English
-		'mi_NZ', // Maori
-		'zh_cmn', // Chinese (Mandarin)
-		'en_GB' // Needed to be able to create users in the CMS
-	));
-
 	SiteTree::add_extension('Translatable');
 	SiteConfig::add_extension('Translatable');
 }
