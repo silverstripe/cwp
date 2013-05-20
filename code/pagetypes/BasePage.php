@@ -12,7 +12,7 @@ class BasePage extends SiteTree {
 	// Hide this page type from the CMS. hide_ancestor is slightly misnamed, should really be just "hide"
 	private static $hide_ancestor = 'BasePage';
 
-	public static $pdf_export = false;
+	private static $pdf_export = false;
 
 	private static $generated_pdf_path = 'assets/_generated_pdfs';
 
