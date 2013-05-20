@@ -5,7 +5,8 @@
 	"require": {
 		"composer/installers": "*",
 		"silverstripe/cms": ">=3.1.0-beta1,<4.0",
-		"silverstripe/framework": ">=3.1.0-beta1,<4.0"
+		"silverstripe/framework": ">=3.1.0-beta1,<4.0",
+		"silverstripe/taxonomy": "*"
 	},
 	"extra": {
 		"branch-alias": {
