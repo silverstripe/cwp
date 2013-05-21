@@ -42,7 +42,7 @@ class CarouselItem extends DataObject {
 		$fields->removeByName('ParentID');
 		$fields->removeByName('SortOrder');
 
-		$fields->replaceField('LinkID', new TreeDropdownField('InternalLinkID', 'Link', 'SiteTree'));
+		$fields->replaceField('LinkID', new TreeDropdownField('LinkID', 'Link', 'SiteTree'));
 
 		$fields->insertBefore(			
 		$wrap = new CompositeField(
