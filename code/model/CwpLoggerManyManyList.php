@@ -13,7 +13,9 @@ class CwpLoggerManyManyList extends ManyManyList {
 			if(!($currentMember && $currentMember->exists())) return;
 
 			$group = Group::get()->byId($itemID);
+			if(!$group) return;
 			$member = Member::get()->byId($this->getForeignID());
+			if(!$member) return;
 
 			CwpLogger::log(sprintf(
 				'"%s" (ID: %s) removed Member "%s" (ID: %s) from Group "%s" (ID: %s)',
