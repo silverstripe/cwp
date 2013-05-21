@@ -47,15 +47,33 @@ class CwpLogger extends SiteTreeExtension {
 					if(!$data) continue;
 					$actionText = 'published a page';
 
+					$effectiveViewerGroups = '';
+					if($data->CanViewType == 'OnlyTheseUsers') {
+						$effectiveViewerGroups = implode(array_values($data->ViewerGroups()->map('ID', 'Title')->toArray()), ', ');
+					}
+					if(!$effectiveViewerGroups) {
+						$effectiveViewerGroups = $data->CanViewType;
+					}
+
+					$effectiveEditorGroups = '';
+					if($data->CanEditType == 'OnlyTheseUsers') {
+						$effectiveEditorGroups = implode(array_values($data->EditorGroups()->map('ID', 'Title')->toArray()), ', ');
+					}
+					if(!$effectiveEditorGroups) {
+						$effectiveEditorGroups = $data->CanEditType;
+					}
+
 					self::log(sprintf(
-						'"%s" (ID: %s) %s (ID: %s, Version: %s, ClassName: %s, Title: "%s")',
+						'"%s" (ID: %s) %s (ID: %s, Version: %s, ClassName: %s, Title: "%s", Effective ViewerGroups: %s, Effective EditorGroups: %s)',
 						$currentMember->Email ?: $currentMember->Title,
 						$currentMember->ID,
 						$actionText,
 						$details['id'],
 						$details['fields']['Version'],
 						$data->ClassName,
-						$data->Title
+						$data->Title,
+						$effectiveViewerGroups,
+						$effectiveEditorGroups
 					));
 				} else {
 					$data = $table::get()->byId($details['id']);
