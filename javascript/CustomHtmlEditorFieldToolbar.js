@@ -6,7 +6,8 @@
 			 * Default alt inputs to empty for upload items.
 			 */
 			onmatch: function() {
-				this.find('input[name="AltText"]').val('');
+				var alt = this.find('input[name="AltText"]');
+				if (alt.prop('defaultValue')===alt.val()) alt.val('');
 
 				this._super();
 			}
