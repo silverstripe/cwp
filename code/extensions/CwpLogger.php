@@ -160,7 +160,7 @@ class CwpLogger extends SiteTreeExtension {
 	 * Log the message, {@link CwpLoggerFormatter} will format the log line entry
 	 * with IP address and date before writing to the log file.
 	 */
-	protected static function log($message) {
+	public static function log($message) {
 		if(isset($_SERVER['HTTP_REFERER'])) $message .= sprintf(' (Referer: %s)', $_SERVER['HTTP_REFERER']);
 		SS_Log::log($message, self::PRIORITY);
 	}

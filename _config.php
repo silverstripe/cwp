@@ -134,9 +134,11 @@ if(!Director::is_cli()) {
 	$logFileWriter->setFormatter(new CwpLoggerFormatter());
 	SS_Log::add_writer($logFileWriter, CwpLogger::PRIORITY, '=');
 	MemberLoginForm::add_extension('CwpLogger');
-	Security::add_extension('CwpLogger');
 	RequestHandler::add_extension('CwpLogger');
 	Controller::add_extension('CwpLogger');
 	Member::add_extension('CwpLogger');
+
+	// override ManyManyList so that we can log removeByID()
+	Object::useCustomClass('ManyManyList', 'CwpLoggerManyManyList', true);
 }
 
