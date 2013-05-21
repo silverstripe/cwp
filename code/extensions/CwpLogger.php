@@ -41,7 +41,7 @@ class CwpLogger extends SiteTreeExtension {
 
 		foreach($manipulation as $table => $details) {
 			// logging writes to specific tables (just not when logging in, as it's noise)
-			if(in_array($table, array('Member', 'Group', 'SiteTree_Live')) && !preg_match('/Security/', @$_SERVER['REQUEST_URI'])) {
+			if(in_array($table, array('Member', 'Group', 'PermissionRole', 'SiteTree_Live')) && !preg_match('/Security/', @$_SERVER['REQUEST_URI'])) {
 				if($table == 'SiteTree_Live') {
 					$data = SiteTree::get()->byId($details['id']);
 					if(!$data) continue;
@@ -62,20 +62,58 @@ class CwpLogger extends SiteTreeExtension {
 					if(!$data) continue;
 					$actionText = 'modified ' . $table;
 
+					$extendedText = '';
+					if($table == 'Group') {
+						$extendedText = sprintf(
+							'Effective permissions: %s',
+							implode(array_values($data->Permissions()->map('ID', 'Code')->toArray()), ', ')
+						);
+					}
+					if($table == 'PermissionRole') {
+						$extendedText = sprintf(
+							'Effective groups: %s, Effective permissions: %s',
+							implode(array_values($data->Groups()->map('ID', 'Title')->toArray()), ', '),
+							implode(array_values($data->Codes()->map('ID', 'Code')->toArray()), ', ')
+						);
+					}
+
 					self::log(sprintf(
-						'"%s" (ID: %s) %s (ID: %s, ClassName: %s, Title: "%s")',
+						'"%s" (ID: %s) %s (ID: %s, ClassName: %s, Title: "%s", %s)',
 						$currentMember->Email ?: $currentMember->Title,
 						$currentMember->ID,
 						$actionText,
 						$details['id'],
 						$data->ClassName,
-						$data->Title
+						$data->Title,
+						$extendedText
 					));
 				}
-
 			}
 
-			// logging adding members to a group
+			// log PermissionRole being added to a Group
+			if($table == 'Group_Roles') {
+				$role = PermissionRole::get()->byId($details['fields']['PermissionRoleID']);
+				$group = Group::get()->byId($details['fields']['GroupID']);
+
+				// if the permission role isn't already applied to the group
+				if(!DB::query(sprintf(
+					'SELECT "ID" FROM "Group_Roles" WHERE "GroupID" = %s AND "PermissionRoleID" = %s',
+					$details['fields']['GroupID'],
+					$details['fields']['PermissionRoleID']
+				))->value()) {
+					self::log(sprintf(
+						'"%s" (ID: %s) added PermissionRole "%s" (ID: %s) to Group "%s" (ID: %s)',
+						$currentMember->Email ?: $currentMember->Title,
+						$currentMember->ID,
+						$role->Title,
+						$role->ID,
+						$group->Title,
+						$group->ID
+					));
+				}
+			}
+
+			// log Member added to a Group
 			if($table == 'Group_Members') {
 				$member = Member::get()->byId($details['fields']['MemberID']);
 				$group = Group::get()->byId($details['fields']['GroupID']);
@@ -87,7 +125,7 @@ class CwpLogger extends SiteTreeExtension {
 					$details['fields']['MemberID']
 				))->value()) {
 					self::log(sprintf(
-						'"%s" (ID: %s) added "%s" (ID: %s) to Group "%s" (ID: %s)',
+						'"%s" (ID: %s) added Member "%s" (ID: %s) to Group "%s" (ID: %s)',
 						$currentMember->Email ?: $currentMember->Title,
 						$currentMember->ID,
 						$member->Email ?: $member->Title,
