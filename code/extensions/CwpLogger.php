@@ -3,6 +3,11 @@ class CwpLogger extends SiteTreeExtension {
 
 	const PRIORITY = 6;
 
+	/**
+	 * This will bind a new class dynamically so we can hook into manipulation
+	 * and capture it. It creates a new PHP file in the temp folder, then
+	 * loads it and sets it as the active DB class.
+	 */
 	public static function bind_manipulation_capture() {
 		global $databaseConfig;
 
@@ -20,8 +25,7 @@ class CwpLogger extends SiteTreeExtension {
 
 					public function manipulate(\$manipulation) {
 						CwpLogger::handle_manipulation(\$manipulation);
-						\$res = parent::manipulate(\$manipulation);
-						return \$res;
+						return parent::manipulate(\$manipulation);
 					}
 				}
 			");
@@ -32,6 +36,7 @@ class CwpLogger extends SiteTreeExtension {
 		$captured = new $dbClass($databaseConfig);
 		// The connection might have had it's name changed (like if we're currently in a test)
 		$captured->selectDatabase($current->currentDatabase());
+
 		DB::setConn($captured);
 	}
 
@@ -92,6 +97,12 @@ class CwpLogger extends SiteTreeExtension {
 							'Effective groups: %s, Effective permissions: %s',
 							implode(array_values($data->Groups()->map('ID', 'Title')->toArray()), ', '),
 							implode(array_values($data->Codes()->map('ID', 'Code')->toArray()), ', ')
+						);
+					}
+					if($table == 'Member') {
+						$extendedText = sprintf(
+							'Effective groups: %s',
+							implode(array_values($data->Groups()->map('ID', 'Title')->toArray()), ', ')
 						);
 					}
 

@@ -12,9 +12,19 @@ class CwpLoggerManyManyList extends ManyManyList {
 			$currentMember = Member::currentUser();
 			if(!($currentMember && $currentMember->exists())) return;
 
-			$group = Group::get()->byId($itemID);
+			$member = null;
+			$group = null;
+
+			// these two cases handle calling remove() on either side of the relation
+			if($this->dataClass() == 'Member') {
+				$member = Member::get()->byId($itemID);
+				$group = Group::get()->byId($this->getForeignID());
+			} elseif($this->dataClass() == 'Group') {
+				$group = Group::get()->byId($itemID);
+				$member = Member::get()->byId($this->getForeignID());
+			}
+
 			if(!$group) return;
-			$member = Member::get()->byId($this->getForeignID());
 			if(!$member) return;
 
 			CwpLogger::log(sprintf(

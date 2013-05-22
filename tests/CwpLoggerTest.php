@@ -5,13 +5,15 @@ class CwpLoggerTest extends SapphireTest {
 
 	protected $writer = null;
 
-	protected $group, $member = null;
-
 	public function setUp() {
 		parent::setUp();
 
 		$this->writer = new CwpLoggerTest_LogWriter('SilverStripe', null, LOG_AUTH);
 		SS_Log::add_writer($this->writer, CwpLogger::PRIORITY, '=');
+
+		// ensure the manipulations are being captured, normally called in {@link CwpLogger::onBeforeInit()}
+		// but tests will reset this during setting up, so we need to set it back again.
+		CwpLogger::bind_manipulation_capture();
 	}
 
 	public function testLoggingIn() {
@@ -38,7 +40,7 @@ class CwpLoggerTest extends SapphireTest {
 		$group->write();
 
 		$message = $this->writer->getLastMessage();
-		$this->assertNull($message, 'No one is logged in, so nothing was logged');
+		$this->assertEmpty($message, 'No one is logged in, so nothing was logged');
 	}
 
 	public function testLoggingWriteWhenLoggedIn() {
@@ -51,33 +53,49 @@ class CwpLoggerTest extends SapphireTest {
 		$this->assertContains('ADMIN@example.org', $message);
 		$this->assertContains('modified', $message);
 		$this->assertContains('Group', $message);
-
 	}
 
-	public function testAddMemberToGroup() {
+	public function testAddMemberToGroupUsingGroupMembersRelation() {
 		$this->logInWithPermission('ADMIN');
 
 		$group = new Group(array('Title' => 'My group'));
 		$group->write();
 
-		$member = new Member(array('FirstName' => 'Joe', 'Email' => 'joe123'));
+		$member = new Member(array('FirstName' => 'Joe', 'Email' => 'joe1'));
 		$member->write();
 
 		$group->Members()->add($member);
 
 		$message = $this->writer->getLastMessage();
 		$this->assertContains('ADMIN@example.org', $message);
-		$this->assertContains('added Member "joe123"', $message);
+		$this->assertContains('added Member "joe1"', $message);
 		$this->assertContains('to Group "My group"', $message);
 	}
 
-	public function testRemoveMemberFromGroup() {
+	public function testAddMemberToGroupUsingMemberGroupsRelation() {
 		$this->logInWithPermission('ADMIN');
 
 		$group = new Group(array('Title' => 'My group'));
 		$group->write();
 
-		$member = new Member(array('FirstName' => 'Joe', 'Email' => 'joe567'));
+		$member = new Member(array('FirstName' => 'Joe', 'Email' => 'joe2'));
+		$member->write();
+
+		$member->Groups()->add($group);
+
+		$message = $this->writer->getLastMessage();
+		$this->assertContains('ADMIN@example.org', $message);
+		$this->assertContains('added Member "joe2"', $message);
+		$this->assertContains('to Group "My group"', $message);
+	}
+
+	public function testRemoveMemberFromGroupUsingGroupMembersRelation() {
+		$this->logInWithPermission('ADMIN');
+
+		$group = new Group(array('Title' => 'My group'));
+		$group->write();
+
+		$member = new Member(array('FirstName' => 'Joe', 'Email' => 'joe3'));
 		$member->write();
 
 		$group->Members()->add($member);
@@ -85,7 +103,25 @@ class CwpLoggerTest extends SapphireTest {
 
 		$message = $this->writer->getLastMessage();
 		$this->assertContains('ADMIN@example.org', $message);
-		$this->assertContains('removed Member "joe567"', $message);
+		$this->assertContains('removed Member "joe3"', $message);
+		$this->assertContains('from Group "My group"', $message);
+	}
+
+	public function testRemoveMemberFromGroupUsingMemberGroupsRelation() {
+		$this->logInWithPermission('ADMIN');
+
+		$group = new Group(array('Title' => 'My group'));
+		$group->write();
+
+		$member = new Member(array('FirstName' => 'Joe', 'Email' => 'joe4'));
+		$member->write();
+
+		$member->Groups()->add($group);
+		$member->Groups()->remove($group);
+
+		$message = $this->writer->getLastMessage();
+		$this->assertContains('ADMIN@example.org', $message);
+		$this->assertContains('removed Member "joe4"', $message);
 		$this->assertContains('from Group "My group"', $message);
 	}
 
@@ -100,18 +136,18 @@ class CwpLoggerTest extends SapphireTest {
 
 class CwpLoggerTest_LogWriter extends Zend_Log_Writer_Abstract {
 
-	protected $messages;
+	protected $messages = array();
 
 	static public function factory($config) {
 		return new CwpLoggerTest_LogWriter(null, $config);
 	}
 
 	public function _write($event) {
-		$this->messages[] = $event['message']['errstr'];
+		array_push($this->messages, $event['message']['errstr']);
 	}
 
 	public function getLastMessage() {
-		return $this->messages ? end($this->messages) : null;
+		return end($this->messages);
 	}
 
 	public function getMessages() {
