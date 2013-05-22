@@ -12,11 +12,11 @@ class CwpControllerExtension extends Extension {
 			// See Director::forceSSL for more information.
 		}
 
-		// RestfulService needs to know about the CWP proxy when the site in live mode
-		if(Director::isLive()) {
+		// if there's a proxy setting in the environment, configure RestfulService to use it
+		if(defined('SS_OUTBOUND_PROXY')) {
 			Config::inst()->update('RestfulService', 'default_curl_options', array(
-				CURLOPT_PROXY => 'gateway.cwp.govt.nz',
-				CURLOPT_PROXYPORT => 8888
+				CURLOPT_PROXY => SS_OUTBOUND_PROXY,
+				CURLOPT_PROXYPORT => SS_OUTBOUND_PROXY_PORT
 			));
 		}
 	}
