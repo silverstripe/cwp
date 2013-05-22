@@ -38,15 +38,15 @@ The same proxy settings can be applied to other HTTP clients in PHP. Using cURL,
 	echo curl_exec($ch);
 
 Note that the proxy settings won't work if you're running your site on a local development environment not hosted on
-the platform, so you'll need to modify your code to work without the proxy settings as well. One simple way would be
-using `Director::isDev()` like this:
+the platform, so you'll need to modify your code to work without the proxy settings as well. Let's do that by checking
+if there's proxy settings available:
 
 	:::php
-	// use proxy if the site is in test or live mode
-	if(!Director::isDev()) {
+	// use proxy if the environment file has a proxy definition
+	if(defined('SS_OUTBOUND_PROXY')) {
 		$context = stream_context_create(array(
 			'http' => array(
-				'proxy' => 'tcp://gateway.cwp.govt.nz:8888',
+				'proxy' => sprintf('tcp://%s:%s', SS_OUTBOUND_PROXY, SS_OUTBOUND_PROXY_PORT),
 				'request_fulluri' => true
 			)
 		));
