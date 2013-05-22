@@ -148,4 +148,4 @@ Member::add_extension('CwpLogger');
 // override ManyManyList so that we can log particular relational changes
 // such as when a Member is added to a Group or removed from it.
 Object::useCustomClass('ManyManyList', 'CwpLoggerManyManyList', true);
-
+Object::useCustomClass('Member_GroupSet', 'CwpLoggerMemberGroupSet', true);

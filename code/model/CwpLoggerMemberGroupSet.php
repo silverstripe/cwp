@@ -1,5 +1,5 @@
 <?php
-class CwpLoggerManyManyList extends ManyManyList {
+class CwpLoggerMemberGroupSet extends Member_GroupSet {
 
 	/**
 	 * Overload {@link ManyManyList::removeByID()} so we can log
@@ -12,8 +12,8 @@ class CwpLoggerManyManyList extends ManyManyList {
 			$currentMember = Member::currentUser();
 			if(!($currentMember && $currentMember->exists())) return;
 
-			$member = Member::get()->byId($itemID);
-			$group = Group::get()->byId($this->getForeignID());
+			$group = Group::get()->byId($itemID);
+			$member = Member::get()->byId($this->getForeignID());
 
 			if(!$group) return;
 			if(!$member) return;
