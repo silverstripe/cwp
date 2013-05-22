@@ -61,8 +61,9 @@ Now push your module to the upstream, to the empty repository just created:
 	git push -u origin master
 
 Once the module is pushed to the repository you should see the code on Gitlab. From now on it will be available for
-others to include, as long as they have at least a "Reporter" level access. Alternatively you can make the repo public,
-it will then be listed on the [Gitlab public repository listing](https://gitlab.cwp.govt.nz/public).
+others to clone, as long as they have at least a "Reporter" level access (see the note below though: private modules are
+not deployable). Alternatively you can make the repo public, it will then be listed on the [Gitlab public repository
+listing](https://gitlab.cwp.govt.nz/public).
 
 Check out instructions at [Sharing repositories](../gitlab/sharing-repositories) on how to control module access
 settings.
@@ -77,6 +78,12 @@ To inlude a CWP-hosted module, you will need to follow the instructions at [Work
 project forks and unreleased
 modules](http://doc.silverstripe.org/framework/en/installation/composer#working-with-project-forks-and-unreleased-modules).
 Let's step through these.
+
+<div class="warning" markdown='1'>
+Private modules are not deployable on the platform. To prevent an unauthorised party from deploying your private module
+on their instance, the deployment tool will fail with a "fatal: Authentication failed" error. To avoid that, either make
+your module public (accessible by the world) or commit the module code to your deployment repository.
+</div>
 
 For our *foobar* example module we have just pushed upstream - assuming that you have access to it - add the
 following lines to your `composer.json` file in the root directory of your main project.
