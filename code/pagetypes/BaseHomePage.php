@@ -88,8 +88,8 @@ class BaseHomePage extends Page {
 			array(
 				new TextField('FeatureOneTitle', 'Title'),
 				$dropdownField = new DropdownField('FeatureOneCategory', 'Category icon', singleton('BaseHomePage')->dbObject('FeatureOneCategory')->enumValues()),
-				new HTMLEditorField('FeatureOneContent', 'Content'),
 				new TreeDropdownField('FeatureOneLinkID', 'Page to link to', 'SiteTree'),
+				new HTMLEditorField('FeatureOneContent', 'Content'),
 				new TextField('FeatureOneButtonText', 'Button text')
 				)
 			)->setHeadingLevel(3)
@@ -100,8 +100,8 @@ class BaseHomePage extends Page {
 			array(
 				new TextField('FeatureTwoTitle', 'Title'),
 				$dropdownField = new DropdownField('FeatureTwoCategory', 'Category icon', singleton('BaseHomePage')->dbObject('FeatureTwoCategory')->enumValues()),
-				new HTMLEditorField('FeatureTwoContent', 'Content'),
 				new TreeDropdownField('FeatureTwoLinkID', 'Page to link to', 'SiteTree'),
+				new HTMLEditorField('FeatureTwoContent', 'Content'),
 				new TextField('FeatureTwoButtonText', 'Button text')
 				)
 			)->setHeadingLevel(3)
