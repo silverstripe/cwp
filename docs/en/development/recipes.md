@@ -16,6 +16,7 @@ dates for pages.
  * [cwp](https://gitlab.cwp.govt.nz/cwp/cwp/): The custom behaviours for the default CWP site. Includes things like the
 custom page types, support for the theme, documentation, and extra text editor options.
  * [fulltextsearch](https://github.com/silverstripe-labs/silverstripe-fulltextsearch): Solr-powered search.
+ * [iframe](https://github.com/silverstripe-labs/silverstripe-iframe): Adds the **IFramePage** page type.
  * [registry](https://github.com/silverstripe-labs/silverstripe-registry): Exposes large datasets to website users.
  * [restfulserver](https://github.com/silverstripe/silverstripe-restfulserver/): Allow other websites and applications
 to query information from the website.
@@ -24,16 +25,16 @@ gridfields.
  * [subsites](https://github.com/silverstripe/silverstripe-subsites): Run multiple sites from one instance.
  * [taxonomy](https://github.com/silverstripe-labs/silverstripe-taxonomy): Tag content items from hierarchical tag
 sets.
- * [queuedjobs](https://github.com/nyeholt/silverstripe-queuedjobs): Run jobs on a regular basis. Required by the other
-modules.
-
-CWP includes the following modules:
-
- * [iframe](https://github.com/silverstripe-labs/silverstripe-iframe): Adds the **IFramePage** page type.
  * [translatable](https://github.com/silverstripe/silverstripe-translatable): Support multiple languages of your site's
  content.
  * [userforms](https://github.com/silverstripe/silverstripe-userforms): Adds the **UserDefinedForm** page type.
  * [versionedfiles](https://github.com/ajshort/silverstripe-versionedfiles): Adds versioning of files.
  * [versionfeed](https://github.com/silverstripe-labs/silverstripe-versionfeed): Allows RSS feeds of page changes.
+ * [queuedjobs](https://github.com/nyeholt/silverstripe-queuedjobs): Run jobs on a regular basis. Required by the other
+modules.
+
+CWP includes the following module:
+ * [taxonomy](https://github.com/silverstripe-labs/silverstripe-taxonomy): Adds a hierarchical tag system. Required by
+the news and events pages.
 
 It also contains the [default CWP theme](https://gitlab.cwp.govt.nz/cwp-themes/default).
