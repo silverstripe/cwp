@@ -121,19 +121,19 @@ composer](http://doc.silverstripe.org/framework/en/installation/composer#deployi
 
 ## Deploying repositories with private modules
 
-If you decide to include private modules in your website project (including your own private repositories), Deploynaut
+If you decide to include private modules in your website project (also your own private repositories), Deploynaut
 will need a permission to access them. If you already have your repository associated with the instance you will be
 deploying to, the only thing you need to do is to enable the project key on the module as shown on the image below.
 
-![Gitlab - associating project key with a private module](_images/deploynaut-project-key.jpg )
+![Gitlab - associating project key with a private module](_images/gitlab-enable-key.jpg )
 
 Also, double check that your project's `composer.json` specifies the "private" parameter for all private repositories as
 shown in the "Including a module in your project" section.
 
 ## Making modules public
 
-To allow anybody on the internet to access your module and include it in their projects (which could be the case if
-you have decided to open-source your module), you need to be the owner of the repository. Then appropriate checkbox
-would be available to you in the project settings.
+You can allow anybody on the internet to access your module and include it in their projects (which could be the case if
+you have decided to open-source your module). To do so you need to be the owner of the repository. Appropriate checkbox
+will then be available to you in the project settings.
 
-![Gitlab - making the repository public](/gitlab-making-repository-public.jpg)
+![Gitlab - making the repository public](_images/gitlab-making-repository-public.jpg)
