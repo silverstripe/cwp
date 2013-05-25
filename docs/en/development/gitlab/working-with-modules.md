@@ -27,7 +27,7 @@ Development](http://doc.silverstripe.org/framework/en/topics/module-development)
 other modules like the `cms` so it's easier for other developers to work with your code!
 
 You need to set your module up to be importable via composer. For this, create a `composer.json` file in the root of
-your module. Here is an example for module that builds on the functionality provided `cwp` main module (hence the
+your module. Here is an example for module that builds on the functionality provided by the `cwp` main module (hence the
 requirement):
 
 	{
@@ -62,8 +62,7 @@ Now push your module to the upstream, to the empty repository just created:
 
 Once the module is pushed to the repository you should see the code on Gitlab. From now on it will be available for
 others to clone, as long as they have at least a "Reporter" level access (see the note below though: private modules are
-not deployable). Alternatively you can make the repo public, it will then be listed on the [Gitlab public repository
-listing](https://gitlab.cwp.govt.nz/public).
+not deployable).
 
 Check out instructions at [Sharing repositories](../gitlab/sharing-repositories) on how to control module access
 settings.
@@ -74,26 +73,26 @@ To include a new **Packagist-based** module in your project, such as *silverstri
 chapter [Adding modules to your
 project](http://doc.silverstripe.org/framework/en/installation/composer#adding-modules-to-your-project).
 
-To inlude a CWP-hosted module, you will need to follow the instructions at [Working with
-project forks and unreleased
+Including a CWP-hosted module is different, because none of the public of private repositories are indexed on
+**Packagist**. This means we will need to point *composer* to specific URLs. Background information can be found at
+[Working with project forks and unreleased
 modules](http://doc.silverstripe.org/framework/en/installation/composer#working-with-project-forks-and-unreleased-modules).
-Let's step through these.
 
-<div class="warning" markdown='1'>
-Private modules are not deployable on the platform. To prevent an unauthorised party from deploying your private module
-on their instance, the deployment tool will fail with a "fatal: Authentication failed" error. To avoid that, either make
-your module public (accessible by the world) or commit the module code to your deployment repository.
-</div>
-
-For our *foobar* example module we have just pushed upstream - assuming that you have access to it - add the
-following lines to your `composer.json` file in the root directory of your main project.
+For our *foobar* example module we have just pushed upstream add the following lines to your `composer.json` file in the
+root directory of your main project.
 
 	"repositories": [
 		{
 			"type": "vcs",
-			"url": "https://gitlab.cwp.govt.nz/my-agency/foobar.git"
+			"url": "https://gitlab.cwp.govt.nz/my-agency/foobar.git",
+			"private": "true"
 		}
 	]
+
+<div class="notice" markdown='1'>
+The `private` parameter is non-standard and is used by the Deploynaut to distinguish between private repositories and
+public repositories. See the section below about public modules.
+</div>
 
 This will add the repository to the list of URLs composer checks when updating the project dependencies. Hence you can
 now include the following requirement in the same `composer.json`:
@@ -119,3 +118,22 @@ Finally, commit the the modified `composer.json`, `composer.lock`  and `.gitigno
 exactly the version of the modules you have used in your project, as well as the correct version will be used for the
 deployment. Some additional information is available in the [Deploying projects with
 composer](http://doc.silverstripe.org/framework/en/installation/composer#deploying-projects-with-composer).
+
+## Deploying repositories with private modules
+
+If you decide to include private modules in your website project (including your own private repositories), Deploynaut
+will need a permission to access them. If you already have your repository associated with the instance you will be
+deploying to, the only thing you need to do is to enable the project key on the module as shown on the image below.
+
+![Gitlab - associating project key with a private module](_images/deploynaut-project-key.jpg )
+
+Also, double check that your project's `composer.json` specifies the "private" parameter for all private repositories as
+shown in the "Including a module in your project" section.
+
+## Making modules public
+
+To allow anybody on the internet to access your module and include it in their projects (which could be the case if
+you have decided to open-source your module), you need to be the owner of the repository. Then appropriate checkbox
+would be available to you in the project settings.
+
+![Gitlab - making the repository public](/gitlab-making-repository-public.jpg)
