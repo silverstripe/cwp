@@ -396,7 +396,7 @@ class BasePage_Controller extends ContentController {
 		Requirements::combine_files('print.css', $styles['print'], 'print');
 
 		// Extra folder to keep the relative paths consistent when combining.
-		Requirements::set_combined_files_folder(ASSETS_DIR . '/_combinedfiles/cwp');
+		Requirements::set_combined_files_folder(ASSETS_DIR . '/_combinedfiles/cwp-' . SSViewer::current_theme());
 	}
 
 	/**
