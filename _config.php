@@ -149,3 +149,11 @@ Member::add_extension('CwpLogger');
 // such as when a Member is added to a Group or removed from it.
 Object::useCustomClass('ManyManyList', 'CwpLoggerManyManyList', true);
 Object::useCustomClass('Member_GroupSet', 'CwpLoggerMemberGroupSet', true);
+
+// Configure password strength requirements
+$pwdValidator = new PasswordValidator();
+$pwdValidator->minLength(8);
+$pwdValidator->checkHistoricalPasswords(6);
+$pwdValidator->characterStrength(3, array("lowercase", "uppercase", "digits", "punctuation"));
+Member::set_password_validator($pwdValidator);
+
