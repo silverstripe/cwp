@@ -1,0 +1,6 @@
+---
+Except:
+  environment: dev
+---
+Session:
+  cookie_secure: true
