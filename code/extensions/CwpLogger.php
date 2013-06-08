@@ -45,6 +45,8 @@ class CwpLogger extends SiteTreeExtension {
 		if(!($currentMember && $currentMember->exists())) return false;
 
 		foreach($manipulation as $table => $details) {
+			if(!in_array($details['command'], array('update', 'insert'))) continue;
+
 			// logging writes to specific tables (just not when logging in, as it's noise)
 			if(in_array($table, array('Member', 'Group', 'PermissionRole', 'SiteTree_Live')) && !preg_match('/Security/', @$_SERVER['REQUEST_URI'])) {
 				if($table == 'SiteTree_Live') {
