@@ -144,6 +144,7 @@ MemberLoginForm::add_extension('CwpLogger');
 RequestHandler::add_extension('CwpLogger');
 Controller::add_extension('CwpLogger');
 Member::add_extension('CwpLogger');
+SiteTree::add_extension('CwpLogger');
 
 // override ManyManyList so that we can log particular relational changes
 // such as when a Member is added to a Group or removed from it.

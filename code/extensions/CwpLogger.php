@@ -48,77 +48,42 @@ class CwpLogger extends SiteTreeExtension {
 			if(!in_array($details['command'], array('update', 'insert'))) continue;
 
 			// logging writes to specific tables (just not when logging in, as it's noise)
-			if(in_array($table, array('Member', 'Group', 'PermissionRole', 'SiteTree_Live')) && !preg_match('/Security/', @$_SERVER['REQUEST_URI'])) {
-				if($table == 'SiteTree_Live') {
-					$data = SiteTree::get()->byId($details['id']);
-					if(!$data) continue;
-					$actionText = 'published a page';
+			if(in_array($table, array('Member', 'Group', 'PermissionRole')) && !preg_match('/Security/', @$_SERVER['REQUEST_URI'])) {
+				$data = $table::get()->byId($details['id']);
+				if(!$data) continue;
+				$actionText = 'modified ' . $table;
 
-					$effectiveViewerGroups = '';
-					if($data->CanViewType == 'OnlyTheseUsers') {
-						$effectiveViewerGroups = implode(array_values($data->ViewerGroups()->map('ID', 'Title')->toArray()), ', ');
-					}
-					if(!$effectiveViewerGroups) {
-						$effectiveViewerGroups = $data->CanViewType;
-					}
-
-					$effectiveEditorGroups = '';
-					if($data->CanEditType == 'OnlyTheseUsers') {
-						$effectiveEditorGroups = implode(array_values($data->EditorGroups()->map('ID', 'Title')->toArray()), ', ');
-					}
-					if(!$effectiveEditorGroups) {
-						$effectiveEditorGroups = $data->CanEditType;
-					}
-
-					self::log(sprintf(
-						'"%s" (ID: %s) %s (ID: %s, Version: %s, ClassName: %s, Title: "%s", Effective ViewerGroups: %s, Effective EditorGroups: %s)',
-						$currentMember->Email ?: $currentMember->Title,
-						$currentMember->ID,
-						$actionText,
-						$details['id'],
-						$details['fields']['Version'],
-						$data->ClassName,
-						$data->Title,
-						$effectiveViewerGroups,
-						$effectiveEditorGroups
-					));
-				} else {
-					$data = $table::get()->byId($details['id']);
-					if(!$data) continue;
-					$actionText = 'modified ' . $table;
-
-					$extendedText = '';
-					if($table == 'Group') {
-						$extendedText = sprintf(
-							'Effective permissions: %s',
-							implode(array_values($data->Permissions()->map('ID', 'Code')->toArray()), ', ')
-						);
-					}
-					if($table == 'PermissionRole') {
-						$extendedText = sprintf(
-							'Effective groups: %s, Effective permissions: %s',
-							implode(array_values($data->Groups()->map('ID', 'Title')->toArray()), ', '),
-							implode(array_values($data->Codes()->map('ID', 'Code')->toArray()), ', ')
-						);
-					}
-					if($table == 'Member') {
-						$extendedText = sprintf(
-							'Effective groups: %s',
-							implode(array_values($data->Groups()->map('ID', 'Title')->toArray()), ', ')
-						);
-					}
-
-					self::log(sprintf(
-						'"%s" (ID: %s) %s (ID: %s, ClassName: %s, Title: "%s", %s)',
-						$currentMember->Email ?: $currentMember->Title,
-						$currentMember->ID,
-						$actionText,
-						$details['id'],
-						$data->ClassName,
-						$data->Title,
-						$extendedText
-					));
+				$extendedText = '';
+				if($table == 'Group') {
+					$extendedText = sprintf(
+						'Effective permissions: %s',
+						implode(array_values($data->Permissions()->map('ID', 'Code')->toArray()), ', ')
+					);
 				}
+				if($table == 'PermissionRole') {
+					$extendedText = sprintf(
+						'Effective groups: %s, Effective permissions: %s',
+						implode(array_values($data->Groups()->map('ID', 'Title')->toArray()), ', '),
+						implode(array_values($data->Codes()->map('ID', 'Code')->toArray()), ', ')
+					);
+				}
+				if($table == 'Member') {
+					$extendedText = sprintf(
+						'Effective groups: %s',
+						implode(array_values($data->Groups()->map('ID', 'Title')->toArray()), ', ')
+					);
+				}
+
+				self::log(sprintf(
+					'"%s" (ID: %s) %s (ID: %s, ClassName: %s, Title: "%s", %s)',
+					$currentMember->Email ?: $currentMember->Title,
+					$currentMember->ID,
+					$actionText,
+					$details['id'],
+					$data->ClassName,
+					$data->Title,
+					$extendedText
+				));
 			}
 
 			// log PermissionRole being added to a Group
@@ -176,6 +141,58 @@ class CwpLogger extends SiteTreeExtension {
 	public static function log($message) {
 		if(isset($_SERVER['HTTP_REFERER'])) $message .= sprintf(' (Referer: %s)', $_SERVER['HTTP_REFERER']);
 		SS_Log::log($message, self::PRIORITY);
+	}
+
+	/**
+	 * Log a page being published.
+	 */
+	public function onAfterPublish(&$original) {
+		$member = Member::currentUser();
+		if(!($member && $member->exists())) return false;
+
+		$effectiveViewerGroups = '';
+		if($this->owner->CanViewType == 'OnlyTheseUsers') {
+			$effectiveViewerGroups = implode(array_values($data->ViewerGroups()->map('ID', 'Title')->toArray()), ', ');
+		}
+		if(!$effectiveViewerGroups) {
+			$effectiveViewerGroups = $this->owner->CanViewType;
+		}
+
+		$effectiveEditorGroups = '';
+		if($this->owner->CanEditType == 'OnlyTheseUsers') {
+			$effectiveEditorGroups = implode(array_values($data->EditorGroups()->map('ID', 'Title')->toArray()), ', ');
+		}
+		if(!$effectiveEditorGroups) {
+			$effectiveEditorGroups = $this->owner->CanEditType;
+		}
+
+		self::log(sprintf(
+			'"%s" (ID: %s) published page "%s" (ID: %s, Version: %s, ClassName: %s, Effective ViewerGroups: %s, Effective EditorGroups: %s)',
+			$member->Email ?: $member->Title,
+			$member->ID,
+			$this->owner->Title,
+			$this->owner->ID,
+			$this->owner->Version,
+			$this->owner->ClassName,
+			$effectiveViewerGroups,
+			$effectiveEditorGroups
+		));
+	}
+
+	/**
+	 * Log a page being unpublished.
+	 */
+	public function onAfterUnpublish() {
+		$member = Member::currentUser();
+		if(!($member && $member->exists())) return false;
+
+		self::log(sprintf(
+			'"%s" (ID: %s) unpublished page "%s" (ID: %s)',
+			$member->Email ?: $member->Title,
+			$member->ID,
+			$this->owner->Title,
+			$this->owner->ID
+		));
 	}
 
 	/**

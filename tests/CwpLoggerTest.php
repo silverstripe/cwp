@@ -125,6 +125,36 @@ class CwpLoggerTest extends SapphireTest {
 		$this->assertContains('from Group "My group"', $message);
 	}
 
+	public function testPublishPage() {
+		$this->logInWithPermission('ADMIN');
+
+		$page = new Page();
+		$page->Title = 'My page';
+		$page->Content = 'This is my page content';
+		$page->doPublish();
+
+		$message = $this->writer->getLastMessage();
+		$this->assertContains('ADMIN@example.org', $message);
+		$this->assertContains('published page', $message);
+		$this->assertContains('My page', $message);
+	}
+
+	public function testUnpublishPage() {
+		$this->logInWithPermission('ADMIN');
+
+		$page = new Page();
+		$page->Title = 'My page';
+		$page->Content = 'This is my page content';
+		$page->doPublish();
+
+		$page->doUnpublish();
+
+		$message = $this->writer->getLastMessage();
+		$this->assertContains('ADMIN@example.org', $message);
+		$this->assertContains('unpublished page', $message);
+		$this->assertContains('My page', $message);
+	}
+
 	public function tearDown() {
 		parent::tearDown();
 
