@@ -217,7 +217,7 @@ class CwpLogger extends SiteTreeExtension {
 
 	protected function logPermissionDenied($statusCode, $member) {
 		self::log(sprintf(
-			'HTTP code %s - "%s" (ID: %s) denied access to %s',
+			'HTTP code %s - "%s" (ID: %s) is denied access to %s',
 			$statusCode,
 			$member->Email ?: $member->Title,
 			$member->ID,
