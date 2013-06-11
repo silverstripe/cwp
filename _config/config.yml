@@ -29,3 +29,5 @@ Session:
   timeout: 3600
 LeftAndMain:
   session_keepalive_ping: false
+PasswordField:
+  autocomplete: false
