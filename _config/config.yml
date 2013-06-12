@@ -32,4 +32,4 @@ LeftAndMain:
 PasswordField:
   autocomplete: false
 Security:
-  login_recording: true
+  login_recording: false
