@@ -9,11 +9,12 @@ class LoginAttemptNotifications_LeftAndMain extends Extension {
 
 	function init() {
 
-		Requirements::javascript('cwp/javascript/LoginAttemptNotifications.js');
-
+		// Exclude default admin.
 		$member = Member::currentUser();
-		$sessionLastVisited = Session::get('LoginAttemptNotifications.SessionLastVisited');
+		if (!$member || !$member->ID) return;
 
+		Requirements::javascript('cwp/javascript/LoginAttemptNotifications.js');
+		$sessionLastVisited = Session::get('LoginAttemptNotifications.SessionLastVisited');
 		if ($sessionLastVisited) {
 			// Session already in progress. Show all attempts since the session was last visited.
 			
@@ -60,12 +61,12 @@ class LoginAttemptNotifications_LeftAndMain extends Extension {
 			// New session - show last login attempt.
 			// TODO: this currently does NOT surface to the frontend in any way.
 			$lastLoginAttempt = LoginAttempt::get()->filter(array(
-				'Email' => $member->Email
+				'MemberID' => $member->ID
 			))->sort('Created DESC')->First();
 
 			if ($lastLoginAttempt) {
 				$date = $lastLoginAttempt->Created;
-				$message = "Last login to your account was on $lastLoginAttempt->Created from $lastLoginAttempt->IP";
+				$message = "Last login attempt to your account was on $lastLoginAttempt->Created from $lastLoginAttempt->IP";
 				$message .= $lastLoginAttempt->Status=='Failure' ? " and was successful." : "and has failed.";
 			}
 
