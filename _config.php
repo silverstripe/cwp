@@ -158,3 +158,7 @@ $pwdValidator->checkHistoricalPasswords(6);
 $pwdValidator->characterStrength(3, array("lowercase", "uppercase", "digits", "punctuation"));
 Member::set_password_validator($pwdValidator);
 
+if (class_exists('LoginAttemptNotifications_LeftAndMain')) {
+	LeftAndMain::add_extension('LoginAttemptNotifications_LeftAndMain');
+}
+

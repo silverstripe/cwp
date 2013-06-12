@@ -31,3 +31,5 @@ LeftAndMain:
   session_keepalive_ping: false
 PasswordField:
   autocomplete: false
+Security:
+  login_recording: true
