@@ -158,7 +158,8 @@ $pwdValidator->checkHistoricalPasswords(6);
 $pwdValidator->characterStrength(3, array("lowercase", "uppercase", "digits", "punctuation"));
 Member::set_password_validator($pwdValidator);
 
-if (class_exists('LoginAttemptNotifications_LeftAndMain')) {
+// Disable the feature. LoginAttempt seems to be broken on bridging solution - logs every request instead of logins!
+/*if (class_exists('LoginAttemptNotifications_LeftAndMain')) {
 	LeftAndMain::add_extension('LoginAttemptNotifications_LeftAndMain');
-}
+}*/
 
