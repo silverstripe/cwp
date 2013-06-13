@@ -2,6 +2,7 @@
 
 /**
  * TODO: describe.
+ * TODO: bug when using default admin - always shows the message...
  * Requires Security::login_recording config to be set to true.
  */
 
@@ -12,6 +13,8 @@ class LoginAttemptNotifications_LeftAndMain extends Extension {
 		// Exclude default admin.
 		$member = Member::currentUser();
 		if (!$member || !$member->ID) return;
+
+		$message = null;
 
 		Requirements::javascript('cwp/javascript/LoginAttemptNotifications.js');
 		$sessionLastVisited = Session::get('LoginAttemptNotifications.SessionLastVisited');
