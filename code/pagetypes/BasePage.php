@@ -275,6 +275,7 @@ class BasePage_Controller extends ContentController {
 		);
 
 		$form = new SearchForm($this->owner, 'SearchForm', $fields, $actions);
+		$form->setFormAction('search/SearchForm');
 
 		return $form;
 	}

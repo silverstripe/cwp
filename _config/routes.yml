@@ -1,0 +1,7 @@
+---
+Name: cwproutes
+After: 'rootroutes'
+---
+Director:
+  rules:
+    'search': 'Page_Controller'
