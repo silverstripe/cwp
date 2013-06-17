@@ -74,7 +74,7 @@ If you want your field to be a plain-text area field instead, simply replace `HT
 
 <div class="notice" markdown='1'>
 The "RichLinks" part of the template variable provides additional processing to the links in the content.
-[See more on the rich links functionality](reference/rich-links).
+[See more on the rich links functionality](cwp_functionality/rich_links).
 </div>
 
 ## Customising the WYSIWYG editor
