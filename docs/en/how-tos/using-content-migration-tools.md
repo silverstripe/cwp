@@ -1,6 +1,5 @@
 <!--
 title: Using content migration tools
-pagenumber: 4
 -->
 
 # Using content migration tools

@@ -1,3 +1,7 @@
+<!--
+title: Custom embeds in the WYSIWYG editor
+-->
+
 # Custom embeds in the WYSIWYG editor
 
 This how-to guides the Development Agency programmer thorugh the steps necessary to disable default TinyMCE handling

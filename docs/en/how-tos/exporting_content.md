@@ -1,4 +1,8 @@
-# Exporting Content
+<!--
+title: Exporting content
+-->
+
+# Exporting content
 
 This how-to will aid a developer wanting to export content from a SilverStripe site running on CWP. All exporting is
 done with the `restfulserver` module. More thorough documentation is available in that module's documentation, either

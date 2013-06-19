@@ -1,3 +1,8 @@
+<!--
+title: Working with modules
+pagenumber: 4
+-->
+
 # Working with modules
 
 Public (or private) modules are available as separate repositories (projects) within the Gitlab. They can be included

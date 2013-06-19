@@ -1,3 +1,7 @@
+<!--
+title: External HTTP requests with proxy
+-->
+
 # External HTTP requests with proxy
 
 Sometimes you'll be needing to make external requests to sites on the internet from your site. A simple example of this

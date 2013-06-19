@@ -1,3 +1,8 @@
+<!--
+title: Creating a project/repository
+pagenumber: 5
+-->
+
 # Creating a project/repository
 
 In Gitlab, a **Project** is also considered to be a repository.

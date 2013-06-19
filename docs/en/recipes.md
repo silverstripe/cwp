@@ -1,3 +1,8 @@
+<!--
+title: Recipes
+pagenumber: 3
+-->
+
 # Recipes
 
 The CWP platform comes with template projects that contain all the elements of the basic site. Each recipe is

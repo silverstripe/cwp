@@ -1,4 +1,9 @@
-# Gitlab
+<!--
+title: Using GitLab
+pagenumber: 2
+-->
+
+# Using GitLab
 
 This section covers the setup and use of Gitlab to manage the code for your projects.
 

@@ -1,3 +1,8 @@
+<!--
+title: Sharing repositories with others
+pagenumber: 6
+-->
+
 # Sharing reposiories with others
 
 This how-to will show you how to share a repository with other Gitlab users. This could be used for etiher collaborative

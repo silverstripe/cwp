@@ -1,3 +1,7 @@
+<!--
+title: Adding a calendar
+-->
+
 # Adding a calendar
 
 This how-to will guide a developer wanting to add a custom event calendar into his own template. The **Event Pages** and

@@ -1,9 +1,12 @@
+<!--
+title: Preparation of the developer's environment
+pagenumber: 1
+-->
+
 # Preparation of the developer's environment
 
 First start with [Gitlab](gitlab) documentation which describes setting up Git and accessing Gitlab to manage your code
 repositories on the CWP platform.
-
-TODO: The rest here needs to be explained further when starting from scratch:
 
 CWP is installed with the Composer PHP package management tool. To learn about the Composer, visit the
 [SilverStripe Composer documentation](http://doc.silverstripe.org/framework/en/installation/composer) or read the

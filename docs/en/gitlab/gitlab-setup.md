@@ -1,4 +1,9 @@
-# Gitlab Setup
+<!--
+title: GitLab setup
+pagenumber: 2
+-->
+
+# GitLab Setup
 
 This documentation describes how to setup Git in your local development environment, and how to access the Gitlab admin
 interface for managing code repositories.

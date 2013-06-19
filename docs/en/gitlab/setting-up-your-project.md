@@ -1,3 +1,8 @@
+<!--
+title: Setting up your project
+pagenumber: 3
+-->
+
 # Setting up your project
 
 [Gitlab Setup](../gitlab/gitlab-setup) described setting up your development environment to work with Gitlab, including

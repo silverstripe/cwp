@@ -1,3 +1,8 @@
+<!--
+title: Customising the default theme
+pagenumber: 4
+-->
+
 # Customising the default theme
 
 ## Introduction

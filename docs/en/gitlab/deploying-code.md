@@ -1,3 +1,8 @@
+<!--
+title: Deploying code
+pagenumber: 7
+-->
+
 # Deploying code
 
 This section covers how to deploy your site code onto an instance.
