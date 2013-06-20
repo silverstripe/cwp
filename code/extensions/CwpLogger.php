@@ -152,7 +152,7 @@ class CwpLogger extends SiteTreeExtension {
 
 		$effectiveViewerGroups = '';
 		if($this->owner->CanViewType == 'OnlyTheseUsers') {
-			$effectiveViewerGroups = implode(array_values($data->ViewerGroups()->map('ID', 'Title')->toArray()), ', ');
+			$effectiveViewerGroups = implode(array_values($original->ViewerGroups()->map('ID', 'Title')->toArray()), ', ');
 		}
 		if(!$effectiveViewerGroups) {
 			$effectiveViewerGroups = $this->owner->CanViewType;
@@ -160,7 +160,7 @@ class CwpLogger extends SiteTreeExtension {
 
 		$effectiveEditorGroups = '';
 		if($this->owner->CanEditType == 'OnlyTheseUsers') {
-			$effectiveEditorGroups = implode(array_values($data->EditorGroups()->map('ID', 'Title')->toArray()), ', ');
+			$effectiveEditorGroups = implode(array_values($original->EditorGroups()->map('ID', 'Title')->toArray()), ', ');
 		}
 		if(!$effectiveEditorGroups) {
 			$effectiveEditorGroups = $this->owner->CanEditType;
