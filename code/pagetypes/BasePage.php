@@ -298,6 +298,11 @@ class BasePage_Controller extends ContentController {
 			$query = new SearchQuery();
 			$query->classes = self::$classes_to_search;
 			$query->search($keywords);
+			$query->exclude('SiteTree_ShowInSearch', 0);
+
+			// Artificially lower the amount of results to prevent too high resource usage.
+			// on subsequent canView check loop.
+			$query->limit(100);
 
 			try {
 				$result = singleton(self::$search_index_class)->search(
@@ -318,8 +323,9 @@ class BasePage_Controller extends ContentController {
 			}
 		}
 
+		// Clean up the results.
 		foreach($results as $result) {
-			if(!$result->ShowInSearch) $results->remove($result);
+			if(!$result->canView()) $results->remove($result);
 		}
 
 		$rssUrl = $this->Link('SearchForm?Search=' . $keywords . '&format=rss');
