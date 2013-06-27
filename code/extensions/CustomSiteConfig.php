@@ -16,7 +16,9 @@ class CustomSiteConfig extends DataExtension {
 
 	private static $has_one = array(
 		'Logo' => 'Image',
+		'LogoRetina' => 'Image',
 		'FooterLogo' => 'Image',
+		'FooterLogoRetina' => 'Image',
 		'FavIcon' => 'File',
 		'AppleTouchIcon144' => 'File',
 		'AppleTouchIcon114' => 'File',
@@ -42,13 +44,21 @@ class CustomSiteConfig extends DataExtension {
 		$fields->addFieldToTab('Root.SocialMedia', $addThisID = new TextField('AddThisProfileID', 'AddThis Profile ID'));
 		$addThisID->setRightTitle('Profile ID to be used all across the site (in the format <strong>ra-XXXXXXXXXXXXXXXX</strong>)');
 
-		$fields->addFieldToTab('Root.Logos/Icons', $logoField = new UploadField('Logo', 'Logo, to appear in the top left.'));
+		$fields->addFieldToTab('Root.Logos/Icons', $logoField = new UploadField('Logo', 'Logo, to appear in the top left'));
 		$logoField->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
 		$logoField->setConfig('allowedMaxFileNumber', 1);
+		
+		$fields->addFieldToTab('Root.Logos/Icons', $logoRetinaField = new UploadField('LogoRetina', 'High resolution logo, to appear in the top left (recommended twice the height and width of the standard logo)'));
+		$logoRetinaField->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
+		$logoRetinaField->setConfig('allowedMaxFileNumber', 1);
 
-		$fields->addFieldToTab('Root.Logos/Icons', $footerLogoField = new UploadField('FooterLogo', 'Footer logo, to appear in the bottom right.'));
+		$fields->addFieldToTab('Root.Logos/Icons', $footerLogoField = new UploadField('FooterLogo', 'Footer logo, to appear in the footer'));
 		$footerLogoField->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
 		$footerLogoField->setConfig('allowedMaxFileNumber', 1);
+		
+		$fields->addFieldToTab('Root.Logos/Icons', $footerLogoRetinaField = new UploadField('FooterLogoRetina', 'High resolution footer logo (recommended twice the height and width of the standard footer logo)'));
+		$footerLogoRetinaField->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
+		$footerLogoRetinaField->setConfig('allowedMaxFileNumber', 1);
 
 		$fields->addFieldToTab('Root.Logos/Icons', $footerLink = new TextField('FooterLogoLink', 'Footer Logo link'));
 		$footerLink->setRightTitle('Please include the protocol (ie, http:// or https://) unless it is an internal link.');
