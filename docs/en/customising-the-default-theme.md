@@ -41,78 +41,82 @@ private repository address to the `repositories` array, See below for sample.
 
 Your theme's composer.json file should look something like this:
 
-    {
-        "name": "cwp-themes/my-new-theme",
-        "description": "My New Theme",
-        "type": "silverstripe-theme",
-        "require": {
-            "composer/installers": "*",
-            "silverstripe/cms": ">=3.0",
-            "silverstripe/framework": ">=3.0",
-            "cwp/cwp": "dev-master",
-            "silverstripe-themes/module_bootstrap": "dev-ssexpress"
-        },
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.2.x-dev"
-            }
-        }
-    }
+	{
+		"name": "cwp-themes/my-new-theme",
+			"description": "My New Theme",
+			"type": "silverstripe-theme",
+			"require": {
+				"composer/installers": "*",
+				"silverstripe/cms": ">=3.0",
+				"silverstripe/framework": ">=3.0",
+				"cwp/cwp": "dev-master",
+				"silverstripe-themes/module_bootstrap": "dev-ssexpress"
+			},
+			"extra": {
+				"branch-alias": {
+					"dev-master": "1.2.x-dev"
+				}
+			}
+	}
 
 Your project's composer.json file should look something like this:
 
-    {
-        "name": "cwp/recipe-basic",
-        "description": "CWP basic recipe",
-        "require": {
-            "php": ">=5.3.2",
-            "silverstripe/cms": "3.1.*",
-            "silverstripe/framework": "3.1.*",
-            "cwp/cwp": "*",
-            "cwp-themes/my-new-theme": "*",
-            "silverstripe/advancedworkflow": "*",
-            "silverstripe/html5": "*",
-            "silverstripe/iframe": "*",
-            "silverstripe/fulltextsearch": "*",
-            "silverstripe/queuedjobs": "*",
-            "silverstripe/registry": "*",
-            "silverstripe/restfulserver": "*",
-            "silverstripe/subsites": "*",
-            "silverstripe/translatable": "*",
-            "silverstripe/userforms": "*",
-            "silverstripe/versionedfiles": "*",
-            "silverstripe/versionfeed": "*",
-            "undefinedoffset/sortablegridfield": "*"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "3.7.*@stable"
-        },
-        "config": {
-            "process-timeout": 900
-        },
-        "repositories": [
-            {
-                "type": "vcs",
-                "url": "https://gitlab.cwp.govt.nz/cwp/cwp.git"
-            },
-            {
-                "type": "vcs",
-                "url": "https://gitlab.cwp.govt.nz/myusername/mynewtheme.git"
-            },
-            {
-                "type": "vcs",
-                "url": "https://gitlab.cwp.govt.nz/silverstripe/advancedworkflow.git"
-            },
-            {
-                "type": "vcs",
-                "url": "https://gitlab.cwp.govt.nz/silverstripe/queuedjobs.git"
-            }
-        ],
-        "minimum-stability": "dev"
-       }
+	{
+		"name": "cwp/recipe-basic",
+			"description": "CWP basic recipe",
+			"require": {
+				"php": ">=5.3.2",
+				"silverstripe/cms": "3.1.*",
+				"silverstripe/framework": "3.1.*",
+				"cwp/cwp": "*",
+				"cwp-themes/my-new-theme": "*",
+				"silverstripe/advancedworkflow": "*",
+				"silverstripe/html5": "*",
+				"silverstripe/iframe": "*",
+				"silverstripe/fulltextsearch": "*",
+				"silverstripe/queuedjobs": "*",
+				"silverstripe/registry": "*",
+				"silverstripe/restfulserver": "*",
+				"silverstripe/subsites": "*",
+				"silverstripe/translatable": "*",
+				"silverstripe/userforms": "*",
+				"silverstripe/versionedfiles": "*",
+				"silverstripe/versionfeed": "*",
+				"undefinedoffset/sortablegridfield": "*"
+			},
+			"require-dev": {
+				"phpunit/phpunit": "3.7.*@stable"
+			},
+			"config": {
+				"process-timeout": 900
+			},
+			"repositories": [
+			{
+				"type": "vcs",
+				"url": "https://gitlab.cwp.govt.nz/cwp/cwp.git"
+			},
+			{
+				"type": "vcs",
+				"url": "https://gitlab.cwp.govt.nz/myusername/mynewtheme.git",
+				"private": "true"
+			},
+			{
+				"type": "vcs",
+				"url": "https://gitlab.cwp.govt.nz/silverstripe/advancedworkflow.git"
+			},
+			{
+				"type": "vcs",
+				"url": "https://gitlab.cwp.govt.nz/silverstripe/queuedjobs.git"
+			}
+		],
+			"minimum-stability": "dev"
+	}
 
 That will have you set up with your own copy of the theme in the folder */themes/my-new-theme*. You can also share your
 theme with others by adding them as team members to your project, or even making the repository public.
+
+Note the `"private": "true"` switch for your custom theme - this switch is needed to be able to deploy non-public,
+gitlab hosted modules. See [Working with modules](working-with-modules) for more information on this features.
 
 ### Committing it straight back to your site's repository
 
