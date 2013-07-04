@@ -128,7 +128,13 @@ composer](http://doc.silverstripe.org/framework/en/installation/composer#deployi
 
 If you decide to include private modules in your website project (also your own private repositories), Deploynaut
 will need a permission to access them. If you already have your repository associated with the instance you will be
-deploying to, the only thing you need to do is to enable the project key on the module as shown on the image below.
+deploying to, the only thing you need to do is to enable the project key on the module as shown on the image below. The
+key is named after your instance identifier.
+
+<div class="notice" markdown='1'>
+You will only see the deployment key if you are the owner of the repository. Check the "Team" tab to see who the owner
+is. Currently, if you are not the owner, you will need to ask the person to do it for you. It's a one-off task.
+</div>
 
 ![Gitlab - associating project key with a private module](_images/gitlab-enable-key.jpg )
 
