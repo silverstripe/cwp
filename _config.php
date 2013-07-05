@@ -9,7 +9,7 @@
 ## and if absolutely necessary if you can't use the yml file, mysite/_config.php instead.
 
 // configure document converter.
-if (class_exists('DocumentConverterDecorator')) {
+if (class_exists('DocumentConverterDecorator') && defined('DOCVERT_USERNAME')) {
 	DocumentImportIFrameField_Importer::set_docvert_username(DOCVERT_USERNAME);
 	DocumentImportIFrameField_Importer::set_docvert_password(DOCVERT_PASSWORD);
 	DocumentImportIFrameField_Importer::set_docvert_url(DOCVERT_URL);
