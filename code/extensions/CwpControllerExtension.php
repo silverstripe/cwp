@@ -4,10 +4,10 @@ class CwpControllerExtension extends Extension {
 	public function onBeforeInit() {
 		// redirect some requests to the secure domain
 		if(defined('CWP_SECURE_DOMAIN') && !Director::is_https()) {
-			Director::forceSSL(array('/^Security/'), CWP_SECURE_DOMAIN);
+			Director::forceSSL(array('/^Security/', '/^api/'), CWP_SECURE_DOMAIN);
 			// Note 1: the platform always redirects "/admin" to CWP_SECURE_DOMAIN regardless of what you set here
 			// Note 2: if you have your own certificate installed, you can use your own domain, just omit the second parameter:
-			//   Director::forceSSL(array('/^Security/'));
+			//   Director::forceSSL(array('/^Security/', '/^api/'));
 			//
 			// See Director::forceSSL for more information.
 		}
