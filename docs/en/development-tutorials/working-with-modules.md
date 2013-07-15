@@ -132,11 +132,9 @@ deploying to, the only thing you need to do is to enable the project key on the 
 key is named after your instance identifier.
 
 <div class="notice" markdown='1'>
-You will only see the deployment key if you are the owner of the repository. Check the "Team" tab to see who the owner
-is. Currently, if you are not the owner, you will need to ask the person to do it for you. It's a one-off task.
+You will only see the deployment key if you are the owner of the repository. See [deploying code](deploying-code) for
+more information.
 </div>
-
-![Gitlab - associating project key with a private module](_images/gitlab-enable-key.jpg )
 
 Also, double check that your project's `composer.json` specifies the "private" parameter for all private repositories as
 shown in the "Including a module in your project" section.

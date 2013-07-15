@@ -33,7 +33,7 @@ agencies and enable easier upgrades. If you decide to remove the `composer.json`
 into the project code, we may not be able to support you because we will have to assume the modules have been
 customised.
 
-A good next step is the common workflow described in the [development tutorial](development-tutorials). It shows how to
+A good next step is the common workflow described in the [development tutorials](development-tutorials). It shows how to
 set up Git and how to access Gitlab to manage your code repositories on the CWP platform, and will also run your through
 some common development scenarios:
 
@@ -41,5 +41,5 @@ some common development scenarios:
 * creating a custom theme based on the default
 * building a new module and including it in your project.
 
-Proceed to the [development tutorial](development-tutorials) now.
+Proceed to the [development tutorials](development-tutorials) now.
 
