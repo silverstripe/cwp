@@ -10,9 +10,9 @@ for your projects, preparation of custom themes, private modules and code deploy
 
 This section is intended for developers.
 
-* [Setup Gitlab](../development-tutorials/gitlab-setup)
-* [Setting up your project](../development-tutorials/setting-up-your-project)
-* [Working with modules](../development-tutorials/working-with-modules)
-* [Creating a project/repository](../development-tutorials/creating-repositories)
-* [Sharing repositories with others](../development-tutorials/sharing-repositories)
-* [Deploying your code to instances](../development-tutorials/deploying-code)
+* [Setup Gitlab](gitlab-setup)
+* [Setting up your project](setting-up-your-project)
+* [Working with modules](working-with-modules)
+* [Creating a project/repository](creating-repositories)
+* [Sharing repositories with others](sharing-repositories)
+* [Deploying your code to instances](deploying-code)

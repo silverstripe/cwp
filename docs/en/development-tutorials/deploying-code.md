@@ -36,19 +36,21 @@ The public key can easily be found in the Deploynaut interface, on the project p
 
 ![Deploynaut - project key](_images/deploynaut-project-key.jpg)
 
-It's content is not secret (there is a private counterpart that only the server knows), so copy it and proceed to Gitlab
+It's content is not secret (there is a private counterpart that only the server knows), so proceed to Gitlab
 to add it to all your repositories that need to be included in the deployment.
-
-![Gitlab - associating project key with a private module](_images/gitlab-enable-key.jpg )
 
 If you have already been set up with a repository as part of the instance creation process, you will already have a key
 associated with your master repository which should be visible in the interface. You will also be able to add this
 key to other private modules simply by clicking "enable" on the relevant key on the right side.
 
+![Gitlab - associating project key with a private module](_images/gitlab-enable-key.jpg )
+
 <div class="notice" markdown='1'>
 You will only see the deployment key if you are the owner of the repository. Check the "Team" tab to see who the owner
 is. Currently, if you are not the owner, you will need to ask the person to do it for you. It's a one-off task.
 </div>
+
+If you have opted for an empty instance (or custom repository) you will need to add a "New deploy key" instead.
 
 When including private repositories, remember they have to have a "private" flag set on them in the `composer.json`
 file. See [working with modules](working-with-modules) for more information.
