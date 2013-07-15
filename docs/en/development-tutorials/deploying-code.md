@@ -55,6 +55,12 @@ If you have opted for an empty instance (or custom repository) you will need to 
 When including private repositories, remember they have to have a "private" flag set on them in the `composer.json`
 file. See [working with modules](working-with-modules) for more information.
 
+## Fetching changes
+
+To get the latest changes available in the repository, hit the "Fetch latest changes" button. This is an equivalent of a
+`git fetch origin` on you local machine. After a short moment you should see new tags, branches and commits coming
+through and you can proceed with the deployment.
+
 ## Deploying to UAT site
 
 Under "Environments", go to **uat**.
@@ -109,7 +115,3 @@ deploy.cwp.govt.nz site can see it:
 	git push --tags
 
 Now when you go back to [deploy.cwp.govt.nz](http://deploy.cwp.govt.nz) you'll see your new tag in the revision table.
-From there, you can deploy that tag (see "Deploying to UAT site" above.)
-If your tag doesn't appear, you might need to wait a few minutes for the revision list to update.
-
-
