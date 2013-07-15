@@ -5,7 +5,7 @@ pagenumber: 3
 
 # Setting up your project
 
-[Gitlab Setup](../gitlab/gitlab-setup) described setting up your development environment to work with Gitlab, including
+[Gitlab Setup](../development-tutorials/gitlab-setup) described setting up your development environment to work with Gitlab, including
 initial project checkout.
 
 Now we'll describe how to setup your project code in that repository.
@@ -38,7 +38,7 @@ assume you have cloned it already to your local machine with `git clone`.
 Gitlab contains some public repositories with code to help you get started. Rather than start from scratch, you can have
 a basic website up and running in little time.
 
-First of all, let's change directory into the project repository we setup in [Gitlab Setup](../gitlab/gitlab-setup)
+First of all, let's change directory into the project repository we setup in [Gitlab Setup](../development-tutorials/gitlab-setup)
 
 	$ cd /path/to/my/project-repo
 
@@ -55,7 +55,7 @@ the "recipes-basic" public repository in Gitlab. You can list the remotes as fol
 	$ git remote -v
 
 Now that the remote is setup, we can pull in the "recipes-basic" code. This command will merge the recipe-basic into
-your current project files (if you followed [Gitlab setup](../gitlab/gitlab-setup.md) that will be just the `README`
+your current project files (if you followed [Gitlab setup](../development-tutorials/gitlab-setup.md) that will be just the `README`
 file):
 
 	$ git pull recipes-basic master
@@ -92,7 +92,7 @@ You have now a private repository that you can modify. Here is a list of likely 
 "my-agency/basic" - "cwp" namespace is reserved for platform-endorsed modules and recipes.
  * Customising the `mysite/_config.php` to configure your project.
  * Customise the theme (explained further below).
- * Adding more modules (see [Working with modules](../gitlab/working-with-modules)).
+ * Adding more modules (see [Working with modules](../development-tutorials/working-with-modules)).
  * Do any other housekeeping as necessary, for example remove the extraneous `README` file.
 
 Let's convert the theme from module to project code so we can modify it. Remove the version control directory:
@@ -129,7 +129,7 @@ Now when you jump into Gitlab **Dashboard**, you'll see a commit from yourself "
 
 `themes/my-theme` is the theme folder you'll be doing your template work, adding templates, adjusting CSS, etc.
 
-The rest of the folders in a project are Composer managed. See [Working with modules](../gitlab/working-with-modules)
+The rest of the folders in a project are Composer managed. See [Working with modules](../development-tutorials/working-with-modules)
 for more information.
 
 ## Opening to collaborators
@@ -147,4 +147,4 @@ the resulting `composer.lock` file.
 
 ## Including or creating a module in your project
 
-See [Working with modules](../gitlab/working-with-modules)
+See [Working with modules](../development-tutorials/working-with-modules)

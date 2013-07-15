@@ -69,7 +69,7 @@ Once the module is pushed to the repository you should see the code on Gitlab. F
 others to clone, as long as they have at least a "Reporter" level access (see the note below though: private modules are
 not deployable).
 
-Check out instructions at [Sharing repositories](../gitlab/sharing-repositories) on how to control module access
+Check out instructions at [Sharing repositories](../development-tutorials/sharing-repositories) on how to control module access
 settings.
 
 ## Including a module in your project

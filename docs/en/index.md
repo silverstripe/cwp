@@ -9,7 +9,7 @@ to go through the [tutorials](http://doc.silverstripe.org/framework/en/tutorials
 
  * [Preparation](preparation-of-the-developer-environment): The steps you need to take to get your development environment ready to work on a CWP
 project.
- * [Gitlab](gitlab): The source control management software that CWP uses.
+ * [Development tutorials](development-tutorials): Step through the most common development workflows of the CWP.
  * [Recipes](recipes): What a "recipe" is and the list of different site recipes that your site can start from.
  * [Theme customisation](customising-the-default-theme): Working with the default theme.
  * [Project customisation](customising-the-default-functionality): Customising your project with extra modules or features.

@@ -5,26 +5,41 @@ pagenumber: 1
 
 # Preparation of the developer's environment
 
-First start with [Gitlab](gitlab) documentation which describes setting up Git and accessing Gitlab to manage your code
-repositories on the CWP platform.
+Successful development of a Platform website relies on the ability to use the provided services and tools and build upon
+them to provide the custom functionality where needed. A description of the high-level [technical
+architecture](https://www.cwp.govt.nz/features/technical-information-about-the-platform/) is available on this website.
 
-CWP is installed with the Composer PHP package management tool. To learn about the Composer, visit the
-[SilverStripe Composer documentation](http://doc.silverstripe.org/framework/en/installation/composer) or read the
+CWP projects are installed using the Composer PHP package management tool. For general information about Composer, visit
+the [SilverStripe Composer documentation](http://doc.silverstripe.org/framework/en/installation/composer) or read the
 installation documentation on the [Composer site](http://getcomposer.org/doc/00-intro.md).
 
-First of all, check out your project using Git's `git clone` command. If you have forked the *basic* recipe, the project
-will come with a `composer.json` file that lists all the required dependencies. You will be able to install them with:
+<div class="notice" markdown='1'>
+CWP Recommendation: to ensure your code works smoothly with the platform, start from the basic recipe.
+</div>
 
-	$ composer install --dev
+To start developing a new CWP site we strongly recommend starting from the [basic
+recipe](https://gitlab.cwp.govt.nz/cwp/recipe-basic).  Basic recipe contains the `composer.json` file that pulls in
+supported dependencies. You can then change the module list to your liking and assuming that you keep the `cwp` module
+and the changes you've made are respecting the available SilverStripe API's, the code should run smoothly when deployed
+to the UAT.
 
-You will also need an `_ss_environment.php` file in or above the webroot of your development environment. Documentation
-on [setting up your environment](http://doc.silverstripe.org/framework/en/topics/environment-management) file can be
-found in the SilverStripe documentation.
+<div class="notice" markdown='1'>
+CWP Recommendation: to ensure security of the platform make sure your code can be upgraded - maintain your modules using
+composer.
+</div>
 
-Once you have that set up, you will be able to browse to your site and it will construct the database and default pages
-automatically.
+We recommend maintaining all your modules using Composer. This will allow you to easily share the code with other
+agencies and enable easier upgrades. If you decide to remove the `composer.json` file and instead commit the modules
+into the project code, we may not be able to support you because we will have to assume the modules have been
+customised.
 
-You're ready to start developing now. You won't be able to commit any changes made to the modules unless you fork them
-and update the composer.json - this is heavily discouraged as it will make upgrades to new versions of the modules
-(including security patches) much more difficult. You should restrict your changes to just the mysite folder and a
-custom theme.
+A good next step is the common workflow described in the [development tutorial](development-tutorials). It shows how to
+set up Git and how to access Gitlab to manage your code repositories on the CWP platform, and will also run your through
+some common development scenarios:
+
+* copying an existing recipe
+* creating a custom theme based on the default
+* building a new module and including it in your project.
+
+Proceed to the [development tutorial](development-tutorials) now.
+
