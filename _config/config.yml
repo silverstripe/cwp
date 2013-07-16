@@ -34,8 +34,8 @@ PasswordField:
 Security:
   login_recording: false
 ---
-Except:
-  CWP_ENVIRONMENT: prod
+Only:
+  environment: test
 ---
 BasicAuth:
     entire_site_protected: true
