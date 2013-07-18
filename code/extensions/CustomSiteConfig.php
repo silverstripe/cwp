@@ -27,10 +27,6 @@ class CustomSiteConfig extends DataExtension {
 	);
 
 	public function updateCMSFields(FieldList $fields) {
-		// subsite theme setting is managed in SubsiteAdmin instead
-		if(class_exists('Subsite') && Subsite::currentSubsiteID()) {
-			$fields->removeByName('Theme');
-		}
 
 		$fields->addFieldToTab('Root.Main', $gaCode = new TextField('GACode', 'Google Analytics account'));
 		$gaCode->setRightTitle('Account number to be used all across the site (in the format <strong>UA-XXXXX-X</strong>)');
