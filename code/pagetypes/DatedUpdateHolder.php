@@ -216,7 +216,7 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 		if ($params['tag']) {
 			$term = TaxonomyTerm::get_by_id('TaxonomyTerm', $params['tag']);
 			if ($term) {
-				$filters[] = 'tagged with "' . $term->Name . '"';
+				$filters[] = 'within "' . $term->Name . '"';
 			}
 		}
 
