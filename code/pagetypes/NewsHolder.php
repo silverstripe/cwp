@@ -38,6 +38,10 @@ class NewsHolder extends DatedUpdateHolder {
 }
 
 class NewsHolder_Controller extends DatedUpdateHolder_Controller {
+	private static $allowed_actions = array(
+		'rss'
+	);
+
 	public function rss() {
 		$rss = new RSSFeed($this->Updates()->sort('Created DESC')->limit(20), $this->Link(), $this->getSubscriptionTitle());
 		$rss->setTemplate('NewsHolder_rss');
