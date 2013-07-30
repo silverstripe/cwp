@@ -36,11 +36,3 @@ Security:
 Member:
   lock_out_after_incorrect_logins: 5
   lock_out_delay_mins: 15
----
-Only:
-  environment: test
----
-BasicAuth:
-    entire_site_protected: true
-    entire_site_protected_code: null
-    entire_site_protected_message: "Please log in with your CMS credentials"

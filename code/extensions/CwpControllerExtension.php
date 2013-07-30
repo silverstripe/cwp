@@ -1,5 +1,5 @@
 <?php
-class CwpControllerExtension extends Extension {
+class CwpControllerExtension extends Extension implements PermissionProvider {
 
 	public function onBeforeInit() {
 		// redirect some requests to the secure domain
@@ -19,6 +19,49 @@ class CwpControllerExtension extends Extension {
 				CURLOPT_PROXYPORT => SS_OUTBOUND_PROXY_PORT
 			));
 		}
+
+		// We turn on Basic Auth in testing mode, _except_ that we allow access to the change password
+		// form for administrators
+		if(Director::isTest()) {
+			$allowWithoutAuth = false;
+
+			// First, see if we can get a member to act on, either from a changepassword token or the session
+			if (isset($_REQUEST['m']) && isset($_REQUEST['t'])) {
+				$member = Member::get()->filter('ID', (int)$_REQUEST['m'])->First();
+				if (!$member->validateAutoLoginToken($_REQUEST['t'])) $member = null;
+			}
+			else if (Session::get('AutoLoginHash')) {
+				$member = Member::member_from_autologinhash(Session::get('AutoLoginHash'));
+			}
+			else {
+				$member = Member::currentUser();
+			}
+
+			// Then, if they have the right permissions, check the allowed URLs
+			if ($member && Permission::checkMember($member, 'ACCESS_UAT_SERVER')) {
+				$allowed = array(
+					'/^Security\/changepassword/',
+					'/^Security\/ChangePasswordForm/'
+				);
+
+				$relativeURL = Director::makeRelative(Director::absoluteURL($_SERVER['REQUEST_URI']));
+
+				foreach($allowed as $pattern) {
+					$allowWithoutAuth = $allowWithoutAuth || preg_match($pattern, $relativeURL);
+				}
+			}
+
+			// Finally if they weren't allowed to bypass Basic Auth, trigger it
+			if (!$allowWithoutAuth) {
+				BasicAuth::requireLogin("Please log in with your CMS credentials", 'ACCESS_UAT_SERVER', true);
+			}
+		}
+	}
+
+	function providePermissions() {
+		return array(
+			'ACCESS_UAT_SERVER' => 'Allow users to use their accounts to access the UAT server'
+		);
 	}
 
 }
