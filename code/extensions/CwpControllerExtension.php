@@ -25,6 +25,15 @@ class CwpControllerExtension extends Extension implements PermissionProvider {
 		if(Director::isTest()) {
 			$allowWithoutAuth = false;
 
+			// Allow whitelisting IPs for bypassing the basic auth.
+			if (defined('CWP_IP_BYPASS_BASICAUTH')) {
+				$remote = $_SERVER['REMOTE_ADDR'];
+				$bypass = explode(',', CWP_IP_BYPASS_BASICAUTH);
+				if (in_array($remote, $bypass)) {
+					$allowWithoutAuth = true;
+				}
+			}
+
 			// First, see if we can get a member to act on, either from a changepassword token or the session
 			if (isset($_REQUEST['m']) && isset($_REQUEST['t'])) {
 				$member = Member::get()->filter('ID', (int)$_REQUEST['m'])->First();
