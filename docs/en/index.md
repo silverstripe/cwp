@@ -1,4 +1,4 @@
-# Development
+# Common Web Platform core
 
 This document contains information relevant to developers that wish to develop websites to run on the CWP platform.
 
