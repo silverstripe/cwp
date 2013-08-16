@@ -72,39 +72,6 @@ You will be asked for Gitlab credentials. After providing them, your commit will
 If you go back to the project page in Gitlab, and access the **Commits** tab you should see your change.
 Congratulations!
 
-## Increase the default post size
-
-Git via HTTP is susceptible to 411 errors due to the size of post requests made through the remote web server.
-
-The default post size for GIT is 1MB. To increase the value run the below command to increase the limit to 500MB:
-
-	git config http.postBuffer 524288000
-
-## Caching Gitlab passwords
-
-You can avoid having to type the password in every time by using Git credential helper.
-
-The easiest way is to use the in-built cacher:
-
-	git config --global credential.helper cache
-
-You can adjust the timeout period from the default 15 minutes:
-
-	git config credential.helper 'cache --timeout=3600'
-
-See [this stackoverflow
-thread](http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github) for
-more information.
-
-Another way to approach this is to store the password in a keychain on your machine using the software built by GitHub.
-This will allow you to remember the password permanently. The software is available from [GitHub
-](https://help.github.com/articles/set-up-git).
-
-<div class="notice" markdown='1'>
-GitHub is an entirely different product than Gitlab. It is a company and a maker of a popular website
-[github.com](http://github.com). Their software is purpose-built and as such may not always work well with Gitlab.
-</div>
-
 ## Where to from here?
 
 [Setting up your project](../development-tutorials/setting-up-your-project) documentation will help you get started setting up
