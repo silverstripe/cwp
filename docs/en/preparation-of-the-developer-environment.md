@@ -33,6 +33,42 @@ agencies and enable easier upgrades. If you decide to remove the `composer.json`
 into the project code, we may not be able to support you because we will have to assume the modules have been
 customised.
 
+When working with CWP code, you will be utilising git version control system, and the repositories will be stored on
+Gitlab. First, let's apply two configuration changes that are essential for smooth experience.
+
+# Increase the default post size
+
+A common issue with using our specific installation of Gitlab is the limit to the git post size on the client side
+(developer's machine). It will result in a 411 errors showing up when trying to push a significant amount of work to
+upstream.
+
+The default post size for git is 1 MB. To increase the value run the below command to increase the limit to 500MB:
+
+	git config http.postBuffer 524288000
+
+# Caching Gitlab passwords
+
+You can avoid having to type the password in every time by using a git credential helper.
+
+The easiest way is to use the in-built cacher:
+
+	git config --global credential.helper cache
+
+You can adjust the timeout period from the default 15 minutes:
+
+	git config credential.helper 'cache --timeout=3600'
+
+See [this stackoverflow
+thread](http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github) for
+more information.
+
+This will save you some typing, but not all of it. Another way to approach this is to store the password in a keychain
+on your machine using the software built by a company called GitHub (not related to Gitlab). This will allow you to
+securely store your password permanently. The software is available directly from
+[GitHub](https://help.github.com/articles/set-up-git).
+
+# Where to from here?
+
 A good next step is the common workflow described in the [development tutorials](development-tutorials). It shows how to
 set up Git and how to access Gitlab to manage your code repositories on the CWP platform, and will also run your through
 some common development scenarios:
@@ -41,5 +77,10 @@ some common development scenarios:
 * creating a custom theme based on the default
 * building a new module and including it in your project.
 
-Proceed to the [development tutorials](development-tutorials) now.
+<div class="notice" markdown='1'>
+CWP Recommendation: two most common issues with interacting with Gitlab is the limit to the size of the data that can be
+pushed, and necessity to re-type the password when pushing. First requires a small reconfiguration to your git client, second can
+be resolved by using password caches. Both are explained in
+</div>
 
+Proceed to the [development tutorials](development-tutorials) now.
