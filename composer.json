@@ -1,16 +1,15 @@
 {
 	"name": "cwp/cwp",
-	"description": "CWP Main Extension Module",
+	"description": "CWP features module. We strongly recommend using it for all new sites. Future features will be delivered here.",
 	"type": "silverstripe-module",
 	"require": {
-		"composer/installers": "*",
-		"silverstripe/cms": ">=3.1.0-beta1,<4.0",
-		"silverstripe/framework": ">=3.1.0-beta1,<4.0",
+		"cwp/cwp-core": "*",
 		"silverstripe/taxonomy": "*"
 	},
-	"extra": {
-		"branch-alias": {
-			"dev-master": "1.2.x-dev"
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://gitlab.cwp.govt.nz/cwp/cwp-core.git"
 		}
-	}
+	]
 }

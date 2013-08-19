@@ -1,38 +1,10 @@
 ---
 Name: cwpconfig
-After: 'framework/*','cms/*'
+After: 'cwp-core/*'
 ---
-DBField:
-  extensions:
-   - RichLinksExtension
-Controller:
-  extensions:
-   - CwpControllerExtension
 SiteConfig:
   extensions:
    - CustomSiteConfig
-Group:
-  extensions:
-   - CwpHtmlEditorConfig
-HtmlEditorField_Toolbar:
-  extensions:
-   - CustomHtmlEditorFieldToolbar
 TaxonomyTerm:
   extensions:
    - TaxonomyTermExtension
-GDBackend:
-  default_quality: 90
-LeftAndMain:
-  extra_requirements_css:
-   - 'cwp/css/custom.css'
-Session:
-  timeout: 3600
-LeftAndMain:
-  session_keepalive_ping: false
-PasswordField:
-  autocomplete: false
-Security:
-  login_recording: false
-Member:
-  lock_out_after_incorrect_logins: 5
-  lock_out_delay_mins: 15
