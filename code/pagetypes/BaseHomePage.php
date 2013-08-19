@@ -81,7 +81,6 @@ class BaseHomePage extends Page {
 
 		$fields->addFieldToTab('Root.Quicklinks', $gridField);
 
-		$fields->removeByName('Translations');
 		$fields->removeByName('Import');
 
 		$fields->addFieldToTab('Root.Features', ToggleCompositeField::create('FeatureOne', _t('SiteTree.FeatureOne', 'Feature One'),
