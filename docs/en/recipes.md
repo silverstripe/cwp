@@ -13,18 +13,18 @@ Recipes can be treated as starting points and can be copied to quickly create yo
 over starting from scratch. The recipes include the essential `cwp/cwp` module.
 
 <div class="warning" markdown='1'>
-Warning: starting from recipe ensures compatibility with platform features. Not including the necessary modules could
-mean you're providing similar features with unsupported code, in which case we won't be able to provide bug or security
-fixes, or guarantee correct operation on the platform.
+Starting from recipe ensures compatibility with platform features. Not including the necessary modules could mean you're
+implementing similar features with unsupported code, in which case we won't be able to provide bug or security fixes, or
+guarantee correct operation on the platform.
 </div>
 
 In case it's not possible to use the recipe, it is strongly recommended to pull in the `cwp/cwp` module and use the
-features contained therein. It it is through this module that we will provide future features.
+features contained therein. It is through this module that we will provide future updates.
 
 If the above doesn't work for you, the last resort is including the `cwp/cwp-core`, which `cwp/cwp` requires
 automatically. This at least will ensure the compatibility with the platform infrastructure and will allow us to deliver
 some subset of fixes and features. This scenario is meant mostly for the early stages of migration though, and the
-aforementioned stability and compatibility reservations apply.
+aforementioned stability and compatibility caveats apply.
 
 If you decide to go down the path of including neither `cwp/cwp` nor `cwp/cwp-core` you will need to follow the releases
 of these two modules to see if any patches are applicable to your code.
