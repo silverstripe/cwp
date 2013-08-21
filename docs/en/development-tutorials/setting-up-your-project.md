@@ -24,9 +24,9 @@ the address provided to you:
 
 	$ git clone https://gitlab.cwp.govt.nz/my-agency/my-project.git my-project
 
-Run composer update on it to get all the required modules pulled in:
+Run composer install on it to get all the required modules pulled in:
 
-	$ composer update
+	$ composer install
 
 You can skip straight to "Accessing the site" now.
 
@@ -36,17 +36,18 @@ This section is for those who have followed the "Gitlab setup" howto, or created
 assume you have cloned it already to your local machine with `git clone`.
 
 Gitlab contains some public repositories with code to help you get started. Rather than start from scratch, you can have
-a basic website up and running in little time.
+a basic website up and running in little time. This is in fact the preferred method of starting development, as it
+will ensure the maximum level of CWP compatibility for your project.
 
 First of all, let's change directory into the project repository we setup in [Gitlab Setup](../development-tutorials/gitlab-setup)
 
 	$ cd /path/to/my/project-repo
 
 Now check out the list of [public CWP repositories](http://gitlab.cwp.govt.nz/public). Here you will find all recipes
-you can use as a base for your project. Let's pull the recipe in by first creating the remote "recipes-basic" from which
+you can use as a base for your project. Let's pull the recipe in by first creating the remote "recipe-basic" from which
 we will obtain the code.
 
-	$ git remote add recipes-basic https://gitlab.cwp.govt.nz/cwp/recipe-basic.git
+	$ git remote add recipe-basic https://gitlab.cwp.govt.nz/cwp/recipe-basic.git
 
 We now have a new remote called "recipies-basic". Git has a default remote called "origin" which points to Gitlab so
 you push code to that so others can pull it. The remote for "recipes-basic" is the same concept, except it points to
@@ -54,25 +55,25 @@ the "recipes-basic" public repository in Gitlab. You can list the remotes as fol
 
 	$ git remote -v
 
-Now that the remote is setup, we can pull in the "recipes-basic" code. This command will merge the recipe-basic into
-your current project files (if you followed [Gitlab setup](../development-tutorials/gitlab-setup.md) that will be just the `README`
-file):
+Now that the remote is setup, we can switch over to the "recipe-basic" code  - choose the latest tagged stable release
+for that (e.g. 1.0.0 or 1.0.1). **Warning**: this will wipe out your existing code in the repository, so make sure it is
+empty! Otherwise you need to merge the changes in manually.
 
-	$ git pull recipes-basic master
+	$ git reset --hard recipe-basic/1.0.0
 
-Accept the merge message as it is (if there is one). Project files should now appear in your project directory.
+<div class="hint" markdown='1'>
+Note for early adopters: if 1.0.0 _tag_ of the recipe is not available, use the 1.0.0 _branch_. The command is the same, but
+it's important to note the code in this case is still in a release cycle and changes may be made.
+</div>
 
-Now, let's pull down the latest versions packages defined in the `composer.json` **require** rules.
-Again, from the root of your checked out project (this will take some time):
+After resetting to the recipe, we need to push-update our changes in Gitlab. Here is how to overwrite the upstream:
 
-	$ composer update
+	$ git push origin +master
 
-Commit the resulting composer.lock file to the repository and push back to your origin so your project becomes available
-on the Gitlab.
+You now have a clean codebase to start from. Now, let's pull down the latest versions packages defined in the
+`composer.json` **require** rules.  Again, from the root of your checked out project (this will take some time):
 
-	$ git add composer.lock
-	$ git commit -m "Commiting composer.lock"
-	$ git push origin master
+	$ composer install
 
 ## Accessing the site
 
@@ -145,6 +146,8 @@ private repository and you can customise it to your liking.
 Periodically you will need to update modules to the newest versions by invoking `composer update` and commiting
 the resulting `composer.lock` file.
 
-## Including or creating a module in your project
+## Where to next?
 
-See [Working with modules](../development-tutorials/working-with-modules)
+* [Including or creating a module in your project](../development-tutorials/working-with-modules)
+* [Recipe documentation, with versioning explanation](../recipes)
+* [Maintaining your code](../maintaining-your-code)

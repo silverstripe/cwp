@@ -14,7 +14,9 @@ the [SilverStripe Composer documentation](http://doc.silverstripe.org/framework/
 installation documentation on the [Composer site](http://getcomposer.org/doc/00-intro.md).
 
 <div class="notice" markdown='1'>
-CWP Recommendation: to ensure your code works smoothly with the platform, start from the basic recipe.
+CWP Recommendation: to ensure your code works smoothly with the platform, start from the basic recipe. Use latest
+available stable version, which will be tagged upon release. An example of such version is 1.0.0. See [Recipe
+documentation](recipes) for more details on versioning.
 </div>
 
 To start developing a new CWP site we strongly recommend starting from the [basic
@@ -76,11 +78,5 @@ some common development scenarios:
 * copying an existing recipe
 * creating a custom theme based on the default
 * building a new module and including it in your project.
-
-<div class="notice" markdown='1'>
-CWP Recommendation: two most common issues with interacting with Gitlab is the limit to the size of the data that can be
-pushed, and necessity to re-type the password when pushing. First requires a small reconfiguration to your git client, second can
-be resolved by using password caches. Both are explained in
-</div>
 
 Proceed to the [development tutorials](development-tutorials) now.

@@ -110,12 +110,13 @@ now include the following requirement in the same `composer.json`:
 Add the module directory name (`foobar/`) to `.gitignore` - we will rely on the *composer* to update the dependencies so
 we don't need to version-control it through the master repository.
 
-Run `composer update` to pull the module in and update all other dependencies as well.
+Run `composer update` to pull the module in and update all other dependencies as well. You can also update just this one
+module by calling `composer update <modulename>`.
 
 <div class="notice" markdown='1'>
 If you get cryptic composer errors it's worth checking that your module code is fully pushed. This is because composer
 can only access the code you have actually pushed to the upstream repository, and it may be trying to use the stale
-versions of the files.
+versions of the files. Also, update composer regularly (`composer self-update`).
 </div>
 
 Finally, commit the the modified `composer.json`, `composer.lock`  and `.gitignore` files to the repository. The

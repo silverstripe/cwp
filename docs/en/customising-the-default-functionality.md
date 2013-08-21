@@ -1,21 +1,22 @@
 <!--
 title: Customising the default functionality
-pagenumber: 5
+pagenumber: 6
 -->
 
 # Customising the default functionality
 
-CWP *basic* recipe comes with a set of page types and preconfigured modules. 
+You should have started your project from a supported recipe as a template for the maximum level of compatibility with
+the platform and then customised from there onwards.
 
 With Composer you can easily adjust the modules that are included in the project. Full instructions can be found in the
 [SilverStripe Composer documentation](http://doc.silverstripe.org/framework/en/installation/composer#advanced-usage).
 
 For site-specific SilverStripe installation, fine tune your configuration with `mysite/_config.php`. More information is
-available in the [configuration reference](http://doc.silverstripe.org/framework/en/topics/configuration).
+available in the [configuration reference](http://doc.silverstripe.org/framework/en/topics/configuration). Make sure
+to preserve the database and environment configuration code, otherwise your deployment may not work (e.g. the
+database connection will not work).
 
-In the *basic* recipe you can find the CWP-specific code in the *cwp* module already included.
-
-The best way to work with your site is to put all your modifications in your own theme and in the `mysite` directory.
+The best way to work with your site is to commit all your modifications to your own theme and in the `mysite` directory.
 
 Avoid changing modules directly. SilverStripe's architecture allows safe customisation through:
 
@@ -27,8 +28,8 @@ To gain deeper understanding on how the SilverStripe Framework can be used to de
 going through the [SilverStripe tutorials](http://doc.silverstripe.org/framework/en/3.1/tutorials) and searching through
 the [SilverStripe documentation](http://doc.silverstripe.org/framework/en/3.1/).
 
-Directly modifying module files is not recommended because it makes future upgrades harder (or in some cases impossible).
-You will also have a harder time getting support from the community. 
+Directly modifying module files is not recommended because it makes future upgrades harder (or in some cases
+impossible).  You will also have a harder time getting support from the community.
 
 The preferred way to modify modules is to submit pull-requests to the module maintainer and make sure the changes are
 propagated to the master repository. This ensures upgrade-ability and moreover ensures that all valuable changes are
