@@ -12,10 +12,10 @@ basic site code.
 Recipes can be treated as starting points and can be copied to quickly create your own project. We recommend doing so
 over starting from scratch. The recipes include the essential `cwp/cwp` module.
 
-<div class="warning" markdown='1'>
-Starting from recipe ensures compatibility with platform features. Not including the necessary modules could mean you're
-implementing similar features with unsupported code, in which case we won't be able to provide bug or security fixes, or
-guarantee correct operation on the platform.
+<div class="hint" markdown='1'>
+Use stable recipe versions whenever possible. You should use the latest tagged version such as 1.0.0, or if not
+available 1.0.0-rc1. Expect master branch and other development branches to be highly volatile. See "Recipe versioning"
+below for more details.
 </div>
 
 In case it's not possible to use the recipe, it is strongly recommended to pull in the `cwp/cwp` module and use the
@@ -28,6 +28,39 @@ aforementioned stability and compatibility caveats apply.
 
 If you decide to go down the path of including neither `cwp/cwp` nor `cwp/cwp-core` you will need to follow the releases
 of these two modules to see if any patches are applicable to your code.
+
+<div class="warning" markdown='1'>
+Not including the necessary modules could mean you're implementing similar features with unsupported code, in which case
+we won't be able to provide bug or security fixes, or guarantee correct operation on the platform.
+</div>
+
+## Recipe versioning
+
+Stable recipe releases will be triggered by releases of the SilverStripe Framework. For example release 1.0.0 of
+`recipe-basic` is triggered by release of `silverstripe-framework` 3.1.0. Releases will be tagged, using a branch will
+always imply using code that's at best a release candidate, and at worst development code that's undergoing changes.
+
+During the release candidate cycle, tags will also be generated for each RC, however it is still preferred to use stable
+releases.
+
+Stable recipes will receive security and bug fixes during their lifecycle, which will mostly consist of updates to
+the required modules. Such releases will be tagged with patchlevels, such as 1.0.0-X, where X is a sequence number.
+
+### Examples of versioning
+
+Stable:
+
+* 1.0.0 tag: stable version of recipe that pulls in SilverStripe Framework 3.1.0 and latest stable version of modules.
+* 1.0.1 tag: as above, but for Framework 3.1.1.
+
+Unstable (development):
+
+* 1.0.0-rc1 tag: a release candidate pegged to Framework 3.1.0-rc1.
+* 1.0.0 branch: RC branch tracking Framework 3.1.0 with ongoing changes (although only essential bugfixes are allowed
+here).
+* 1.0 branch: tracks Framework 3.1 which will be used for the release of 3.1.1. This is our main development branch,
+expect many changes, including API changes.
+* master branch: highly volatile, don't use.
 
 ## Basic recipe (recipe-basic).
 

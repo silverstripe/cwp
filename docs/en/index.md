@@ -11,6 +11,7 @@ to go through the [tutorials](http://doc.silverstripe.org/framework/en/tutorials
 project.
  * [Development tutorials](development-tutorials): Step through the most common development workflows of the CWP.
  * [Recipes](recipes): What a "recipe" is and the list of different site recipes that your site can start from.
+ * [Maintaining your code](maintaining-your-code): How to keep your code maintained and maintenable.
  * [Theme customisation](customising-the-default-theme): Working with the default theme.
  * [Project customisation](customising-the-default-functionality): Customising your project with extra modules or features.
  * [CWP functionality](cwp-features): What you need to know about the custom CWP functionality, such as PDF

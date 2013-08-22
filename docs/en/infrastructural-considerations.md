@@ -1,6 +1,6 @@
 <!--
 title: Infrastructural considerations
-pagenumber: 6
+pagenumber: 7
 -->
 
 # PHP execution time limit
