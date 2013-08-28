@@ -95,12 +95,12 @@ TinyMCE options are documented at [Configuration Reference](http://www.tinymce.c
 
 ## Configuring the WYSIWYG spellchecker
 
-TinyMCE bundled with CWP uses the inbuilt browser spellcheck capability that is bundled with newer browsers. Follow
+Editor bundled with CWP uses the inbuilt browser spellcheck capability that is included with newer browsers. Follow
 below links to find out more details about the usage:
 
 * [Firefox](http://support.mozilla.org/en-US/kb/how-do-i-use-firefox-spell-checker)
-* [Chrome] (https://support.google.com/chrome/answer/95604?hl=en)
-* [IE10] (http://ie.microsoft.com/testdrive/Browser/SpellChecking/)
+* [Chrome](https://support.google.com/chrome/answer/95604?hl=en)
+* [IE10](http://ie.microsoft.com/testdrive/Browser/SpellChecking/)
 
 Note that although there is currently a way to change the spellchecker with TinyMCE by modifying the framework code,
 this is not recommended. It would require forking the Framework which will result in a code that's harder to maintain.
