@@ -95,15 +95,12 @@ TinyMCE options are documented at [Configuration Reference](http://www.tinymce.c
 
 ## Configuring the WYSIWYG spellchecker
 
-TinyMCE bundled with SilverStripe uses Google for the spellchecker out of the box.
+TinyMCE bundled with CWP uses the inbuilt browser spellcheck capability that is bundled with newer browsers. Follow
+below links to find out more details about the usage:
 
-Note that the spellchecker doesn't distinguish between English US and English UK. This means that the spellchecker
-will not detect "color" or "colour" as misspelled.
+* [Firefox](http://support.mozilla.org/en-US/kb/how-do-i-use-firefox-spell-checker)
+* [Chrome] (https://support.google.com/chrome/answer/95604?hl=en)
+* [IE10] (http://ie.microsoft.com/testdrive/Browser/SpellChecking/)
 
-If you wish to configure this in a different way, such as use a different spellchecker altogether,
-[TinyMCE spellchecker docs](http://www.tinymce.com/wiki.php/Plugin:spellchecker) provides information on how to
-change this.
-
-Note that there is no way to configure the spellchecker with TinyMCE without modifying the framework code.
-This means you will need to fork the framework Git repository, change the `composer.json` in your project to the new
-fork repository URL, and then run `compass update` on project environments that need the new framework code.
+Note that although there is currently a way to change the spellchecker with TinyMCE by modifying the framework code,
+this is not recommended. It would require forking the Framework which will result in a code that's harder to maintain.
