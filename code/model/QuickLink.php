@@ -18,6 +18,17 @@ class Quicklink extends DataObject {
 		'ExternalLink' => 'External Link'
 	);
 
+	public function fieldLabels($includerelations = true) {
+		$labels = parent::fieldLabels($includerelations);
+		$labels['Name'] = _t('Quicklink.NameLabel', 'Name');
+		$labels['ExternalLink'] = _t('Quicklink.ExternalLinkLabel', 'External Link');
+		$labels['SortOrder'] = _t('Quicklink.SortOrderLabel', 'Sort Order');
+		$labels['ParentID'] = _t('Quicklink.ParentRelationLabel', 'Parent');
+		$labels['InternalLinkID'] = _t('Quicklink.InternalLinkLabel', 'Internal Link');
+
+		return $labels;
+	}
+
 	public function getLink() {
 		if ($this->ExternalLink) {
 			$url = parse_url($this->ExternalLink);
@@ -63,14 +74,30 @@ class Quicklink extends DataObject {
 
 		$fields->addFieldToTab('Root.Main',CompositeField::create(
 			array(
-				new TreeDropdownField('InternalLinkID', 'Internal Link', 'SiteTree'),
+				new TreeDropdownField(
+					'InternalLinkID', 
+					$this->fieldLabel('InternalLinkID'),
+					'SiteTree'
+				),
 				$externalLinkField,
 				$wrap = new CompositeField(
-					$extraLabel = new LiteralField('NoteOverride', '<div class="message good notice">Note:  If you specify an External Link, the Internal Link will be ignored.</div>')
+					$extraLabel = new LiteralField(
+						'NoteOverride', 
+						_t('Quicklink.Note','<div class="message good notice">Note:  If you specify an External Link, the Internal Link will be ignored.</div>')
+					)
 				)
 			)
 		));
-		$fields->insertBefore(new LiteralField('Note', '<p>Use this to specify a link to a page either on this site (Internal Link) or another site (External Link).</p>'), 'Name');
+		$fields->insertBefore(
+			new LiteralField(
+				'Note', 
+				_t(
+					'Quicklink.Note2',
+					'<p>Use this to specify a link to a page either on this site (Internal Link) or another site (External Link).</p>'
+				)
+			), 
+			'Name'
+		);
 
 		return $fields;
 	}

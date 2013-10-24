@@ -47,7 +47,16 @@ class BaseHomePage extends Page {
 		$fields = parent::getCMSFields();
 
 		// Main Content tab
-		$fields->addFieldToTab('Root.Main', new TreeDropdownField('LearnMorePageID', 'Page to link the "Learn More" button to:', 'SiteTree'), 'Metadata');
+		$fields->addFieldToTab(
+			'Root.Main', 
+			new TreeDropdownField(
+				'LearnMorePageID', 
+				_t('BaseHomePage.LearnMoreLink','Page to link the "Learn More" button to:'), 
+				'SiteTree'
+			), 
+			'Metadata'
+		);
+		
 		// Carousel tab
 		$gridField = new GridField(
 			'CarouselItems',
@@ -56,7 +65,9 @@ class BaseHomePage extends Page {
 			GridFieldConfig_RelationEditor::create()
 		);
 		$gridConfig = $gridField->getConfig();
-		$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName('Add new');
+		$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName(
+			_t('BaseHomePage.AddNewButton','Add new')
+		);
 		$gridConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
 		$gridConfig->removeComponentsByType('GridFieldDeleteAction');
 		$gridConfig->addComponent(new GridFieldDeleteAction());
@@ -72,7 +83,9 @@ class BaseHomePage extends Page {
 			GridFieldConfig_RelationEditor::create()
 		);
 		$gridConfig = $gridField->getConfig();
-		$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName('Add new');
+		$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName(
+			_t('BaseHomePage.AddNewButton','Add new')
+		);
 		$gridConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
 		$gridConfig->removeComponentsByType('GridFieldDeleteAction');
 		$gridConfig->addComponent(new GridFieldDeleteAction());
@@ -83,13 +96,29 @@ class BaseHomePage extends Page {
 
 		$fields->removeByName('Import');
 
-		$fields->addFieldToTab('Root.Features', ToggleCompositeField::create('FeatureOne', _t('SiteTree.FeatureOne', 'Feature One'),
+		$fields->addFieldToTab(
+			'Root.Features', 
+			ToggleCompositeField::create('FeatureOne', _t('SiteTree.FeatureOne', 'Feature One'),
 			array(
-				new TextField('FeatureOneTitle', 'Title'),
-				$dropdownField = new DropdownField('FeatureOneCategory', 'Category icon', singleton('BaseHomePage')->dbObject('FeatureOneCategory')->enumValues()),
-				new TreeDropdownField('FeatureOneLinkID', 'Page to link to', 'SiteTree'),
-				new HTMLEditorField('FeatureOneContent', 'Content'),
-				new TextField('FeatureOneButtonText', 'Button text')
+				new TextField('FeatureOneTitle', _t('BaseHomePage.Title','Title')),
+				$dropdownField = new DropdownField(
+					'FeatureOneCategory', 
+					_t('BaseHomePage.FeatureCategoryDropdown','Category icon'), 
+					singleton('BaseHomePage')->dbObject('FeatureOneCategory')->enumValues()
+				),
+				new TreeDropdownField(
+					'FeatureOneLinkID', 
+					_t('BaseHomePage.FeatureLink','Page to link to'), 
+					'SiteTree'
+				),
+				new HTMLEditorField(
+					'FeatureOneContent', 
+					_t('BaseHomePage.FeatureContentFieldLabel','Content')
+				),
+				new TextField(
+					'FeatureOneButtonText', 
+					_t('BaseHomePage.FeatureButtonText','Button text')
+				)
 				)
 			)->setHeadingLevel(3)
 		);
@@ -97,12 +126,26 @@ class BaseHomePage extends Page {
 
 		$fields->addFieldToTab('Root.Features', ToggleCompositeField::create('FeatureTwo', _t('SiteTree.FeatureTwo', 'Feature Two'),
 			array(
-				new TextField('FeatureTwoTitle', 'Title'),
-				$dropdownField = new DropdownField('FeatureTwoCategory', 'Category icon', singleton('BaseHomePage')->dbObject('FeatureTwoCategory')->enumValues()),
-				new TreeDropdownField('FeatureTwoLinkID', 'Page to link to', 'SiteTree'),
-				new HTMLEditorField('FeatureTwoContent', 'Content'),
-				new TextField('FeatureTwoButtonText', 'Button text')
+				new TextField('FeatureTwoTitle', _t('BaseHomePage.Title','Title')),
+				$dropdownField = new DropdownField(
+					'FeatureTwoCategory', 
+					_t('BaseHomePage.FeatureCategoryDropdown','Category icon'),
+					singleton('BaseHomePage')->dbObject('FeatureTwoCategory')->enumValues()
+				),
+				new TreeDropdownField(
+					'FeatureTwoLinkID', 
+					_t('BaseHomePage.FeatureLink','Page to link to'), 
+					'SiteTree'
+				),
+				new HTMLEditorField(
+					'FeatureTwoContent', 
+					_t('BaseHomePage.FeatureContentFieldLabel','Content')
+				),
+				new TextField(
+					'FeatureTwoButtonText', 
+					_t('BaseHomePage.FeatureButtonText','Button text')
 				)
+			)
 			)->setHeadingLevel(3)
 		);
 		$dropdownField->setEmptyString('none');

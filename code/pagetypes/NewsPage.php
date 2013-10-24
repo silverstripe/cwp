@@ -20,12 +20,20 @@ class NewsPage extends DatedUpdatePage {
 
 	public $pageIcon =  'images/icons/sitetree_images/news.png';
 
+	public function fieldLabels($includerelations = true) {
+		$labels = parent::fieldLabels($includerelations);
+		$labels['Author'] = _t('DateUpdatePage.AuthorFieldLabel', 'Author');
+		$labels['FeaturedImageID'] = _t('DateUpdatePage.FeaturedImageFieldLabel', 'Featured Image');
+
+		return $labels;
+	}
+
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-		$fields->addFieldToTab('Root.Main', new TextField('Author'), 'Abstract');
+		$fields->addFieldToTab('Root.Main', new TextField('Author', $this->fieldLabel('Author')), 'Abstract');
 
-		$fields->addFieldToTab('Root.Main', new UploadField('FeaturedImage'), 'Abstract');
+		$fields->addFieldToTab('Root.Main', new UploadField('FeaturedImage', $this->fieldLabel('FeaturedImageID')), 'Abstract');
 
 		return $fields;
 	}

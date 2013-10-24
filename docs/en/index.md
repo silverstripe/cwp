@@ -27,3 +27,11 @@ through the proxy.
  * [Adding a calendar](how-tos/adding-a-calendar): How to add a calendar to show events in a custom way.
  * [Custom embeds](how-tos/custom_embeds-in-the-WYSIWYG-editor): Adding custom embeds in the WYSIWYG editor.
  * [Export content](how-tos/exporting_content): How to use the RESTful server to export content.
+
+## Contributing
+
+### Translations
+
+Translations of the natural language strings are managed through a third party translation interface, transifex.com. Newly added strings will be periodically uploaded there for translation, and any new translations will be merged back to the project source code.
+
+Please use [https://www.transifex.com/projects/p/silverstripe-cwp](https://www.transifex.com/projects/p/silverstripe-cwp) to contribute translations, rather than sending pull requests with YAML files.

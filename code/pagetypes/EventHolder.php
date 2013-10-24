@@ -54,7 +54,7 @@ class EventHolder_Controller extends DatedUpdateHolder_Controller {
 	public function getUpdateName() {
 		$params = $this->parseParams();
 		if ($params['upcomingOnly']) {
-			return 'Upcoming events';
+			return _t('EventHolder.Upcoming','Upcoming events');
 		}
 
 		return 'Events';
