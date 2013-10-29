@@ -1,0 +1,115 @@
+zh:
+  BaseHomePage:
+    AddNewButton: '新增'
+    DESCRIPTION: '通用内容页面'
+    FeatureButtonText: '按钮文字'
+    FeatureCategoryDropdown: '类别图标'
+    FeatureContentFieldLabel: 内容
+    FeatureLink: '跳转目标页'
+    LearnMoreLink: '链接到“了解详情”按钮的页面：'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '基本首页'
+    Title: 标题
+  BasePage:
+    DESCRIPTION: '通用内容页面'
+    PLURALNAME: '基本页面'
+    RelatedPages: '相关页面'
+    SINGULARNAME: '基本页面'
+    Taxonomy: 分类法
+    Term: 条款
+    Terms: 条款
+  CarouselItem:
+    PLURALNAME: '旋转项'
+    SINGULARNAME: '旋转项'
+  CwpCarousel:
+    ArchivedField: '归档该旋转项？'
+    LinkField: 链接
+    NoteField: '注意：在添加图片前您需要创建旋转项'
+  CwpConfig:
+    AddThisField: 'AddThis 配置文件 ID'
+    AddThisFieldDesc: '配置文件 ID 将被用于整个网站的访问（格式为 <strong>ra-XXXXXXXXXXXXXXXX</strong>）'
+    AppleIconField114: 'Apple Touch Web 剪辑图标（分辨率 114x114，PNG 格式）'
+    AppleIconField144: 'Apple Touch Web 剪辑与 Windows 8 磁贴图标（分辨率 144x144，PNG 格式）'
+    AppleIconField57: 'Apple Touch Web 剪辑图标（分辨率 57x57，PNG 格式）'
+    AppleIconField72: 'Apple Touch Web 剪辑图标（分辨率 72x72，PNG 格式）'
+    FavIconField: '.ico 格式的收藏夹图标，尺寸 16x16、32x32 或 48x48'
+    FbField: 'Facebook UID 或用户名'
+    FbFieldDesc: 'Facebook 链接（ "http://facebook.com/" 之后的所有内容，例如 http://facebook.com/<strong>username</strong> 或 http://facebook.com/<strong>pages/108510539573</strong>）'
+    FooterLogoDescField: '页脚标识描述'
+    FooterLogoField: '出现在页脚的页脚标识'
+    FooterLogoLinkDesc: '请包括协议（如，http:// or https://），除非其为内部链接。'
+    FooterLogoLinkField: '页脚标识链接'
+    FooterLogoRetinaField: '高分辨率页脚标识（建议为标准页脚标识的两倍高和两倍宽）'
+    GaField: 'Google Analytics 帐户'
+    GaFieldDesc: '账户号码在整个站点通用（格式 <strong>UA-XXXXX-X</strong>）'
+    LogoRetinaUploadField: '高分辨率徽标，在左上角出现（建议为标准分辨率徽标的两倍高和两倍宽）'
+    LogoUploadField: '出现在左上角的徽标'
+    TwitterField: 'Twitter 用户名'
+    TwitterFieldDesc: 'Twitter 用户名 (eg, http://twitter.com/<strong>username</strong>)'
+  DateUpdateHolder:
+    DateRangeFilterMessage: '用单一日期过滤。'
+    FilterAppliedMessage: '所获取的数据已经应用了筛选器。'
+  DateUpdatePage:
+    AbstractDesc: '此摘要在清单页面用作概要。其上限是 160 个字符。'
+    AbstractTextFieldLabel: 摘要
+    AuthorFieldLabel: 作者
+    DateLabel: 日期
+    EndTimeFieldLabel: '结束时间'
+    FeaturedImageFieldLabel: '特色图片'
+    LocationFieldLabel: 位置
+    StartTimeFieldLabel: '开始时间'
+  DatedUpdateHolder:
+    DESCRIPTION: '通用内容页面'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '日期更新持有者'
+  DatedUpdatePage:
+    DESCRIPTION: '通用内容页面'
+    PLURALNAME: '基页'
+    SINGULARNAME: '日期更新页面'
+  EventHolder:
+    DESCRIPTION: '事件页面的容器页面，提供事件筛选与分页导航'
+    PLURALNAME: '基页'
+    SINGULARNAME: '事件举办者'
+    Upcoming: '后续事件'
+  EventPage:
+    DESCRIPTION: '描述特定日期发生的事件'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '活动页面'
+  FooterHolder:
+    DESCRIPTION: '举办者页面将所有子页面显示为页脚的链接'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '脚注持有者'
+  GridField:
+    Archived: 已存档
+    Live: 现场
+  NewsHolder:
+    DESCRIPTION: '新闻页面的容器页面，提供新闻筛选与分页导航'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '新举办者'
+  NewsPage:
+    DESCRIPTION: '描述一则新闻'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '新闻页面'
+  Quicklink:
+    ExternalLinkLabel: '外部链接'
+    InternalLinkLabel: '内部链接'
+    NameLabel: 姓名
+    Note: '<div class="message good notice">请注意：如果您指定一个外部链接，内部链接将被忽略。</div>'
+    Note2: '<p>使用该选项指定到页面或网站（内部链接）或其他网站（外部链接）的链接。</p>'
+    PLURALNAME: 快速链接
+    ParentRelationLabel: 父
+    SINGULARNAME: 快速链接
+    SortOrderLabel: '排序顺序'
+  SearchForm:
+    GO: 转到
+    SEARCH: 搜索
+    SearchResults: '搜索结果'
+  SiteTree:
+    FeatureOne: '特色一'
+    FeatureTwo: '特色二'
+    PLURALNAME: 页面
+    SINGULARNAME: 页面
+  SitemapPage:
+    DESCRIPTION: '列出站点上的所有页面'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '站点地图页面'
