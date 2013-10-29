@@ -24,15 +24,33 @@ class DatedUpdatePage extends Page {
 		}
 	}
 
+	public function fieldLabels($includerelations = true) {
+		$labels = parent::fieldLabels($includerelations);
+		$labels['Date'] = _t('DateUpdatePage.DateLabel', 'Date');
+		$labels['Abstract'] = _t('DateUpdatePage.AbstractTextFieldLabel', 'Abstract');
+
+		return $labels;
+	}
+
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-		$fields->addFieldToTab('Root.Main', $dateTimeField = new DatetimeField('Date'), 'Content');
+		$fields->addFieldToTab(
+			'Root.Main', 
+			$dateTimeField = new DatetimeField('Date', $this->fieldLabel('Date')), 
+			'Content'
+		);
 		$dateTimeField->getDateField()->setConfig('showcalendar', true);
 
-		$fields->addfieldToTab('Root.Main', $abstractField = new TextareaField('Abstract'), 'Content');
+		$fields->addfieldToTab(
+			'Root.Main', 
+			$abstractField = new TextareaField('Abstract', $this->fieldLabel('Abstract')), 
+			'Content'
+		);
 		$abstractField->setAttribute('maxlength', '160');
-		$abstractField->setRightTitle('The abstract is used as a summary on the listing pages. It is limited to 160 characters.');
+		$abstractField->setRightTitle(
+			_t('DateUpdatePage.AbstractDesc','The abstract is used as a summary on the listing pages. It is limited to 160 characters.')
+		);
 		$abstractField->setRows(6);
 
 		return $fields;

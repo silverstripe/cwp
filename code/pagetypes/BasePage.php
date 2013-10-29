@@ -125,7 +125,7 @@ class BasePage extends SiteTree {
 			'Root.RelatedPages',
 			new GridField(
 				'RelatedPages',
-				'Related pages',
+				_t('BasePage.RelatedPages','Related pages'),
 				$this->RelatedPages(),
 				$components
 			)
@@ -141,15 +141,15 @@ class BasePage extends SiteTree {
 
 		$dataColumns = $components->getComponentByType('GridFieldDataColumns');
 		$dataColumns->setDisplayFields(array(
-			'Name' => 'Term',
-			'TaxonomyName' => 'Taxonomy'
+			'Name' => _t('BasePage.Term','Term'),
+			'TaxonomyName' => _t('BasePage.Taxonomy','Taxonomy')
 		));
 
 		$fields->addFieldToTab(
 			'Root.Tags',
 			new GridField(
 				'Terms',
-				'Terms',
+				_t('BasePage.Terms','Terms'),
 				$this->Terms(),
 				$components
 			)

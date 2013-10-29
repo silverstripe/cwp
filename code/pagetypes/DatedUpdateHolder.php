@@ -305,7 +305,7 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 			if ($produceErrorMessages) {
 				Session::setFormMessage(
 					'Form_DateRangeForm',
-					'Filter has been applied with the dates reversed.',
+					_t('DateUpdateHolder.FilterAppliedMessage','Filter has been applied with the dates reversed.'),
 					'warning'
 				);
 			}
@@ -314,7 +314,11 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 		// Notify the user that filtering by single date is taking place.
 		if (isset($from) && !isset($to)) {
 			if ($produceErrorMessages) {
-				Session::setFormMessage('Form_DateRangeForm', 'Filtered by a single date.', 'warning');
+				Session::setFormMessage(
+					'Form_DateRangeForm', 
+					_t('DateUpdateHolder.DateRangeFilterMessage','Filtered by a single date.'), 
+					'warning'
+				);
 			}
 		}
 
