@@ -121,6 +121,10 @@ class BasePage extends SiteTree {
 			'ClassName' => 'Page Type'
 		));
 
+		$fields->findOrMakeTab(
+			'Root.RelatedPages',
+			_t('BasePage.RelatedPages','Related pages')
+		);
 		$fields->addFieldToTab(
 			'Root.RelatedPages',
 			new GridField(
