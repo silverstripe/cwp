@@ -1,0 +1,125 @@
+ar:
+  BaseHomePage:
+    AddNewButton: 'أضف جديد'
+    DESCRIPTION: 'صفحة المحتوى العام'
+    FeatureButtonText: 'نص الزر'
+    FeatureCategoryDropdown: 'أيقونة الفئة'
+    FeatureContentFieldLabel: المحتوى
+    FeatureLink: 'صفحة للربط ب'
+    LearnMoreLink: 'صفحة لربط زر "تعرف على المزيد" ب:'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صفحة البداية الرئيسية'
+    Title: عنوان
+  BasePage:
+    DESCRIPTION: 'صفحة المحتوى العام'
+    PLURALNAME: 'الصفحات الأساسية'
+    RelatedPages: 'الصفحات المرتبطة'
+    SINGULARNAME: 'صفحة رئيسية'
+    Taxonomy: علم التصنيف
+    Term: عنصر
+    Terms: عناصر
+  CarouselItem:
+    PLURALNAME: 'العناصر الدائرية'
+    SINGULARNAME: 'عنصر دائرى'
+  CwpCarousel:
+    ArchivedField: 'هل تود أن تقوم بتخزين هذا العنصر الدائرى؟'
+    LinkField: رابط
+    NoteField: 'ملاحظة: سوف تحتاج أن تقوم بإنشاء العنصر الدائرى قبل أن تتمكن من إضافة صورة'
+  CwpConfig:
+    AddThisField: 'قم بإضافة'
+    AddThisFieldDesc: 'ملف التعريف الشخصى الذى سيتم استخدامه عبر الموقع (بصيغة <strong>ra-XXXXXXXXXXXXXXXX<strong/>)'
+    AppleIconField114: 'أيقونة كليب الويب الخاص بأبل تتش (أبعاد 114x114, صيغة بى إن جى)'
+    AppleIconField144: 'أيقونة كليب الويب الخاص بأبل تتش و ويندوز 8 (أبعاد 114x114, صيغة بى إن جى)'
+    AppleIconField57: 'أيقونة كليب الويب الخاص بأبل تتش (أبعاد 57x57, صيغة بى إن جى)'
+    AppleIconField72: 'أيقونة كليب الويب الخاص بأبل تتش (أبعاد 72x72, صيغة بى إن جى)'
+    FavIconField: 'الرمز المفضل, بصيغة .آى سى أو, أبعاد32x32 ,16x16 أو 48x48'
+    FbField: 'التعريف الشخصى لفيس بوك أو اسم المستخدم'
+    FbFieldDesc: 'رابط الفيس بوك(كل شئ بعد "/http://facebook.com",
+
+      /http://facebook.com
+
+      <strong>اسم المستخدم<strong/>
+
+      /http://facebook.com
+
+      <strong>صفحات/108510539573<strong/>)'
+    FooterLogoDescField: 'وصف شعار تذييل الصفحة'
+    FooterLogoField: 'تذييل الصفحة, لكى تظهر على التذييل'
+    FooterLogoLinkDesc: 'من فضلك قم بتضمين البروتوكول ( بمعنى, //:http أو //:https) ما لم تكون رابط خارجى.'
+    FooterLogoLinkField: 'رابط شعار تذييل الصفحة'
+    FooterLogoRetinaField: 'شعار تذييل للصفحة عالى الدقة (ينصح بضعف طول و عرض شعار تذييل الصفحة العادى)'
+    GaField: 'حساب جوجل التحليلى'
+    GaFieldDesc: 'رقم الحساب الذى سيتم استخدامه عبر الموقع بالكامل ( بصيغة <strong>UA-XXXXX-X<strong/>)'
+    LogoRetinaUploadField: 'شعار عالى الدقة, ليظهر فى أعلى اليسار (يوصى بضعف الطول و العرض للشعار التقليدى)'
+    LogoUploadField: 'الشعار, ليظهر أعلى اليسار'
+    TwitterField: 'اسم المستخدم الخاص بتويتر'
+    TwitterFieldDesc: 'اسم المستخدم الخاص بتويتر (مثلا, /http://twitter.com
+
+      <strong>اسم المستخدم<strong/>)'
+  DateUpdateHolder:
+    DateRangeFilterMessage: 'قد تم تصفيتها حسب تاريخ واحد'
+    FilterAppliedMessage: 'قد تم تطبيق الفلتر مع عكس المواعيد.'
+  DateUpdatePage:
+    AbstractDesc: 'الملخص يستخدم لتلخيص صفحات القوائم. هى محددة ب 160 حرف.'
+    AbstractTextFieldLabel: ملخص
+    AuthorFieldLabel: مؤلف
+    DateLabel: تاريخ
+    EndTimeFieldLabel: 'وقت الانتهاء'
+    FeaturedImageFieldLabel: 'صورة مميزة'
+    LocationFieldLabel: موقع
+    StartTimeFieldLabel: 'وقت البدء'
+  DatedUpdateHolder:
+    DESCRIPTION: 'صفحة المحتوى العام'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'حامل التحديث المحدد بموعد'
+  DatedUpdatePage:
+    DESCRIPTION: 'صفحة المحتوى العام'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صفحة التحديث المحددة بموعد'
+  EventHolder:
+    DESCRIPTION: 'صفحة حاوية لصفحات الأحداث, توفر تصفية للأحداث و ترقيم الصفحات'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صاحب الحدث'
+    Upcoming: 'الأحداث القادمة'
+  EventPage:
+    DESCRIPTION: 'يقوم بوصف حدث يحدث فى ميعاد محدد.'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صفحة الأحداث'
+  FooterHolder:
+    DESCRIPTION: 'صفحة صاحب التسجيل التى تعرض كل صفحات الأطفال تعتبر روابط فى صفحة التذييل'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صاحب صفحة التذييل'
+  GridField:
+    Archived: مخزنة فى أرشيفات
+    Live: مباشر
+  NewsHolder:
+    DESCRIPTION: 'الصفحة الحاوية لصفحات الأخبار, توفر الأخبار منقحة و مرقمة بالصفحات'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صاحب صفحة الأخبار'
+  NewsPage:
+    DESCRIPTION: 'يقوم بوصف عنصر من عناصر الأخبار'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صفحة الأخبار'
+  Quicklink:
+    ExternalLinkLabel: 'رابط خارجي'
+    InternalLinkLabel: 'رابط داخلى'
+    NameLabel: الاسم
+    Note: '<"div class="message good notice>ملاحظة: لو قمت بتحديد رابط خارجى, سيتم تجاهل الرابط الداخلى.<div/>'
+    Note2: '<p> استخدم هذا لتحديد رابط لصفحة إما فى هذا الموقع (رابط داخلى) أو موقع آخر (رابط آخر).<p/>'
+    PLURALNAME: روابط سريعة
+    ParentRelationLabel: والد
+    SINGULARNAME: رابط سريع
+    SortOrderLabel: 'ترتيب الفرز'
+  SearchForm:
+    GO: اذهب
+    SEARCH: ابحث
+    SearchResults: 'نتائج البحث'
+  SiteTree:
+    FeatureOne: 'الميزة رقم واحد'
+    FeatureTwo: 'تتميز باثنان'
+    PLURALNAME: صفحات
+    SINGULARNAME: صفحة
+  SitemapPage:
+    DESCRIPTION: 'يقوم بعمل قوائم لجميع الصفحات فى الموقع'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صفحة خريطة الموقع'
