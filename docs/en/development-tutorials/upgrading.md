@@ -47,7 +47,7 @@ You now need to pull in new dependencies and commit the lock file:
 
 Push this commit to your remote repository, and you will be able to deploy to UAT.
 
-# Cherrypicking the upgrades
+## Cherrypicking the upgrades
 
 If you like to only upgrade the recipe modules, you can cherry pick what is upgraded using this syntax:
 

@@ -5,14 +5,16 @@ pagenumber: 3
 
 # CWP recipe packages
 
-CWP supplies developers with packages for setting up their projects. The [cwp-installer]() package is create from the
-original [silverstripe-installer](). It can be used as a base for jump-starting development of a CWP project. This is a
-recommended way of creating a CWP project.
+CWP supplies developers with packages for setting up their projects. The
+[cwp-installer](https://gitlab.cwp.govt.nz/cwp/cwp-installer) package is create from the original
+[silverstripe-installer](https://github.com/silverstripe/silverstripe-installer). It can be used as a base for
+jump-starting development of a CWP project. This is a recommended way of creating a CWP project.
 
-The installer comes with a `composer.json` file which defines a single dependency: [cwp-recipe-basic](), a metapackage
-which sole purpose is to pull in other dependencies. This metapackage will be from now on referred to as a "recipe", and
-is a crucial element of keeping your CWP deployment running. Even if you did not start from the installer, you can
-make your project "stable" by including the following in your `composer.json`:
+The installer comes with a `composer.json` file which defines a single dependency:
+[cwp-recipe-basic](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic), a metapackage which sole purpose is to pull in
+other dependencies. This metapackage will be from now on referred to as a "recipe", and is a crucial element of keeping
+your CWP deployment running. Even if you did not start from the installer, you can make your project "stable" by
+including the following in your `composer.json`:
 
 	"require": {
 		"cwp/cwp-recipe-basic": "~1.0.1@stable",
@@ -26,7 +28,7 @@ You may add more modules to your project by modifying your base `composer.json`.
 interact with the recipe so you need to test for regressions as only the base combination of packages is tested in CWP
 release process.
 
-# Special cases
+## Special cases
 
 There are several situations where it may not be easy to use the recipe. The development team must carefully
 consider the best approach as the further the codebase is from the stable recipe, the more issues will have to be
@@ -41,8 +43,9 @@ to manage module versioning by hand
 the current stable release.
 
 In case your development team decides to depart from the recipe model, it is recommended to pull in at least the
-[cwp](). If even this doesn't work for you, the last resort is including the [cwp-core]() This at least will ensure the
-minimal compatibility with the platform infrastructure and will allow us to deliver some subset of fixes and features.
+[cwp](https://gitlab.cwp.govt.nz/cwp/cwp). If even this doesn't work for you, the last resort is including the
+[cwp-core](https://gitlab.cwp.govt.nz/cwp/cwp-core) This at least will ensure the minimal compatibility with the
+platform infrastructure and will allow us to deliver some subset of fixes and features.
 
 Your development team will need to follow the releases of the recipe and make sure the modules are either updated, or
 the issues acknowledged as not posing security or technical risk.

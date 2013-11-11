@@ -3,11 +3,12 @@ title: Infrastructural considerations
 pagenumber: 7
 -->
 
-# PHP execution time limit
+# Infrastructural considerations
+
+## PHP execution time limit
 
 The default execution limit on the PHP side is 30s. However it is possible to extend that time programmatically. When
 doing so, one has to consider the implications to an instance, and to the platform.
-
 
 <div class="warning" markdown='1'>
 Your publicly accessible URLs should never take a long time to process, as this leaves your instance open to denial of
@@ -22,7 +23,7 @@ be running - without a way to return any output to requester.
 Preferred way to handle your long-running processes is via the queuedjobs module. The preferred way to extend the time
 limit of a PHP process is to use the SilverStripe Framework API's `increase_time_limit_to`.
 
-# Hosting video
+## Hosting video
 
 CWP instances do not provide built in hosting of video content, and we recommend you do not attempt to do so.
 
