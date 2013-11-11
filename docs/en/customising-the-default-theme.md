@@ -30,7 +30,7 @@ This will give you a copy of the default theme repository that you can edit and 
 1.  Click on the *Fork* button in the top right. This will make a copy of the theme in your Gitlab profile.
 1.  Your forked repository has inherited the default theme's public access. To disable this, go to the settings page
 (*Settings / Edit*) of your repository in Gitlab, uncheck *Public Access*, and click *Save*.
-1.  In your theme's `composer.json` file and change the `"name"` parameter to `"cwp-themes/<theme-name-here>"`.
+1.  In your theme's `composer.json` file and change the `"name"` parameter to `"my-agency/<theme-name-here>"`.
 1.  In your project's `composer.json` replace `"cwp-themes/default"` with with the name you added in the previous step.
 1.  In the same `composer.json` file replace the `"https://gitlab.cwp.govt.nz/cwp-themes/default.git"` with your
 private repository address to the `repositories` array, See below for sample.
@@ -42,14 +42,14 @@ private repository address to the `repositories` array, See below for sample.
 Your theme's composer.json file should look something like this:
 
 	{
-		"name": "cwp-themes/my-new-theme",
+		"name": "my-agency/my-new-theme",
 			"description": "My New Theme",
 			"type": "silverstripe-theme",
 			"require": {
 				"composer/installers": "*",
 				"silverstripe/cms": ">=3.0",
 				"silverstripe/framework": ">=3.0",
-				"cwp/cwp": "dev-master",
+				"cwp/cwp": "1.0.1",
 				"silverstripe-themes/module_bootstrap": "dev-ssexpress"
 			},
 			"extra": {
@@ -62,54 +62,30 @@ Your theme's composer.json file should look something like this:
 Your project's composer.json file should look something like this:
 
 	{
-		"name": "cwp/recipe-basic",
-			"description": "CWP basic recipe",
-			"require": {
-				"php": ">=5.3.2",
-				"silverstripe/cms": "3.1.*",
-				"silverstripe/framework": "3.1.*",
-				"cwp/cwp": "*",
-				"cwp-themes/my-new-theme": "*",
-				"silverstripe/advancedworkflow": "*",
-				"silverstripe/html5": "*",
-				"silverstripe/iframe": "*",
-				"silverstripe/fulltextsearch": "*",
-				"silverstripe/queuedjobs": "*",
-				"silverstripe/registry": "*",
-				"silverstripe/restfulserver": "*",
-				"silverstripe/subsites": "*",
-				"silverstripe/translatable": "*",
-				"silverstripe/userforms": "*",
-				"silverstripe/versionedfiles": "*",
-				"silverstripe/versionfeed": "*",
-				"undefinedoffset/sortablegridfield": "*"
-			},
-			"require-dev": {
-				"phpunit/phpunit": "3.7.*@stable"
-			},
-			"config": {
-				"process-timeout": 900
-			},
-			"repositories": [
+		"name": "cwp/cwp-installer",
+		"description": "CWP Project Template",
+		"require": {
+			"cwp/cwp-recipe-basic": "1.0.1",
+			"my-agency/my-new-theme": "dev-master"
+		},
+		"require-dev": {
+			"cwp/cwp-recipe-basic-dev": "1.0.1"
+		},
+		"config": {
+			"process-timeout": 900
+		},
+		"repositories": [
 			{
-				"type": "vcs",
-				"url": "https://gitlab.cwp.govt.nz/cwp/cwp.git"
+				"type": "composer",
+				"url": "https://packages.cwp.govt.nz/"
 			},
 			{
 				"type": "vcs",
-				"url": "https://gitlab.cwp.govt.nz/myusername/mynewtheme.git",
+				"url": "https://gitlab.cwp.govt.nz/my-agency/my-new-theme.git",
 				"private": "true"
-			},
-			{
-				"type": "vcs",
-				"url": "https://gitlab.cwp.govt.nz/silverstripe/advancedworkflow.git"
-			},
-			{
-				"type": "vcs",
-				"url": "https://gitlab.cwp.govt.nz/silverstripe/queuedjobs.git"
 			}
 		],
-			"minimum-stability": "dev"
+		"minimum-stability": "dev"
 	}
 
 That will have you set up with your own copy of the theme in the folder */themes/my-new-theme*. You can also share your
@@ -124,7 +100,7 @@ This is a more straightforward process but not as flexible - you won't be able t
 also don't want to have access to your site's code as well.
 
 1.  Edit your project's `.gitignore` file and remove the `themes/` line.
-1.  Remove the `/themes/default/.git` directory and the `/themes/default/.gitignore' file.
+1.  Remove the `/themes/default/.git` directory and the `/themes/default/.gitignore` file.
 1.  Add the `.gitignore` file and the `themes` folder to your git project and push it back to the repository.
 
 

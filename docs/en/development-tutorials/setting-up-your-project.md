@@ -5,10 +5,10 @@ pagenumber: 3
 
 # Setting up your project
 
-[Gitlab Setup](../development-tutorials/gitlab-setup) described setting up your development environment to work with Gitlab, including
-initial project checkout.
+[Gitlab Setup](../development-tutorials/gitlab-setup) described setting up your development environment to work with
+Gitlab, including initial project checkout.
 
-Now we'll describe how to setup your project code in that repository.
+Now we'll describe how to setup a new project code in that repository.
 
 We use [Composer](http://getcomposer.org) as the package manager for SilverStripe CMS/framework and modules.
 [Installing and Upgrading with Composer](http://doc.silverstripe.org/framework/en/installation/composer) describes
@@ -16,64 +16,56 @@ how to install Composer in your development environment.
 
 ## Repository already provided
 
-If you are starting with an empty repository or if you have been following the "Gitlab setup" howto, skip to "Empty
-repository - duplicating the basic recipe" section.
+If you are starting with an empty repository or if you have been following the "Gitlab setup" tutorial, skip to "Empty
+repository" section. Also skip to that section, if you want to learn how the repository provided to you was actually
+created.
 
-However if you have been provided with a respository with a duplicated basic recipe, you will need to clone it using
-the address provided to you:
 
-	$ git clone https://gitlab.cwp.govt.nz/my-agency/my-project.git my-project
+Otherwise you can clone the repo using the address provided to you:
 
-Run composer install on it to get all the required modules pulled in:
+	git clone https://gitlab.cwp.govt.nz/my-agency/my-project.git my-project
 
-	$ composer install
+Then run composer install on it to get all the required modules pulled in:
+
+	composer install
 
 You can skip straight to "Accessing the site" now.
 
-## Empty repository - duplicating the basic recipe
+## Empty repository - copying installer
 
 This section is for those who have followed the "Gitlab setup" howto, or created empty repository on their own. We
 assume you have cloned it already to your local machine with `git clone`.
 
-Gitlab contains some public repositories with code to help you get started. Rather than start from scratch, you can have
-a basic website up and running in little time. This is in fact the preferred method of starting development, as it
-will ensure the maximum level of CWP compatibility for your project.
+The preferred way to set up your repository from scratch is to use the
+[cwp-installer](https://gitlab.cwp.govt.nz/cwp/cwp-installer/) module. This is in fact how we set the repository up for
+you if that's what has been requested in the Service Desk.
 
-First of all, let's change directory into the project repository we setup in [Gitlab Setup](../development-tutorials/gitlab-setup)
+First, let's create new project using composer.
 
-	$ cd /path/to/my/project-repo
+	composer create-project cwp/cwp-installer cwp-installer --repository-url="https://packages.cwp.govt.nz"
+	# Note: Repond Y to the question about ".git" removal - we don't need the installer history, nor the remotes.
 
-Now check out the list of [public CWP repositories](http://gitlab.cwp.govt.nz/public). Here you will find all recipes
-you can use as a base for your project. Let's pull the recipe in by first creating the remote "recipe-basic" from which
-we will obtain the code.
+You should already be able to access the site! However we still need to push your project into your existing repository.
+Commit all files first:
 
-	$ git remote add recipe-basic https://gitlab.cwp.govt.nz/cwp/recipe-basic.git
+	git init
+	git add -A
+	git commit -m "Create project from cwp-installer"
 
-We now have a new remote called "recipies-basic". Git has a default remote called "origin" which points to Gitlab so
-you push code to that so others can pull it. The remote for "recipes-basic" is the same concept, except it points to
-the "recipes-basic" public repository in Gitlab. You can list the remotes as follows:
+Now configure your remote:
 
-	$ git remote -v
+	git remote add origin https://gitlab.cwp.govt.nz/you/your-repo.git
 
-Now that the remote is setup, we can switch over to the "recipe-basic" code  - choose the latest tagged stable release
-for that (e.g. 1.0.0 or 1.0.1). **Warning**: this will wipe out your existing code in the repository, so make sure it is
-empty! Otherwise you need to merge the changes in manually.
+Finally forcibly-push the master branch into your repository. We need to do so because in the previous tutorial we have
+already made one commit and we no longer need it. This is accomplished by using a plus sign in front of the branch:
 
-	$ git reset --hard recipe-basic/1.0.0
+	git push origin +master
 
-<div class="hint" markdown='1'>
-Note for early adopters: if 1.0.0 _tag_ of the recipe is not available, use the 1.0.0 _branch_. The command is the same, but
-it's important to note the code in this case is still in a release cycle and changes may be made.
-</div>
+If your repository was empty i.e. if you skipped directly into this tutorial, simply push into the master branch:
 
-After resetting to the recipe, we need to push-update our changes in Gitlab. Here is how to overwrite the upstream:
+	git push origin master
 
-	$ git push origin +master
-
-You now have a clean codebase to start from. Now, let's pull down the latest versions packages defined in the
-`composer.json` **require** rules.  Again, from the root of your checked out project (this will take some time):
-
-	$ composer install
+Your team should now be able to commence the development.
 
 ## Accessing the site
 
@@ -89,8 +81,8 @@ site (see [environment management](http://doc.silverstripe.org/framework/en/topi
 
 You have now a private repository that you can modify. Here is a list of likely initial customisations:
 
- * Editing the name of the project in `composer.json` - find the **name** entry and change it so it's in the format of
-"my-agency/basic" - "cwp" namespace is reserved for platform-endorsed modules and recipes.
+ * Editing the name of the project in the root `composer.json` - find the **name** entry and change it so it's in the
+format of "my-agency/basic" - "cwp" namespace is reserved for platform-endorsed modules and recipes.
  * Customising the `mysite/_config.php` to configure your project.
  * Customise the theme (explained further below).
  * Adding more modules (see [Working with modules](../development-tutorials/working-with-modules)).
@@ -119,10 +111,10 @@ Commit all changed files to your repository so other collaborators can see it. T
 that "freezes" the current version of the modules to the ones you have currently included.
 
 	$ git add -A
-	$ git commit -m "Initial project setup"
+	$ git commit -m "Add custom theme."
 	$ git push origin master
 
-Now when you jump into Gitlab **Dashboard**, you'll see a commit from yourself "Initial project setup".
+Now when you go into Gitlab **Dashboard**, you'll see a commit from yourself "Add custom theme."
 
 ## Structure of the project
 
@@ -130,7 +122,7 @@ Now when you jump into Gitlab **Dashboard**, you'll see a commit from yourself "
 
 `themes/my-theme` is the theme folder you'll be doing your template work, adding templates, adjusting CSS, etc.
 
-The rest of the folders in a project are Composer managed. See [Working with modules](../development-tutorials/working-with-modules)
+The rest of the folders in a project are Composer managed. See [working with modules](../development-tutorials/working-with-modules)
 for more information.
 
 ## Opening to collaborators

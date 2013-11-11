@@ -13,32 +13,28 @@ CWP projects are installed using the Composer PHP package management tool. For g
 the [SilverStripe Composer documentation](http://doc.silverstripe.org/framework/en/installation/composer) or read the
 installation documentation on the [Composer site](http://getcomposer.org/doc/00-intro.md).
 
-<div class="notice" markdown='1'>
-CWP Recommendation: to ensure your code works smoothly with the platform, start from the basic recipe. Use latest
-available stable version, which will be tagged upon release. An example of such version is 1.0.0. See [Recipe
-documentation](recipes) for more details on versioning.
-</div>
-
-To start developing a new CWP site we strongly recommend starting from the [basic
-recipe](https://gitlab.cwp.govt.nz/cwp/recipe-basic).  Basic recipe contains the `composer.json` file that pulls in
-supported dependencies. You can then change the module list to your liking and assuming that you keep the `cwp` module
-and the changes you've made are respecting the available SilverStripe API's, the code should run smoothly when deployed
-to the UAT.
+Please familiarise yourself with [CWP recipes](recipes) before starting to develop on CWP. To ensure your code works
+smoothly with the platform it's important to either start from the stable release of
+[cwp-installer](gitlab.cwp.govt.nz/cwp/cwp-installer/) or include
+[cwp-recipe-basic](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/) in your `composer.json`.
 
 <div class="notice" markdown='1'>
-CWP Recommendation: to ensure security of the platform make sure your code can be upgraded - maintain your modules using
-composer.
+To ensure security of your site and CWP in general make sure your code can be upgraded - maintain your modules using
+composer. Then keep your dependencies updated with respect to the patch and patch-dash versions of the recipe - read
+more about [CWP recipes](recipes).
 </div>
 
-We recommend maintaining all your modules using Composer. This will allow you to easily share the code with other
-agencies and enable easier upgrades. If you decide to remove the `composer.json` file and instead commit the modules
-into the project code, we may not be able to support you because we will have to assume the modules have been
-customised.
+Another reason why it's best to maintain your modules using composer is that this will allow you to easily share the
+code with other agencies and enable easier upgrades. See [working with modules](working-with-modules) for more
+information. If you decide to remove the `composer.json` file and instead commit the modules into the project code, we
+may not be able to support you because we will have to assume the modules have been customised.
 
-When working with CWP code, you will be utilising git version control system, and the repositories will be stored on
-Gitlab. First, let's apply two configuration changes that are essential for smooth experience.
+# Git
 
-# Increase the default post size
+When working with CWP code you will be utilising git version control system, and the repositories will be stored on
+Gitlab. Let's apply two configuration changes that are essential for smooth experience.
+
+## Increase the default post size
 
 A common issue with using our specific installation of Gitlab is the limit to the git post size on the client side
 (developer's machine). It will result in a 411 errors showing up when trying to push a significant amount of work to
@@ -48,7 +44,7 @@ The default post size for git is 1 MB. To increase the value run the below comma
 
 	git config http.postBuffer 524288000
 
-# Caching Gitlab passwords
+## Caching Gitlab passwords
 
 You can avoid having to type the password in every time by using a git credential helper.
 
@@ -71,11 +67,11 @@ securely store your password permanently. The software is available directly fro
 
 # Where to from here?
 
-A good next step is the common workflow described in the [development tutorials](development-tutorials). It shows how to
-set up Git and how to access Gitlab to manage your code repositories on the CWP platform, and will also run your through
-some common development scenarios:
+Recommended next step is the common workflow described in the [development tutorials](development-tutorials). It shows
+how to set up Git and how to access Gitlab to manage your code repositories on the CWP platform, and will also run your
+through some common development scenarios:
 
-* copying an existing recipe
+* setting up new project
 * creating a custom theme based on the default
 * building a new module and including it in your project.
 

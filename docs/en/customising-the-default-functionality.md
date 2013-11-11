@@ -5,22 +5,22 @@ pagenumber: 6
 
 # Customising the default functionality
 
-You should have started your project from a supported recipe as a template for the maximum level of compatibility with
-the platform and then customised from there onwards.
+You should have started your project from the installer or included a recipe with your project for the maximum level of
+compatibility with the platform.
 
-With Composer you can easily adjust the modules that are included in the project. Full instructions can be found in the
+With Composer you can easily add to the modules that are included in the project. Full instructions can be found in the
 [SilverStripe Composer documentation](http://doc.silverstripe.org/framework/en/installation/composer#advanced-usage).
 
-For site-specific SilverStripe installation, fine tune your configuration with `mysite/_config.php`. More information is
-available in the [configuration reference](http://doc.silverstripe.org/framework/en/topics/configuration). Make sure
-to preserve the database and environment configuration code, otherwise your deployment may not work (e.g. the
-database connection will not work).
+For site-specific SilverStripe installation, fine tune your configuration with `mysite/_config` and
+`mysite/_config.php`. More information is available in the [configuration
+reference](http://doc.silverstripe.org/framework/en/topics/configuration). Make sure to preserve the database and
+environment configuration code, otherwise your deployment may not work (e.g. the database connection will not work).
 
 The best way to work with your site is to commit all your modifications to your own theme and in the `mysite` directory.
 
 Avoid changing modules directly. SilverStripe's architecture allows safe customisation through:
 
-* Composer & new modules (*cwp* module can be removed or forked, other modules can be added)
+* Composer and new modules
 * [Class inheritance](http://doc.silverstripe.org/framework/en/tutorials/2-extending-a-basic-site)
 * [SilverStripe DataExtensions](http://doc.silverstripe.org/framework/en/reference/dataextension)
 
@@ -29,7 +29,7 @@ going through the [SilverStripe tutorials](http://doc.silverstripe.org/framework
 the [SilverStripe documentation](http://doc.silverstripe.org/framework/en/3.1/).
 
 Directly modifying module files is not recommended because it makes future upgrades harder (or in some cases
-impossible).  You will also have a harder time getting support from the community.
+impossible). You will also have a harder time getting support from the community.
 
 The preferred way to modify modules is to submit pull-requests to the module maintainer and make sure the changes are
 propagated to the master repository. This ensures upgrade-ability and moreover ensures that all valuable changes are

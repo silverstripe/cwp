@@ -115,8 +115,9 @@ module by calling `composer update <modulename>`.
 
 <div class="notice" markdown='1'>
 If you get cryptic composer errors it's worth checking that your module code is fully pushed. This is because composer
-can only access the code you have actually pushed to the upstream repository, and it may be trying to use the stale
-versions of the files. Also, update composer regularly (`composer self-update`).
+can only access the code you have actually pushed to the upstream repository and it may be trying to use the stale
+versions of the files. Also, update composer regularly (`composer self-update`). You can also try deleting Composer
+cache: `rm -fr ~/.composer/cache`.
 </div>
 
 Finally, commit the the modified `composer.json`, `composer.lock`  and `.gitignore` files to the repository. The
