@@ -20,7 +20,7 @@ smoothly with the platform it's important to either start from the stable releas
 
 <div class="notice" markdown='1'>
 To ensure security of your site and CWP in general make sure your code can be upgraded - maintain your modules using
-composer. Then keep your dependencies updated with respect to the patch and patch-dash versions of the recipe - read
+composer. Then keep your dependencies updated with respect to the patch and sub-patch versions of the recipe - read
 more about [CWP recipes](recipes).
 </div>
 

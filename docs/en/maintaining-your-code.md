@@ -39,10 +39,12 @@ modules](development-tutorials/working-with-modules) for more information on mod
 
 ## Security patches
 
-You need to keep your codebase's dependencies updated with respect to the patch or patch-dash release of the recipe to
+You need to keep your codebase's dependencies updated with respect to the patch or sub-patch releases of the recipe to
 receive immediate security patches.
 
-See [upgrading tutorial](development-tutorials/upgrading) for specific instructions on how to do so.
+This is relatively easy - if your `composer.json` is configured as in the installer, it should be as easy as running
+`composer update`, doing a smoketest and pushing to the upstream. See [recipe upgrade
+tutorial](development-tutorials/upgrading) for instructions.
 
 See [recipes documentation](recipes) for more information on versioning and on how to keep your instace secure.
 

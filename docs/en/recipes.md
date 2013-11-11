@@ -15,13 +15,12 @@ is a crucial element of keeping your CWP deployment running. Even if you did not
 make your project "stable" by including the following in your `composer.json`:
 
 	"require": {
-		"cwp/cwp-recipe-basic": "1.0.1",
+		"cwp/cwp-recipe-basic": "~1.0.1@stable",
 		...
 
-So if the above dependency can be found in your root `composer.json` file and the version number is pointing to the
-latest stable recipe release it can be said that you are running on astable CWP recipe version. If your instance will
-experience problems, this will be one of the first things we will check - if you are not running on stable we may not be
-able to (easily) help you.
+So if the above dependency can be found in your root `composer.json` file it can be said that you are running on a
+stable CWP recipe version. If you request CWP Team to help this will be one of the first things that will be checked
+- if you are not running on stable we may not be able to easily help you.
 
 You may add more modules to your project by modifying your base `composer.json`. However these modules will
 interact with the recipe so you need to test for regressions as only the base combination of packages is tested in CWP
@@ -51,16 +50,15 @@ the issues acknowledged as not posing security or technical risk.
 ## Recipe releases
 
 We use [semantic versioning](http://semver.org) for SilverStripe Framework and other modules. In CWP metapackages such
-as the recipe we may also use the Debian-style patch-dash (e.g. 1.0.1-7) version numbers to produce in-between recipe
-releases.
+as the recipe we may also use the fourth level - sub-patch version numbers such as 1.0.1.7.
 
 Stable recipe releases will be triggered by the releases of the SilverStripe Framework - for example recipe 1.0.1 maps
 to framework 3.1.1 and recipe 1.0.2 will map to framework 3.1.2. However recipes may also be released outside of this
-cycle in case some important fixes need to be applied to the modules - these will be numbered as 1.0.1-1, 1.0.1-2 and so
+cycle in case some important fixes need to be applied to the modules - these will be numbered as 1.0.1.1, 1.0.1.2 and so
 forth.
 
-If we announce a new patch recipe release indicated by patch, or patch-dash version number change (if you are on 1.0.1,
-these will be 1.0.1-1, 1.0.1-2, 1.0.2, 1.0.2-1 and so forth) you will need to upgrade, test and deploy your updated
+If we announce a new patch recipe release indicated by patch, or sub-patch version number change (if you are on 1.0.1,
+these will be 1.0.1.1, 1.0.1.2, 1.0.2, 1.0.2.1 and so forth) you will need to upgrade, test and deploy your updated
 project code as soon as possible. The reason is these will often contain security patches. While such patch releases
 will be backwards-compatible and should not break any existing APIs we still recommend at least running a few smoketests
 on your UAT environment or dev machine before deploying.
@@ -75,6 +73,8 @@ to a new major version.
 CWP team may in some situations hot-patch (possibly in a destructive way) your site or pull an instance down if it is
 found to endanger other sites on the CWP. Ultimately, it's a shared responsibility between the CWP Team and the
 development teams for sepcific sites to keep the platform secure.
+
+See [recipe upgrade tutorial](development-tutorials/upgrading) for instructions.
 
 ## Recipe contents
 
@@ -91,7 +91,7 @@ service, then check on Internet's [Packagist](http://packagist.org/).
 The installer's `composer.json` also provides a single "dev" metapackgage dependency for CWP:
 
 	"require-dev": {
-		"cwp/cwp-recipe-basic-dev": "1.0.1-rc1"
+		"cwp/cwp-recipe-basic-dev": "~1.0.1@stable"
 		...
 
 [cwp-recipe-basic-dev](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic-dev/) pulls in dev dependencies specific for
