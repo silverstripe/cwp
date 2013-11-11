@@ -6,7 +6,7 @@ pagenumber: 8
 # Upgrading
 
 Assuming that you have followed the approach outlined in the tutorials, upgrading to new patch and sub-patch versions
-of the recipe shouldn't take long time. See [recipes documentation](../recipes) to learn more about how recipe
+of the recipe shouldn't take long time. See [recipes documentation](../../recipes) to learn more about how recipe
 versioning is structured.
 
 ## Patch and sub-patch upgrades

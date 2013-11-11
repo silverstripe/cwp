@@ -29,12 +29,12 @@ code with other agencies and enable easier upgrades. See [working with modules](
 information. If you decide to remove the `composer.json` file and instead commit the modules into the project code, we
 may not be able to support you because we will have to assume the modules have been customised.
 
-# Git
+## Git
 
 When working with CWP code you will be utilising git version control system, and the repositories will be stored on
 Gitlab. Let's apply two configuration changes that are essential for smooth experience.
 
-## Increase the default post size
+### Increase the default post size
 
 A common issue with using our specific installation of Gitlab is the limit to the git post size on the client side
 (developer's machine). It will result in a 411 errors showing up when trying to push a significant amount of work to
@@ -44,7 +44,7 @@ The default post size for git is 1 MB. To increase the value run the below comma
 
 	git config http.postBuffer 524288000
 
-## Caching Gitlab passwords
+### Caching Gitlab passwords
 
 You can avoid having to type the password in every time by using a git credential helper.
 
@@ -65,7 +65,7 @@ on your machine using the software built by a company called GitHub (not related
 securely store your password permanently. The software is available directly from
 [GitHub](https://help.github.com/articles/set-up-git).
 
-# Where to from here?
+## Where to from here?
 
 Recommended next step is the common workflow described in the [development tutorials](development-tutorials). It shows
 how to set up Git and how to access Gitlab to manage your code repositories on the CWP platform, and will also run your
