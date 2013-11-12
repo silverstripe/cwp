@@ -6,7 +6,7 @@ pagenumber: 8
 # Upgrading
 
 Assuming that you have followed the approach outlined in the tutorials, upgrading to new patch and sub-patch versions
-of the recipe shouldn't take long time. See [recipes documentation](../../recipes) to learn more about how recipe
+of the recipe shouldn't take long time. See [recipes documentation](../recipes/) to learn more about how recipe
 versioning is structured.
 
 ## Patch and sub-patch upgrades
@@ -55,3 +55,73 @@ If you like to only upgrade the recipe modules, you can cherry pick what is upgr
 
 This will update only the two specified metapackage modules without touching anything else. You still need to commit
 resulting `composer.lock`.
+
+## Upgrading from the deprecated recipe-basic approach
+
+Projects using the old-style forks of `recipe-basic` will need to be migrated to the new style of managing dependencies.
+The "recipe-basic" module has now been deprecated and should not be used. This migration will need to be done just once
+and will greatly improve the way you can keep the project up to date with the most recent security patches.
+
+You will know you need to migrate your project if you see the following configuration in your root composer.json:
+
+	"require": {
+		"php": ">=5.3.2",
+		"cwp/cwp": "*",
+		... long list of CWP dependencies follow here ...
+		"my-agency/my-dependency": "*"
+	},
+
+This long list of dependencies should no longer be pulled in directly. Here is how to fix this for the future.
+
+<div class="notice" markdown='1'>
+If you have customised the original project based on recipe-basic by removing some modules, and changing versions or
+branches of some others you will notice this migration will force you to pull these back via the new cwp-recipe-basic
+metapackage.  This is intended - the only code supported by the CWP Team is the mix of modules present in the latest
+stable release of the `cwp/cwp-recipe-basic` module.
+</div>
+
+First, identify the list of modules which you have added to the project. In the above example this is represented as
+`my-agency/my-dependency`. These need to stay. All the remaining original dependencies need to be stripped off
+and replaced with a single mention of the `cwp/cwp-recipe-basic` (not to be confused with `cwp/recipe-basic` which
+is now deprecated). The result should look like follows:
+
+	"require": {
+		cwp/cwp-recipe-basic": "~1.0.1@stable",
+		"my-agency/my-dependency": "*"
+	},
+
+We also want to apply similar approach to "require-dev" dependencies. The outcome will likely look like this:
+
+	"require-dev": {
+		"cwp/cwp-recipe-basic-dev": "~1.0.1@stable"
+	},
+
+Finally, also the "repositories" section needs to be tidied up. All the original repositories need to be replaced
+by a single definition pointing to [https://packages.cwp.govt.nz](https://packages.cwp.govt.nz). You still need to
+retain references to your private modules:
+
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://packages.cwp.govt.nz/"
+		},
+		{
+			"type": "vcs",
+			"url": "https://gitlab.cwp.govt.nz/my-agency/my-module.git",
+			"private": "true"
+		}
+	],
+
+After you are finished cleaning up your `composer.json` file, you need to run:
+
+	composer update
+
+This will make sure you get the latest stable dependencies. Test the site on your dev machine and commit the resulting
+`composer.lock` file if all works well. Then deploy to environments.
+
+Summary:
+
+* [old, unsupported style of composer.json](https://gitlab.cwp.govt.nz/cwp/recipe-basic/blob/1.0.0/composer.json) from
+deprecated `cwp/recipe-basic` module
+* [new, recommended composer.json](https://gitlab.cwp.govt.nz/cwp/cwp-installer/blob/1.0.1/composer.json) from the new
+`cwp/cwp-installer` package (this package is useful for jump-starting your projects)
