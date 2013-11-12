@@ -28,22 +28,24 @@ These will likely take more time as the APIs may change between minor and major 
 for minor upgrade to take a day of work, and major upgrades could take several days.
 
 To upgrade your code, open the root `composer.json` file (the one that was supplied with the installer). Find the
-lines that reference `cwp-recipe-basic` and `cwp-recipe-basic-dev` and change the referenced versions. For example if
-you wish to upgrade to version 1.1.0, modify it as follows:
+lines that reference `cwp-recipe-basic` and `cwp-recipe-basic-dev` and change the referenced versions.
+
+For example assuming that you are currently on version `~1.0.1@stable`, if you wish to upgrade to 2.0.0 you will need to
+modify your `composer.json` file to explicitly specify the new release branch, here `~2.0.0@stable`:
 
 	...
 	"require": {
-		"cwp/cwp-recipe-basic": "~1.1.0@stable"
+		"cwp/cwp-recipe-basic": "~2.0.0@stable"
 	},
 	"require-dev": {
-		"cwp/cwp-recipe-basic-dev": "~1.1.0@stable"
+		"cwp/cwp-recipe-basic-dev": "~2.0.0@stable"
 	},
 	...
 
 You now need to pull in new dependencies and commit the lock file:
 
 	composer update
-	git commit composer.* -m "Upgrading to recipe 1.1.0"
+	git commit composer.* -m "Upgrading to recipe 2.0.0"
 
 Push this commit to your remote repository, and you will be able to deploy to UAT.
 
