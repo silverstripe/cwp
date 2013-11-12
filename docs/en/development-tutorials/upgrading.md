@@ -127,3 +127,4 @@ References:
 deprecated `cwp/recipe-basic` module
 * [new, recommended composer.json](https://gitlab.cwp.govt.nz/cwp/cwp-installer/blob/1.0.1/composer.json) from the new
 `cwp/cwp-installer` package (this package is useful for jump-starting your projects)
+* [tagged recipe releases](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/repository/tags)
