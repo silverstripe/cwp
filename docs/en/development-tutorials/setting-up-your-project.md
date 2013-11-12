@@ -33,9 +33,6 @@ You can skip straight to "Accessing the site" now.
 
 ## Empty repository - copying installer
 
-This section is for those who have followed the "Gitlab setup" howto, or created empty repository on their own. We
-assume you have cloned it already to your local machine with `git clone`.
-
 The preferred way to set up your repository from scratch is to use the
 [cwp-installer](https://gitlab.cwp.govt.nz/cwp/cwp-installer/) module. This is in fact how we set the repository up for
 you if that's what has been requested in the Service Desk.
