@@ -34,15 +34,7 @@ ar:
     AppleIconField72: 'أيقونة كليب الويب الخاص بأبل تتش (أبعاد 72x72, صيغة بى إن جى)'
     FavIconField: 'الرمز المفضل, بصيغة .آى سى أو, أبعاد32x32 ,16x16 أو 48x48'
     FbField: 'التعريف الشخصى لفيس بوك أو اسم المستخدم'
-    FbFieldDesc: 'رابط الفيس بوك(كل شئ بعد "/http://facebook.com",
-
-      /http://facebook.com
-
-      <strong>اسم المستخدم<strong/>
-
-      /http://facebook.com
-
-      <strong>صفحات/108510539573<strong/>)'
+    FbFieldDesc: 'رابط الفيس بوك(كل شئ بعد "/http://facebook.com", /http://facebook.com <strong>اسم المستخدم<strong/> /http://facebook.com <strong>صفحات/108510539573<strong/>)'
     FooterLogoDescField: 'وصف شعار تذييل الصفحة'
     FooterLogoField: 'تذييل الصفحة, لكى تظهر على التذييل'
     FooterLogoLinkDesc: 'من فضلك قم بتضمين البروتوكول ( بمعنى, //:http أو //:https) ما لم تكون رابط خارجى.'
@@ -53,9 +45,7 @@ ar:
     LogoRetinaUploadField: 'شعار عالى الدقة, ليظهر فى أعلى اليسار (يوصى بضعف الطول و العرض للشعار التقليدى)'
     LogoUploadField: 'الشعار, ليظهر أعلى اليسار'
     TwitterField: 'اسم المستخدم الخاص بتويتر'
-    TwitterFieldDesc: 'اسم المستخدم الخاص بتويتر (مثلا, /http://twitter.com
-
-      <strong>اسم المستخدم<strong/>)'
+    TwitterFieldDesc: 'اسم المستخدم الخاص بتويتر (مثلا, /http://twitter.com <strong>اسم المستخدم<strong/>)'
   DateUpdateHolder:
     DateRangeFilterMessage: 'قد تم تصفيتها حسب تاريخ واحد'
     FilterAppliedMessage: 'قد تم تطبيق الفلتر مع عكس المواعيد.'
