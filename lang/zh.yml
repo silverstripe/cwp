@@ -11,16 +11,22 @@ zh:
     SINGULARNAME: '基本首页'
     Title: 标题
   BasePage:
+    ColumnPageType: '页面类型'
+    ColumnTitle: 题目
     DESCRIPTION: '通用内容页面'
     PLURALNAME: '基本页面'
     RelatedPages: '相关页面'
     SINGULARNAME: '基本页面'
+    TagsTabTitle: 标签
     Taxonomy: 分类法
     Term: 条款
     Terms: 条款
   CarouselItem:
     PLURALNAME: '旋转项'
     SINGULARNAME: '旋转项'
+  CustomSiteConfig:
+    LogosIconsTab: 商标/ 图标
+    SocialMediaTab: '社会媒体'
   CwpCarousel:
     ArchivedField: '归档该旋转项？'
     LinkField: 链接
