@@ -11,16 +11,22 @@ en:
     SINGULARNAME: 'Base Home Page'
     Title: Title
   BasePage:
+    ColumnPageType: 'Page Type'
+    ColumnTitle: Title
     DESCRIPTION: 'Generic content page'
     PLURALNAME: 'Base Pages'
     RelatedPages: 'Related pages'
     SINGULARNAME: 'Base Page'
+    TagsTabTitle: Tags
     Taxonomy: Taxonomy
     Term: Term
     Terms: Terms
   CarouselItem:
     PLURALNAME: 'Carousel Items'
     SINGULARNAME: 'Carousel Item'
+  CustomSiteConfig:
+    LogosIconsTab: Logos/Icons
+    SocialMediaTab: 'Social Media'
   CwpCarousel:
     ArchivedField: 'Archive this carousel item?'
     LinkField: Link

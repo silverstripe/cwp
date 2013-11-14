@@ -117,8 +117,8 @@ class BasePage extends SiteTree {
 
 		$dataColumns = $components->getComponentByType('GridFieldDataColumns');
 		$dataColumns->setDisplayFields(array(
-			'Title' => 'Title',
-			'ClassName' => 'Page Type'
+			'Title' => _t('BasePage.ColumnTitle', 'Title'),
+			'ClassName' => _t('BasePage.ColumnPageType', 'Page Type')
 		));
 
 		$fields->findOrMakeTab(
@@ -149,6 +149,7 @@ class BasePage extends SiteTree {
 			'TaxonomyName' => _t('BasePage.Taxonomy','Taxonomy')
 		));
 
+		$fields->findOrMakeTab('Root.Tags', _t('BasePage.TagsTabTitle', 'Tags'));
 		$fields->addFieldToTab(
 			'Root.Tags',
 			new GridField(
