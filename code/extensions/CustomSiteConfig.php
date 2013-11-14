@@ -39,6 +39,11 @@ class CustomSiteConfig extends DataExtension {
 			_t('CwpConfig.GaFieldDesc','Account number to be used all across the site (in the format <strong>UA-XXXXX-X</strong>)')
 		);
 
+		$fields->findOrMakeTab(
+			'Root.SocialMedia',
+			_t('CustomSiteConfig.SocialMediaTab', 'Social Media')
+		);
+
 		$fields->addFieldToTab(
 			'Root.SocialMedia', 
 			$facebookURL = new TextField(
@@ -75,8 +80,13 @@ class CustomSiteConfig extends DataExtension {
 			_t('CwpConfig.AddThisFieldDesc','Profile ID to be used all across the site (in the format <strong>ra-XXXXXXXXXXXXXXXX</strong>)')
 		);
 
+		$fields->findOrMakeTab(
+			'Root.LogosIcons',
+			_t('CustomSiteConfig.LogosIconsTab', 'Logos/Icons')
+		);
+
 		$fields->addFieldToTab(
-			'Root.Logos/Icons',
+			'Root.LogosIcons',
 			 $logoField = new UploadField(
 			 	'Logo', 
 			 	_t('CwpConfig.LogoUploadField','Logo, to appear in the top left')
