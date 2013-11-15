@@ -96,7 +96,7 @@ class CustomSiteConfig extends DataExtension {
 		$logoField->setConfig('allowedMaxFileNumber', 1);
 		
 		$fields->addFieldToTab(
-			'Root.Logos/Icons',
+			'Root.LogosIcons',
 			 $logoRetinaField = new UploadField(
 			 	'LogoRetina', 
 			 	_t(
@@ -109,7 +109,7 @@ class CustomSiteConfig extends DataExtension {
 		$logoRetinaField->setConfig('allowedMaxFileNumber', 1);
 
 		$fields->addFieldToTab(
-			'Root.Logos/Icons',
+			'Root.LogosIcons',
 			 $footerLogoField = new UploadField(
 			 	'FooterLogo', 
 			 	_t('CwpConfig.FooterLogoField','Footer logo, to appear in the footer')
@@ -119,7 +119,7 @@ class CustomSiteConfig extends DataExtension {
 		$footerLogoField->setConfig('allowedMaxFileNumber', 1);
 		
 		$fields->addFieldToTab(
-			'Root.Logos/Icons',
+			'Root.LogosIcons',
 			 $footerLogoRetinaField = new UploadField(
 			 	'FooterLogoRetina', 
 			 	_t('CwpConfig.FooterLogoRetinaField','High resolution footer logo (recommended twice the height and width of the standard footer logo)')
@@ -129,7 +129,7 @@ class CustomSiteConfig extends DataExtension {
 		$footerLogoRetinaField->setConfig('allowedMaxFileNumber', 1);
 
 		$fields->addFieldToTab(
-			'Root.Logos/Icons',
+			'Root.LogosIcons',
 			 $footerLink = new TextField(
 			 	'FooterLogoLink', 
 			 	_t('CwpConfig.FooterLogoLinkField','Footer Logo link')
@@ -140,7 +140,7 @@ class CustomSiteConfig extends DataExtension {
 		);
 
 		$fields->addFieldToTab(
-			'Root.Logos/Icons',
+			'Root.LogosIcons',
 			 new TextField(
 			 	'FooterLogoDescription', 
 			 	_t('CwpConfig.FooterLogoDescField','Footer Logo description')
@@ -148,7 +148,7 @@ class CustomSiteConfig extends DataExtension {
 		);
 
 		$fields->addFieldToTab(
-			'Root.Logos/Icons',
+			'Root.LogosIcons',
 			 $favIconField = new UploadField(
 			 	'FavIcon', 
 			 	_t('CwpConfig.FavIconField','Favicon, in .ico format, dimensions of 16x16, 32x32, or 48x48')
@@ -158,7 +158,7 @@ class CustomSiteConfig extends DataExtension {
 		$favIconField->setConfig('allowedMaxFileNumber', 1);
 
 		$fields->addFieldToTab(
-			'Root.Logos/Icons',
+			'Root.LogosIcons',
 			 $atIcon144 = new UploadField(
 			 	'AppleTouchIcon144', 
 			 	_t('CwpConfig.AppleIconField144','Apple Touch Web Clip and Windows 8 Tile Icon (dimensions of 144x144, PNG format)')
@@ -168,7 +168,7 @@ class CustomSiteConfig extends DataExtension {
 		$atIcon144->setConfig('allowedMaxFileNumber', 1);
 
 		$fields->addFieldToTab(
-			'Root.Logos/Icons',
+			'Root.LogosIcons',
 			 $atIcon114 = new UploadField(
 			 	'AppleTouchIcon114', 
 			 	_t('CwpConfig.AppleIconField114','Apple Touch Web Clip Icon (dimensions of 114x114, PNG format)')
@@ -178,7 +178,7 @@ class CustomSiteConfig extends DataExtension {
 		$atIcon114->setConfig('allowedMaxFileNumber', 1);
 
 		$fields->addFieldToTab(
-			'Root.Logos/Icons',
+			'Root.LogosIcons',
 			 $atIcon72 = new UploadField(
 			 	'AppleTouchIcon72', 
 			 	_t('CwpConfig.AppleIconField72','Apple Touch Web Clip Icon (dimensions of 72x72, PNG format)')
@@ -188,7 +188,7 @@ class CustomSiteConfig extends DataExtension {
 		$atIcon72->setConfig('allowedMaxFileNumber', 1);
 
 		$fields->addFieldToTab(
-			'Root.Logos/Icons',
+			'Root.LogosIcons',
 			 $atIcon57 = new UploadField(
 			 	'AppleTouchIcon57', 
 			 	_t('CwpConfig.AppleIconField57','Apple Touch Web Clip Icon (dimensions of 57x57, PNG format)')
