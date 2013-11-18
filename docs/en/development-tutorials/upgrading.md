@@ -121,7 +121,30 @@ After you have finished cleaning up your `composer.json` file, you need to run:
 This will make sure you get the latest stable module versions. Test the site on your dev machine and commit the
 resulting `composer.lock` file if all works well. Then deploy to UAT.
 
-References:
+For your reference, Here is a full example of a correct `composer.json` file on a real project, with default theme
+excluded (as the project already provides its own theme):
+
+	{
+		"name": "<real-agency>/<real-project>",
+		"require": {
+			"cwp/cwp-recipe-basic": "~1.0.1@stable",
+		},
+		"require-dev": {
+			"cwp/cwp-recipe-basic-dev": "~1.0.1@stable"
+		},
+		"config": {
+			"process-timeout": 900
+		},
+		"repositories": [
+			{
+				"type": "composer",
+				"url": "https://packages.cwp.govt.nz/"
+			}
+		],
+		"minimum-stability": "dev"
+	}
+
+Links:
 
 * [old, unsupported composer.json](https://gitlab.cwp.govt.nz/cwp/recipe-basic/blob/1.0.0/composer.json) from
 deprecated `cwp/recipe-basic` module
