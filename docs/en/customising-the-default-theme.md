@@ -1,6 +1,6 @@
 <!--
 title: Customising the default theme
-pagenumber: 5
+pagenumber: 6
 -->
 
 # Customising the default theme

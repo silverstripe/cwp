@@ -67,9 +67,12 @@ securely store your password permanently. The software is available directly fro
 
 ## Where to from here?
 
-Recommended next step is the common workflow described in the [development tutorials](development-tutorials). It shows
-how to set up Git and how to access Gitlab to manage your code repositories on the CWP platform, and will also run your
-through some common development scenarios:
+For people seasoned with SilverStripe development, you can try jump-starting your development activities with the
+[quick start](quick-start) guide.
+
+For more in-depth step-by-step help the recommended next step is the common workflow described in the [development
+tutorials](development-tutorials). It shows how to set up Git and how to access Gitlab to manage your code repositories
+on the CWP platform, and will also run your through some common development scenarios:
 
 * setting up new project
 * creating a custom theme based on the default

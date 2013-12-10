@@ -9,6 +9,7 @@ to go through the [tutorials](http://doc.silverstripe.org/framework/en/tutorials
 
  * [Preparation](preparation-of-the-developer-environment): The steps you need to take to get your development
  environment ready to work on a CWP project.
+ * [Quick start](quick-start): Bullet-point list of tasks to get you up and running quickly
  * [Development tutorials](development-tutorials): Step through the most common development workflows of the CWP.
  * [Recipes](recipes): What a "recipe" is and the list of different site recipes that your site can start from.
  * [Maintaining your code](maintaining-your-code): How to keep your code maintained and maintenable.
