@@ -118,8 +118,15 @@ After you have finished cleaning up your `composer.json` file, you need to run:
 
 	composer update
 
-This will make sure you get the latest stable module versions. Test the site on your dev machine and commit the
-resulting `composer.lock` file if all works well. Then deploy to UAT.
+This will make sure you get the latest stable module versions. You also need to make sure all the external modules
+have been added to your `.gitignore` file to prevent them from being inadvertently commited. Just add the module names
+at the end of the file:
+
+	...
+	cwp-recipe-basic-dev/
+	cwp-recipe-basic/
+
+Test the site on your dev machine and commit the resulting `composer.lock` file if all works well. Then deploy to UAT.
 
 For your reference, Here is a full example of a correct `composer.json` file on a real project, with default theme
 excluded (as the project already provides its own theme):
