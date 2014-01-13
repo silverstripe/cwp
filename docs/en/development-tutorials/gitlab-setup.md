@@ -74,6 +74,6 @@ Congratulations!
 
 ## Where to from here?
 
-[Setting up your project](../development-tutorials/setting-up-your-project) documentation will help you get started setting up
+[Setting up your project](/setting-up-your-project) documentation will help you get started setting up
 SilverStripe CMS and framework code, along with default templates.
 
