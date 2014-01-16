@@ -94,14 +94,18 @@ class BasePage extends SiteTree {
 	/**
 	 * Remove linked pdf when unpublishing the page,
 	 * so it's no longer valid.
+	 *
+	 * @return boolean
 	 */
 	public function doUnpublish() {
-		if(!parent::doUnpublish()) return;
+		if(!parent::doUnpublish()) return false;
 
 		$filepath = $this->getPdfFilename();
 		if(file_exists($filepath)) {
 			unlink($filepath);
 		}
+
+		return true;
 	}
 
 
