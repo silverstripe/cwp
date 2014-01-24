@@ -1,0 +1,42 @@
+fi:
+  BaseHomePage:
+    AddNewButton: 'Lisää uusi'
+    FeatureButtonText: 'Nappulan teksti'
+    FeatureCategoryDropdown: 'Kategoriaikoni'
+    FeatureContentFieldLabel: Sisältö
+  BasePage:
+    ColumnPageType: 'Sivutyyppi'
+    ColumnTitle: Otsikko
+    TagsTabTitle: Avainsanat
+    Taxonomy: Taksonomia
+  CarouselItem:
+    PLURALNAME: 'Karusellin kohteet'
+    SINGULARNAME: 'Karusellin kohde'
+  CwpCarousel:
+    LinkField: Linkki
+  DateUpdatePage:
+    DateLabel: Päivämäärä
+    LocationFieldLabel: Paikka
+  EventPage:
+    SINGULARNAME: 'Tapahtumasivu'
+  FooterHolder:
+    SINGULARNAME: 'Alaindeksin koonti'
+  NewsHolder:
+    SINGULARNAME: 'Uutisten koontisivu'
+  NewsPage:
+    SINGULARNAME: 'Uutissivu'
+  Quicklink:
+    ExternalLinkLabel: 'Ulkoinen linkki'
+    InternalLinkLabel: 'Sisäinen linkki'
+    PLURALNAME: Pikalinkit
+    ParentRelationLabel: Isäntä
+    SINGULARNAME: Pikalinkki
+    SortOrderLabel: 'Järjestys'
+  SearchForm:
+    SEARCH: Haku
+    SearchResults: 'Hakutulokset'
+  SiteTree:
+    PLURALNAME: Sivut
+    SINGULARNAME: Sivu
+  SitemapPage:
+    SINGULARNAME: 'Sivukarttasivu'
