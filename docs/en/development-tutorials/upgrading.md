@@ -6,7 +6,7 @@ pagenumber: 8
 # Upgrading
 
 Assuming that you have followed the approach outlined in the tutorials, upgrading to new patch and sub-patch versions
-of the recipe shouldn't take long time. See [recipes documentation](../recipes/) to learn more about how recipe
+of the recipe shouldn't take long time. See [recipes documentation](/recipes/) to learn more about how recipe
 versioning is structured.
 
 ## Point upgrades
@@ -153,7 +153,7 @@ excluded (as the project already provides its own theme):
 
 Links:
 
-* [changelogs](../changelogs/)
+* [changelogs](/changelogs/)
 * [old, unsupported composer.json](https://gitlab.cwp.govt.nz/cwp/recipe-basic/blob/1.0.0/composer.json) from
 deprecated `cwp/recipe-basic` module
 * [new, recommended composer.json](https://gitlab.cwp.govt.nz/cwp/cwp-installer/blob/1.0.1/composer.json) from the new
