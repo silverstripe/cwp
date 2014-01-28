@@ -28,54 +28,52 @@ You may add more modules to your project by modifying your base `composer.json`.
 interact with the recipe so you need to test for regressions as only the base combination of packages is tested in CWP
 release process.
 
-## Special cases
+## Can I remove the basic recipe?
 
-There are several situations where it may not be easy to use the recipe. The development team must carefully
-consider the best approach as the further the codebase is from the stable recipe, the more issues will have to be
-resolved:
+We strongly recommend not to remove the basic recipe dependency from your projects. The reasons include:
 
-* applying security updates may become much harder: instead of simply updating the current recipe version you may have
-to manage module versioning by hand
-* CWP Team may not be able to help you promptly if your code is heavily customised
-* your specific module mix may not be as extensively tested as the recipe
-* some platform compatibility code will be missing, meaning some features could break
-* your site may break when the infrastructure changes are rolled out - these changes will likely only be tested against
-the current stable release.
+* reused code makes maintenance simple - it's easier to apply security updates
+* Service Desk might not be able to help you if you are on a heavily customised code
+* custom code is usually less stable than the one that's frequently used
+* advertised CWP features may not work
+* your site may break when the infrastructure changes are rolled out - these changes will only be tested against
+the official releases.
 
-In case your development team decides to depart from the recipe model, it is recommended to pull in at least the
-[cwp](https://gitlab.cwp.govt.nz/cwp/cwp). If even this doesn't work for you, the last resort is including the
-[cwp-core](https://gitlab.cwp.govt.nz/cwp/cwp-core) This at least will ensure the minimal compatibility with the
-platform infrastructure and will allow us to deliver some subset of fixes and features.
+If after careful consideration your development team decides to depart from the recipe model, it is recommended to pull
+in at least the [cwp](https://gitlab.cwp.govt.nz/cwp/cwp). If even this doesn't work for you, the last resort is
+including the [cwp-core](https://gitlab.cwp.govt.nz/cwp/cwp-core) This at least will ensure the minimal compatibility
+with the platform infrastructure and will allow us to deliver some subset of fixes and features.
 
-Your development team will need to follow the releases of the recipe and make sure the modules are either updated, or
-the issues acknowledged as not posing security or technical risk.
+Your development team will need to follow the releases of the recipe on their own and make sure the modules are either
+updated, or the issues acknowledged as not posing security or technical risk.
 
 ## Recipe releases
 
-We use [semantic versioning](http://semver.org) for SilverStripe Framework and other modules. In CWP metapackages such
-as the recipe we may also use the fourth level - sub-patch version numbers such as 1.0.1.7.
+We use [semantic versioning](http://semver.org) for SilverStripe Framework. In CWP recipes we use major, minor and point
+releases. From time to time the fourth level - micro (1.2.3.4) - might be used if more granularity is needed.
 
 Stable recipe releases will be triggered by the releases of the SilverStripe Framework - for example recipe 1.0.1 maps
-to framework 3.1.1 and recipe 1.0.2 will map to framework 3.1.2. However recipes may also be released outside of this
-cycle in case some important fixes need to be applied to the modules - these will be numbered as 1.0.1.1, 1.0.1.2 and so
-forth.
+to framework 3.1.1 and recipe 1.0.2 will map to framework 3.1.2. Recipes may also be released outside of this cycle in
+case some important fixes need to be applied to the modules (such as security releases) - these will be numbered with
+micro versions (1.0.1.1, 1.0.1.2 and so forth).
 
-If we announce a new patch recipe release indicated by patch, or sub-patch version number change (if you are on 1.0.1,
-these will be 1.0.1.1, 1.0.1.2, 1.0.2, 1.0.2.1 and so forth) you will need to upgrade, test and deploy your updated
-project code as soon as possible. The reason is these will often contain security patches. While such patch releases
-will be backwards-compatible and should not break any existing APIs we still recommend at least running a few smoketests
-on your UAT environment or dev machine before deploying.
+If we announce a new point/micro recipe release (e.g. if you are on 1.0.1, these will be 1.0.1.1, 1.0.1.2, 1.0.2,
+1.0.2.1 and so forth) you will need to upgrade, test and deploy your updated project code within a relatively short
+timeframe which will be specified on the release notification. While such point/micro releases will be
+backwards-compatible and should not break any existing APIs we still recommend at least running a few smoketests on your
+UAT environment or dev machine before deploying.
 
-As a rule of thumb you need to remain on the latest patch release version of the recipe to receive all security fixes.
+As a rule of thumb you need to remain on the latest point/minor release version of the recipe to receive all security
+fixes.
 
 Major and minor recipe releases (if you are on 1.0.1 these will be 1.1.0, 1.2.0, 2.0.0 and so on) could take more time
 to apply. One old minor and one old major branch will still receive security patches, so you have more time to do these.
-We estimate that on a small site you may need to spend a day upgrading to a new minor version, and a few days upgrading
-to a new major version.
+We estimate that on a small site you may need to spend a day upgrading to a new minor version, and a few days or more
+upgrading to a new major version.
 
-CWP team may in some situations hot-patch (possibly in a destructive way) your site or pull an instance down if it is
-found to endanger other sites on the CWP. Ultimately, it's a shared responsibility between the CWP Team and the
-development teams for sepcific sites to keep the platform secure.
+CWP Team may in some situations hot-patch (possibly in a destructive way) your site or pull an instance down if it is
+found to endanger other sites on the CWP. The timeframe in which this could happen will be specified on the release
+notification.
 
 See [recipe upgrade tutorial](development-tutorials/upgrading) for instructions.
 

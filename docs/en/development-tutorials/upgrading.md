@@ -9,16 +9,16 @@ Assuming that you have followed the approach outlined in the tutorials, upgradin
 of the recipe shouldn't take long time. See [recipes documentation](../recipes/) to learn more about how recipe
 versioning is structured.
 
-## Patch and sub-patch upgrades
+## Point upgrades
 
-To get the newest patch or sub-patch release of the recipe, just run:
+To get the newest point (or micro) release of the recipe, just run:
 
 	composer update
 
 This will update the recipe to the new version, and pull in all the new dependencies. A new `composer.lock` file will
 be generated. Once you are satisfied the site is running as expected, commit both files:
 
-	git commit composer.* -m "Upgrading the recipe to latest patchlevel."
+	git commit composer.* -m "Upgrading the recipe to latest point release"
 
 After you have pushed this commit back to your remote repository you can deploy the change.
 
@@ -153,8 +153,8 @@ excluded (as the project already provides its own theme):
 
 Links:
 
+* [changelogs](../changelogs/)
 * [old, unsupported composer.json](https://gitlab.cwp.govt.nz/cwp/recipe-basic/blob/1.0.0/composer.json) from
 deprecated `cwp/recipe-basic` module
 * [new, recommended composer.json](https://gitlab.cwp.govt.nz/cwp/cwp-installer/blob/1.0.1/composer.json) from the new
 `cwp/cwp-installer` package (this package is useful for jump-starting your projects)
-* [tagged recipe releases](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/repository/tags)
