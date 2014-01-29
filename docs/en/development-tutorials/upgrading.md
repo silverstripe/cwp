@@ -153,7 +153,7 @@ excluded (as the project already provides its own theme):
 
 Links:
 
-* [changelogs](/changelogs/)
+* [supported releases and changelogs](/releases/)
 * [old, unsupported composer.json](https://gitlab.cwp.govt.nz/cwp/recipe-basic/blob/1.0.0/composer.json) from
 deprecated `cwp/recipe-basic` module
 * [new, recommended composer.json](https://gitlab.cwp.govt.nz/cwp/cwp-installer/blob/1.0.1/composer.json) from the new

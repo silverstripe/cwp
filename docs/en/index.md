@@ -21,7 +21,7 @@ exporting, Solr search, related pages, and meta tags.
  * [How-tos](how-tos): Short focused tutorials, for example on how to add a calendar to your project.
  * [Infrastructural considerations](infrastructural-considerations): Some limitiations imposed by the way CWP has been
 architected - for example how requests to enviornments will timeout after certain time.
- * [Changelogs](changelogs): CWP-related release notes.
+ * [Supported releases and changelogs](/releases/): CWP-related release notes.
 
 ## Common tasks
 
