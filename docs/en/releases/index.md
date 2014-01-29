@@ -10,5 +10,5 @@ The status of the recipe releases is summarised in the table below. Click on the
 | Recipe version | Description | Release date | Support ends date |
 | -------------- | ----------- | ------------ | ----------------- |
 | [1.0.2](/releases/cwp-recipe-basic-1.0.2) | Tracks the Framework release 3.1.2 and fixes some module bugs. | 29/01/2014 | current |
-| [1.0.1](/releases/cwp-recipe-basic-1.0.1) | First release of the recipe and all related modules. | 12/11/2013 | 12/07/2015 |
+| [1.0.1](/releases/cwp-recipe-basic-1.0.1) | First release of the recipe and all related modules. | 12/11/2013 | 29/07/2015 |
 
