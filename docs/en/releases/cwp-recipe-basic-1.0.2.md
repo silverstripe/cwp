@@ -2,7 +2,11 @@
 
 ## Overview
 
-This release tracks the Framework release 3.1.2 and fixes some module bugs.
+This release tracks the Framework release 3.1.2 and fixes some module bugs. The highlights are:
+
+ * Several bugs affecting subsites were fixed. Any site using subsites is strongly recommended to upgrade
+ * Several bugs affecting managing images and videos in the admin area were fixed.
+ * Improvements were made to feedback provided to the content administrator in the admin area.
 
 See [SilverStripe Framework 3.1.2 changelog](http://doc.silverstripe.org/framework/en/3.1/changelogs/3.1.2) for the
 list of core changes.
