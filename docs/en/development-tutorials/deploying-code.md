@@ -21,6 +21,9 @@ Next to the environment name you'll see whether you can deploy "Can you deploy?"
 which gives you a quick summary of what code is currently on the instance and whether you have permission to deploy
 a release.
 
+Underneath you will see information about the repository currently hooked up to this instance. One instance can only
+ever have one repository assigned to it, regardless of the number of environments.
+
 Below, under "Public key", you can see a deployment key. One such key is generated for every instance and is used for
 establishing trust between Gitlab (the code repository) and Deploynaut.
 
@@ -65,17 +68,24 @@ through and you can proceed with the deployment.
 
 Under "Environments", go to **uat**.
 
-Under "Deploy a new release" select a build from the dropdown then click **Deploy to uat** to start the deployment.
+Under "Deploy a new release" select the revision to deploy and press "Deploy to UAT". The deployment should now start.
+
 A new window will appear with console output of the deployment process. Depending on the availability of workers, the
 process may start immediately or may be queued. As a general guideline in normal cases it should take no longer than
 5 minutes to deploy.
+
+You can save the URL and revisit it later to see how the deployment is progressing. It will not cause the deployment to
+restart.
 
 The deployment is atomic, meaning the code is uploaded into a secondary directory, before being rotated with the
 original code. If the deployment fails at any point it will be rolled back without causing changes to the site. If the
 deployment fails due to "unauthorised" errors, check if your project and modules have the deployment key added as
 described above, and that the private modules have the "private" flag set!
 
-You can also see the deployment history for that instance in the "Deploy history" table.
+For the duration of the deployment a maintenance screen will be put up using .htaccess substitution. The webserver will
+return a 503 error at that time.
+
+You can also see the deployment history for that instance in the "Deploy history" table below.
 
 ## Deploying to production site
 
@@ -92,7 +102,7 @@ fields and submit the ticket. The CWP administration team will be in touch regar
 
 ## Tagging your code
 
-Prior to deployment to a site, the best practise is to tag a certain Git revision to a version number. To do that, we'll
+Prior to deployment to a site, the best practice is to tag a certain Git revision to a version number. To do that, we'll
 use Git's built-in tagging system and push the tag back so the deployment site can see it.
 
 Start by going to your dev environment and going to where you've checked out your Git repo.
@@ -104,14 +114,17 @@ From there, let's see which tags we have:
 If you get no output, there's no tags.
 
 Let's create a new tag. You can name the tag anything, but a typical scheme involves version numbers starting at 0.1.
+It's also a good idea to create annotated tags, so the information about the originator can also be stored.
 
-Create a new tag called 0.1:
+Create a new annotated tag called 1.0:
 
-	git tag 0.1
+	git tag -a 1.0 -m "First release."
 
 Tags don't get pushed automatically when you use `git push`, so we need to push the tags to Gitlab so that the
 deploy.cwp.govt.nz site can see it:
 
-	git push --tags
+	git push origin --tags
 
-Now when you go back to [deploy.cwp.govt.nz](http://deploy.cwp.govt.nz) you'll see your new tag in the revision table.
+Now when you go back to [deploy.cwp.govt.nz](http://deploy.cwp.govt.nz) and press "Fetch latest changes" you'll see
+a new option appearing on the deploy screen: "Deploy a tagged release". This makes it much simpler to choose the right
+revision to deploy.
