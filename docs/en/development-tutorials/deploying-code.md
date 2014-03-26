@@ -128,3 +128,8 @@ deploy.cwp.govt.nz site can see it:
 Now when you go back to [deploy.cwp.govt.nz](http://deploy.cwp.govt.nz) and press "Fetch latest changes" you'll see
 a new option appearing on the deploy screen: "Deploy a tagged release". This makes it much simpler to choose the right
 revision to deploy.
+
+## Maintenance screen
+
+Deploynaut has an automated capability to put up a maintenance screen during deployments. See [maintenance
+screen](cwp-features/maintenance_screen.md) for further information.
