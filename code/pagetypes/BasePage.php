@@ -291,6 +291,12 @@ class BasePage_Controller extends ContentController {
 		// make sure the work directory exists
 		if(!file_exists(dirname($pdfFile))) Filesystem::makeFolder(dirname($pdfFile));
 
+		// Force http protocol on CWP - fetching from localhost without using the proxy, SSL terminates on gateway.
+		if (defined('CWP_ENVIRONMENT')) {
+			Config::inst()->nest();
+			Config::inst()->update('Director', 'alternate_protocol', 'http');
+		}
+
 		$bodyViewer = $this->getViewer('pdf');
 
 		// write the output of this page to HTML, ready for conversion to PDF
@@ -301,6 +307,10 @@ class BasePage_Controller extends ContentController {
 
 		// write the output of the footer template to HTML, ready for conversion to PDF
 		file_put_contents($footerFile, $footerViewer->process($this));
+
+		if (defined('CWP_ENVIRONMENT')) {
+			Config::inst()->unnest();
+		}
 
 		// finally, generate the PDF
 		$command = WKHTMLTOPDF_BINARY . ' --outline -B 40pt -L 20pt -R 20pt -T 20pt --encoding utf-8 ' .
