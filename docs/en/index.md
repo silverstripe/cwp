@@ -19,6 +19,7 @@ to go through the [tutorials](http://doc.silverstripe.org/framework/en/tutorials
  * [CWP features](cwp-features): What you need to know about the custom CWP functionality, such as PDF
 exporting, Solr search, related pages, and meta tags.
  * [How-tos](how-tos): Short focused tutorials, for example on how to add a calendar to your project.
+ * [Security](security): Security considerations and option configuration.
  * [Infrastructural considerations](infrastructural-considerations): Some limitiations imposed by the way CWP has been
 architected - for example how requests to enviornments will timeout after certain time.
  * [Supported releases and changelogs](/releases/): CWP-related release notes.
