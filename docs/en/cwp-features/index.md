@@ -1,6 +1,6 @@
 <!--
 title: CWP features
-pagenumber: 7
+pagenumber: 8
 -->
 
 This section describes some of the extra CWP features that are too small to make their way into a separate module.
