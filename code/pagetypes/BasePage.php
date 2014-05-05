@@ -367,7 +367,7 @@ class BasePage_Controller extends ContentController {
 		$limit = self::$results_per_page;
 		$results = new ArrayList();
 		$suggestion = null;
-		$keywords = $form->getSearchQuery();
+		$keywords = empty($data['Search']) ? '' : $data['Search'];
 
 		if($keywords) {
 			$query = new SearchQuery();
@@ -403,16 +403,19 @@ class BasePage_Controller extends ContentController {
 			if(!$result->canView()) $results->remove($result);
 		}
 
-		$rssUrl = $this->Link('SearchForm?Search=' . $keywords . '&format=rss');
+		$rssUrl = Controller::join_links(
+			$this->Link('SearchForm'),
+			'?Search=' . rawurlencode($keywords) . '&format=rss'
+		);
 		RSSFeed::linkToFeed($rssUrl, 'Search results for "' . $keywords . '"');
 
 		$data = array(
 			'PdfLink' => '',
 			'Results' => $results,
-			'Suggestion' => $suggestion,
-			'Query' => $form->getSearchQuery(),
+			'Suggestion' => DBField::create_field('Text', $suggestion),
+			'Query' => DBField::create_field('Text', $keywords),
 			'Title' => _t('SearchForm.SearchResults', 'Search Results'),
-			'RSSLink' => $rssUrl
+			'RSSLink' => DBField::create_field('Text', $rssUrl)
 		);
 
 		$templates = array('Page_results', 'Page');
