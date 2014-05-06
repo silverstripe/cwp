@@ -13,9 +13,8 @@ Please refer to [development tutorials](development-tutorials) for a more in-dep
 
 Notes:
 
-* The guide assumes you already have a functioning LAMP/WAMP environment setup on your workstation, PC or laptop with
-composer (http://doc.silverstripe.org/framework/en/installation/composer) and git
-(https://www.cwp.govt.nz/guides/core-technical-documentation/common-web-platform-core/en/development-tutorials/gitlab-setup)
+* The guide assumes you already have a functioning LAMP/WAMP environment [setup on your workstation, PC or laptop with
+composer](http://doc.silverstripe.org/framework/en/installation/composer) and [git](development-tutorials/gitlab-setup)
 * Please replace "my-project" below with the actual name of your project. One naming technique is to use the intended
 project's hostname e.g. "my-project.govt.nz" as the project's folder name
 * If you're using Windows, you can use a command-line equivalent to interact with git and composer, offered by the
@@ -23,8 +22,7 @@ project's hostname e.g. "my-project.govt.nz" as the project's folder name
 
 ## Quick start CWP from scratch:
 
-1. Setup your project on Gitlab itself via a browser
-(https://www.cwp.govt.nz/guides/core-technical-documentation/common-web-platform-core/en/development-tutorials/gitlab-setup)
+1. [Setup your project on Gitlab itself via a browser](development-tutorials/gitlab-setup)
 1. Change into your web server's document root: `cd /var/www/htdocs`
 1. `composer create-project cwp/cwp-installer my-project --repository-url="https://packages.cwp.govt.nz"`
 1. `cd my-project`
@@ -54,5 +52,4 @@ complete the requests.
 Increase the `memory_limit` setting in php.ini to something higher than the default of 128Mb e.g. 256Mb or 512Mb and
 then re-try.
 
-For a more in-depth walkthrough through CWP development activities, proceed to the [development
-tutorials](development-tutorials).
+For a more in-depth walkthrough through CWP development activities, proceed to the [development tutorials](development-tutorials).

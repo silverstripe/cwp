@@ -34,8 +34,8 @@ This makes it easy to maintain the site by switching module versions at desired 
 Deploynaut (our deployment tool) will never modify the module versions listed in `composer.lock`, so it's up to the
 site developer to choose right versions via `composer.json`, and to run `composer update` in the right moments.
 
-You can also create private modules in GitLab for even better modularity. See [working with
-modules](development-tutorials/working-with-modules) for more information on module creation, inclusion and sharing.
+You can also create private modules in GitLab for even better modularity. See [working with modules](development-tutorials/working-with-modules)
+for more information on module creation, inclusion and sharing.
 
 ## Security patches
 
@@ -43,8 +43,7 @@ You need to keep your codebase's dependencies updated with respect to the patch 
 receive immediate security patches.
 
 This is relatively easy - if your `composer.json` is configured as in the installer, it should be as easy as running
-`composer update`, doing a smoketest and pushing to the upstream. See [recipe upgrade
-tutorial](development-tutorials/upgrading) for instructions.
+`composer update`, doing a smoketest and pushing to the upstream. See [recipe upgrade tutorial](development-tutorials/upgrading) for instructions.
 
 See [recipes documentation](recipes) for more information on versioning and on how to keep your instace secure.
 

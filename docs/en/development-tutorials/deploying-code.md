@@ -129,5 +129,5 @@ revision to deploy.
 
 ## Maintenance screen
 
-Deploynaut has an automated capability to put up a maintenance screen during deployments. See [maintenance
-screen](cwp-features/maintenance_screen) for further information on how to control it.
+Deploynaut has an automated capability to put up a maintenance screen during deployments. See [maintenance screen](cwp-features/maintenance_screen)
+for further information on how to control it.

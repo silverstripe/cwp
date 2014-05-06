@@ -54,8 +54,7 @@ CWP modules (that reside in the "cwp" namespace) and private modules.
 </div>
 
 After your module is running and tested, you can publish it. Since your module is a self-contained piece of software, it
-will constitute a project in itself. From your module directory follow the instructions at [Creating
-repositories](creating-repositories).
+will constitute a project in itself. From your module directory follow the instructions at [Creating repositories](creating-repositories).
 
 Now push your module to the upstream, to the empty repository just created:
 

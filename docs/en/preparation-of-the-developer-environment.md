@@ -6,8 +6,8 @@ pagenumber: 1
 # Preparation of the developer's environment
 
 Successful development of a Platform website relies on the ability to use the provided services and tools and build upon
-them to provide the custom functionality where needed. A description of the high-level [technical
-architecture](https://www.cwp.govt.nz/features/technical-information-about-the-platform/) is available on this website.
+them to provide the custom functionality where needed. A description of the high-level [technical architecture](https://www.cwp.govt.nz/features/technical-information-about-the-platform/)
+is available on this website.
 
 CWP projects are installed using the Composer PHP package management tool. For general information about Composer, visit
 the [SilverStripe Composer documentation](http://doc.silverstripe.org/framework/en/installation/composer) or read the
@@ -25,9 +25,9 @@ more about [CWP recipes](recipes).
 </div>
 
 Another reason why it's best to maintain your modules using composer is that this will allow you to easily share the
-code with other agencies and enable easier upgrades. See [working with modules](working-with-modules) for more
-information. If you decide to remove the `composer.json` file and instead commit the modules into the project code, we
-may not be able to support you because we will have to assume the modules have been customised.
+code with other agencies and enable easier upgrades. See [working with modules](development-tutorials/working-with-modules)
+for more information. If you decide to remove the `composer.json` file and instead commit the modules into the project
+	code, we may not be able to support you because we will have to assume the modules have been customised.
 
 ## Git
 
@@ -56,9 +56,8 @@ You can adjust the timeout period from the default 15 minutes:
 
 	git config credential.helper 'cache --timeout=3600'
 
-See [this stackoverflow
-thread](http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github) for
-more information.
+See [this stackoverflow thread](http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github)
+for more information.
 
 This will save you some typing, but not all of it. Another way to approach this is to store the password in a keychain
 on your machine using the software built by a company called GitHub (not related to Gitlab). This will allow you to
@@ -70,9 +69,9 @@ securely store your password permanently. The software is available directly fro
 For people seasoned with SilverStripe development, you can try jump-starting your development activities with the
 [quick start](quick-start) guide.
 
-For more in-depth step-by-step help the recommended next step is the common workflow described in the [development
-tutorials](development-tutorials). It shows how to set up Git and how to access Gitlab to manage your code repositories
-on the CWP platform, and will also run your through some common development scenarios:
+For more in-depth step-by-step help the recommended next step is the common workflow described in the [development tutorials](development-tutorials).
+It shows how to set up Git and how to access Gitlab to manage your code repositories on the CWP platform, and will also
+run your through some common development scenarios:
 
 * setting up new project
 * creating a custom theme based on the default
