@@ -76,3 +76,29 @@ Individual extensions may be removed using this code in your `mysite/_config.php
 	Config::inst()->remove('File', 'allowed_extensions'); // Prevents config from merging the old array
 	Config::inst()->update('File', 'allowed_extensions', $extensions);
 
+### Front-end authentication
+
+If it's necessary to require secure authentication to certain areas of the front end (such as
+password protected forms or information) then there are some configuration changes that must be made.
+
+By default all attempts to access secure pages will redirect the user to an SSL protected domain
+specific to that instance (e.g. myinstance.cwp.govt.nz). This is in place in order to prevent
+users wishing to access the CMS having to log in for each individual domain, as well as the
+dependency on each domain having its own SSL certificate.
+
+In the case that the user wishes to access content on the front-end of a specific domain, however,
+it's necessary that the user logs into that one, rather than the designated secure login domain.
+
+To disable the redirection add the following to `mysite/_config/config.yml`:
+
+	:::yml
+	CwpControllerExtension:
+	  ssl_redirection_force_domain: false
+
+
+In this case it is necessary to ensure that an SSL certificate has been purchased and configured
+for each domain. If you are unsure, contact the [Service Desk](https://www.cwp.govt.nz/service-desk/).
+
+Alternatively, you can completely disable SSL redirection by setting the 
+`CwpControllerExtension.ssl_redirection_enabled` config to false instead, however any data
+accessed or submitted by users would be unencrypted.
