@@ -99,5 +99,5 @@ quota.
 
 ## Maintenance screen
 
-As with deployments, a maintenance screen will be put up during the snapshot restorations. See [maintenance screen](cwp-features/maintenance_screen)
+As with deployments, a maintenance screen will be put up during the snapshot restorations. See [maintenance screen](/cwp-features/maintenance_screen)
 for further information on how to control it.
