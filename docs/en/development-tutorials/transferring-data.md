@@ -64,7 +64,7 @@ confidential information, and restore needs to be restricted because it can brea
 
 <div class="notice" markdown='1'>
 As a privileged user - Deployment Manager or Instance Manager - you are responsible for making sure the confidentiality
-of the data is not preserved. Using the change ownership - "ch-own" - feature might mean that staff from outside of your
+of the data is preserved. Using the change ownership - "ch-own" - feature might mean that staff from outside of your
 agency will gain access to the data.
 </div>
 
