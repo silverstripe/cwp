@@ -60,3 +60,19 @@ In your `mysite/_config/config.yml` file, add the following:
 
 If the browser is closed, and the session has expired, subsequent attempts to access secured content
 will require a username and password.
+
+## File upload restrictions
+
+The `File.allowed_extensions` config value specifies the list of all file types allowed to be saved into
+the assets folder. By default this includes file types such as html, and in some cases it may represent a
+security risk to allow these file types. See the
+[OWASP wiki on File Upload](https://www.owasp.org/index.php/Unrestricted_File_Upload) for details.
+
+Individual extensions may be removed using this code in your `mysite/_config.php` file
+
+	:::php
+	// Remove html, htm, xhtml, and xml extensions from File.allowed_extensions
+	$extensions = array_diff(File::config()->allowed_extensions, array('html', 'htm', 'xhtml', 'xml'));
+	Config::inst()->remove('File', 'allowed_extensions'); // Prevents config from merging the old array
+	Config::inst()->update('File', 'allowed_extensions', $extensions);
+
