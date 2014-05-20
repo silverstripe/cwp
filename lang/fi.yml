@@ -4,6 +4,8 @@ fi:
     FeatureButtonText: 'Nappulan teksti'
     FeatureCategoryDropdown: 'Kategoriaikoni'
     FeatureContentFieldLabel: Sisältö
+    FeatureLink: 'Sivu, johon linkitetään'
+    Title: Otsikko
   BasePage:
     ColumnPageType: 'Sivutyyppi'
     ColumnTitle: Otsikko
@@ -13,7 +15,10 @@ fi:
     PLURALNAME: 'Karusellin kohteet'
     SINGULARNAME: 'Karusellin kohde'
   CwpCarousel:
+    ArchivedField: 'Arkistoi tämä karuselliartikkeli?'
     LinkField: Linkki
+  CwpConfig:
+    FooterLogoLinkField: 'Alaindeksin logon linkki'
   DateUpdatePage:
     DateLabel: Päivämäärä
     LocationFieldLabel: Paikka
