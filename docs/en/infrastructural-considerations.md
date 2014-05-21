@@ -42,3 +42,26 @@ such as:
 1. Transcoding the video to the variety of formats needed by different web-enabled devices
 1. A player that provides the necessary controls and accessibility extensions to the devices built-in video playing
 support
+
+## PHP extensions and other server-side customisations
+
+Environments within a CWP instance are turnkey deployments of a standardised environment. For security and
+supportability reasons we do not allow the installation of binaries, PHP extensions or other deviations from the
+standard environment that are not encapsulated within the PHP code deployed via deploynaut into the instance.
+
+These PHP extensions are part of the standard environment, and can be relied on to be available:
+
+* curl
+* gd
+* mbstring
+* mcrypt
+* tidy
+
+Where your business requirements necessitate a server-side feature that is not currently present, there are several
+options available:
+
+* Wrapping of the feature as a web application hosted outside the CWP infrastructure (either at your own cost or
+through an external provider)
+* Integration of feature as a CWP standard feature, either through directly funded work or through the co-fund pool
+(we are unlikely to accept requests to integrate features that duplicate functionality already present within CWP)
+
