@@ -5,49 +5,30 @@ title: External HTTP requests with proxy
 # External HTTP requests with proxy
 
 Sometimes you'll be needing to make external requests to sites on the internet from your site. A simple example of this
-is fetching tweets to show on your website.
+is fetching tweets to show on your website. All CWP environments are positioned behind a proxy. You need to be aware of
+that if you are making egress requests without using curl nor `RestfulService`.
 
-Sites running on the platform cannot make direct HTTP connections to internet, so the way around that is to use a proxy
-server. Fortunately the platform provides one, however you'll need to modify your code so it knows how to contact it.
+By default, we configure the PHP environment with `http_proxy` and `https_proxy` variables which will be automatically
+picked up by curl. This means both `RestfulService` and any curl requests made by upstream modules should work out of
+the box.
 
-Let's take an example of fetching tweets from the SilverStripe Twitter account:
+You can look up the implementation details in the `CwpInitialisationFilter` in the `cwp-core` module.
 
-	:::php
-	echo file_get_contents('http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=silverstripe');
+## Stream-based requests
 
-The above code will fail on the platform, resulting in a "Connection refused" error.
-
-Let's modify that a bit to use the proxy, located at `gateway.cwp.govt.nz` on port `8888`:
-
-	:::php
-	$context = stream_context_create(array(
-		'http' => array(
-			'proxy' => 'tcp://gateway.cwp.govt.nz:8888',
-			'request_fulluri' => true
-		)
-	));
-	
-	echo file_get_contents('http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=silverstripe', false, $context);
-
-The above code will now successfully return the tweets, as the proxy is now configured with `file_get_contents()`.
-
-The same proxy settings can be applied to other HTTP clients in PHP. Using cURL, for example: 
+Stream-based requests however will need extra manual configuration. For example the following will not work, resulting
+in a "Connection refused" error:
 
 	:::php
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_PROXY, 'gateway.cwp.govt.nz');
-	curl_setopt($ch, CURLOPT_PROXYPORT, 8888);
-	curl_setopt($ch, CURLOPT_URL, 'http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=silverstripe');
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	echo curl_exec($ch);
+	echo file_get_contents('http://www.silverstripe.org/blog/rss');
 
-Note that the proxy settings won't work if you're running your site on a local development environment not hosted on
-the platform, so you'll need to modify your code to work without the proxy settings as well. Let's do that by checking
-if there's proxy settings available:
+We can modify it to use the proxy. Proxy URL on CWP environments is provided via `SS_OUTBOUND_PROXY` define, and port is
+provided via `SS_OUTBOUND_PROXY_PORT`. We can check for the existence of these so we are not forced to use the proxy on
+the development machine:
 
 	:::php
 	// use proxy if the environment file has a proxy definition
-	if(defined('SS_OUTBOUND_PROXY')) {
+	if(defined('SS_OUTBOUND_PROXY') && defined('SS_OUTBOUND_PROXY_PORT')) {
 		$context = stream_context_create(array(
 			'http' => array(
 				'proxy' => sprintf('tcp://%s:%s', SS_OUTBOUND_PROXY, SS_OUTBOUND_PROXY_PORT),
@@ -55,7 +36,28 @@ if there's proxy settings available:
 			)
 		));
 		
-		echo file_get_contents('http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=silverstripe', false, $context);
+		echo file_get_contents('http://www.silverstripe.org/blog/rss', false, $context);
 	} else {
-		echo file_get_contents('http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=silverstripe');
+		echo file_get_contents('http://www.silverstripe.org/blog/rss');
 	}
+
+## Disabling egress proxy
+
+In some situations you might want to disable the proxy. You can do it by customising curl configuration per request:
+
+	:::php
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_PROXY, false);
+	curl_setopt($ch, CURLOPT_PROXYPORT, false);
+	curl_setopt($ch, CURLOPT_URL, '<non-proxied-URL>');
+	echo curl_exec($ch);
+
+You can also disable automatic proxy configuration globally by putting the following in one of your config files:
+
+	:::yml
+	---
+	Name: mysiteconfig
+	After: '#cwpcoreconfig'
+	---
+	CwpInitialisationFilter:
+	  egress_proxy_default_enabled: false
