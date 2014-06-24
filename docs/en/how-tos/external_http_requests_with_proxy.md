@@ -61,3 +61,18 @@ You can also disable automatic proxy configuration globally by putting the follo
 	---
 	CwpInitialisationFilter:
 	  egress_proxy_default_enabled: false
+
+## Excluding domains from egress proxy
+
+It's possible to exclude just some domains from being forced through the proxy if disabling it completely is not
+desirable. By default this is used by the Solr and Docvert services internal to CWP. The configuration can be appended
+to as follows:
+
+	:::yml
+	---
+	Name: mysiteconfig
+	After: '#cwpcoreconfig'
+	---
+	CwpInitialisationFilter:
+	  egress_proxy_exclude_domains:
+	    - somewhere.cwp.govt.nz
