@@ -71,12 +71,16 @@ Staff can freely deploy to UAT and test environments, but not to production.
 To deploy, choose an environment under "Environments". Under "Deploy a new release" select the revision and
 press "Deploy to {environment name}".
 
+![Deploynaut - choosing revision to deploy and deploying](_images/deploynaut-choosing-revision.jpg)
+
 A new window will appear with the console output of the deployment process. Depending on the availability of workers the
 process may start immediately or may be queued. As a general guideline it should take no longer than a minute or two
 to deploy.
 
 You can save the URL with the console output and revisit it later to see how the deployment is progressing. Revisting
 the URL will not cause the deployment to restart.
+
+![Deploynaut - deployment in progress](_images/deploynaut-in-progress.jpg)
 
 Most of the deployment is performed as a transaction. The code is uploaded into a secondary directory before being
 rotated with the original code. If the deployment fails at any point it will be rolled back without causing changes to
