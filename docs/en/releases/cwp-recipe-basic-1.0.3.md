@@ -4,7 +4,9 @@
 
 This release tracks the Framework release 3.1.5 and fixes some module bugs. The highlights are:
 
- * Addition of two new modules: security report and secure assets.
+ * Addition of two new modules:
+   [security report](https://github.com/silverstripe-labs/silverstripe-securityreport) and
+   [secure assets](https://www.cwp.govt.nz/guides/core-technical-documentation/secureassets-module/en).
  * Many fixes to fulltext search to fix issues with data being updated or invalidated incorrectly.
    It will be necessary to reindex all content after upgrading to 1.0.3.
  * Update to form validation to improve accessibility and resolve theme issues.
