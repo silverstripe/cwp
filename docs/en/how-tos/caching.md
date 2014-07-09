@@ -4,66 +4,126 @@ title: Caching
 
 # Caching
 
-Every CWP instance is positioned behind a CDN-equipped transparent cache (Incapsula) and behind an internal platform transparent cache. This means that instance responses will be analysed and some of them may be retained to increase performance. 
+CWP clusters are equipped with two levels of transparent cache: a cluster-local cache and an external CDN provided by Incapsula.
 
-This behaviour can be controlled to a certain degree:
+All instance responses are analysed and some of them may be retained to increase performance. Their behaviour can be controlled:
 
-* through caching headers in your site's responses (see Headers chapter)
-* if you opted for the Premium Managed Service, through Incapsula configuration options (see Incapsula Options chapter)
+* through the response headers configured in your code (see the "Configuration via headers" chapter)
+* if you opted for the Premium Managed Service, through Incapsula configuration panel (see the "Configuration via Incapsula" chapter)
 
-By default, the cache and the site provided via the recipe are configured conservatively to protect the data (see the Security chapter). This means anything that is produced by the SilverStripe framework (all dynamic requests) will not be cached. All other resources (static requests) will be cached for a short period of time.
+The default recipe is configured conservatively to protect the data. This means SilverStripe framework responses will not be cached at all. All other resources (static files) will be cached for a short period of time.
 
-To be able to leverage the cache you need to decide which dynamic content can be cached and for how long. See the following chapters for some rules of thumb of how to accomplish this technically.
-
-## Performance
-
-A simplistic test conducted by the CWP team has shown Incapsula can sustain 400 resource requests per second in the "aggressive" mode without impacting the instance considerably. The bottleneck turned out to be the test harness, so the top limit may be higher.
-
-This test should not be treated as representative for CWP sites in general as it depends on many variables such as site's architecture, and the traffic profile. Agencies are urged to carry out their own load testing to determine the exact performance profile of their site.
-
-Also see the "Can I leverage caching so that I can fit a large site on a small instance?" question in the FAQ below.
+Leveraging the caching will result in significantly faster page response times and will increase instance reliability making it able to cope with far higher volumes of instantaneous traffic (spikes).
 
 ## Content Security
 
-The danger of using a transparent cache lies in its ability to see and intercept all instance traffic including user-specific or confidential information. That's why by default we are not caching anything that could be a dynamic response, even if that means Framework traffic is never cached.
+All caches, if misconfigured, are in danger of leaking user-specific or confidential information to non-privileged visitors. To avoid this, the default recipe will produce uncache-able responses even if it means less cache utilisation. Caching needs to be considered on a site-by-site basis.
 
-Here is an example of how things could go wrong: let's assume a site serves "Hello, (FirstName)" snippet to logged-in users only. Further assume a cache is misconfigured, and a logged-in user John comes to the site: the cache retains the response containing "Hello John". When user Steve comes in he will be served a "Hello John" page until the cache times out. 
+Here is an example of how things could go wrong: let's assume a site serves "Hello, (FirstName)" snippet to logged-in users only. Further assume a cache is misconfigured, and a logged-in user "John" requests a page: the cache retains the response containing the "Hello John" string. Now, if user Steve comes along he will be served the cached version of the page errorneously containing "Hello John" string (unless the cache times out before his arrival).
 
-It's easy to extend this example to more significant user details - addresses, private messages, personal records, etc.
+It's easy to extend this example to more significant user details - addresses, private messages, personal records, etc. We will show below how to avoid this kind of issues, and always highlight secure defaults.
 
-## Headers
+## Possible performance gains
 
-Your best approach in controlling the caching behaviour is setting your response headers in accordance with the RFC. This will ensure that all caches on the way of the response will be able to make reasonable decisions. This includes the internal CWP cache, Incapsula, any other public proxies on the way (such as corporate proxies) and the browser cache.
+A simplistic test conducted by the CWP team has shown the CDN can sustain 400 resource requests per second in certain configurations without impacting the instance considerably. In our case the test harness turned out to be the bottleneck and the top limit was not established.
 
-Please refer to [RFC-2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) for the detailed description of all the possibilities or continue to read the rules of thumb on CWP.
+This test should not be treated as representative for all CWP sites as it depends on many variables such as site's architecture, configuration and traffic profile. Agencies are urged to carry out their own load testing to determine the exact performance profile of their site.
 
-### CWP Defaults
+Also see the "Can I leverage caching so that I can fit a large site on a small instance?" question in the FAQ below.
 
-By default, all SilverStripe Framework responses come with the following Cache-Control directive. You will see this response headers coming from the default recipe site.
+## Cache tiers
+
+To help explain how actively the content could be cached on CWP let's split the possible behaviours into three tiers.
+
+| Tier | Caches used | Potential response times | Instance load |
+| - | - | - | - |
+| 0 | - | >100ms | Full |
+| 1 | Local | 10 - 100ms for NZ users, more for overseas users due to the transmission latency. | Reduced in proportion to the amount of cache-able responses and their cache duration. |
+| 2 | Local + CDN | 10-100ms for all users regardless of location. | Same as Tier 1. |
+
+## Configuration via headers
+
+Your best approach in controlling the caching behaviour is setting your response headers in accordance with the [RFC-2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). This will ensure that all caches on the way of the response will be able to make reasonable decisions. This includes the cluster-local cache, CDN, any other public proxies (such as corporate gateways) and the browser cache.
+
+We will now explain some simple techniques on how to increase your cache utilisation. Let's have a look at the mapping between the tiers and specific response headers.
+
+| Tier | _Cache-Control_ header | _Vary_ header | Appropriate for |
+| - | - | - |
+| 0 | "no-cache, max-age=0" | _n/a_ | all |
+| 1 | "max-age=X" | "Cookie, […]" | all |
+| 2 | "max-age=X" | _none_ or "Accept-Encoding" | non-varying* |
+
+*) see "Varying content" chapter below
+
+### Safe defaults
+
+With the basic recipe all SilverStripe Framework responses come with the following _Cache-Control_ directive. You will see this response headers coming from the default recipe site.
 
 	Cache-Control: no-cache, max-age=0, must-revalidate, no-transform
 
-This means the response is not cacheable at all.
+This means the response is _tier 0_ (not cache-able).
 
-Furthermore, all CWP instances are configured to set the following header on anything that is NOT served by the framework. This includes all requests for theme files and asset requests not served by the "silverstripe-secureassets" module.
+Furthermore, all CWP instances are configured to set the following header on anything that is NOT served by the framework. This includes all requests for theme files and any asset requests that are not served by the "silverstripe-secureassets" module.
 
 	Cache-Control: max-age=120, public
 	
-We are still experimenting with the best configuration for the `max-age` timeout here - at the moment it's set conservatively to 2 minutes. It may vary in the future between instances, environments, and between asset and non-asset files.
+These responses are effectively _tier 2_. Note the max-age value is currently 120 seconds, but could change in the future.
 
-### Configuring dynamic response headers
+### Tier 1 on dynamic content
 
-The easiest way to configure dynamic response headers is to use the [silverstripe-controllerpolicy](https://github.com/mateusz/silverstripe-controllerpolicy) module. This allows you to customise the response headers per `Controller` without the need to modify the PHP code.
+The easiest way increase the tier on your dynamic responses is to use the [silverstripe-controllerpolicy](https://github.com/silverstripe-labs/silverstripe-controllerpolicy) module. You will then be able to customise the response headers per `Controller` without the need to modify the PHP code.
 
-Configuring this module requires deciding which controller's responses are cacheable. In the "Simple policy" example in the module README, the decision has been made that only the `HomePage_Controller` is cacheable. You could just as easily decide that you want everything served by the `Page_Controller` and its inheriting controllers to be cached.
+If an agreement with the business owner can be reached as to the cache duration, the following policy is generally safe. Some specific controllers may need tweaks however - for example multi-form requires overriding with `NoopPolicy`. See the module's README for more information.
 
-You can also override the policy in the inheriting controllers by explicitly applying a different policy. See the "Overriding" section in the module's README.
+```
+Injector:
+  Tier1CachingPolicy:
+    class: CachingPolicy
+    properties:
+      cacheAge: <cache-duration>
+Page_Controller:
+  dependencies:
+    Policies: '%$Tier1CachingPolicy'
+```
 
-Again, refer to Content Security chapter for an indication on how to decide what is cacheable and what is not. If you are unsure - don't cache the resource.
+You might also want to inspect the default _Vary_ used by this module to see if it works well with your content, and perhaps adjust it via `CachingPolicy::vary` configuration option. See the "Varying content" chapter on the possible permutations of this header.
 
-### Customising static response headers
+### Tier 2 on dynamic content
 
-Although we recommend to stick with the CWP-configured headers for static files so that CWP operations can keep an eye on the site performance, you can customise these through your .htaccess file using Apache's mod_headers module.
+_Tier 2_ can only be achieved on dynamic content if that content is non-varying (see "Varying content" chapter). To achieve this, the following configuration should be used.
+
+__Be cautious!__ If you feel uncertain about identifying content as non-varying, better stick to _tier 1_ and avoid the danger of leaking user-specific or confidential data altogether.
+
+```
+Injector:
+  Tier2CachingPolicy:
+    class: CachingPolicy
+    properties:
+      cacheAge: <cache-duration>
+      vary: ''
+MyTier2_Controller:
+  dependencies:
+    Policies: '%$Tier2CachingPolicy'
+```
+You will need to adjust the `MyTier2_Controller` to the controller(s) of choice for this policy to work.
+
+Note that 'Accept-Encoding' will automatically be added to the _Vary_ header by Apache's mod_deflate.
+
+### Varying content
+
+As a rule of thumb, if you configure your _Cache-Control_ and _Vary_ correctly, you don't need to be worried about the caching tiers.
+
+Varying content is any URL which content depends on an impulse from the visitor. Lack of a session (_Cookie_ or _Authorization_ headers in the request) is usually a good first step to find non-personalised URLs. Login, IP whitelisting, BasicAuth all imply personalised content.
+
+Content changing depending on the request headers also implies personalisation. The header-driven content changes need to be properly highlighted via a _Vary_ response header which will automatically reduce the tier to 1.
+
+A table of some more obvious _Vary_ headers can be found in the [silverstripe-controllerpolicy documentation](https://github.com/silverstripe-labs/silverstripe-controllerpolicy/blob/master/README.md#vary-headers). Keep in mind the more of these you specify, the more partitioned the cache, which will nullify potential gains. Use as few as you are confident with.
+
+If your content truly does not vary depending on the request, you will be able to utilise tier 2 for that URL - see the "Tier 2 on dynamic content" chapter.
+
+### Custom static response headers
+
+Although we recommend to stick with the CWP-configured headers for static files so that CWP operations can keep an eye on the site performance, you can customise these through your `.htaccess` file.
 
 As an example the following will apply a new "cache for 900 seconds" header to all static responses:
 
@@ -72,19 +132,32 @@ As an example the following will apply a new "cache for 900 seconds" header to a
 		Header set Cache-Control "max-age=900, public" env=!NO_CACHE
 	</IfModule>
 
-## Incapsula Options
+## Configuraton via Incapsula
 
-If you opt for the Premium Managed Service you will have an additional way to control the cache through your own Incapsula web-based dashboard. Please see the [Site performance settings](https://incapsula.zendesk.com/hc/en-us/articles/200627760-Site-performance-settings) in the Incapsula docs for more information.
+If you opted for the Premium Managed Service you will have an additional way to control the cache through your own Incapsula web-based dashboard. Please see the [Site performance settings](https://incapsula.zendesk.com/hc/en-us/articles/200627760-Site-performance-settings) in the Incapsula docs for more information.
 
-The most important setting here is the "Caching mode". By default all sites are configured as **Static only**. This will cache content *mostly* according to the caching headers supplied by the webserver. There are some RFC-violating exceptions to the behaviour though - one of them is if there is any "Vary" header present other than "Accept-Encoding", the resource will not be cached at all. The "Static only" setting can be considered a safe default.
+By default Incapsula is configured to be in __Static only__ mode, with "Comply with Vary: User-Agent" enabled. This safe default allows you to use all of the techniques described in the "Configuration via Headers" section above: _Static only_ makes sure the _Cache-Control_ header is respected and "Comply with Vary: User-Agent" makes Incapsula respect the "Vary" header.
 
-The **Static+dynamic** mode will trigger a proprietary algorithm that will try to cache also the content that the instance claims is non-cacheable. We are still testing this feature, so if you wish to use this mode we can only repeat Incapsula's assertion that this mode uses a learning algorithm to work out if the content is user-specific or not (see the Content Security chapter for potential dangers). This setting is potentially dangerous, unless the site is completely public information, or exceptions have been set.
+On CWP the _Static+Dynamic_ mode was not observed to be any different from the _Static only_ mode. The timeout settable on _Static+Dynamic_  will always be overriden by the "max-age" directive provided by the backend.
 
-The **Aggressive** mode will disregard headers completely and cache all responses for the specified period of time. This option should not be enabled on a site that serves any user-specific or confidential content (again, see Content Security chapter). This setting is dangerous unless the site is completely public information, or tightly controlled list of exceptions is in place. See the [Site performance settings](https://incapsula.zendesk.com/hc/en-us/articles/200627760-Site-performance-settings) for how to set exceptions.
+### Potentially dangerous settings
+
+We do not recommend switching the mode to __Aggressive__ nor disabling "Comply with Vary: User-Agent". These put you at a risk of leaking user-specific or confidential data and should only be considered for sites without varying content. The reasons are explained in the "Content Security" chapter.
+
+You should not change these if any of the following is true:
+
+- you are actively using `secureassets` module
+- sections of your publicly-accessible site are protected by BasicAuth
+- your site is protected by a non-Incapsula IP whitelist (i.e. the one you request via Service Desk)
+- … and many more. See "Varying content" chapter for more details.
+
+If your site is completely public information, or you endeavour to maintain a tightly controlled list of Incapsula exceptions, you can change these __at your own risk__.
+
+### *.cwp.govt.nz domain
 
 Your Incapsula dashboard only controls handling of the responses from the publicly accessible domain. Content under "*.cwp.govt.nz" will not be affected by your changes - this conveniently includes the CMS admin area for the live site which shouldn't be retained in the cache.
 
-You would need to reconsider your configuration if you ever decide to serve the CMS admin area from your public domain.
+You would need to reconsider your configuration if you ever decide to serve the "admin" or "Security" area from your public domain.
 
 ### FAQ
 
@@ -94,16 +167,8 @@ To a certain degree, yes - if you are just worried about infrequent but large sp
 
 **Q: What if I really don't want something cached?**
 
-It depends on the headers supplied by your site and the Incapsula Options. If you absolutely don't want to cache something, you need to stick to "Static only" Incapsula setting (the default), and make sure you supply a Cache-Control header of "no-cache" and "max-age=0". These headers will be added by the default recipe on all Framework responses.
+It depends on the headers supplied by your site and your Incapsula options. If you absolutely don't want to use the cache make sure you supply a _Cache-Control_ header of "no-cache" and "max-age=0". You also need to avoid Incapsula "Aggressive" setting.
 
-If you are using [silverstripe-controllerpolicy](https://github.com/mateusz/silverstripe-controllerpolicy) you can apply a `NoopPolicy` to cancel any implicit policy on a specific controller - see the module's README instructon under "Overriding policies".
-
-**Q: What if I really want something cached?**
-
-First and foremost you can provide appropriate response headers from the SilverStripe Framework - this way the content has a good chance to be cached either in the CWP internal proxy, or in the Incapsula.
-
-You can use [silverstripe-controllerpolicy](https://github.com/mateusz/silverstripe-controllerpolicy) to configure the headers - apart from setting the `cacheAge` you can also remove the Vary header to get Incapsula to cache the response. Caution: make sure you understand what is the implication of removing the Vary header as it's potentially dangerous.
-
-Another way to achieve this is by using "Aggressive" mode in Incapsula. This option is only good for public information sites that are cache-able in their entirety, or sites that have tightly controlled exception list. Otherwise you are at risk of leaking confidential content to the public. 
+If you are using [silverstripe-controllerpolicy](https://github.com/silverstripe-labs/silverstripe-controllerpolicy) you can apply a `NoopPolicy` to cancel any implicit policy on a specific controller - see the module's README instructon under "Overriding policies".
 
 *If you have any other questions, please contact the Service Desk.*
