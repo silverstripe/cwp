@@ -105,6 +105,7 @@ MyTier2_Controller:
   dependencies:
     Policies: '%$Tier2CachingPolicy'
 ```
+
 You will need to adjust the `MyTier2_Controller` to the controller(s) of choice for this policy to work.
 
 Note that 'Accept-Encoding' will automatically be added to the _Vary_ header by Apache's mod_deflate.
@@ -113,9 +114,11 @@ Note that 'Accept-Encoding' will automatically be added to the _Vary_ header by 
 
 As a rule of thumb, if you configure your _Cache-Control_ and _Vary_ correctly, you don't need to be worried about the caching tiers.
 
-Varying content is any URL which content depends on an impulse from the visitor. Lack of a session (_Cookie_ or _Authorization_ headers in the request) is usually a good first step to find non-personalised URLs. Login, IP whitelisting, BasicAuth all imply personalised content.
+Varying content is any URL which content depends on an impulse from the visitor. Lack of a session (_Cookie_ or _Authorization_ headers in the request) is usually a good first step to find non-varying URLs.
 
-Content changing depending on the request headers also implies personalisation. The header-driven content changes need to be properly highlighted via a _Vary_ response header which will automatically reduce the tier to 1.
+Login, IP whitelisting, BasicAuth all imply the content varies per user. All header-driven content changes need to be properly highlighted via a _Vary_ response header (which will automatically reduce the tier to 1).
+
+Additionally, if you are serving both https and http from the same instance, you need to vary on _X-Forwarded-Protocol_ because of the `BaseURL` differences and the CWP network layout. You won't currently be able to use tier 2 on such double-protocol site.
 
 A table of some more obvious _Vary_ headers can be found in the [silverstripe-controllerpolicy documentation](https://github.com/silverstripe-labs/silverstripe-controllerpolicy/blob/master/README.md#vary-headers). Keep in mind the more of these you specify, the more partitioned the cache, which will nullify potential gains. Use as few as you are confident with.
 
