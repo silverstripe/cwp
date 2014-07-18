@@ -49,7 +49,7 @@ class BaseHomePage extends Page {
 		// Main Content tab
 		$fields->addFieldToTab(
 			'Root.Main', 
-			new TreeDropdownField(
+			TreeDropdownField::create(
 				'LearnMorePageID', 
 				_t('BaseHomePage.LearnMoreLink','Page to link the "Learn More" button to:'), 
 				'SiteTree'
@@ -58,7 +58,7 @@ class BaseHomePage extends Page {
 		);
 		
 		// Carousel tab
-		$gridField = new GridField(
+		$gridField = GridField::create(
 			'CarouselItems',
 			'Carousel',
 			$this->CarouselItems(),
@@ -76,7 +76,7 @@ class BaseHomePage extends Page {
 
 		$fields->addFieldToTab('Root.Carousel', $gridField);
 
-		$gridField = new GridField(
+		$gridField = GridField::create(
 			'Quicklinks',
 			'Quicklinks',
 			$this->Quicklinks(),
@@ -100,22 +100,22 @@ class BaseHomePage extends Page {
 			'Root.Features', 
 			ToggleCompositeField::create('FeatureOne', _t('SiteTree.FeatureOne', 'Feature One'),
 			array(
-				new TextField('FeatureOneTitle', _t('BaseHomePage.Title','Title')),
-				$dropdownField = new DropdownField(
+				TextField::create('FeatureOneTitle', _t('BaseHomePage.Title','Title')),
+				$dropdownField = DropdownField::create(
 					'FeatureOneCategory', 
 					_t('BaseHomePage.FeatureCategoryDropdown','Category icon'), 
 					singleton('BaseHomePage')->dbObject('FeatureOneCategory')->enumValues()
 				),
-				new TreeDropdownField(
+				TreeDropdownField::create(
 					'FeatureOneLinkID', 
 					_t('BaseHomePage.FeatureLink','Page to link to'), 
 					'SiteTree'
 				),
-				new HTMLEditorField(
+				HTMLEditorField::create(
 					'FeatureOneContent', 
 					_t('BaseHomePage.FeatureContentFieldLabel','Content')
 				),
-				new TextField(
+				TextField::create(
 					'FeatureOneButtonText', 
 					_t('BaseHomePage.FeatureButtonText','Button text')
 				)
@@ -126,22 +126,22 @@ class BaseHomePage extends Page {
 
 		$fields->addFieldToTab('Root.Features', ToggleCompositeField::create('FeatureTwo', _t('SiteTree.FeatureTwo', 'Feature Two'),
 			array(
-				new TextField('FeatureTwoTitle', _t('BaseHomePage.Title','Title')),
-				$dropdownField = new DropdownField(
+				TextField::create('FeatureTwoTitle', _t('BaseHomePage.Title','Title')),
+				$dropdownField = DropdownField::create(
 					'FeatureTwoCategory', 
 					_t('BaseHomePage.FeatureCategoryDropdown','Category icon'),
 					singleton('BaseHomePage')->dbObject('FeatureTwoCategory')->enumValues()
 				),
-				new TreeDropdownField(
+				TreeDropdownField::create(
 					'FeatureTwoLinkID', 
 					_t('BaseHomePage.FeatureLink','Page to link to'), 
 					'SiteTree'
 				),
-				new HTMLEditorField(
+				HTMLEditorField::create(
 					'FeatureTwoContent', 
 					_t('BaseHomePage.FeatureContentFieldLabel','Content')
 				),
-				new TextField(
+				TextField::create(
 					'FeatureTwoButtonText', 
 					_t('BaseHomePage.FeatureButtonText','Button text')
 				)

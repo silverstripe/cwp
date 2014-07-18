@@ -74,14 +74,14 @@ class Quicklink extends DataObject {
 
 		$fields->addFieldToTab('Root.Main',CompositeField::create(
 			array(
-				new TreeDropdownField(
+				TreeDropdownField::create(
 					'InternalLinkID', 
 					$this->fieldLabel('InternalLinkID'),
 					'SiteTree'
 				),
 				$externalLinkField,
-				$wrap = new CompositeField(
-					$extraLabel = new LiteralField(
+				$wrap = CompositeField::create(
+					$extraLabel = LiteralField::create(
 						'NoteOverride', 
 						_t('Quicklink.Note','<div class="message good notice">Note:  If you specify an External Link, the Internal Link will be ignored.</div>')
 					)
@@ -89,7 +89,7 @@ class Quicklink extends DataObject {
 			)
 		));
 		$fields->insertBefore(
-			new LiteralField(
+			LiteralField::create(
 				'Note', 
 				_t(
 					'Quicklink.Note2',

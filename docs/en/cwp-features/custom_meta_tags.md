@@ -20,8 +20,8 @@ To do this, define the fields that you'd like specified on your page type and ad
 			$fields = parent::getCMSFields();
 			
 			$metaField = $fields->fieldByName('Root.Main.Metadata');
-			$metaField->push(new TextareaField('MetaAuthor', 'Author'));
-			$metaField->push(new TextareaField('MetaCopyright', 'Copyright'));
+			$metaField->push(TextareaField::create('MetaAuthor', 'Author'));
+			$metaField->push(TextareaField::create('MetaCopyright', 'Copyright'));
 			
 			return $fields;
 		}

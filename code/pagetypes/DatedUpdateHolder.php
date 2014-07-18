@@ -413,9 +413,9 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 	
 	public function DateRangeForm() {
 		$fields = new FieldList(
-			$dateFrom = new DateField('from'),
-			$dateTo = new DateField('to'),
-			new HiddenField('tag')
+			$dateFrom = DateField::create('from'),
+			$dateTo = DateField::create('to'),
+			HiddenField::create('tag')
 		);
 		$dateFrom->setConfig('showcalendar', true);
 		$dateTo->setConfig('showcalendar', true);

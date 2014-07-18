@@ -131,7 +131,7 @@ class BasePage extends SiteTree {
 		);
 		$fields->addFieldToTab(
 			'Root.RelatedPages',
-			new GridField(
+			GridField::create(
 				'RelatedPages',
 				_t('BasePage.RelatedPages','Related pages'),
 				$this->RelatedPages(),
@@ -156,7 +156,7 @@ class BasePage extends SiteTree {
 		$fields->findOrMakeTab('Root.Tags', _t('BasePage.TagsTabTitle', 'Tags'));
 		$fields->addFieldToTab(
 			'Root.Tags',
-			new GridField(
+			GridField::create(
 				'Terms',
 				_t('BasePage.Terms','Terms'),
 				$this->Terms(),
@@ -343,7 +343,7 @@ class BasePage_Controller extends ContentController {
 		}
 
 		$fields = new FieldList(
-			new TextField('Search', false, $searchText)
+			TextField::create('Search', false, $searchText)
 		);
 		$actions = new FieldList(
 			new FormAction('results', _t('SearchForm.GO', 'Go'))

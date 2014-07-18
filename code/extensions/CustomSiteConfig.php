@@ -30,7 +30,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab(
 			'Root.Main', 
-			$gaCode = new TextField(
+			$gaCode = TextField::create(
 				'GACode', 
 				_t('CwpConfig.GaField','Google Analytics account')
 			)
@@ -46,7 +46,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab(
 			'Root.SocialMedia', 
-			$facebookURL = new TextField(
+			$facebookURL = TextField::create(
 				'FacebookURL', 
 				_t('CwpConfig.FbField','Facebook UID or username')
 			)
@@ -60,7 +60,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab(
 			'Root.SocialMedia', 
-			$twitterUsername = new TextField(
+			$twitterUsername = TextField::create(
 				'TwitterUsername', 
 				_t('CwpConfig.TwitterField','Twitter username')
 			)
@@ -71,7 +71,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab(
 			'Root.SocialMedia', 
-			$addThisID = new TextField(
+			$addThisID = TextField::create(
 				'AddThisProfileID', 
 				_t('CwpConfig.AddThisField','AddThis Profile ID')
 			)
@@ -87,7 +87,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab(
 			'Root.LogosIcons',
-			 $logoField = new UploadField(
+			 $logoField = UploadField::create(
 			 	'Logo', 
 			 	_t('CwpConfig.LogoUploadField','Logo, to appear in the top left')
 			 )
@@ -97,7 +97,7 @@ class CustomSiteConfig extends DataExtension {
 		
 		$fields->addFieldToTab(
 			'Root.LogosIcons',
-			 $logoRetinaField = new UploadField(
+			 $logoRetinaField = UploadField::create(
 			 	'LogoRetina', 
 			 	_t(
 			 		'CwpConfig.LogoRetinaUploadField',
@@ -110,7 +110,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab(
 			'Root.LogosIcons',
-			 $footerLogoField = new UploadField(
+			 $footerLogoField = UploadField::create(
 			 	'FooterLogo', 
 			 	_t('CwpConfig.FooterLogoField','Footer logo, to appear in the footer')
 			 )
@@ -120,7 +120,7 @@ class CustomSiteConfig extends DataExtension {
 		
 		$fields->addFieldToTab(
 			'Root.LogosIcons',
-			 $footerLogoRetinaField = new UploadField(
+			 $footerLogoRetinaField = UploadField::create(
 			 	'FooterLogoRetina', 
 			 	_t('CwpConfig.FooterLogoRetinaField','High resolution footer logo (recommended twice the height and width of the standard footer logo)')
 			 )
@@ -130,7 +130,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab(
 			'Root.LogosIcons',
-			 $footerLink = new TextField(
+			 $footerLink = TextField::create(
 			 	'FooterLogoLink', 
 			 	_t('CwpConfig.FooterLogoLinkField','Footer Logo link')
 			 )
@@ -141,7 +141,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab(
 			'Root.LogosIcons',
-			 new TextField(
+			 TextField::create(
 			 	'FooterLogoDescription', 
 			 	_t('CwpConfig.FooterLogoDescField','Footer Logo description')
 			 )
@@ -149,7 +149,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab(
 			'Root.LogosIcons',
-			 $favIconField = new UploadField(
+			 $favIconField = UploadField::create(
 			 	'FavIcon', 
 			 	_t('CwpConfig.FavIconField','Favicon, in .ico format, dimensions of 16x16, 32x32, or 48x48')
 			 )
@@ -159,7 +159,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab(
 			'Root.LogosIcons',
-			 $atIcon144 = new UploadField(
+			 $atIcon144 = UploadField::create(
 			 	'AppleTouchIcon144', 
 			 	_t('CwpConfig.AppleIconField144','Apple Touch Web Clip and Windows 8 Tile Icon (dimensions of 144x144, PNG format)')
 			 )
@@ -169,7 +169,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab(
 			'Root.LogosIcons',
-			 $atIcon114 = new UploadField(
+			 $atIcon114 = UploadField::create(
 			 	'AppleTouchIcon114', 
 			 	_t('CwpConfig.AppleIconField114','Apple Touch Web Clip Icon (dimensions of 114x114, PNG format)')
 			 )
@@ -179,7 +179,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab(
 			'Root.LogosIcons',
-			 $atIcon72 = new UploadField(
+			 $atIcon72 = UploadField::create(
 			 	'AppleTouchIcon72', 
 			 	_t('CwpConfig.AppleIconField72','Apple Touch Web Clip Icon (dimensions of 72x72, PNG format)')
 			 )
@@ -189,7 +189,7 @@ class CustomSiteConfig extends DataExtension {
 
 		$fields->addFieldToTab(
 			'Root.LogosIcons',
-			 $atIcon57 = new UploadField(
+			 $atIcon57 = UploadField::create(
 			 	'AppleTouchIcon57', 
 			 	_t('CwpConfig.AppleIconField57','Apple Touch Web Clip Icon (dimensions of 57x57, PNG format)')
 			 )

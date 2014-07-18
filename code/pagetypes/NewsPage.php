@@ -31,9 +31,9 @@ class NewsPage extends DatedUpdatePage {
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 
-		$fields->addFieldToTab('Root.Main', new TextField('Author', $this->fieldLabel('Author')), 'Abstract');
+		$fields->addFieldToTab('Root.Main', TextField::create('Author', $this->fieldLabel('Author')), 'Abstract');
 
-		$fields->addFieldToTab('Root.Main', new UploadField('FeaturedImage', $this->fieldLabel('FeaturedImageID')), 'Abstract');
+		$fields->addFieldToTab('Root.Main', UploadField::create('FeaturedImage', $this->fieldLabel('FeaturedImageID')), 'Abstract');
 
 		return $fields;
 	}

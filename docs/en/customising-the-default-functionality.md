@@ -57,7 +57,7 @@ and have it apply to *all* page types, then your code might look something like 
 		
 		public function getCMSFields() {
 			$fields = parent::getCMSFields();
-			$fields->addFieldToTab('Root.Main', $abstractField = new HtmlEditorField('Abstract'), 'Content');
+			$fields->addFieldToTab('Root.Main', $abstractField = HtmlEditorField::create('Abstract'), 'Content');
 			$abstractField->setRows(8); // limit the height of the editor
 			return $fields;
 		}
