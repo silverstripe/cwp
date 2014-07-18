@@ -53,12 +53,12 @@ class EventPage extends DatedUpdatePage {
 
 		$dateTimeFields = array();
 
-		$dateTimeFields[] = $dateField = new DateField('Date', '');
+		$dateTimeFields[] = $dateField = DateField::create('Date', '');
 		$dateField->setConfig('showcalendar', true);
 		$dateField->setConfig('dateformat', Member::currentUser()->getDateFormat());
 
-		$dateTimeFields[] = $startTimeField = new TimeField('StartTime', '&nbsp;&nbsp;' . $this->fieldLabel('StartTime'));
-		$dateTimeFields[] = $endTimeField = new TimeField('EndTime', $this->fieldLabel('EndTime'));
+		$dateTimeFields[] = $startTimeField = TimeField::create('StartTime', '&nbsp;&nbsp;' . $this->fieldLabel('StartTime'));
+		$dateTimeFields[] = $endTimeField = TimeField::create('EndTime', $this->fieldLabel('EndTime'));
 		// Would like to do this, but the width of the form field doesn't scale based on the time
 		// format. OS ticket raised: http://open.silverstripe.org/ticket/8260
 		//$startTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
@@ -68,7 +68,7 @@ class EventPage extends DatedUpdatePage {
 
 		$fields->addfieldToTab('Root.Main', $dateTimeField = new FieldGroup('Date and time', $dateTimeFields), 'Abstract');
 
-		$fields->addfieldToTab('Root.Main', $locationField = new TextareaField('Location', $this->fieldLabel('Location')), 'Abstract');
+		$fields->addfieldToTab('Root.Main', $locationField = TextareaField::create('Location', $this->fieldLabel('Location')), 'Abstract');
 		$locationField->setRows(4);
 
 		return $fields;

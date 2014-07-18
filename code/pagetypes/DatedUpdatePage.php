@@ -37,14 +37,14 @@ class DatedUpdatePage extends Page {
 
 		$fields->addFieldToTab(
 			'Root.Main', 
-			$dateTimeField = new DatetimeField('Date', $this->fieldLabel('Date')), 
+			$dateTimeField = DatetimeField::create('Date', $this->fieldLabel('Date')), 
 			'Content'
 		);
 		$dateTimeField->getDateField()->setConfig('showcalendar', true);
 
 		$fields->addfieldToTab(
 			'Root.Main', 
-			$abstractField = new TextareaField('Abstract', $this->fieldLabel('Abstract')), 
+			$abstractField = TextareaField::create('Abstract', $this->fieldLabel('Abstract')), 
 			'Content'
 		);
 		$abstractField->setAttribute('maxlength', '160');

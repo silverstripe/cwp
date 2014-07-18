@@ -31,12 +31,12 @@ class CarouselItem extends DataObject {
 		$fields = parent::getCMSFields();	
 		$fields->removeByName('Archived');
 
-		$fields->addFieldToTab('Root.Main', $group = new CompositeField(
-			$label = new LabelField(
+		$fields->addFieldToTab('Root.Main', $group = CompositeField::create(
+			$label = LabelField::create(
 				"LabelArchive",
 				_t('CwpCarousel.ArchivedField',"Archive this carousel item?")
 			),
-			new CheckboxField('Archived', '')
+			CheckboxField::create('Archived', '')
 		));
 
 		$group->addExtraClass("field special");
@@ -47,12 +47,12 @@ class CarouselItem extends DataObject {
 
 		$fields->replaceField(
 			'LinkID', 
-			new TreeDropdownField('LinkID', _t('CwpCarousel.LinkField', 'Link'), 'SiteTree')
+			TreeDropdownField::create('LinkID', _t('CwpCarousel.LinkField', 'Link'), 'SiteTree')
 		);
 
 		$fields->insertBefore(			
-		$wrap = new CompositeField(
-			$extraLabel = new LabelField(
+		$wrap = CompositeField::create(
+			$extraLabel = LabelField::create(
 				'Note', 
 				_t('CwpCarousel.NoteField', "Note: You will need to create the carousel item before you can add an image")
 			)
