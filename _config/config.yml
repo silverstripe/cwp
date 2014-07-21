@@ -8,3 +8,10 @@ SiteConfig:
 TaxonomyTerm:
   extensions:
    - TaxonomyTermExtension
+---
+Name: cwpuploadextensions
+Only:
+  moduleexists: 'selectupload'
+---
+Injector:
+  UploadField: SelectUploadField
