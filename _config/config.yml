@@ -15,3 +15,4 @@ Only:
 ---
 Injector:
   UploadField: SelectUploadField
+  Upload_Validator: CwpUpload_Validator
