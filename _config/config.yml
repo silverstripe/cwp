@@ -29,3 +29,11 @@ SpellController:
   locales:
     - en_NZ
     - mi_NZ
+---
+Name: cwpworkflowextensions
+Only:
+  moduleexists: 'advancedworkflow'
+---
+WorkflowDefinition:
+  extensions:
+    - CwpWorkflowDefinitionExtension
