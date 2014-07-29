@@ -10,8 +10,8 @@ class CwpUpload_Validator extends Upload_Validator {
 	public function isValidMime() {
 		$extension = pathinfo($this->tmpFile['name'], PATHINFO_EXTENSION);
 
-		// we can't check filenames without an extension, let them pass validation.
-		if(!$extension) return true;
+		// we can't check filenames without an extension or no temp file path, let them pass validation.
+		if(!$extension || !$this->tmpFile['tmp_name']) return true;
 
 		// if the finfo php extension isn't loaded, we can't complete this check.
 		if(!class_exists('finfo')) {
