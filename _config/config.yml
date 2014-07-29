@@ -8,6 +8,9 @@ SiteConfig:
 TaxonomyTerm:
   extensions:
    - TaxonomyTermExtension
+Injector:
+  Upload_Validator:
+    class: CwpUpload_Validator
 ---
 Name: cwpuploadextensions
 Only:
@@ -15,4 +18,3 @@ Only:
 ---
 Injector:
   UploadField: SelectUploadField
-  Upload_Validator: CwpUpload_Validator
