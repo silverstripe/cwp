@@ -19,7 +19,7 @@ class CarouselItem extends DataObject {
 		'Title' => 'Title',
 		'Caption' => 'Text',
 		'Link.Title' => 'Link',
-		'ArchivedReadable' => 'Current Status' 		
+		'ArchivedReadable' => 'Current Status'
 	);
 
 	private static $searchable_fields = array(
@@ -28,37 +28,30 @@ class CarouselItem extends DataObject {
 	);
 
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();	
-		$fields->removeByName('Archived');
+		$fields = new FieldList(
+			// Set title
+			TextField::create('Title', 'Title', null, 255),
 
-		$fields->addFieldToTab('Root.Main', $group = CompositeField::create(
-			$label = LabelField::create(
-				"LabelArchive",
-				_t('CwpCarousel.ArchivedField',"Archive this carousel item?")
-			),
-			CheckboxField::create('Archived', '')
-		));
+			// Caption
+			TextareaField::create('Caption', 'Caption'),
 
-		$group->addExtraClass("field special");
-		$label->addExtraClass("left");
+			// Image
+			UploadField::create('Image', 'Image')
+				->setAllowedFileCategories('image'),
 
-		$fields->removeByName('ParentID');
-		$fields->removeByName('SortOrder');
+			// Linked page id
+			TreeDropdownField::create('LinkID', _t('CwpCarousel.LinkField', 'Link'), 'SiteTree'),
 
-		$fields->replaceField(
-			'LinkID', 
-			TreeDropdownField::create('LinkID', _t('CwpCarousel.LinkField', 'Link'), 'SiteTree')
+			// Can archive option
+			CompositeField::create(
+				LabelField::create(
+					"LabelArchive",
+					_t('CwpCarousel.ArchivedField',"Archive this carousel item?")
+				)->addExtraClass("left"),
+				CheckboxField::create('Archived', '')
+			)->addExtraClass("field special")
 		);
-
-		$fields->insertBefore(			
-		$wrap = CompositeField::create(
-			$extraLabel = LabelField::create(
-				'Note', 
-				_t('CwpCarousel.NoteField', "Note: You will need to create the carousel item before you can add an image")
-			)
-		), 'Image');
-
-		$wrap->addExtraClass('alignExtraLabel');
+		$this->extend('updateCMSFields', $fields);
 
 		return $fields;
 	}
@@ -79,8 +72,8 @@ class CarouselItem extends DataObject {
 		return $this->Parent()->canView($member);
 	}
 
-	public function ImageThumb(){ 
-	   return $this->Image()->SetWidth(50); 
+	public function ImageThumb(){
+	   return $this->Image()->SetWidth(50);
 	}
 
 	public function ArchivedReadable(){
