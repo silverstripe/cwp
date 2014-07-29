@@ -34,6 +34,8 @@ tasks and ways of implementing them.
  * [Adding a calendar](how-tos/adding-a-calendar): How to add a calendar to show events in a custom way.
  * [Custom embeds](how-tos/custom_embeds-in-the-WYSIWYG-editor): Adding custom embeds in the WYSIWYG editor.
  * [Export content](how-tos/exporting_content): How to use the RESTful server to export content.
+ * [Adding an allowed extension for file upload](how-tos/adding-an-allowed-extension): Register a new allowed file extension
+ to be uploaded.
 
 ## Contributing
 
