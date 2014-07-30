@@ -25,7 +25,9 @@ will have extra checks to ensure the file content matches the uploaded extension
 To find the MIME type of the file, first locate an example of an `.sspak` file, and run the following command line
 utility to get the MIME type:
 
-	file -I /path/to/my/file.sspak
+	file -i /path/to/my/file.sspak
+
+Note: OS X requires the argument `-i` in the above example to be `-I` instead.
 
 The output will be something like this:
 
