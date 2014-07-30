@@ -76,6 +76,13 @@ Individual extensions may be removed using this code in your `mysite/_config.php
 	Config::inst()->remove('File', 'allowed_extensions'); // Prevents config from merging the old array
 	Config::inst()->update('File', 'allowed_extensions', $extensions);
 
+Uploaded files have their extension checked against known MIME types in the `HTTP.MimeTypes` config setting.
+This basically means the file contents are checked to ensure the extension matches. For example, if you rename an image
+`test.jpg` to `test.txt` and attempt to upload it, the file will be rejected.
+
+Please see [technical docs for adding extensions](how-tos/adding-an-allowed-extension) for more information on
+allowing new file extensions and MIME types.
+
 ### Front-end authentication
 
 If it's necessary to require secure authentication to certain areas of the front end (such as
