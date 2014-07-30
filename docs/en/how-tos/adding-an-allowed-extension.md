@@ -31,7 +31,7 @@ The output will be something like this:
 
 	file.sspak: application/x-tar; charset=binary
 
-You'll want the `application/x-tar` part in the output. Given that, once again open `mysite/_config/_config.yml`
+You'll want the `application/x-tar` part in the output. Given that, once again open `mysite/_config/config.yml`
 and add the following to register the new MIME type:
 
 	HTTP:
