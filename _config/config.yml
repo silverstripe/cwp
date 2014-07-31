@@ -18,3 +18,14 @@ Only:
 ---
 Injector:
   UploadField: SelectUploadField
+---
+Name: cwpspellcheck
+Only:
+  moduleexists: 'spellcheck'
+---
+SpellRequestFilter:
+  editor: 'cwp'
+SpellController:
+  locales:
+    - en_NZ
+    - mi_NZ
