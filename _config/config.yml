@@ -8,9 +8,14 @@ SiteConfig:
 TaxonomyTerm:
   extensions:
    - TaxonomyTermExtension
+---
+Name: mimeuploadvalidator
+Only:
+  moduleexists: 'mimevalidator'
+---
 Injector:
   Upload_Validator:
-    class: CwpUpload_Validator
+    class: MimeUploadValidator
 ---
 Name: cwpuploadextensions
 Only:
