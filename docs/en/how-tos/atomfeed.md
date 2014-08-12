@@ -16,6 +16,9 @@ and replace the RSSFeed class with the CwpAtomFeed class.
 The default template used is located at cwp-core/templates/AtomFeed.ss
 The template for news items is located at themes/default/templates/NewsHolder_atom.ss
 The template for search results is located at themes/default/templates/Page_results_atom.ss
+The template for printing and subscribing to feeds is located at themes/default/templates/Includes/PrintShare.ss
+you may want to modify this template to replace the default RSS feed subscribe link for the Atom feed link by replacing
+RSSLink with AtomLink.
 
 ## Related
 
