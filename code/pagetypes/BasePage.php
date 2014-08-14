@@ -170,11 +170,11 @@ class BasePage extends SiteTree {
 	/**
 	 * Provides data for translation navigation.
 	 * Collects all site translations, marks the current one, and redirects
-	 * to the translated home page if a. there is a translated homepage and b. the 
+	 * to the translated home page if a. there is a translated homepage and b. the
 	 * translation of the specific page is not available.
 	 */
 	function getAvailableTranslations() {
-		
+
 		if(!class_exists('Translatable')){
 			return false;
 		}
@@ -403,16 +403,14 @@ class BasePage_Controller extends ContentController {
 			if(!$result->canView()) $results->remove($result);
 		}
 
-		$rssUrl = Controller::join_links(
-			$this->Link('SearchForm'),
-			'?Search=' . rawurlencode($keywords) . '&format=rss'
-		);
+		// Generate links
+		$searchURL = Director::absoluteURL(Controller::join_links(
+			Director::baseURL(),
+			'search/SearchForm?Search='.rawurlencode($keywords)
+		));
+		$rssUrl = Controller::join_links($searchURL, '?format=rss');
 		RSSFeed::linkToFeed($rssUrl, 'Search results for "' . $keywords . '"');
-
-		$atomUrl = Controller::join_links(
-			$this->Link('SearchForm'),
-			'?Search=' . rawurlencode($keywords) . '&format=atom'
-		);
+		$atomUrl = Controller::join_links($searchURL, '?format=atom');
 		CwpAtomFeed::linkToFeed($atomUrl, 'Search results for "' . $keywords . '"');
 
 		$data = array(
@@ -420,6 +418,7 @@ class BasePage_Controller extends ContentController {
 			'Results' => $results,
 			'Suggestion' => DBField::create_field('Text', $suggestion),
 			'Query' => DBField::create_field('Text', $keywords),
+			'SearchLink' => DBField::create_field('Text', $searchURL),
 			'Title' => _t('SearchForm.SearchResults', 'Search Results'),
 			'RSSLink' => DBField::create_field('Text', $rssUrl),
 			'AtomLink' => DBField::create_field('Text', $atomUrl)
