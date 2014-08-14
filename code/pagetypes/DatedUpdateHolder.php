@@ -181,6 +181,10 @@ class DatedUpdateHolder extends Page {
 		return $this->Link('rss');
 	}
 
+	public function getDefaultAtomLink() {
+		return $this->Link('atom');
+	}
+
 	public function getSubscriptionTitle() {
 		return $this->Title;
 	}
@@ -316,8 +320,8 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 		if (isset($from) && !isset($to)) {
 			if ($produceErrorMessages) {
 				Session::setFormMessage(
-					'Form_DateRangeForm', 
-					_t('DateUpdateHolder.DateRangeFilterMessage','Filtered by a single date.'), 
+					'Form_DateRangeForm',
+					_t('DateUpdateHolder.DateRangeFilterMessage','Filtered by a single date.'),
 					'warning'
 				);
 			}
@@ -411,7 +415,7 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 		$list->setPageLength($pageSize);
 		return $list;
 	}
-	
+
 	public function DateRangeForm() {
 		$fields = new FieldList(
 			$dateFrom = DateField::create('from'),
@@ -460,14 +464,18 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 	}
 
 	public function rss() {
-		$rss = new RSSFeed($this->Updates()->sort('Created DESC')->limit(20), $this->Link(), $this->getSubscriptionTitle());
+		$rss = new RSSFeed(
+			$this->Updates()->sort('Created DESC')->limit(20),
+			$this->Link('rss'),
+			$this->getSubscriptionTitle()
+		);
 		return $rss->outputToBrowser();
 	}
 
 	public function atom() {
 		$atom = new CwpAtomFeed(
 			$this->Updates()->sort('Created DESC')->limit(20),
-			$link = $this->Link(),
+			$this->Link('atom'),
 			$this->getSubscriptionTitle()
 		);
 		return $atom->outputToBrowser();

@@ -1,7 +1,7 @@
 <?php
 
 class NewsHolder extends DatedUpdateHolder {
-	
+
 	private static $description = 'Container page for News Pages, provides news filtering and pagination';
 
 	private static $allowed_children = array('NewsPage');
@@ -44,16 +44,20 @@ class NewsHolder_Controller extends DatedUpdateHolder_Controller {
 	);
 
 	public function rss() {
-		$rss = new RSSFeed($this->Updates()->sort('Created DESC')->limit(20), $this->Link(), $this->getSubscriptionTitle());
+		$rss = new RSSFeed(
+			$this->Updates()->sort('Created DESC')->limit(20),
+			$this->Link('rss'),
+			$this->getSubscriptionTitle()
+		);
 		$rss->setTemplate('NewsHolder_rss');
 		return $rss->outputToBrowser();
 	}
 
 	public function atom() {
 		$atom = new CwpAtomFeed(
-			$list = $this->Updates()->sort('Created DESC')->limit(20),
-			$link = $this->Link(),
-			$title = $this->getSubscriptionTitle()
+			$this->Updates()->sort('Created DESC')->limit(20),
+			$this->Link('atom'),
+			$this->getSubscriptionTitle()
 		);
 		$atom->setTemplate('NewsHolder_atom');
 		return $atom->outputToBrowser();
