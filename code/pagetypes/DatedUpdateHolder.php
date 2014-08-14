@@ -203,6 +203,7 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 
 	private static $allowed_actions = array(
 		'rss',
+		'atom',
 		'DateRangeForm'
 	);
 
@@ -461,6 +462,15 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 	public function rss() {
 		$rss = new RSSFeed($this->Updates()->sort('Created DESC')->limit(20), $this->Link(), $this->getSubscriptionTitle());
 		return $rss->outputToBrowser();
+	}
+
+	public function atom() {
+		$atom = new CwpAtomFeed(
+			$this->Updates()->sort('Created DESC')->limit(20),
+			$link = $this->Link(),
+			$this->getSubscriptionTitle()
+		);
+		return $atom->outputToBrowser();
 	}
 }
 

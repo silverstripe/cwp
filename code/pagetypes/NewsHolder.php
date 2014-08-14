@@ -39,12 +39,23 @@ class NewsHolder extends DatedUpdateHolder {
 
 class NewsHolder_Controller extends DatedUpdateHolder_Controller {
 	private static $allowed_actions = array(
-		'rss'
+		'rss',
+		'atom'
 	);
 
 	public function rss() {
 		$rss = new RSSFeed($this->Updates()->sort('Created DESC')->limit(20), $this->Link(), $this->getSubscriptionTitle());
 		$rss->setTemplate('NewsHolder_rss');
 		return $rss->outputToBrowser();
+	}
+
+	public function atom() {
+		$atom = new CwpAtomFeed(
+			$list = $this->Updates()->sort('Created DESC')->limit(20),
+			$link = $this->Link(),
+			$title = $this->getSubscriptionTitle()
+		);
+		$atom->setTemplate('NewsHolder_atom');
+		return $atom->outputToBrowser();
 	}
 }

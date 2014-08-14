@@ -409,18 +409,28 @@ class BasePage_Controller extends ContentController {
 		);
 		RSSFeed::linkToFeed($rssUrl, 'Search results for "' . $keywords . '"');
 
+		$atomUrl = Controller::join_links(
+			$this->Link('SearchForm'),
+			'?Search=' . rawurlencode($keywords) . '&format=atom'
+		);
+		CwpAtomFeed::linkToFeed($atomUrl, 'Search results for "' . $keywords . '"');
+
 		$data = array(
 			'PdfLink' => '',
 			'Results' => $results,
 			'Suggestion' => DBField::create_field('Text', $suggestion),
 			'Query' => DBField::create_field('Text', $keywords),
 			'Title' => _t('SearchForm.SearchResults', 'Search Results'),
-			'RSSLink' => DBField::create_field('Text', $rssUrl)
+			'RSSLink' => DBField::create_field('Text', $rssUrl),
+			'AtomLink' => DBField::create_field('Text', $atomUrl)
 		);
 
 		$templates = array('Page_results', 'Page');
 		if ($request->getVar('format') == 'rss') {
 			array_unshift($templates, 'Page_results_rss');
+		}
+		if ($request->getVar('format') == 'atom') {
+			array_unshift($templates, 'Page_results_atom');
 		}
 
 		return $this->owner->customise($data)->renderWith($templates);
