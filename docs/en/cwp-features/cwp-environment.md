@@ -16,17 +16,23 @@ are set by default.
 |SS_DATABASE_PASSWORD|-|
 |SS_DEFAULT_ADMIN_USERNAME|-|
 |SS_DEFAULT_ADMIN_PASSWORD|-|
-|$_FILE_TO_URL_MAPPING|"http://<instance-id>.cwp.govt.nz"|
+|$_FILE_TO_URL_MAPPING|"http://INSTANCEID-ENV.cwp.govt.nz"|
 
 The following additional constants and globals are also configured.
 
 |Constant/Global|Description|Guaranteed value|
 |-|-|-|
-|SS_STATIC_BASE_URL|Base URL for use by the static publisher (with trailing slash)|"http://<instance-id>.cwp.govt.nz/"|
-|SS_OUTBOUND_PROXY|Proxy hostname to use for outbound HTTP(S) requests|-|
-|SS_OUTBOUND_PROXY_PORT|Proxy port|-|
 |CWP_ENVIRONMENT|CWP Environment|"prod", "uat", or "test"|
-|CWP_SECURE_DOMAIN|Domain to use for CMS redirects, must have SSL certificate installed.|"<instance-id>.cwp.govt.nz"|
+|CWP_INSTANCE_DR_TYPE|DR type this instance is configured for|"backup", "passive", or "active"|
+|CWP_URANDOM_TOKEN_1|Random 24-character alphanumeric (A-Z, a-z, 0-9) token, free for your custom use|-|
+|CWP_URANDOM_TOKEN_2|As above, 2nd token|-|
+|CWP_URANDOM_TOKEN_3|As above, 3rd token|-|
+|SS_STATIC_BASE_URL|Base URL for use with the static publisher (includes trailing slash)|"http://INSTANCEID-ENV.cwp.govt.nz/"|
+|SS_OUTBOUND_PROXY|Proxy domain to use for outbound HTTP(S) requests|-|
+|SS_OUTBOUND_PROXY_PORT|Proxy port|-|
+|CWP_SECURE_DOMAIN|Default domain used for secure redirects, used by the recipe|-|
+|CWP_IP_BYPASS_BASICAUTH|Originating internal IPs allowed to bypass the BasicAuth, used by the recipe on uat and test|-|
+|SS_SESSION_KEY|Secret key used by hybrid session module|-|
 |DOCVERT_USERNAME|Document converter configuration|-|
 |DOCVERT_URL|Document converter configuration|-|
 |DOCVERT_PASSWORD|Document converter configuration|-|
@@ -36,7 +42,3 @@ The following additional constants and globals are also configured.
 |SOLR_PATH|Solr configuration|-|
 |SOLR_REMOTEPATH|Solr configuration|-|
 |SOLR_INDEXSTORE_PATH|Solr configuration|-|
-|SS_SESSION_KEY|Secret key used for hybrid sessions|-|
-|CWP_URANDOM_TOKEN_1|1st random 24-character alphanumeric (A-Z, a-z, 0-9) token for your custom use|-|
-|CWP_URANDOM_TOKEN_2|As above, 2nd token|-|
-|CWP_URANDOM_TOKEN_3|As above, 3rd token|-|
