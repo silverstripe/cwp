@@ -31,26 +31,24 @@ Please see the changelogs for these following releases for the list of core chan
 ### Bugfixes
 
  * [CWPBUG-123] - TreeMultiSelectField reports console error in advancedworkflow
- * [CWPBUG-163] - Filtering - different results in tree and filter view
+ * [CWPBUG-163]/[PLAT-106] - Page filtering - different results in tree and filter view
  * [CWPBUG-165] - Addition of "Delete Workflow" CMS Permission for advancedworkflow module
  * [CWPBUG-166] - Users unable to select GridField "edit" icon in advancedworkflow module
  * [CWPBUG-167] - Draft content entered into a workflow does not show in "Pending Items" in advancedworkflow module
  * [CWPBUG-168] - Cannot change embargo date when one is already scheduled in advancedworkflow module
  * [CWPBUG-172] - tinymce config in cwp-core allows `<img>` with onmouseover attribute
- * [CWPBUG-175] - silverstripe-versionedfiles on gitlab.cwp.govt.nz confuses people
  * [CWPBUG-176] - Security: XSS vulnerability in Iframe page
  * [CWPBUG-177] - Ensure that past dates for embargo / expiry are handled elegantly (advanced workflow)
  * [CWPBUG-178] - Page filters are not working as expected
  * [CWPBUG-179] - Security: XSS can be injected in the group edit view (subsites)
- * [CWPBUG-180] - Changing to a more granular permission model (advanced workflow)
  * [PLAT-104] - Embargo dates have issues if they pass while workflow is still being actioned
- * [PLAT-106] - Filtering - different results in tree and filter view
  * [PLAT-128] - Publish time - Not able to choose "Now"
- * [PLAT-138] - Folder-subsite permission not used in Subsites
+ * [PLAT-138] - Removal of redundant Folder-subsite permission not used in Subsites
 
 #### Features and documentation
 
- * [CWPBUG-159] - Report number of CMS pages
+ * [CWPBUG-159] - Additional CMS report for number of CMS pages
+ * [CWPBUG-180] - Changing to a more granular permission model (advanced workflow)
  * [PLAT-53] - CMS content editors can see the most recently used folder again for subsequent uploads.
  * [PLAT-59] - CMS content reviewers can see when external links are broken
  * [PLAT-60] - Userform editors can choose where file uploads in a userform go
