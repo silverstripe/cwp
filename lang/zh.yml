@@ -7,7 +7,6 @@ zh:
     FeatureContentFieldLabel: 内容
     FeatureLink: '跳转目标页'
     LearnMoreLink: '链接到“了解详情”按钮的页面：'
-    PLURALNAME: '基本页面'
     SINGULARNAME: '基本首页'
     Title: 标题
   BasePage:
@@ -70,7 +69,6 @@ zh:
     SINGULARNAME: '日期更新持有者'
   DatedUpdatePage:
     DESCRIPTION: '通用内容页面'
-    PLURALNAME: '基页'
     SINGULARNAME: '日期更新页面'
   EventHolder:
     DESCRIPTION: '事件页面的容器页面，提供事件筛选与分页导航'
@@ -79,7 +77,6 @@ zh:
     Upcoming: '后续事件'
   EventPage:
     DESCRIPTION: '描述特定日期发生的事件'
-    PLURALNAME: '基本页面'
     SINGULARNAME: '活动页面'
   FooterHolder:
     DESCRIPTION: '举办者页面将所有子页面显示为页脚的链接'
@@ -94,7 +91,6 @@ zh:
     SINGULARNAME: '新举办者'
   NewsPage:
     DESCRIPTION: '描述一则新闻'
-    PLURALNAME: '基本页面'
     SINGULARNAME: '新闻页面'
   Quicklink:
     ExternalLinkLabel: '外部链接'
@@ -117,5 +113,4 @@ zh:
     SINGULARNAME: 页面
   SitemapPage:
     DESCRIPTION: '列出站点上的所有页面'
-    PLURALNAME: '基本页面'
     SINGULARNAME: '站点地图页面'

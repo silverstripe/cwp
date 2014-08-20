@@ -7,7 +7,6 @@ mi:
     FeatureContentFieldLabel: Ngā ihirangi
     FeatureLink: 'Whārangi hono ki'
     LearnMoreLink: 'Whārangi hono i te pātene "Ako Anō" ki:'
-    PLURALNAME: 'Ngā Whārangi Taketake'
     SINGULARNAME: 'Whārangi Kāinga Taketake'
     Title: Taitara
   BasePage:
@@ -64,7 +63,6 @@ mi:
     SINGULARNAME: 'Pūpupuri Whakahōu Whai Rā'
   DatedUpdatePage:
     DESCRIPTION: 'Whārangi ihirangi ahuwhānui'
-    PLURALNAME: 'Ngā Whārangi Taketake'
     SINGULARNAME: 'Whārangi Whakahōu Whai Rā'
   EventHolder:
     DESCRIPTION: 'Whārangi ipu mō ngā Whārangi Takahanga, ka whakarato tātaringa takahanga me te whakawhārangitanga'
@@ -73,7 +71,6 @@ mi:
     Upcoming: 'Ngā takahanga taumai'
   EventPage:
     DESCRIPTION: 'Ka whakaahua i tētahi takahanga i tētahi rā tauwhāiti.'
-    PLURALNAME: 'Ngā Whārangi Taketake'
     SINGULARNAME: 'Whārangi Takahanga'
   FooterHolder:
     DESCRIPTION: 'Whārangi pupuri ka whakaatu i ngā whārangi tamariki katoa hei hononga i te hiku'
@@ -88,7 +85,6 @@ mi:
     SINGULARNAME: 'Pūpupuri Rongokōrero'
   NewsPage:
     DESCRIPTION: 'Ka whakaatu i tētahi tuemi rongokōrero'
-    PLURALNAME: 'Ngā Whārangi Taketake'
     SINGULARNAME: 'Whārangi Rongokōrero'
   Quicklink:
     ExternalLinkLabel: 'Hono ā-Waho'
@@ -111,5 +107,4 @@ mi:
     SINGULARNAME: Whārangi
   SitemapPage:
     DESCRIPTION: 'Ka whakarārangi i ngā whārangi katoa i te pae'
-    PLURALNAME: 'Ngā Whārangi Taketake'
     SINGULARNAME: 'Whārangi Maherepae'

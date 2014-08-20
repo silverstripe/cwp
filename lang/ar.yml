@@ -7,7 +7,6 @@ ar:
     FeatureContentFieldLabel: المحتوى
     FeatureLink: 'صفحة للربط ب'
     LearnMoreLink: 'صفحة لربط زر "تعرف على المزيد" ب:'
-    PLURALNAME: 'الصفحات الرئيسية'
     SINGULARNAME: 'صفحة البداية الرئيسية'
     Title: عنوان
   BasePage:
@@ -70,7 +69,6 @@ ar:
     SINGULARNAME: 'حامل التحديث المحدد بموعد'
   DatedUpdatePage:
     DESCRIPTION: 'صفحة المحتوى العام'
-    PLURALNAME: 'الصفحات الرئيسية'
     SINGULARNAME: 'صفحة التحديث المحددة بموعد'
   EventHolder:
     DESCRIPTION: 'صفحة حاوية لصفحات الأحداث, توفر تصفية للأحداث و ترقيم الصفحات'
@@ -79,7 +77,6 @@ ar:
     Upcoming: 'الأحداث القادمة'
   EventPage:
     DESCRIPTION: 'يقوم بوصف حدث يحدث فى ميعاد محدد.'
-    PLURALNAME: 'الصفحات الرئيسية'
     SINGULARNAME: 'صفحة الأحداث'
   FooterHolder:
     DESCRIPTION: 'صفحة صاحب التسجيل التى تعرض كل صفحات الأطفال تعتبر روابط فى صفحة التذييل'
@@ -94,7 +91,6 @@ ar:
     SINGULARNAME: 'صاحب صفحة الأخبار'
   NewsPage:
     DESCRIPTION: 'يقوم بوصف عنصر من عناصر الأخبار'
-    PLURALNAME: 'الصفحات الرئيسية'
     SINGULARNAME: 'صفحة الأخبار'
   Quicklink:
     ExternalLinkLabel: 'رابط خارجي'
@@ -117,5 +113,4 @@ ar:
     SINGULARNAME: صفحة
   SitemapPage:
     DESCRIPTION: 'يقوم بعمل قوائم لجميع الصفحات فى الموقع'
-    PLURALNAME: 'الصفحات الرئيسية'
     SINGULARNAME: 'صفحة خريطة الموقع'
