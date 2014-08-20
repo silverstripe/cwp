@@ -1,20 +1,30 @@
 mi:
   BaseHomePage:
     AddNewButton: 'Tāpiri Hou'
+    DESCRIPTION: 'Whārangi ihirangi whānui'
     FeatureButtonText: 'Kuputuhi pātene'
     FeatureCategoryDropdown: 'Ata kāwai'
     FeatureContentFieldLabel: Ngā ihirangi
     FeatureLink: 'Whārangi hono ki'
     LearnMoreLink: 'Whārangi hono i te pātene "Ako Anō" ki:'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    SINGULARNAME: 'Whārangi Kāinga Taketake'
     Title: Taitara
   BasePage:
+    DESCRIPTION: 'Whārangi ihirangi whānui'
+    PLURALNAME: 'Ngā Whārangi Taketake'
     RelatedPages: 'Ngā whārangi pāhono'
+    SINGULARNAME: 'Whārangi Taketake'
     Taxonomy: Pūnaha Whakarōpū
     Term: Ture
     Terms: Ngā Ture
+  CarouselItem:
+    PLURALNAME: 'Ngā tuemi takawhawhe'
+    SINGULARNAME: 'Tuemi Takawhawhe'
   CwpCarousel:
     ArchivedField: 'Me pūranga tēnei tuemi takawhawhe?'
     LinkField: Hono
+    NoteField: 'Tuhipoka: Me hanga e koe te tuemi takawhawhe i mua i te tāpiri atahanga'
   CwpConfig:
     AddThisField: 'TāpiriTēneiTTKōtaha'
     AddThisFieldDesc: 'Me whakamahi i te TT kōtaha puta noa i te pae (ki te hōputu <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
@@ -48,18 +58,47 @@ mi:
     FeaturedImageFieldLabel: 'Atahanga Kua Whakaaturia'
     LocationFieldLabel: Tauwāhi
     StartTimeFieldLabel: 'Wā Tīmata'
+  DatedUpdateHolder:
+    DESCRIPTION: 'Whārangi ihirangi whānui'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    SINGULARNAME: 'Pūpupuri Whakahōu Whai Rā'
+  DatedUpdatePage:
+    DESCRIPTION: 'Whārangi ihirangi ahuwhānui'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    SINGULARNAME: 'Whārangi Whakahōu Whai Rā'
   EventHolder:
+    DESCRIPTION: 'Whārangi ipu mō ngā Whārangi Takahanga, ka whakarato tātaringa takahanga me te whakawhārangitanga'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    SINGULARNAME: 'Pūpupuri Takahanga'
     Upcoming: 'Ngā takahanga taumai'
+  EventPage:
+    DESCRIPTION: 'Ka whakaahua i tētahi takahanga i tētahi rā tauwhāiti.'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    SINGULARNAME: 'Whārangi Takahanga'
+  FooterHolder:
+    DESCRIPTION: 'Whārangi pupuri ka whakaatu i ngā whārangi tamariki katoa hei hononga i te hiku'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    SINGULARNAME: 'Pūpupuri Hiku'
   GridField:
     Archived: I putumōhiotia
     Live: Wā Tūturu
+  NewsHolder:
+    DESCRIPTION: 'Whārangi ipu mō ngā Whārangi Rongokōrero, ka whakarato tātaringa rongokōrero me te whakawhārangitanga'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    SINGULARNAME: 'Pūpupuri Rongokōrero'
+  NewsPage:
+    DESCRIPTION: 'Ka whakaatu i tētahi tuemi rongokōrero'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    SINGULARNAME: 'Whārangi Rongokōrero'
   Quicklink:
     ExternalLinkLabel: 'Hono ā-Waho'
     InternalLinkLabel: 'Hono ā-Roto'
     NameLabel: Ingoa
     Note: '<div class="message good notice">Tuhipoka:  Mēnā ka whakarite koe i tētahi Hono ā-Waho, ka waiho te Hono ā-Roto.</div>'
     Note2: '<p>Whakamahia tēnei hei whakarite i tētahi hono ki tētahi whārangi i tēnei pae (Hono ā-Roto), i tētahi atu pae (Hono ā-Waho).</p>'
+    PLURALNAME: Ngā Honotere
     ParentRelationLabel: Matua
+    SINGULARNAME: Honotere
     SortOrderLabel: 'Raupapa Kōmaka'
   SearchForm:
     GO: Haere
@@ -68,3 +107,9 @@ mi:
   SiteTree:
     FeatureOne: 'Whakaaturanga Tuatahi'
     FeatureTwo: 'Whakaaturanga Tuarua'
+    PLURALNAME: Ngā Whārangi
+    SINGULARNAME: Whārangi
+  SitemapPage:
+    DESCRIPTION: 'Ka whakarārangi i ngā whārangi katoa i te pae'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    SINGULARNAME: 'Whārangi Maherepae'

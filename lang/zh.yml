@@ -1,26 +1,36 @@
 zh:
   BaseHomePage:
     AddNewButton: '新增'
+    DESCRIPTION: '通用内容页面'
     FeatureButtonText: '按钮文字'
     FeatureCategoryDropdown: '类别图标'
     FeatureContentFieldLabel: 内容
     FeatureLink: '跳转目标页'
     LearnMoreLink: '链接到“了解详情”按钮的页面：'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '基本首页'
     Title: 标题
   BasePage:
     ColumnPageType: '页面类型'
     ColumnTitle: 题目
+    DESCRIPTION: '通用内容页面'
+    PLURALNAME: '基本页面'
     RelatedPages: '相关页面'
+    SINGULARNAME: '基本页面'
     TagsTabTitle: 标签
     Taxonomy: 分类法
     Term: 条款
     Terms: 条款
+  CarouselItem:
+    PLURALNAME: '旋转项'
+    SINGULARNAME: '旋转项'
   CustomSiteConfig:
     LogosIconsTab: 商标/ 图标
     SocialMediaTab: '社会媒体'
   CwpCarousel:
     ArchivedField: '归档该旋转项？'
     LinkField: 链接
+    NoteField: '注意：在添加图片前您需要创建旋转项'
   CwpConfig:
     AddThisField: 'AddThis 配置文件 ID'
     AddThisFieldDesc: '配置文件 ID 将被用于整个网站的访问（格式为 <strong>ra-XXXXXXXXXXXXXXXX</strong>）'
@@ -54,18 +64,47 @@ zh:
     FeaturedImageFieldLabel: '特色图片'
     LocationFieldLabel: 位置
     StartTimeFieldLabel: '开始时间'
+  DatedUpdateHolder:
+    DESCRIPTION: '通用内容页面'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '日期更新持有者'
+  DatedUpdatePage:
+    DESCRIPTION: '通用内容页面'
+    PLURALNAME: '基页'
+    SINGULARNAME: '日期更新页面'
   EventHolder:
+    DESCRIPTION: '事件页面的容器页面，提供事件筛选与分页导航'
+    PLURALNAME: '基页'
+    SINGULARNAME: '事件举办者'
     Upcoming: '后续事件'
+  EventPage:
+    DESCRIPTION: '描述特定日期发生的事件'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '活动页面'
+  FooterHolder:
+    DESCRIPTION: '举办者页面将所有子页面显示为页脚的链接'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '脚注持有者'
   GridField:
     Archived: 已存档
     Live: 现场
+  NewsHolder:
+    DESCRIPTION: '新闻页面的容器页面，提供新闻筛选与分页导航'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '新举办者'
+  NewsPage:
+    DESCRIPTION: '描述一则新闻'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '新闻页面'
   Quicklink:
     ExternalLinkLabel: '外部链接'
     InternalLinkLabel: '内部链接'
     NameLabel: 姓名
     Note: '<div class="message good notice">请注意：如果您指定一个外部链接，内部链接将被忽略。</div>'
     Note2: '<p>使用该选项指定到页面或网站（内部链接）或其他网站（外部链接）的链接。</p>'
+    PLURALNAME: 快速链接
     ParentRelationLabel: 父
+    SINGULARNAME: 快速链接
     SortOrderLabel: '排序顺序'
   SearchForm:
     GO: 转到
@@ -74,3 +113,9 @@ zh:
   SiteTree:
     FeatureOne: '特色一'
     FeatureTwo: '特色二'
+    PLURALNAME: 页面
+    SINGULARNAME: 页面
+  SitemapPage:
+    DESCRIPTION: '列出站点上的所有页面'
+    PLURALNAME: '基本页面'
+    SINGULARNAME: '站点地图页面'

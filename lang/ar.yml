@@ -1,26 +1,36 @@
 ar:
   BaseHomePage:
     AddNewButton: 'أضف جديد'
+    DESCRIPTION: 'صفحة المحتوى العام'
     FeatureButtonText: 'نص الزر'
     FeatureCategoryDropdown: 'أيقونة الفئة'
     FeatureContentFieldLabel: المحتوى
     FeatureLink: 'صفحة للربط ب'
     LearnMoreLink: 'صفحة لربط زر "تعرف على المزيد" ب:'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صفحة البداية الرئيسية'
     Title: عنوان
   BasePage:
     ColumnPageType: 'نوع الصفحة'
     ColumnTitle: عنوان
+    DESCRIPTION: 'صفحة المحتوى العام'
+    PLURALNAME: 'الصفحات الأساسية'
     RelatedPages: 'الصفحات المرتبطة'
+    SINGULARNAME: 'صفحة رئيسية'
     TagsTabTitle: البطاقات
     Taxonomy: علم التصنيف
     Term: عنصر
     Terms: عناصر
+  CarouselItem:
+    PLURALNAME: 'العناصر الدائرية'
+    SINGULARNAME: 'عنصر دائرى'
   CustomSiteConfig:
     LogosIconsTab: الشعارات/الأيقونات
     SocialMediaTab: 'وسائل الإعلام الاجتماعية'
   CwpCarousel:
     ArchivedField: 'هل تود أن تقوم بتخزين هذا العنصر الدائرى؟'
     LinkField: رابط
+    NoteField: 'ملاحظة: سوف تحتاج أن تقوم بإنشاء العنصر الدائرى قبل أن تتمكن من إضافة صورة'
   CwpConfig:
     AddThisField: 'قم بإضافة'
     AddThisFieldDesc: 'ملف التعريف الشخصى الذى سيتم استخدامه عبر الموقع (بصيغة <strong>ra-XXXXXXXXXXXXXXXX<strong/>)'
@@ -54,18 +64,47 @@ ar:
     FeaturedImageFieldLabel: 'صورة مميزة'
     LocationFieldLabel: موقع
     StartTimeFieldLabel: 'وقت البدء'
+  DatedUpdateHolder:
+    DESCRIPTION: 'صفحة المحتوى العام'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'حامل التحديث المحدد بموعد'
+  DatedUpdatePage:
+    DESCRIPTION: 'صفحة المحتوى العام'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صفحة التحديث المحددة بموعد'
   EventHolder:
+    DESCRIPTION: 'صفحة حاوية لصفحات الأحداث, توفر تصفية للأحداث و ترقيم الصفحات'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صاحب الحدث'
     Upcoming: 'الأحداث القادمة'
+  EventPage:
+    DESCRIPTION: 'يقوم بوصف حدث يحدث فى ميعاد محدد.'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صفحة الأحداث'
+  FooterHolder:
+    DESCRIPTION: 'صفحة صاحب التسجيل التى تعرض كل صفحات الأطفال تعتبر روابط فى صفحة التذييل'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صاحب صفحة التذييل'
   GridField:
     Archived: مخزنة فى أرشيفات
     Live: مباشر
+  NewsHolder:
+    DESCRIPTION: 'الصفحة الحاوية لصفحات الأخبار, توفر الأخبار منقحة و مرقمة بالصفحات'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صاحب صفحة الأخبار'
+  NewsPage:
+    DESCRIPTION: 'يقوم بوصف عنصر من عناصر الأخبار'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صفحة الأخبار'
   Quicklink:
     ExternalLinkLabel: 'رابط خارجي'
     InternalLinkLabel: 'رابط داخلى'
     NameLabel: الاسم
     Note: '<"div class="message good notice>ملاحظة: لو قمت بتحديد رابط خارجى, سيتم تجاهل الرابط الداخلى.<div/>'
     Note2: '<p> استخدم هذا لتحديد رابط لصفحة إما فى هذا الموقع (رابط داخلى) أو موقع آخر (رابط آخر).<p/>'
+    PLURALNAME: روابط سريعة
     ParentRelationLabel: والد
+    SINGULARNAME: رابط سريع
     SortOrderLabel: 'ترتيب الفرز'
   SearchForm:
     GO: اذهب
@@ -74,3 +113,9 @@ ar:
   SiteTree:
     FeatureOne: 'الميزة رقم واحد'
     FeatureTwo: 'تتميز باثنان'
+    PLURALNAME: صفحات
+    SINGULARNAME: صفحة
+  SitemapPage:
+    DESCRIPTION: 'يقوم بعمل قوائم لجميع الصفحات فى الموقع'
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'صفحة خريطة الموقع'

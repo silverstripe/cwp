@@ -1,26 +1,36 @@
 en:
   BaseHomePage:
     AddNewButton: 'Add new'
+    DESCRIPTION: 'Generic content page'
     FeatureButtonText: 'Button text'
     FeatureCategoryDropdown: 'Category icon'
     FeatureContentFieldLabel: Content
     FeatureLink: 'Page to link to'
     LearnMoreLink: 'Page to link the "Learn More" button to:'
+    PLURALNAME: 'Base Pages'
+    SINGULARNAME: 'Base Home Page'
     Title: Title
   BasePage:
     ColumnPageType: 'Page Type'
     ColumnTitle: Title
+    DESCRIPTION: 'Generic content page'
+    PLURALNAME: 'Base Pages'
     RelatedPages: 'Related pages'
+    SINGULARNAME: 'Base Page'
     TagsTabTitle: Tags
     Taxonomy: Taxonomy
     Term: Term
     Terms: Terms
+  CarouselItem:
+    PLURALNAME: 'Carousel Items'
+    SINGULARNAME: 'Carousel Item'
   CustomSiteConfig:
     LogosIconsTab: Logos/Icons
     SocialMediaTab: 'Social Media'
   CwpCarousel:
     ArchivedField: 'Archive this carousel item?'
     LinkField: Link
+    NoteField: 'Note: You will need to create the carousel item before you can add an image'
   CwpConfig:
     AddThisField: 'AddThis Profile ID'
     AddThisFieldDesc: 'Profile ID to be used all across the site (in the format <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
@@ -54,18 +64,47 @@ en:
     FeaturedImageFieldLabel: 'Featured Image'
     LocationFieldLabel: Location
     StartTimeFieldLabel: 'Start Time'
+  DatedUpdateHolder:
+    DESCRIPTION: 'Generic content page'
+    PLURALNAME: 'Base Pages'
+    SINGULARNAME: 'Dated Update Holder'
+  DatedUpdatePage:
+    DESCRIPTION: 'Generic content page'
+    PLURALNAME: 'Base Pages'
+    SINGULARNAME: 'Dated Update Page'
   EventHolder:
+    DESCRIPTION: 'Container page for Event Pages, provides event filtering and pagination'
+    PLURALNAME: 'Base Pages'
+    SINGULARNAME: 'Event Holder'
     Upcoming: 'Upcoming events'
+  EventPage:
+    DESCRIPTION: 'Describes an event occurring on a specific date.'
+    PLURALNAME: 'Base Pages'
+    SINGULARNAME: 'Event Page'
+  FooterHolder:
+    DESCRIPTION: 'Holder page that displays all child pages as links in the footer'
+    PLURALNAME: 'Base Pages'
+    SINGULARNAME: 'Footer Holder'
   GridField:
     Archived: Archived
     Live: Live
+  NewsHolder:
+    DESCRIPTION: 'Container page for News Pages, provides news filtering and pagination'
+    PLURALNAME: 'Base Pages'
+    SINGULARNAME: 'News Holder'
+  NewsPage:
+    DESCRIPTION: 'Describes an item of news'
+    PLURALNAME: 'Base Pages'
+    SINGULARNAME: 'News Page'
   Quicklink:
     ExternalLinkLabel: 'External Link'
     InternalLinkLabel: 'Internal Link'
     NameLabel: Name
     Note: '<div class="message good notice">Note:  If you specify an External Link, the Internal Link will be ignored.</div>'
     Note2: '<p>Use this to specify a link to a page either on this site (Internal Link) or another site (External Link).</p>'
+    PLURALNAME: Quicklinks
     ParentRelationLabel: Parent
+    SINGULARNAME: Quicklink
     SortOrderLabel: 'Sort Order'
   SearchForm:
     GO: Go
@@ -74,3 +113,9 @@ en:
   SiteTree:
     FeatureOne: 'Feature One'
     FeatureTwo: 'Feature Two'
+    PLURALNAME: Pages
+    SINGULARNAME: Page
+  SitemapPage:
+    DESCRIPTION: 'Lists all pages on the site'
+    PLURALNAME: 'Base Pages'
+    SINGULARNAME: 'Sitemap Page'
