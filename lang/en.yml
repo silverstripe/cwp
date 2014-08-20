@@ -7,7 +7,7 @@ en:
     FeatureContentFieldLabel: Content
     FeatureLink: 'Page to link to'
     LearnMoreLink: 'Page to link the "Learn More" button to:'
-    PLURALNAME: 'Base Pages'
+    PLURALNAME: 'Base Home Pages'
     SINGULARNAME: 'Base Home Page'
     Title: Title
   BasePage:
@@ -66,35 +66,35 @@ en:
     StartTimeFieldLabel: 'Start Time'
   DatedUpdateHolder:
     DESCRIPTION: 'Generic content page'
-    PLURALNAME: 'Base Pages'
+    PLURALNAME: 'Dated Update Holders'
     SINGULARNAME: 'Dated Update Holder'
   DatedUpdatePage:
     DESCRIPTION: 'Generic content page'
-    PLURALNAME: 'Base Pages'
+    PLURALNAME: 'Dated Update Pages'
     SINGULARNAME: 'Dated Update Page'
   EventHolder:
     DESCRIPTION: 'Container page for Event Pages, provides event filtering and pagination'
-    PLURALNAME: 'Base Pages'
+    PLURALNAME: 'Event Holders'
     SINGULARNAME: 'Event Holder'
     Upcoming: 'Upcoming events'
   EventPage:
     DESCRIPTION: 'Describes an event occurring on a specific date.'
-    PLURALNAME: 'Base Pages'
+    PLURALNAME: 'Event Pages'
     SINGULARNAME: 'Event Page'
   FooterHolder:
     DESCRIPTION: 'Holder page that displays all child pages as links in the footer'
-    PLURALNAME: 'Base Pages'
+    PLURALNAME: 'Footer Holders'
     SINGULARNAME: 'Footer Holder'
   GridField:
     Archived: Archived
     Live: Live
   NewsHolder:
     DESCRIPTION: 'Container page for News Pages, provides news filtering and pagination'
-    PLURALNAME: 'Base Pages'
+    PLURALNAME: 'News Holders'
     SINGULARNAME: 'News Holder'
   NewsPage:
     DESCRIPTION: 'Describes an item of news'
-    PLURALNAME: 'Base Pages'
+    PLURALNAME: 'News Pages'
     SINGULARNAME: 'News Page'
   Quicklink:
     ExternalLinkLabel: 'External Link'
@@ -117,5 +117,5 @@ en:
     SINGULARNAME: Page
   SitemapPage:
     DESCRIPTION: 'Lists all pages on the site'
-    PLURALNAME: 'Base Pages'
+    PLURALNAME: 'Sitemap Pages'
     SINGULARNAME: 'Sitemap Page'
