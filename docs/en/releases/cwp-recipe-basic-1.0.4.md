@@ -64,3 +64,33 @@ Please see the changelogs for these following releases for the list of core chan
  * [PLAT-64] - CMS content editors can see 2-step workflow available as default
  * [PLAT-65] - ATOM formatted feeds are available for configured sites
  * [PLAT-100] - More documentation on subsite architecture
+
+### Accepted failing tests
+
+#### framework
+
+* CMSProfileControllerTest.testMemberCantEditAnother — Problem with Requirements combining the same file twice,
+  non-critical Framework issue.
+* UploadTest.testUploadTarGzFileTwiceAppendsNumber — This test is now expected to fail as the new MimeValidator
+  module will no longer allow random content to be uploaded with a mismatched mime and file extension.
+  The original test is attempting to upload a bunch of text as a gzip file.
+* i18nTextCollectorTest.testCollectFromThemesTemplates — Caused by global state, passes locally when the test is
+  run individually.
+
+#### cms
+
+* CMSMainTest.testCreationOfTopLevelPage — Problem with Requirements combining the same file twice. Non-critical
+  Framework issue.
+* ErrorPageTest.testBehaviourOf403 - Caused by global state, passes locally when run individually or as a part of
+  all cms tests.
+
+#### queuedjobs
+
+* QueuedJobsTest.testStartJob — Caused by global state, passes locally when the test is run individually.
+* QueuedJobsTest.testImmediateQueuedJob — Caused by global state, passes locally when run either individually or as
+  a part of all queuedjobs tests.
+
+#### versionfeed
+
+* VersionFeedFunctionalTest.testFeedViewability — Caused by global state, tests are passing locally, in travis,
+  and via manual testing. Unable to reproduce error.
