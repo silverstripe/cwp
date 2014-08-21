@@ -21,7 +21,7 @@ This release tracks the Framework release 3.1.6 and fixes some module bugs. The 
    user traffic may not always be served by the same one. Additional functionality is provided by the hybrid
    sessions module to ensure that all user session data is accessible from any location, and without
    interruption to those browsing or using the site.
-* Support for atom syndication format.
+* Support for atom feeds.
 * Additional CMS reports, such as the external links report which detects broken links in pages, and the
   summary statistics report which gives an overview of the number of pages and files in a site.
 * Improved and extended documentation for subsites and userforms modules.
