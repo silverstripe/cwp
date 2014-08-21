@@ -51,7 +51,7 @@ Please see the changelogs for these following releases for the list of core chan
  * [PLAT-128] - Publish time - Not able to choose "Now"
  * [PLAT-138] - Removal of redundant Folder-subsite permission not used in Subsites
 
-#### Features and documentation
+### Features and documentation
 
  * [CWPBUG-159] - Additional CMS report for number of CMS pages
  * [CWPBUG-180] - Changing to a more granular permission model (advanced workflow)
