@@ -4,21 +4,27 @@
 
 This release tracks the Framework release 3.1.6 and fixes some module bugs. The highlights are:
 
- * Addition of five new modules:
-   [external links checker](https://github.com/silverstripe-labs/silverstripe-externallinks),
-   [mime validator](https://github.com/silverstripe-labs/silverstripe-mimevalidator),
-   [select upload](https://github.com/silverstripe-labs/silverstripe-selectupload),
-   [spell check](https://github.com/silverstripe-labs/silverstripe-spellcheck), and
-   [hybrid sessions](https://github.com/silverstripe-labs/silverstripe-hybridsessions)
- * Several fixes to usability issues with
+* Addition of five new modules:
+  * [external links checker](https://github.com/silverstripe-labs/silverstripe-externallinks)
+    to detect broken links to external sites within pages.
+  * [mime validator](https://github.com/silverstripe-labs/silverstripe-mimevalidator)
+    module which validates the content of uploaded files.
+  * [select upload](https://github.com/silverstripe-labs/silverstripe-selectupload)
+    to select where you want to upload files.
+  * [spell check](https://github.com/silverstripe-labs/silverstripe-spellcheck)
+    to provide spell checking support in NZ English and Maori locales.
+  * [hybrid sessions](https://github.com/silverstripe-labs/silverstripe-hybridsessions)
+* Several fixes to usability issues with
    [advanced workflow module](https://github.com/silverstripe-australia/advancedworkflow).
- * Additional support for [active disaster recovery](https://www.cwp.govt.nz/about/selecting-the-attributes-of-the-common-web-platform-instance-for-your-websites/#disaster-recovery-options)
-   server configurations, with functionality provided by the hybrid sessions module to
-   allow for transportable user session data.
- * Support for atom syndication format.
- * Additional CMS reports.
- * Spellchecking available in en_NZ and mi_NZ locales.
- * Improved and extended documentation.
+* Additional support for [active disaster recovery](https://www.cwp.govt.nz/about/selecting-the-attributes-of-the-common-web-platform-instance-for-your-websites/#disaster-recovery-options)
+   server configurations. When servers are arranged with multiple physical nodes in different geographic locations,
+   user traffic may not always be served by the same one. Additional functionality is provided by the hybrid
+   sessions module to ensure that all user session data is accessible from any location, and without
+   interruption to those browsing or using the site.
+* Support for atom syndication format.
+* Additional CMS reports, such as the external links report which detects broken links in pages, and the
+  summary statistics report which gives an overview of the number of pages and files in a site.
+* Improved and extended documentation for subsites and userforms modules.
 
 Please see the changelogs for these following releases for the list of core changes since recipe 1.0.3
 
