@@ -73,11 +73,11 @@ The screen should start filling with server messages.
 
 Now you can create the configuration files in another terminal. Run the following from your website root:
 
-	$ framework/sake dev/tasks/Solr_configure
+	$ framework/sake dev/tasks/Solr_Configure
 
 And finally, reindex the pages on your website (this could take some time):
 
-	$ framework/sake dev/tasks/Solr_reindex
+	$ framework/sake dev/tasks/Solr_Reindex
 
 You should be able to search your site now.
 
