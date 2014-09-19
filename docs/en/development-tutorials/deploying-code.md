@@ -5,7 +5,7 @@ pagenumber: 7
 
 # Deploying code
 
-This section will walk you through the deployment of a code release onto an enviornment.
+This section will walk you through the deployment of a code release onto an environment.
 
 ## Overview
 
@@ -65,22 +65,36 @@ through.
 
 ## Deploying
 
-Depending on your permission level you will have access to deploy to different environments. For example Technical
-Staff can freely deploy to UAT and test environments, but not to production.
+Depending on your permission level and the type of environment, the process for initiating a deployment, and
+which versions of the site can be deployed, may vary.
+
+For example Technical Staff can freely deploy to any environment, but deployments to production will involve approval
+from a Deployment Manager or Instance Manager before proceeding. Additionally, only deployments previously made to
+UAT may be selected when initiating a production deployment.
 
 To deploy, choose an environment under "Environments". Under "Deploy a new release" select the revision and
 press "Deploy to {environment name}".
 
 ![Deploynaut - choosing revision to deploy and deploying](_images/deploynaut-choosing-revision.jpg)
 
-A new window will appear with the console output of the deployment process. Depending on the availability of workers the
-process may start immediately or may be queued. As a general guideline it should take no longer than a minute or two
-to deploy.
+Upon deployment the screen layout will change to the below progress bar, detailing the status of the deployment
+process, and any individual step. Each step in the process will tile from left to right, allowing a simple
+overview of all steps completed and yet to be invoked.
 
-You can save the URL with the console output and revisit it later to see how the deployment is progressing. Revisting
-the URL will not cause the deployment to restart.
+![Deploynaut - deployment in progress](_images/deploynaut-progress.png)
 
-![Deploynaut - deployment in progress](_images/deploynaut-in-progress.jpg)
+There are the following features available to users on this page:
+
+* The "Abort Pipeline" button in the top right will allow the initiator of the deployment to cancel this process
+  at any time. Depending on the current state of the process, this may involve preventing any future deployments,
+  or rolling back any completed deployments in progress.
+* A list of logs detailing any processes completed (or in progress) in the current pipeline. Click on "View Logs"
+  to view the pipeline log, or this list may be expanded to view further logs. This contains the pipeline log,
+  the logs of any individual deployments, database backup snapshots, rollback deployments, or database restorations.
+* If a single step is blocked for any reason, the progress bar will be replaced with an option or list of options
+  available to the user.
+* If a step is in progress but not blocked, it will have a progress bar displayed. Refreshing this page will update
+  the status of the pipeline.
 
 Most of the deployment is performed as a transaction. The code is uploaded into a secondary directory before being
 rotated with the original code. If the deployment fails at any point it will be rolled back without causing changes to
@@ -90,18 +104,75 @@ key added as described above and that the private modules have the "private" fla
 For the duration of the deployment a maintenance screen will be put up using `.htaccess` substitution. The webserver
 will return a 503 error during that time.
 
-## Deploying to production site
+The deployment process will behave differently, depending on the kind of target environment.
+Generally, UAT and test environments may be deployed to freely, with fewer restrictions or approval processes in place.
+Deployments to production will be governed by a more rigorous process, which requires TXT approval from a
+Deployment Manager or Instance manager.
 
-When viewing your project on the Deploynaut you'll see that "Can you deploy?" is set to "No" for prod environments.  We
-restrict the live deployments to the Service Desk team at the moment. Before deploying we will do a little smoke test
-and also take backups.
+## Deploying to a test or UAT instance
 
-In order for you to deploy to the production site you'll need to create a new ticket on
-[helpdesk.cwp.govt.nz](http://helpdesk.cwp.govt.nz) to request the deployment. The deployment will push the revision
-currently running on UAT and deploy it to production.
+The general process for deploying to test / UAT is as follows:
 
-When creating a ticket in the Service Desk choose **Deploy UAT to production**. The Service Desk staff will be in touch
-regarding your deployment request.
+ * Select a commit via either branch, prior release, or an explicit commit hash.
+ * Press the button named "Begin the release process on UAT"
+ * Deploynaut will backup the database of the current site, and initiate a deployment.
+ * Once deployment is complete, a series of "smoke tests" will be performed on the working site. This is a series
+   of pre-defined urls that deploynaut expects the site to have, and will test their expected responses.
+ * The initiator will be messaged (via text / email) that their deployment has succeeded.
+
+If at any point in the process a failure occurs, the pipeline will create an additional set of steps to 
+deploy back to the last known good release. These steps are:
+
+ * Initiate the deployment targeting the last known good state
+ * Repeat the smoke tests as above
+ * Notify the initiator of the result
+
+If the rollback fails then the site will be left in maintenance mode until a member of Ops can manually resolve
+the issue. This does not prevent subsequent deployments.
+
+## Deploying to production instance
+
+The process for a production deployment requires that first a successful deployment is made to the UAT environment.
+
+Once the above process has been completed, this commit is made available for deployment to the production environment.
+When a deployment is initiated, the pipeline process is followed, as described by the diagram below:
+
+![Deploynaut - Production pipeline](_images/deploynaut-production-pipeline.png)
+
+The general process for deploying to the production environment is as follows:
+
+ * Initiate a deployment pipeline by selecting a revision and pressing "Begin the release process".
+ * An approval request will be submitted via text and / or email for verification. Please refer to [roles and
+   responsibilities](https://www.cwp.govt.nz/guides/operating-guides/roles-and-responsibilities/) to understand the
+   escalation path for this approval. The recipient of this verification request will be directed to login to
+   deploynaut and either reject or approve it.
+ * Once a response has been submitted, the initiator will be notified. If the request was accepted then the
+   initiator will need to click a final "deploy" button to confirm that the deployment is being attended. This will
+   immediately begin the actual deployment.
+ * Deploynaut will backup the database of the current site, and initiate a deployment.
+ * Once deployment is complete, a series of "smoke tests" will be performed on the working site. This is a series
+   of pre-defined urls that deploynaut expects the site to have, and will test their expected responses.
+
+If the deployment fails, or if any of the tests fail then the below process will begin:
+
+ * Deploynaut will initiate a rollback to the last "known good" state of the production server, and restore the
+   database backup made in the prior set of steps.
+ * Once the rollback is complete, a series of "smoke tests" will be performed on the working site.
+ * If this rollback fails, then Ops will be notified of this error and the site will be left in maintenance mode.
+   At this point subsequent deployments can still be made, but they will need to follow the deployment approval
+   process from the start.
+
+If the deployment succeeds and passes all tests then the following process will begin:
+
+ * The site will be left in a temporary state where it may be rolled back on-request. This allows the initiator to
+   review the production site manually.
+ * If problems or errors are noted, or the initiator requests a rollback, then they may click the "Rollback" button
+   to revert the site back to the way it was prior to the release. This will also revert the database, so take care
+   not to revert if there are important content updates made in this time. Unlike a normal deployment, this rollback
+   request will not require further approval and can be initiated immediately.
+ * After a period of one hour this rollback step will expire automatically, and the initiator will be notified by 
+   text and / or email that the pipeline has completed successfully. Expiry can be invoked manually at any time
+   by pressing "dismiss" on the deployment dashboard.
 
 ## Tagging your code
 
