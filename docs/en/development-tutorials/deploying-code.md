@@ -139,6 +139,13 @@ When a deployment is initiated, the pipeline process is followed, as described b
 
 ![Deploynaut - Production pipeline](_images/deploynaut-production-pipeline.png)
 
+<div class="notice" markdown='1'>
+This process is entirely self-managed, and during normal operation, important notifications will be sent to all
+necessary parties via text and/or email. When in doubt, all notifications sent out can be checked by referring
+to the pipeline log to see who to follow up for approvals. Participants involved in the deployment will be
+required to login to the deploynaut front end as a part of this process.
+</div>
+
 The general process for deploying to the production environment is as follows:
 
  * Initiate a deployment pipeline by selecting a revision and pressing "Begin the release process".
