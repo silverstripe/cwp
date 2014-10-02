@@ -14,6 +14,14 @@ class BasePage extends SiteTree {
 
 	private static $pdf_export = false;
 
+	/**
+	 * Allow custom overriding of the path to the WKHTMLTOPDF binary, in cases
+	 * where multiple versions of the binary are available to choose from. This
+	 * should be the full path to the binary (e.g. /usr/local/bin/wkhtmltopdf)
+	 * @see BasePage_Controller::generatePDF();
+	 */
+	private static $wkhtmltopdf_binary = null;
+
 	private static $generated_pdf_path = 'assets/_generated_pdfs';
 
 	private static $api_access = array(
@@ -275,7 +283,16 @@ class BasePage_Controller extends ContentController {
 	public function generatePDF() {
 		if(!Config::inst()->get('BasePage', 'pdf_export')) return false;
 
-		if(!defined('WKHTMLTOPDF_BINARY')) return user_error('WKHTMLTOPDF_BINARY not defined', E_USER_ERROR);
+		$binaryPath = Config::inst()->get('BasePage', 'wkhtmltopdf_binary');
+		if(!$binaryPath || !is_executable($binaryPath)) {
+			if(defined('WKHTMLTOPDF_BINARY') && is_executable(WKHTMLTOPDF_BINARY)) {
+				$binaryPath = WKHTMLTOPDF_BINARY;
+			}
+		}
+
+		if(!$binaryPath) {
+			user_error('Neither WKHTMLTOPDF_BINARY nor BasePage.wkhtmltopdf_binary are defined', E_USER_ERROR);
+		}
 
 		if(Versioned::get_reading_mode() == 'Stage.Stage') {
 			user_error('Generating PDFs on draft is not supported', E_USER_ERROR);
