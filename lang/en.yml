@@ -21,6 +21,7 @@ en:
     Taxonomy: Taxonomy
     Term: Term
     Terms: Terms
+    TermsDescription: 'Click to search for additional terms'
   CarouselItem:
     PLURALNAME: 'Carousel Items'
     SINGULARNAME: 'Carousel Item'
