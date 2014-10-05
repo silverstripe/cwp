@@ -164,12 +164,11 @@ class BasePage extends SiteTree {
 		$fields->findOrMakeTab('Root.Tags', _t('BasePage.TagsTabTitle', 'Tags'));
 		$fields->addFieldToTab(
 			'Root.Tags',
-			GridField::create(
+			TreeMultiselectField::create(
 				'Terms',
 				_t('BasePage.Terms','Terms'),
-				$this->Terms(),
-				$components
-			)
+				'TaxonomyTerm'
+			)->setDescription(_t('BasePage.TermsDescription', 'Click to search for additional terms'))
 		);
 
 		return $fields;
