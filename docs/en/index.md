@@ -22,6 +22,8 @@ exporting, Solr search, related pages, and meta tags.
  * [Security](security): Security considerations and option configuration.
  * [Infrastructural considerations](infrastructural-considerations): Some limitiations imposed by the way CWP has been
 architected - for example how requests to enviornments will timeout after certain time.
+ * [Preparing your site for Active Disaster Recovery](preparing-your-site-for-active-dr): Preparing your site for
+ Active Disaster Recovery. Only applicable if your instance is configured with Active Disaster Recovery.
  * [Supported releases and changelogs](/releases/): CWP-related release notes.
 
 ## Common tasks
