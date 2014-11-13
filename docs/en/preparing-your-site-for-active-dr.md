@@ -27,34 +27,29 @@ will not trigger failover on node failure - some of the requests will start fail
 The following chapters provide information on the required changes to your code to ensure the site works correctly with
 Active Disaster Recovery.
 
-## Shared sessions across servers
-
-Your site needs to include the [hybridsessions](https://github.com/silverstripe-labs/silverstripe-hybridsessions) module.
-
-If you're running at least version 1.0.5 of the cwp core code, this module should already
-be installed. If you don't have it, you can install the module via composer:
-
-	composer require "silverstripe/hybridsessions:*"
-
 ## Provide SSL certificate for your primary domain
 
 You will need to provide us with an SSL certificate for your primary domain so HTTPS requests
 are load-balanced between servers. We can also organise the SSL certificate for you if you prefer.
 
-## Disable login SSL redirection
+## Shared sessions across servers
 
-By default, logging in on an instance redirects you to https://myinstance.cwp.govt.nz. This URL is not fully enabled
-for Active Disaster Recovery (see the chapter below) and thus we need to prevent the redirection and ensure the user
-remains on your production domain. This is why we require you to supply the SSL certificate - to protect logins and
-the admin area.
+If you are running at least version 1.0.4 of the [cwp-core](https://gitlab.cwp.govt.nz/cwp/cwp-core) module, shared
+sessions have already been configured. You can skip this step.
 
-Please disable this redirection by setting the following in your `mysite/_config/config.yml`:
+Otherwise, if you running an earlier version, please follow these steps:
 
-	---
-	Name: domainredirection
-	Only:
-	  Environment: 'live'
-	---
-	CwpControllerExtension:
-	  ssl_redirection_force_domain: false
+### 1. Install the hybridsessions module
 
+	composer require "silverstripe/hybridsessions:*"
+
+### 2. Configure the module
+
+In your `mysite/_config.php` file, add this configuration:
+
+	if(defined('CWP_INSTANCE_DR_TYPE') && CWP_INSTANCE_DR_TYPE === 'active'
+		&& defined('SS_SESSION_KEY') && class_exists('HybridSessionStore')
+		&& !HybridSessionStore::is_enabled()
+	) {
+		HybridSessionStore::init(SS_SESSION_KEY);
+	}
