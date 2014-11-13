@@ -43,7 +43,7 @@ are load-balanced between servers. We can also organise the SSL certificate for 
 
 ## Disable login SSL redirection
 
-By default, logging in on an instance redirects you to https://<instance>.cwp.govt.nz. This URL is not fully enabled
+By default, logging in on an instance redirects you to https://myinstance.cwp.govt.nz. This URL is not fully enabled
 for Active Disaster Recovery (see the chapter below) and thus we need to prevent the redirection and ensure the user
 remains on your production domain. This is why we require you to supply the SSL certificate - to protect logins and
 the admin area.
