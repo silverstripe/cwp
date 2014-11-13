@@ -15,13 +15,14 @@ Active DR instances have two properties:
  * They are highly-available: if one datacentre / node exhibits a problem and is not reachable, or emits 5xx HTTP status
  code, this node will be pulled out of the pool and all traffic will be redirected to the other datacentre.
 
-This distinction is significant, because of the difference in behaviour for sites that are live and sites that have not
-yet been switched over to their production domain. Only live sites using the production domain are both load-balanced
-and highly available. 
+This distinction is significant, because we can only satisfy both properties if your site is live and only if you
+are accessing the site using your production domain (or custom aliases). This is because we can only use your
+production domain for sending HTTP probes and these will only control the non-cwp.govt.nz site.
 
 <div class="warning" markdown='1'>
-Non-live sites served from the "cwp.govt.nz" domain are load-balanced and will survive a datacentre outage, but they
-will not trigger failover on node failure - some of the requests will start failing.
+In other words: we cannot make your site highly-available if your production domain is not pointing to CWP (i.e. your
+site is not live).  Additionally, accessing your site at any time through the "cwp.govt.nz" domain will not exhibit the
+highly-available property. It will still be load-balanced in both cases.
 </div>
 
 The following chapters provide information on the required changes to your code to ensure the site works correctly with
