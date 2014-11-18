@@ -1,26 +1,36 @@
 eo:
   BaseHomePage:
     AddNewButton: 'Aldoni novan'
+    DESCRIPTION: 'Ĝenerala paĝo por enhavo'
     FeatureButtonText: 'Butona teksto'
     FeatureCategoryDropdown: 'Kategoria bildsimbolo'
     FeatureContentFieldLabel: Enhavo
     FeatureLink: 'Paĝo alligota'
     LearnMoreLink: 'Paĝo al kiu ligi la butonon "Lerni plu":'
+    PLURALNAME: 'Bazaj hejmpaĝoj'
+    SINGULARNAME: 'Baza hejmpaĝo'
     Title: Titolo
   BasePage:
     ColumnPageType: 'Tipo de paĝo'
     ColumnTitle: Titolo
+    DESCRIPTION: 'Ĝenerala paĝo por enhavo'
+    PLURALNAME: 'Bazaj paĝoj'
     RelatedPages: 'Rilataj paĝoj'
+    SINGULARNAME: 'Baza paĝo'
     TagsTabTitle: Etikedoj
     Taxonomy: Taksonomio
     Term: Termino
     Terms: Terminoj
+  CarouselItem:
+    PLURALNAME: 'Karuselaj elementoj'
+    SINGULARNAME: 'Karusela elemento'
   CustomSiteConfig:
     LogosIconsTab: Bildsimboloj
     SocialMediaTab: 'Interkona retejo'
   CwpCarousel:
     ArchivedField: 'Ĉu enarkivigi ĉi tiun karuselan elementon?'
     LinkField: Ligilo
+    NoteField: 'Notu: Necesas krei la karuselan elementon antaŭ ol vi povos aldoni bildon'
   CwpConfig:
     AddThisField: 'Aldoni ĉi tiun ID-agordaron'
     AddThisFieldDesc: 'ID-agordaro uzota ie en la retejo (en la formato <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
@@ -54,18 +64,47 @@ eo:
     FeaturedImageFieldLabel: 'Prezentita bildo'
     LocationFieldLabel: Loko
     StartTimeFieldLabel: 'Komenca horo'
+  DatedUpdateHolder:
+    DESCRIPTION: 'Ĝenerala paĝo por enhavo'
+    PLURALNAME: 'Ĝisdatigaj datujoj'
+    SINGULARNAME: 'Ĝisdatiga datujo'
+  DatedUpdatePage:
+    DESCRIPTION: 'Ĝenerala paĝo por enhavo'
+    PLURALNAME: 'Ĝisdatigaj datujoj'
+    SINGULARNAME: 'Ĝisdatiga datujo'
   EventHolder:
+    DESCRIPTION: 'Paĝo por enhavi eventpaĝojn, donas eventfiltradon kaj paĝonumeradon'
+    PLURALNAME: 'Eventujoj'
+    SINGULARNAME: 'Eventujo'
     Upcoming: 'Futuraj eventoj'
+  EventPage:
+    DESCRIPTION: 'Priskribas eventon okazontan je specifa dato.'
+    PLURALNAME: 'Eventopaĝoj'
+    SINGULARNAME: 'Eventopaĝo'
+  FooterHolder:
+    DESCRIPTION: 'Paĝo por enhavi kaj vidigi ĉiujn paĝidojn kiel ligilojn en la paĝopiedo'
+    PLURALNAME: 'Paĝopieda tenanto'
+    SINGULARNAME: 'Paĝopieda tenanto'
   GridField:
     Archived: Enarkivigita
     Live: Publika
+  NewsHolder:
+    DESCRIPTION: 'Paĝo por enhavi Novaĵpaĝojn, donas filtradon de novaĵoj kaj paĝonumeradon'
+    PLURALNAME: 'Novaĵujoj'
+    SINGULARNAME: 'Novaĵujo'
+  NewsPage:
+    DESCRIPTION: 'Priskribas novaĵeron'
+    PLURALNAME: 'Novaĵopaĝoj'
+    SINGULARNAME: 'Novaĵopaĝo'
   Quicklink:
     ExternalLinkLabel: 'Ekstera ligilo'
     InternalLinkLabel: 'Interna ligilo'
     NameLabel: Nomo
     Note: '<div class="message good notice">Notu: Se vi agordas eksteran ligilon, la interna ligilo ne estos malatentata.</div>'
     Note2: '<p>Uzu ĉi tion por ligi al paĝo aŭ en ĉi tiu retejo (internaligilo) aŭ en alia retejo (ekstera ligilo).</p>'
+    PLURALNAME: Rapidaj ligiloj
     ParentRelationLabel: Patra
+    SINGULARNAME: Rapida ligilo
     SortOrderLabel: 'Ordiga Ordo'
   SearchForm:
     GO: Ek
@@ -74,3 +113,9 @@ eo:
   SiteTree:
     FeatureOne: 'Prezentita unua'
     FeatureTwo: 'Prezentita dua'
+    PLURALNAME: Paĝoj
+    SINGULARNAME: Paĝo
+  SitemapPage:
+    DESCRIPTION: 'Listigas ĉiujn paĝojn en la retejo'
+    PLURALNAME: 'Paĝo de paĝarmapo'
+    SINGULARNAME: 'Paĝo de paĝarmapo'
