@@ -34,6 +34,7 @@ Please see the changelogs for these following releases for the list of core chan
 ### Features
 
  * [ORB-3] Taxonomy terms can be maintained via a hierarchical selection tool within the CMS
+ * [ORB-4] As a Content Author I can re-authenticate when my session times out without losing my current CMS state
 
 ### Accepted failing tests
 
