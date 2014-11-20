@@ -29,7 +29,7 @@ Please see the changelogs for these following releases for the list of core chan
  * [CWPBUG-189] Files with capitalised extensions fail validation
  * [PLAT-105] Apply "date filter" to files search
 
-### Features and documentation
+### Features
 
  * [ORB-3] Taxonomy terms can be maintained via a hierarchical selection tool within the CMS
 
