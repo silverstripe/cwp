@@ -9,7 +9,9 @@ This release tracks the Framework release 3.1.8 and fixes some module bugs. The 
 * Improvements to performance of large updates in the
   [fulltext search module](https://github.com/silverstripe-labs/silverstripe-fulltextsearch), as well as improvements
   in compatibility for Solr 4.0.
-* Improved user interface for the [registry module](https://github.com/silverstripe-labs/silverstripe-registry/).
+* Improved user interface for the [taxonomy module](https://github.com/silverstripe-labs/silverstripe-taxonomy).
+  Now rather than managing taxonomy terms via a flat table, an expandable hierarchical tool will enable multi-selection
+  of nested taxonomy terms.
 
 Please see the changelogs for these following releases for the list of core changes since recipe 1.0.4
 
