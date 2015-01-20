@@ -126,46 +126,51 @@ class DatedUpdateHolder extends Page {
 			$link = Director::makeRelative($_SERVER['REQUEST_URI']);
 		}
 
-		$updates = $updates->Sort('Date', 'ASC');
+		$dates = $updates->dataQuery()
+			->groupby('YEAR("Date")')
+			->groupby('MONTH("Date")')
+			->sort('Date', 'DESC')
+			->query()
+			->selectField('YEAR("Date")', 'Year')
+			->selectField('MONTH("Date")', 'Month')
+			->addWhere('"Date" IS NOT NULL')
+			->execute();
 
 		$years = array();
-		foreach ($updates as $update) {
-			$date = $update->obj('Date');
-			$year = $date->Format('Y');
-			// Check if the date is actually set
-			if ($year) {
-				$monthNumber = $date->Format('n');
-				$monthName = $date->Format('M');
+		foreach ($dates as $date) {
+			$monthNumber = $date['Month'];
+			$year = $date['Year'];
+			$dateObj = new Datetime(implode('-', array($year, $monthNumber, 1)));
+			$monthName = $dateObj->Format('M');
 
-				// Set up the relevant year array, if not yet available.
-				if (!isset($years[$year])) {
-					$years[$year] = array('YearName'=>$year, 'Months'=>array());
-				}
-
-				// Check if the currently processed month is the one that is selected via GET params.
-				$active = false;
-				if (isset($year) && isset($monthNumber)) {
-					$active = (((int)$currentYear)==$year && ((int)$currentMonthNumber)==$monthNumber);
-				}
-
-				// Build the link - keep the tag and date filter, but reset the pagination.
-				if ($active) {
-					// Allow clicking to deselect the month.
-					$link = HTTP::setGetVar('month', null, $link, '&');
-					$link = HTTP::setGetVar('year', null, $link, '&');
-				} else {
-					$link = HTTP::setGetVar('month', $monthNumber, $link, '&');
-					$link = HTTP::setGetVar('year', $year, $link, '&');
-				}
-				$link = HTTP::setGetVar('start', null, $link, '&');
-
-				$years[$year]['Months'][$monthNumber] = array(
-					'MonthName'=>$monthName,
-					'MonthNumber'=>$monthNumber,
-					'MonthLink'=>$link,
-					'Active'=>$active
-				);
+			// Set up the relevant year array, if not yet available.
+			if (!isset($years[$year])) {
+				$years[$year] = array('YearName'=>$year, 'Months'=>array());
 			}
+
+			// Check if the currently processed month is the one that is selected via GET params.
+			$active = false;
+			if (isset($year) && isset($monthNumber)) {
+				$active = (((int)$currentYear)==$year && ((int)$currentMonthNumber)==$monthNumber);
+			}
+
+			// Build the link - keep the tag and date filter, but reset the pagination.
+			if ($active) {
+				// Allow clicking to deselect the month.
+				$link = HTTP::setGetVar('month', null, $link, '&');
+				$link = HTTP::setGetVar('year', null, $link, '&');
+			} else {
+				$link = HTTP::setGetVar('month', $monthNumber, $link, '&');
+				$link = HTTP::setGetVar('year', $year, $link, '&');
+			}
+			$link = HTTP::setGetVar('start', null, $link, '&');
+
+			$years[$year]['Months'][$monthNumber] = array(
+				'MonthName'=>$monthName,
+				'MonthNumber'=>$monthNumber,
+				'MonthLink'=>$link,
+				'Active'=>$active
+			);
 		}
 
 		// ArrayList will not recursively walk through the supplied array, so manually build nested ArrayLists.
@@ -174,7 +179,7 @@ class DatedUpdateHolder extends Page {
 		}
 
 		// Reverse the list so the most recent years appear first.
-		return new ArrayList(array_reverse($years));
+		return new ArrayList($years);
 	}
 
 	public function getDefaultRSSLink() {
