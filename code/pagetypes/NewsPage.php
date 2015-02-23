@@ -10,6 +10,10 @@ class NewsPage extends DatedUpdatePage {
 
 	private static $icon = 'cwp/images/icons/sitetree_images/news.png';
 
+	private static $singular_name = 'News Page';
+
+	private static $plural_name = 'News Pages';
+
 	private static $db = array(
 		'Author' => 'Varchar(255)'
 	);

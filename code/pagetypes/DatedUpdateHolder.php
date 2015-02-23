@@ -9,6 +9,10 @@ class DatedUpdateHolder extends Page {
 
 	private static $update_class = 'DatedUpdatePage';
 
+	private static $singular_name = 'Dated Update Holder';
+
+	private static $plural_name = 'Dated Update Holders';
+
 	/**
 	 * Find all distinct tags (TaxonomyTerms) associated with the DatedUpdatePages under this holder.
 	 */

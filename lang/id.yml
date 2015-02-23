@@ -1,1 +1,22 @@
-id: {}
+id:
+  BaseHomePage:
+    AddNewButton: 'Tambah baru'
+    FeatureButtonText: 'Tombol teks'
+    FeatureCategoryDropdown: 'Ikon Kategori'
+    FeatureContentFieldLabel: Isi
+    Title: Judul
+  BasePage:
+    ColumnPageType: 'Jenis Halaman'
+    ColumnTitle: Judul
+    TagsTabTitle: Tag
+  CustomSiteConfig:
+    SocialMediaTab: 'Media Sosial'
+  CwpCarousel:
+    LinkField: Tautan
+  DateUpdatePage:
+    AbstractTextFieldLabel: Abstrak
+    AuthorFieldLabel: Pengarang
+    DateLabel: Tanggal
+    LocationFieldLabel: Lokasi
+  Quicklink:
+    NameLabel: Nama

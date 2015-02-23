@@ -3,6 +3,10 @@ class SitemapPage extends Page {
 
 	private static $description = 'Lists all pages on the site';
 
+	private static $singular_name = 'Sitemap Page';
+
+	private static $plural_name = 'Sitemap Pages';
+
 }
 class SitemapPage_Controller extends Page_Controller {
 

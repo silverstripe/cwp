@@ -4,6 +4,10 @@ class DatedUpdatePage extends Page {
 	// Meant as an abstract base class.
 	private static $hide_ancestor = 'DatedUpdatePage';
 
+	private static $singular_name = 'Dated Update Page';
+
+	private static $plural_name = 'Dated Update Pages';
+
 	private static $defaults = array(
 		'ShowInMenus' => false
 	);

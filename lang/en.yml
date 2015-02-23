@@ -7,8 +7,8 @@ en:
     FeatureContentFieldLabel: Content
     FeatureLink: 'Page to link to'
     LearnMoreLink: 'Page to link the "Learn More" button to:'
-    PLURALNAME: 'Base Home Pages'
-    SINGULARNAME: 'Base Home Page'
+    PLURALNAME: 'Home Pages'
+    SINGULARNAME: 'Home Page'
     Title: Title
   BasePage:
     ColumnPageType: 'Page Type'

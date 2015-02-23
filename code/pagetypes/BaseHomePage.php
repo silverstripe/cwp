@@ -11,6 +11,10 @@ class BaseHomePage extends Page {
 
 	private static $hide_ancestor = 'BaseHomePage';
 
+	private static $singular_name = 'Home Page';
+
+	private static $plural_name = 'Home Pages';
+
 	private static $db = array(
 		'FeatureOneTitle' => 'Varchar(255)',
 		'FeatureOneCategory' => "Enum('bell,comments,film,flag,globe,group,list,phone,rss,time,user','comments')",

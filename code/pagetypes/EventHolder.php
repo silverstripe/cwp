@@ -16,6 +16,10 @@ class EventHolder extends DatedUpdateHolder {
 
 	public $pageIcon =  'images/icons/sitetree_images/event_holder.png';
 
+	private static $singular_name = 'Event Holder';
+
+	private static $plural_name = 'Event Holders';
+
 	/**
 	 * Find all site's news items, based on some filters.
 	 * Omitting parameters will prevent relevant filters from being applied. The filters are ANDed together.
