@@ -8,7 +8,7 @@ class Quicklink extends DataObject {
 	);
 
 	private static $has_one = array(
-		'Parent' => 'HomePage',
+		'Parent' => 'BaseHomePage',
 		'InternalLink' => 'SiteTree'
 	);
 
