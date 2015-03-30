@@ -5,10 +5,11 @@ pagenumber: 11
 
 # Infrastructural considerations
 
-## PHP execution time limit
+## HTTP Request time limit
 
-The default execution limit on the PHP side is 30s. However it is possible to extend that time programmatically. When
-doing so, one has to consider the implications to an instance, and to the platform.
+Gateway has a HTTP request timeout limit of 60 seconds.
+
+All HTTP requests to CWP environments are affected by this limit. Any request that exceeds this limit will continue to be processed on the back-end server, however Gateway will generate a 504 (Gateway Timeout) error. 
 
 <div class="warning" markdown='1'>
 Your publicly accessible URLs should never take a long time to process, as this leaves your instance open to denial of
