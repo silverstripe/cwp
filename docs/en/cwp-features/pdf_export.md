@@ -99,6 +99,26 @@ folder.
 
 To customise the footer of the PDF, you can modify the `Page_pdffooter.ss` template in your theme.
 
+## Defining the version of wkhtmltopdf to use
+
+We currently provide two versions of wkhtmltopdf for CWP customers to use.
+
+The version that is used by default is version 0.9.6, and is an older, stable version that doesn't support as many
+features, but has been tested to work well with the default CWP templates.
+
+Some CWP customers have requested an updated version, and so we have also installed version 0.12.1.1. In order to use
+this updated version, you must define the binary to use.
+
+Since CWP Recipe release 1.0.4, the only configuration that is needed is an addition to your YAML configuration:
+
+	:::yml
+	BasePage:
+	  wkhtmltopdf_binary: '/usr/local/bin/wkhtmltopdf_12'
+
+However, if you are using an older version of the CWP recipe release, or not using the CWP recipe, then you can override
+the `generatePDF()` method similar to
+[this commit](https://gitlab.cwp.govt.nz/cwp/cwp/commit/21201d0b477430a6867e4307bab12c3e94e1c26b).
+
 ## Customising parameters to wkhtmltopdf
 
 Sometimes you'll need to override the default parameters to `wkhtmltopdf` to customise the PDF export, such as change
