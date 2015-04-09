@@ -220,6 +220,28 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 		'DateRangeForm'
 	);
 
+
+	private static $casting = array(
+		'MetaTitle' => 'Text',
+		'FilterDescription' => 'Text'
+	);
+
+	/**
+	 * Get the meta title for the current action
+	 *
+	 * @return string
+	 */
+	public function getMetaTitle() {
+		$title = $this->data()->getTitle();
+		$filter = $this->FilterDescription();
+		if($filter) {
+			$title = "{$title} - {$filter}";
+		}
+
+		$this->extend('updateMetaTitle', $title);
+		return $title;
+	}
+
 	/**
 	 * Returns a description of the current filter
 	 */
