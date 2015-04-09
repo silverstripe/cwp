@@ -8,6 +8,12 @@ SiteConfig:
 TaxonomyTerm:
   extensions:
    - TaxonomyTermExtension
+Member:
+  title_format:
+    columns:
+      - FirstName
+      - Surname
+    sep: ' '
 ---
 Name: mimeuploadvalidator
 Only:
@@ -42,3 +48,11 @@ Only:
 WorkflowDefinition:
   extensions:
     - CwpWorkflowDefinitionExtension
+---
+Name: cwpcommentingextensions
+Only:
+  moduleexists: 'comments'
+---
+CommentingController:
+  extensions:
+    - CwpCommentingExtension
