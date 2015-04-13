@@ -516,4 +516,7 @@ class BasePage_Controller extends ContentController {
 		return SS_Datetime::now();
 	}
 
+	public function getRSSLink() {
+	}
+
 }
