@@ -148,28 +148,30 @@ class BasePage extends SiteTree {
 		);
 
 		// Taxonomies
-		$components = GridFieldConfig_RelationEditor::create();
-		$components->removeComponentsByType('GridFieldAddNewButton');
-		$components->removeComponentsByType('GridFieldEditButton');
+		if(!class_exists('BlogPost') || !($this instanceof BlogPost)) {
+			$components = GridFieldConfig_RelationEditor::create();
+			$components->removeComponentsByType('GridFieldAddNewButton');
+			$components->removeComponentsByType('GridFieldEditButton');
 
-		$autoCompleter = $components->getComponentByType('GridFieldAddExistingAutocompleter');
-		$autoCompleter->setResultsFormat('$Name ($TaxonomyName)');
+			$autoCompleter = $components->getComponentByType('GridFieldAddExistingAutocompleter');
+			$autoCompleter->setResultsFormat('$Name ($TaxonomyName)');
 
-		$dataColumns = $components->getComponentByType('GridFieldDataColumns');
-		$dataColumns->setDisplayFields(array(
-			'Name' => _t('BasePage.Term','Term'),
-			'TaxonomyName' => _t('BasePage.Taxonomy','Taxonomy')
-		));
+			$dataColumns = $components->getComponentByType('GridFieldDataColumns');
+			$dataColumns->setDisplayFields(array(
+				'Name' => _t('BasePage.Term','Term'),
+				'TaxonomyName' => _t('BasePage.Taxonomy','Taxonomy')
+			));
 
-		$fields->findOrMakeTab('Root.Tags', _t('BasePage.TagsTabTitle', 'Tags'));
-		$fields->addFieldToTab(
-			'Root.Tags',
-			TreeMultiselectField::create(
-				'Terms',
-				_t('BasePage.Terms','Terms'),
-				'TaxonomyTerm'
-			)->setDescription(_t('BasePage.TermsDescription', 'Click to search for additional terms'))
-		);
+			$fields->findOrMakeTab('Root.Tags', _t('BasePage.TagsTabTitle', 'Tags'));
+			$fields->addFieldToTab(
+				'Root.Tags',
+				TreeMultiselectField::create(
+					'Terms',
+					_t('BasePage.Terms','Terms'),
+					'TaxonomyTerm'
+				)->setDescription(_t('BasePage.TermsDescription', 'Click to search for additional terms'))
+			);
+		}
 
 		return $fields;
 	}
