@@ -147,8 +147,8 @@ class BasePage extends SiteTree {
 			)
 		);
 
-		// Taxonomies
-		if(!class_exists('BlogPost') || !($this instanceof BlogPost)) {
+		// Taxonomies - Unless they have their own 'Tags' field (such as in Blog, etc)
+		if(!$this->has_many('Tags') && !$this->many_many('Tags')) {
 			$components = GridFieldConfig_RelationEditor::create();
 			$components->removeComponentsByType('GridFieldAddNewButton');
 			$components->removeComponentsByType('GridFieldEditButton');
