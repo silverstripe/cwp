@@ -191,7 +191,7 @@ SilverStripe Framework provides a **partial caching** template tag to easily cac
 
 Partial caching lets you trade off memory for processing power. If overused (e.g. if the block IDs are too sparse), your environment can run out of memory.
 
-You can read more about it in the [partial caching documentation](https://www.cwp.govt.nz/guides/core-technical-documentation/framework/en/reference/partial-caching).
+You can read more about it in the [partial caching documentation](https://www.cwp.govt.nz/guides/core-technical-documentation/framework/en/02_Developer_Guides/08_Performance/00_Partial_Caching).
 
 ## FAQ
 
