@@ -145,7 +145,7 @@ As an example the following will apply a new "cache for 900 seconds" header to a
 		Header set Cache-Control "max-age=900, public" env=!NO_CACHE
 	</IfModule>
 	
-## Caching and SSL
+#### Caching and SSL
 
 Since SSL traffic is terminated before it hits the Varnish cache layer, you can also cache content delivered through HTTPS. 
 
