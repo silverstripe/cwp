@@ -144,6 +144,10 @@ As an example the following will apply a new "cache for 900 seconds" header to a
 		SetEnvIf Request_URI ".*.php$" NO_CACHE=true
 		Header set Cache-Control "max-age=900, public" env=!NO_CACHE
 	</IfModule>
+	
+## Caching and SSL
+
+Since SSL traffic is terminated before it hits the Varnish cache layer, you can also cache content delivered through HTTPS. 
 
 ### Configuraton via Incapsula
 
