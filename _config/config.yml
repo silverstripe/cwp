@@ -9,6 +9,11 @@ TaxonomyTerm:
   extensions:
    - TaxonomyTermExtension
 ---
+Name: cwpsitetreefileextensions
+---
+Injector:
+  SiteTreeFileExtension: CwpSiteTreeFileExtension
+---
 Name: mimeuploadvalidator
 Only:
   moduleexists: 'mimevalidator'

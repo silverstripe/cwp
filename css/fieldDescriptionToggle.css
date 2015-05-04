@@ -1,0 +1,14 @@
+.cms-description-toggle > .middleColumn { display: inline-block; vertical-align: middle; margin-left: 0; width: 36%; min-width: 300px; }
+.cms-description-toggle .right { display: inline-block !important; vertical-align: middle; height: 15px; margin: 0 0 0 7px !important; }
+.cms-description-toggle .btn-icon-information { display: inline-block; width: 15px; height: 15px; background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKcSURBVDjLpZPLa9RXHMU/d0ysZEwmMQqZiTaP0agoaKGJUiwIxU0hUjtUQaIuXHSVbRVc+R8ICj5WvrCldJquhVqalIbOohuZxjDVxDSP0RgzyST9zdzvvffrQkh8tBs9yy9fPhw45xhV5X1U8+Yhc3U0LcEdVxdOVq20OA0ooQjhpnfhzuDZTx6++m9edfDFlZGMtXKxI6HJnrZGGtauAWAhcgwVnnB/enkGo/25859l3wIcvpzP2EhuHNpWF9/dWs/UnKW4EOGDkqhbQyqxjsKzMgM/P1ymhlO5C4ezK4DeS/c7RdzQoa3x1PaWenJjJZwT9rQ1gSp/js1jYoZdyfX8M1/mp7uFaTR8mrt29FEMQILr62jQ1I5kA8OF59jIItVA78dJertTiBNs1ZKfLNG+MUHX1oaURtIHEAOw3p/Y197MWHEJEUGCxwfHj8MTZIcnsGKxzrIURYzPLnJgbxvG2hMrKdjItjbV11CYKeG8R7ygIdB3sBMFhkem0RAAQ3Fuka7UZtRHrasOqhYNilOwrkrwnhCU/ON5/q04vHV48ThxOCuoAbxnBQB+am65QnO8FqMxNCjBe14mpHhxBBGCWBLxD3iyWMaYMLUKsO7WYH6Stk1xCAGccmR/Ozs/bKJuXS39R/YgIjgROloSDA39Deit1SZWotsjD8pfp5ONqZ6uTfyWn+T7X0f59t5fqDhUA4ry0fYtjJcWeZQvTBu4/VqRuk9/l9Fy5cbnX+6Od26s58HjWWaflwkusKGxjm1bmhkvLXHvh1+WMbWncgPfZN+qcvex6xnUXkzvSiYP7EvTvH4toDxdqDD4+ygT+cKMMbH+3MCZ7H9uAaDnqytpVX8cDScJlRY0YIwpAjcNcuePgXP/P6Z30QuoP4J7WbYhuQAAAABJRU5ErkJggg==) no-repeat; }
+.cms-description-toggle .description { padding: 12px 0; width: 36%; }
+.cms-description-toggle.textarea .right, .cms-description-toggle.htmleditor .right, .cms-description-toggle.optionset .right, .cms-description-toggle.listbox .right, .cms-description-toggle.upload .right { vertical-align: top; margin-top: 4px; }
+.cms-description-toggle.htmleditor .middleColumn, .cms-description-toggle.htmleditor .description { width: 95%; }
+.cms-description-toggle.optionset .right { margin-top: 8px; }
+.cms-description-toggle.optionset li { width: 170px; }
+.cms-description-toggle.listbox select { margin-left: 0; }
+.cms-description-toggle.upload .description { margin-left: 184px; }
+.cms-file-info-data .cms-description-toggle > .middleColumn { margin-left: 8px !important; width: auto; min-width: 0; }
+.cms-file-info-data .cms-description-toggle .description { margin-left: 104px; width: auto; }
+
+.cms-file-info-data { width: 55%; }
