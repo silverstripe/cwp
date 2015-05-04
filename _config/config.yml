@@ -15,6 +15,11 @@ Member:
       - Surname
     sep: ' '
 ---
+Name: cwpsitetreefileextensions
+---
+Injector:
+  SiteTreeFileExtension: CwpSiteTreeFileExtension
+---
 Name: mimeuploadvalidator
 Only:
   moduleexists: 'mimevalidator'
