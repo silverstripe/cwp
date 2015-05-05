@@ -15,6 +15,12 @@ version string via the configuration system. To customise the desired version of
 Note that if you started from a recent *cwp-installer* you might already have this configuration present in which case
 it's enough to just change it.
 
+## Acceptable Use Policy
+
+Please note that in order to ensure adequate sharing of resources on Solr the maximum size of each indexed item
+is limited to 100kb of data. If you are indexing file content, please note that files with text content exceeding
+this limit will not be fully indexed, although content within this range will still be searchable.
+
 ## Configuring Solr for CWP
 
 1.0.x branch of the recipe defaults to the 'legacy' mode which exists only for backwards compatibility. We recommend to
@@ -120,7 +126,7 @@ So with that, let's create a new class called `MySolrSearchIndex`:
 	class MySolrSearchIndex extends SolrIndex {
 		
 		public function init() {
-			$this->addClass('BasePage');
+			$this->addClass('SiteTree');
 			$this->addClass('StaffMember');
 			
 			$this->addAllFulltextFields();
@@ -144,3 +150,64 @@ Now in your `mysite/_config.php` file, add the following:
 	);
 
 Now when you search on the site, `StaffMember` results will show alongside normal `Page` results.
+
+
+## Searching within documents
+
+By default all CWP instances have text extraction services configured. These services can be used by user code
+to transform text-based documents (such as PDF, MS Word, or rich text) into plain text in a format which can
+be readily used as a Solr index data source, or for use by the CWP site itself.
+
+We recommend the use of the following available services:
+
+* Apache Tika 1.7 server can be accessed at http://localhost:9998 (which is defined by SS_TIKA_ENDPOINT for all
+  instances). This provides the most effective mechanism for indexing multiple documents in quick succession, and
+  supports a wide range of file formats.
+* pdf2text is also available for PDF document extraction if Apache Tika does not provide the required output
+  for these files.
+
+The CWP supported [text extraction module](https://github.com/silverstripe-labs/silverstripe-textextraction) is
+available to provide an interface to these services. In order to add this to a site include the following configuration:
+
+In composer.json
+
+
+	:::json
+	"require": {
+		"silverstripe/textextraction": "~2.0.0@stable"
+	}
+
+
+In mysite/_config.php
+
+
+	:::php
+	Page_Controller::$search_index_class = 'MySolrSearchIndex';
+	Page_Controller::$classes_to_search[] = array(
+		'class' => 'File',
+		'includeSubclasses' => true
+	);
+
+
+In MySolrSearchIndex.php
+
+
+	:::php
+	<?php
+	class MySolrSearchIndex extends SolrIndex {
+		
+		public function init() {
+			$this->addClass('SiteTree');
+			$this->addClass('File');
+			
+			$this->addAllFulltextFields();
+			$this->addFulltextField('FileContent');
+			$this->addFilterField('ShowInSearch');
+		}
+		
+	}
+
+Ensure that your site's Solr index is configured by running `dev/tasks/Solr_configure` and `dev/tasks/Solr_reindex`
+as above. Once indexing has completed, searching using the default search functionality should show all files
+with content matching the specified search term.
+
