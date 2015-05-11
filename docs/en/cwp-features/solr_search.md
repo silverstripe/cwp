@@ -172,7 +172,6 @@ available to provide an interface to these services. In order to add this to a s
 In composer.json
 
 
-	:::json
 	"require": {
 		"silverstripe/textextraction": "~2.0.0@stable"
 	}
