@@ -210,3 +210,31 @@ Ensure that your site's Solr index is configured by running `dev/tasks/Solr_conf
 as above. Once indexing has completed, searching using the default search functionality should show all files
 with content matching the specified search term.
 
+### Performance Implications and Limitations
+
+While the size of documents can vary from instance to instance, there are reasonable performance limits of
+document indexing at various instance sizes.
+
+As a general rule, given that the 100kb limitation for each indexed document is in place, the various maximum
+number of documents that can be indexed are included in the "max pages in CMS" as per the 
+[instance sizes](https://www.cwp.govt.nz/about/selecting-the-attributes-of-the-common-web-platform-instance-for-your-websites/)
+guide. If the number of files and pages exceeds these limitations it is advisable not to include the File type
+in any Solr index.
+
+Another important consideration is the potential for downtime during indexing of content to affect your website.
+Running `dev/tasks/Solr_Reindex` will invoke the following steps:
+
+* All existing indexed documents will be cleared from search. These documents will not be searchable until
+indexing is complete, and thus any functional dependency on this function must be factored into your workflow.
+* All documents in the database will be added to a job queue. This task should only take a few minutes, but during
+this time a large amount of system memory will be allocated, and will affect the performance of the instance.
+* Once all documents are added to the queue, a background task will run and incrementally add each document to the
+Solr service backend. During this time fewer resources are reserved, the instance will be able to respond
+normally to requests. 
+* Once the queue is complete, all indexed files will be committed to the Solr service and search will be available
+again.
+
+As a general rule, you should allocate approximately 0.25 seconds per document indexed, regardless of instance size.
+This number may increase or decrease depending on the size and type of each file.
+
+If possible this step should be performed outside of normal busy periods.
