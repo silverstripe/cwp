@@ -222,6 +222,10 @@ guide. If the number of files and pages exceeds these limitations it is advisabl
 in any Solr index.
 
 Another important consideration is the potential for downtime during indexing of content to affect your website.
+If indexing a large number of documents it is advisable to upgrade to Medium or Large, as heavily trafficked Small
+instances may suffer from performance degradation during background indexing processes. If indexing documents
+on Small it's advisable to do so outside of normal business hours to ensure website performance is unaffected.
+
 Running `dev/tasks/Solr_Reindex` will invoke the following steps:
 
 * All existing indexed documents will be cleared from search. These documents will not be searchable until
@@ -234,7 +238,7 @@ normally to requests.
 * Once the queue is complete, all indexed files will be committed to the Solr service and search will be available
 again.
 
-As a general rule, you should allocate approximately 0.25 seconds per document indexed, regardless of instance size.
+As a general rule, you should allocate approximately 0.5 seconds per document indexed, regardless of instance size.
 This number may increase or decrease depending on the size and type of each file.
 
 If possible this step should be performed outside of normal busy periods.
