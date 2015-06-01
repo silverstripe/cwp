@@ -33,7 +33,7 @@ to store this value.
 You can also add the following YAML code into your mysite/_config/config.yml
 
 
-	:::yaml
+	:::yml
 	---
 	Name: myspamprotection
 	---
