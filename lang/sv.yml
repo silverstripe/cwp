@@ -1,1 +1,28 @@
-sv: {}
+sv:
+  BaseHomePage:
+    AddNewButton: 'Skapa ny'
+    DESCRIPTION: 'Generisk innehållssida'
+    FeatureButtonText: 'Knapp-text'
+    FeatureCategoryDropdown: 'Kategori-ikon'
+    FeatureContentFieldLabel: Innehåll
+    FeatureLink: 'Sida att länka till'
+    LearnMoreLink: 'Sida att länka "Läs mer"-knappen till'
+    PLURALNAME: 'Hem-sidor'
+    SINGULARNAME: 'Hem'
+    Title: Titel
+  BasePage:
+    ColumnPageType: 'Sidtyp'
+    ColumnTitle: Titel
+    DESCRIPTION: 'Generisk innehållssida'
+    RelatedPages: 'Relaterade sidor'
+    TagsTabTitle: Taggar
+    Taxonomy: Taxonomi
+  CustomSiteConfig:
+    LogosIconsTab: Logotyper/ikoner
+  CwpCarousel:
+    LinkField: Länk
+  CwpConfig:
+    FbField: 'Facebook UID eller användarnamn'
+    FooterLogoField: 'Sidfots-logotyp, för användning i sidfoten'
+    FooterLogoLinkDesc: 'Vänligen ange protokollet (t ex http:// eller http://) om länken inte är intern'
+    GaField: 'Google Analytics-konto'

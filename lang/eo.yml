@@ -7,8 +7,8 @@ eo:
     FeatureContentFieldLabel: Enhavo
     FeatureLink: 'Paĝo alligota'
     LearnMoreLink: 'Paĝo al kiu ligi la butonon "Lerni plu":'
-    PLURALNAME: 'Bazaj hejmpaĝoj'
-    SINGULARNAME: 'Baza hejmpaĝo'
+    PLURALNAME: 'Hejmpaĝoj'
+    SINGULARNAME: 'Hejmpaĝo'
     Title: Titolo
   BasePage:
     ColumnPageType: 'Tipo de paĝo'
@@ -21,6 +21,7 @@ eo:
     Taxonomy: Taksonomio
     Term: Termino
     Terms: Terminoj
+    TermsDescription: 'Alklaku por serĉi pluajn erojn'
   CarouselItem:
     PLURALNAME: 'Karuselaj elementoj'
     SINGULARNAME: 'Karusela elemento'

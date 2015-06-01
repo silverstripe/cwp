@@ -120,3 +120,9 @@ en:
     DESCRIPTION: 'Lists all pages on the site'
     PLURALNAME: 'Sitemap Pages'
     SINGULARNAME: 'Sitemap Page'
+  AssetTableField:
+    BACKLINKCOUNT: 'Used on:'
+    PAGES: page(s)
+  SiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'This list shows all pages where the file has been added through a WYSIWYG editor.'
+    EDIT: Edit
