@@ -76,6 +76,7 @@ class BaseHomePage extends Page {
 		$gridConfig->removeComponentsByType('GridFieldDeleteAction');
 		$gridConfig->addComponent(new GridFieldDeleteAction());
 		$gridConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+		$gridConfig->removeComponentsByType('GridFieldSortableHeader');
 		$gridField->setModelClass('CarouselItem');
 
 		$fields->addFieldToTab('Root.Carousel', $gridField);
