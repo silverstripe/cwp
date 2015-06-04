@@ -57,7 +57,7 @@ class EventPage extends DatedUpdatePage {
 
 		$dateTimeFields = array();
 
-		$dateTimeFields[] = $dateField = DateField::create('Date', '');
+		$dateTimeFields[] = $dateField = DateField::create('Date', 'Date');
 		$dateField->setConfig('showcalendar', true);
 		$dateField->setConfig('dateformat', Member::currentUser()->getDateFormat());
 
