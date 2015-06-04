@@ -13,13 +13,15 @@ class WorkflowDefinitionExtensionTest extends FunctionalTest {
 	 * {@link $fixture_file}, which always forces a database build.
 	 */
 	protected $usesDatabase = true;
-
+	
 	/**
 	 * Tests the config option that controls the creation of a default workflow definition
 	 *
 	 * @return void
 	 */
 	public function testCreateDefaultWorkflowTest() {
+		DB::quiet();
+		
 		// test disabling the default workflow definition
 		Config::inst()->update('CwpWorkflowDefinitionExtension', 'create_default_workflow', false);
 		$workflowExtn = Injector::inst()->create('CwpWorkflowDefinitionExtension');
