@@ -104,26 +104,26 @@ class BaseHomePage extends Page {
 		$fields->addFieldToTab(
 			'Root.Features', 
 			ToggleCompositeField::create('FeatureOne', _t('SiteTree.FeatureOne', 'Feature One'),
-			array(
-				TextField::create('FeatureOneTitle', _t('BaseHomePage.Title','Title')),
-				$dropdownField = DropdownField::create(
-					'FeatureOneCategory', 
-					_t('BaseHomePage.FeatureCategoryDropdown','Category icon'), 
-					singleton('BaseHomePage')->dbObject('FeatureOneCategory')->enumValues()
-				),
-				TreeDropdownField::create(
-					'FeatureOneLinkID', 
-					_t('BaseHomePage.FeatureLink','Page to link to'), 
-					'SiteTree'
-				),
-				HTMLEditorField::create(
-					'FeatureOneContent', 
-					_t('BaseHomePage.FeatureContentFieldLabel','Content')
-				),
-				TextField::create(
-					'FeatureOneButtonText', 
-					_t('BaseHomePage.FeatureButtonText','Button text')
-				)
+				array(
+					TextField::create('FeatureOneTitle', _t('BaseHomePage.Title','Title')),
+					$dropdownField = DropdownField::create(
+						'FeatureOneCategory',
+						_t('BaseHomePage.FeatureCategoryDropdown','Category icon'),
+						singleton('BaseHomePage')->dbObject('FeatureOneCategory')->enumValues()
+					),
+					HTMLEditorField::create(
+						'FeatureOneContent',
+						_t('BaseHomePage.FeatureContentFieldLabel','Content')
+					),
+					TextField::create(
+						'FeatureOneButtonText',
+						_t('BaseHomePage.FeatureButtonText','Button text')
+					),
+					TreeDropdownField::create(
+						'FeatureOneLinkID',
+						_t('BaseHomePage.FeatureLink','Page to link to'),
+						'SiteTree'
+					)->setDescription(_t('BaseHomePage.ButtonTextRequired','Button text must be filled in'))
 				)
 			)->setHeadingLevel(3)
 		);
@@ -137,19 +137,19 @@ class BaseHomePage extends Page {
 					_t('BaseHomePage.FeatureCategoryDropdown','Category icon'),
 					singleton('BaseHomePage')->dbObject('FeatureTwoCategory')->enumValues()
 				),
-				TreeDropdownField::create(
-					'FeatureTwoLinkID', 
-					_t('BaseHomePage.FeatureLink','Page to link to'), 
-					'SiteTree'
-				),
 				HTMLEditorField::create(
 					'FeatureTwoContent', 
 					_t('BaseHomePage.FeatureContentFieldLabel','Content')
 				),
 				TextField::create(
-					'FeatureTwoButtonText', 
+					'FeatureTwoButtonText',
 					_t('BaseHomePage.FeatureButtonText','Button text')
-				)
+				),
+				TreeDropdownField::create(
+					'FeatureTwoLinkID',
+					_t('BaseHomePage.FeatureLink','Page to link to'),
+					'SiteTree'
+				)->setDescription(_t('BaseHomePage.ButtonTextRequired','Button text must be filled in'))
 			)
 			)->setHeadingLevel(3)
 		);
