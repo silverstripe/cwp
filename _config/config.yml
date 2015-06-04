@@ -17,8 +17,9 @@ Member:
 ---
 Name: cwpsitetreefileextensions
 ---
-Injector:
-  SiteTreeFileExtension: CwpSiteTreeFileExtension
+File:
+  extensions:
+    - CwpSiteTreeFileExtension
 ---
 Name: mimeuploadvalidator
 Only:
