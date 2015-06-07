@@ -24,12 +24,11 @@ Staff Directory pages with the information provided by the Active
 Directory.
 
 The module only works with Active Directory and Active Directory
-Federation Services, for further information see the 
-[module requirements](https://github.com/silverstripe/silverstripe-activedirectory#requirements).
+Federation Services, for further information see the [module requirements](https://github.com/silverstripe/silverstripe-activedirectory#requirements).
 
 ## Responsibilities
 
-CWP is [supporting](https://www.cwp.govt.nz/features/technical-information-about-the-platform/#SupportedCode) 
+CWP is [supporting](https://www.cwp.govt.nz/features/technical-information-about-the-platform/#SupportedCode)
 the `silverstripe-activedirectory` module and the hosting of the
 intranet site.
 
@@ -54,8 +53,7 @@ very firm ideas about how things ought to be done. The solution
 tightly couples a set of services to provide the best user
 experience and therefore the requirements are strict.
 
-- The users need to be logged into an a windows network via the
-  means of an AD.
+- The users need to be logged into a Windows network via means of an AD.
 - Their browser of choice must be able to automatically send their
   windows credentials to an ADFS server that can authenticate them
   from an AD server.
@@ -117,7 +115,7 @@ with the following in `mysite/_config.php`
 	    ));
 	}
 	
-### Disable the basic auth for an intranet site 
+### Disable the basic auth for an intranet site
 
 CWP by default prevents access to the UAT environment by
 restricting access people with logins. This prevents the ADFS
@@ -162,6 +160,14 @@ form.
 
 Allowing additional services to use the ADFS as an authentication
 endpoint doesn't require opening network ports or ip whitelisting.
+
+Other reasons for not using Kerberos also include:
+
+ - Open source web servers like Apache have limited support for Kerberos
+   through extensions, but are not officially supported and can
+   be difficult to setup and configure.
+ - Clocks between AD and the web server have to be perfectly matched
+   in order for it to work without failures.
 
 ### Why does the intranet site need access to the AD server?
 
