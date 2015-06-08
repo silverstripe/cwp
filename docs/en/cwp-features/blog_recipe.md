@@ -2,6 +2,25 @@
 
 From 1.1.0 onwards the blog recipe is included along side the basic recipe by default.
 
+The SilverStripe Blog module lets you publish blog posts and allow the public to
+engage with you by commenting on your posts. The module supports flexible
+categorisation and tagging of blog posts.
+
+[Three levels of permissions are supported](https://github.com/silverstripe/silverstripe-blog/blob/master/docs/en/roles.md):
+
+ * Editors who can control everything in their blog
+ * Writers who can create and publish in their blog
+ * Contributors who can write, but have limited permissions otherwise.
+
+Commenting can be enabled and disabled, and all comments go through a
+[spam filter](/how-tos/akismet) and then need to be manually moderated before
+they are published. The module provides an RSS feed to allow the public to
+subscribe to your blog posts.
+
+![Blog CMS](_images/blog_cms.png)
+
+![Blog Frontend](_images/blog_frontend.png)
+
 ## Overview
 
 This recipe includes the following modules:

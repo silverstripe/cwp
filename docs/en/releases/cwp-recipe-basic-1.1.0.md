@@ -16,6 +16,10 @@ The following new major features are included in this release:
  * The ability to index and search uploaded documents via fulltext search. This is currently a beta feature, and any agency using this are advised to complete feasibility testing on any target instance. Details on configuring your instance for searching documents can be found on the [solr search](/cwp-features/solr_search) page.
  * A Single Sign On functionality for SilverStripe intranet sites been created. It is optional functionality and will require specific infrastructure architecture. See the [single sign on documentation](/cwp-features/single_sign_on).
 
+Also included is a new file tracking system to display which pages each image appears on.
+
+![File List](_images/recipe_1.1.0_filelist.png)
+
 ## Security Release Notes
 
 For details on the specifics of these security fixes, please refer to our
