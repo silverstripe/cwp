@@ -249,6 +249,15 @@ class BasePage_Controller extends ContentController {
 	public static $results_per_page = 10;
 
 	public static $search_index_class = 'SolrSearchIndex';
+	
+	/**
+	 * If spelling suggestions for searches are given, enable
+	 * suggested searches to be followed immediately
+	 *
+	 * @config
+	 * @var bool
+	 */
+	private static $search_follow_suggestions = true;
 
 	/**
 	 * Which classes should be queried when searching?
@@ -356,8 +365,8 @@ class BasePage_Controller extends ContentController {
 	public function SearchForm() {
 		$searchText =  _t('SearchForm.SEARCH', 'Search');
 
-		if($this->owner->request && $this->owner->request->getVar('Search')) {
-			$searchText = $this->owner->request->getVar('Search');
+		if($this->getRequest()->getVar('Search')) {
+			$searchText = $this->getRequest()->getVar('Search');
 		}
 
 		$fields = new FieldList(
@@ -367,7 +376,7 @@ class BasePage_Controller extends ContentController {
 			new FormAction('results', _t('SearchForm.GO', 'Go'))
 		);
 
-		$form = new SearchForm($this->owner, 'SearchForm', $fields, $actions);
+		$form = new SearchForm($this, 'SearchForm', $fields, $actions);
 		$form->setFormAction('search/SearchForm');
 
 		return $form;
@@ -381,67 +390,47 @@ class BasePage_Controller extends ContentController {
 	 * @param SS_HTTPRequest $request Request generated for this action
 	 */
 	public function results($data, $form, $request) {
-		$start = isset($data['start']) ? $data['start'] : 0;
-		$limit = self::$results_per_page;
-		$results = new ArrayList();
-		$suggestion = null;
+		// Check parameters for terms, pagination, and if we should follow suggestions
 		$keywords = empty($data['Search']) ? '' : $data['Search'];
+		$start = isset($data['start']) ? $data['start'] : 0;
+		$suggestions = isset($data['suggestions'])
+			? $data['suggestions']
+			: $this->config()->search_follow_suggestions;
+		
+		// Perform search
+		$searchIndex = singleton(self::$search_index_class);
+		$results = CwpSearchEngine::create()
+			->search(
+				$keywords,
+				self::$classes_to_search,
+				$searchIndex,
+				self::$results_per_page,
+				$start,
+				$suggestions
+			);
 
-		if($keywords) {
-			$query = new SearchQuery();
-			$query->classes = self::$classes_to_search;
-			$query->search($keywords);
-			$query->exclude('SiteTree_ShowInSearch', 0);
-
-			// Artificially lower the amount of results to prevent too high resource usage.
-			// on subsequent canView check loop.
-			$query->limit(100);
-
-			try {
-				$result = singleton(self::$search_index_class)->search(
-					$query,
-					$start,
-					$limit,
-					array(
-						'hl' => 'true',
-						'spellcheck' => 'true',
-						'spellcheck.collate' => 'true'
-					)
-				);
-
-				$results = $result->Matches;
-				$suggestion = $result->Suggestion;
-			} catch(Exception $e) {
-				SS_Log::log($e, SS_Log::WARN);
-			}
-		}
-
-		// Clean up the results.
-		foreach($results as $result) {
-			if(!$result->canView()) $results->remove($result);
-		}
-
-		// Generate links
-		$searchURL = Director::absoluteURL(Controller::join_links(
-			Director::baseURL(),
-			'search/SearchForm?Search='.rawurlencode($keywords)
-		));
-		$rssUrl = Controller::join_links($searchURL, '?format=rss');
-		RSSFeed::linkToFeed($rssUrl, 'Search results for "' . $keywords . '"');
-		$atomUrl = Controller::join_links($searchURL, '?format=atom');
-		CwpAtomFeed::linkToFeed($atomUrl, 'Search results for "' . $keywords . '"');
-
-		$data = array(
+		// Customise content with these results
+		$response = $this->customise(array(
 			'PdfLink' => '',
-			'Results' => $results,
-			'Suggestion' => DBField::create_field('Text', $suggestion),
-			'Query' => DBField::create_field('Text', $keywords),
-			'SearchLink' => DBField::create_field('Text', $searchURL),
-			'Title' => _t('SearchForm.SearchResults', 'Search Results'),
-			'RSSLink' => DBField::create_field('Text', $rssUrl),
-			'AtomLink' => DBField::create_field('Text', $atomUrl)
-		);
-
+			'Results' => $results ? $results->getResults() : null,
+			'Title' => _t('SearchForm.SearchResults', 'Search Results')
+		));
+		if($results) {
+			$response = $response->customise($results);
+		}
+		
+		// Render
+		$templates = $this->getResultsTemplate($request);
+		return $response->renderWith($templates);
+	}
+	
+	/**
+	 * Select the template to render search results with
+	 * 
+	 * @param SS_HTTPRequest $request
+	 * @return array
+	 */
+	protected function getResultsTemplate($request) {
 		$templates = array('Page_results', 'Page');
 		if ($request->getVar('format') == 'rss') {
 			array_unshift($templates, 'Page_results_rss');
@@ -449,8 +438,7 @@ class BasePage_Controller extends ContentController {
 		if ($request->getVar('format') == 'atom') {
 			array_unshift($templates, 'Page_results_atom');
 		}
-
-		return $this->owner->customise($data)->renderWith($templates);
+		return $templates;
 	}
 
 	/**

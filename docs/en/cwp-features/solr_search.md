@@ -153,6 +153,8 @@ Now when you search on the site, `StaffMember` results will show alongside norma
 
 ## Boosting results
 
+<div class="notice" markdown='1'>This feature requires cwp recipe 1.1.1 or above</div>
+
 In cases where certain documents should appear higher in search results for specific terms, boosting can be used to
 promote certain keywords on a per document basis.
 
@@ -182,7 +184,138 @@ Within the CMS, you can now provide a list of boost terms for each page.
 
 ![boost cms](_images/boost_fields.png)
 
+## Spelling corrections and suggestions
+
+<div class="notice" markdown='1'>This feature requires cwp recipe 1.1.1 or above</div>
+
+By default (from recipe version 1.1.1) search results will automatically attempt to detect
+misspellings of search terms. If corrections for these misspellings can be found, results
+for these terms will be displayed instead.
+
+In order to disable this automatic failover you can control this behaviour via config.
+
+
+	:::yaml
+	BasePage_Controller:
+	  search_follow_suggestions: false
+
+
+Disabling this will not prevent misspellings from being detected and displayed, but 
+a prompt will be displayed rather than automatically performing the search.
+
+In order to completely disable these suggestions, remove the suggestion placeholder
+from the templates as necessary.
+
+### Enhancing spelling suggestion behaviour
+
+In the default config which is copied into your index, spell checking data is collected
+from all fulltext fields (everything you added through `SolrIndex->addFulltextField()`).
+The values of these fields are collected in a special `_text` field.
+
+The built-in `_text` data is appropriate in most situations, but also has some drawbacks;
+It's heavily processed, for example by stemming filters which butcher words.
+For example, misspelling "Govnernance" will suggest "govern" rather than "Governance".
+This can be fixed by aggregating spell checking data in a separate field. CWP has
+a pre-configured spellchecker `_spellcheck`, which uses the `_spellcheckText` field.
+
+To make use of this custom field and dictionary the following two changes are necessary:
+
+
+	:::php
+	class MyIndex extends SolrIndex {
+
+		public function init() {
+			$this->addCopyField('SiteTree_Title', '_spellcheckText');
+			$this->addCopyField('SiteTree_Content', '_spellcheckText');
+		}
+
+		function getFieldDefinitions() {
+			$xml = parent::getFieldDefinitions();
+
+			$xml .= "\n\n\t\t<!-- Additional custom fields for spell checking -->";
+			$xml .= "\n\t\t<field name='_spellcheckText' type='textSpell' indexed='true' stored='false' multiValued='true' />";
+
+			return $xml;
+		}
+
+	}
+
+
+Secondly this custom dictionary must be configured to be used for all searches via `CwpSearchEngine`
+
+
+	:::yml
+	CwpSearchEngine:
+	  spellcheck_options:
+	    'spellcheck.dictionary': '_spellcheck'
+
+
+### Search term synonyms
+
+The use of custom synonym definitions is another way in which misspelling suggestions
+can be controlled.
+
+Based on the subject matter of a site, certain words could have synonymous meanings
+which should be considered when performing searches. For instance, it may be desirable
+for search queries for "cellphone" to match "mobile" or "cellular".
+
+The ability to configure this is not automatically enabled by default, but can be enabled
+by adding the `SynonymsSiteConfig` extension.
+
+
+	:::yaml
+	SiteConfig:
+	  extensions:
+	    - SynonymsSiteConfig
+
+
+It is also necessary to ensure that any solr index configured either extends the base `SolrSearchIndex`
+class, or includes the following code (as copied from the basic recipe) to override the 
+`SolrIndex::uploadConfig` method.
+
+
+	:::php
+	class MyIndex extends SolrIndex {
+
+		/**
+		 * Upload config for this index to the given store
+		 * 
+		 * @param SolrConfigStore $store
+		 */
+		public function uploadConfig($store) {
+			parent::uploadConfig($store);
+
+			// Upload configured synonyms {@see SynonymsSiteConfig}
+			$siteConfig = SiteConfig::current_site_config();
+			if($siteConfig->SearchSynonyms) {
+				$store->uploadString(
+					$this->getIndexName(),
+					'synonyms.txt',
+					$siteConfig->SearchSynonyms
+				);
+			}
+		}
+
+	}
+
+
+Once this is enabled, the Settings section of the CMS will have a tab called "Fulltext Search"
+where a list of synonyms can be configured via an editable textarea. Each list of synonyms
+should be configured on a single line, with individual terms separated by a comma. Explicit
+mappings of alternatives to a preferred term can be specified using the `=>` operator.
+
+See [the Apache Solr documentation](https://wiki.apache.org/solr/AnalyzersTokenizersTokenFilters#solr.SynonymFilterFactory)
+for more information on this format.
+
+![Synonyms](_images/synonyms.png)
+
+It's essential that after changing this value, a CMS administrator should run the `Solr_Configure`
+task at http://mysite.cwp.govt.nz/div/tasks/Solr_Configure. It's not necessary to run
+Solr_Reindex in order for changes in synonyms to take effect.
+
 ## Searching within documents
+
+<div class="notice" markdown='1'>This feature requires cwp recipe 1.1.0 or above</div>
 
 By default all CWP instances have text extraction services configured. These services can be used by user code
 to transform text-based documents (such as PDF, MS Word, or rich text) into plain text in a format which can
