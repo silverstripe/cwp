@@ -151,6 +151,36 @@ Now in your `mysite/_config.php` file, add the following:
 
 Now when you search on the site, `StaffMember` results will show alongside normal `Page` results.
 
+## Boosting results
+
+In cases where certain documents should appear higher in search results for specific terms, boosting can be used to
+promote certain keywords on a per document basis.
+
+In order to add this functionality to pages you can use the `CwpSearchBoostExtension` in your config. The default
+`search_boost` option can also be customised from the default 2.
+
+
+	SiteTree:
+	  search_boost: 1.5
+	  extensions:
+		- CwpSearchBoostExtension
+
+
+Ensure that you are using either the default SolrSearchIndex, or are otherwise providing a boost value to that field.
+
+
+	:::php
+	public function init() {
+		$this->addClass('SiteTree');
+		$this->addAllFulltextFields();
+		$this->addFilterField('ShowInSearch');
+		$this->setFieldBoosting('SiteTree_SearchBoost', SiteTree::config()->search_boost);
+	}
+
+
+Within the CMS, you can now provide a list of boost terms for each page.
+
+![boost cms](_images/boost_fields.png)
 
 ## Searching within documents
 
