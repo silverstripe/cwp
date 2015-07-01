@@ -4,4 +4,4 @@ After: 'rootroutes'
 ---
 Director:
   rules:
-    'search': 'Page_Controller'
+    'search': 'CwpSearchPage_Controller'
