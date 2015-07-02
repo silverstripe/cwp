@@ -208,6 +208,143 @@ Now in your `mysite/_config.php` file, add the following:
 
 Now when you search on the site, `StaffMember` results will show alongside normal `Page` results.
 
+## Basic usage
+
+Basic usage is a four step process:
+
+1). Define an index in SilverStripe (Note: The specific connector index instance - that's what defines which engine gets used)
+
+
+	:::php
+	class MyIndex extends SolrIndex {
+		function init() {
+			$this->addClass('Page');
+			$this->addFulltextField('Title');
+			$this->addFulltextField('Content');
+		}
+	}
+
+
+You can also skip listing all searchable fields, and have the index
+figure it out automatically via `addAllFulltextFields()`.
+
+
+2). Add something to the index (Note: You can also just update an existing document in the CMS. but adding _existing_ objects to the index is connector specific)
+
+	:::php
+	$page = new Page(array('Content' => 'Help me. My house is on fire. This is less than optimal.'));
+	$page->write();
+
+
+Note: There's usually a connector-specific "reindex" task for this.
+
+3). Build a query
+
+	:::php
+	$query = new SearchQuery();
+	$query->search('My house is on fire');
+
+
+4). Apply that query to an index
+
+	:::php
+	$results = singleton('MyIndex')->search($query);
+
+
+Note that for most connectors, changes won't be searchable until _after_ the request that triggered the change.
+
+### Searching Specific Fields
+
+By default, the index searches through all indexed fields.
+This can be limited by arguments to the `search()` call.
+
+
+	:::php
+	$query = new SearchQuery();
+	$query->search('My house is on fire', array('Page_Title'));
+	// No results, since we're searching in title rather than page content
+	$results = singleton('MyIndex')->search($query);
+
+
+### Searching Value Ranges
+
+Most values can be expressed as ranges, most commonly dates or numbers.
+To search for a range of values rather than an exact match, 
+use the `SearchQuery_Range` class. The range can include bounds on both sides,
+or stay open ended by simply leaving the argument blank.
+
+	:::php
+	$query = new SearchQuery();
+	$query->search('My house is on fire');
+	// Only include documents edited in 2011 or earlier
+	$query->filter('Page_LastEdited', new SearchQuery_Range(null, '2011-12-31T23:59:59Z'));
+	$results = singleton('MyIndex')->search($query);	
+
+
+Note: At the moment, the date format is specific to the search implementation.
+
+### Searching Empty or Existing Values
+
+Since there's a type conversion between the SilverStripe database, object properties
+and the search index persistence, its often not clear which condition is searched for.
+Should it equal an empty string, or only match if the field wasn't indexed at all?
+The `SearchQuery` API has the concept of a "missing" and "present" field value for this:
+
+
+	:::php
+	$query = new SearchQuery();
+	$query->search('My house is on fire');
+	// Needs a value, although it can be false
+	$query->filter('Page_ShowInMenus', SearchQuery::$present);
+	$results = singleton('MyIndex')->search($query);	
+
+
+### Indexing Multiple Classes
+
+An index is a denormalized view of your data, so can hold data from more than one model.
+As you can only search one index at a time, all searchable classes need to be included.
+
+
+	:::php
+	class MyIndex extends SolrIndex {
+		function init() {
+			$this->addClass('Page');
+			$this->addClass('Member');
+			$this->addFulltextField('Content'); // only applies to Page class
+			$this->addFulltextField('FirstName'); // only applies to Member class
+		}
+	}
+
+
+### Using Multiple Indexes
+
+Multiple indexes can be created and searched independently, but if you wish to override an existing
+index with another, you can use the `$hide_ancestor` config.
+
+
+	:::php
+	class MyReplacementIndex extends MyIndex {
+		private static $hide_ancestor = 'MyIndex';
+
+		public function init() {
+			parent::init();
+			$this->addClass('File');
+			$this->addFulltextField('Title');
+		}
+	}
+
+
+You can also filter all indexes globally to a set of pre-defined classes if you wish to 
+prevent any unknown indexes from being automatically included.
+
+
+	:::yaml
+	FullTextSearch:
+	  indexes:
+	    - MyReplacementIndex
+	    - CoreSearchIndex
+
+
 ## Boosting results
 
 <div class="notice" markdown='1'>This feature requires cwp recipe 1.1.1 or above</div>
@@ -383,6 +520,27 @@ It's essential that after changing this value, a CMS administrator should run th
 task at http://mysite.cwp.govt.nz/div/tasks/Solr_Configure. It's not necessary to run
 Solr_Reindex in order for changes in synonyms to take effect.
 
+## Highlighting
+
+By default, search term highlighting is enabled within the CWP recipe. For any term set in the search parameter `Search`
+you can invoke the field method `ContextSummary` on any property to return highlighted results for that property.
+
+E.g. this will highlight terms in the `Content` field
+
+
+	<div>$Content.ContextSummary</div>
+
+
+Solr also returns a set of highlighted terms via the `excerpt` property on results, although this is not specific
+to any field. Take note that this field may contain HTML content, and does not have default styles. 
+
+
+	<div>$Excerpt</div>
+
+
+It is recommended to use `ContextSummary` in most cases as it is more likely to give content encoded appropriately
+for the field type.
+
 ## Searching within documents
 
 <div class="notice" markdown='1'>This feature requires cwp recipe 1.1.0 or above</div>
@@ -506,3 +664,33 @@ Solr service backend. During this time fewer resources are reserved, the instanc
 normally to requests. 
 * Once the queue is complete, all indexed files will be committed to the Solr service and search will be available
 again.
+
+## Debugging locally via the web interface
+
+You can visit `http://localhost:8983/solr`, which will show you a list
+to the admin interfaces of all available indices.
+There you can search the contents of the index via the native SOLR web interface.
+
+It is possible to manually replicate the data automatically sent 
+to Solr when saving/publishing in SilverStripe, 
+which is useful when debugging front-end queries, 
+see `thirdparty/fulltextsearch/server/silverstripe-solr-test.xml`.
+
+
+	java -Durl=http://localhost:8983/solr/MyIndex/update/ -Dtype=text/xml -jar post.jar silverstripe-solr-test.xml
+
+
+## FAQ
+
+### How do I use date ranges where dates might not be defined?
+
+The Solr index updater only includes dates with values,
+so the field might not exist in all your index entries.
+A simple bounded range query (`<field>:[* TO <date>]`) will fail in this case.
+In order to query the field, reverse the search conditions and exclude the ranges you don't want:
+
+	:::php
+	// Wrong: Filter will ignore all empty field values
+	$myQuery->filter(<field>, new SearchQuery_Range('*', <date>));
+	// Better: Exclude the opposite range
+	$myQuery->exclude(<field>, new SearchQuery_Range(<date>, '*'));
