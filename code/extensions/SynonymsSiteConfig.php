@@ -23,4 +23,27 @@ class SynonymsSiteConfig extends DataExtension {
 				))
 		);
 	}
+
+	/**
+	 * @inheritdoc
+	 *
+	 * @param ValidationResult $validationResult
+	 */
+	public function validate(ValidationResult $validationResult) {
+		$validator = new SynonymValidator(array(
+			'SearchSynonyms',
+		));
+
+		$validator->php(array(
+			'SearchSynonyms' => $this->owner->SearchSynonyms
+		));
+
+		$errors = $validator->getErrors();
+
+		if (is_array($errors) || $errors instanceof Traversable) {
+			foreach ($errors as $error) {
+				$validationResult->error($error['message']);
+			}
+		}
+	}
 }
