@@ -87,6 +87,28 @@ And finally, reindex the pages on your website (this could take some time):
 
 You should be able to search your site now.
 
+## Default search index
+
+By default, a standard search index `SolrSearchIndex` is included in the default recipe. This includes basic configuration
+necessary for searching pages.
+
+
+	:::php
+	class SolrSearchIndex extends CwpSearchIndex {
+		public function init() {
+			$this->addClass('SiteTree');
+			$this->addAllFulltextFields();
+			$this->addFilterField('ShowInSearch');
+
+			parent::init();
+		}
+	}
+
+
+This index extends the core `CwpSearchIndex` abstract class, which includes additional functionality specific to CWP.
+Please note that if you create a custom index, it may be necessary to extend this class in order to use much
+of the below functionality.
+
 ## Adding DataObject classes to Solr search
 
 If you create a class that extends `DataObject` (and not `Page`) then it won't be automatically added to the search
@@ -122,8 +144,7 @@ search result title.
 So with that, let's create a new class called `MySolrSearchIndex`:
 
 	:::php
-	<?php
-	class MySolrSearchIndex extends SolrIndex {
+	class MySolrSearchIndex extends CwpSearchIndex {
 		
 		public function init() {
 			$this->addClass('SiteTree');
@@ -131,11 +152,16 @@ So with that, let's create a new class called `MySolrSearchIndex`:
 			
 			$this->addAllFulltextFields();
 			$this->addFilterField('ShowInSearch');
+
+			parent::init();
 		}
 		
 	}
 
 This is a copy/paste of the existing configuration but with the addition of `StaffMember`.
+
+It's important to note that the 'index' method must call the `parent::index()` method after defining your
+search fields.
 
 Once you've created the above classes and run `flush=1`, access `dev/tasks/Solr_configure` and `dev/tasks/Solr_reindex`
 to tell Solr about the new index you've just created. This will add `StaffMember` and the text fields it has to the
@@ -168,15 +194,20 @@ In order to add this functionality to pages you can use the `CwpSearchBoostExten
 		- CwpSearchBoostExtension
 
 
-Ensure that you are using either the default SolrSearchIndex, or are otherwise providing a boost value to that field.
+Ensure that you are using either the default SolrSearchIndex, or are extending CwpSearchIndex and are calling
+`parent::init()` after your custom field definitions.
 
 
 	:::php
-	public function init() {
-		$this->addClass('SiteTree');
-		$this->addAllFulltextFields();
-		$this->addFilterField('ShowInSearch');
-		$this->setFieldBoosting('SiteTree_SearchBoost', SiteTree::config()->search_boost);
+	class MySolrSearchIndex extends CwpSearchIndex {
+		public function init() {
+			$this->addClass('SiteTree');
+			$this->addClass('PortfolioItem');
+			$this->addAllFulltextFields();
+			$this->addFilterField('ShowInSearch');
+
+			parent::init();
+		}
 	}
 
 
@@ -208,46 +239,47 @@ from the templates as necessary.
 
 ### Enhancing spelling suggestion behaviour
 
-In the default config which is copied into your index, spell checking data is collected
-from all fulltext fields (everything you added through `SolrIndex->addFulltextField()`).
-The values of these fields are collected in a special `_text` field.
+By default, all fulltext fields (everything you added through `SolrIndex->addFulltextField()`) are added
+to the search index. The values of these fields are collected in a special `_text` field.
+This built in `_text` field is appropriate for filtering and determining the relevance of search results,
+but does not always provide appropriate spelling suggestions in all cases.
 
-The built-in `_text` data is appropriate in most situations, but also has some drawbacks;
-It's heavily processed, for example by stemming filters which butcher words.
-For example, misspelling "Govnernance" will suggest "govern" rather than "Governance".
-This can be fixed by aggregating spell checking data in a separate field. CWP has
-a pre-configured spellchecker `_spellcheck`, which uses the `_spellcheckText` field.
+A second copy field, `_spellcheckText`, of type `textSpell`, is configured with appropriate rules for
+determining spelling corrections from indexed content. These rules have been customised for generation of
+spelling suggestions, rather than search results.
 
-To make use of this custom field and dictionary the following two changes are necessary:
+As with `_text`, all fulltext fields will be automatically copied into this field to generate the database
+for use with spelling suggestions. In some cases it may be necessary to limit the source for these spelling
+suggestions to specifically named fields. In which case, you can control which fields are copied into this
+`_spellcheckText` field using the following code.
 
 
 	:::php
-	class MyIndex extends SolrIndex {
+	class MyIndex extends CwpSearchIndex {
 
 		public function init() {
+			// Copy all fields (as before) into `_text` for generating results
+			$this->addClass('SiteTree');
+			$this->addAllFulltextFields();
+			$this->addFilterField('ShowInSearch');
+
+			// Explicitly copy only these fields into the _spellcheckText for spelling suggestions
 			$this->addCopyField('SiteTree_Title', '_spellcheckText');
 			$this->addCopyField('SiteTree_Content', '_spellcheckText');
+
+			parent::init();
 		}
 
-		function getFieldDefinitions() {
-			$xml = parent::getFieldDefinitions();
-
-			$xml .= "\n\n\t\t<!-- Additional custom fields for spell checking -->";
-			$xml .= "\n\t\t<field name='_spellcheckText' type='textSpell' indexed='true' stored='false' multiValued='true' />";
-
-			return $xml;
+		
+		/**
+		 * Limit default destination to the `_text` field
+		 * @return array
+		 */
+		protected function getCopyDestinations() {
+			return array($this->getDefaultField());
 		}
 
 	}
-
-
-Secondly this custom dictionary must be configured to be used for all searches via `CwpSearchEngine`
-
-
-	:::yml
-	CwpSearchEngine:
-	  spellcheck_options:
-	    'spellcheck.dictionary': '_spellcheck'
 
 
 ### Search term synonyms
