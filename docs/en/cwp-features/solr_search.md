@@ -339,6 +339,9 @@ mappings of alternatives to a preferred term can be specified using the `=>` ope
 See [the Apache Solr documentation](https://wiki.apache.org/solr/AnalyzersTokenizersTokenFilters#solr.SynonymFilterFactory)
 for more information on this format.
 
+Note that only admin users (who are those with privileges necessary to run the `Solr_Configure` task)
+will be able to view and edit this field.
+
 ![Synonyms](_images/synonyms.png)
 
 It's essential that after changing this value, a CMS administrator should run the `Solr_Configure`

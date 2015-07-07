@@ -11,6 +11,11 @@ class SynonymsSiteConfig extends DataExtension {
 	);
 	
 	public function updateCMSFields(FieldList $fields) {
+		// Don't show this field if you're not an admin
+		if(!Permission::check('ADMIN')) {
+			return;
+		}
+		
 		// Search synonyms
 		$fields->addFieldToTab(
 			'Root.FulltextSearch',
@@ -19,7 +24,7 @@ class SynonymsSiteConfig extends DataExtension {
 					'CwpConfig.SearchSynonyms_Description',
 					'Enter as many comma separated synonyms as you wish, where '.
 					'each line represents a group of synonyms.<br /> ' .
-					'You will need to run Solr_Configure if you make any changes'
+					'You will need to run <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a> if you make any changes'
 				))
 		);
 	}
