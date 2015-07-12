@@ -26,7 +26,11 @@ class CwpSearchBoostExtension extends DataExtension {
 	public function updateCMSFields(FieldList $fields) {
 		parent::updateCMSFields($fields);
 		
-		$boostTitle = _t('CwpSiteTreeSearchBoost.SearchBoost', 'Search Keywords');
+		// Rename metafield
+		$meta = $fields->fieldByName('Root.Main.Metadata');
+		$meta->setTitle(_t('CwpSearchBoostExtension.PAGEINFO', 'Page info and SEO'));
+		
+		$boostTitle = _t('CwpSiteTreeSearchBoost.SearchBoost', 'Boost Keywords');
 		$boostNote = _t('CwpSiteTreeSearchBoost.SearchBoostNote', '(Only applies to the search results on this site e.g. not on Google search)');
 		$boostDescription = _t(
 			'CwpSiteTreeSearchBoost.SearchBoostDescription',
