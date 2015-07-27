@@ -391,7 +391,7 @@ In MySolrSearchIndex.php
 
 	:::php
 	<?php
-	class MySolrSearchIndex extends SolrIndex {
+	class MySolrSearchIndex extends CwpSearchIndex {
 		
 		public function init() {
 			$this->addClass('SiteTree');
@@ -400,6 +400,8 @@ In MySolrSearchIndex.php
 			$this->addAllFulltextFields();
 			$this->addFulltextField('FileContent');
 			$this->addFilterField('ShowInSearch');
+
+			parent::init();
 		}
 		
 	}
