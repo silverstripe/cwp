@@ -79,11 +79,11 @@ The screen should start filling with server messages.
 
 Now you can create the configuration files in another terminal. Run the following from your website root:
 
-	$ framework/sake dev/tasks/Solr_Configure
+	$ framework/sake dev/tasks/Solr_Configure "verbose=1"
 
 And finally, reindex the pages on your website (this could take some time):
 
-	$ framework/sake dev/tasks/Solr_Reindex
+	$ framework/sake dev/tasks/Solr_Reindex "verbose=1"
 
 You should be able to search your site now.
 
@@ -410,7 +410,7 @@ Ensure that your site's Solr index is configured by running `dev/tasks/Solr_conf
 as above. Once indexing has completed, searching using the default search functionality should show all files
 with content matching the specified search term.
 
-### Performance Implications and Limitations
+## Performance Implications and Limitations
 
 While the size of documents can vary from instance to instance, there are reasonable performance limits of
 document indexing at various instance sizes.
@@ -426,7 +426,29 @@ If indexing a large number of documents it is advisable to upgrade to Medium or 
 instances may suffer from performance degradation during background indexing processes. If indexing documents
 on Small it's advisable to do so outside of normal business hours to ensure website performance is unaffected.
 
-Running `dev/tasks/Solr_Reindex` will invoke the following steps:
+As a general rule, you should allocate approximately 0.5 seconds per document indexed, regardless of instance size.
+This number may increase or decrease depending on the size and type of each file.
+
+If possible this step should be performed outside of normal busy periods.
+
+Running `dev/tasks/Solr_Reindex` will invoke the following steps, depending on your version of cwp recipe:
+
+### If you are on 1.1.1 or above
+
+* A single queuedjob will be added to the queue, and the `Solr_Reindex` task will immediately exit.
+If there are existing reindex jobs on the queue, these will be cancelled, and any in-progress tasks will
+be forced to exit.
+* In the background, a worker process on the instance will invoke this job, which will first clear any obsolete
+data from the search index (such as those with obsolete class names), and then create several batches of updates,
+grouped by classname, variant (such as stage or subsite), and batch number. Each of these batches is a queuedjob
+itself and will appear in the job queue in the cms "jobs" section.
+* As each of these batch jobs is run, first obsolete records that exist in that batch will be cleared from the search
+index, after which these records will be reindexed. The batching process ensures that any removed records are also
+incrementally deleted from the index.
+* Once the queue is complete, all indexed files will be committed to the Solr service and search will be available
+again.
+
+### If you are on 1.1.0 or below:
 
 * All existing indexed documents will be cleared from search. These documents will not be searchable until
 indexing is complete, and thus any functional dependency on this function must be factored into your workflow.
@@ -437,8 +459,3 @@ Solr service backend. During this time fewer resources are reserved, the instanc
 normally to requests. 
 * Once the queue is complete, all indexed files will be committed to the Solr service and search will be available
 again.
-
-As a general rule, you should allocate approximately 0.5 seconds per document indexed, regardless of instance size.
-This number may increase or decrease depending on the size and type of each file.
-
-If possible this step should be performed outside of normal busy periods.
