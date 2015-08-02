@@ -143,20 +143,31 @@ search result title.
 
 So with that, let's create a new class called `MySolrSearchIndex`:
 
+<div class="notice" markdown='1'>If using cwp recipe 1.1.1 or above</div>
+
 	:::php
 	class MySolrSearchIndex extends CwpSearchIndex {
-		
 		public function init() {
 			$this->addClass('SiteTree');
 			$this->addClass('StaffMember');
-			
 			$this->addAllFulltextFields();
 			$this->addFilterField('ShowInSearch');
-
 			parent::init();
 		}
-		
 	}
+
+<div class="notice" markdown='1'>If using cwp recipe 1.1.0 or below</div>
+
+	:::php
+	class MySolrSearchIndex extends SolrIndex {
+		public function init() {
+			$this->addClass('SiteTree');
+			$this->addClass('StaffMember');
+			$this->addAllFulltextFields();
+			$this->addFilterField('ShowInSearch');
+		}
+	}
+
 
 This is a copy/paste of the existing configuration but with the addition of `StaffMember`.
 
@@ -170,8 +181,8 @@ index.
 Now in your `mysite/_config.php` file, add the following:
 
 	:::php
-	Page_Controller::$search_index_class = 'MySolrSearchIndex';
-	Page_Controller::$classes_to_search[] = array(
+	BasePage_Controller::$search_index_class = 'MySolrSearchIndex';
+	BasePage_Controller::$classes_to_search[] = array(
 		'class' => 'StaffMember'
 	);
 
@@ -239,6 +250,8 @@ from the templates as necessary.
 
 ### Enhancing spelling suggestion behaviour
 
+<div class="notice" markdown='1'>This feature requires cwp recipe 1.1.1 or above</div>
+
 By default, all fulltext fields (everything you added through `SolrIndex->addFulltextField()`) are added
 to the search index. The values of these fields are collected in a special `_text` field.
 This built in `_text` field is appropriate for filtering and determining the relevance of search results,
@@ -283,6 +296,8 @@ suggestions to specifically named fields. In which case, you can control which f
 
 
 ### Search term synonyms
+
+<div class="notice" markdown='1'>This feature requires cwp recipe 1.1.1 or above</div>
 
 The use of custom synonym definitions is another way in which misspelling suggestions
 can be controlled.
@@ -389,21 +404,33 @@ In mysite/_config.php
 In MySolrSearchIndex.php
 
 
+<div class="notice" markdown='1'>If using cwp recipe 1.1.1 or above</div>
+
 	:::php
 	<?php
 	class MySolrSearchIndex extends CwpSearchIndex {
-		
 		public function init() {
 			$this->addClass('SiteTree');
 			$this->addClass('File');
-			
 			$this->addAllFulltextFields();
 			$this->addFulltextField('FileContent');
 			$this->addFilterField('ShowInSearch');
-
 			parent::init();
 		}
-		
+	}
+
+<div class="notice" markdown='1'>If using cwp recipe 1.1.0 or below</div>
+
+	:::php
+	<?php
+	class MySolrSearchIndex extends SolrIndex {
+		public function init() {
+			$this->addClass('SiteTree');
+			$this->addClass('File');
+			$this->addAllFulltextFields();
+			$this->addFulltextField('FileContent');
+			$this->addFilterField('ShowInSearch');
+		}
 	}
 
 Ensure that your site's Solr index is configured by running `dev/tasks/Solr_configure` and `dev/tasks/Solr_reindex`
