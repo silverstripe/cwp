@@ -92,6 +92,7 @@ You should be able to search your site now.
 By default, a standard search index `SolrSearchIndex` is included in the default recipe. This includes basic configuration
 necessary for searching pages.
 
+<div class="notice" markdown='1'>If using cwp recipe 1.1.1 or above</div>
 
 	:::php
 	class SolrSearchIndex extends CwpSearchIndex {
@@ -104,10 +105,22 @@ necessary for searching pages.
 		}
 	}
 
-
 This index extends the core `CwpSearchIndex` abstract class, which includes additional functionality specific to CWP.
 Please note that if you create a custom index, it may be necessary to extend this class in order to use much
 of the below functionality.
+
+<div class="notice" markdown='1'>If using cwp recipe 1.1.0 or below</div>
+
+	:::php
+	class SolrSearchIndex extends SolrIndex {
+		public function init() {
+			$this->addClass('SiteTree');
+			$this->addAllFulltextFields();
+			$this->addFilterField('ShowInSearch');
+		}
+	}
+
+*Note:* The line `$this->addFilterField('ShowInSearch');` is a standard requirement for all cwp recipe versions, and will need to be added to any custom indexes created.
 
 ## Adding DataObject classes to Solr search
 
@@ -160,6 +173,10 @@ So with that, let's create a new class called `MySolrSearchIndex`:
 
 	:::php
 	class MySolrSearchIndex extends SolrIndex {
+	
+		// don't build the default search index
+    	private static $hide_ancestor = "SolrSearchIndex";
+	
 		public function init() {
 			$this->addClass('SiteTree');
 			$this->addClass('StaffMember');
@@ -169,12 +186,12 @@ So with that, let's create a new class called `MySolrSearchIndex`:
 	}
 
 
-This is a copy/paste of the existing configuration but with the addition of `StaffMember`.
+These are both implementations of the base configuration but with the addition of `StaffMember`.
 
 It's important to note that the 'index' method must call the `parent::index()` method after defining your
 search fields.
 
-Once you've created the above classes and run `flush=1`, access `dev/tasks/Solr_configure` and `dev/tasks/Solr_reindex`
+Once you've created the above classes and run `flush=1`, access `dev/tasks/Solr_Configure` and `dev/tasks/Solr_Reindex`
 to tell Solr about the new index you've just created. This will add `StaffMember` and the text fields it has to the
 index.
 
