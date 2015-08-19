@@ -19,7 +19,10 @@ class DatedUpdateHolder extends Page {
 	public function UpdateTags() {
 		$tags = TaxonomyTerm::get()
 			->innerJoin('BasePage_Terms', '"TaxonomyTerm"."ID"="BasePage_Terms"."TaxonomyTermID"')
-			->innerJoin('SiteTree', "\"SiteTree\".\"ID\"=\"BasePage_Terms\".\"BasePageID\" AND \"SiteTree\".\"ParentID\"='$this->ID'")
+			->innerJoin(
+				'SiteTree',
+				sprintf('"SiteTree"."ID" = "BasePage_Terms"."BasePageID" AND "SiteTree"."ParentID" = \'%d\'', $this->ID)
+			)
 			->sort('Name');
 
 		return $tags;
@@ -37,13 +40,13 @@ class DatedUpdateHolder extends Page {
 	 * Find all site's updates, based on some filters.
 	 * Omitting parameters will prevent relevant filters from being applied. The filters are ANDed together.
 	 *
-	 * @param $className The name of the class to fetch.
-	 * @param $parentID The ID of the holder to extract the updates from.
-	 * @param $tagID The ID of the tag to filter the updates by.
-	 * @param $dateFrom The beginning of a date filter range.
-	 * @param $dateTo The end of the date filter range. If empty, only one day will be searched for.
-	 * @param $year Numeric value of the year to show.
-	 * @param $monthNumber Numeric value of the month to show.
+	 * @param string $className The name of the class to fetch.
+	 * @param int|null $parentID The ID of the holder to extract the updates from.
+	 * @param int|null $tagID The ID of the tag to filter the updates by.
+	 * @param string|null $dateFrom The beginning of a date filter range.
+	 * @param string|null $dateTo The end of the date filter range. If empty, only one day will be searched for.
+	 * @param int|null $year Numeric value of the year to show.
+	 * @param int|null $monthNumber Numeric value of the month to show.
 	 *
 	 * @returns DataList | PaginatedList
 	 */
@@ -60,29 +63,25 @@ class DatedUpdateHolder extends Page {
 		// Filter down to a single tag.
 		if (isset($tagID)) {
 			$items = $items->innerJoin(
-					'BasePage_Terms',
-					'"DatedUpdatePage"."ID"="BasePage_Terms"."BasePageID"'
-				)->innerJoin(
-					'TaxonomyTerm',
-					"\"BasePage_Terms\".\"TaxonomyTermID\"=\"TaxonomyTerm\".\"ID\" AND \"TaxonomyTerm\".\"ID\"='$tagID'"
-				);
+				'BasePage_Terms',
+				'"DatedUpdatePage"."ID" = "BasePage_Terms"."BasePageID"'
+			)->innerJoin(
+				'TaxonomyTerm',
+				sprintf('"BasePage_Terms"."TaxonomyTermID" = "TaxonomyTerm"."ID" AND "TaxonomyTerm"."ID" = \'%d\'', $tagID)
+			);
 		}
 
 		// Filter by date
 		if (isset($dateFrom)) {
 
-			if (isset($dateTo)) {
-				// Date range
-				$dateTo = "$dateTo 23:59:59";
-				$dateFrom = "$dateFrom 00:00:00";
+			if (!isset($dateTo)) {
+				$dateTo = $dateFrom;
 			}
-			else {
-				// Single date, set the dateTo based on the dateFrom.
-				$dateTo = "$dateFrom 23:59:59";
-				$dateFrom = "$dateFrom 00:00:00";
-			}
-
-			$items = $items->where("(\"DatedUpdatePage\".\"Date\">='$dateFrom' AND \"DatedUpdatePage\".\"Date\"<='$dateTo')");
+			
+			$items = $items->where(array(
+				sprintf('"DatedUpdatePage"."Date" >= \'%s\'', Convert::raw2sql("$dateFrom 00:00:00")),
+				sprintf('"DatedUpdatePage"."Date" <= \'%s\'', Convert::raw2sql("$dateTo 23:59:59"))
+			));
 		}
 
 		// Filter down to single month.
@@ -90,10 +89,13 @@ class DatedUpdateHolder extends Page {
 			$year = (int)$year;
 			$monthNumber = (int)$monthNumber;
 
-			$beginDate = "$year-$monthNumber-01 00:00:00";
-			$endDate = date('Y-m-d H:i:s', strtotime("$year-$monthNumber-1 00:00:00 +1 month"));
+			$beginDate = sprintf("%d-%d-01 00:00:00", $year, $monthNumber);
+			$endDate = date('Y-m-d H:i:s', strtotime("{$beginDate} +1 month"));
 
-			$items = $items->where("(\"DatedUpdatePage\".\"Date\">='$beginDate' AND \"DatedUpdatePage\".\"Date\"<'$endDate')");
+			$items = $items->where(array(
+				sprintf('"DatedUpdatePage"."Date" >= \'%s\'', Convert::raw2sql($beginDate)),
+				sprintf('"DatedUpdatePage"."Date" < \'%s\'', Convert::raw2sql($endDate))
+			));
 		}
 
 		// Unpaginated DataList.
