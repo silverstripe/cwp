@@ -7,7 +7,6 @@ zh:
     FeatureContentFieldLabel: 内容
     FeatureLink: '跳转目标页'
     LearnMoreLink: '链接到“了解详情”按钮的页面：'
-    SINGULARNAME: '基本首页'
     Title: 标题
   BasePage:
     ColumnPageType: '页面类型'

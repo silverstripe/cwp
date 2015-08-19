@@ -1,6 +1,10 @@
 en:
+  AssetTableField:
+    BACKLINKCOUNT: 'Used on:'
+    PAGES: page(s)
   BaseHomePage:
     AddNewButton: 'Add new'
+    ButtonTextRequired: 'Button text must be filled in'
     DESCRIPTION: 'Generic content page'
     FeatureButtonText: 'Button text'
     FeatureCategoryDropdown: 'Category icon'
@@ -51,8 +55,20 @@ en:
     GaFieldDesc: 'Account number to be used all across the site (in the format <strong>UA-XXXXX-X</strong>)'
     LogoRetinaUploadField: 'High resolution logo, to appear in the top left (recommended twice the height and width of the standard logo)'
     LogoUploadField: 'Logo, to appear in the top left'
+    SearchSynonyms: 'Search Synonyms'
+    SearchSynonyms_Description: 'Enter as many comma separated synonyms as you wish, where each line represents a group of synonyms.<br /> You will need to run <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a> if you make any changes'
     TwitterField: 'Twitter username'
     TwitterFieldDesc: 'Twitter username (eg, http://twitter.com/<strong>username</strong>)'
+  CwpSearchBoostExtension:
+    PAGEINFO: 'Page info and SEO'
+  CwpSearchPage:
+    DESCRIPTION: 'Generic content page'
+    PLURALNAME: 'Base Pages'
+    SINGULARNAME: 'Cwp Search Page'
+  CwpSiteTreeSearchBoost:
+    SearchBoost: 'Boost Keywords'
+    SearchBoostDescription: 'Enter keywords separated by comma ( , ) for which to boost the ranking of this page within the search results on this site.'
+    SearchBoostNote: '(Only applies to the search results on this site e.g. not on Google search)'
   DateUpdateHolder:
     DateRangeFilterMessage: 'Filtered by a single date.'
     FilterAppliedMessage: 'Filter has been applied with the dates reversed.'
@@ -86,6 +102,9 @@ en:
     DESCRIPTION: 'Holder page that displays all child pages as links in the footer'
     PLURALNAME: 'Footer Holders'
     SINGULARNAME: 'Footer Holder'
+  FullTextSearch:
+    SynonymValidator:
+      InvalidValue: 'Synonyms cannot contain words separated by spaces'
   GridField:
     Archived: Archived
     Live: Live
@@ -116,13 +135,10 @@ en:
     FeatureTwo: 'Feature Two'
     PLURALNAME: Pages
     SINGULARNAME: Page
+  SiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'This list shows all pages where the file has been added through a WYSIWYG editor.'
+    EDIT: Edit
   SitemapPage:
     DESCRIPTION: 'Lists all pages on the site'
     PLURALNAME: 'Sitemap Pages'
     SINGULARNAME: 'Sitemap Page'
-  AssetTableField:
-    BACKLINKCOUNT: 'Used on:'
-    PAGES: page(s)
-  SiteTreeFileExtension:
-    BACKLINK_LIST_DESCRIPTION: 'This list shows all pages where the file has been added through a WYSIWYG editor.'
-    EDIT: Edit

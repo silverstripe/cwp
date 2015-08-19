@@ -7,7 +7,6 @@ ar:
     FeatureContentFieldLabel: المحتوى
     FeatureLink: 'صفحة للربط ب'
     LearnMoreLink: 'صفحة لربط زر "تعرف على المزيد" ب:'
-    SINGULARNAME: 'صفحة البداية الرئيسية'
     Title: عنوان
   BasePage:
     ColumnPageType: 'نوع الصفحة'

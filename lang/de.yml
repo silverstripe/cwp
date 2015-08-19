@@ -1,1 +1,60 @@
-de: {}
+de:
+  BaseHomePage:
+    AddNewButton: 'Neue hinzufügen'
+    FeatureButtonText: 'Schaltflächentext'
+    FeatureCategoryDropdown: 'Kategoriesymbol'
+    FeatureContentFieldLabel: Inhalt
+    Title: Titel
+  BasePage:
+    ColumnPageType: 'Seitentyp'
+    ColumnTitle: Titel
+    DESCRIPTION: 'Allgemeine Inhaltsseite'
+    RelatedPages: 'Abhängige Seiten'
+    TagsTabTitle: Schlagwörter
+  CustomSiteConfig:
+    LogosIconsTab: Logos/Symbole
+    SocialMediaTab: 'Soziale Medien'
+  CwpCarousel:
+    LinkField: Link
+  CwpConfig:
+    AddThisField: 'Diese Profilkennung hinzufügen'
+    FbField: 'Facebook-Benutzerkennung oder Benutzername'
+    GaField: 'Google-Analytics-Konto'
+    TwitterField: 'Twitter-Benutzername'
+    TwitterFieldDesc: 'Twitter-Benutzername (z.B. http://twitter.com/<strong>Benutzername</strong>)'
+  DateUpdatePage:
+    AuthorFieldLabel: Autor
+    DateLabel: Datum
+    EndTimeFieldLabel: 'Endzeit'
+    LocationFieldLabel: Ort
+    StartTimeFieldLabel: 'Startzeit'
+  DatedUpdateHolder:
+    DESCRIPTION: 'Allgemeine Inhaltsseite'
+  DatedUpdatePage:
+    DESCRIPTION: 'Allgemeine Inhaltsseite'
+  EventHolder:
+    Upcoming: 'Anstehende Ereignisse'
+  EventPage:
+    PLURALNAME: 'Ereignisseiten'
+    SINGULARNAME: 'Ereignisseite'
+  GridField:
+    Live: Live
+  Quicklink:
+    ExternalLinkLabel: 'Externer Link'
+    InternalLinkLabel: 'Interner Link'
+    NameLabel: Name
+    PLURALNAME: Schnelllinks
+    ParentRelationLabel: Übergeordnet
+    SINGULARNAME: Schnelllink
+    SortOrderLabel: 'Sortierreihenfolge'
+  SearchForm:
+    GO: Los
+    SEARCH: Suche
+  SiteTree:
+    PLURALNAME: Seiten
+    SINGULARNAME: Seite
+  AssetTableField:
+    BACKLINKCOUNT: 'Verwendet auf:'
+    PAGES: Seite(n)
+  SiteTreeFileExtension:
+    EDIT: Bearbeiten
