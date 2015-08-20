@@ -93,6 +93,15 @@ Rename the theme:
 
 	$ mv themes/default themes/my-theme
 
+By default the themes directory is ignored by Git. To add the new theme folder to the respository you can
+specifically un-ignore the folder in the .gitignore file in the root of your project:
+
+	!/themes
+
+As well as re-add the folder to the git repository:
+
+	$ git add -f themes/my-theme
+
 Edit the `mysite/_config.php` to point to the new theme:
 
 	SSViewer::set_theme('my-theme');
