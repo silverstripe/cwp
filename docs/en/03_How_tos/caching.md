@@ -152,11 +152,20 @@ Since SSL traffic is terminated before it hits the Varnish cache layer, you can 
 
 ### Configuration via Incapsula
 
+The [Incapsula](http://incapsula.com) CDN is active for all requests on all CWP sites by default. It respects HTTP cache
+headers both from static assets (usually configured through `.htaccess`), as well as dynamic SilverStripe responses
+configured through the controllerpolicy module.
+
 If you opted for the Premium Managed Service you will have an additional way to control the cache through your own Incapsula web-based dashboard. Please see the [site performance settings](https://incapsula.zendesk.com/hc/en-us/articles/200627760-Site-performance-settings) in the Incapsula docs for more information.
 
-By default Incapsula is configured to be in __Static only__ mode, with "Comply with Vary: User-Agent" enabled. This safe default allows you to use all of the techniques described in the "Configuration via Headers" section above: _Static only_ makes sure the _Cache-Control_ header is respected and "Comply with Vary: User-Agent" makes Incapsula respect the "Vary" header.
+If you haven't opted for the Premium Managed Service, requests to change Incapsula settings need to go through the CWP help desk.
+These changes only apply to your production environment. Other environments like Test or UAT share a common CWP configuration
+and can't be changed.
 
-On CWP the _Static+Dynamic_ mode was not observed to be any different from the _Static only_ mode. The timeout settable on _Static+Dynamic_  will always be overridden by the "max-age" directive provided by the backend.
+By default Incapsula is configured to be in __Static only__ mode, with "Comply with Vary: User-Agent" enabled. This safe default allows you to use all of the techniques described in the "Configuration via Headers" section above: _Static only_ makes sure the _Cache-Control_ header is respected and "Comply with Vary: User-Agent" makes Incapsula respect the "Vary" header.
+On CWP the _Static+Dynamic_ mode was not observed to be any different from the _Static only_ mode. The timeout settable on _Static+Dynamic_  will always be overriden by the "max-age" directive provided by the backend.
+
+Incapsula will also attempt to compress JPEG and PNG images as well as minify CSS, but will not minify JS.
 
 #### Potentially dangerous settings
 
