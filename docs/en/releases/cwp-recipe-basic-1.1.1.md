@@ -54,5 +54,28 @@ can be made:
 
 #### framework
 
- * ControllerTest.testRedirectBackByBackUrl - Tests should use a relative link to account for being run in a sub-folder (on TeamCity).
- * ControllerTest.testRedirectBackByReferer - Tests should use a relative link to account for being run in a sub-folder (on TeamCity).
+ * ControllerTest.testRedirectBackByBackUrl - Error caused by invalid test, resolved in a future release.
+ * ControllerTest.testRedirectBackByReferer - Error caused by invalid test, resolved in a future release.
+ * DirectorTest.testAlternativeBaseURL - Test passes locally when run in isolation.
+ * CMSProfileControllerTest.testMemberCantEditAnother — Problem with
+ Requirements combining the same file twice, non-critical Framework issue.
+ * UploadTest.testUploadTarGzFileTwiceAppendsNumber — This test is now expected
+ to fail as the new MimeValidator module will no longer allow random content to
+ be uploaded with a mismatched mime and file extension. The original test is
+ attempting to upload a bunch of text as a gzip file.
+ * i18nTextCollectorTest.testCollectFromThemesTemplates — Caused by global
+ state, passes locally when the test is run individually.
+ * RequirementsTest.testCommentedOutScriptTagIsIgnored - Test passes locally
+ when run in isolation.
+
+#### cms
+
+ * CMSMainTest.testCreationOfRestrictedPage — Problem with Requirements
+ combining the same file twice. Non-critical Framework issue.
+
+#### queuedjobs
+
+ * QueuedJobsTest.testStartJob — Caused by global state, passes locally when
+ the test is run individually.
+ * QueuedJobsTest.testImmediateQueuedJob — Caused by global state, passes
+ locally when run either individually or as a part of all queuedjobs tests.
