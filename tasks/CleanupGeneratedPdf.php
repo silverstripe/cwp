@@ -7,7 +7,7 @@ class CleanupGeneratedPdfBuildTask extends BuildTask {
 		go to download them. This is most useful when templates have been changed so users should receive a new copy';
 
 	public function run($request) {
-		$path = sprintf('%s/%s', BASE_PATH, BasePage::$generated_pdf_path);
+		$path = sprintf('%s/%s', BASE_PATH, BasePage::config()->generated_pdf_path);
 		if(!file_exists($path)) return false;
 
 		exec(sprintf('rm %s/*', $path), $output, $return_val);
