@@ -62,3 +62,10 @@ Only:
 CommentingController:
   extensions:
     - CwpCommentingExtension
+---
+Name: cwpuserforms
+Only:
+  moduleexists: 'userforms'
+---
+UserDefinedForm:
+  required_identifier: '(required)'
