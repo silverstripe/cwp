@@ -4,6 +4,44 @@
 
 This release introduces many new features to UserForms, Solr, Full-text search and QueuedJobs modules.
 
+This release also includes a security fix for the userforms module.
+
+# Important: Medium-severity security vulnerability in Userforms
+
+This release contains a fix for a security vulnerability in the
+[userforms module](https://github.com/silverstripe/silverstripe-userforms),
+which allows CMS administrators to create public facing forms with file upload abilities.
+
+These files are uploaded into a predictable public path on the website, unless configured otherwise by the
+CMS administrator setting up the form. While the name of the uploaded file itself is not predictable,
+certain actions taken by CMS authors could expose it. For example, submission notification emails
+contain a link to the file without authorisation checks.
+
+## For users of recipe 1.1.1
+
+In userforms 3.0.0 this field is disabled by default, but re-enabled upon installation of the
+[secure assets module](https://github.com/silverstripe-labs/silverstripe-secureassets).
+When this is installed, the field can once again be used within a form, and will automatically
+lock this folder to a secure list of users, which can then be configured further by an administrator.
+
+Existing file upload fields will not be disabled, but will require re-enabling via config or
+installation of secure assets to become editable again.
+
+If any upload field points or is pointed to a folder that is not secured, and the secure assets
+module is present, then that folder will have the secure permissions applied automatically.
+
+## For users of recipe 1.1.0
+
+Any existing user form with a file upload field can be secured in recipe 1.1.0 by ensuring that
+the selected folder of any such field is pointed to a secure folder location.
+
+![Select folder](_images/recipe_1.1.1_select_folder.png)
+
+Then manually confirm that the selected folder is set to an appropriate level of access under the
+"Files" cms section.
+
+![Secure folder](_images/recipe_1.1.1_secure_folder.png)
+
 ## New Features and Modules
 
 Once you upgrade, the following features will be *automatically enabled*:
@@ -23,7 +61,7 @@ Once you upgrade, the following features will be *automatically enabled*:
    You can read more about the performance improvements we have made in the
    [module documentation](/cwp-features/solr_search#performance-implications-and-limitations).
  * QueuedJobs module has be greatly improved to be more stable and efficient. When enabled,
-  jobs can now be executed in parallel processes. Failing parallel process jobs can no longer block the queue.
+   jobs can now be executed in parallel processes. Failing parallel process jobs can no longer block the queue.
 
 The following features will *require some additional work* in addition to the upgrade to enable them:
 
@@ -61,6 +99,7 @@ code and content.
  * [OSS-650] - Non-admins using a future PublishDate throws an error in certain cases
  * [OSS-652] - Links to comment moderation links are broken
  * [OSS-667] - Share link is broken in preview mode
+ * [OSS-854] - UserDefinedFormField -> HeadingField, Period in Title breaks CSV export
  * [CWP-644] - Unstyled error pages
  * [CWP-643] - Missing action handler leaks class name
  * [CWP-642] - Potential Log Entry Manipulation
