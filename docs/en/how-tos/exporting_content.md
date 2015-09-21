@@ -5,13 +5,9 @@ title: Exporting content
 # Exporting content
 
 This how-to will aid a developer wanting to export content from a SilverStripe site running on CWP. All exporting is
-done with the `restfulserver` module. More thorough documentation is available in that module's documentation, either
-here or on [Github](http://github.com/silverstripe/silverstripe-restfulserver/tree/master/docs/en/README.md).
-
-## Enabling the RESTful server
-
-Out of the box the REST API is disabled. If you haven't already, go to the *Settings* tab and check the *Enable the
-REST API* checkbox.
+done with the [`silverstripe/restfulserver`](https://github.com/silverstripe/silverstripe-restfulserver) module which is enabled by default. 
+Here we provide details on gaining access to specific data attributes via REST. Further documentation is available in 
+the module's documentation on [GitHub](https://github.com/silverstripe/silverstripe-restfulserver/blob/master/README.md).
 
 ## Fetching content
 
@@ -143,3 +139,13 @@ From the other side of the relationship it will appear as a has_one relationship
 
 Many many relationships appear exactly like a has many except the `linktype` is "many_many", and it's a list on both
 sides of the relationship.
+
+## Disabling the RESTful server
+
+Out of the box the REST API is enabled giving access to already publicaly published pages as reusable data in XML or JSON standards.
+If you wish to disable this feature you can add the following into the `mysite/_config/config.yml`.
+
+```yaml
+BasePage:
+  api_access: false
+```
