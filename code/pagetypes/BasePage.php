@@ -484,19 +484,23 @@ class BasePage_Controller extends ContentController {
 	public function init() {
 		parent::init();
 
-		// Include base scripts that are needed on all pages
-		Requirements::combine_files('scripts.js', $this->getBaseScripts());
+		// Ensure we only include styles when theme is enabled (except when running certain tests)
+		$theme = Config::inst()->get('SSViewer', 'theme');
+		if($theme) {
+			// Include base scripts that are needed on all pages
+			Requirements::combine_files('scripts.js', $this->getBaseScripts());
 
-		// Include base styles that are needed on all pages
-		$styles = $this->getBaseStyles();
+			// Include base styles that are needed on all pages
+			$styles = $this->getBaseStyles();
 
-		// Combine by media type.
-		Requirements::combine_files('styles.css', $styles['all']);
-		Requirements::combine_files('screen.css', $styles['screen'], 'screen');
-		Requirements::combine_files('print.css', $styles['print'], 'print');
+			// Combine by media type.
+			Requirements::combine_files('styles.css', $styles['all']);
+			Requirements::combine_files('screen.css', $styles['screen'], 'screen');
+			Requirements::combine_files('print.css', $styles['print'], 'print');
 
-		// Extra folder to keep the relative paths consistent when combining.
-		Requirements::set_combined_files_folder(ASSETS_DIR . '/_combinedfiles/cwp-' . SSViewer::current_theme());
+			// Extra folder to keep the relative paths consistent when combining.
+			Requirements::set_combined_files_folder(ASSETS_DIR . '/_combinedfiles/cwp-' . $theme);
+		}
 	}
 
 	/**
