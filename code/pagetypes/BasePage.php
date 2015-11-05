@@ -412,7 +412,7 @@ class BasePage_Controller extends ContentController {
 		// Customise content with these results
 		$response = $this->customise(array(
 			'PdfLink' => '',
-			'Results' => $results ? $results->getResults() : null,
+			'Results' => $results ? $results->getResults() : '',
 			'Title' => _t('SearchForm.SearchResults', 'Search Results')
 		));
 		if($results) {
