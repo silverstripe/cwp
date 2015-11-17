@@ -1,4 +1,7 @@
 es:
+  AssetTableField:
+    BACKLINKCOUNT: 'Usado en:'
+    PAGES: página(s)
   BaseHomePage:
     AddNewButton: 'Agregar nuevo'
     DESCRIPTION: 'Página de contenido genérico'
@@ -93,13 +96,10 @@ es:
   SiteTree:
     PLURALNAME: Páginas
     SINGULARNAME: Página
+  SiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'esta lista muestra todas las páginas donde se agregó el archivo mediante un editor WYSIWYG.'
+    EDIT: Editar
   SitemapPage:
     DESCRIPTION: 'Lista todas las páginas del sitio'
     PLURALNAME: 'Páginas de mapa del sitio'
     SINGULARNAME: 'Página de mapa del sitio'
-  AssetTableField:
-    BACKLINKCOUNT: 'Usado en:'
-    PAGES: página(s)
-  SiteTreeFileExtension:
-    BACKLINK_LIST_DESCRIPTION: 'esta lista muestra todas las páginas donde se agregó el archivo mediante un editor WYSIWYG.'
-    EDIT: Editar

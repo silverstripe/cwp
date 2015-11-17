@@ -1,6 +1,10 @@
 eo:
+  AssetTableField:
+    BACKLINKCOUNT: 'Uzita je:'
+    PAGES: paĝo(j)
   BaseHomePage:
     AddNewButton: 'Aldoni novan'
+    ButtonTextRequired: 'Necesas plenigi butonan tekston'
     DESCRIPTION: 'Ĝenerala paĝo por enhavo'
     FeatureButtonText: 'Butona teksto'
     FeatureCategoryDropdown: 'Kategoria bildsimbolo'
@@ -51,8 +55,20 @@ eo:
     GaFieldDesc: 'Kontnumero uzota ie en la retejo (en la formato <strong>UA-XXXXX-X</strong>)'
     LogoRetinaUploadField: 'Tredistingiva bildsimbolo, aperonta ĉe la maldekstra supro (rekomeninda dufoje la alton kaj larĝon de la normala bildsimbolo)'
     LogoUploadField: 'Bildsimbolo, aperonta ĉe la maldekstra supro'
+    SearchSynonyms: 'Serĉi sinonimojn'
+    SearchSynonyms_Description: 'Enigu tiom da komodisigitaj sinonimoj kiel bezonate, kie ĉiu linio prezentas grupon de sinonimoj.<br /> Necesos ke vi rulu je <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a> se vi ŝanĝos ion'
     TwitterField: 'Salutnomo por Twitter'
     TwitterFieldDesc: 'Salutnomo por Twitter (eg, http://twitter.com/<strong>salutnomo</strong>)'
+  CwpSearchBoostExtension:
+    PAGEINFO: 'Paĝa informo kaj SEO'
+  CwpSearchPage:
+    DESCRIPTION: 'Komuna enhavpaĝo'
+    PLURALNAME: 'Bazaj paĝoj'
+    SINGULARNAME: 'Cwp-serĉa paĝo'
+  CwpSiteTreeSearchBoost:
+    SearchBoost: 'Plialtigotaj  ŝlosilvortoj'
+    SearchBoostDescription: 'Enigu la ŝlosilvortojn disigitaj per komo ( , ) por kiu plialtigi la rangon de ĉi tiu paĝo en la serĉaj rezultoj en ĉi tiu retejo.'
+    SearchBoostNote: '(Aplikiĝas nur al la serĉaj rezultoj en ĉi tiu retejo, ekzemple ne en Google-serĉo)'
   DateUpdateHolder:
     DateRangeFilterMessage: 'Filtri laŭ unuopa dato'
     FilterAppliedMessage: 'Aplikis filtron laŭ la inversigitaj datoj'
@@ -86,6 +102,9 @@ eo:
     DESCRIPTION: 'Paĝo por enhavi kaj vidigi ĉiujn paĝidojn kiel ligilojn en la paĝopiedo'
     PLURALNAME: 'Paĝopieda tenanto'
     SINGULARNAME: 'Paĝopieda tenanto'
+  FullTextSearch:
+    SynonymValidator:
+      InvalidValue: 'Sinonimoj ne povas enhavi vortojn disigitajn per spacetoj'
   GridField:
     Archived: Enarkivigita
     Live: Publika
@@ -116,6 +135,9 @@ eo:
     FeatureTwo: 'Prezentita dua'
     PLURALNAME: Paĝoj
     SINGULARNAME: Paĝo
+  SiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Ĉi tiu listo vidigas ĉiujn paĝojn kie la dosiero estas enmetita per la faksimila redaktilo.'
+    EDIT: Redakti
   SitemapPage:
     DESCRIPTION: 'Listigas ĉiujn paĝojn en la retejo'
     PLURALNAME: 'Paĝo de paĝarmapo'

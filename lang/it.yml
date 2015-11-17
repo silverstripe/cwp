@@ -1,1 +1,29 @@
-it: {}
+it:
+  AssetTableField:
+    BACKLINKCOUNT: 'Usato in:'
+    PAGES: pagina(e)
+  BaseHomePage:
+    AddNewButton: 'Aggiungi nuova'
+    FeatureContentFieldLabel: Contenuto
+    PLURALNAME: 'Pagine Principali'
+    Title: Titolo
+  BasePage:
+    ColumnTitle: Titolo
+  FooterHolder:
+    PLURALNAME: 'Footer Holder'
+  NewsHolder:
+    SINGULARNAME: 'Holder Notizie'
+  Quicklink:
+    ParentRelationLabel: Parente
+  SearchForm:
+    GO: Vai
+    SEARCH: Cerca
+    SearchResults: 'Risultati della ricerca'
+  SiteTree:
+    FeatureOne: 'Funzione Uno'
+    PLURALNAME: Pagine
+    SINGULARNAME: Pagina
+  SiteTreeFileExtension:
+    EDIT: Modifica
+  SitemapPage:
+    DESCRIPTION: 'Lista tutte le pagine sul sito'

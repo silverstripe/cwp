@@ -1,4 +1,7 @@
 de:
+  AssetTableField:
+    BACKLINKCOUNT: 'Verwendet auf:'
+    PAGES: Seite(n)
   BaseHomePage:
     AddNewButton: 'Neue hinzufügen'
     FeatureButtonText: 'Schaltflächentext'
@@ -53,8 +56,5 @@ de:
   SiteTree:
     PLURALNAME: Seiten
     SINGULARNAME: Seite
-  AssetTableField:
-    BACKLINKCOUNT: 'Verwendet auf:'
-    PAGES: Seite(n)
   SiteTreeFileExtension:
     EDIT: Bearbeiten
