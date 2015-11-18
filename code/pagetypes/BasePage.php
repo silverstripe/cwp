@@ -116,6 +116,17 @@ class BasePage extends SiteTree {
 		return true;
 	}
 
+	/**
+	 * @todo Remove once CWP moves to 3.3 core (which includes this in SiteTree)
+	 * @return self
+	 */
+	public function doRestoreToStage() {
+		$this->invokeWithExtensions('onBeforeRestoreToStage', $this);
+		$result = parent::doRestoreToStage();
+		$this->invokeWithExtensions('onAfterRestoreToStage', $this);
+
+		return $result;
+	}
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
