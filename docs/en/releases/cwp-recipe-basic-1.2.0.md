@@ -26,11 +26,14 @@ the contract. This is a last resort as it will incur cost and creates a risk of 
 * The [site-wide content report](https://github.com/silverstripe/silverstripe-sitewidecontent-report)
   provides a subsite-filterable report of all files and pages on the site. This provides an easy to access
   high level summary of site size and structure. This module is installed and available by default.
+<<<<<<< HEAD
   
 * The [Realme authentication module](https://github.com/silverstripe/silverstripe-realme) Provides CWP
   site authentication via [www.realme.govt.nz](https://www.realme.govt.nz/).
   This module must be installed separately, and requires server side configuration before it may be used.
   See the [CWP realme documentation](/cwp-features/realme_authentication) for more information.
+=======
+>>>>>>> Add changelog for 1.2.0
 
 * Update of framework to version 3.2. This includes a large number of major changes.
   - Several minor UX improvements, such as improved visibility of changed pages in the site tree,
@@ -46,7 +49,11 @@ the contract. This is a last resort as it will incur cost and creates a risk of 
 For more information on how to prepare your existing code for compatibility with 3.2, please review
 [the 3.2 changelog](https://docs.silverstripe.org/en/3.2/changelogs/3.2.0/) for specific upgrading instructions.
 
+<<<<<<< HEAD
 Please note that the PDO connector, although a new framework feature, is not currently available in CWP.
+=======
+Please note that the PDO connector, although a new framework feature, is not available by default in CWP.
+>>>>>>> Add changelog for 1.2.0
 
 ## Details of security issues
 
@@ -112,7 +119,10 @@ can be made:
  * [OSS-1053] - Resolve userforms SQL error in 3.2
  * [OSS-1052] - Fix translatable button missing in 3.2
  * [CWP-697] - Incomplete SubsiteXHRController canAccess() method
+<<<<<<< HEAD
  * [CWP-647] - Fix issue with all subsites using https:// protocol
+=======
+>>>>>>> Add changelog for 1.2.0
 
 ### Known issues
 
