@@ -107,6 +107,7 @@ can be made:
  * [OSS-1053] - Resolve userforms SQL error in 3.2
  * [OSS-1052] - Fix translatable button missing in 3.2
  * [CWP-697] - Incomplete SubsiteXHRController canAccess() method
+ * [CWP-647] - Fix issue with all subsites using https:// protocol
 
 ### Known issues
 
