@@ -8,7 +8,7 @@ Your php.ini uses a standard configuration.
 A few items of note:
 
 ## PHP Version
-PHP 5.3.3
+Environments are running PHP 5.6. Some environments may have not been upgraded yet and will be running PHP 5.3.3.
 
 ## Memory Limit
 memory_limit = 128M
