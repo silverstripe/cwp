@@ -41,7 +41,7 @@ the contract. This is a last resort as it will incur cost and creates a risk of 
 For more information on how to prepare your existing code for compatibility with 3.2, please review
 [the 3.2 changelog](https://docs.silverstripe.org/en/3.2/changelogs/3.2.0/) for specific upgrading instructions.
 
-Please note that the PDO connector, although a new framework feature, is not available by default in CWP.
+Please note that the PDO connector, although a new framework feature, is not currently available in CWP.
 
 ## Details of security issues
 
