@@ -176,3 +176,7 @@ synchronise a custom Staff Directory Page with the Active
 Directory, the SilverStripe site needs to synchronise daily without
 any user intervention. This can only be done if the SilverStripe
 site can connect to the AD.
+
+## See Also
+
+ * [Authentication via RealMe](realme_authentication.md)
