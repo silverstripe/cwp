@@ -9,7 +9,7 @@ CWP provides a *default* theme for you to work with. This has been developed bot
 be built on top of and as a reference example for meeting Government standards and accessibility guidelines.
 
 For more information on how a SilverStripe theme is constructed, see the [Developing
-Themes](https://docs.silverstripe.org/en/3.1/developer_guides/templates/themes/) page in the SilverStripe documentation.
+Themes](https://docs.silverstripe.org/en/3.2/developer_guides/templates/themes/) page in the SilverStripe documentation.
 
 When customising the theme, you can choose to work either with the powerful SCSS framework (as explained below), or to
 use the CSS stylesheets directly. In the latter case we recommend you to remove the SCSS files to make it clear they are

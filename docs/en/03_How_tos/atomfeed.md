@@ -8,7 +8,7 @@ summary: Creating custom Atom feeds (RSS).
 The CwpAtomFeed class extends from the RSSFeed class.
 
 
-To setup a Atom feed [follow the documentation for setting up a RSS Feed](https://docs.silverstripe.org/en/3.1/developer_guides/integration/rssfeed/) 
+To setup a Atom feed [follow the documentation for setting up a RSS Feed](https://docs.silverstripe.org/en/3.2/developer_guides/integration/rssfeed/) 
 and replace the RSSFeed class with the CwpAtomFeed class.
 
 ### Customizing the Atom Feed template

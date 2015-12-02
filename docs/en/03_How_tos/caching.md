@@ -78,7 +78,7 @@ Furthermore, all CWP instances are configured to set the following header on any
 
 	Cache-Control: max-age=120, public
 	
-These responses are effectively _tier 2_. Note the max-age value is currently 120 seconds, but could change in the future. CWP customers can’t actively clear CDN caches on Incapsula unless they purchase an optional Premium Managed Service plan. Due to this restriction, asset invalidation needs to take place via the URL, through so called “cache busters”. SilverStripe adds a GET parameter with the last file modification timestamp to each stylesheet and javascript file included through its [Requirements API](http://docs.silverstripe.org/en/3.1/developer_guides/templates/requirements/). If you are referencing files in other ways, please take care to add your own “cache busters”, e.g. through a Grunt build task modifying the including SilverStripe template.
+These responses are effectively _tier 2_. Note the max-age value is currently 120 seconds, but could change in the future. CWP customers can’t actively clear CDN caches on Incapsula unless they purchase an optional Premium Managed Service plan. Due to this restriction, asset invalidation needs to take place via the URL, through so called “cache busters”. SilverStripe adds a GET parameter with the last file modification timestamp to each stylesheet and javascript file included through its [Requirements API](http://docs.silverstripe.org/en/3.2/developer_guides/templates/requirements/). If you are referencing files in other ways, please take care to add your own “cache busters”, e.g. through a Grunt build task modifying the including SilverStripe template.
 
 #### Tier 1 on dynamic content
 
@@ -195,7 +195,7 @@ SilverStripe Framework provides a **partial caching** template tag to easily cac
 
 Partial caching lets you trade off memory for processing power. If overused (e.g. if the block IDs are too sparse), your environment can run out of memory.
 
-You can read more about it in the [partial caching documentation](https://docs.silverstripe.org/en/3.1/developer_guides/performance/partial_caching/).
+You can read more about it in the [partial caching documentation](https://docs.silverstripe.org/en/3.2/developer_guides/performance/partial_caching/).
 
 ## Debugging
 
@@ -203,7 +203,7 @@ Request caching is complex and depends on many factors. The main method to debug
 
 The primary indicator for caching behaviour is the `Age` header, which determines the cache age in seconds. For cached content, it should increase on subsequent requests. For uncached content, it either stays at zero or is not set at all. The controllerpolicy module has more details on the various caching headers and how they influence caching behaviour.
 
-A common case for lack of caching is the presence of cookies in the HTTP request or response. Make sure that SilverStripe is not trying to start a PHP session alongside your request. SilverStripe will only attempt this if required by using the Session API in SilverStripe Framework. A PHP session will be started whenever a SilverStripe form is included in the generated HTML, in order to create a secure submission token. Please refer to SilverStripe’s [Secure Coding Guidelines](http://docs.silverstripe.org/en/3.1/developer_guides/security/secure_coding/#cross-site-request-forgery-csrf) to find out how and when to disable this submission token.
+A common case for lack of caching is the presence of cookies in the HTTP request or response. Make sure that SilverStripe is not trying to start a PHP session alongside your request. SilverStripe will only attempt this if required by using the Session API in SilverStripe Framework. A PHP session will be started whenever a SilverStripe form is included in the generated HTML, in order to create a secure submission token. Please refer to SilverStripe’s [Secure Coding Guidelines](http://docs.silverstripe.org/en/3.2/developer_guides/security/secure_coding/#cross-site-request-forgery-csrf) to find out how and when to disable this submission token.
 
 Conditional HTTP basic authentication through IP whitelists might also interfere with caching. Please keep in mind that Incapsula won’t cache any responses which are sent with this authentication challenge. Since the same caching is applied to multiple requesting IPs, Incapsula might have already decided that the response is uncacheable based on previous requests.
 

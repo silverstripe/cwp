@@ -21,7 +21,7 @@ and attributes.
 
 In your module's `_config.php` (the module's name has to be alphabetically after `cwp` for your `_config.php` statements
 not to be overriden, see the notice in the [Rich Text Editing
-docs](https://docs.silverstripe.org/en/3.1/developer_guides/forms/field_types/htmleditorfield/)) disable the media plugin for the
+docs](https://docs.silverstripe.org/en/3.2/developer_guides/forms/field_types/htmleditorfield/)) disable the media plugin for the
 default editor installed by the `cwp` module:
 
 	:::php

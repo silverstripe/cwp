@@ -1,3 +1,6 @@
+title: RealMe Authentication
+summary: User authentication using RealMe for SilverStripe CMS websites.
+
 # RealMe Authentication module
 
 <div class="notice" markdown='1'>This module is only supported from cwp recipe 1.2.0 and above</div>
@@ -40,4 +43,4 @@ If there are any further questions, please don't hesitate to
 
 ## See Also
 
- * [Single Sign on via Active Directory](single_sign_on.md)
+ * [Single Sign on via Active Directory](active_directory_single_sign_on)

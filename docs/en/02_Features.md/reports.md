@@ -16,4 +16,4 @@ To look at the report, go to the "Reports" section and select "Summary statistic
 ## Developing custom reports
 Custom reports can be created quickly and easily. A general knowledge of SilverStripe CMS's datamodel and ORM is useful before creating a custom report.
 
-See [Customising site reports](https://docs.silverstripe.org/en/3.1/developer_guides/customising_the_admin_interface/how_tos/customise_site_reports/) in the Official SilverStripe CMS documentation
+See [Customising site reports](https://docs.silverstripe.org/en/3.2/developer_guides/customising_the_admin_interface/how_tos/customise_site_reports/) in the Official SilverStripe CMS documentation

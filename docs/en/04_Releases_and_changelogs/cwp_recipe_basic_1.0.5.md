@@ -15,8 +15,8 @@ This release tracks the Framework release 3.1.8 and fixes some module bugs. The 
 
 Please see the changelogs for these following releases for the list of core changes since recipe 1.0.4
 
- * [framework 3.1.7](http://doc.silverstripe.org/framework/en/3.1/changelogs/3.1.7)
- * [framework 3.1.8](http://doc.silverstripe.org/framework/en/3.1/changelogs/3.1.8)
+ * [framework 3.1.7](http://doc.silverstripe.org/framework/en/3.2/changelogs/3.1.7)
+ * [framework 3.1.8](http://doc.silverstripe.org/framework/en/3.2/changelogs/3.1.8)
 
 ## Details
 

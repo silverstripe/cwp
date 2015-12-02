@@ -6,14 +6,14 @@ summary: Development information for developing your own custom project features
 You should have started your project from the cwp installer or included the recipe module with your project for the maximum level of
 compatibility with the platform.
 
-For custom development work for your website the best source of technical information for SilverStripe CMS development is the [Official SilverStripe CMS developer documentation](https://docs.silverstripe.org/en/3.1/). 
+For custom development work for your website the best source of technical information for SilverStripe CMS development is the [Official SilverStripe CMS developer documentation](https://docs.silverstripe.org/en/3.2/). 
 
 With Composer you can easily add to the modules that are included in the project. Full instructions can be found in the
-[Official SilverStripe CMS documentation](https://docs.silverstripe.org/en/3.1/getting_started/composer/#advanced-usage).
+[Official SilverStripe CMS documentation](https://docs.silverstripe.org/en/3.2/getting_started/composer/#advanced-usage).
 
 For site-specific SilverStripe installation, fine tune your configuration with `mysite/_config` and
 `mysite/_config.php`. More information is available in the [configuration
-reference](https://docs.silverstripe.org/en/3.1/developer_guides/configuration/configuration/). Make sure to preserve the database and
+reference](https://docs.silverstripe.org/en/3.2/developer_guides/configuration/configuration/). Make sure to preserve the database and
 environment configuration code, otherwise your deployment may not work (e.g. the database connection will not work).
 
 The best way to work with your site is to commit all your modifications to your own theme and in the `mysite` directory.
@@ -21,13 +21,13 @@ The best way to work with your site is to commit all your modifications to your 
 Avoid changing modules directly. Instead, SilverStripe CMS's architecture allows safe customisation through:
 
 * [Modules](https://addons.silverstripe.org/)
-* [Class inheritance](https://docs.silverstripe.org/en/3.1/developer_guides/model/data_model_and_orm/#subclasses)
-* [SilverStripe DataExtensions](https://docs.silverstripe.org/en/3.1/developer_guides/extending/extensions/)
-* [Dependancy injection](https://docs.silverstripe.org/en/3.1/developer_guides/extending/injector/)
+* [Class inheritance](https://docs.silverstripe.org/en/3.2/developer_guides/model/data_model_and_orm/#subclasses)
+* [SilverStripe DataExtensions](https://docs.silverstripe.org/en/3.2/developer_guides/extending/extensions/)
+* [Dependancy injection](https://docs.silverstripe.org/en/3.2/developer_guides/extending/injector/)
 
 To gain deeper understanding on how the SilverStripe Framework can be used to develop custom solutions, we recommend
 going through the [SilverStripe CMS online lessons](https://www.silverstripe.org/learn/lessons/) and searching through
-the [Official SilverStripe CMS development documentation](http://docs.silverstripe.org/en/3.1/).
+the [Official SilverStripe CMS development documentation](http://docs.silverstripe.org/en/3.2/).
 
 Directly modifying module files is not recommended because it makes future upgrades harder (or in some cases
 impossible). You will also have a harder time getting support from the community.
@@ -85,7 +85,7 @@ The TinyMCE editor is the default WYSIWYG editor used with all *Content* fields 
 allows developers to configure it through the `HtmlEditorField` wrapper.
 
 The details are documented in SilverStripe documentation at [Rich-Text Editing (WYSIWYG)
-documentation](https://docs.silverstripe.org/en/3.1/developer_guides/forms/field_types/htmleditorfield/).
+documentation](https://docs.silverstripe.org/en/3.2/developer_guides/forms/field_types/htmleditorfield/).
 
 TinyMCE options are documented at [Configuration Reference](http://www.tinymce.com/wiki.php/Configuration).
 

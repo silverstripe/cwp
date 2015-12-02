@@ -84,7 +84,7 @@ in your browser (assuming that your LAMP stack is properly configured).
 
 <div class="hint" markdown='1'>
 You might need to configure your admin access credentials in the `_ss_environment.php` file to be able to access the
-site (see [environment management](https://docs.silverstripe.org/en/3.1/getting_started/environment_management/) docs).
+site (see [environment management](https://docs.silverstripe.org/en/3.2/getting_started/environment_management/) docs).
 </div>
 
 ## Structure of the project

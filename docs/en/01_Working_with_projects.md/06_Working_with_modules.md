@@ -5,7 +5,7 @@ summary: Using or creating reusable modules for SilverStripe CMS.
 
 Public (or private) modules are available as separate repositories (projects) within the Gitlab. They can be included
 then in any other projects through Composer. For more information about Composer usage with SilverStripe see
-[Installing and Upgrading with Composer](https://docs.silverstripe.org/en/3.1/getting_started/composer/).
+[Installing and Upgrading with Composer](https://docs.silverstripe.org/en/3.2/getting_started/composer/).
 
 We assume here that you have your website project already started, based off the basic recipe.
 
@@ -25,7 +25,7 @@ straight away, without the need to commit to the repository at all.
 	drwxr-xr-x    2 muzdowski  staff       68 20 Feb 09:12 foobar
 
 General documentation on module creation is available here - [Module
-Development](https://docs.silverstripe.org/en/3.1/developer_guides/extending/modules/). Don't forget to create the
+Development](https://docs.silverstripe.org/en/3.2/developer_guides/extending/modules/). Don't forget to create the
 `_config.php` file, even if it only contains the PHP header (`<?php[newline]`). Follow the conventions established by
 other modules like the `cms` so it's easier for other developers to work with your code!
 
@@ -73,12 +73,12 @@ settings.
 
 To include a new **Packagist-based** module in your project, such as *silverstripe-blog*, follow the instructions in the
 chapter [Adding modules to your
-project](https://docs.silverstripe.org/en/3.1/getting_started/composer/#adding-modules-to-your-project).
+project](https://docs.silverstripe.org/en/3.2/getting_started/composer/#adding-modules-to-your-project).
 
 Including a CWP-hosted module is different, because none of the public of private repositories are indexed on
 **Packagist**. This means we will need to point *composer* to specific URLs. Background information can be found at
 [Working with project forks and unreleased
-modules](https://docs.silverstripe.org/en/3.1/getting_started/composer/#working-with-project-forks-and-unreleased-modules).
+modules](https://docs.silverstripe.org/en/3.2/getting_started/composer/#working-with-project-forks-and-unreleased-modules).
 
 For our *foobar* example module we have just pushed upstream add the following lines to your `composer.json` file in the
 root directory of your main project.
@@ -121,7 +121,7 @@ Finally, commit the the modified `composer.json`, `composer.lock`  and `.gitigno
 `composer.lock` serves as a snapshot marker for the dependencies - other developers will be able to `composer install`
 exactly the version of the modules you have used in your project, as well as the correct version will be used for the
 deployment. Some additional information is available in the [Deploying projects with
-composer](https://docs.silverstripe.org/en/3.1/getting_started/composer/#deploying-projects-with-composer).
+composer](https://docs.silverstripe.org/en/3.2/getting_started/composer/#deploying-projects-with-composer).
 
 ## Deploying repositories with private modules
 

@@ -4,7 +4,7 @@
 
 This is the first release of the `cwp-recipe-basic` metapackage and all related modules.
 
-See [SilverStripe Framework 3.1.1 changelog](http://doc.silverstripe.org/framework/en/3.1/changelogs/3.1.1) for the list
+See [SilverStripe Framework 3.1.1 changelog](http://doc.silverstripe.org/framework/en/3.2/changelogs/3.1.1) for the list
 of core changes.
 
 ## Details
