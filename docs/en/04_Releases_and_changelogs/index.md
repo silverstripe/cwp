@@ -7,9 +7,9 @@ introduction: The status of the recipe releases is summarised in the table below
 | Recipe version | Description | Release date | Support ends date |
 | -------------- | ----------- | ------------ | ----------------- |
 | [1.1.2](cwp_recipe_basic_1.1.2) | Tracks the Framework release 3.1.15 and includes minor security fixes. | 21/09/2015 | current |
-| [1.1.1](cwp_recipe_basic_1.1.1) | Introduces many new features to UserForms, Solr, Full-text search and QueuedJobs modules. | 1/09/2015 | 21/03/2017 |
-| [1.1.0](cwp_recipe_basic_1.1.0) | Tracks the Framework release 3.1.13, including bugfixes and major features | 05/06/2015 | 1/03/2017 |
-| [1.0.7](cwp_recipe_basic_1.0.7) | Tracks the Framework release 3.1.12, including security and bug fixes | 26/03/2015 | 5/12/2016 |
+| [1.1.1](cwp_recipe_basic_1.1.1) | Introduces many new features to UserForms, Solr, Full-text search and QueuedJobs modules. | 1/09/2015 | 01/03/2016 |
+| [1.1.0](cwp_recipe_basic_1.1.0) | Tracks the Framework release 3.1.13, including bugfixes and major features | 05/06/2015 | 01/03/2016 |
+| [1.0.7](cwp_recipe_basic_1.0.7) | Tracks the Framework release 3.1.12, including security and bug fixes | 26/03/2015 | 01/3/2016 |
 | [1.0.6](cwp_recipe_basic_1.0.6) | Tracks the Framework release 3.1.10, including security and bug fixes | 26/02/2015 | 31/05/2015 |
 | [1.0.5](cwp_recipe_basic_1.0.5) | Tracks the Framework release 3.1.8, including bug fixes and features. | 24/11/2014 | 31/05/2015 |
 | [1.0.4](cwp_recipe_basic_1.0.4) | Tracks the Framework release 3.1.6, including bug fixes and features. | 26/08/2014 | 31/05/2015 |
