@@ -1,4 +1,4 @@
-title: Disabling the default Wpublishing workflow
+title: Disabling the default publishing workflow
 summary: How to disable the default 'Two-step Workflow' when building your database.
 
 ## Disabling the Default Workflow
