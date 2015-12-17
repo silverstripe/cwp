@@ -4,7 +4,7 @@ summary: Installing the tools required to develop SilverStripe CMS code for the 
 # Preparation of the developer's environment
 
 Successful development of a Platform website relies on the ability to use the provided services and tools and build upon
-them to provide the custom functionality where needed. A description of the high-level [technical architecture](https://www.cwp.govt.nz/features/technical-information-about-the-platform/)
+them to provide the custom functionality where needed. A description of the high-level [technical architecture](https://www.cwp.govt.nz/about/technical-and-architecture-information/)
 is available on this website.
 
 CWP projects are installed using the Composer PHP package management tool. For general information about Composer, visit
@@ -87,6 +87,4 @@ securely store your password permanently. The software is available directly fro
 For people seasoned with SilverStripe development, you can try jump-starting your development activities with the
 [getting started](/getting_started) guide.
 
-For more information on correctly setting up your CWP project see [Setting up your project](setting_up_your_project).
-
-It shows how to set up Git and how to access Gitlab to manage your code repositories on the CWP platform.
+For more information on correctly setting up your CWP project see [Setting up your project](setting_up_your_project). It shows how to set up Git and how to access Gitlab to manage your code repositories on the CWP platform.

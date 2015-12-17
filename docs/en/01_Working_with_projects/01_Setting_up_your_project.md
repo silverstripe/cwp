@@ -16,39 +16,41 @@ enter these details now.
 When accessing Gitlab, you'll see a page like this. On the right hand side is a listing of your projects you have
 access to. Access a project from here to find more information including the repository URL details:
 
+#### Gitlab projects overview
 ![Gitlab projects](/_images/gitlab-projects.jpg)
 
+#### Project details
 ![Gitlab project repository URL](/_images/gitlab-project-repo-url.jpg)
 
 <div class="notice" markdown='1'>
 Use HTTPS address for interacting with your repository - SSH transport is not available currently.
 </div>
 
-Now that you have the repository URL for the project, you can check it out into your environment with the following
-command:
+1. Now that you have the repository URL for the project, you can check it out into your environment with the following command:
 
 	git clone https://gitlab.cwp.govt.nz/my-agency/my-project.git /path/to/webroot/myproject
 
-Replace `/path/to/webroot` with the path on your computer where you wish to store the project code.
+2. Replace `/path/to/webroot` with the path on your computer where you wish to store the project code.
 
-Then to install the SilverStripe CMS packages required for the project to run use the command:
+3. Then navigate to your project folder:
+
+	cd /path/to/webroot/myproject
+
+4. To install the SilverStripe CMS packages required for the project to run use the command:
 
 	composer install
 
-Assuming you followed through the Setting up an development environment guide, you can skip straight to "Accessing the site" now.
+This may take some time to run.
 
-## Creating a new project
-The preferred way to set up your repository from scratch is to use the
-[cwp-installer](https://gitlab.cwp.govt.nz/cwp/cwp-installer/) module via Composer.
+<div class="notice" markdown='1'>
+Assuming you followed through the Setting up an development environment guide, you can skip straight to "[Accessing the site](../working_with_projects/setting_up_your_project#accessing-the-site-2)" now.
+</div>
 
-First, let's create new project using Composer by running the following command:
+### Creating a new project?
+The preferred way to set up a new repository is to use the
+[cwp-installer](https://gitlab.cwp.govt.nz/cwp/cwp-installer/) module via Composer. Follow the instructions at [Getting Started](../getting_started) which will step you through how to create a project from scratch.
 
-	composer create-project cwp/cwp-installer my-project --repository-url="https://packages.cwp.govt.nz" 
-	# Note: Respond Y to the question about ".git" removal - we want to create our own Git project repository in this case.
-
-This may take some time to run as it is collecting and downloading all the code required to run a default SilverStripe CMS website on CWP (the `Recipe` code).
-
-### Making your first project commit
+## Making your first project commit
 You will need to make your first commit to Git and push your project into your Git repository provided on GitLab when you signed up for CWP.
 As mentioned you should not commit the packages of code managed by Composer to your project. To ensure this you need to use a `.gitignore` file stored in the root of your project (you should already have one of these files from the installation process).
 
@@ -76,7 +78,7 @@ Finally push the master branch into your repository and set your local copy to w
 
 	git push -u origin master
 
-Your team should now be able to commence the development.
+Your team should now be able to commence development on the project.
 
 ## Accessing the site
 At this stage you should be able to run the website on the default theme included in this recipe locally by visiting it
@@ -115,7 +117,17 @@ You have now a private repository that you can modify. Here is a list of likely 
  * Editing the name of the project in the root `composer.json` - find the **name** entry and change it so it's in the
 format of "my-agency/basic" - "cwp" namespace is reserved for platform-endorsed modules and recipes.
  * Customising the `mysite/_config.php` to configure your project.
- * Customise the theme
+ * [Customise the theme](../working_with_projects/customising_the_default_theme/)
  * Writing new project features
- * Adding more modules
+ * [Adding more modules](../working_with_projects/working_with_modules)
  * Do any other housekeeping as necessary, for example edit or remove the `README` file.
+
+## Troubleshooting
+
+*Q: I cannot run "git remote add". git says: "fatal: remote origin already exists"*
+
+A: If you've installed via the cwp-installer package and answered "no" the the question if the repository should be,
+removed, the git remote named "origin" still exists and pointing at its git repository. You have two options:
+
+* Option A: Change origin to point at your Gitlab repository: git remote set-url origin https://gitlab.cwp.govt.nz/my-project.git https://gitlab.cwp.govt.nz/cwp/cwp-installer.git 
+* Option B: Set a new remote, called e.g. "my-project": git remote add my-project https://gitlab.cwp.govt.nz/my-project.git

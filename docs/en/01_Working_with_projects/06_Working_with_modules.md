@@ -144,4 +144,7 @@ You can allow anybody on the internet to access your module and include it in th
 you have decided to open-source your module). To do so you need to be the owner of the repository. Appropriate checkbox
 will then be available to you in the project settings.
 
+1. Select the project and click "Project Settings" on the left menu
+2. Inside settings, choose the correct "Visibility Level" and click "Save changes"
+
 ![Gitlab - making the repository public](/_images/gitlab-making-repository-public.jpg)

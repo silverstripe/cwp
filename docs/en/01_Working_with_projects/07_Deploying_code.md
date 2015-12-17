@@ -37,8 +37,12 @@ The public key can be found in the Deploynaut interface under the "Public key" s
 It's content is not secret (there is a private counterpart that only the server knows) so proceed to Gitlab
 to add it to all your repositories that need to be included in the deployment.
 
-If you have already been set up with a repository you should have an instance key visible in the interface. Add
-it by clicking "enable" button next to it.
+If you have already been set up with a repository you should have an instance key visible in the interface. Add it to the project in gitlab by:
+
+1. Selecting the project
+2. Clicking "Settings"
+3. Click "Deploy Keys:
+4. Click the "enable" button next to the instance key to add it to the current project.
 
 ![Gitlab - associating project key with a private module](/_images/gitlab-enable-key.jpg )
 
