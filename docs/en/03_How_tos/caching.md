@@ -1,7 +1,7 @@
 title: Caching
 summary: Improve performance with caching.
 
-# Caching
+# Caching your website
 
 This page describes the three types of caching that can readily be used on Common Web Platform.
 
@@ -13,7 +13,7 @@ This page describes the three types of caching that can readily be used on Commo
 
 ## Transparent caches
 
-CWP clusters are equipped with two levels of transparent cache: a cache in the CWP data centre and an external CDN provided by Content Delivery Network (CDN) provided by Incapsula.
+CWP clusters are equipped with two levels of transparent cache: a cache in the CWP data centre and an external CDN provided by Content Delivery Network (CDN) provided by [Incapsula](https://www.incapsula.com/).
 
 All instance responses are analysed and some of them may be cached to increase performance. Their behaviour can be controlled:
 
@@ -68,7 +68,9 @@ We will now explain some simple techniques on how to increase your cache utilisa
 
 With the basic recipe all SilverStripe Framework responses come with the following _Cache-Control_ directive. You will see this response headers coming from the default recipe site.
 
-	Cache-Control: no-cache, max-age=0, must-revalidate, no-transform
+```
+Cache-Control: no-cache, max-age=0, must-revalidate, no-transform
+```
 
 This means the response is _tier 0_ (not cache-able).
 
@@ -76,8 +78,10 @@ This means the response is _tier 0_ (not cache-able).
 
 Furthermore, all CWP instances are configured to set the following header on anything that is NOT served by the framework. This includes all requests for theme files and any asset requests that are not served by the "silverstripe-secureassets" module.
 
-	Cache-Control: max-age=120, public
-	
+```
+Cache-Control: max-age=120, public
+```
+
 These responses are effectively _tier 2_. Note the max-age value is currently 120 seconds, but could change in the future. CWP customers can’t actively clear CDN caches on Incapsula unless they purchase an optional Premium Managed Service plan. Due to this restriction, asset invalidation needs to take place via the URL, through so called “cache busters”. SilverStripe adds a GET parameter with the last file modification timestamp to each stylesheet and javascript file included through its [Requirements API](http://docs.silverstripe.org/en/3.2/developer_guides/templates/requirements/). If you are referencing files in other ways, please take care to add your own “cache busters”, e.g. through a Grunt build task modifying the including SilverStripe template.
 
 #### Tier 1 on dynamic content
@@ -141,11 +145,13 @@ Although we recommend to stick with the CWP-configured headers for static files 
 
 As an example the following will apply a new "cache for 900 seconds" header to all static responses:
 
-	<IfModule mod_headers.c>
-		SetEnvIf Request_URI ".*.php$" NO_CACHE=true
-		Header set Cache-Control "max-age=900, public" env=!NO_CACHE
-	</IfModule>
-	
+```
+  <IfModule mod_headers.c>
+    SetEnvIf Request_URI ".*.php$" NO_CACHE=true
+    Header set Cache-Control "max-age=900, public" env=!NO_CACHE
+  </IfModule>
+```
+  
 #### Caching and SSL
 
 Since SSL traffic is terminated before it hits the Varnish cache layer, you can also cache content delivered through HTTPS. 
