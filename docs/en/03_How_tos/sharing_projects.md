@@ -17,11 +17,11 @@ There are 2 options available to handle permissions:
 
 ![Team Memberships](/_images/gitlab-team-home.png)
 
-1. Import team from another project
-    * This will allow you to import the team permissions from another project you have created
-    ![Team Memberships](/_images/gitlab-team-copypermissions.png).
-    * From the *Project* drop down box select the project to copy the permissions from.
-2. New Team Member
+1. Import Members
+    * This will allow you to import the team permissions from another project you have created.
+    ![Team Memberships](/_images/gitlab-team-copypermissions.png)
+    * From the *Project Access* drop down box select the project to copy the permissions from.
+2. Add Members
     * This will allow you to assign permissions to the repository to another Gitlab user
     ![Team Memberships](/_images/gitlab-team-newuser.png)
     * Either type the name of the user or select from the drop down box.
