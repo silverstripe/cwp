@@ -3,11 +3,13 @@ summary: Publish blog posts and allow the public to engage with you by commentin
 
 # Blogging
 
-From 1.1.0 onwards the `blog recipe` is included along side the basic recipe by default.
-
 The SilverStripe blog module lets you publish blog posts and allow the public to
 engage with you by commenting on your posts. The module supports flexible
 categorisation and tagging of blog posts.
+
+<div class="notice" markdown='1'>
+From 1.1.0 onwards the `blog recipe` is included along side the basic recipe by default.
+</div>
 
 [Three levels of permissions are supported](https://github.com/silverstripe/silverstripe-blog/blob/master/docs/en/roles.md):
 
@@ -16,7 +18,7 @@ categorisation and tagging of blog posts.
  * Contributors who can write, but have limited permissions otherwise.
 
 Commenting can be enabled and disabled, and all comments go through a
-[spam filter](/how-tos/akismet) and then need to be manually moderated before
+[spam filter](/how_tos/akismet) and then need to be manually moderated before
 they are published. The module provides an RSS feed to allow the public to
 subscribe to your blog posts.
 
@@ -59,11 +61,11 @@ from any site. If blogging or comments are not required for a CWP site it's advi
 ## Configuration
 
 Any new site created from 1.1.0 onwards will have a set of default configuration options added in order to best
-customise the blog recipe for cwp defaults. These settings are included in the cwp/cwp-installer module in the
+customise the blog recipe for cwp defaults. These settings are included in the `cwp/cwp-installer` module in the
 blog.yml file under mysite/_config. Sites upgrading from 1.0.7 or below may require one or more of these settings
 to be manually added.
 
-For configuration of anti-spam please see the [Akismet configuration guide](/how-tos/akismet) for more information.
+For configuration of anti-spam please see the [Akismet configuration guide](/how_tos/akismet) for more information.
 
 For the basic configuration, see the default mysite/_config/blog.yml below for reference:
 
