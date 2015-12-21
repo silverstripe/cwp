@@ -3,8 +3,9 @@ summary: Displaying a taxonomy of related pages.
 
 # Related Pages
 
-For each page, editors can define a list of other related pages. By default these are shown in a list at the bottom of
-every page. In the templates this is all handled by including `RelatedPages.ss`. You can customise this by looping over
+For each page, editors can define a list of other related pages and by default these are shown in a list at the bottom of every page. 
+
+In the templates this is all handled by including `RelatedPages.ss`. You can customise this by looping over
 the page control `RelatedPages`, this will provide you with a Page object from which you can read `Title`, `Link`, and
 any other variable or action defined on the page. This is a snippet from how it is implemented in `RelatedPages.ss`:
 
