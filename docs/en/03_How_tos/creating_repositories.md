@@ -17,7 +17,7 @@ users to the project, or modify existing team member permissions to the project.
 ![Gitlab Team tab for changing project access](/_images/gitlab-team-access.jpg)
 
 There are different levels of access a user can have to your project.
-[Gitlab permissions help](http://gitlab.cwp.govt.nz/help/permissions) has more information on the levels of permission
+[Gitlab permissions help](https://gitlab.cwp.govt.nz/help/permissions/permissions.md) has more information on the levels of permission
 you can give users.
 
 ## Making the project public
