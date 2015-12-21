@@ -4,7 +4,7 @@ introduction: The CWP recipe codebase includes two modules that pre-configure yo
 
 # Pre-configuration of CWP recipe codebase
 
-The default SilverStripe CMS codebase used on the CWP infrastructure is referred to as the ["basic recipe"](recipes_and_supported_modules). 
+The default SilverStripe CMS codebase used on the CWP infrastructure is referred to as the ["basic recipe"](../working_with_projects/recipes_and_supported_modules). 
 When starting a new CWP project based on the [`cwp/cwp-installer`](/getting_started) custom SilverStripe CMS installer for CWP, a 
 selection of pre-configured modules are included (we've done the work for you as you would usually have to configure 
 these modules yourself) and provide a set of standardised features for Government agencies. Some of this 
@@ -25,8 +25,8 @@ and PHP code to manage the majority of the CWP pre-configuration:
   and pre-configures search results (optional boosting and synonyms) and several recipe included modules. 
   * [mysite/_config/config.yml](https://gitlab.cwp.govt.nz/cwp/cwp-installer/blob/1.2.0/mysite/_config/config.yml) (*mandatory, but part of your project and customisable) - The `cwp/cwp-installer` includes some 
   pre-configured options that you may customise (the defaults will work with CWP out of the box).
-  * [mysite/_config/blog.yml](https://gitlab.cwp.govt.nz/cwp/cwp-installer/blob/1.2.0/mysite/_config/blog.yml) (*optional, if using blogging feature on CWP) - Pre-configures a set of blogging features whn using 
-  the optional "blogging recipe" (see [Blogging developer docs](blogging)).
+  * [mysite/_config/blog.yml](https://gitlab.cwp.govt.nz/cwp/cwp-installer/blob/1.2.0/mysite/_config/blog.yml) (*optional, if using blogging feature on CWP) - Pre-configures a set of blogging features when using 
+  the optional "blogging recipe" (see [Blogging developer docs](blog_recipe)).
 
 
 
