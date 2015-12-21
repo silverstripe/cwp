@@ -32,7 +32,7 @@ To do this, define the fields that you'd like specified on your page type and ad
 		...
 	}
 
-If you run dev/build?flush=all and then browse to your page type, you'll see the fields you just defined in the
+If you run `dev/build?flush=all` and then browse to your page type, you'll see the fields you just defined in the
 expandable Meta Tags area on the main Page edit view.
 
 To display them, you'll need to override the MetaTags function in your page type:
@@ -55,7 +55,7 @@ To display them, you'll need to override the MetaTags function in your page type
 		}
 	}
 
-That will take all of the tags that the Page::MetaTags() function defines and then add our custom ones on.
+That will take all of the tags that the `Page::MetaTags()` function defines and then add our custom ones on.
 
 We could automatically generate some of our own easily enough:
 
