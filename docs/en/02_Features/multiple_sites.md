@@ -11,6 +11,10 @@ For more information about the subsites module go to the [github repository](htt
 
 The subsites module is already included as part of the cwp default installation. To set up a subsite in the CMS visit the [user documentation](https://userhelp.silverstripe.org/en/optional_features/working_with_multiple_sites/set_up).
 
+# Technical
+
+There is a good [overview](https://github.com/silverstripe/silverstripe-subsites/blob/1.2/docs/en/introduction.md) to get you familiarised with the module and if you wish to extend the existing subsites architecture then there is some [technical](https://github.com/silverstripe/silverstripe-subsites/blob/1.2/docs/en/technical.md) documentation to get you started.
+
 ## Go live
 
-See [DNS/Go-live](working-with-cwp/instance-management/dns-go-live/) for more information about setting up your NDS configuration for subsites.
+See [DNS/Go-live](https://www.cwp.govt.nz/working-with-cwp/instance-management/dns-go-live/) for more information about setting up your DNS configuration for subsites.
