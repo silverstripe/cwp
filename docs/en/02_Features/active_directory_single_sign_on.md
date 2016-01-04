@@ -14,8 +14,7 @@ further prompts when they switch applications.
 Single Sign-on is provided by the open sourced
 module [SilverStripe Active Directory](https://github.com/silverstripe/silverstripe-activedirectory).
 
-This module allows users of a CWP intranet site to seamlessly be
-logged in to the site without being prompted to login again.
+This module allows users of a CWP intranet site to seamlessly login once and never be prompted to login to the site again.
 
 The users access rights are defined in a Microsoft Active Directory
 (AD) and are surfaced to the intranet site via an Active Directory
@@ -35,7 +34,7 @@ CWP is [supporting](https://www.cwp.govt.nz/about/technical-and-architecture-inf
 the `silverstripe-activedirectory` module and the hosting of the
 intranet site.
 
-The agency must have an Active Directory and an Active Directory
+The agency must have an Active Directory and Active Directory
 Federation Services hosted, maintained and operated by
 them.
 
@@ -47,7 +46,7 @@ their CWP intranet site and the Active Directory Service.
 
 ## Brief Technical Overview
 
-The idea is that a user can open their browser and go to the
+The idea is that a user can open their browser, go to the
 intranet site and be automatically logged in with their already
 authenticated Windows user.
 
@@ -67,8 +66,8 @@ experience and therefore the requirements are strict.
 - The AD must allow the intranet site to query user details,
   through an AD account that has read access.
 
-The communication between the intranet site and ADFS fully happens
-within the user's browser with the SAML 2.0 protocol, an XML-based,
+The communication between the intranet site and ADFS happens
+within the user's browser with the help of SAML 2.0 protocol, an XML-based,
 open-standard data format for exchanging authentication and
 authorization data between parties.
 
@@ -138,13 +137,13 @@ this feature can be disabled.
 
 ### Why not use Kerberos?
 
-Generally a Domain Controller(DC) uses Integrated Windows
+Generally a Domain Controller (DC) uses Integrated Windows
 Authentication (IWA, usually Kerberos or NTLM) to authenticate a
 user to the application they are trying to access.
 
 However this only works if:
 
- - The user has direct access to the Domain Controller(DC)
+ - The user has direct access to the Domain Controller (DC)
  - The users device supports IWA
 
 For security reasons the DC should never be exposed to the public

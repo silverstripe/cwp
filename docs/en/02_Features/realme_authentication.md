@@ -3,11 +3,13 @@ summary: User authentication using RealMe for SilverStripe CMS websites.
 
 # RealMe Authentication module
 
-<div class="notice" markdown='1'>This module is only supported from cwp recipe 1.2.0 and above</div>
-
 The [RealMe module](https://github.com/silverstripe/silverstripe-realme/) enables agencies to use RealMe, the 
 government's preferred approach for website authentication, to deliver online services or restrict information to 
-specific people. The module facilitates the log-on process; agencies need to work with the RealMe team to conduct the 
+specific people.
+
+<div class="notice" markdown='1'>This module is only supported from cwp recipe 1.2.0 and above</div>
+
+The module facilitates the log-on process; agencies need to work with the RealMe team to conduct the 
 integration, and will need to work with web developers to build whatever the system performs after you have logged in 
 (e.g. a form that initiates a service from government). The module supports different strength logons (username/password 
 only, or with SMS/Token as second factor) and only RealMe logon accounts. Support for RealMe verified accounts is 
