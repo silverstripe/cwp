@@ -7,8 +7,12 @@ Userforms allows a CMS user to create and edit an email submission form without 
 
 As a developer you can extend existing fields to create your own fields which are added by a user and also pre fill form fields by passing values via the url (e.g. http://yoursite.com/formpage?EditableField1=MyValue).
 
-For more information about the userforms module go to the [github repository](https://github.com/silverstripe/silverstripe-userforms) and go to [user documentation](hhttps://userhelp.silverstripe.org/en/optional_features/forms/) for more information about setting up a form in the CMS.
+For more information about the userforms module go to the [github repository](https://github.com/silverstripe/silverstripe-userforms) and go to [user documentation](https://userhelp.silverstripe.org/en/optional_features/forms/) for more information about setting up a form in the CMS.
 
 # Setup
 
 The userforms module is already included as part of the cwp default installation. To set up a form in the CMS visit the [user documentation](https://userhelp.silverstripe.org/en/optional_features/forms/creating-and-editing-forms).
+
+# Technical
+
+If you wish to install from scratch then follow the [installation](https://github.com/silverstripe/silverstripe-userforms/blob/master/docs/en/installation.md) instructions. There are also some extra configuration options and security notes to note on this page.
