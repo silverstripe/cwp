@@ -20,7 +20,7 @@ scanned for spam-worthy content. A message of either "spam" or "ham" (not spam) 
 
 Before an installation of CWP can process comments for spam it's necessary to first setup an Akismet API key.
 
-This key can be obtained either by signining up for a [free, or paid account at akismet.com](http://akismet.com/plans/).
+This key can be obtained either by signing up for a [free, or paid account at akismet.com](http://akismet.com/plans/).
 
 Once a key has been obtained it can be loaded into a CWP site using one of the below methods:
 

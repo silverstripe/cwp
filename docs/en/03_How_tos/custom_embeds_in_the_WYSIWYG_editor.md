@@ -9,7 +9,7 @@ of the `<embed>` and `<object>` tags.
 <div class="notice" markdown='1'>
 Proceeding with this guide will disable the ability of the CMS to embed `.swf` files through the "Insert Media"
 interface button. You will need to provide your own [custom TinyMCE
-plugins](http://doc.silverstripe.org/framework/en/trunk/topics/rich-text-editing) or embed the files directly via HTML
+plugins](https://docs.silverstripe.org/en/3.2/developer_guides/forms/field_types/htmleditorfield) or embed the files directly via HTML
 code.
 </div>
 
