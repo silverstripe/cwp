@@ -13,6 +13,13 @@ can be compared directly with the "Max pages in CMS" listed in the instance size
 
 To look at the report, go to the "Reports" section and select "Summary statistics" from the list.
 
+### Site-wide content report
+
+The site-wide content report shows "All content, page and files from across all subsites" in the CMS, 
+so that an administrator can get a quick overview of the status of all content across site(s).
+
+To look at the report, go to the "Reports" section and select "Site-wide content report" from the list.
+
 ## Developing custom reports
 Custom reports can be created quickly and easily. A general knowledge of SilverStripe CMS's datamodel and ORM is useful before creating a custom report.
 
