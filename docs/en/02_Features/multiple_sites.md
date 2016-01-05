@@ -9,7 +9,7 @@ For more information about the subsites module go to the [github repository](htt
 
 # Setup
 
-The subsites module is already included as part of the cwp default installation. To set up a subsite in the CMS visit the [user documentation](https://userhelp.silverstripe.org/en/optional_features/working_with_multiple_sites/set_up).
+The subsites module is already included as part of the CWP basic recipe. To set up a subsite in the CMS visit the [user documentation](https://userhelp.silverstripe.org/en/optional_features/working_with_multiple_sites/set_up).
 
 # Technical
 
