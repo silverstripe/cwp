@@ -15,4 +15,4 @@ The userforms module is already included as part of the cwp default installation
 
 # Technical
 
-If you wish to install from scratch then follow the [installation](https://github.com/silverstripe/silverstripe-userforms/blob/master/docs/en/installation.md) instructions. There are also some extra configuration options and security notes to note on this page.
+If you wish to install the module then follow the [installation](https://github.com/silverstripe/silverstripe-userforms/blob/master/docs/en/installation.md) instructions. There are also some extra configuration options and security notes to review on this page.
