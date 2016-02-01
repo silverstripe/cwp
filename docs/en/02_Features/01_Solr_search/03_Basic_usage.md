@@ -1,7 +1,7 @@
 title: Basic usable of Solr search
 summary: Gives an understanding of basic use of Solr.
 
-#  Basic usable of Solr search
+#  Basic usage of Solr search
 
 The following as already been pre-configured in the cwp-core and cwp modules that are part of the CWP recipe codebase.
 If you used the cwp-installer, or have included the basic recipe in your code you won't need to implement the steps below in your project.
