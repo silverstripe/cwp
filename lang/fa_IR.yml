@@ -1,1 +1,26 @@
-fa_IR: {}
+fa_IR:
+  BaseHomePage:
+    DESCRIPTION: 'صفحه محتوای عمومی'
+    FeatureContentFieldLabel: محتوا
+    Title: عنوان
+  BasePage:
+    ColumnTitle: عنوان
+    DESCRIPTION: 'صفحه محتوای عمومی'
+    PLURALNAME: 'صفحه اصلی'
+  CwpSearchPage:
+    DESCRIPTION: 'صفحه محتوای عمومی'
+    PLURALNAME: 'صفحه اصلی'
+  DateUpdatePage:
+    DateLabel: تاریخ
+  DatedUpdateHolder:
+    DESCRIPTION: 'صفحه محتوای عمومی'
+  DatedUpdatePage:
+    DESCRIPTION: 'صفحه محتوای عمومی'
+  Quicklink:
+    ParentRelationLabel: والد
+    SortOrderLabel: 'ترتیب مرتب‌سازی'
+  SearchForm:
+    SEARCH: جستجو
+  SiteTree:
+    PLURALNAME: صفحات
+    SINGULARNAME: صفحه

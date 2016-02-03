@@ -1,1 +1,22 @@
-fr: {}
+fr:
+  AssetTableField:
+    PAGES: page(s)
+  BaseHomePage:
+    DESCRIPTION: 'Generic content page'
+    Title: Titre
+  BasePage:
+    ColumnTitle: Titre
+    DESCRIPTION: 'Generic content page'
+    PLURALNAME: 'Base Pages'
+    TagsTabTitle: Tags
+  CwpConfig:
+    AddThisField: 'ID du profil AddThis'
+  CwpSearchPage:
+    DESCRIPTION: 'Generic content page'
+    PLURALNAME: 'Base Pages'
+  DateUpdatePage:
+    AuthorFieldLabel: Auteur
+  DatedUpdateHolder:
+    DESCRIPTION: 'Generic content page'
+  DatedUpdatePage:
+    DESCRIPTION: 'Generic content page'

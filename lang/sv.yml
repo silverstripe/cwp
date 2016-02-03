@@ -14,6 +14,7 @@ sv:
     ColumnPageType: 'Sidtyp'
     ColumnTitle: Titel
     DESCRIPTION: 'Generisk innehållssida'
+    PLURALNAME: 'Bas sidor'
     RelatedPages: 'Relaterade sidor'
     TagsTabTitle: Taggar
     Taxonomy: Taxonomi
@@ -26,3 +27,12 @@ sv:
     FooterLogoField: 'Sidfots-logotyp, för användning i sidfoten'
     FooterLogoLinkDesc: 'Vänligen ange protokollet (t ex http:// eller http://) om länken inte är intern'
     GaField: 'Google Analytics-konto'
+  CwpSearchPage:
+    DESCRIPTION: 'Generisk innehållssida'
+    PLURALNAME: 'Bas sidor'
+  DateUpdatePage:
+    AuthorFieldLabel: Författare
+  DatedUpdateHolder:
+    DESCRIPTION: 'Generisk innehållssida'
+  DatedUpdatePage:
+    DESCRIPTION: 'Generisk innehållssida'

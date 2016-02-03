@@ -4,6 +4,7 @@ de:
     PAGES: Seite(n)
   BaseHomePage:
     AddNewButton: 'Neue hinzufügen'
+    DESCRIPTION: 'Allgemeine Inhaltsseite'
     FeatureButtonText: 'Schaltflächentext'
     FeatureCategoryDropdown: 'Kategoriesymbol'
     FeatureContentFieldLabel: Inhalt
@@ -25,6 +26,8 @@ de:
     GaField: 'Google-Analytics-Konto'
     TwitterField: 'Twitter-Benutzername'
     TwitterFieldDesc: 'Twitter-Benutzername (z.B. http://twitter.com/<strong>Benutzername</strong>)'
+  CwpSearchPage:
+    DESCRIPTION: 'Allgemeine Inhaltsseite'
   DateUpdatePage:
     AuthorFieldLabel: Autor
     DateLabel: Datum

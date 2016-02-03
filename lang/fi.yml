@@ -26,6 +26,8 @@ fi:
     SINGULARNAME: 'Tapahtumasivu'
   FooterHolder:
     SINGULARNAME: 'Alaindeksin koonti'
+  GridField:
+    Archived: Arkistoitu
   NewsHolder:
     SINGULARNAME: 'Uutisten koontisivu'
   NewsPage:
@@ -43,5 +45,8 @@ fi:
   SiteTree:
     PLURALNAME: Sivut
     SINGULARNAME: Sivu
+  SiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Tämä listaus näyttää kaikki sivut, joissa tiedosto on lisätty WYSIWYG-editorin avulla.'
+    EDIT: Muokkaa
   SitemapPage:
     SINGULARNAME: 'Sivukarttasivu'

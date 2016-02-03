@@ -1,1 +1,21 @@
-lt: {}
+lt:
+  BaseHomePage:
+    DESCRIPTION: 'Standartinio turinio puslapis'
+    FeatureContentFieldLabel: Turinys
+    Title: Pavadinimas
+  BasePage:
+    ColumnTitle: Pavadinimas
+    DESCRIPTION: 'Standartinio turinio puslapis'
+  CwpSearchPage:
+    DESCRIPTION: 'Standartinio turinio puslapis'
+  DatedUpdateHolder:
+    DESCRIPTION: 'Standartinio turinio puslapis'
+  DatedUpdatePage:
+    DESCRIPTION: 'Standartinio turinio puslapis'
+  SearchForm:
+    SEARCH: Ieškoti
+  SiteTree:
+    PLURALNAME: Puslapiai
+    SINGULARNAME: Puslapis
+  SiteTreeFileExtension:
+    EDIT: Redaguoti
