@@ -131,3 +131,10 @@ removed, the git remote named "origin" still exists and pointing at its git repo
 
 * Option A: Change origin to point at your Gitlab repository: git remote set-url origin https://gitlab.cwp.govt.nz/my-project.git https://gitlab.cwp.govt.nz/cwp/cwp-installer.git 
 * Option B: Set a new remote, called e.g. "my-project": git remote add my-project https://gitlab.cwp.govt.nz/my-project.git
+
+*Q: I get an error message "error: The requested URL returned error: 401 Unauthorized while accessing..." when cloning an existing GitLab repository*
+A: If you get this error message you can work around it by including your GitLab username in the repository URL.
+For example:
+```
+git clone https://your.username@gitlab.cwp.govt.nz/your-organisation/your-repo.git
+```
