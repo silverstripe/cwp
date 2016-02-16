@@ -11,10 +11,22 @@ class SitemapPage extends Page {
 class SitemapPage_Controller extends Page_Controller {
 
 	private static $allowed_actions = array(
-		'page'
+		'showpage',
 	);
 
-	public function page($request) {
+	private static $url_handlers = array(
+		'page/$ID' => 'showpage',
+	);
+
+	public function Page($link) {
+		if($link instanceof SS_HTTPRequest) {
+			Deprecation::notice('2.0', 'Using page() as a url handler is deprecated. Use showpage() action instead');
+			return $this->showpage($link);
+		}
+		return parent::Page($link);
+	}
+
+	public function showpage($request) {
 		$id = (int) $request->param('ID');
 		if(!$id) {
 			return false;
