@@ -30,8 +30,39 @@ in the following areas:
 For more information on how to prepare your existing code for compatibility with 3.3, please review
 [the 3.3 changelog](https://docs.silverstripe.org/en/3.3/changelogs/3.3.0/) for specific upgrading instructions.
 
-A description of the security features included in this release can be seen at
-[ss-2015-019](http://www.silverstripe.org/download/security-releases/ss-2015-019).
+## Details of security issues
+
+This release includes fixes for the following issues:
+
+ * [ss-2015-019](http://www.silverstripe.org/download/security-releases/ss-2015-019): In some cases, user
+   code which applies Versioned extension to DataObjects may expose non-public content, unless an
+   appropriate canView is implemented which checks access for the current stage.
+   This is a risk in cases that the site is put into staging mode by an unauthenticated user.
+   In 3.3.0 versioned dataobjects will now automatically have a default security model which denies draft
+   access to public users, and directly blocks access to the stage mode via the querystring.
+ * [ss-2016-003](http://www.silverstripe.org/download/security-releases/ss-2016-003): In it's default
+   configuration, SilverStripe trusts all originating IPs to include HTTP headers for Hostname, IP and
+   Protocol. This enables reverse proxies to forward requests while still retaining the original request
+   information. Trusted IPs can be limited via the SS_TRUSTED_PROXY_IPS constant. Even with this
+   restriction in place, SilverStripe trusts a variety of HTTP headers due to different proxy notations
+   (e.g. X-Forwarded-For vs. Client-IP). Unless a proxy explicitly unsets invalid HTTP headers from
+   connecting clients, this can lead to spoofing requests being passed through trusted proxies.
+   The impact of spoofed headers can include Director::forceSSL() not being enforced,
+   SS_HTTPRequest->getIP() returning a wrong IP (disabling any IP restrictions), and spoofed hostnames
+   circumventing any hostname-specific restrictions enforced in SilverStripe Controllers.
+ * [ss-2015-028](http://www.silverstripe.org/download/security-releases/ss-2015-028): The buildDefaults
+   method on DevelopmentAdmin is missing a permission check. In live mode, if you access /dev/build,
+   you are requested to login first. However, if you access /dev/build/defaults, then the action is
+   performed without any login check. This should be protected in the same way that /dev/build is.
+   The buildDefaults view is requireDefaultRecords() on each DataObject class, and hence has the
+   potential to modify database state. It also lists all modified tables, allowing attackers more
+   insight into which modules are used, and how the database tables are structured.
+ * [ss-2016-002](http://www.silverstripe.org/download/security-releases/ss-2016-002): GridField does
+   not have sufficient CSRF protection, meaning that in some cases users with CMS access can be tricked
+   into posting unspecified data into the CMS from external websites. Amongst other default CMS interfaces,
+   GridField is used for management of groups, users and permissions in the CMS.
+   The resolution for this issue is to ensure that all gridFieldAlterAction submissions are checked
+   for the SecurityID token during submission.
 
 ## Note on issues on sites supporting large numbers of files
 
