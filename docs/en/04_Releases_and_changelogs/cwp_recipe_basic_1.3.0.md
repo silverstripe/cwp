@@ -2,11 +2,12 @@
 
 ## Overview
 
-This recipe includes a new minor release of CMS and Framework to version 3.3.0.
+This recipe includes a new minor release of CMS and Framework to version 3.3.1.
 
 Please see the changelogs for these following releases for the list of core changes since recipe 1.2.0
 
  * [framework 3.3.0](https://docs.silverstripe.org/en/3.3/changelogs/3.3.0/)
+ * [framework 3.3.1](https://docs.silverstripe.org/en/3.3/changelogs/3.3.1/)
 
 It is not mandatory that agencies upgrade to this release. In general, if you are unsure if you
 need to upgrade to this release, it is safe to wait until your next scheduled upgrade cycle.
