@@ -26,7 +26,7 @@ in the following areas:
   - "Access to Pages section"
   - "View draft content"
 
-![3.3 screenshot](../_images/recipe_1.3.0_3.3_framework.png)
+![3.3 screenshot](/_images/recipe_1.3.0_3.3_framework.png)
 
 For more information on how to prepare your existing code for compatibility with 3.3, please review
 [the 3.3 changelog](https://docs.silverstripe.org/en/3.3/changelogs/3.3.0/) for specific upgrading instructions.
