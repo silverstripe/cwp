@@ -9,7 +9,8 @@ The status of the recipe releases is summarised in the table below. Click on the
 
 | Recipe version | Description | Release date | Support ends date |
 | -------------- | ----------- | ------------ | ----------------- |
-| [1.2.0](/releases/cwp-recipe-basic-1.2.0) | Tracks the Framework release 3.2.1 and includes minor security fixes. | 1/12/2015 | current |
+| [1.2.1](/releases/cwp-recipe-basic-1.2.1) | Tracks the Framework release 3.2.3 and includes minor security fixes. | TBC | current |
+| [1.2.0](/releases/cwp-recipe-basic-1.2.0) | Tracks the Framework release 3.2.1 and includes minor security fixes. | 1/12/2015 | TBC |
 | [1.1.2](/releases/cwp-recipe-basic-1.1.2) | Tracks the Framework release 3.1.15 and includes minor security fixes. | 21/09/2015 | 1/03/2016 |
 | [1.1.1](/releases/cwp-recipe-basic-1.1.1) | Introduces many new features to UserForms, Solr, Full-text search and QueuedJobs modules. | 1/09/2015 | 1/03/2016 |
 | [1.1.0](/releases/cwp-recipe-basic-1.1.0) | Tracks the Framework release 3.1.13, including bugfixes and major features | 05/06/2015 | 1/03/2016 |
