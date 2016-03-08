@@ -48,7 +48,7 @@ Environments within a CWP instance are turnkey deployments of a standardised env
 supportability reasons we do not allow the installation of binaries, PHP extensions or other deviations from the
 standard environment that are not encapsulated within the PHP code deployed via deploynaut into the instance.
 
-Code should work with PHP 5.3.3, Apache 2.2.16 and MySQL 5.1.73-1 (Debian "squeeze" packages)
+Code should work with PHP 5.6, Apache 2.4 and MariaDB 10.0 (Debian "Jessie" packages)
 
 These PHP extensions are part of the standard environment, and can be relied on to be available:
 
@@ -57,6 +57,10 @@ These PHP extensions are part of the standard environment, and can be relied on 
 * mbstring
 * mcrypt
 * tidy
+
+WKHTMLTOPDF is also available in version 0.12.1.1.
+
+In your local environment MySQL 5.6 can be used as a similar alternative to MariaDB 10.0.
 
 Where your business requirements necessitate a server-side feature that is not currently present, there are several
 options available:
