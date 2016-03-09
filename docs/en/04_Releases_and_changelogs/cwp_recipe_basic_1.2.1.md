@@ -3,7 +3,7 @@
 ## Overview
 
 This release tracks the Framework release 3.2.3. This includes only bugfixes and security fixes, and an upgrade of the translatable module.
-Please see the changelogs for these following releases for the list of core changes since recipe 1.1.2
+Please see the changelogs for these following releases for the list of core changes since recipe 1.2.0
 
  * [framework 3.2.2](https://docs.silverstripe.org/en/3.2/changelogs/3.2.2/)
  * [framework 3.2.3](https://docs.silverstripe.org/en/3.2/changelogs/3.2.3/)
@@ -45,16 +45,16 @@ This release includes fixes for the following issues:
 In order to update an existing site to use the new basic recipe the following changes to your composer.json
 can be made:
 
-    :::js
-    "require": {
-    	"cwp/cwp-recipe-basic": "~1.2.1@stable",
-    	"cwp/cwp-recipe-blog": "~1.2.0@stable",
-    	"cwp-themes/default": "~1.2.0@stable"
-    }
+	:::js
+	"require": {
+		"cwp/cwp-recipe-basic": "~1.2.1@stable",
+		"cwp/cwp-recipe-blog": "~1.2.0@stable",
+		"cwp-themes/default": "~1.2.1@stable"
+	}
 
 ### Known issues
 
-In recipe 1.2.0 there are the following known issues in these failing tests:
+In recipe 1.2.1 there are the following known issues in these failing tests:
 
 #### framework
 
@@ -72,7 +72,7 @@ In recipe 1.2.0 there are the following known issues in these failing tests:
 
 ### Accepted failing tests
 
-In recipe 1.2.0 these module unit tests cause external errors, but do not represent legitimate issues.
+In recipe 1.2.1 these module unit tests cause external errors, but do not represent legitimate issues.
 
 #### framework
 
@@ -91,6 +91,6 @@ In recipe 1.2.0 these module unit tests cause external errors, but do not repres
  * GridFieldSortableRowsAutoSortTest.testAppendToTopAutoSort - Verified to work, tests need updating
  * GridFieldSortableRowsTest.testSortActionWithoutCorrectPermission - Verified to work, tests need updating
  * GridFieldSortableRowsTest.testSortActionWithAdminPermission - Verified to work, tests need updating
- 
+
 #### versionfeed
  * VersionFeedFunctionalTest.testContainsChangesForPageOnly - Verified to pass locally
