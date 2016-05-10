@@ -10,7 +10,7 @@ class CleanupGeneratedPdfBuildTask extends BuildTask {
 		$path = sprintf('%s/%s', BASE_PATH, BasePage::config()->generated_pdf_path);
 		if(!file_exists($path)) return false;
 
-		exec(sprintf('rm %s/*', $path), $output, $return_val);
+		exec(sprintf('if [ "$(ls -A %s 2> /dev/null)" != "" ]; then rm %s/*; fi', $path, $path), $output, $return_val);
 
 		// output any errors
 		if($return_val != 0) {
