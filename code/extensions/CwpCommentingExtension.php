@@ -10,16 +10,22 @@ class CwpCommentingExtension extends Extension {
 		$fields = $form->Fields();
 
 		// Set field names and descriptions
-		$fields->dataFieldByName('Name')
-			->setTitle('Name')
-			->setDescription('(required)');
-		$fields
-			->dataFieldByName('Email')
-			->setTitle('Email')
-			->setDescription('will not be published (required)');
-		$fields
-			->dataFieldByName('URL')
-			->setTitle('Your website (optional)')
-			->setAttribute('placeholder','http://');
+		if($nameField = $fields->dataFieldByName('Name')) {
+			$nameField
+				->setTitle('Name')
+				->setDescription('(required)');
+		}
+
+		if($emailField = $fields->dataFieldByName('Email')) {
+			$emailField
+				->setTitle('Email')
+				->setDescription('will not be published (required)');
+		}
+
+		if($urlField = $fields->dataFieldByName('URL')) {
+			$urlField
+				->setTitle('Your website (optional)')
+				->setAttribute('placeholder','http://');
+		}
 	}
 }
