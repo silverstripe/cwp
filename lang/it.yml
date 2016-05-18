@@ -9,6 +9,8 @@ it:
     Title: Titolo
   BasePage:
     ColumnTitle: Titolo
+  DateUpdatePage:
+    AuthorFieldLabel: Autore
   FooterHolder:
     PLURALNAME: 'Footer Holder'
   NewsHolder:

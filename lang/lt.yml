@@ -4,10 +4,13 @@ lt:
     FeatureContentFieldLabel: Turinys
     Title: Pavadinimas
   BasePage:
+    ColumnPageType: 'Puslapio tipas'
     ColumnTitle: Pavadinimas
     DESCRIPTION: 'Standartinio turinio puslapis'
+    PLURALNAME: 'Baziniai puslapiai'
   CwpSearchPage:
     DESCRIPTION: 'Standartinio turinio puslapis'
+    PLURALNAME: 'Baziniai puslapiai'
   DatedUpdateHolder:
     DESCRIPTION: 'Standartinio turinio puslapis'
   DatedUpdatePage:

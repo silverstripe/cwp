@@ -1,6 +1,7 @@
 fi:
   BaseHomePage:
     AddNewButton: 'Lisää uusi'
+    DESCRIPTION: 'Yleinen sisältösivu'
     FeatureButtonText: 'Nappulan teksti'
     FeatureCategoryDropdown: 'Kategoriaikoni'
     FeatureContentFieldLabel: Sisältö
@@ -9,6 +10,8 @@ fi:
   BasePage:
     ColumnPageType: 'Sivutyyppi'
     ColumnTitle: Otsikko
+    DESCRIPTION: 'Yleinen sisältösivu'
+    PLURALNAME: 'Pohjasivut'
     TagsTabTitle: Avainsanat
     Taxonomy: Taksonomia
   CarouselItem:
@@ -19,9 +22,17 @@ fi:
     LinkField: Linkki
   CwpConfig:
     FooterLogoLinkField: 'Alaindeksin logon linkki'
+  CwpSearchPage:
+    DESCRIPTION: 'Yleinen sisältösivu'
+    PLURALNAME: 'Pohjasivut'
   DateUpdatePage:
     DateLabel: Päivämäärä
+    FeaturedImageFieldLabel: 'Kuvanosto'
     LocationFieldLabel: Paikka
+  DatedUpdateHolder:
+    DESCRIPTION: 'Yleinen sisältösivu'
+  DatedUpdatePage:
+    DESCRIPTION: 'Yleinen sisältösivu'
   EventPage:
     SINGULARNAME: 'Tapahtumasivu'
   FooterHolder:
@@ -35,6 +46,7 @@ fi:
   Quicklink:
     ExternalLinkLabel: 'Ulkoinen linkki'
     InternalLinkLabel: 'Sisäinen linkki'
+    NameLabel: Nimi
     PLURALNAME: Pikalinkit
     ParentRelationLabel: Isäntä
     SINGULARNAME: Pikalinkki

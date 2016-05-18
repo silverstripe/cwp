@@ -53,6 +53,8 @@ es:
     LogoUploadField: 'Logo, a aparecer en la esquina superior izquierda'
     TwitterField: 'Nombre de usuario de Twitter'
     TwitterFieldDesc: 'Nombre de usuario de Twitter (por ejemplo, http://twitter.com/<strong>nombre de usuario</strong>)'
+  CwpSearchPage:
+    PLURALNAME: 'Página base'
   DateUpdateHolder:
     DateRangeFilterMessage: 'Filtrado por una sola fecha.'
     FilterAppliedMessage: 'El filtro se aplicó con las fechas invertidas.'

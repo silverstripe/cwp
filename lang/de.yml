@@ -13,6 +13,7 @@ de:
     ColumnPageType: 'Seitentyp'
     ColumnTitle: Titel
     DESCRIPTION: 'Allgemeine Inhaltsseite'
+    PLURALNAME: 'Basis Seiten'
     RelatedPages: 'Abhängige Seiten'
     TagsTabTitle: Schlagwörter
   CustomSiteConfig:
@@ -28,6 +29,7 @@ de:
     TwitterFieldDesc: 'Twitter-Benutzername (z.B. http://twitter.com/<strong>Benutzername</strong>)'
   CwpSearchPage:
     DESCRIPTION: 'Allgemeine Inhaltsseite'
+    PLURALNAME: 'Basis Seiten'
   DateUpdatePage:
     AuthorFieldLabel: Autor
     DateLabel: Datum

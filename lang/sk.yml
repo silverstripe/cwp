@@ -1,1 +1,22 @@
-sk: {}
+sk:
+  BaseHomePage:
+    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
+    FeatureContentFieldLabel: Obsah
+    Title: Názov
+  BasePage:
+    ColumnPageType: 'Typ stránky'
+    ColumnTitle: Názov
+    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
+    PLURALNAME: 'Základné stránky'
+  CwpSearchPage:
+    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
+    PLURALNAME: 'Základné stránky'
+  DatedUpdateHolder:
+    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
+  DatedUpdatePage:
+    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
+  SearchForm:
+    SEARCH: Hľadať
+  SiteTree:
+    PLURALNAME: Stránky
+    SINGULARNAME: Stránka

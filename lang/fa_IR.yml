@@ -24,3 +24,5 @@ fa_IR:
   SiteTree:
     PLURALNAME: صفحات
     SINGULARNAME: صفحه
+  SiteTreeFileExtension:
+    EDIT: ویرایش
