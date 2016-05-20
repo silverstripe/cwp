@@ -83,6 +83,7 @@ Note that the default theme has not been modified since recipe 1.2.0, and can be
  * [OSS-1849] - *Framework*: Raw PHP errors to return HTTP Error code
  * [CWP-837] - *Content Review*: Dependant pages status change to ‘modified’ when you update another dependant page
  * [CWP-817] - *Userforms*: submissions with higher than ~1500 records can not be exported
+ * [CWP-782] - *Userforms*: Checkbox Group Field does not allow select multiple options if it is a required field
  * [OSS-1737] - *Fulltext Search*: SearchVariantSubsites alterDefinition issue
 
 ### Known issues
