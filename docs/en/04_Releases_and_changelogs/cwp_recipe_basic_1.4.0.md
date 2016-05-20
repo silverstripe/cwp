@@ -87,7 +87,7 @@ Note that the default theme has not been modified since recipe 1.2.0, and can be
 
 ### Known issues
 
-In recipe 1.3.0 there are the following known issues in these failing tests:
+In recipe 1.4.0 there are the following known issues in these failing tests:
 
 #### framework
 
