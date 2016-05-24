@@ -85,6 +85,7 @@ Note that the default theme has not been modified since recipe 1.2.0, and can be
  * [CWP-817] - *Userforms*: submissions with higher than ~1500 records can not be exported
  * [CWP-782] - *Userforms*: Checkbox Group Field does not allow select multiple options if it is a required field
  * [OSS-1737] - *Fulltext Search*: SearchVariantSubsites alterDefinition issue
+ * [CWP-651] - *Subsites*: Home page url changes to home-2
 
 ### Known issues
 
