@@ -329,10 +329,11 @@ class BasePage_Controller extends ContentController {
 		// make sure the work directory exists
 		if(!file_exists(dirname($pdfFile))) Filesystem::makeFolder(dirname($pdfFile));
 
-		// Force http protocol on CWP - fetching from localhost without using the proxy, SSL terminates on gateway.
+		// Force http protocol on CWP and ensure a domain which supports https is used - fetching from localhost without using the proxy, SSL terminates on gateway.
 		if (defined('CWP_ENVIRONMENT')) {
 			Config::inst()->nest();
 			Config::inst()->update('Director', 'alternate_protocol', 'http');
+			Config::inst()->update('Director', 'alternate_base_url', 'http://'.CWP_SECURE_DOMAIN.'/');
 		}
 
 		$bodyViewer = $this->getViewer('pdf');
