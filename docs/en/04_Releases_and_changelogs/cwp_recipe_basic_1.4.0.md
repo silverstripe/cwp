@@ -8,9 +8,16 @@ Please see the changelog below for these following releases for the list of core
 
  * [framework 3.4.0](https://github.com/silverstripe/silverstripe-framework/blob/3.4/docs/en/04_Changelogs/3.4.0.md)
 
-All Agencies using Recipe 1.3.0 or below must upgrade prior to 1st September 2016 to Recipe 1.4.0.
-All sites using prior versions of the CWP Basic Recipe (1.3.0 and below) should be considered
-vulnerable. Please organise this with your developers as soon as possible. 
+This upgrade is not mandatory. This upgrade fixes several security flaws. SilverStripe has determined
+that the severity and breadth of applicability of the flaws does not constitute a need for a CWP-wide
+emergency upgrade.
+
+Because it includes security fixes, all Agencies using Recipe 1.3.0 or below should strongly consider
+upgrading to Recipe 1.4.0. Agencies should make their own determination on whether these issues present
+sufficient threat to their site to require an upgrade. If you are unsure, it is safest to upgrade. 
+
+If you would like SilverStripe to carry out this upgrade for you, please let us know and we will
+arrange this with you. 
 
 ## New Features
 
