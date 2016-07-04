@@ -9,22 +9,21 @@ The high level CWP infrastructure is outlined on cwp.govt.nz.
 More detail is available through a solution architecture document on request
 to participating agencies. See [technical and architecture information](https://www.cwp.govt.nz/about/technical-and-architecture-information/).
 
-## HTTP Request time limit
+## HTTP request time limit
+
+The PHP execution limit (`max_execution_time`) is 60 seconds,
+after which a 503 (Service Unavailable) error will be returned. 
 
 The CWP "Gateway" server which fronts all CWP instances
-has a HTTP request timeout limit of 60 seconds.
-
-All HTTP requests to CWP environments are affected by this limit. Any request that exceeds this limit will continue to be processed on the back-end server, however the CWP "Gateway" server will generate a 504 (Gateway Timeout) error. 
+has a HTTP request timeout limit of 120 seconds, after which it will
+generate a 504 (Gateway Timeout) error.
+This is preventing overloading of the shared parts of the infrastructure.
 
 <div class="warning" markdown='1'>
 Your publicly accessible URLs should never take a long time to process, as this leaves your instance open to denial of
 service attacks. You should definitely hide these behind a login or a captcha, or use caching and other optimisations
 to bring down the processing time.
 </div>
-
-The request time limit on the platform is set to 120s at which point a 503 error will be returned. This is
-to prevent overloading of the shared parts of the infrastructure. However your underlying instance process will still
-be running - without a way to return any output to requester.
 
 The preferred way to handle your long-running processes is via the 
 [queuedjobs](https://github.com/silverstripe-australia/silverstripe-queuedjobs) module. 
