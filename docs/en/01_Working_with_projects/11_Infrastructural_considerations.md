@@ -5,9 +5,10 @@ summary: Aspects of the CWP server environment infrastructure to be aware of whe
 
 ## HTTP Request time limit
 
-Gateway has a HTTP request timeout limit of 60 seconds.
+The CWP "Gateway" server which fronts all CWP instances
+has a HTTP request timeout limit of 60 seconds.
 
-All HTTP requests to CWP environments are affected by this limit. Any request that exceeds this limit will continue to be processed on the back-end server, however Gateway will generate a 504 (Gateway Timeout) error. 
+All HTTP requests to CWP environments are affected by this limit. Any request that exceeds this limit will continue to be processed on the back-end server, however the CWP "Gateway" server will generate a 504 (Gateway Timeout) error. 
 
 <div class="warning" markdown='1'>
 Your publicly accessible URLs should never take a long time to process, as this leaves your instance open to denial of
@@ -19,9 +20,11 @@ The request time limit on the platform is set to 120s at which point a 503 error
 to prevent overloading of the shared parts of the infrastructure. However your underlying instance process will still
 be running - without a way to return any output to requester.
 
-Preferred way to handle your long-running processes is via the 
+The preferred way to handle your long-running processes is via the 
 [queuedjobs](https://github.com/silverstripe-australia/silverstripe-queuedjobs) module. 
-The preferred way to extend the time limit of a PHP process is to use the SilverStripe Framework API's `increase_time_limit_to`.
+You can extend the time limit of a PHP process is to use the SilverStripe Framework APIs `increase_time_limit_to`.
+
+Consider using [caching](how_tos/caching) to speed up request execution.
 
 ## PHP configuration
 
