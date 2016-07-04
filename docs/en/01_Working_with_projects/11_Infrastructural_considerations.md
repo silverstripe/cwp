@@ -82,7 +82,11 @@ support
 
 ## Other features
 
+ * [Varnish and Incapsula caching](how_tos/caching)
+ * [Outgoing HTTP proxy](/how_tos/external_http_requests_with_proxy)
  * [WKHTMLTOPDF](http://wkhtmltopdf.org/) is available in version 0.12.1.1.
+ * [Solr search](/features/solr_search)
+ * [Apache Tika](/features/solr_search/searching_documents)
 
 ## Process for new infrastructure features
 
