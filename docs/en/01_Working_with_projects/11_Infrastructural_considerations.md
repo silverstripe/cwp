@@ -11,7 +11,7 @@ to participating agencies. See [technical and architecture information](https://
 
 ## HTTP request time limit
 
-The PHP execution limit (`max_execution_time`) is 60 seconds,
+The PHP execution limit (`max_execution_time`) is 30 seconds,
 after which a 503 (Service Unavailable) error will be returned. 
 
 The CWP "Gateway" server which fronts all CWP instances
