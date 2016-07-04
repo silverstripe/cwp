@@ -3,6 +3,12 @@ summary: Aspects of the CWP server environment infrastructure to be aware of whe
 
 # Infrastructural considerations
 
+## Overview
+
+The high level CWP infrastructure is outlined on cwp.govt.nz.
+More detail is available through a solution architecture document on request
+to participating agencies. See [technical and architecture information](https://www.cwp.govt.nz/about/technical-and-architecture-information/).
+
 ## HTTP Request time limit
 
 The CWP "Gateway" server which fronts all CWP instances
