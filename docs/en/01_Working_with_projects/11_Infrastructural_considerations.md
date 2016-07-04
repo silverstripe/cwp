@@ -1,5 +1,5 @@
 title: Infrastructural considerations
-summary: Aspects of the CWP server environment infrastructure to be aware of when devleoping SilverStripe CMS for CWP.
+summary: Aspects of the CWP server environment infrastructure to be aware of when developing SilverStripe CMS for CWP.
 
 # Infrastructural considerations
 
@@ -19,8 +19,9 @@ The request time limit on the platform is set to 120s at which point a 503 error
 to prevent overloading of the shared parts of the infrastructure. However your underlying instance process will still
 be running - without a way to return any output to requester.
 
-Preferred way to handle your long-running processes is via the queuedjobs module. The preferred way to extend the time
-limit of a PHP process is to use the SilverStripe Framework API's `increase_time_limit_to`.
+Preferred way to handle your long-running processes is via the 
+[queuedjobs](https://github.com/silverstripe-australia/silverstripe-queuedjobs) module. 
+The preferred way to extend the time limit of a PHP process is to use the SilverStripe Framework API's `increase_time_limit_to`.
 
 ## Hosting video
 
@@ -42,13 +43,21 @@ such as:
 1. A player that provides the necessary controls and accessibility extensions to the devices built-in video playing
 support
 
-## PHP extensions and other server-side customisations
+## PHP configuration
+
+CWP instances are running PHP 5.6 (see Debian "Jessie" [packages](https://packages.debian.org/jessie/)).
+
+The default `memory_limit` configuration is 128 MB. You can increase this to 256 MB
+with `ini_set('memory_limit', '256M');` in your code.
+Please call this on a per-script basis. Increasing the limit for all requests increases the likelihood of server instability with high traffic.
+If you have a script which requires more than 256 MB, we typically recommend making it a task, runnable from a cron job on a schedule.
+Please raise a ticket via [Service Desk](https://www.cwp.govt.nz/service-desk) for help with this.
+
+## PHP extensions
 
 Environments within a CWP instance are turnkey deployments of a standardised environment. For security and
 supportability reasons we do not allow the installation of binaries, PHP extensions or other deviations from the
-standard environment that are not encapsulated within the PHP code deployed via deploynaut into the instance.
-
-Code should work with PHP 5.6, Apache 2.4 and MariaDB 10.0 (Debian "Jessie" packages)
+standard environment that are not encapsulated within the PHP code deployed into the instance.
 
 These PHP extensions are part of the standard environment, and can be relied on to be available:
 
@@ -58,9 +67,21 @@ These PHP extensions are part of the standard environment, and can be relied on 
 * mcrypt
 * tidy
 
-WKHTMLTOPDF is also available in version 0.12.1.1.
+## Webserver
 
-In your local environment MySQL 5.6 can be used as a similar alternative to MariaDB 10.0.
+CWP instances are running Apache 2.4 (see Debian "Jessie" [packages](https://packages.debian.org/jessie/)).
+Note that there's other [caching infrastructure](/how_tos/caching) in front of CWP instances.
+
+## Database
+
+CWP is running on MariaDB 10.0 (see Debian "Jessie" [packages](https://packages.debian.org/jessie/)).
+For local development, you can also choose MySQL 5.6.
+
+## Other features
+
+ * [WKHTMLTOPDF](http://wkhtmltopdf.org/) is available in version 0.12.1.1.
+
+## Process for new infrastructure features
 
 Where your business requirements necessitate a server-side feature that is not currently present, there are several
 options available:
@@ -69,4 +90,3 @@ options available:
 through an external provider)
 * Integration of feature as a CWP standard feature, either through directly funded work or through the co-fund pool
 (we are unlikely to accept requests to integrate features that duplicate functionality already present within CWP)
-
