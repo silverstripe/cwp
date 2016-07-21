@@ -331,7 +331,7 @@ class BasePage_Controller extends ContentController {
 		// make sure the work directory exists
 		if(!file_exists(dirname($pdfFile))) Filesystem::makeFolder(dirname($pdfFile));
 		
-		if(!Config::inst()->get('BasePage', 'pdf_base_url'){
+		if(!Config::inst()->get('BasePage', 'pdf_base_url')) {
 			$pdf_base_url = 'http://'.CWP_SECURE_DOMAIN.'/';
 		}
 
