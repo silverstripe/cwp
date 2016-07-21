@@ -335,13 +335,13 @@ class BasePage_Controller extends ContentController {
 		
 		//if the user is adding custom url, configure it
 		if(!Config::inst()->get('BasePage', 'pdf_base_url')) {
-			$pdf_base_url = 'CWP_SECURE_DOMAIN'.'/';
+			$pdf_base_url = CWP_SECURE_DOMAIN.'/';
 		}  else {
             $pdf_base_url = Config::inst()->get('BasePage', 'pdf_base_url').'/';
         }
 		
 		//if the user is adding custom protocol, configure it
-		if(isset(Config::inst()->get('BasePage', 'pdf_base_protocol'))){
+		if(Config::inst()->get('BasePage', 'pdf_base_protocol')){
 			$pdf_base_protocol = Config::inst()->get('BasePage', 'pdf_base_protocol').'://';
 		} else {
 			$pdf_base_protocol = 'http://';
@@ -373,7 +373,7 @@ class BasePage_Controller extends ContentController {
 		}
 
 		// finally, generate the PDF
-		if($this->config()->pdf_base_url === 'CWP_SECURE_DOMAIN' || $pdf_base_protocol != "https"){
+		if($pdf_base_url_and_protocol === 'http://'.CWP_SECURE_DOMAIN.'/'){
 			$proxy = '';
 		} else {
 			$proxy = ' --proxy ' . SS_OUTBOUND_PROXY . ':' . SS_OUTBOUND_PROXY_PORT;
