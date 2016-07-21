@@ -352,8 +352,13 @@ class BasePage_Controller extends ContentController {
 		}
 
 		// finally, generate the PDF
-		$command = WKHTMLTOPDF_BINARY . ' --outline -B 40pt -L 20pt -R 20pt -T 20pt --encoding utf-8 ' .
-			'--orientation Portrait --disable-javascript --quiet --print-media-type ';
+		$proxy = '';
+		if (defined('SS_OUTBOUND_PROXY') && defined('SS_OUTBOUND_PROXY_PORT')) {
+			if(Config::inst()->get('Director', alternate_base_url) != 'http://'.CWP_SECURE_DOMAIN.'/') {
+				$proxy = ' --proxy ' . SS_OUTBOUND_PROXY . ':' . SS_OUTBOUND_PROXY_PORT;
+			}
+		}
+		$command = WKHTMLTOPDF_BINARY . $proxy . ' --outline -B 40pt -L 20pt -R 20pt -T 20pt --encoding utf-8 --orientation Portrait --disable-javascript --quiet --print-media-type ';
 		$retVal = 0;
 		$output = array();
 		exec($command . " --footer-html \"$footerFile\" \"$bodyFile\" \"$pdfFile\" &> /dev/stdout", $output, $return_val);
