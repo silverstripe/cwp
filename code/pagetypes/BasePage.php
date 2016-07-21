@@ -332,7 +332,7 @@ class BasePage_Controller extends ContentController {
 		if(!file_exists(dirname($pdfFile))) Filesystem::makeFolder(dirname($pdfFile));
 		
 		if(!Config::inst()->get('BasePage', 'pdf_base_url'){
-			$pdf_base_url = 'http://'.CWP_SECURE_DOMAIN.'/'
+			$pdf_base_url = 'http://'.CWP_SECURE_DOMAIN.'/';
 		}
 
 		// Force http protocol on CWP and ensure a domain which supports https is used - fetching from localhost without using the proxy, SSL terminates on gateway.
