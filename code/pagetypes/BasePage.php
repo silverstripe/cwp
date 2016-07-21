@@ -354,7 +354,7 @@ class BasePage_Controller extends ContentController {
 		// finally, generate the PDF
 		$proxy = '';
 		if (defined('SS_OUTBOUND_PROXY') && defined('SS_OUTBOUND_PROXY_PORT')) {
-			if(Config::inst()->get('Director', alternate_base_url) != 'http://'.CWP_SECURE_DOMAIN.'/') {
+			if(Config::inst()->get('Director', 'alternate_base_url') != 'http://'.CWP_SECURE_DOMAIN.'/') {
 				$proxy = ' --proxy ' . SS_OUTBOUND_PROXY . ':' . SS_OUTBOUND_PROXY_PORT;
 			}
 		}
