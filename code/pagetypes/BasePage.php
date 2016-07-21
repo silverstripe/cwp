@@ -13,6 +13,8 @@ class BasePage extends SiteTree {
 	private static $hide_ancestor = 'BasePage';
 
 	private static $pdf_export = false;
+	
+	private static $pdf_base_url = "";
 
 	/**
 	 * Allow custom overriding of the path to the WKHTMLTOPDF binary, in cases
@@ -328,12 +330,16 @@ class BasePage_Controller extends ContentController {
 
 		// make sure the work directory exists
 		if(!file_exists(dirname($pdfFile))) Filesystem::makeFolder(dirname($pdfFile));
+		
+		if(!Config::inst()->get('BasePage', 'pdf_base_url'){
+			$pdf_base_url = 'http://'.CWP_SECURE_DOMAIN.'/'
+		}
 
 		// Force http protocol on CWP and ensure a domain which supports https is used - fetching from localhost without using the proxy, SSL terminates on gateway.
 		if (defined('CWP_ENVIRONMENT')) {
 			Config::inst()->nest();
 			Config::inst()->update('Director', 'alternate_protocol', 'http');
-			Config::inst()->update('Director', 'alternate_base_url', 'http://'.CWP_SECURE_DOMAIN.'/');
+			Config::inst()->update('Director', 'alternate_base_url', $pdf_base_url);
 		}
 
 		$bodyViewer = $this->getViewer('pdf');
@@ -352,11 +358,10 @@ class BasePage_Controller extends ContentController {
 		}
 
 		// finally, generate the PDF
-		$proxy = '';
-		if (defined('SS_OUTBOUND_PROXY') && defined('SS_OUTBOUND_PROXY_PORT')) {
-			if(Config::inst()->get('Director', 'alternate_base_url') != 'http://'.CWP_SECURE_DOMAIN.'/') {
-				$proxy = ' --proxy ' . SS_OUTBOUND_PROXY . ':' . SS_OUTBOUND_PROXY_PORT;
-			}
+		if($this->config()->pdf_base_url === CWP_SECURE_DOMAIN){
+			$proxy = '';
+		} else {
+			$proxy = ' --proxy ' . SS_OUTBOUND_PROXY . ':' . SS_OUTBOUND_PROXY_PORT;
 		}
 		$command = WKHTMLTOPDF_BINARY . $proxy . ' --outline -B 40pt -L 20pt -R 20pt -T 20pt --encoding utf-8 --orientation Portrait --disable-javascript --quiet --print-media-type ';
 		$retVal = 0;
