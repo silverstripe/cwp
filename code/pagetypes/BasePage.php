@@ -16,6 +16,8 @@ class BasePage extends SiteTree {
 	
 	private static $pdf_base_url = "";
 
+	private static $pdf_base_protocol = "";
+
 	/**
 	 * Allow custom overriding of the path to the WKHTMLTOPDF binary, in cases
 	 * where multiple versions of the binary are available to choose from. This
@@ -331,17 +333,28 @@ class BasePage_Controller extends ContentController {
 		// make sure the work directory exists
 		if(!file_exists(dirname($pdfFile))) Filesystem::makeFolder(dirname($pdfFile));
 		
+		//if the user is adding custom url, configure it
 		if(!Config::inst()->get('BasePage', 'pdf_base_url')) {
-			$pdf_base_url = 'http://'.CWP_SECURE_DOMAIN.'/';
+			$pdf_base_url = 'CWP_SECURE_DOMAIN'.'/';
 		}  else {
-                        $pdf_base_url = Config::inst()->get('BasePage', 'pdf_base_url');
-                }
+            $pdf_base_url = Config::inst()->get('BasePage', 'pdf_base_url').'/';
+        }
+		
+		//if the user is adding custom protocol, configure it
+		if(isset(Config::inst()->get('BasePage', 'pdf_base_protocol'))){
+			$pdf_base_protocol = Config::inst()->get('BasePage', 'pdf_base_protocol').'://';
+		} else {
+			$pdf_base_protocol = 'http://';
+		}
+
+		$pdf_base_url_and_protocol = $pdf_base_protocol.$pdf_base_url;
+		
 
 		// Force http protocol on CWP and ensure a domain which supports https is used - fetching from localhost without using the proxy, SSL terminates on gateway.
 		if (defined('CWP_ENVIRONMENT')) {
 			Config::inst()->nest();
 			Config::inst()->update('Director', 'alternate_protocol', 'http');
-			Config::inst()->update('Director', 'alternate_base_url', $pdf_base_url);
+			Config::inst()->update('Director', 'alternate_base_url', $pdf_base_url_and_protocol);
 		}
 
 		$bodyViewer = $this->getViewer('pdf');
@@ -360,7 +373,7 @@ class BasePage_Controller extends ContentController {
 		}
 
 		// finally, generate the PDF
-		if($this->config()->pdf_base_url === CWP_SECURE_DOMAIN){
+		if($this->config()->pdf_base_url === 'CWP_SECURE_DOMAIN' || $pdf_base_protocol != "https"){
 			$proxy = '';
 		} else {
 			$proxy = ' --proxy ' . SS_OUTBOUND_PROXY . ':' . SS_OUTBOUND_PROXY_PORT;
