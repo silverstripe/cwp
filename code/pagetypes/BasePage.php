@@ -14,6 +14,10 @@ class BasePage extends SiteTree {
 
 	private static $pdf_export = false;
 	
+	/*
+	*Domain to generate PDF's from, DOES not include protocol
+	*i.e. google.com not http://google.com
+	*/
 	private static $pdf_base_url = "";
 
 	/**
@@ -331,10 +335,13 @@ class BasePage_Controller extends ContentController {
 		// make sure the work directory exists
 		if(!file_exists(dirname($pdfFile))) Filesystem::makeFolder(dirname($pdfFile));
 		
-		//if the user is adding custom url, configure it
-		if(!Config::inst()->get('BasePage', 'pdf_base_url')) {
+		/*
+		*if the user is not adding custom url and CWP_SECURE_DOMAIN is defined
+		*configure pdf_base_url as the CWP_SECURE_DOMAIN else set as defined in YML
+		*/
+		if(!Config::inst()->get('BasePage', 'pdf_base_url') && defined('CWP_SECURE_DOMAIN')) {
 			$pdf_base_url = CWP_SECURE_DOMAIN.'/';
-		}  else {
+		} else {
 			$pdf_base_url = Config::inst()->get('BasePage', 'pdf_base_url').'/';
 		}
 
@@ -342,7 +349,10 @@ class BasePage_Controller extends ContentController {
 		if (defined('CWP_ENVIRONMENT')) {
 			Config::inst()->nest();
 			Config::inst()->update('Director', 'alternate_protocol', 'http');
-			Config::inst()->update('Director', 'alternate_base_url', 'http://'.$pdf_base_url);
+			//only set alternate protocol if CWP_SECURE_DOMAIN is defined OR pdf_base_url is
+			if(defined('CWP_SECURE_DOMAIN') || Config::inst()->get('BasePage', 'pdf_base_url')){
+				Config::inst()->update('Director', 'alternate_base_url', 'http://'.$pdf_base_url);
+			}
 		}
 
 		$bodyViewer = $this->getViewer('pdf');
@@ -360,12 +370,16 @@ class BasePage_Controller extends ContentController {
 			Config::inst()->unnest();
 		}
 
-		// finally, generate the PDF
-		if($pdf_base_url != CWP_SECURE_DOMAIN.'/' && defined('SS_OUTBOUND_PROXY') && defined('SS_OUTBOUND_PROXY_PORT')){
+		/*
+		*Define the proxy only if pdf_base_url is NOT the CWP_SECURE_DOMAIN
+		*AND is NOT undefined AND the proxy IS defined
+		*/
+		if($pdf_base_url != '' && $pdf_base_url != CWP_SECURE_DOMAIN.'/' && defined('SS_OUTBOUND_PROXY') && defined('SS_OUTBOUND_PROXY_PORT')){
 			$proxy = ' --proxy ' . SS_OUTBOUND_PROXY . ':' . SS_OUTBOUND_PROXY_PORT;
 		} else {
 			$proxy = '';
 		}
+		// finally, generate the PDF
 		$command = WKHTMLTOPDF_BINARY . $proxy . ' --outline -B 40pt -L 20pt -R 20pt -T 20pt --encoding utf-8 --orientation Portrait --disable-javascript --quiet --print-media-type ';
 		$retVal = 0;
 		$output = array();
