@@ -338,7 +338,7 @@ class BasePage_Controller extends ContentController {
 			$pdf_base_url = Config::inst()->get('BasePage', 'pdf_base_url').'/';
 		}
 
-		// Force http protocol on CWP and ensure a domain which supports https is used - fetching from localhost without using the proxy, SSL terminates on gateway.
+		// Force http protocol on CWP - fetching from localhost without using the proxy, SSL terminates on gateway.
 		if (defined('CWP_ENVIRONMENT')) {
 			Config::inst()->nest();
 			Config::inst()->update('Director', 'alternate_protocol', 'http');
@@ -361,10 +361,10 @@ class BasePage_Controller extends ContentController {
 		}
 
 		// finally, generate the PDF
-		if($pdf_base_url === CWP_SECURE_DOMAIN.'/'){
-			$proxy = '';
-		} else {
+		if($pdf_base_url != CWP_SECURE_DOMAIN.'/' && defined('SS_OUTBOUND_PROXY') && defined('SS_OUTBOUND_PROXY_PORT')){
 			$proxy = ' --proxy ' . SS_OUTBOUND_PROXY . ':' . SS_OUTBOUND_PROXY_PORT;
+		} else {
+			$proxy = '';
 		}
 		$command = WKHTMLTOPDF_BINARY . $proxy . ' --outline -B 40pt -L 20pt -R 20pt -T 20pt --encoding utf-8 --orientation Portrait --disable-javascript --quiet --print-media-type ';
 		$retVal = 0;
