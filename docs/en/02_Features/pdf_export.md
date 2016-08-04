@@ -136,7 +136,7 @@ changing the code to suit. The newly overloaded method will be used instead of t
 [More detailed documentation](http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltopdf-0.9.9-doc.html)
 is available describing the different parameters you can use with `wkhtmltopdf`.
 
-## Scheduled tasks
+## Clean up tasks
 
 If you require the generated PDFs to be cleaned up on a regular basis, please contact support to set up `CleanupGeneratedPdfBuildTask` as a cron task.
 
