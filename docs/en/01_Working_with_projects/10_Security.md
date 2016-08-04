@@ -8,7 +8,7 @@ website.
 
 ### API endpoint
 
-By default the SilverStripe API endpoint is exposed publicly, to lock down access to the API endpoint you can add `Config::inst()->remove('BasePage', 'api_access');Config::inst()->remove('BasePage', 'api_access');` to your `_config.php` file.
+By default the SilverStripe API endpoint is exposed publicly, to lock down access to the API endpoint you can add `Config::inst()->remove('BasePage', 'api_access');` to your `_config.php` file.
 
 ## User login considerations
 
