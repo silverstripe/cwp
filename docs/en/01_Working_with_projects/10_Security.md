@@ -6,6 +6,10 @@ summary: Considerations and steps to keep your website secure.
 This section describes security considerations, as well as additional steps that may be taken to further secure a
 website.
 
+### API endpoint
+
+By default the SilverStripe API endpoint is exposed publicly, to lock down access to the API endpoint you can add `Config::inst()->remove('BasePage', 'api_access');Config::inst()->remove('BasePage', 'api_access');` to your `_config.php` file.
+
 ## User login considerations
 
 ### Login auto-completion
