@@ -136,10 +136,9 @@ changing the code to suit. The newly overloaded method will be used instead of t
 [More detailed documentation](http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltopdf-0.9.9-doc.html)
 is available describing the different parameters you can use with `wkhtmltopdf`.
 
-## Scheduled tasks
+## Clean up tasks
 
-Each night, `CleanupGeneratedPdfDailyTask` is run which removes all files found within the generated PDFs folder
-`assets/_generated_pdfs`. The code for this can be found in the `cwp` module within the `tasks` directory.
+If you require the generated PDFs to be cleaned up on a regular basis, please contact support to set up `CleanupGeneratedPdfBuildTask` as a cron task.
 
 This task can be run from the browser on demand by accessing `dev/tasks/CleanupGeneratedPdfBuildTask`.
 One example of where this is useful might be directly after deploying new templates to the site, so the cached
