@@ -323,14 +323,14 @@ class BasePage_Controller extends ContentController {
 	}
 
 	/*
-	*Define the proxy only if pdf_base_url is NOT the CWP_SECURE_DOMAIN
-	*AND is NOT undefined AND the proxy IS defined
+	* Don't use the proxy if the pdf domain is the CWP secure domain
+	* Or if we aren't on a CWP server
 	*/
 	public function getPDFProxy($pdf_base_url) {
-		if($pdf_base_url != '' && $pdf_base_url != CWP_SECURE_DOMAIN.'/' && defined('SS_OUTBOUND_PROXY') && defined('SS_OUTBOUND_PROXY_PORT')){
-			$proxy = ' --proxy ' . SS_OUTBOUND_PROXY . ':' . SS_OUTBOUND_PROXY_PORT;
+		if (!defined('CWP_SECURE_DOMAIN') || $pdf_base_url == CWP_SECURE_DOMAIN.'/') {
+ 		 	$proxy = '';
 		} else {
-			$proxy = '';
+			$proxy = ' --proxy ' . SS_OUTBOUND_PROXY . ':' . SS_OUTBOUND_PROXY_PORT;
 		}
 		return $proxy;
 	}
