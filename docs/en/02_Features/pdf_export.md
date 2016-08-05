@@ -85,6 +85,13 @@ take effect.
 Now you can use `$PdfLink` in your templates which gives you a link to generate the page as a PDF.
 Note that a default "Export PDF" link is provided near the "Print" link at the bottom of the default template.
 
+From recipe 1.4.1 onwards, if you would like to generate the PDF using a specific domain, you can set this in `mysite/_config/config.yml`:
+
+	::::yml
+	BasePage:
+	  pdf_export: 1
+	  pdf_base_url: 'example.com'
+
 ## Overriding the template for PDFs
 
 `BasePage_Controller` has an action called `downloadpdf()` which is called when you need to generate or send an existing
