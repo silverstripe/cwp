@@ -87,7 +87,7 @@ Note that a default "Export PDF" link is provided near the "Print" link at the b
 
 From recipe 1.4.1 onwards, if you would like to generate the PDF using a specific domain, you can set this in `mysite/_config/config.yml`. Please see the following example for how to do this, you can not add a protocol or any trailing slashes, for example, http://google.com/ will not work but google.com will.
 
-	::::yml
+	:::yml
 	BasePage:
 	  pdf_export: 1
 	  pdf_base_url: 'example.com'
