@@ -14,6 +14,12 @@ We provide a stream for each instance environment. Streams are where
 you can view and query the stored logs. These include Apache, PHP, and any
 custom events that you want to log.
 
+<div class="notice" markdown='1'>
+`SS_SysLogWriter` use is now deprecated on CWP, because it could interfere with Graylog operation and could
+[cause side-effects](https://github.com/silverstripe/silverstripe-auditor#warning-do-not-use-ss_syslogwriter)
+with the audit logger. [Adding other writers](/how_tos/error_logging/) is fine.
+</div>
+
 ## Searching
 
 Each search requires a time period to search (default is last 5 minutes) and
@@ -28,11 +34,15 @@ select from the top right corner. These are:
 
 Following are a couple of examples on search queries:
 
- - Find web requests for the url "/about-us/"
+ - Find logs of a certain type:
+
+    `log_type:apache`
+
+ - Find web requests for the url "/about-us/":
 
     `http_url:"/about-us/"`
 
- - Find web requests that begins with "/about-us/"
+ - Find web requests that begins with "/about-us/":
 
     `http_url:\/about-us\/*`
 
@@ -40,14 +50,25 @@ Following are a couple of examples on search queries:
 
     `&& || : \ / + - ! ( ) { } [ ] ^ " ~ * ?`
 
- - Find web requests that resulted in a 5xx error response
+ - Find web requests that resulted in a 5xx error response:
  
     `http_response:>=500`
 
- - Find web requests that resulted in a 4xx error response
+ - Find web requests that resulted in a 4xx error response:
 
     `http_response:(>=400 AND <500)`
-   
+
+## Log types
+
+CWP instance will automatically write several log types which can be searched with the `log_type` keyword in Graylog, as
+long as the project includes the `cwp-core` module.
+
+* `SilverStripe_log`: standard log output of the Framework, will capture all events occuring after successful Framework
+bootstrap. This includes uncaught exceptions and any `SS_Log::log` events.
+* `SilverStripe_audit`: audit trail of security-related events provided by the *silverstripe/auditor* module.
+* `apache`: apache access logs.
+* `apache-errors`: errors reported by Apache, which could include `mod_php` segmentation faults.
+* `php`: PHP errors logged by the PHP binary directly, such as command-line PHP execution.
 
 ## Analysis of logs
 
@@ -89,20 +110,17 @@ For more information see [Graylog analysis documentation](http://docs.graylog.or
 
 ## Logging custom events
 
-In addition to the standard logging events from Apache, PHP etc, you may wish
-to send some of your own messages to Graylog.
+Basic recipe is configured to send all logs to syslog, which are then accessible through Graylog. The recommended way
+to log events on CWP is through the `SS_Log` API:
 
-The following code in your `mysite/_config.php` will configure `SS_Log` to send
-events to the syslog of the server, which will then be forwarded to Graylog:
+```php
+SS_Log::log('Something seems to have happened', SS_Log::NOTICE);
+```
 
-    $sysLogWriter = new SS_SysLogWriter();
-    SS_Log::add_writer($sysLogWriter, SS_Log::NOTICE, '<=');
+For more information on general usage of the Framework's logging subsystem, see
+[logging in SilverStripe documentation](https://docs.silverstripe.org/en/3.1/developer_guides/debugging/error_handling/).
 
-Now when you call `SS_Log::log()` the event will be pushed to Graylog:
+## Custom audit trail
 
-	SS_Log::log('Something seems to have happened', SS_Log::NOTICE);
-
-You may wish to create your own subclass of `SS_LogErrorFileFormatter` to format
-the specific log line that will be sent.
-
-For more information, see [logging in SilverStripe documentation](https://docs.silverstripe.org/en/3.1/developer_guides/debugging/error_handling/).
+Aside from regular logs, you can add custom events to the audit trail. Please follow the instructions provided with the
+[silverstripe/auditor](https://github.com/silverstripe/silverstripe-auditor#custom-audit-trail) module.
