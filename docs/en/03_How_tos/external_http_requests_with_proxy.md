@@ -16,7 +16,7 @@ If you are seeing issues connecting to an external service, double check to make
 Because of this proxy, outgoing requests have a different IP than configured for incoming requests to your CWP hostname.
 
 If third party providers require whitelisting of IPs (for example on API requests performed through PHP on a CWP server),
-please add the following IP: 202.55.102.136.
+please add the following IP addresses: 202.55.102.136 and 202.55.96.178.
 
 You can look up the implementation details in the `CwpInitialisationFilter` in the `cwp-core` module.
 
