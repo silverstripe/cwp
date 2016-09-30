@@ -26,6 +26,10 @@ this limit will not be fully indexed, although content within this range will st
 
 ## Configuring Solr for CWP
 
+<div class="notice" markdown='1'>
+As of 28/09/2016 'legacy' and 'cwp-3' versions are not supported on CWP anymore.
+</div>
+
 1.0.x branch of the recipe defaults to the 'legacy' mode which exists only for backwards compatibility. We recommend to
 change it at the first opportunity to one of the proxied versions:
 
