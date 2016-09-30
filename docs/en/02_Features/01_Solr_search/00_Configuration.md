@@ -3,6 +3,10 @@ summary: How Solr is pre-configured for CWP and what you can alter.
 
 # Solr Configuration on CWP
 
+<div class="notice" markdown='1'>
+As of 28/09/2016 'legacy' and 'cwp-3' versions are not supported on CWP anymore.
+</div>
+
 The cwp-core module comes bundled with a `CwpSolr` class which allows convenient configuration of Solr by specifying the desired
 version string via SilverStripe's [Configuration API](https://docs.silverstripe.org/en/3.2/developer_guides/configuration/configuration/). 
 
