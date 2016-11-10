@@ -6,10 +6,7 @@ summary: Running a development version of Solr search locally to test your searc
 One way to develop with Solr locally is to require [`silverstripe/fulltextsearch-localsolr`](http://addons.silverstripe.org/add-ons/silverstripe/fulltextsearch-localsolr) package as your dev
 dependency in your top-level `composer.json` file. 
 
-You can choose to require one of the available versions of the Solr: `4.*@dev` or `3.*@dev` that you may be using on CWP. 
-
-Check the [add-ons website](http://addons.silverstripe.org/add-ons/silverstripe/fulltextsearch-localsolr) to see the up-to-date
-list of branches.
+When selecting versions, make sure you use the version supported by CWP: `4.*@dev`.
 
 <div class="notice" markdown='1'>
 Older versions of *silverstripe-fulltextsearch* module used to bundle the Solr binary. You should check the version of this module before proceeding with this guide.
@@ -17,37 +14,7 @@ Older versions of *silverstripe-fulltextsearch* module used to bundle the Solr b
 
 ### Configuring
 
-You need to make sure the site configuration reflects your setup. The following options can be used:
-
-* (preferred) 4.x branch of Solr, via local package: use 'local-4'
-* (buggy) 3.x branch of Solr, via local package: use 'local-3'
-* old *silverstripe-fulltextsearch* module: use 'legacy'
-
-These options can be configured conditionally to trigger only on dev environments. Here is one of the possible
-arrangements that will detect the existence of `CWP_ENVIRONMENT` define (which should only be available on the
-CWP environments). 
-
-In your `mysite/_config.yml` file:
-
-```
-	---
-    Only:
-      constantdefined: CWP_ENVIRONMENT
-    ---
-    CwpSolr:
-      options:
-        version: 'cwp-4'
-    ---
-    Except:
-      constantdefined: CWP_ENVIRONMENT
-    ---
-    CwpSolr:
-      options:
-        version: 'local-4'
-```
-
-This will ensure that 'local-4' will be used on local environments, except when it detects CWP_ENVIRONMENT 
-(in which case it will use the live site configuration).
+If you have configured your project as described in the Configuration section of this guide, there is no need for any additional setup.
 
 ### Running
 
@@ -68,6 +35,13 @@ And finally, reindex the pages on your website (this could take some time):
 	$ framework/sake dev/tasks/Solr_Reindex "verbose=1"
 
 You should be able to search your site now.
+
+## Differences to CWP
+
+There are some differences between locally running Solr, and the Solr service running on CWP:
+
+* CWP does not permit customistion of the `solrconfig.xml` file. If you want to use a custom configuration, you'll need to submit it through the Service Desk for vetting.
+* CWP Solr is a shared service and comes with certain limitations as described in the Acceptable Use Policy on the introduction page of this guide.
 
 ## Debugging locally via the web interface
 
