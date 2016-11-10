@@ -12,11 +12,25 @@ When selecting versions, make sure you use the version supported by CWP: `4.*@de
 Older versions of *silverstripe-fulltextsearch* module used to bundle the Solr binary. You should check the version of this module before proceeding with this guide.
 </div>
 
-### Configuring
+## Differences to CWP
+
+### solrconfig.xml
+
+CWP infrastructure enforces `solrconfig.xml` to ensure stability of the shared service.
+
+While you can customise this file on your local development environment, these customisations will automatically be removed by the CWP Solr server, and the file restored to a version very similar to the default supplied by *fulltextsearch* module.
+
+### Auto-commits
+
+CWP Solr server ignores all commit requests originating from the client, and instead relies on auto-commits to update indexes. This preserves stability for all users of the shared service.
+
+This will manifest as index updates taking a minute or two to appear in the search results, while on local development environment they are immediate.
+
+## Configuring
 
 If you have configured your project as described in the Configuration section of this guide, there is no need for any additional setup.
 
-### Running
+## Running
 
 To start the local server instance (if you are using the *silverstripe/fulltextsearch-localsolr* package), from your
 website root do:
@@ -35,13 +49,6 @@ And finally, reindex the pages on your website (this could take some time):
 	$ framework/sake dev/tasks/Solr_Reindex "verbose=1"
 
 You should be able to search your site now.
-
-## Differences to CWP
-
-There are some differences between locally running Solr, and the Solr service running on CWP:
-
-* CWP does not permit customistion of the `solrconfig.xml` file. If you want to use a custom configuration, you'll need to submit it through the Service Desk for vetting.
-* CWP Solr is a shared service and comes with certain limitations as described in the Acceptable Use Policy on the introduction page of this guide.
 
 ## Debugging locally via the web interface
 
