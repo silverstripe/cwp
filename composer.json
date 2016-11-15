@@ -6,11 +6,5 @@
 	"require": {
 		"cwp/cwp-core": "*",
 		"silverstripe/taxonomy": "*"
-	},
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://gitlab.cwp.govt.nz/cwp/cwp-core.git"
-		}
-	]
+	}
 }
