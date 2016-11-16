@@ -4,7 +4,7 @@ mi:
     DESCRIPTION: 'Whārangi ihirangi whānui'
     FeatureButtonText: 'Kuputuhi pātene'
     FeatureCategoryDropdown: 'Ata kāwai'
-    FeatureContentFieldLabel: Ngā ihirangi
+    FeatureContentFieldLabel: 'Ngā ihirangi'
     FeatureLink: 'Whārangi hono ki'
     LearnMoreLink: 'Whārangi hono i te pātene "Ako Anō" ki:'
     Title: Taitara
@@ -13,9 +13,9 @@ mi:
     PLURALNAME: 'Ngā Whārangi Taketake'
     RelatedPages: 'Ngā whārangi pāhono'
     SINGULARNAME: 'Whārangi Taketake'
-    Taxonomy: Pūnaha Whakarōpū
+    Taxonomy: 'Pūnaha Whakarōpū'
     Term: Ture
-    Terms: Ngā Ture
+    Terms: 'Ngā Ture'
   CarouselItem:
     PLURALNAME: 'Ngā tuemi takawhawhe'
     SINGULARNAME: 'Tuemi Takawhawhe'
@@ -24,7 +24,7 @@ mi:
     LinkField: Hono
     NoteField: 'Tuhipoka: Me hanga e koe te tuemi takawhawhe i mua i te tāpiri atahanga'
   CwpConfig:
-    AddThisField: 'TāpiriTēneiTTKōtaha'
+    AddThisField: TāpiriTēneiTTKōtaha
     AddThisFieldDesc: 'Me whakamahi i te TT kōtaha puta noa i te pae (ki te hōputu <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
     AppleIconField114: 'Ata Topenga Tukutuku Pā Apple (ko te 114x114 ngā ahu, hōputu PNG) '
     AppleIconField144: 'Ata Topenga Tukutuku Pā Apple me te Ata Tāpa Windows 8 (ko te 144x144 ngā ahu, hōputu PNG) '
@@ -76,8 +76,8 @@ mi:
     PLURALNAME: 'Ngā Whārangi Taketake'
     SINGULARNAME: 'Pūpupuri Hiku'
   GridField:
-    Archived: I putumōhiotia
-    Live: Wā Tūturu
+    Archived: 'I putumōhiotia'
+    Live: 'Wā Tūturu'
   NewsHolder:
     DESCRIPTION: 'Whārangi ipu mō ngā Whārangi Rongokōrero, ka whakarato tātaringa rongokōrero me te whakawhārangitanga'
     PLURALNAME: 'Ngā Whārangi Taketake'
@@ -91,7 +91,7 @@ mi:
     NameLabel: Ingoa
     Note: '<div class="message good notice">Tuhipoka:  Mēnā ka whakarite koe i tētahi Hono ā-Waho, ka waiho te Hono ā-Roto.</div>'
     Note2: '<p>Whakamahia tēnei hei whakarite i tētahi hono ki tētahi whārangi i tēnei pae (Hono ā-Roto), i tētahi atu pae (Hono ā-Waho).</p>'
-    PLURALNAME: Ngā Honotere
+    PLURALNAME: 'Ngā Honotere'
     ParentRelationLabel: Matua
     SINGULARNAME: Honotere
     SortOrderLabel: 'Raupapa Kōmaka'
@@ -102,7 +102,7 @@ mi:
   SiteTree:
     FeatureOne: 'Whakaaturanga Tuatahi'
     FeatureTwo: 'Whakaaturanga Tuarua'
-    PLURALNAME: Ngā Whārangi
+    PLURALNAME: 'Ngā Whārangi'
     SINGULARNAME: Whārangi
   SitemapPage:
     DESCRIPTION: 'Ka whakarārangi i ngā whārangi katoa i te pae'

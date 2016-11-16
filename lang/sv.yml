@@ -2,16 +2,16 @@ sv:
   BaseHomePage:
     AddNewButton: 'Skapa ny'
     DESCRIPTION: 'Generisk innehållssida'
-    FeatureButtonText: 'Knapp-text'
-    FeatureCategoryDropdown: 'Kategori-ikon'
+    FeatureButtonText: Knapp-text
+    FeatureCategoryDropdown: Kategori-ikon
     FeatureContentFieldLabel: Innehåll
     FeatureLink: 'Sida att länka till'
     LearnMoreLink: 'Sida att länka "Läs mer"-knappen till'
-    PLURALNAME: 'Hem-sidor'
-    SINGULARNAME: 'Hem'
+    PLURALNAME: Hem-sidor
+    SINGULARNAME: Hem
     Title: Titel
   BasePage:
-    ColumnPageType: 'Sidtyp'
+    ColumnPageType: Sidtyp
     ColumnTitle: Titel
     DESCRIPTION: 'Generisk innehållssida'
     PLURALNAME: 'Bas sidor'

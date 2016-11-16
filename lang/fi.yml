@@ -3,15 +3,15 @@ fi:
     AddNewButton: 'Lisää uusi'
     DESCRIPTION: 'Yleinen sisältösivu'
     FeatureButtonText: 'Nappulan teksti'
-    FeatureCategoryDropdown: 'Kategoriaikoni'
+    FeatureCategoryDropdown: Kategoriaikoni
     FeatureContentFieldLabel: Sisältö
     FeatureLink: 'Sivu, johon linkitetään'
     Title: Otsikko
   BasePage:
-    ColumnPageType: 'Sivutyyppi'
+    ColumnPageType: Sivutyyppi
     ColumnTitle: Otsikko
     DESCRIPTION: 'Yleinen sisältösivu'
-    PLURALNAME: 'Pohjasivut'
+    PLURALNAME: Pohjasivut
     TagsTabTitle: Avainsanat
     Taxonomy: Taksonomia
   CarouselItem:
@@ -24,17 +24,17 @@ fi:
     FooterLogoLinkField: 'Alaindeksin logon linkki'
   CwpSearchPage:
     DESCRIPTION: 'Yleinen sisältösivu'
-    PLURALNAME: 'Pohjasivut'
+    PLURALNAME: Pohjasivut
   DateUpdatePage:
     DateLabel: Päivämäärä
-    FeaturedImageFieldLabel: 'Kuvanosto'
+    FeaturedImageFieldLabel: Kuvanosto
     LocationFieldLabel: Paikka
   DatedUpdateHolder:
     DESCRIPTION: 'Yleinen sisältösivu'
   DatedUpdatePage:
     DESCRIPTION: 'Yleinen sisältösivu'
   EventPage:
-    SINGULARNAME: 'Tapahtumasivu'
+    SINGULARNAME: Tapahtumasivu
   FooterHolder:
     SINGULARNAME: 'Alaindeksin koonti'
   GridField:
@@ -42,7 +42,7 @@ fi:
   NewsHolder:
     SINGULARNAME: 'Uutisten koontisivu'
   NewsPage:
-    SINGULARNAME: 'Uutissivu'
+    SINGULARNAME: Uutissivu
   Quicklink:
     ExternalLinkLabel: 'Ulkoinen linkki'
     InternalLinkLabel: 'Sisäinen linkki'
@@ -50,10 +50,10 @@ fi:
     PLURALNAME: Pikalinkit
     ParentRelationLabel: Isäntä
     SINGULARNAME: Pikalinkki
-    SortOrderLabel: 'Järjestys'
+    SortOrderLabel: Järjestys
   SearchForm:
     SEARCH: Haku
-    SearchResults: 'Hakutulokset'
+    SearchResults: Hakutulokset
   SiteTree:
     PLURALNAME: Sivut
     SINGULARNAME: Sivu
@@ -61,4 +61,4 @@ fi:
     BACKLINK_LIST_DESCRIPTION: 'Tämä listaus näyttää kaikki sivut, joissa tiedosto on lisätty WYSIWYG-editorin avulla.'
     EDIT: Muokkaa
   SitemapPage:
-    SINGULARNAME: 'Sivukarttasivu'
+    SINGULARNAME: Sivukarttasivu

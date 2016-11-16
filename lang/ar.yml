@@ -4,7 +4,7 @@ ar:
     DESCRIPTION: 'صفحة المحتوى العام'
     FeatureButtonText: 'نص الزر'
     FeatureCategoryDropdown: 'أيقونة الفئة'
-    FeatureContentFieldLabel: المحتوى
+    FeatureContentFieldLabel: 'المحتوى'
     FeatureLink: 'صفحة للربط ب'
     LearnMoreLink: 'صفحة لربط زر "تعرف على المزيد" ب:'
     Title: عنوان
@@ -16,7 +16,7 @@ ar:
     RelatedPages: 'الصفحات المرتبطة'
     SINGULARNAME: 'صفحة رئيسية'
     TagsTabTitle: البطاقات
-    Taxonomy: علم التصنيف
+    Taxonomy: 'علم التصنيف'
     Term: عنصر
     Terms: عناصر
   CarouselItem:
@@ -55,12 +55,12 @@ ar:
     FilterAppliedMessage: 'قد تم تطبيق الفلتر مع عكس المواعيد.'
   DateUpdatePage:
     AbstractDesc: 'الملخص يستخدم لتلخيص صفحات القوائم. هى محددة ب 160 حرف.'
-    AbstractTextFieldLabel: ملخص
-    AuthorFieldLabel: مؤلف
+    AbstractTextFieldLabel: 'ملخص'
+    AuthorFieldLabel: 'مؤلف'
     DateLabel: تاريخ
     EndTimeFieldLabel: 'وقت الانتهاء'
     FeaturedImageFieldLabel: 'صورة مميزة'
-    LocationFieldLabel: موقع
+    LocationFieldLabel: 'موقع'
     StartTimeFieldLabel: 'وقت البدء'
   DatedUpdateHolder:
     DESCRIPTION: 'صفحة المحتوى العام'
@@ -82,8 +82,8 @@ ar:
     PLURALNAME: 'الصفحات الرئيسية'
     SINGULARNAME: 'صاحب صفحة التذييل'
   GridField:
-    Archived: مخزنة فى أرشيفات
-    Live: مباشر
+    Archived: 'مخزنة فى أرشيفات'
+    Live: 'مباشر'
   NewsHolder:
     DESCRIPTION: 'الصفحة الحاوية لصفحات الأخبار, توفر الأخبار منقحة و مرقمة بالصفحات'
     PLURALNAME: 'الصفحات الرئيسية'
@@ -94,12 +94,12 @@ ar:
   Quicklink:
     ExternalLinkLabel: 'رابط خارجي'
     InternalLinkLabel: 'رابط داخلى'
-    NameLabel: الاسم
+    NameLabel: 'الاسم'
     Note: '<"div class="message good notice>ملاحظة: لو قمت بتحديد رابط خارجى, سيتم تجاهل الرابط الداخلى.<div/>'
     Note2: '<p> استخدم هذا لتحديد رابط لصفحة إما فى هذا الموقع (رابط داخلى) أو موقع آخر (رابط آخر).<p/>'
-    PLURALNAME: روابط سريعة
+    PLURALNAME: 'روابط سريعة'
     ParentRelationLabel: والد
-    SINGULARNAME: رابط سريع
+    SINGULARNAME: 'رابط سريع'
     SortOrderLabel: 'ترتيب الفرز'
   SearchForm:
     GO: اذهب
