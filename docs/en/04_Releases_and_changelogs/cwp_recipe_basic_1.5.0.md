@@ -13,6 +13,14 @@ includes an enhanced auditor module for improved security logging.
 This upgrade can be carried out by any development team familiar with SilverStripe CMS, but if you
 would like SilverStripe's assistance, please let us know.
 
+## New Features
+
+This release also includes a new module
+[silverstripe/auditor](https://github.com/silverstripe/silverstripe-auditor)
+which will install and configure itself by default on upgrade. This module
+is mandatory and cannot be removed from the core installation. This will
+provide better and more complete system logging on all CWP sites.
+
 ## Upgrading Instructions
 
 In order to update an existing site to use the new basic recipe the following changes to your composer.json
@@ -22,11 +30,9 @@ can be made:
 	"require": {
 		"cwp/cwp-recipe-basic": "~1.5.0@stable",
 		"cwp/cwp-recipe-blog": "~1.5.0@stable",
-		"cwp-themes/default": "~1.2.1@stable"
+		"cwp-themes/default": "~1.3.0@stable"
 	},
 	"prefer-stable": true
-
-Note that the default theme has not been modified since recipe 1.2.0, and can be left unchanged.
 
 ## Details
 
