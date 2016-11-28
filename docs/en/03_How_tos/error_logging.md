@@ -1,13 +1,18 @@
 title: Error logging
-summary: How to set up email error logging for CWP environments.
+summary: How to set up email error logging in CWP environments.
 
 # Error logging
 
-A CWP environment can seem like a black box when it comes to errors. The recommended method of viewing error logs is by adding a log writer in your mysite/_config.php:
+Basic recipe is configured to send all logs to syslog, which are accessible through the
+[centralised logging system](/working_with_projects/centralised_logging/).
+
+To send logs to email (in addition to syslog) add the following to your `mysite/_config.php`:
 
 ```php
 // log errors and warnings
 SS_Log::add_writer(new SS_LogEmailWriter('admin@domain.com'), SS_Log::WARN, '<=');
 ```
 
-You may need to raise a General Support request if the error is not capturable by SS_Log, e.g. memory limit exceeded errors, or access logs.
+Please note this is only able to capture events that occur after the Framework has bootstrapped successfully.
+PHP parse errors and segmentation faults are sent to the centralised logging system bypassing the `SS_Log`.
+
