@@ -30,6 +30,12 @@ Note that the default theme has not been modified since recipe 1.2.0, and can be
 
 ## Details
 
+### Bugfixes
+
+ - [CWP-958] (ORB-135) - Fixes and enhancements to logging via silverstripe/auditor module.
+ 
+<!--- Reticulated splines a bit more to get the vacuum tubes to warm up faster -->
+
 ### Known issues
 
 In recipe 1.5.0 there are the following known issues in these failing tests:
