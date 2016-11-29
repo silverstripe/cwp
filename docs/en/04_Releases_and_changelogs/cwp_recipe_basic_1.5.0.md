@@ -5,13 +5,32 @@
 This upgrade includes CMS and Framework version 3.5.0 which includes bugfixes and 
 some minor feature and API enhancements.
 
- * [framework 3.5.0](https://docs.silverstripe.org/en/3.5/changelogs/3.5.0/)
+ * [framework 3.5.0](https://github.com/silverstripe/silverstripe-framework/blob/3.5/docs/en/04_Changelogs/3.5.0.md)
 
 Upgrade to Recipe 1.5.0 is optional, but is recommended for all CWP sites. This recipe
 includes an enhanced auditor module for improved security logging.
 
 This upgrade can be carried out by any development team familiar with SilverStripe CMS, but if you
 would like SilverStripe's assistance, please let us know.
+
+## Details of security issues
+
+This release includes fixes for the following minor security issues:
+
+ * [SS-2016-010](http://www.silverstripe.org/download/security-releases/ss-2016-010)
+   **ReadOnly transformation for formfields exploitable**: Read-only Form fields 
+   are vulnerable to reflected XSS injections. Values submitted to through
+   these form fields are not filtered out from the form session data,
+   and might be shown to the user depending on the form behaviour.
+   SilverStripe forms automatically load values from request data, which may contain 
+   malicious HTML injected within the request, such as links to external sites.
+   Readonly and disabled form fields are already filtered out in Form->saveInto(),
+   so maliciously submitted data on these fields doesn't make it into the database
+   unless you are accessing form values directly in your saving logic.
+ * [SS-2016-016](http://www.silverstripe.org/download/security-releases/ss-2016-016)
+   **XSS In CMSSecurity BackURL**: In follow up to 
+   [SS-2016-001](https://www.silverstripe.org/download/security-releases/ss-2016-001)
+   there is yet a minor unresolved fix to incorrectly encoded URL.
 
 ## New Features
 
