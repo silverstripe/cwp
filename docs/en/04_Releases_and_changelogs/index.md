@@ -6,8 +6,8 @@ introduction: The status of the recipe releases is summarised in the table below
 
 | Recipe version | Description | Release date | Support ends date |
 | -------------- | ----------- | ------------ | ----------------- |
-| [1.5.0](cwp_recipe_basic_1.5.0) | Tracks the Framework release 3.5.0. | TBC | current |
-| [1.4.1](cwp_recipe_basic_1.4.1) | Tracks the Framework release 3.4.1 and includes security fixes. | 30/08/2016 | TBC |
+| [1.5.0](cwp_recipe_basic_1.5.0) | Tracks the Framework release 3.5.0 and includes security fixes. | 30/11/2016 | current |
+| [1.4.1](cwp_recipe_basic_1.4.1) | Tracks the Framework release 3.4.1 and includes security fixes. | 30/08/2016 | 30/05/2018 |
 | [1.4.0](cwp_recipe_basic_1.4.0) | Tracks the Framework release 3.4.0 and includes security fixes. | 7/06/2016 | 30/04/2018 |
 | [1.3.0](cwp_recipe_basic_1.3.0) | Tracks the Framework release 3.3.1. | 29/02/2016 | 7/12/2017 |
 | [1.2.1](cwp_recipe_basic_1.2.1) | Tracks the Framework release 3.2.3 and includes important security fixes. | 10/3/2016 | 7/12/2017 |
