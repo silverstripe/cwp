@@ -1,4 +1,4 @@
-title: Basic usable of Solr search
+title: Basic usage of Solr search
 summary: Gives an understanding of basic use of Solr.
 
 #  Basic usage of Solr search
