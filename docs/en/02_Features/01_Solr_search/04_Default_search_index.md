@@ -10,7 +10,17 @@ necessary for searching pages.
 	class SolrSearchIndex extends CwpSearchIndex {
 		public function init() {
 			$this->addClass('SiteTree');
-			$this->addAllFulltextFields();
+
+			// By default, we only add text fields that are 'visible' to users (where the content is directly visible on 
+			// the website), along with the 'meta' fields that are commonly used to boost / refine search results
+			$this->addFulltextField('Title');
+			$this->addFulltextField('MenuTitle');
+			$this->addFulltextField('Content');
+			$this->addFulltextField('MetaDescription');
+			$this->addFulltextField('ExtraMeta');
+
+			// Adds 'ShowInSearch' boolean field to Solr document so we can later ensure that only documents included in 
+			// search are returned by Solr.
 			$this->addFilterField('ShowInSearch');
 
 			parent::init();
@@ -19,10 +29,9 @@ necessary for searching pages.
 	```
 
 This index extends the core `CwpSearchIndex` abstract class, which includes additional functionality specific to CWP.
-Please note that if you create a custom index, it may be necessary to extend this class in order to use much
-of the below functionality.
+Please note that if you want to index other database fields or need to create a custom index, it is necessary to extend this base class (`CwpSearchIndex`) in order to use much of the functionality detailed in this section (e.g. spell checking).
 
-*Note:* The line `$this->addFilterField('ShowInSearch');` is a standard requirement for all cwp recipe versions, and will need to be added to any custom indexes created.
+*Note:* The line `$this->addFilterField('ShowInSearch');` is a standard requirement for all CWP recipe versions, and will need to be added to any custom indexes created.
 
 
 <div class="notice" markdown='1'>
