@@ -2,10 +2,10 @@
 
 ## Overview
 
-This upgrade includes CMS and Framework version 3.5.2 which includes bugfixes and 
+This upgrade includes CMS and Framework version 3.5.3 which includes bugfixes and 
 some minor feature and API enhancements.
 
- * [framework 3.5.2](https://github.com/silverstripe/silverstripe-framework/blob/3.5/docs/en/04_Changelogs/3.5.2.md)
+ * [framework 3.5.3](https://github.com/silverstripe/silverstripe-framework/blob/3/docs/en/04_Changelogs/rc/3.5.3-rc1.md)
 
 Upgrade to Recipe 1.5.2 is optional, but is recommended for all CWP sites.
 
