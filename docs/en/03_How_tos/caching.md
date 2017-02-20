@@ -36,7 +36,8 @@ A simplistic test conducted by the CWP team has shown the CDN can sustain 400 re
 
 This test should not be treated as representative for all CWP sites as it depends on many variables such as site's architecture, configuration and traffic profile. Agencies are urged to carry out their own load testing to determine the exact performance profile of their site.
 
-Also see the "Can I leverage caching so that I can fit a large site on a small instance?" question in the FAQ below.
+Also see the "Can I leverage caching so that I can fit a large site on a small instance?" question in the FAQ below, and
+our own [Performance Guide section on caching](http://www.cwp.govt.nz/developer-docs/en/1.5/performance_guide/caching).
 
 ### Cache tiers
 
