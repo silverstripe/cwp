@@ -75,6 +75,8 @@ In recipe 1.4.1 these module unit tests cause external errors, but do not repres
 
 ### Bugfixes
 
+ * 2017-02-09 [59cc516](https://gitlab.cwp.govt.nz/cwp/cwp/commit/59cc516e46fa89bf4b9de111c6e6ecc3320ee131) docs reference to incorrect framework version on release 1.5.2 (Brett Tasker)
+ * 2017-02-08 [1f3d46b](https://github.com/silverstripe/silverstripe-framework/commit/1f3d46b832c4f69b7c9accd38476491e304a4877) #6606 the JS SiteTree lib depends on whitespace (Daniel Hensby)
  * 2017-02-08 [d313fe6](https://github.com/silverstripe-australia/silverstripe-versionedfiles/commit/d313fe61370ebc164f7396eac5ca2928dfa31f9f) Fix issue with VersionedFiles crashing mid-folder-rename due to outdated has_one cache (Damian Mooyman)
  * 2017-02-08 [06f224c](https://gitlab.cwp.govt.nz/cwp/cwp/commit/06f224c855b00c52c0ad7e0b0fdb4535cb1544db) Fix sql group error in mysql 5.7 (Damian Mooyman)
  * 2017-02-07 [4072408](https://github.com/silverstripe-australia/silverstripe-queuedjobs/commit/4072408ce6e597ea966ca2c025bd44b964fab53c) (QueuedJobService) Broken job status set Wait (Marcus Nyeholt)
@@ -86,8 +88,8 @@ In recipe 1.4.1 these module unit tests cause external errors, but do not repres
  * 2017-01-16 [17d123a](https://github.com/silverstripe/silverstripe-framework/commit/17d123a3be3a2c9e21845fda89c61f00301f78f5) Ensure correct regeneration of ConfigManifest if only one of the cache files is missing (Stephan Bauer)
  * 2017-01-14 [1f1fffe](https://github.com/silverstripe/silverstripe-framework/commit/1f1fffe73454930c1aef394e9b106a484e6d59ee) Ensure correct regeneration of ConfigManifest if only one of the cache files is missing (fixes #6467) (Stephan Bauer)
  * 2017-01-10 [5bba726](https://github.com/silverstripe/silverstripe-cms/commit/5bba7264c69b654ac5bcb87769781138be61cb92) Dont attempt to iterate over null in SiteTree::allowedChildren (Daniel Hensby)
- * 2016-12-21 [ffdb99e](https://github.com/silverstripe/silverstripe-framework/commit/ffdb99e78d6ff179c22c5b53f0517fdd75abb858) Temp disable shortcode SPLIT behaviour due to crash (#6436) (Damian Mooyman)
  * 2016-12-21 [f314b86](https://github.com/silverstripe/silverstripe-framework/commit/f314b86ad804b021cda255e4645e99e8d971fa8a) Temp disable shortcode SPLIT behaviour due to crash (#6436) (Damian Mooyman)
+ * 2016-12-21 [ffdb99e](https://github.com/silverstripe/silverstripe-framework/commit/ffdb99e78d6ff179c22c5b53f0517fdd75abb858) Temp disable shortcode SPLIT behaviour due to crash (#6436) (Damian Mooyman)
  * 2016-12-18 [222ee6b](https://github.com/silverstripe/silverstripe-framework/commit/222ee6bde270712fee60c1b796a65f7b7dd4979f) ed a pagination bug (PingMetal)
  * 2016-12-16 [c007e85](https://github.com/silverstripe/silverstripe-framework/commit/c007e85d1b9a1affd0ea7646b6a8c37d78b4450c) Suppress HtmlEditorField casting (Damian Mooyman)
  * 2016-12-13 [964827f](https://gitlab.cwp.govt.nz/cwp/cwp/commit/964827fa9c5d6f2d0949e6380beac2bdb94543e0) Update docs to reference changes in cwp/cwp-corephp -i | grep pthre (Matt Peel)
@@ -100,6 +102,7 @@ In recipe 1.4.1 these module unit tests cause external errors, but do not repres
  * 2016-11-24 [a4760b8](https://github.com/silverstripe/silverstripe-framework/commit/a4760b8ee409c2c96a0e77445debf931259cb9aa) Fixed issue where a shortcode's location would not get set to split when using the class leftAlone (UndefinedOffset)
  * 2016-11-23 [03b4e6e](https://github.com/silverstripe/silverstripe-framework/commit/03b4e6ea3201736c62a73e301489fe6a65a01a0f) Tests shouldnt set date or time format to null (Daniel Hensby)
  * 2016-11-22 [b2503ac](https://github.com/silverstripe/silverstripe-cms/commit/b2503ac004f5e99d2041732dea702735128ecf1e) content authors unable to duplicate top-level pages (fixes #1685) (Loz Calver)
+ * 2016-11-21 [682e607](https://github.com/silverstripe/silverstripe-cms/commit/682e6070e556f8e56b727b600c556da7507c2f44) Correct response code generated from error pages (Damian Mooyman)
  * 2016-11-04 [dd9ade4](https://github.com/silverstripe/silverstripe-framework/commit/dd9ade429454b1053ab5c2003663eeb66b5866d6) UploadField incorrectly setting max upload size (Daniel Hensby)
  * 2015-05-13 [ed6114a](https://github.com/silverstripe/silverstripe-widgets/commit/ed6114a7dcbca9d67e3e74917b972645d8a313ca) Fix incorrect extension variable (Damian Mooyman)
  * 2015-04-01 [54599b9](https://github.com/silverstripe/silverstripe-widgets/commit/54599b98d11fae2870bce951d87fd64826578bfe) Fixed issue where Widget::CMSEditor() can't see the enabled checkbox (UndefinedOffset)
