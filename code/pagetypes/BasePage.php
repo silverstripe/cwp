@@ -199,7 +199,7 @@ class BasePage extends SiteTree {
 	 * to the translated home page if a. there is a translated homepage and b. the
 	 * translation of the specific page is not available.
 	 */
-	function getAvailableTranslations() {
+	public function getAvailableTranslations() {
 
 		if(!class_exists('Translatable')){
 			return false;
@@ -239,6 +239,7 @@ class BasePage extends SiteTree {
 
 			// Assemble the table for the switcher.
 			$translations->push(new ArrayData(array(
+				'Locale' => i18n::convert_rfc1766($loc),
 				'LangName' => $nativeLangName,
 				'Link' => $link,
 				'Current' => (Translatable::get_current_locale()==$loc)
