@@ -26,6 +26,13 @@ Another reason why it's best to maintain your modules using composer is that thi
 code with other agencies and enable easier upgrades. See [working with modules](working_with_modules)
 for more information. If you decide to remove the `composer.json` file and instead commit the modules into the project code, we may not be able to support you because we will have to assume the modules have been customised.
 
+## Server Configuration
+
+You'll need an environment following SilverStripe's 
+[server requirements](https://docs.silverstripe.org/en/getting_started/server_requirements/).
+
+CWP's configuration is detailed in [infrastructure considerations](working_with_projects/infrastructural_considerations).
+
 ## Git
 
 When working with CWP code you will be utilising git version control system, and the repositories will be stored on
