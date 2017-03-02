@@ -3,6 +3,10 @@ summary: Getting started with git version control and GitLab code management too
 
 # Setting up your project
 
+## Development environment
+
+See [Setting up a development environment](/working_with_projects/setting_up_a_development_environment).
+
 ## Accessing Gitlab
 GitLab is the code management tool you'll use when working with code changes to your SilverStripe CMS website on the Common Web Platform.
 
