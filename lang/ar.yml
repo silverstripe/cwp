@@ -16,7 +16,7 @@ ar:
     RelatedPages: 'الصفحات المرتبطة'
     SINGULARNAME: 'صفحة رئيسية'
     TagsTabTitle: البطاقات
-    Taxonomy: علم التصنيف
+    Taxonomy: 'علم التصنيف'
     Term: عنصر
     Terms: عناصر
   CarouselItem:
@@ -82,7 +82,7 @@ ar:
     PLURALNAME: 'الصفحات الرئيسية'
     SINGULARNAME: 'صاحب صفحة التذييل'
   GridField:
-    Archived: مخزنة فى أرشيفات
+    Archived: 'مخزنة فى أرشيفات'
     Live: مباشر
   NewsHolder:
     DESCRIPTION: 'الصفحة الحاوية لصفحات الأخبار, توفر الأخبار منقحة و مرقمة بالصفحات'
@@ -97,9 +97,9 @@ ar:
     NameLabel: الاسم
     Note: '<"div class="message good notice>ملاحظة: لو قمت بتحديد رابط خارجى, سيتم تجاهل الرابط الداخلى.<div/>'
     Note2: '<p> استخدم هذا لتحديد رابط لصفحة إما فى هذا الموقع (رابط داخلى) أو موقع آخر (رابط آخر).<p/>'
-    PLURALNAME: روابط سريعة
+    PLURALNAME: 'روابط سريعة'
     ParentRelationLabel: والد
-    SINGULARNAME: رابط سريع
+    SINGULARNAME: 'رابط سريع'
     SortOrderLabel: 'ترتيب الفرز'
   SearchForm:
     GO: اذهب

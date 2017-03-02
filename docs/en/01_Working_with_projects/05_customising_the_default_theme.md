@@ -119,7 +119,7 @@ Now when you go into Gitlab, you'll see a commit from yourself "Add custom theme
 
 ## Bootstrap
 
-The *default* theme is built on top of a fork of the Twitter [Bootstrap](http://twitter.github.com/bootstrap/)
+The *default* theme is built on top of a fork of the Twitter [Bootstrap](http://getbootstrap.com/2.3.2/)
 front-end framework.
 
 Twitter Bootstrap is a free collection of tools for creating websites and web applications. It contains HTML and
@@ -127,7 +127,7 @@ CSS-based design templates for typography, forms, buttons, charts, navigation an
 as optional JavaScript extensions. Bootstrap was originally written in Less, but has been ported to SCSS. This theme
 uses the SCSS port of Bootstrap.
 
-From Bootstrap's [GitHub page](http://twitter.github.com/bootstrap/) you can find links about the basics of the system
+From Bootstrap's [Getting Started page](http://getbootstrap.com/2.3.2/getting-started.html) you can find links about the basics of the system
 and the full documentation.
 
 The *basic* recipe pulls in Bootstrap as a module into `themes/module_bootstrap`.
@@ -145,9 +145,9 @@ a slightly more complex layout in the homepage - the hero unit/carousel is built
 quicklinks/features/news snippets have a `.span3`/`.span4`/`.span5` structure.
 
 The carousel on the homepage is built with the
-[Bootstrap carousel](http://twitter.github.com/bootstrap/javascript.html#carousel).
+[Bootstrap carousel](http://getbootstrap.com/2.3.2/javascript.html#carousel).
 
-The sitemap uses the [Bootstrap collapse](http://twitter.github.com/bootstrap/javascript.html#collapse) module.
+The sitemap uses the [Bootstrap collapse](http://getbootstrap.com/2.3.2/javascript.html#collapse) module.
 
 ## SCSS/SASS
 

@@ -1,1 +1,47 @@
-ru: {}
+ru:
+  AssetTableField:
+    BACKLINKCOUNT: 'Используется на:'
+    PAGES: страниц(ы)
+  BaseHomePage:
+    AddNewButton: 'Добавить новую'
+    ButtonTextRequired: 'Название кнопок должно быть указано'
+    DESCRIPTION: 'Обычная страница'
+    FeatureButtonText: 'Название кнопки'
+    FeatureCategoryDropdown: 'Иконка категории'
+    FeatureContentFieldLabel: Содержимое
+    FeatureLink: 'Ссылка на страницу'
+    LearnMoreLink: 'Какую страницу открыть при нажатии кнопки "Подробнее":'
+    PLURALNAME: 'Главные страницы'
+    SINGULARNAME: 'Главная Страница'
+    Title: Заголовок
+  BasePage:
+    ColumnPageType: 'Тип страницы'
+    ColumnTitle: Заголовок
+    DESCRIPTION: 'Обычная страница'
+    PLURALNAME: 'Базовые страницы'
+    RelatedPages: 'Зависимые страницы'
+    SINGULARNAME: 'Основная страница'
+    TagsTabTitle: Метки
+    Term: Условие
+    Terms: Условия
+    TermsDescription: 'Нажмите для расширения условий поиска'
+  CarouselItem:
+    PLURALNAME: Слайдшоу
+    SINGULARNAME: Слайд
+  CustomSiteConfig:
+    LogosIconsTab: Логотипы/Иконки
+    SocialMediaTab: 'Социальные сети'
+  CwpCarousel:
+    ArchivedField: 'Отправить в архив этот слайд?'
+    LinkField: Ссылка
+    NoteField: 'Внимание: вы должны создать/сохранить слайд прежде чем вы сможете добавить изображение'
+  CwpConfig:
+    AddThisField: 'Добавить этот Профайл'
+    AddThisFieldDesc: 'Индфикатор профайл для использования на сайте должен быть в формате <strong>ra-XXXXXXXXXXXXXXXX</strong>'
+  CwpSearchPage:
+    DESCRIPTION: 'Обычная страница'
+    PLURALNAME: 'Базовые страницы'
+  DatedUpdateHolder:
+    DESCRIPTION: 'Обычная страница'
+  DatedUpdatePage:
+    DESCRIPTION: 'Обычная страница'

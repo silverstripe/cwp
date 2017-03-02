@@ -5,12 +5,12 @@ de:
   BaseHomePage:
     AddNewButton: 'Neue hinzufügen'
     DESCRIPTION: 'Allgemeine Inhaltsseite'
-    FeatureButtonText: 'Schaltflächentext'
-    FeatureCategoryDropdown: 'Kategoriesymbol'
+    FeatureButtonText: Schaltflächentext
+    FeatureCategoryDropdown: Kategoriesymbol
     FeatureContentFieldLabel: Inhalt
     Title: Titel
   BasePage:
-    ColumnPageType: 'Seitentyp'
+    ColumnPageType: Seitentyp
     ColumnTitle: Titel
     DESCRIPTION: 'Allgemeine Inhaltsseite'
     PLURALNAME: 'Basis Seiten'
@@ -24,8 +24,8 @@ de:
   CwpConfig:
     AddThisField: 'Diese Profilkennung hinzufügen'
     FbField: 'Facebook-Benutzerkennung oder Benutzername'
-    GaField: 'Google-Analytics-Konto'
-    TwitterField: 'Twitter-Benutzername'
+    GaField: Google-Analytics-Konto
+    TwitterField: Twitter-Benutzername
     TwitterFieldDesc: 'Twitter-Benutzername (z.B. http://twitter.com/<strong>Benutzername</strong>)'
   CwpSearchPage:
     DESCRIPTION: 'Allgemeine Inhaltsseite'
@@ -33,9 +33,9 @@ de:
   DateUpdatePage:
     AuthorFieldLabel: Autor
     DateLabel: Datum
-    EndTimeFieldLabel: 'Endzeit'
+    EndTimeFieldLabel: Endzeit
     LocationFieldLabel: Ort
-    StartTimeFieldLabel: 'Startzeit'
+    StartTimeFieldLabel: Startzeit
   DatedUpdateHolder:
     DESCRIPTION: 'Allgemeine Inhaltsseite'
   DatedUpdatePage:
@@ -43,8 +43,8 @@ de:
   EventHolder:
     Upcoming: 'Anstehende Ereignisse'
   EventPage:
-    PLURALNAME: 'Ereignisseiten'
-    SINGULARNAME: 'Ereignisseite'
+    PLURALNAME: Ereignisseiten
+    SINGULARNAME: Ereignisseite
   GridField:
     Live: Live
   Quicklink:
@@ -54,7 +54,7 @@ de:
     PLURALNAME: Schnelllinks
     ParentRelationLabel: Übergeordnet
     SINGULARNAME: Schnelllink
-    SortOrderLabel: 'Sortierreihenfolge'
+    SortOrderLabel: Sortierreihenfolge
   SearchForm:
     GO: Los
     SEARCH: Suche

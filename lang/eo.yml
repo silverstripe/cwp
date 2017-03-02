@@ -11,8 +11,8 @@ eo:
     FeatureContentFieldLabel: Enhavo
     FeatureLink: 'Paĝo alligota'
     LearnMoreLink: 'Paĝo al kiu ligi la butonon "Lerni plu":'
-    PLURALNAME: 'Hejmpaĝoj'
-    SINGULARNAME: 'Hejmpaĝo'
+    PLURALNAME: Hejmpaĝoj
+    SINGULARNAME: Hejmpaĝo
     Title: Titolo
   BasePage:
     ColumnPageType: 'Tipo de paĝo'
@@ -91,13 +91,13 @@ eo:
     SINGULARNAME: 'Ĝisdatiga datujo'
   EventHolder:
     DESCRIPTION: 'Paĝo por enhavi eventpaĝojn, donas eventfiltradon kaj paĝonumeradon'
-    PLURALNAME: 'Eventujoj'
-    SINGULARNAME: 'Eventujo'
+    PLURALNAME: Eventujoj
+    SINGULARNAME: Eventujo
     Upcoming: 'Futuraj eventoj'
   EventPage:
     DESCRIPTION: 'Priskribas eventon okazontan je specifa dato.'
-    PLURALNAME: 'Eventopaĝoj'
-    SINGULARNAME: 'Eventopaĝo'
+    PLURALNAME: Eventopaĝoj
+    SINGULARNAME: Eventopaĝo
   FooterHolder:
     DESCRIPTION: 'Paĝo por enhavi kaj vidigi ĉiujn paĝidojn kiel ligilojn en la paĝopiedo'
     PLURALNAME: 'Paĝopieda tenanto'
@@ -110,21 +110,21 @@ eo:
     Live: Publika
   NewsHolder:
     DESCRIPTION: 'Paĝo por enhavi Novaĵpaĝojn, donas filtradon de novaĵoj kaj paĝonumeradon'
-    PLURALNAME: 'Novaĵujoj'
-    SINGULARNAME: 'Novaĵujo'
+    PLURALNAME: Novaĵujoj
+    SINGULARNAME: Novaĵujo
   NewsPage:
     DESCRIPTION: 'Priskribas novaĵeron'
-    PLURALNAME: 'Novaĵopaĝoj'
-    SINGULARNAME: 'Novaĵopaĝo'
+    PLURALNAME: Novaĵopaĝoj
+    SINGULARNAME: Novaĵopaĝo
   Quicklink:
     ExternalLinkLabel: 'Ekstera ligilo'
     InternalLinkLabel: 'Interna ligilo'
     NameLabel: Nomo
     Note: '<div class="message good notice">Notu: Se vi agordas eksteran ligilon, la interna ligilo ne estos malatentata.</div>'
     Note2: '<p>Uzu ĉi tion por ligi al paĝo aŭ en ĉi tiu retejo (internaligilo) aŭ en alia retejo (ekstera ligilo).</p>'
-    PLURALNAME: Rapidaj ligiloj
+    PLURALNAME: 'Rapidaj ligiloj'
     ParentRelationLabel: Patra
-    SINGULARNAME: Rapida ligilo
+    SINGULARNAME: 'Rapida ligilo'
     SortOrderLabel: 'Ordiga Ordo'
   SearchForm:
     GO: Ek

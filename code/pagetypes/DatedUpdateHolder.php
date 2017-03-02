@@ -77,7 +77,7 @@ class DatedUpdateHolder extends Page {
 			if (!isset($dateTo)) {
 				$dateTo = $dateFrom;
 			}
-			
+
 			$items = $items->where(array(
 				sprintf('"DatedUpdatePage"."Date" >= \'%s\'', Convert::raw2sql("$dateFrom 00:00:00")),
 				sprintf('"DatedUpdatePage"."Date" <= \'%s\'', Convert::raw2sql("$dateTo 23:59:59"))
@@ -137,8 +137,10 @@ class DatedUpdateHolder extends Page {
 			->groupby('MONTH("Date")')
 			->sort('Date', 'DESC')
 			->query()
-			->selectField('YEAR("Date")', 'Year')
-			->selectField('MONTH("Date")', 'Month')
+			->setSelect(array(
+				'Year' => 'YEAR("Date")',
+				'Month' => 'MONTH("Date")',
+			))
 			->addWhere('"Date" IS NOT NULL')
 			->execute();
 

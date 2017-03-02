@@ -1,48 +1,102 @@
 fi:
+  AssetTableField:
+    BACKLINKCOUNT: Käytössä
+    PAGES: sivu(t)
   BaseHomePage:
     AddNewButton: 'Lisää uusi'
+    ButtonTextRequired: 'Painiketeksti pitää syöttää'
     DESCRIPTION: 'Yleinen sisältösivu'
     FeatureButtonText: 'Nappulan teksti'
-    FeatureCategoryDropdown: 'Kategoriaikoni'
+    FeatureCategoryDropdown: Kategoriaikoni
     FeatureContentFieldLabel: Sisältö
     FeatureLink: 'Sivu, johon linkitetään'
+    LearnMoreLink: 'Sivu jolle painike linkitetään:'
+    PLURALNAME: Kotisivut
+    SINGULARNAME: Kotisivu
     Title: Otsikko
   BasePage:
-    ColumnPageType: 'Sivutyyppi'
+    ColumnPageType: Sivutyyppi
     ColumnTitle: Otsikko
     DESCRIPTION: 'Yleinen sisältösivu'
-    PLURALNAME: 'Pohjasivut'
+    PLURALNAME: Pohjasivut
+    RelatedPages: 'Liittyvät sivut'
+    SINGULARNAME: Pohjasivu
     TagsTabTitle: Avainsanat
     Taxonomy: Taksonomia
+    Term: Termi
+    Terms: Termit
+    TermsDescription: 'Klikkaa etsiäksesi muita termejä'
   CarouselItem:
     PLURALNAME: 'Karusellin kohteet'
     SINGULARNAME: 'Karusellin kohde'
+  CustomSiteConfig:
+    LogosIconsTab: Logot/ikonit
+    SocialMediaTab: 'Sosiaalinen media'
   CwpCarousel:
     ArchivedField: 'Arkistoi tämä karuselliartikkeli?'
     LinkField: Linkki
+    NoteField: 'Huomio: sinun täytyy luoda karusellisisältö ennen kuin lisäät siihen kuvan'
   CwpConfig:
+    AddThisField: 'AddThis profiili-ID'
+    AddThisFieldDesc: 'Profiili-ID käytettäväksi läpi sivuston (formaatissa <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
+    AppleIconField114: 'Apple Touch Web Clip ikoni (114x114 px PNG)'
+    AppleIconField144: 'Apple Touch Web Clip ja Windows 8/10 Tile-ikoni (144x144 px PNG)'
+    AppleIconField57: 'Apple Touch Web Clip ikoni (57x57 px PNG)'
+    AppleIconField72: 'Apple Touch Web Clip ikoni (72x72 px PNG)'
+    FavIconField: 'Favicon .ico -formaatissa, koko 16x16, 32x32, tai 48x48'
+    FbField: 'Facebook UID tai käyttäjänimi'
+    FbFieldDesc: 'Facebook-linkki (osan "http://facebook.com/" jälkeinen osa, esim. http://facebook.com/<strong>käyttäjänimi</strong> tai http://facebook.com/<strong>pages/108510539573</strong>)'
+    FooterLogoDescField: 'Alatunnisteen logon kuvaus'
+    FooterLogoField: 'Alatunnisteen logo, näytetään alatunnisteessa'
+    FooterLogoLinkDesc: 'Sisällytä protokolla (esim. http:// tai https://) ellei kyseessä ole sisäinen linkki.'
     FooterLogoLinkField: 'Alaindeksin logon linkki'
+    FooterLogoRetinaField: 'Korkearesoluutioinen logo alatunnisteeseen (suositellaan kaksinkertaista resoluutiota suhteessa peruslogoon)'
+    GaField: 'Google Analytics -tili'
+    GaFieldDesc: 'Tilinumero käytettäväksi läpi sivuston (formaatissa <strong>UA-XXXXX-X</strong>)'
+    LogoRetinaUploadField: 'Korkearesoluutioinen logo vasempaan yläkulmaan (suositellaan kaksinkertaista resoluutiota suhteessa peruslogoon)'
+    LogoUploadField: 'Logo vasempaan yläkulmaan'
+    SearchSynonyms: 'Haun synonyymit'
+    TwitterField: Twitter-käyttäjänimi
+    TwitterFieldDesc: 'Twitter-käyttäjänimi (esim, http://twitter.com/<strong>käyttäjänimi</strong>)'
+  CwpSearchBoostExtension:
+    PAGEINFO: 'Sivun tiedot ja hakukoneoptimointi'
   CwpSearchPage:
     DESCRIPTION: 'Yleinen sisältösivu'
-    PLURALNAME: 'Pohjasivut'
+    PLURALNAME: Pohjasivut
+    SINGULARNAME: CWP-hakusivu
+  CwpSiteTreeSearchBoost:
+    SearchBoost: 'Painota avainsanoja'
+    SearchBoostDescription: 'Syötä pilkulla ( , ) erotettuna avainsanat joilla haluat nostaa tämän sivun sijoitusta sivuston sisäisen haun tuloksissa.'
+    SearchBoostNote: '(Vaikuttaa vain sivuston sisäiseen hakuun, ei esim. Googlen hakutuloksiin)'
+  DateUpdateHolder:
+    DateRangeFilterMessage: 'Suodatettu yhden päivämäärän mukaan.'
   DateUpdatePage:
+    AbstractTextFieldLabel: Tiivistelmä
+    AuthorFieldLabel: Kirjoittaja
     DateLabel: Päivämäärä
-    FeaturedImageFieldLabel: 'Kuvanosto'
+    EndTimeFieldLabel: Päättyen
+    FeaturedImageFieldLabel: Kuvanosto
     LocationFieldLabel: Paikka
+    StartTimeFieldLabel: Alkaen
   DatedUpdateHolder:
     DESCRIPTION: 'Yleinen sisältösivu'
   DatedUpdatePage:
     DESCRIPTION: 'Yleinen sisältösivu'
+  EventHolder:
+    Upcoming: 'Tulevat tapahtumat'
   EventPage:
-    SINGULARNAME: 'Tapahtumasivu'
+    PLURALNAME: Tapahtumasivut
+    SINGULARNAME: Tapahtumasivu
   FooterHolder:
     SINGULARNAME: 'Alaindeksin koonti'
   GridField:
     Archived: Arkistoitu
   NewsHolder:
+    PLURALNAME: 'Uutisten koontisivu'
     SINGULARNAME: 'Uutisten koontisivu'
   NewsPage:
-    SINGULARNAME: 'Uutissivu'
+    PLURALNAME: Uutissivut
+    SINGULARNAME: Uutissivu
   Quicklink:
     ExternalLinkLabel: 'Ulkoinen linkki'
     InternalLinkLabel: 'Sisäinen linkki'
@@ -50,10 +104,11 @@ fi:
     PLURALNAME: Pikalinkit
     ParentRelationLabel: Isäntä
     SINGULARNAME: Pikalinkki
-    SortOrderLabel: 'Järjestys'
+    SortOrderLabel: Järjestys
   SearchForm:
+    GO: Suorita
     SEARCH: Haku
-    SearchResults: 'Hakutulokset'
+    SearchResults: Hakutulokset
   SiteTree:
     PLURALNAME: Sivut
     SINGULARNAME: Sivu
@@ -61,4 +116,6 @@ fi:
     BACKLINK_LIST_DESCRIPTION: 'Tämä listaus näyttää kaikki sivut, joissa tiedosto on lisätty WYSIWYG-editorin avulla.'
     EDIT: Muokkaa
   SitemapPage:
-    SINGULARNAME: 'Sivukarttasivu'
+    DESCRIPTION: 'Listaa sivuston kaikki sivut'
+    PLURALNAME: Sivukarttasivut
+    SINGULARNAME: Sivukarttasivu
