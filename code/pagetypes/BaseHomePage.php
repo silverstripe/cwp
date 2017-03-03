@@ -33,15 +33,10 @@ class BaseHomePage extends Page {
 	);
 
 	private static $has_many = array(
-		'CarouselItems' => 'CarouselItem',
 		'Quicklinks' => 'Quicklink.Parent'
 	);
 
 	public $pageIcon = 'images/icons/sitetree_images/home.png';
-
-	public function CarouselItems() {
-		return $this->getComponents('CarouselItems')->sort('SortOrder');
-	}
 
 	public function Quicklinks() {
 		return $this->getComponents('Quicklinks')->sort('SortOrder');
@@ -52,34 +47,14 @@ class BaseHomePage extends Page {
 
 		// Main Content tab
 		$fields->addFieldToTab(
-			'Root.Main', 
+			'Root.Main',
 			TreeDropdownField::create(
-				'LearnMorePageID', 
-				_t('BaseHomePage.LearnMoreLink','Page to link the "Learn More" button to:'), 
+				'LearnMorePageID',
+				_t('BaseHomePage.LearnMoreLink','Page to link the "Learn More" button to:'),
 				'SiteTree'
-			), 
+			),
 			'Metadata'
 		);
-		
-		// Carousel tab
-		$gridField = GridField::create(
-			'CarouselItems',
-			'Carousel',
-			$this->CarouselItems(),
-			GridFieldConfig_RelationEditor::create()
-		);
-		$gridConfig = $gridField->getConfig();
-		$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName(
-			_t('BaseHomePage.AddNewButton','Add new')
-		);
-		$gridConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
-		$gridConfig->removeComponentsByType('GridFieldDeleteAction');
-		$gridConfig->addComponent(new GridFieldDeleteAction());
-		$gridConfig->addComponent(new GridFieldSortableRows('SortOrder'));
-		$gridConfig->removeComponentsByType('GridFieldSortableHeader');
-		$gridField->setModelClass('CarouselItem');
-
-		$fields->addFieldToTab('Root.Carousel', $gridField);
 
 		$gridField = GridField::create(
 			'Quicklinks',
@@ -102,7 +77,7 @@ class BaseHomePage extends Page {
 		$fields->removeByName('Import');
 
 		$fields->addFieldToTab(
-			'Root.Features', 
+			'Root.Features',
 			ToggleCompositeField::create('FeatureOne', _t('SiteTree.FeatureOne', 'Feature One'),
 				array(
 					TextField::create('FeatureOneTitle', _t('BaseHomePage.Title','Title')),
@@ -133,12 +108,12 @@ class BaseHomePage extends Page {
 			array(
 				TextField::create('FeatureTwoTitle', _t('BaseHomePage.Title','Title')),
 				$dropdownField = DropdownField::create(
-					'FeatureTwoCategory', 
+					'FeatureTwoCategory',
 					_t('BaseHomePage.FeatureCategoryDropdown','Category icon'),
 					singleton('BaseHomePage')->dbObject('FeatureTwoCategory')->enumValues()
 				),
 				HTMLEditorField::create(
-					'FeatureTwoContent', 
+					'FeatureTwoContent',
 					_t('BaseHomePage.FeatureContentFieldLabel','Content')
 				),
 				TextField::create(
@@ -156,10 +131,6 @@ class BaseHomePage extends Page {
 		$dropdownField->setEmptyString('none');
 
 		return $fields;
-	}
-
-	public function getVisibleCarouselItems() {
-		return $this->CarouselItems()->filter('Archived', false);
 	}
 }
 

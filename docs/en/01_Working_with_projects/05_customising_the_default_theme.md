@@ -141,11 +141,8 @@ container that can contain 12 columns. Elements define the number of columns the
 `/themes/default/templates/Layout/Page.ss` and see how the sidenav and content sit beside each other.
 
 The basic page layout uses a `.span3` on the left for the navigation and a `.span9` for the main content area. There is
-a slightly more complex layout in the homepage - the hero unit/carousel is built with a `.span4`/`.span8` and the
+a slightly more complex layout in the homepage - the
 quicklinks/features/news snippets have a `.span3`/`.span4`/`.span5` structure.
-
-The carousel on the homepage is built with the
-[Bootstrap carousel](http://getbootstrap.com/2.3.2/javascript.html#carousel).
 
 The sitemap uses the [Bootstrap collapse](http://getbootstrap.com/2.3.2/javascript.html#collapse) module.
 

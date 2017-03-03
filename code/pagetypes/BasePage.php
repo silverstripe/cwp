@@ -13,7 +13,7 @@ class BasePage extends SiteTree {
 	private static $hide_ancestor = 'BasePage';
 
 	private static $pdf_export = false;
-	
+
 	/*
 	*Domain to generate PDF's from, DOES not include protocol
 	*i.e. google.com not http://google.com
@@ -267,7 +267,7 @@ class BasePage_Controller extends ContentController {
 	public static $results_per_page = 10;
 
 	public static $search_index_class = 'SolrSearchIndex';
-	
+
 	/**
 	 * If spelling suggestions for searches are given, enable
 	 * suggested searches to be followed immediately
@@ -366,7 +366,7 @@ class BasePage_Controller extends ContentController {
 
 		// make sure the work directory exists
 		if(!file_exists(dirname($pdfFile))) Filesystem::makeFolder(dirname($pdfFile));
-	
+
 		//decide the domain to use in generation
 		$pdf_base_url = $this->getPDFBaseURL();
 
@@ -454,7 +454,7 @@ class BasePage_Controller extends ContentController {
 		$suggestions = isset($data['suggestions'])
 			? $data['suggestions']
 			: $this->config()->search_follow_suggestions;
-		
+
 		// Perform search
 		$searchIndex = singleton(self::$search_index_class);
 		$results = CwpSearchEngine::create()
@@ -476,15 +476,15 @@ class BasePage_Controller extends ContentController {
 		if($results) {
 			$response = $response->customise($results);
 		}
-		
+
 		// Render
 		$templates = $this->getResultsTemplate($request);
 		return $response->renderWith($templates);
 	}
-	
+
 	/**
 	 * Select the template to render search results with
-	 * 
+	 *
 	 * @param SS_HTTPRequest $request
 	 * @return array
 	 */
@@ -502,63 +502,25 @@ class BasePage_Controller extends ContentController {
 	/**
 	 * Provide scripts as needed by the *default* theme.
 	 * Override this function if you are using a custom theme based on the *default*.
+	 *
+	 * @deprecated 1.6..2.0 Use "starter" theme instead
 	 */
-	protected function getBaseScripts() {
-		$themeDir = SSViewer::get_theme_folder();
-
-		return array(
-			THIRDPARTY_DIR .'/jquery/jquery.js',
-			THIRDPARTY_DIR .'/jquery-ui/jquery-ui.js',
-			"$themeDir/js/lib/modernizr.js",
-			"$themeDir/js/bootstrap-transition.2.3.1.js",
-			'themes/module_bootstrap/js/bootstrap-collapse.js',
-			"$themeDir/js/bootstrap-carousel.2.3.1.js",
-			"$themeDir/js/general.js",
-			"$themeDir/js/express.js",
-		);
+	public function getBaseScripts() {
+		$scripts = array();
+		$this->extend('updateBaseScripts', $scripts);
+		return $scripts;
 	}
 
 	/**
 	 * Provide stylesheets, as needed by the *default* theme assumed by this recipe.
 	 * Override this function if you are using a custom theme based on the *default*.
+	 *
+	 * @deprecated 1.6..2.0 Use "starter" theme instead
 	 */
-	protected function getBaseStyles() {
-		$themeDir = SSViewer::get_theme_folder();
-
-		return array(
-			'all' => array(
-				"$themeDir/css/layout.css",
-				"$themeDir/css/typography.css"
-			),
-			'screen' => array(
-				"$themeDir/css/responsive.css"
-			),
-			'print' => array(
-				"$themeDir/css/print.css"
-			)
-		);
-	}
-
-	public function init() {
-		parent::init();
-
-		// Ensure we only include styles when theme is enabled (except when running certain tests)
-		$theme = Config::inst()->get('SSViewer', 'theme');
-		if($theme) {
-			// Include base scripts that are needed on all pages
-			Requirements::combine_files('scripts.js', $this->getBaseScripts());
-
-			// Include base styles that are needed on all pages
-			$styles = $this->getBaseStyles();
-
-			// Combine by media type.
-			Requirements::combine_files('styles.css', $styles['all']);
-			Requirements::combine_files('screen.css', $styles['screen'], 'screen');
-			Requirements::combine_files('print.css', $styles['print'], 'print');
-
-			// Extra folder to keep the relative paths consistent when combining.
-			Requirements::set_combined_files_folder(ASSETS_DIR . '/_combinedfiles/cwp-' . $theme);
-		}
+	public function getBaseStyles() {
+		$styles = array();
+		$this->extend('updateBaseStyles', $styles);
+		return $styles;
 	}
 
 	/**

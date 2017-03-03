@@ -26,16 +26,9 @@ en:
     Term: Term
     Terms: Terms
     TermsDescription: 'Click to search for additional terms'
-  CarouselItem:
-    PLURALNAME: 'Carousel Items'
-    SINGULARNAME: 'Carousel Item'
   CustomSiteConfig:
     LogosIconsTab: Logos/Icons
     SocialMediaTab: 'Social Media'
-  CwpCarousel:
-    ArchivedField: 'Archive this carousel item?'
-    LinkField: Link
-    NoteField: 'Note: You will need to create the carousel item before you can add an image'
   CwpConfig:
     AddThisField: 'AddThis Profile ID'
     AddThisFieldDesc: 'Profile ID to be used all across the site (in the format <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
