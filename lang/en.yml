@@ -85,6 +85,10 @@ en:
     DESCRIPTION: 'Generic content page'
     PLURALNAME: 'Dated Update Holders'
     SINGULARNAME: 'Dated Update Holder'
+    FILTER_WITHIN: 'within'
+    FILTER_BETWEEN: 'between'
+    FILTER_ON: 'on'
+    FILTER_IN: 'in'
   DatedUpdatePage:
     DESCRIPTION: 'Generic content page'
     PLURALNAME: 'Dated Update Pages'
