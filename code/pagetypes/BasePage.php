@@ -13,7 +13,7 @@ class BasePage extends SiteTree {
 	private static $hide_ancestor = 'BasePage';
 
 	private static $pdf_export = false;
-
+	
 	/*
 	*Domain to generate PDF's from, DOES not include protocol
 	*i.e. google.com not http://google.com
@@ -267,7 +267,7 @@ class BasePage_Controller extends ContentController {
 	public static $results_per_page = 10;
 
 	public static $search_index_class = 'SolrSearchIndex';
-
+	
 	/**
 	 * If spelling suggestions for searches are given, enable
 	 * suggested searches to be followed immediately
@@ -366,7 +366,7 @@ class BasePage_Controller extends ContentController {
 
 		// make sure the work directory exists
 		if(!file_exists(dirname($pdfFile))) Filesystem::makeFolder(dirname($pdfFile));
-
+	
 		//decide the domain to use in generation
 		$pdf_base_url = $this->getPDFBaseURL();
 
@@ -420,12 +420,9 @@ class BasePage_Controller extends ContentController {
 	/**
 	 * Site search form
 	 */
-	public function SearchForm() {
-		$searchText =  _t('SearchForm.SEARCH', 'Search');
-
-		if($this->getRequest()->getVar('Search')) {
+	public function SearchForm()
+	{
 			$searchText = $this->getRequest()->getVar('Search');
-		}
 
 		$fields = new FieldList(
 			TextField::create('Search', false, $searchText)
@@ -434,10 +431,20 @@ class BasePage_Controller extends ContentController {
 			new FormAction('results', _t('SearchForm.GO', 'Go'))
 		);
 
-		$form = new SearchForm($this, 'SearchForm', $fields, $actions);
+		$form = SearchForm::create($this, 'SearchForm', $fields, $actions);
 		$form->setFormAction('search/SearchForm');
 
 		return $form;
+	}
+
+	/**
+	 * Get search form with _header suffix
+	 *
+	 * @return SearchForm
+	 */
+	public function HeaderSearchForm()
+	{
+		return $this->SearchForm()->setTemplate('SearchForm_header');
 	}
 
 	/**
@@ -446,6 +453,7 @@ class BasePage_Controller extends ContentController {
 	 * @param array $data The raw request data submitted by user
 	 * @param SearchForm $form The form instance that was submitted
 	 * @param SS_HTTPRequest $request Request generated for this action
+	 * @return HTMLText
 	 */
 	public function results($data, $form, $request) {
 		// Check parameters for terms, pagination, and if we should follow suggestions
@@ -454,37 +462,43 @@ class BasePage_Controller extends ContentController {
 		$suggestions = isset($data['suggestions'])
 			? $data['suggestions']
 			: $this->config()->search_follow_suggestions;
-
-		// Perform search
-		$searchIndex = singleton(self::$search_index_class);
+		
 		$results = CwpSearchEngine::create()
 			->search(
 				$keywords,
-				self::$classes_to_search,
-				$searchIndex,
-				self::$results_per_page,
+				$this->getClassesToSearch(),
+				$this->getSearchIndex(),
+				$this->getSearchPageSize(),
 				$start,
 				$suggestions
 			);
 
 		// Customise content with these results
-		$response = $this->customise(array(
+		$properties = array(
+			'MetaTitle' => _t('CWP_Search.MetaTitle', 'Search {keywords}', array('keywords' => $keywords)),
+			'NoSearchResults' => _t('CWP_Search.NoResult', 'Sorry, your search query did not return any results.'),
+			'EmptySearch' => _t('CWP_Search.EmptySearch', 'Search field empty, please enter your search query.'),
 			'PdfLink' => '',
-			'Results' => $results ? $results->getResults() : '',
-			'Title' => _t('SearchForm.SearchResults', 'Search Results')
-		));
-		if($results) {
-			$response = $response->customise($results);
-		}
+			'Title' => _t('SearchForm.SearchResults', 'Search Results'),
+		);
+		$this->extend('updateSearchResults', $results, $properties);
 
+		// Customise page
+		$response = $this->customise($properties);
+		if($results) {
+			$response = $response
+				->customise($results)
+				->customise(array( 'Results' => $results->getResults() ));
+		}
+		
 		// Render
 		$templates = $this->getResultsTemplate($request);
 		return $response->renderWith($templates);
 	}
-
+	
 	/**
 	 * Select the template to render search results with
-	 *
+	 * 
 	 * @param SS_HTTPRequest $request
 	 * @return array
 	 */
@@ -533,4 +547,41 @@ class BasePage_Controller extends ContentController {
 	public function getRSSLink() {
 	}
 
+	/**
+	 * Get the search index registered for this application
+	 *
+	 * @return CwpSearchIndex
+	 */
+	protected function getSearchIndex()
+	{
+		// Will be a service name in 2.0 and returned via injector
+		/** @var CwpSearchIndex $index */
+		$index = null;
+		if (self::$search_index_class) {
+			$index = Object::singleton(self::$search_index_class);
+		}
+		return $index;
+	}
+
+	/**
+	 * Gets the list of configured classes to search
+	 *
+	 * @return array
+	 */
+	protected function getClassesToSearch()
+	{
+		// Will be private static config in 2.0
+		return self::$classes_to_search;
+	}
+
+	/**
+	 * Get page size for search
+	 *
+	 * @return int
+	 */
+	protected function getSearchPageSize()
+	{
+		// Will be private static config in 2.0
+		return self::$results_per_page;
+	}
 }
