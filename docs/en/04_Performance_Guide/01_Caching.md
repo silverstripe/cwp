@@ -20,11 +20,11 @@ allow Incapsula to cache more of your content, preventing unnecessary server pro
 
 Server side caching has many areas where optimisations can be made, from 
 [MySQL's query cache](https://dev.mysql.com/doc/refman/5.7/en/query-cache.html)
-to [template partial caching](https://docs.silverstripe.org/en/3/developer_guides/performance/partial_caching/). As 
-developers we have varying degrees of control over how we can utilise these caches, as we'll explore in this article.
+to [template partial caching](https://docs.silverstripe.org/en/3/developer_guides/performance/partial_caching/).
 
 For this guide we'll be concentrating on caching within the SilverStripe application layer, though it's good to look
-at how to avoid breaking the MySQL query cache.
+at how [MySQL query cache works](https://dev.mysql.com/doc/refman/5.7/en/query-cache-operation.html) to avoid 
+needlessly writing queries that can't be cached by MySQL.
 
 ### How to identify if a piece of code should be cached
 
