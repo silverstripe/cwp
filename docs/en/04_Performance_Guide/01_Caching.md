@@ -120,10 +120,10 @@ Partial caching is covered extensively in
 
 #### Static caching
 
-Static caching is the most aggressive form of caching and will result in the highest performance gains. Static caching
-takes a copy of the page that is rendered and saves it to an HTML file. This file is then sent to a user's browser 
-immediately. For a typical SilverStripe site this means reducing response times from hundreds of milliseconds to tens
-of milliseconds.
+[Static caching](https://github.com/silverstripe/silverstripe-staticpublishqueue) is the most aggressive form of caching
+and will result in the highest performance gains. Static caching takes a copy of the page that is rendered and saves 
+it to an HTML file. This file is then sent to a user's browser immediately. For a typical SilverStripe site this means
+reducing response times from hundreds of milliseconds to tens of milliseconds.
  
 When implementing static caching we can also push the entire site to Content Distribution Network (CDN) edge nodes, 
 keeping large portions of server requests from ever hitting our servers at all. In CWP context, this would mean that 
