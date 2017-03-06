@@ -5,8 +5,9 @@ introduction: One of the most effective ways to realise performance gains on you
 ## What is caching?
 
 Caching is the temporary storage of data so that future requests can be served more quickly. Caching works best by 
-storing the output from a previous computation so it can then be reused for subsequent requests. Below we'll explore the
-different ways we can cache data on SilverStripe websites to maximise performance.
+storing the output from a previous computation so it can then be reused for subsequent requests. For a deeper technical 
+introduction to caching, see our ["How-to" guide](https://www.cwp.govt.nz/developer-docs/en/how_tos/caching). Below 
+we'll explore the different ways we can cache data on SilverStripe websites to maximise performance.
 
 ### Server-side vs client-side caching
 
@@ -14,7 +15,8 @@ There are many layers where caching can be implemented; it can start with the cl
 correct use of 
 [HTTP caching](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching)
 resources can be stored by browsers and re-used, removing the need for them to make duplicate requests to your site. 
-Client-side caching will reduce load on your site as well as loading times for your end users.
+Client-side caching will reduce load on your site as well as loading times for your end users. Additionally, this will 
+allow Incapsula to cache more of your content, preventing unnecessary server processing.
 
 Server side caching has many areas where optimisations can be made, from 
 [MySQL's query cache](https://dev.mysql.com/doc/refman/5.7/en/query-cache.html)
@@ -30,22 +32,24 @@ One of the most important aspects of caching is being able to identify where cac
 We want to look out for code that's either doing a lot of computational work or that depends on other services that 
 may be slow.
 
-Spotting (the potential for) excessive computational work is fairly easy: you want to look out for recursion. In 
-SilverStripe there are several patterns that are used frequently but are quite resource intensive.
+Spotting (the potential for) excessive computational work is fairly easy: you want to look out for looping and recursion.
+In SilverStripe there are several patterns that are used frequently but are quite resource intensive.
 
 #### Looping over DataLists
 
 Looping over DataLists is unavoidable in SilverStripe. Typically you may see something like this:
 
 ```php
-$thirdYearClasses = Hogwarts\Class::get()->filter(['Year' => 3]);
-$attendableClasses = ArrayList::create();
-foreach ($thirdYearClasses as $class) {
-	if ($class->Attendance()->exists() && $class->Attendance()->useTimeTurner()) {
-		$attendableClasses->push($class);
+$houses = Hogwarts\House::get();
+$prefects = ArrayList::create();
+foreach ($houses as $house) {
+	if ($house->Prefects()->exists()) {
+		foreach ($house->Prefects() as $prefect) {
+			$prefects->push($prefect);
+		}
 	}
 }
-return $attendableClasses;
+return $prefects;
 ```
 
 There could be at least 4 distinct database queries *per iteration* of this loop. As more classes are added, the number 
@@ -64,7 +68,7 @@ function findRootParent() {
 	$parent = $this;
 	while ($parent->exists()) {
 		$lastParent = $parent;
-        $parent = $parent->Parent();
+		$parent = $parent->Parent();
 	}
 	return $lastParent;
 }
@@ -121,13 +125,14 @@ takes a copy of the page that is rendered and saves it to an HTML file. This fil
 immediately. For a typical SilverStripe site this means reducing response times from hundreds of milliseconds to tens
 of milliseconds.
  
-When implementing static caching we can also push the entire site to CDN edge nodes, keeping large portions of server 
-requests from ever hitting our servers at all.
+When implementing static caching we can also push the entire site to Content Distribution Network (CDN) edge nodes, 
+keeping large portions of server requests from ever hitting our servers at all. In CWP context, this would mean that 
+Incapsula is serving all requests, minimising the potential for downtime due to server load.
 
 ##### Limitations of static caching
 
-Static caching can only be used in a few specific cases. Your site will only be suitable for static caching if 
-there is no dynamic content on the site. This means no user login and no dynamic content, such as forms.
+Total static caching can only be used in a few specific cases. Your site will only be suitable for static caching if 
+there is no dynamic content on the site, including user login and forms.
 
 If you have a dynamic area of your site but still wish to use some static caching, you can statically cache parts of 
 your site and leave other parts uncached. You could investigate caching your most popular or busy pages while leaving
@@ -140,6 +145,5 @@ minor dynamic behaviour without having SilverStripe handle the entire request-re
 
 Here are some modules that can help:
 
-- https://github.com/silverstripe/silverstripe-staticpublisher
 - https://github.com/silverstripe/silverstripe-staticpublishqueue
 - https://github.com/markguinn/silverstripe-livepub

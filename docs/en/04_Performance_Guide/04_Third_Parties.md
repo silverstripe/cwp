@@ -5,10 +5,8 @@ your website is not adversely affected by external integrations
 
 ## Integrating external APIs
 
-SilverStripe 3 comes with the `RestfulService` class for making requests to external resources. It provides a 
-basic wrapping around PHP's curl integration. If you're using SilverStripe 4 or need to do anything other than basic 
-requests to third party services it's recommended to use an external library such as
-[`Guzzle`](https://github.com/guzzle/guzzle).
+SilverStripe recommends using an external library such as [Guzzle](https://github.com/guzzle/guzzle) to perform external
+requests - SilverStripe's `RestfulService` class is now deprecated.
 
 ### Request timeouts
 
@@ -16,16 +14,16 @@ When making an external request a "request timeout" setting can be set to limit 
 for a response to a request. Setting a sensible timeout can have a significant effect on page response times, 
 especially when external resources are unreachable.
 
-Picking a timeout should be done on a case-by-case basis as you may expect some requests to respond relatively 
-quickly (less than 1 second) while you might expect others to take longer. Requests to external authentication 
-services or insurance quoting providers may take longer - in some cases it's worth speaking with the external 
-provider to find out what their expectation is around response times.
+Picking a timeout should be done on a case-by-case basis as you may expect some requests to respond relatively quickly 
+(less than 1 second) while you might expect others to take longer. Other requests may take longer - in some cases it's 
+worth speaking with the external provider to find out what their expectation is around response times.
 
 A good rule of thumb is to expect most requests to respond within 5 seconds; but remember, if you set a timeout to 5 
 seconds, then on some page loads you may see loading times increase by this much to accommodate slow responses. 
 
 <div class="notice">
-Remember, if a response from your site to your visitor takes over 30 seconds, a 502 error response will be sent.
+Note that if a response from your site to your visitor takes over 30 seconds, a 502 error response will be sent by the
+CWP infrastructure, regardless of other timeout settings.
 </div>
 
 ### Caching response data
@@ -63,17 +61,16 @@ If the data you're accessing changes frequently, you should adjust your caching 
 #### 3. How important is it for the data to be up-to-date?
 
 Caching operates on the basis that we allow for data to be inaccurate for a short period of time. After the cache 
-lifetime has passed, the cache will be refreshed and the latest data will be fetched.
-
-The tolerance for how old this data can be will vary; sometimes data being out of date by 30 minutes will have no 
-significant impact but at other times five minutes is too long.
+lifetime has passed, the cache will be refreshed and the latest data will be fetched. The tolerance for how old this 
+data can be will vary.
 
 ### Pre-fetching data
 
 For some external requests you may know what data you'll need before a user visits your site. External news, currency
-conversion rates and so on can often be pre-fetched for the coming hours. By setting up a queued job (for more on 
-this see [../deferring-work](Deferring Work)) you can fetch and cache external data at pre-defined times of the day. If 
-the data is ready waiting for the user when they arrive, they won't be held up while you fetch it for them.
+conversion rates and so on can often be pre-fetched for the coming hours. By setting up a queued job (see 
+[Deferring Work](https://www.cwp.govt.nz/developer-docs/en/performance_guide/deferring_work/)) you can fetch and cache 
+external data at pre-defined times of the day. If the data is ready waiting for the user when they arrive, they won't be
+held up while you fetch it for them.
 
 ### Handling API failures
 
@@ -90,7 +87,9 @@ it. In this case you want to make sure you're handling API failures gracefully. 
 to fall back on, or the ability to mark data as unavailable or hidden if you don't get a successful response.
 
 An API can fail when you need to send some data to it; for example, contact form submissions may need to be sent to an
-external CRM. In event of a failure you can store this in the site's database and use a queued job to retry later.
+external CRM. In event of a failure you can store this in the site's database and use a queued job to retry later. You
+should consider utilising the [Circuit Breaker Pattern](https://martinfowler.com/bliki/CircuitBreaker.html) to catch 
+API failures before they happen if you can.
  
 ### When to make API requests
 
