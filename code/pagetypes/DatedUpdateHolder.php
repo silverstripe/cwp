@@ -294,11 +294,6 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 
 	public function init() {
 		parent::init();
-
-		// Include the DateRangeForm JS manually. We use custom form and $DateRangeForm is never invoked directly.
-		Requirements::javascript('framework/javascript/DateField.js');
-		Requirements::css('framework/thirdparty/jquery-ui-themes/smoothness/jquery-ui.css');
-
 		RSSFeed::linkToFeed($this->Link() . 'rss', $this->getSubscriptionTitle());
 	}
 
@@ -454,14 +449,28 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 		return $list;
 	}
 
+	/**
+	 * @return Form
+	 */
 	public function DateRangeForm() {
+		$dateFromTitle = DBField::create_field('HTMLText', sprintf(
+			'%s <span class="field-note">%s</span>',
+			_t('DatedUpdateHolder.FROM_DATE', 'From date'),
+			_t('DatedUpdateHolder.DATE_EXAMPLE', '(example: 2017/12/30)')
+		));
+		$dateToTitle = DBField::create_field('HTMLText', sprintf(
+			'%s <span class="field-note">%s</span>',
+			_t('DatedUpdateHolder.TO_DATE', 'To date'),
+			_t('DatedUpdateHolder.DATE_EXAMPLE', '(example: 2017/12/30)')
+		));
+
 		$fields = new FieldList(
-			$dateFrom = DateField::create('from'),
-			$dateTo = DateField::create('to'),
+			DateField::create('from', $dateFromTitle)
+				->setConfig('showcalendar', true),
+			DateField::create('to', $dateToTitle)
+				->setConfig('showcalendar', true),
 			HiddenField::create('tag')
 		);
-		$dateFrom->setConfig('showcalendar', true);
-		$dateTo->setConfig('showcalendar', true);
 
 		$actions = new FieldList(
 			FormAction::create("doDateFilter")->setTitle("Filter")->addExtraClass('btn btn-primary primary'),
