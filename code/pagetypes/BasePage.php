@@ -250,6 +250,24 @@ class BasePage extends SiteTree {
 		else return null;
 	}
 
+	/**
+     * Returns the native language name for the selected locale/language, empty string if Translatable is not available
+     *
+     * @return string
+     */
+    public function getSelectedLanguage()
+    {
+        if (!class_exists('Translatable')) {
+            return '';
+        }
+
+        $language = explode('_', Translatable::get_current_locale());
+        $languageCode = array_shift($language);
+        $nativeName = i18n::get_language_name($languageCode, true);
+
+        return $nativeName;
+    }
+
 }
 
 class BasePage_Controller extends ContentController {
