@@ -18,13 +18,8 @@ resources can be stored by browsers and re-used, removing the need for them to m
 Client-side caching will reduce load on your site as well as loading times for your end users. Additionally, this will 
 allow Incapsula to cache more of your content, preventing unnecessary server processing.
 
-Server side caching has many areas where optimisations can be made, from 
-[MySQL's query cache](https://dev.mysql.com/doc/refman/5.7/en/query-cache.html)
-to [template partial caching](https://docs.silverstripe.org/en/3/developer_guides/performance/partial_caching/).
-
-For this guide we'll be concentrating on caching within the SilverStripe application layer, though it's good to look
-at how [MySQL query cache works](https://dev.mysql.com/doc/refman/5.7/en/query-cache-operation.html) to avoid 
-needlessly writing queries that can't be cached by MySQL.
+For server-side caching we'll focus on the [PHP caching API](https://docs.silverstripe.org/en/3/developer_guides/performance/caching/)
+and [template partial caching](https://docs.silverstripe.org/en/3/developer_guides/performance/partial_caching/).
 
 ### How to identify if a piece of code should be cached
 
@@ -33,7 +28,7 @@ We want to look out for code that's either doing a lot of computational work or 
 may be slow.
 
 Spotting (the potential for) excessive computational work is fairly easy: you want to look out for looping and recursion.
-In SilverStripe there are several patterns that are used frequently but are quite resource intensive.
+In SilverStripe there are several patterns that are used frequently that are quite resource intensive.
 
 #### Looping over DataLists
 
@@ -120,10 +115,26 @@ Partial caching is covered extensively in
 
 #### Static caching
 
+There are two types of static caching we can implement as developers [HTTP based caching](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching)
+and [server side static caching](https://github.com/silverstripe/silverstripe-staticpublishqueue).
+
+##### HTTP based caching
+
+You might not think of it as static caching, but HTTP based caching is a form of static caching. When we use HTTP 
+headers to provide clients (browsers) with caching information this is effectively statically caching the pages 
+withing the browser. When a user goes back to the same URL the browser will provide them with a locally cached 
+version of the page rather than hitting the server.
+
+In SilverStripe we can use the `HTTP` utility class to set global HTTP cache settings such as the last modified time,
+ ETag and max-age headers. You can read more on [how to set HTTP caching headers in the SilverStripe docs](https://docs.silverstripe.org/en/3/developer_guides/performance/http_cache_headers/).
+
+##### Server-side static caching
+
 [Static caching](https://github.com/silverstripe/silverstripe-staticpublishqueue) is the most aggressive form of caching
 and will result in the highest performance gains. Static caching takes a copy of the page that is rendered and saves 
-it to an HTML file. This file is then sent to a user's browser immediately. For a typical SilverStripe site this means
-reducing response times from hundreds of milliseconds to tens of milliseconds.
+it to an HTML file. Cached files are then used to respond to user requests without hitting the SilverStripe 
+application layer.  For a typical SilverStripe site this means reducing response times from hundreds of milliseconds 
+to tens of milliseconds.
  
 When implementing static caching we can also push the entire site to Content Distribution Network (CDN) edge nodes, 
 keeping large portions of server requests from ever hitting our servers at all. In CWP context, this would mean that 
