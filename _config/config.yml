@@ -5,6 +5,9 @@ After: 'cwp-core/*'
 SiteConfig:
   extensions:
    - CustomSiteConfig
+SiteTree:
+  extensions:
+    - CwpSiteTreeExtension
 TaxonomyTerm:
   extensions:
    - TaxonomyTermExtension

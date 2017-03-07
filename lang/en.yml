@@ -132,6 +132,8 @@ en:
     FeatureTwo: 'Feature Two'
     PLURALNAME: Pages
     SINGULARNAME: Page
+    SHOW_PAGE_UTILITIES: 'Show page utilities?'
+    SHOW_PAGE_UTILITIES_HELP: 'You can disable page utilities (print, share, etc) for this page'
   SiteTreeFileExtension:
     BACKLINK_LIST_DESCRIPTION: 'This list shows all pages where the file has been added through a WYSIWYG editor.'
     EDIT: Edit
