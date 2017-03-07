@@ -23,31 +23,16 @@ ar:
     PLURALNAME: 'العناصر الدائرية'
     SINGULARNAME: 'عنصر دائرى'
   CustomSiteConfig:
-    LogosIconsTab: الشعارات/الأيقونات
     SocialMediaTab: 'وسائل الإعلام الاجتماعية'
   CwpCarousel:
     ArchivedField: 'هل تود أن تقوم بتخزين هذا العنصر الدائرى؟'
     LinkField: رابط
     NoteField: 'ملاحظة: سوف تحتاج أن تقوم بإنشاء العنصر الدائرى قبل أن تتمكن من إضافة صورة'
   CwpConfig:
-    AddThisField: 'قم بإضافة'
-    AddThisFieldDesc: 'ملف التعريف الشخصى الذى سيتم استخدامه عبر الموقع (بصيغة <strong>ra-XXXXXXXXXXXXXXXX<strong/>)'
-    AppleIconField114: 'أيقونة كليب الويب الخاص بأبل تتش (أبعاد 114x114, صيغة بى إن جى)'
-    AppleIconField144: 'أيقونة كليب الويب الخاص بأبل تتش و ويندوز 8 (أبعاد 114x114, صيغة بى إن جى)'
-    AppleIconField57: 'أيقونة كليب الويب الخاص بأبل تتش (أبعاد 57x57, صيغة بى إن جى)'
-    AppleIconField72: 'أيقونة كليب الويب الخاص بأبل تتش (أبعاد 72x72, صيغة بى إن جى)'
-    FavIconField: 'الرمز المفضل, بصيغة .آى سى أو, أبعاد32x32 ,16x16 أو 48x48'
     FbField: 'التعريف الشخصى لفيس بوك أو اسم المستخدم'
     FbFieldDesc: 'رابط الفيس بوك(كل شئ بعد "/http://facebook.com", /http://facebook.com <strong>اسم المستخدم<strong/> /http://facebook.com <strong>صفحات/108510539573<strong/>)'
-    FooterLogoDescField: 'وصف شعار تذييل الصفحة'
-    FooterLogoField: 'تذييل الصفحة, لكى تظهر على التذييل'
-    FooterLogoLinkDesc: 'من فضلك قم بتضمين البروتوكول ( بمعنى, //:http أو //:https) ما لم تكون رابط خارجى.'
-    FooterLogoLinkField: 'رابط شعار تذييل الصفحة'
-    FooterLogoRetinaField: 'شعار تذييل للصفحة عالى الدقة (ينصح بضعف طول و عرض شعار تذييل الصفحة العادى)'
     GaField: 'حساب جوجل التحليلى'
     GaFieldDesc: 'رقم الحساب الذى سيتم استخدامه عبر الموقع بالكامل ( بصيغة <strong>UA-XXXXX-X<strong/>)'
-    LogoRetinaUploadField: 'شعار عالى الدقة, ليظهر فى أعلى اليسار (يوصى بضعف الطول و العرض للشعار التقليدى)'
-    LogoUploadField: 'الشعار, ليظهر أعلى اليسار'
     TwitterField: 'اسم المستخدم الخاص بتويتر'
     TwitterFieldDesc: 'اسم المستخدم الخاص بتويتر (مثلا, /http://twitter.com <strong>اسم المستخدم<strong/>)'
   DateUpdateHolder:
