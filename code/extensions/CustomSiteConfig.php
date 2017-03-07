@@ -8,7 +8,6 @@ class CustomSiteConfig extends DataExtension
 		'GACode' => 'Varchar(16)',
 		'FacebookURL' => 'Varchar(256)', // multitude of ways to link to Facebook accounts, best to leave it open.
 		'TwitterUsername' => 'Varchar(16)', // max length of Twitter username 15
-		'AddThisProfileID' => 'Varchar(32)',
 	);
 
 	public function updateCMSFields(FieldList $fields)
@@ -53,20 +52,6 @@ class CustomSiteConfig extends DataExtension
 		);
 		$twitterUsername->setRightTitle(
 			_t('CwpConfig.TwitterFieldDesc', 'Twitter username (eg, http://twitter.com/<strong>username</strong>)')
-		);
-
-		$fields->addFieldToTab(
-			'Root.SocialMedia',
-			$addThisID = TextField::create(
-				'AddThisProfileID',
-				_t('CwpConfig.AddThisField', 'AddThis Profile ID')
-			)
-		);
-		$addThisID->setRightTitle(
-			_t(
-				'CwpConfig.AddThisFieldDesc',
-				'Profile ID to be used all across the site (in the format <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
-			)
 		);
 	}
 }

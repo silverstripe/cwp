@@ -27,27 +27,12 @@ en:
     Terms: Terms
     TermsDescription: 'Click to search for additional terms'
   CustomSiteConfig:
-    LogosIconsTab: Logos/Icons
     SocialMediaTab: 'Social Media'
   CwpConfig:
-    AddThisField: 'AddThis Profile ID'
-    AddThisFieldDesc: 'Profile ID to be used all across the site (in the format <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
-    AppleIconField114: 'Apple Touch Web Clip Icon (dimensions of 114x114, PNG format)'
-    AppleIconField144: 'Apple Touch Web Clip and Windows 8 Tile Icon (dimensions of 144x144, PNG format)'
-    AppleIconField57: 'Apple Touch Web Clip Icon (dimensions of 57x57, PNG format)'
-    AppleIconField72: 'Apple Touch Web Clip Icon (dimensions of 72x72, PNG format)'
-    FavIconField: 'Favicon, in .ico format, dimensions of 16x16, 32x32, or 48x48'
     FbField: 'Facebook UID or username'
     FbFieldDesc: 'Facebook link (everything after the "http://facebook.com/", eg http://facebook.com/<strong>username</strong> or http://facebook.com/<strong>pages/108510539573</strong>)'
-    FooterLogoDescField: 'Footer Logo description'
-    FooterLogoField: 'Footer logo, to appear in the footer'
-    FooterLogoLinkDesc: 'Please include the protocol (ie, http:// or https://) unless it is an internal link.'
-    FooterLogoLinkField: 'Footer Logo link'
-    FooterLogoRetinaField: 'High resolution footer logo (recommended twice the height and width of the standard footer logo)'
     GaField: 'Google Analytics account'
     GaFieldDesc: 'Account number to be used all across the site (in the format <strong>UA-XXXXX-X</strong>)'
-    LogoRetinaUploadField: 'High resolution logo, to appear in the top left (recommended twice the height and width of the standard logo)'
-    LogoUploadField: 'Logo, to appear in the top left'
     SearchSynonyms: 'Search Synonyms'
     SearchSynonyms_Description: 'Enter as many comma separated synonyms as you wish, where each line represents a group of synonyms.<br /> You will need to run <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a> if you make any changes'
     TwitterField: 'Twitter username'
