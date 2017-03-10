@@ -10,10 +10,9 @@ code to GitLab.
 ## Before you begin
 This guide assumes you already have:
 
-* A server with Apache, MySQL and PHP.  You can either install these directly on your workstation, PC or laptop, via a installer (WAMP/MAMP) or run a virtual machine (VM) that more closely mimics the production server.
-* PHP extensions installed (and should also be installed on your local development environment): curl, gd, mbstring, mcrypt, tidy.
-* [Git version control](working_with_projects/setting_up_a_development_environment/#git) installed
-* [Composer](http://doc.silverstripe.org/framework/en/installation/composer/) installed
+* A server with [Apache, MySQL and PHP](working_with_projects/setting_up_a_development_environment)
+* [Git version control](working_with_projects/setting_up_a_development_environment/#git)
+* [Composer](http://doc.silverstripe.org/framework/en/installation/composer/)
 
 If you're using Windows, you can use a command-line equivalent to interact with git and composer, offered by the [MsysGit package](http://msysgit.github.io)
 
