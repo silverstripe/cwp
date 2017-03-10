@@ -17,12 +17,10 @@ de:
     RelatedPages: 'Abhängige Seiten'
     TagsTabTitle: Schlagwörter
   CustomSiteConfig:
-    LogosIconsTab: Logos/Symbole
     SocialMediaTab: 'Soziale Medien'
   CwpCarousel:
     LinkField: Link
   CwpConfig:
-    AddThisField: 'Diese Profilkennung hinzufügen'
     FbField: 'Facebook-Benutzerkennung oder Benutzername'
     GaField: Google-Analytics-Konto
     TwitterField: Twitter-Benutzername

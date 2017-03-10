@@ -5,6 +5,9 @@ After: 'cwp-core/*'
 SiteConfig:
   extensions:
    - CustomSiteConfig
+SiteTree:
+  extensions:
+    - CwpSiteTreeExtension
 TaxonomyTerm:
   extensions:
    - TaxonomyTermExtension
@@ -62,10 +65,3 @@ Only:
 CommentingController:
   extensions:
     - CwpCommentingExtension
----
-Name: cwpuserforms
-Only:
-  moduleexists: 'userforms'
----
-UserDefinedForm:
-  required_identifier: '(required)'

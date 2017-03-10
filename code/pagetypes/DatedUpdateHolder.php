@@ -248,6 +248,8 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 
 	/**
 	 * Returns a description of the current filter
+	 *
+	 * @return string
 	 */
 	public function FilterDescription() {
 		$params = $this->parseParams();
@@ -256,7 +258,7 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 		if ($params['tag']) {
 			$term = TaxonomyTerm::get_by_id('TaxonomyTerm', $params['tag']);
 			if ($term) {
-				$filters[] = 'within "' . $term->Name . '"';
+				$filters[] = _t('DatedUpdateHolder.FILTER_WITHIN', 'within') . ' "' . $term->Name . '"';
 			}
 		}
 
@@ -265,19 +267,20 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 				$from = strtotime($params['from']);
 				if ($params['to']) {
 					$to = strtotime($params['to']);
-					$filters[] = 'between ' . date('j/m/Y', $from) . ' and ' . date('j/m/Y', $to);
+					$filters[] = _t('DatedUpdateHolder.FILTER_BETWEEN', 'between') . ' '
+						. date('j/m/Y', $from) . ' and ' . date('j/m/Y', $to);
 				} else {
-					$filters[] = 'on ' . date('j/m/Y', $from);
+					$filters[] = _t('DatedUpdateHolder.FILTER_ON', 'on') . ' ' . date('j/m/Y', $from);
 				}
 			} else {
 				$to = strtotime($params['to']);
-				$filters[] = 'on ' . date('j/m/Y', $to);
+				$filters[] = _t('DatedUpdateHolder.FILTER_ON', 'on') . ' ' . date('j/m/Y', $to);
 			}
 		}
 
 		if ($params['year'] && $params['month']) {
 			$timestamp = mktime(1, 1, 1, $params['month'], 1, $params['year']);
-			$filters[] = 'in ' . date('F', $timestamp) . ' ' . $params['year'];
+			$filters[] = _t('DatedUpdateHolder.FILTER_IN', 'in') . ' ' . date('F', $timestamp) . ' ' . $params['year'];
 		}
 
 		if ($filters) {
@@ -291,11 +294,6 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 
 	public function init() {
 		parent::init();
-
-		// Include the DateRangeForm JS manually. We use custom form and $DateRangeForm is never invoked directly.
-		Requirements::javascript('framework/javascript/DateField.js');
-		Requirements::css('framework/thirdparty/jquery-ui-themes/smoothness/jquery-ui.css');
-
 		RSSFeed::linkToFeed($this->Link() . 'rss', $this->getSubscriptionTitle());
 	}
 
@@ -451,14 +449,28 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 		return $list;
 	}
 
+	/**
+	 * @return Form
+	 */
 	public function DateRangeForm() {
+		$dateFromTitle = DBField::create_field('HTMLText', sprintf(
+			'%s <span class="field-note">%s</span>',
+			_t('DatedUpdateHolder.FROM_DATE', 'From date'),
+			_t('DatedUpdateHolder.DATE_EXAMPLE', '(example: 2017/12/30)')
+		));
+		$dateToTitle = DBField::create_field('HTMLText', sprintf(
+			'%s <span class="field-note">%s</span>',
+			_t('DatedUpdateHolder.TO_DATE', 'To date'),
+			_t('DatedUpdateHolder.DATE_EXAMPLE', '(example: 2017/12/30)')
+		));
+
 		$fields = new FieldList(
-			$dateFrom = DateField::create('from'),
-			$dateTo = DateField::create('to'),
+			DateField::create('from', $dateFromTitle)
+				->setConfig('showcalendar', true),
+			DateField::create('to', $dateToTitle)
+				->setConfig('showcalendar', true),
 			HiddenField::create('tag')
 		);
-		$dateFrom->setConfig('showcalendar', true);
-		$dateTo->setConfig('showcalendar', true);
 
 		$actions = new FieldList(
 			FormAction::create("doDateFilter")->setTitle("Filter")->addExtraClass('btn btn-primary primary'),
