@@ -62,12 +62,12 @@ from any site. If blogging or comments are not required for a CWP site it's advi
 
 Any new site created from 1.1.0 onwards will have a set of default configuration options added in order to best
 customise the blog recipe for cwp defaults. These settings are included in the `cwp/cwp-installer` module in the
-blog.yml file under mysite/_config. Sites upgrading from 1.0.7 or below may require one or more of these settings
+blog.yml file under `mysite/_config`. Sites upgrading from 1.0.7 or below may require one or more of these settings
 to be manually added.
 
 For configuration of anti-spam please see the [Akismet configuration guide](/how_tos/akismet) for more information.
 
-For the basic configuration, see the default mysite/_config/blog.yml below for reference:
+For the basic configuration, see the default `mysite/_config/blog.yml` below for reference:
 
 
 	:::yml
@@ -130,4 +130,3 @@ For the basic configuration, see the default mysite/_config/blog.yml below for r
 	CommentingController:
 	  extensions:
 	    - CommentSpamProtection
-
