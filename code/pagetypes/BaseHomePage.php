@@ -102,6 +102,11 @@ class BaseHomePage extends Page {
 				)
 			)->setHeadingLevel(3)
 		);
+
+		// Icon field will be removed in CWP 2.0
+		if (!$this->getIsDefaultTheme()) {
+			$fields->removeByName($dropdownField->getName());
+		}
 		$dropdownField->setEmptyString('none');
 
 		$fields->addFieldToTab('Root.Features', ToggleCompositeField::create('FeatureTwo', _t('SiteTree.FeatureTwo', 'Feature Two'),
@@ -128,6 +133,11 @@ class BaseHomePage extends Page {
 			)
 			)->setHeadingLevel(3)
 		);
+
+		// Icon field will be removed in CWP 2.0
+		if (!$this->getIsDefaultTheme()) {
+			$fields->removeByName($dropdownField->getName());
+		}
 		$dropdownField->setEmptyString('none');
 
 		return $fields;
