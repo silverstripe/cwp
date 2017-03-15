@@ -3,6 +3,7 @@
 	"description": "CWP features module. We strongly recommend using it for all new sites. Future features will be delivered here.",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "cwp"],
+	"license": "BSD-3-Clause",
 	"require": {
 		"cwp/cwp-core": "*",
 		"silverstripe/taxonomy": "*"
