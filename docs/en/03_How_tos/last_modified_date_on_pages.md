@@ -26,5 +26,5 @@ In the starter and Wātea themes this is the footer bar which contains both the 
 You can add conditions around the `$ShowPageUtilities` variable in your page templates to control this behaviour, for example:
 
     <% if not $ShowPageUtilities %>
-	    <p>Only displayed when "page utilities" is disabled.</p>
-	<% end_if %>
+        <p>Only displayed when "page utilities" is disabled.</p>
+    <% end_if %>

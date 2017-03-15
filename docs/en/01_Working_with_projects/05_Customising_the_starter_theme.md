@@ -66,7 +66,7 @@ Your project's composer.json file should look something like this:
 		"name": "my-agency/my-project",
 		"description": "My CWP project",
 		"require": {
-			"cwp/cwp-recipe-basic": "1.0.1",
+			"cwp/cwp-recipe-basic": "~1.6.0@stable",
 			"my-agency/my-new-theme": "dev-master"
 		},
 		"require-dev": {
