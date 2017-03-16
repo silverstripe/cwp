@@ -9,23 +9,17 @@ class CwpCommentingExtension extends Extension {
 	public function alterCommentForm(Form $form) {
 		$fields = $form->Fields();
 
-		// Set field names and descriptions
-		if($nameField = $fields->dataFieldByName('Name')) {
-			$nameField
-				->setTitle('Name')
-				->setDescription('(required)');
-		}
 
-		if($emailField = $fields->dataFieldByName('Email')) {
+		if ($emailField = $fields->dataFieldByName('Email')) {
 			$emailField
-				->setTitle('Email')
-				->setDescription('will not be published (required)');
+				->setTitle(_t('CwpCommentingExtension.EMAIL_TITLE', 'Email'))
+				->setDescription(_t('CwpCommentingExtension.WILL_NOT_BE_PUBLISHED', 'Will not be published.'));
 		}
 
-		if($urlField = $fields->dataFieldByName('URL')) {
+		if ($urlField = $fields->dataFieldByName('URL')) {
 			$urlField
-				->setTitle('Your website (optional)')
-				->setAttribute('placeholder','http://');
+				->setTitle(_t('CwpCommentingExtension.WEBSITE_TITLE', 'Your website (optional)'))
+				->setAttribute('placeholder', 'http://');
 		}
 	}
 }
