@@ -33,16 +33,23 @@ class NewsPage extends DatedUpdatePage {
 	}
 
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+		$this->beforeUpdateCMSFields(function (FieldList $fields) {
+			$fields->addFieldToTab(
+				'Root.Main',
+				TextField::create('Author', $this->fieldLabel('Author')),
+				'Abstract'
+			);
 
-		$fields->addFieldToTab('Root.Main', TextField::create('Author', $this->fieldLabel('Author')), 'Abstract');
-
-		$fields->addFieldToTab('Root.Main', UploadField::create('FeaturedImage', $this->fieldLabel('FeaturedImageID')), 'Abstract');
-
-		return $fields;
+			$fields->addFieldToTab(
+				'Root.Main',
+				UploadField::create('FeaturedImage', $this->fieldLabel('FeaturedImageID')),
+				'Abstract'
+			);
+		});
+		return parent::getCMSFields();
 	}
 }
 
 class NewsPage_Controller extends DatedUpdatePage_Controller {
-	
+
 }
