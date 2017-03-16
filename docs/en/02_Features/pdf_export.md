@@ -12,6 +12,10 @@ using WebKit to render the HTML into PDF format.
 A special `$PdfLink` variable is provided to the templates, which if applied as the value of an `href` value to an
 anchor in the template, will provide users with a way to download the a PDF version of the current page.
 
+<div class="notice" markdown='1'>
+This variable is commented out by default in the starter and Wātea themes. You can re-enable it by uncommenting these lines in `PageUtilities.ss`.
+</div>
+
 When the user requests a PDF of the page, the page is exported as HTML by SilverStripe and then passed along to
 `wkhtmltopdf` which generates a PDF of the HTML. The PDF is then stored in `assets/_generated_pdfs` and subsequent
 requests for that PDF are served directly from the assets.
