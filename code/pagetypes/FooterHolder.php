@@ -19,14 +19,13 @@ class FooterHolder extends RedirectorPage {
 	);
 
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
-
-		$fields->removeByName('RedirectorDescHeader');
-		$fields->removeByName('RedirectionType');
-		$fields->removeByName('LinkToID');
-		$fields->removeByName('ExternalURL');
-
-		return $fields;
+		$this->beforeUpdateCMSFields(function (FieldList $fields) {
+			$fields->removeByName('RedirectorDescHeader');
+			$fields->removeByName('RedirectionType');
+			$fields->removeByName('LinkToID');
+			$fields->removeByName('ExternalURL');
+		});
+		return parent::getCMSFields();
 	}
 
 	/**
@@ -48,7 +47,7 @@ class FooterHolder extends RedirectorPage {
 			}
 		}
 	}
-	
+
 	public function syncLinkTracking() {
 		// If we don't have anything to link to, then we have a broken link.
 		if (!$this->Children()) {

@@ -13,7 +13,7 @@ class BasePage extends SiteTree {
 	private static $hide_ancestor = 'BasePage';
 
 	private static $pdf_export = false;
-	
+
 	/*
 	*Domain to generate PDF's from, DOES not include protocol
 	*i.e. google.com not http://google.com
@@ -135,62 +135,61 @@ class BasePage extends SiteTree {
 	}
 
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
-
-		// Related Pages
-		$components = GridFieldConfig_RelationEditor::create();
-		$components->removeComponentsByType('GridFieldAddNewButton');
-		$components->removeComponentsByType('GridFieldEditButton');
-		$components->removeComponentsByType('GridFieldFilterHeader');
-		$components->addComponent(new GridFieldSortableRows('SortOrder'));
-
-		$dataColumns = $components->getComponentByType('GridFieldDataColumns');
-		$dataColumns->setDisplayFields(array(
-			'Title' => _t('BasePage.ColumnTitle', 'Title'),
-			'ClassName' => _t('BasePage.ColumnPageType', 'Page Type')
-		));
-
-		$fields->findOrMakeTab(
-			'Root.RelatedPages',
-			_t('BasePage.RelatedPages','Related pages')
-		);
-		$fields->addFieldToTab(
-			'Root.RelatedPages',
-			GridField::create(
-				'RelatedPages',
-				_t('BasePage.RelatedPages','Related pages'),
-				$this->RelatedPages(),
-				$components
-			)
-		);
-
-		// Taxonomies - Unless they have their own 'Tags' field (such as in Blog, etc)
-		if(!$this->has_many('Tags') && !$this->many_many('Tags')) {
+		$this->beforeUpdateCMSFields(function (FieldList $fields) {
+			// Related Pages
 			$components = GridFieldConfig_RelationEditor::create();
 			$components->removeComponentsByType('GridFieldAddNewButton');
 			$components->removeComponentsByType('GridFieldEditButton');
-
-			$autoCompleter = $components->getComponentByType('GridFieldAddExistingAutocompleter');
-			$autoCompleter->setResultsFormat('$Name ($TaxonomyName)');
+			$components->removeComponentsByType('GridFieldFilterHeader');
+			$components->addComponent(new GridFieldSortableRows('SortOrder'));
 
 			$dataColumns = $components->getComponentByType('GridFieldDataColumns');
 			$dataColumns->setDisplayFields(array(
-				'Name' => _t('BasePage.Term','Term'),
-				'TaxonomyName' => _t('BasePage.Taxonomy','Taxonomy')
+				'Title' => _t('BasePage.ColumnTitle', 'Title'),
+				'ClassName' => _t('BasePage.ColumnPageType', 'Page Type')
 			));
 
-			$fields->findOrMakeTab('Root.Tags', _t('BasePage.TagsTabTitle', 'Tags'));
-			$fields->addFieldToTab(
-				'Root.Tags',
-				TreeMultiselectField::create(
-					'Terms',
-					_t('BasePage.Terms','Terms'),
-					'TaxonomyTerm'
-				)->setDescription(_t('BasePage.TermsDescription', 'Click to search for additional terms'))
+			$fields->findOrMakeTab(
+				'Root.RelatedPages',
+				_t('BasePage.RelatedPages','Related pages')
 			);
-		}
+			$fields->addFieldToTab(
+				'Root.RelatedPages',
+				GridField::create(
+					'RelatedPages',
+					_t('BasePage.RelatedPages','Related pages'),
+					$this->RelatedPages(),
+					$components
+				)
+			);
 
-		return $fields;
+			// Taxonomies - Unless they have their own 'Tags' field (such as in Blog, etc)
+			if(!$this->has_many('Tags') && !$this->many_many('Tags')) {
+				$components = GridFieldConfig_RelationEditor::create();
+				$components->removeComponentsByType('GridFieldAddNewButton');
+				$components->removeComponentsByType('GridFieldEditButton');
+
+				$autoCompleter = $components->getComponentByType('GridFieldAddExistingAutocompleter');
+				$autoCompleter->setResultsFormat('$Name ($TaxonomyName)');
+
+				$dataColumns = $components->getComponentByType('GridFieldDataColumns');
+				$dataColumns->setDisplayFields(array(
+					'Name' => _t('BasePage.Term','Term'),
+					'TaxonomyName' => _t('BasePage.Taxonomy','Taxonomy')
+				));
+
+				$fields->findOrMakeTab('Root.Tags', _t('BasePage.TagsTabTitle', 'Tags'));
+				$fields->addFieldToTab(
+					'Root.Tags',
+					TreeMultiselectField::create(
+						'Terms',
+						_t('BasePage.Terms','Terms'),
+						'TaxonomyTerm'
+					)->setDescription(_t('BasePage.TermsDescription', 'Click to search for additional terms'))
+				);
+			}
+		});
+		return parent::getCMSFields();
 	}
 
 	/**
@@ -267,23 +266,6 @@ class BasePage extends SiteTree {
 
         return $nativeName;
     }
-
-	/**
-	 * Decide whether the current configured theme is the "default" CWP theme
-	 *
-	 * @return bool
-	 */
-	public function getIsDefaultTheme()
-	{
-		if (class_exists('SiteConfig') && ($config = SiteConfig::current_site_config()) && $config->Theme) {
-			$theme = $config->Theme;
-		} elseif (Config::inst()->get('SSViewer', 'theme_enabled') && Config::inst()->get('SSViewer', 'theme')) {
-			$theme = Config::inst()->get('SSViewer', 'theme');
-		} else {
-			$theme = false;
-		}
-		return $theme === 'default';
-	}
 }
 
 class BasePage_Controller extends ContentController {
@@ -301,7 +283,7 @@ class BasePage_Controller extends ContentController {
 	public static $results_per_page = 10;
 
 	public static $search_index_class = 'SolrSearchIndex';
-	
+
 	/**
 	 * If spelling suggestions for searches are given, enable
 	 * suggested searches to be followed immediately
@@ -400,7 +382,7 @@ class BasePage_Controller extends ContentController {
 
 		// make sure the work directory exists
 		if(!file_exists(dirname($pdfFile))) Filesystem::makeFolder(dirname($pdfFile));
-	
+
 		//decide the domain to use in generation
 		$pdf_base_url = $this->getPDFBaseURL();
 
@@ -496,7 +478,7 @@ class BasePage_Controller extends ContentController {
 		$suggestions = isset($data['suggestions'])
 			? $data['suggestions']
 			: $this->config()->search_follow_suggestions;
-		
+
 		$results = CwpSearchEngine::create()
 			->search(
 				$keywords,
@@ -524,15 +506,15 @@ class BasePage_Controller extends ContentController {
 				->customise($results)
 				->customise(array( 'Results' => $results->getResults() ));
 		}
-		
+
 		// Render
 		$templates = $this->getResultsTemplate($request);
 		return $response->renderWith($templates);
 	}
-	
+
 	/**
 	 * Select the template to render search results with
-	 * 
+	 *
 	 * @param SS_HTTPRequest $request
 	 * @return array
 	 */

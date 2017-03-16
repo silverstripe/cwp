@@ -51,31 +51,30 @@ class EventPage extends DatedUpdatePage {
 	}
 
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+		$this->beforeUpdateCMSFields(function (FieldList $fields) {
+			$fields->removeByName('Date');
 
-		$fields->removeByName('Date');
+			$dateTimeFields = array();
 
-		$dateTimeFields = array();
+			$dateTimeFields[] = $dateField = DateField::create('Date', 'Date');
+			$dateField->setConfig('showcalendar', true);
+			$dateField->setConfig('dateformat', Member::currentUser()->getDateFormat());
 
-		$dateTimeFields[] = $dateField = DateField::create('Date', 'Date');
-		$dateField->setConfig('showcalendar', true);
-		$dateField->setConfig('dateformat', Member::currentUser()->getDateFormat());
+			$dateTimeFields[] = $startTimeField = TimeField::create('StartTime', '&nbsp;&nbsp;' . $this->fieldLabel('StartTime'));
+			$dateTimeFields[] = $endTimeField = TimeField::create('EndTime', $this->fieldLabel('EndTime'));
+			// Would like to do this, but the width of the form field doesn't scale based on the time
+			// format. OS ticket raised: http://open.silverstripe.org/ticket/8260
+			//$startTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
+			//$endTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
+			$startTimeField->setConfig('timeformat', 'h:ma');
+			$endTimeField->setConfig('timeformat', 'h:ma');
 
-		$dateTimeFields[] = $startTimeField = TimeField::create('StartTime', '&nbsp;&nbsp;' . $this->fieldLabel('StartTime'));
-		$dateTimeFields[] = $endTimeField = TimeField::create('EndTime', $this->fieldLabel('EndTime'));
-		// Would like to do this, but the width of the form field doesn't scale based on the time
-		// format. OS ticket raised: http://open.silverstripe.org/ticket/8260
-		//$startTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
-		//$endTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
-		$startTimeField->setConfig('timeformat', 'h:ma');
-		$endTimeField->setConfig('timeformat', 'h:ma');
+			$fields->addfieldToTab('Root.Main', $dateTimeField = new FieldGroup('Date and time', $dateTimeFields), 'Abstract');
 
-		$fields->addfieldToTab('Root.Main', $dateTimeField = new FieldGroup('Date and time', $dateTimeFields), 'Abstract');
-
-		$fields->addfieldToTab('Root.Main', $locationField = TextareaField::create('Location', $this->fieldLabel('Location')), 'Abstract');
-		$locationField->setRows(4);
-
-		return $fields;
+			$fields->addfieldToTab('Root.Main', $locationField = TextareaField::create('Location', $this->fieldLabel('Location')), 'Abstract');
+			$locationField->setRows(4);
+		});
+		return parent::getCMSFields();
 	}
 
 	public function NiceLocation() {

@@ -43,104 +43,94 @@ class BaseHomePage extends Page {
 	}
 
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+		$this->beforeUpdateCMSFields(function (FieldList $fields) {
+			// Main Content tab
+			$fields->addFieldToTab(
+				'Root.Main',
+				TreeDropdownField::create(
+					'LearnMorePageID',
+					_t('BaseHomePage.LearnMoreLink','Page to link the "Learn More" button to:'),
+					'SiteTree'
+				),
+				'Metadata'
+			);
 
-		// Main Content tab
-		$fields->addFieldToTab(
-			'Root.Main',
-			TreeDropdownField::create(
-				'LearnMorePageID',
-				_t('BaseHomePage.LearnMoreLink','Page to link the "Learn More" button to:'),
-				'SiteTree'
-			),
-			'Metadata'
-		);
+			$gridField = GridField::create(
+				'Quicklinks',
+				'Quicklinks',
+				$this->Quicklinks(),
+				GridFieldConfig_RelationEditor::create()
+			);
+			$gridConfig = $gridField->getConfig();
+			$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName(
+				_t('BaseHomePage.AddNewButton','Add new')
+			);
+			$gridConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
+			$gridConfig->removeComponentsByType('GridFieldDeleteAction');
+			$gridConfig->addComponent(new GridFieldDeleteAction());
+			$gridConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+			$gridField->setModelClass('Quicklink');
 
-		$gridField = GridField::create(
-			'Quicklinks',
-			'Quicklinks',
-			$this->Quicklinks(),
-			GridFieldConfig_RelationEditor::create()
-		);
-		$gridConfig = $gridField->getConfig();
-		$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName(
-			_t('BaseHomePage.AddNewButton','Add new')
-		);
-		$gridConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
-		$gridConfig->removeComponentsByType('GridFieldDeleteAction');
-		$gridConfig->addComponent(new GridFieldDeleteAction());
-		$gridConfig->addComponent(new GridFieldSortableRows('SortOrder'));
-		$gridField->setModelClass('Quicklink');
+			$fields->addFieldToTab('Root.Quicklinks', $gridField);
 
-		$fields->addFieldToTab('Root.Quicklinks', $gridField);
+			$fields->removeByName('Import');
 
-		$fields->removeByName('Import');
+			$fields->addFieldToTab(
+				'Root.Features',
+				ToggleCompositeField::create('FeatureOne', _t('SiteTree.FeatureOne', 'Feature One'),
+					array(
+						TextField::create('FeatureOneTitle', _t('BaseHomePage.Title','Title')),
+						$dropdownField = DropdownField::create(
+							'FeatureOneCategory',
+							_t('BaseHomePage.FeatureCategoryDropdown','Category icon'),
+							singleton('BaseHomePage')->dbObject('FeatureOneCategory')->enumValues()
+						),
+						HTMLEditorField::create(
+							'FeatureOneContent',
+							_t('BaseHomePage.FeatureContentFieldLabel','Content')
+						),
+						TextField::create(
+							'FeatureOneButtonText',
+							_t('BaseHomePage.FeatureButtonText','Button text')
+						),
+						TreeDropdownField::create(
+							'FeatureOneLinkID',
+							_t('BaseHomePage.FeatureLink','Page to link to'),
+							'SiteTree'
+						)->setDescription(_t('BaseHomePage.ButtonTextRequired','Button text must be filled in'))
+					)
+				)->setHeadingLevel(3)
+			);
+			$dropdownField->setEmptyString('none');
 
-		$fields->addFieldToTab(
-			'Root.Features',
-			ToggleCompositeField::create('FeatureOne', _t('SiteTree.FeatureOne', 'Feature One'),
+			$fields->addFieldToTab('Root.Features', ToggleCompositeField::create('FeatureTwo', _t('SiteTree.FeatureTwo', 'Feature Two'),
 				array(
-					TextField::create('FeatureOneTitle', _t('BaseHomePage.Title','Title')),
+					TextField::create('FeatureTwoTitle', _t('BaseHomePage.Title','Title')),
 					$dropdownField = DropdownField::create(
-						'FeatureOneCategory',
+						'FeatureTwoCategory',
 						_t('BaseHomePage.FeatureCategoryDropdown','Category icon'),
-						singleton('BaseHomePage')->dbObject('FeatureOneCategory')->enumValues()
+						singleton('BaseHomePage')->dbObject('FeatureTwoCategory')->enumValues()
 					),
 					HTMLEditorField::create(
-						'FeatureOneContent',
+						'FeatureTwoContent',
 						_t('BaseHomePage.FeatureContentFieldLabel','Content')
 					),
 					TextField::create(
-						'FeatureOneButtonText',
+						'FeatureTwoButtonText',
 						_t('BaseHomePage.FeatureButtonText','Button text')
 					),
 					TreeDropdownField::create(
-						'FeatureOneLinkID',
+						'FeatureTwoLinkID',
 						_t('BaseHomePage.FeatureLink','Page to link to'),
 						'SiteTree'
 					)->setDescription(_t('BaseHomePage.ButtonTextRequired','Button text must be filled in'))
 				)
-			)->setHeadingLevel(3)
-		);
+				)->setHeadingLevel(3)
+			);
+			$dropdownField->setEmptyString('none');
+		});
 
-		// Icon field will be removed in CWP 2.0
-		if (!$this->getIsDefaultTheme()) {
-			$fields->removeByName($dropdownField->getName());
-		}
-		$dropdownField->setEmptyString('none');
-
-		$fields->addFieldToTab('Root.Features', ToggleCompositeField::create('FeatureTwo', _t('SiteTree.FeatureTwo', 'Feature Two'),
-			array(
-				TextField::create('FeatureTwoTitle', _t('BaseHomePage.Title','Title')),
-				$dropdownField = DropdownField::create(
-					'FeatureTwoCategory',
-					_t('BaseHomePage.FeatureCategoryDropdown','Category icon'),
-					singleton('BaseHomePage')->dbObject('FeatureTwoCategory')->enumValues()
-				),
-				HTMLEditorField::create(
-					'FeatureTwoContent',
-					_t('BaseHomePage.FeatureContentFieldLabel','Content')
-				),
-				TextField::create(
-					'FeatureTwoButtonText',
-					_t('BaseHomePage.FeatureButtonText','Button text')
-				),
-				TreeDropdownField::create(
-					'FeatureTwoLinkID',
-					_t('BaseHomePage.FeatureLink','Page to link to'),
-					'SiteTree'
-				)->setDescription(_t('BaseHomePage.ButtonTextRequired','Button text must be filled in'))
-			)
-			)->setHeadingLevel(3)
-		);
-
-		// Icon field will be removed in CWP 2.0
-		if (!$this->getIsDefaultTheme()) {
-			$fields->removeByName($dropdownField->getName());
-		}
-		$dropdownField->setEmptyString('none');
-
-		return $fields;
+		return parent::getCMSFields();
 	}
 }
 
