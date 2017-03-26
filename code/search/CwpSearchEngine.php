@@ -117,7 +117,7 @@ class CwpSearchEngine extends Object {
 			
 			// Perform new search with the suggested terms
 			$suggested = $result->getSuggestion();
-			$newResult = $this->getResult($suggested, $classes, $searchIndex, $limit, 0, false);
+			$newResult = $this->getResult($suggested, $classes, $searchIndex, $limit, $start, false);
 			$newResult->setOriginal($keywords);
 
 			// Compare new results to the original query
