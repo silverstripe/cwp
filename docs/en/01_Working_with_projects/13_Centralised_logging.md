@@ -10,6 +10,8 @@ centralised installation of Graylog.
 You can access Graylog using your CWP log-in at the following URL:
 [https://logs.cwp.govt.nz/](https://logs.cwp.govt.nz/).
 
+In order to gain access to these logs per Instance please raise a general support request with the [CWP service desk](https://www.cwp.govt.nz/service-desk/new-request/).
+
 We provide a stream for each instance environment. Streams are where
 you can view and query the stored logs. These include Apache, PHP, and any
 custom events that you want to log.
