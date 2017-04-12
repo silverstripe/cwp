@@ -7,8 +7,6 @@ This page describes the three types of caching that can readily be used on Commo
 
 **Transparent caches** are a black-box solution which can be interacted with through the HTTP headers - it's always-on and external to the instances.
 
-**Static caching** allows agencies to generate a static version of their sites. This is accomplished through a special instance type and is an alternative to the usual small/medium/large instances.
-
 **Partial caching** is a feature of the SilverStripe templates allowing developers to cache repetitive content blocks - such as menus.
 
 ## Transparent caches
@@ -193,16 +191,7 @@ You would need to reconsider your configuration if you ever decide to serve the 
 
 ## Static caching
 
-**Static caching** is a substantially more complex method of caching that generates static versions of all dynamic pages and serves these directly instead of passing the requests to the PHP backend. The side advantage is the potential for increased security.
-
-To utilise static caching on CWP you will need to purchase a **statically-published instance type** which provides the two-node architecture:
-
-* frontend: the front-line node where all the static files get shipped to. If static file does not exist, the node can be configured to either pass the request to the backend, or block it (resulting in a more secure instance).
-* backend: node that hosts the CMS interface and the database and is able to respond to dynamic requests. Access to this node can be restricted via a whitelist.
-
 To make this work, you need to use the [staticpublishqueue](https://github.com/silverstripe-labs/silverstripe-staticpublishqueue) module to produce the static content into the "cache" folder in your webroot.
-
-Contact Service Desk for more information about the suitability of this approach for your use case.
 
 ## Partial caching
 
