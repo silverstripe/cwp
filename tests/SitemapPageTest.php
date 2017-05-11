@@ -5,11 +5,14 @@ class SitemapPageTest extends FunctionalTest {
 
 	protected static $use_draft_site = true;
 
+	/**
+	 * Note: this test depends on the "starter" theme being installed and configured as default
+	 */
 	public function testSitemapShowsNavigationTitleNotNormalTitle() {
 		$response = $this->get('sitemap');
 		$parser = new CSSContentParser($response->getBody());
-		$els = $parser->getBySelector('.sitemap li.first span.title');
-		$this->assertEquals('Top page nav 1', (string) $els[0]);
+		$elements = $parser->getBySelector('.sitemap li.first .sitemap-link');
+		$this->assertNotEmpty($elements);
+		$this->assertEquals('Top page nav 1', (string) $elements[0]);
 	}
-
 }
