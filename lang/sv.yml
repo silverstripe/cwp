@@ -18,8 +18,14 @@ sv:
     RelatedPages: 'Relaterade sidor'
     TagsTabTitle: Taggar
     Taxonomy: Taxonomi
+  CustomSiteConfig:
+    LogosIconsTab: Logotyper/ikoner
+  CwpCarousel:
+    LinkField: Länk
   CwpConfig:
     FbField: 'Facebook UID eller användarnamn'
+    FooterLogoField: 'Sidfots-logotyp, för användning i sidfoten'
+    FooterLogoLinkDesc: 'Vänligen ange protokollet (t ex http:// eller http://) om länken inte är intern'
     GaField: 'Google Analytics-konto'
   CwpSearchPage:
     DESCRIPTION: 'Generisk innehållssida'

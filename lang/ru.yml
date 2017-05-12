@@ -25,8 +25,19 @@ ru:
     Term: Условие
     Terms: Условия
     TermsDescription: 'Нажмите для расширения условий поиска'
+  CarouselItem:
+    PLURALNAME: Слайдшоу
+    SINGULARNAME: Слайд
   CustomSiteConfig:
+    LogosIconsTab: Логотипы/Иконки
     SocialMediaTab: 'Социальные сети'
+  CwpCarousel:
+    ArchivedField: 'Отправить в архив этот слайд?'
+    LinkField: Ссылка
+    NoteField: 'Внимание: вы должны создать/сохранить слайд прежде чем вы сможете добавить изображение'
+  CwpConfig:
+    AddThisField: 'Добавить этот Профайл'
+    AddThisFieldDesc: 'Индфикатор профайл для использования на сайте должен быть в формате <strong>ra-XXXXXXXXXXXXXXXX</strong>'
   CwpSearchPage:
     DESCRIPTION: 'Обычная страница'
     PLURALNAME: 'Базовые страницы'

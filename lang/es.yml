@@ -27,16 +27,30 @@ es:
     PLURALNAME: 'Items del carrusel'
     SINGULARNAME: 'Item del carrusel'
   CustomSiteConfig:
+    LogosIconsTab: Logos/iconos
     SocialMediaTab: 'Medios sociales'
   CwpCarousel:
     ArchivedField: '¿Archiva este item del carrusel?'
     LinkField: Enlace
     NoteField: 'Nota: Ud necesitará crear el ítem de carrusel antes de poder agregarle una imagen'
   CwpConfig:
+    AddThisField: 'Agregar este ID de perfil'
+    AddThisFieldDesc: 'El ID de perfil a usarse en todo el sitio (en el formato <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
+    AppleIconField114: 'Icono de Apple Touch Web Clip (dimensiones 114x114, formato PNG)'
+    AppleIconField57: 'Icono de Apple Touch Web Clip (dimensiones 57x57, formato PNG)'
+    AppleIconField72: 'Icono de Apple Touch Web Clip (dimensiones 72x72, formato PNG)'
+    FavIconField: 'Favicon, en formato .ico, dimensiones de 16x16, 32x32, o 48x48'
     FbField: 'UID de Facebook o nombre de usuario'
     FbFieldDesc: 'Enlace de Facebook (todo lo que sigue a "http://facebook.com/", por ejemplo, http://facebook.com/<strong>nombre de usuario</strong> o http://facebook.com/<strong>pages/108510539573</strong>)'
+    FooterLogoDescField: 'Descripción del logo del pie de página'
+    FooterLogoField: 'Logo del pie de página, a aparecer en el pie de página'
+    FooterLogoLinkDesc: 'Por favor, incluir el protocolo (por ejemplo, http:// o https://) a menos que sea un enlace interno.'
+    FooterLogoLinkField: 'Enlace del logo del pie de página'
+    FooterLogoRetinaField: 'Logo del pie de página de alta resolución (se recomienda el doble del alto y ancho del logo del pie de página estándar)'
     GaField: 'Cuenta de Google Analytics'
     GaFieldDesc: 'Número de cuenta a usarse en todo el sitio (en el formato <strong>UA-XXXXX-X</strong>)'
+    LogoRetinaUploadField: 'Logo de alta resolución, a aparecer en la esquina superior izquierda (serecomineda el doble del alto y ancho del logo estándar)'
+    LogoUploadField: 'Logo, a aparecer en la esquina superior izquierda'
     TwitterField: 'Nombre de usuario de Twitter'
     TwitterFieldDesc: 'Nombre de usuario de Twitter (por ejemplo, http://twitter.com/<strong>nombre de usuario</strong>)'
   CwpSearchPage:
