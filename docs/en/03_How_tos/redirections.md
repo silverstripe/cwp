@@ -28,7 +28,9 @@ if(Director::isLive() && !Director::is_cli()) {
 }
 ```
 
-Note that this applies to all domains on your instance so be sure to check that they support https.
+In this example `Director::isLive()` is used to only redirect on the CWP production environment. `!Director::is_cli()` ensures that this redirection does not impact command line actions such as the `dev/build` that occurs during deployment.
+
+Note that this applies to all domains on your instance so be sure to check that they support https. 
 
 ## Module
 
