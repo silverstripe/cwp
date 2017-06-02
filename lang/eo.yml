@@ -26,6 +26,10 @@ eo:
     Term: Termino
     Terms: Terminoj
     TermsDescription: 'Alklaku por serĉi pluajn erojn'
+  CWP_Search:
+    EmptySearch: 'Sercota kampo malplenas, bonvolu enigi informpeton.'
+    MetaTitle: 'Serĉi {keywords}'
+    NoResult: 'Via informpeto ne liveris rezulton.'
   CarouselItem:
     PLURALNAME: 'Karuselaj elementoj'
     SINGULARNAME: 'Karusela elemento'
@@ -36,6 +40,10 @@ eo:
     ArchivedField: 'Ĉu enarkivigi ĉi tiun karuselan elementon?'
     LinkField: Ligilo
     NoteField: 'Notu: Necesas krei la karuselan elementon antaŭ ol vi povos aldoni bildon'
+  CwpCommentingExtension:
+    EMAIL_TITLE: Retpoŝto
+    WEBSITE_TITLE: 'Via retejo (malnepra)'
+    WILL_NOT_BE_PUBLISHED: 'Ne publikiĝos.'
   CwpConfig:
     AddThisField: 'Aldoni ĉi tiun ID-agordaron'
     AddThisFieldDesc: 'ID-agordaro uzota ie en la retejo (en la formato <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
@@ -82,9 +90,16 @@ eo:
     LocationFieldLabel: Loko
     StartTimeFieldLabel: 'Komenca horo'
   DatedUpdateHolder:
+    DATE_EXAMPLE: '(ekzemplo: 2017/12/30)'
     DESCRIPTION: 'Ĝenerala paĝo por enhavo'
+    FILTER_BETWEEN: inter
+    FILTER_IN: en
+    FILTER_ON: sur
+    FILTER_WITHIN: 'ene de'
+    FROM_DATE: 'Eka dato'
     PLURALNAME: 'Ĝisdatigaj datujoj'
     SINGULARNAME: 'Ĝisdatiga datujo'
+    TO_DATE: 'Ĝisa dato'
   DatedUpdatePage:
     DESCRIPTION: 'Ĝenerala paĝo por enhavo'
     PLURALNAME: 'Ĝisdatigaj datujoj'
@@ -134,6 +149,8 @@ eo:
     FeatureOne: 'Prezentita unua'
     FeatureTwo: 'Prezentita dua'
     PLURALNAME: Paĝoj
+    SHOW_PAGE_UTILITIES: 'Ĉu vidigu paĝajn utilaĵojn?'
+    SHOW_PAGE_UTILITIES_HELP: 'Vi povas malŝalti paĝajn utilaĵojn (presi, kunhavigi, ktp) por ĉi tiu paĝo.'
     SINGULARNAME: Paĝo
   SiteTreeFileExtension:
     BACKLINK_LIST_DESCRIPTION: 'Ĉi tiu listo vidigas ĉiujn paĝojn kie la dosiero estas enmetita per la faksimila redaktilo.'
