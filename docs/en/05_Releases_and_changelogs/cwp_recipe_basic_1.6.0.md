@@ -18,6 +18,16 @@ The following functionality has been moved from `cwp/cwp` to the [`cwp/agency-ex
 * Functionality for adding `Requirements` for the `cwp-themes/default` theme
 * Most user-configurable SiteConfig settings (e.g. logo uploads) and associated translations
 
+## Details of security issues
+
+This release includes fixes for the following minor security issues:
+
+ * [SS-2017-002](https://www.silverstripe.org/download/security-releases/ss-2017-002) **Member disclosure in login form:** There is a user ID enumeration vulnerability in our brute force error messages. Users that don't exist in will never get a locked out message, users that do exist, will get a locked out message. This means an attacker can infer or confirm user details that exist in the member table. This issue has been resolved by ensuring that login attempt logging and lockout process works equivalently for non-existent users as it does for existant users.
+ * [SS-2017-003](https://www.silverstripe.org/download/security-releases/ss-2017-003) **XSS in redirector page:** RedirectorPage will allow users to specify a non-url malicious script as the redirection path without validation. Users which follow this url may allow this script to execute within their browser.
+ * [SS-2017-004](https://www.silverstripe.org/download/security-releases/ss-2017-004) **XSS in page history comparison:** Authenticated user with page edit permission can craft HTML, which when rendered in a page history comparison can execute client scripts.
+
+No user action is necessary to receive these security fixes. Upgrading to the latest recipe will automatically apply these fixes.
+
 ## Upgrading Instructions
 
 If you require any of the functionality that has been moved to the `cwp/agency-extensions` module, please add it to your Composer requirements:
@@ -52,9 +62,39 @@ CwpThemeHelper:
 Config::inst()->update('CwpThemeHelper', 'default_themes', array('my_custom_theme_name'));
 ```
 
-## Change Log
+### Accepted failing tests
 
-TBC
+In recipe 1.6.0 these module unit tests cause external errors, but do not represent legitimate issues.
+
+#### silverstripe/framework
+
+ * UploadFieldTest.testAllowedExtensions — Behaviour intentionally altered by the MimeValidator module
+ * UploadFieldTest.testSelect — Behaviour altered by SelectUploadField intentionally
+ * UploadTest.testUploadTarGzFileTwiceAppendsNumber — This test is now expected
+   to fail as the new MimeValidator module will no longer allow random content to
+   be uploaded with a mismatched mime and file extension. The original test is
+   attempting to upload a bunch of text as a gzip file.
+
+#### silverstripe/queuedjobs
+
+ * QueuedJobsTest.testImmediateQueuedJob - Test self-aborts when detecting lack of available system
+   resources (inconclusive).
+ * QueuedJobsTest.testStartJob - Test self-aborts when detecting lack of available system
+   resources (inconclusive).
+
+#### silverstripe/translatable
+
+ * TranslatableSearchFormTest.testPublishedPagesMatchedByTitleInDefaultLanguage - Test failure
+   affected by global state. See https://github.com/silverstripe/silverstripe-translatable/issues/223
+ * TranslatableSiteConfigTest.testCanEditTranslatedRootPages - Test failure affected by global state.
+   See https://github.com/silverstripe/silverstripe-translatable/issues/224
+
+#### silverstripe/userforms
+
+ * UserDefinedFormControllerTest.testValidation - Test failure affected by global state (starter theme template overrides).
+ * UserDefinedFormControllerTest.testRenderingIntoFormTemplate - Test failure affected by global state.
+ * UserDefinedFormControllerTest.testRenderingIntoTemplateWithSubstringReplacement - Test failure affected by global state.
+
 <!--- Changes below this line will be automatically regenerated -->
 
 ## Change Log
