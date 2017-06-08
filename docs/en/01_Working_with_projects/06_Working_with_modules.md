@@ -3,8 +3,7 @@ summary: Using or creating reusable modules for SilverStripe CMS.
 
 # Working with modules
 
-Public (or private) modules are available as separate repositories (projects) within the Gitlab. They can be included
-then in any other projects through Composer. For more information about Composer usage with SilverStripe see
+Public (or private) modules are available as separate repositories (projects) within Gitlab or GitHub. They can then be included in any other projects through Composer. For more information about Composer usage with SilverStripe see
 [Installing and Upgrading with Composer](https://docs.silverstripe.org/en/3.2/getting_started/composer/).
 
 We assume here that you have your website project already started, based off the basic recipe.
@@ -62,6 +61,12 @@ Now push your module to the upstream, to the empty repository just created:
 	git remote add origin https://gitlab.cwp.govt.nz/mateusz/foobar.git
 	git push -u origin master
 
+<div class="notice" markdown='1'>
+If you are pushing to an externally hosted GitHub repository, note that you will need to add the appropriate GitHub remote URL eg:
+</div>
+
+	git remote add origin git@github.com:myprivate/repo.git
+
 Once the module is pushed to the repository you should see the code on Gitlab. From now on it will be available for
 others to clone, as long as they have at least a "Reporter" level access (see the note below though: private modules are
 not deployable).
@@ -92,8 +97,22 @@ root directory of your main project.
 	]
 
 <div class="notice" markdown='1'>
-The `private` parameter is non-standard and is used by the Deploynaut to distinguish between private repositories and
+The `private` parameter is non-standard and is used by  Deploynaut to distinguish between private repositories and
 public repositories. See the section below about public modules.
+</div>
+
+To include a private GitHub hosted module, for our *foobar* module pushed to an upstream GitHub repository, add the following lines to your `composer.json` file in the root directory of your main project.
+
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "git@github.com:myprivate/foobar.git",
+			"no-api": true
+		}
+	]
+
+<div class="notice" markdown='1'>
+The `no-api` parameter prevents API usage which will remove the need for an API token from the CWP deployment systems.
 </div>
 
 This will add the repository to the list of URLs composer checks when updating the project dependencies. Hence you can
