@@ -10,6 +10,8 @@ apply your caching, please see our [Performance Guide section on caching](http:/
 
 **Partial caching** is a feature of the SilverStripe templates allowing developers to cache repetitive content blocks - such as menus.
 
+Leveraging the caching will result in significantly faster page response times and will increase instance reliability making it able to cope with far higher volumes of instantaneous traffic (spikes).
+
 ## Transparent caches
 
 CWP clusters are equipped with two levels of transparent cache: a cache in the CWP data centre and an external CDN provided by Content Delivery Network (CDN) provided by [Incapsula](https://www.incapsula.com/).
@@ -20,8 +22,6 @@ All instance responses are analysed and some of them may be cached to increase p
 * if you opted for the Premium Managed Service, through Incapsula configuration panel (see the "Configuration via Incapsula" chapter)
 
 The default recipe is configured conservatively to protect the data. This means SilverStripe framework responses will not be cached at all. All other resources (static files) will be cached for a short period of time (see below for details).
-
-Leveraging the caching will result in significantly faster page response times and will increase instance reliability making it able to cope with far higher volumes of instantaneous traffic (spikes).
 
 ### Content Security
 
