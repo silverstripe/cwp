@@ -3,25 +3,24 @@ summary: Improve performance with caching.
 
 # Caching your website
 
-This page describes the three types of caching that can readily be used on Common Web Platform. For tips about where to 
-apply your caching, please see our [Performance Guide section on caching](http://www.cwp.govt.nz/developer-docs/en/performance_guide/caching).
+This page describes the different types of caching that can be used on CWP. Check our [Performance Guide](http://www.cwp.govt.nz/developer-docs/en/performance_guide/caching) for more dtail on how to apply the following advice.
 
 **Transparent caches** are a black-box solution which can be interacted with through the HTTP headers - it's always-on and external to the instances.
 
 **Partial caching** is a feature of the SilverStripe templates allowing developers to cache repetitive content blocks - such as menus.
 
-Leveraging the caching will result in significantly faster page response times and will increase instance reliability making it able to cope with far higher volumes of instantaneous traffic (spikes).
+Leveraging caching will result in significantly faster page response times and will increase instance reliability making it able to cope with far higher volumes of instantaneous traffic (spikes).
 
 ## Transparent caches
 
-CWP clusters are equipped with two levels of transparent cache: a cache in the CWP data centre and an external CDN provided by Content Delivery Network (CDN) provided by [Incapsula](https://www.incapsula.com/).
+CWP is equipped with two transparent cache systems: A *Local Cache Layer* in the CWP data centre (Varnish), and an external *CDN Cache Layer* (Content Delivery Network) provided by [Incapsula](https://www.incapsula.com/).
 
 All instance responses are analysed and some of them may be cached to increase performance. Their behaviour can be controlled:
 
 * through the response headers configured in your code (see the "Configuration via headers" chapter)
 * if you opted for the Premium Managed Service, through Incapsula configuration panel (see the "Configuration via Incapsula" chapter)
 
-The default recipe is configured conservatively to protect the data. This means SilverStripe framework responses will not be cached at all. All other resources (static files) will be cached for a short period of time (see below for details).
+The default recipe is configured conservatively to protect the data. This means SilverStripe Framework responses will not be cached at all. All other resources (static files) will be cached for a short period of time (see below for details).
 
 ### Content Security
 
@@ -52,7 +51,7 @@ To help explain how actively the content could be cached on CWP let's split the 
 
 ### Configuration via headers
 
-Your best approach in controlling the caching behaviour is setting your response headers in accordance with the [RFC-2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). This will ensure that all caches on the way of the response will be able to make reasonable decisions. This includes the cluster-local cache, CDN, any other public proxies (such as corporate gateways) and the browser cache.
+Your best approach in controlling the caching behaviour is setting your response headers in accordance with the [RFC-2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). This will ensure that all caches on the way of the response will be able to make reasonable decisions. This includes CWP's Local Cache, the CDN (Incapsula), any other public proxies (such as corporate gateways) and the browser cache.
 
 We will now explain some simple techniques on how to increase your cache utilisation. Let's have a look at the mapping between the cache levels and specific response headers.
 
@@ -76,19 +75,19 @@ This means the response is classified as "Cache-level: None".
 
 #### Asset caching defaults
 
-Furthermore, all CWP instances are configured to set the following header on anything that is NOT served by the framework. This includes all requests for theme files and any asset requests that are not served by the "silverstripe-secureassets" module.
+Furthermore, all CWP instances are configured to set the following header on anything that is NOT served by the framework. This includes all requests for theme files and any asset requests that are not served by the [secureassets](https://github.com/silverstripe/silverstripe-secureassets) module.
 
 ```
 Cache-Control: max-age=120, public
 ```
 
-These responses are effectively "Cache-level: Full". Note the `max-age` value is currently 120 seconds, but could change in the future. CWP customers can’t actively clear CDN caches on Incapsula unless they purchase an optional Premium Managed Service plan. Due to this restriction, asset invalidation needs to take place via the URL, through so called “cache busters”. SilverStripe adds a GET parameter with the last file modification timestamp to each stylesheet and javascript file included through its [Requirements API](http://docs.silverstripe.org/en/3/developer_guides/templates/requirements/). If you are referencing files in other ways, please take care to add your own “cache busters”, e.g. through a Grunt build task modifying the including SilverStripe template.
+These responses are effectively "Cache-level: Full". The `max-age` value is currently 120 seconds, but could change in the future. CWP customers can’t actively clear CDN caches on Incapsula unless they purchase an optional Premium Managed Service plan. Due to this restriction, asset invalidation needs to take place via the URL, through so called “cache busters”. SilverStripe adds a GET parameter with the last file modification timestamp to each stylesheet and javascript file included through its [Requirements API](http://docs.silverstripe.org/en/3/developer_guides/templates/requirements/). If you are referencing files in other ways, please take care to add your own “cache busters”, e.g. through a Grunt build task modifying the including SilverStripe template.
 
 #### Light caching on dynamic content
 
-The easiest way improve caching on your dynamic responses is to use the [controllerpolicy](https://github.com/silverstripe-labs/silverstripe-controllerpolicy) module. You will then be able to customise the response headers per `Controller` without the need to modify the PHP code.
+The easiest way improve caching on your dynamic responses is to use the [controllerpolicy](https://github.com/silverstripe-labs/silverstripe-controllerpolicy) module. It allows you to customise the response headers per `Controller` without the need to modify any PHP code.
 
-If an agreement with the business owner can be reached as to the cache duration, the following policy is generally safe. Some specific controllers may need tweaks however - for example the "userforms" module requires caching to be disabled through a `NoopPolicy` because it generates a unique form submission token for each visitor. See the module's README for more information.
+You'll need to talk to your business owner about cache lifetimes: Updated content might not reach visitors until caches expire. This policy is generally safe, but specific controllers may need tweaks. For example the "userforms" module requires caching to be disabled through a `NoopPolicy` because it generates a unique form submission token for each visitor.
 
 ```
 Injector:
@@ -107,7 +106,7 @@ You might also want to inspect the default _Vary_ used by this module to see if 
 
 Full caching can only be achieved on dynamic content if that content is non-varying (see "Varying content" chapter).
 
-__Be cautious!__ If you feel uncertain about identifying content as non-varying, better stick to light caching and avoid the danger of leaking user-specific or confidential data altogether.
+__Be cautious!__ If you feel uncertain about identifying content as non-varying, better stick to "Light" caching and avoid the danger of leaking user-specific or confidential data altogether.
 
 ```
 Injector:
@@ -129,13 +128,13 @@ Note that 'Accept-Encoding' will automatically be added to the _Vary_ header by 
 
 As a rule of thumb, if you configure your _Cache-Control_ and _Vary_ correctly, you don't need to be worried about the caching levels.
 
-Varying content is any URL which content depends on an impulse from the visitor. Lack of a session (_Cookie_ or _Authorization_ headers in the request) is usually a good first step to find non-varying URLs.
+Varying content is any URL which content depends on request data from the visitor. Lack of a session (_Cookie_ or _Authorization_ headers in the request) is usually a good first step to find non-varying URLs.
 
-Login, IP whitelisting, BasicAuth all imply the content varies per user. All header-driven content changes need to be properly highlighted via a _Vary_ response header (which will automatically reduce to "Cache-level: Light").
+Login abilities, IP whitelisting, and Basic Authentication all imply the content varies per user. All header-driven content changes need to be properly highlighted via a _Vary_ response header (which will automatically reduce to "Cache-level: Light").
 
 Additionally, if you are serving both https and http from the same instance, you need to vary on _X-Forwarded-Protocol_ because of the `BaseURL` differences and the CWP network layout. You won't currently be able to use full caching on such double-protocol site.
 
-A table of some more obvious _Vary_ headers can be found in the [controllerpolicy documentation](https://github.com/silverstripe-labs/silverstripe-controllerpolicy/blob/master/README.md#vary-headers). Keep in mind the more of these you specify, the more partitioned the cache, which will nullify potential gains. Use as few as you are confident with.
+A table of some more obvious _Vary_ headers can be found in the [controllerpolicy documentation](https://github.com/silverstripe-labs/silverstripe-controllerpolicy/blob/master/README.md#vary-headers). Keep in mind the more of these you specify, the more cache variations you'll create. More variations make it less likely that your visitors will get a cached response.
 
 If your content truly does not vary depending on the request, you will be able to utilise full caching for that URL - see the "Full caching on dynamic content" chapter.
 
@@ -154,7 +153,7 @@ As an example the following will apply a new "cache for 900 seconds" header to a
   
 #### Caching and SSL
 
-Since SSL traffic is terminated before it hits the Varnish cache layer, you can also cache content delivered through HTTPS. 
+Since SSL traffic is terminated before it hits CWP's Local Cache layer, you can also cache content delivered through HTTPS. 
 
 ### Configuration via Incapsula
 
@@ -168,7 +167,7 @@ If you haven't opted for the Premium Managed Service, requests to change Incapsu
 These changes only apply to your production environment. Other environments like Test or UAT share a common CWP configuration
 and can't be changed.
 
-By default Incapsula is configured to be in __Static only__ mode, with "Comply with Vary: User-Agent" enabled. This safe default allows you to use all of the techniques described in the "Configuration via Headers" section above: _Static only_ makes sure the _Cache-Control_ header is respected and "Comply with Vary: User-Agent" makes Incapsula respect the "Vary" header.
+By default the [Incapsula's performance settings](https://docs.incapsula.com/Content/management-console-and-settings/performance-settings.htm) are configured to be in __Static only__ mode, with "Comply with Vary: User-Agent" enabled. This safe default allows you to use all of the techniques described in the "Configuration via Headers" section above: _Static only_ makes sure the _Cache-Control_ header is respected and "Comply with Vary: User-Agent" makes Incapsula respect the "Vary" header.
 On CWP the _Static+Dynamic_ mode was not observed to be any different from the _Static only_ mode. The timeout settable on _Static+Dynamic_  will always be overriden by the "max-age" directive provided by the backend.
 
 Incapsula will also attempt to compress JPEG and PNG images as well as minify CSS, but will not minify JS.
@@ -179,7 +178,7 @@ We do not recommend switching the mode to __Aggressive__ nor disabling "Comply w
 
 You should not change these if any of the following is true:
 
-- You are actively using `secureassets` module
+- You are actively using the [secureassets](https://github.com/silverstripe/silverstripe-secureassets) module
 - Sections of your publicly-accessible site are protected by HTTP Basic authentication
 - Your site is protected by an IP whitelist which wasn’t requested through CWP Service Desk
 
