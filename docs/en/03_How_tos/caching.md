@@ -27,7 +27,7 @@ The default recipe is configured conservatively to protect the data. This means 
 
 All caches, if misconfigured, are in danger of leaking user-specific or confidential information to non-privileged visitors. To avoid this, the default recipe will produce uncache-able responses even if it means less cache utilisation. Caching needs to be considered on a site-by-site basis.
 
-Here is an example of how things could go wrong: let's assume a site serves "Hello, (FirstName)" snippet to logged-in users only. Further assume a cache is misconfigured, and a logged-in user "John" requests a page: the cache retains the response containing the "Hello John" string. Now, if user Steve comes along he will be served the cached version of the page erroneously containing "Hello John" string (unless the cache times out before his arrival).
+Here is an example of how things could go wrong: Let's assume a site serves "Hello, (FirstName)" snippet to logged-in users only. Further assume a cache is misconfigured, and a logged-in user "John" requests a page: the cache retains the response containing the "Hello John" string. Now, if user Steve comes along he will be served the cached version of the page erroneously containing "Hello John" string (unless the cache times out before his arrival).
 
 It's easy to extend this example to more significant user details - addresses, private messages, personal records, etc. We will show below how to avoid this kind of issues, and always highlight secure defaults.
 
@@ -40,27 +40,27 @@ This test should not be treated as representative for all CWP sites as it depend
 Also see the *"Can I leverage caching so that I can fit a large site on a small instance?"* question in the 
 [FAQ below](#faq-2).
 
-### Cache tiers
+### Cache levels
 
-To help explain how actively the content could be cached on CWP let's split the possible behaviours into three tiers.
+To help explain how actively the content could be cached on CWP let's split the possible behaviours into three levels.
 
-| Tier | Caches used | Potential response times | Instance load |
+| Cache level | Caches used | Potential response times | Instance load |
 | - | - | - | - |
-| 0 | - | >100ms | Full |
-| 1 | Local | 10 - 100ms for NZ users, more for overseas users due to the transmission latency. | Reduced in proportion to the amount of cache-able responses and their cache duration. |
-| 2 | Local + CDN | 10-100ms for all users regardless of location. | Same as Tier 1. |
+| None | - | >100ms | Full |
+| Light | Local | 10 - 100ms for NZ users, more for overseas users due to the transmission latency. | Reduced in proportion to the amount of cache-able responses and their cache duration. |
+| Full | Local + CDN | 10-100ms for all users regardless of location. | Same as the "Light" cache level. |
 
 ### Configuration via headers
 
 Your best approach in controlling the caching behaviour is setting your response headers in accordance with the [RFC-2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). This will ensure that all caches on the way of the response will be able to make reasonable decisions. This includes the cluster-local cache, CDN, any other public proxies (such as corporate gateways) and the browser cache.
 
-We will now explain some simple techniques on how to increase your cache utilisation. Let's have a look at the mapping between the tiers and specific response headers.
+We will now explain some simple techniques on how to increase your cache utilisation. Let's have a look at the mapping between the cache levels and specific response headers.
 
-| Tier | _Cache-Control_ header | _Vary_ header | Appropriate for |
+| Cache level | _Cache-Control_ header | _Vary_ header | Appropriate for |
 | - | - | - |
-| 0 | "no-cache, max-age=0" | _n/a_ | all |
-| 1 | "max-age=X" | "Cookie, […]" | all |
-| 2 | "max-age=X" | _none_ or "Accept-Encoding" | non-varying* |
+| None | "no-cache, max-age=0" | _n/a_ | all |
+| Light | "max-age=X" | "Cookie, […]" | all |
+| Full | "max-age=X" | _none_ or "Accept-Encoding" | non-varying* |
 
 *) see "Varying content" chapter below
 
@@ -72,7 +72,7 @@ With the basic recipe all SilverStripe Framework responses come with the followi
 Cache-Control: no-cache, max-age=0, must-revalidate, no-transform
 ```
 
-This means the response is _tier 0_ (not cache-able).
+This means the response is classified as "Cache-level: None".
 
 #### Asset caching defaults
 
@@ -82,62 +82,62 @@ Furthermore, all CWP instances are configured to set the following header on any
 Cache-Control: max-age=120, public
 ```
 
-These responses are effectively _tier 2_. Note the max-age value is currently 120 seconds, but could change in the future. CWP customers can’t actively clear CDN caches on Incapsula unless they purchase an optional Premium Managed Service plan. Due to this restriction, asset invalidation needs to take place via the URL, through so called “cache busters”. SilverStripe adds a GET parameter with the last file modification timestamp to each stylesheet and javascript file included through its [Requirements API](http://docs.silverstripe.org/en/3.2/developer_guides/templates/requirements/). If you are referencing files in other ways, please take care to add your own “cache busters”, e.g. through a Grunt build task modifying the including SilverStripe template.
+These responses are effectively "Cache-level: Full". Note the `max-age` value is currently 120 seconds, but could change in the future. CWP customers can’t actively clear CDN caches on Incapsula unless they purchase an optional Premium Managed Service plan. Due to this restriction, asset invalidation needs to take place via the URL, through so called “cache busters”. SilverStripe adds a GET parameter with the last file modification timestamp to each stylesheet and javascript file included through its [Requirements API](http://docs.silverstripe.org/en/3/developer_guides/templates/requirements/). If you are referencing files in other ways, please take care to add your own “cache busters”, e.g. through a Grunt build task modifying the including SilverStripe template.
 
-#### Tier 1 on dynamic content
+#### Light caching on dynamic content
 
-The easiest way increase the tier on your dynamic responses is to use the [controllerpolicy](https://github.com/silverstripe-labs/silverstripe-controllerpolicy) module. You will then be able to customise the response headers per `Controller` without the need to modify the PHP code.
+The easiest way improve caching on your dynamic responses is to use the [controllerpolicy](https://github.com/silverstripe-labs/silverstripe-controllerpolicy) module. You will then be able to customise the response headers per `Controller` without the need to modify the PHP code.
 
 If an agreement with the business owner can be reached as to the cache duration, the following policy is generally safe. Some specific controllers may need tweaks however - for example the "userforms" module requires caching to be disabled through a `NoopPolicy` because it generates a unique form submission token for each visitor. See the module's README for more information.
 
 ```
 Injector:
-  Tier1CachingPolicy:
+  LightCachingPolicy:
     class: CachingPolicy
     properties:
       cacheAge: <cache-duration>
 Page_Controller:
   dependencies:
-    Policies: '%$Tier1CachingPolicy'
+    Policies: '%$LightCachingPolicy'
 ```
 
 You might also want to inspect the default _Vary_ used by this module to see if it works well with your content, and perhaps adjust it via `CachingPolicy::vary` configuration option. See the "Varying content" chapter on the possible permutations of this header.
 
-#### Tier 2 on dynamic content
+#### Full caching on dynamic content
 
-_Tier 2_ can only be achieved on dynamic content if that content is non-varying (see "Varying content" chapter).
+Full caching can only be achieved on dynamic content if that content is non-varying (see "Varying content" chapter).
 
-__Be cautious!__ If you feel uncertain about identifying content as non-varying, better stick to _tier 1_ and avoid the danger of leaking user-specific or confidential data altogether.
+__Be cautious!__ If you feel uncertain about identifying content as non-varying, better stick to light caching and avoid the danger of leaking user-specific or confidential data altogether.
 
 ```
 Injector:
-  Tier2CachingPolicy:
+  FullCachingPolicy:
     class: CachingPolicy
     properties:
       cacheAge: <cache-duration>
       vary: ''
-MyTier2_Controller:
+MyFullyCached_Controller:
   dependencies:
-    Policies: '%$Tier2CachingPolicy'
+    Policies: '%$FullCachingPolicy'
 ```
 
-You will need to adjust the `MyTier2_Controller` to the controller(s) of choice for this policy to work.
+You will need to adjust the `MyFullyCached_Controller` to the controller(s) of choice for this policy to work.
 
 Note that 'Accept-Encoding' will automatically be added to the _Vary_ header by Apache's mod_deflate.
 
 #### Varying content
 
-As a rule of thumb, if you configure your _Cache-Control_ and _Vary_ correctly, you don't need to be worried about the caching tiers.
+As a rule of thumb, if you configure your _Cache-Control_ and _Vary_ correctly, you don't need to be worried about the caching levels.
 
 Varying content is any URL which content depends on an impulse from the visitor. Lack of a session (_Cookie_ or _Authorization_ headers in the request) is usually a good first step to find non-varying URLs.
 
-Login, IP whitelisting, BasicAuth all imply the content varies per user. All header-driven content changes need to be properly highlighted via a _Vary_ response header (which will automatically reduce the tier to 1).
+Login, IP whitelisting, BasicAuth all imply the content varies per user. All header-driven content changes need to be properly highlighted via a _Vary_ response header (which will automatically reduce to "Cache-level: Light").
 
-Additionally, if you are serving both https and http from the same instance, you need to vary on _X-Forwarded-Protocol_ because of the `BaseURL` differences and the CWP network layout. You won't currently be able to use tier 2 on such double-protocol site.
+Additionally, if you are serving both https and http from the same instance, you need to vary on _X-Forwarded-Protocol_ because of the `BaseURL` differences and the CWP network layout. You won't currently be able to use full caching on such double-protocol site.
 
 A table of some more obvious _Vary_ headers can be found in the [controllerpolicy documentation](https://github.com/silverstripe-labs/silverstripe-controllerpolicy/blob/master/README.md#vary-headers). Keep in mind the more of these you specify, the more partitioned the cache, which will nullify potential gains. Use as few as you are confident with.
 
-If your content truly does not vary depending on the request, you will be able to utilise tier 2 for that URL - see the "Tier 2 on dynamic content" chapter.
+If your content truly does not vary depending on the request, you will be able to utilise full caching for that URL - see the "Full caching on dynamic content" chapter.
 
 #### Custom static response headers
 
