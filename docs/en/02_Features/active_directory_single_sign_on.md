@@ -102,14 +102,14 @@ with the following in `mysite/_config.php`
 **Replace 'instancename' with the actual instance name so that the URL is correct.**
 
 	// Configure SAML certificates for the CWP UAT environment
-	if(defined('CWP_ENVIRONMENT') && CWP_ENVIRONMENT == 'uat') {
+	if(defined('CWP_ENVIRONMENT') && (CWP_ENVIRONMENT == 'uat' || CWP_ENVIRONMENT == 'uatdr')) {
 	    Config::inst()->update('SAMLConfiguration', 'SP', array(
 	        'entityId' => 'https://instancename-uat.cwp.govt.nz/',
 	        'privateKey' => '../../certs/saml.pem',
 	        'x509cert' => '../../certs/saml.crt'
 	    ));
 	// Configure SAML certificates for the CWP Production environment
-	} elseif(defined('CWP_ENVIRONMENT') && CWP_ENVIRONMENT == 'prod') {
+	} elseif(defined('CWP_ENVIRONMENT') && (CWP_ENVIRONMENT == 'prod' || CWP_ENVIRONMENT == 'dr')) {
 	    Config::inst()->update('SAMLConfiguration', 'SP', array(
 	        'entityId' => 'https://instancename.cwp.govt.nz/',
 	        'privateKey' => '../../certs/saml.pem',
