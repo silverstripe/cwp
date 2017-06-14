@@ -43,7 +43,7 @@ This may take some time to run as it is collecting and downloading all the code 
 
 6. Now run a build of the database either by going to `http://localhost/my-project/dev/build?flush=1` or using [Sake](https://docs.silverstripe.org/en/3.2/developer_guides/cli/) to run the dev/build via the command line `./framework/sake dev/build`
 
-You should now be able to visit: [http://localhost/my-project](http://localhost/my-project) and see a basic CWP-themed site in your browser.
+You should now be able to visit: http://localhost/my-project and see a basic CWP-themed site in your browser.
 
 For a more in-depth walkthrough through CWP development activities, please refer to ["Working with projects"](working_with_projects).
 
