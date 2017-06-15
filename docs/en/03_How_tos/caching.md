@@ -3,13 +3,17 @@ summary: Improve performance with caching.
 
 # Caching your website
 
-This page describes the different types of caching that can be used on CWP. Check our [Performance Guide](http://www.cwp.govt.nz/developer-docs/en/performance_guide/caching) for more dtail on how to apply the following advice.
+This page describes the different types of caching that can be used on CWP:
 
-**Transparent caches** are a black-box solution which can be interacted with through the HTTP headers - it's always-on and external to the instances.
+ * **Transparent caches** are a black-box solution which can be interacted with through the HTTP headers - it's always-on and external to the instances.
+ * **Partial caching** is a feature of the SilverStripe templates allowing developers to cache repetitive content blocks - such as menus.
 
-**Partial caching** is a feature of the SilverStripe templates allowing developers to cache repetitive content blocks - such as menus.
+Most caching is disabled by default in CWP to avoid accidental information leaks.
+As a CWP developer, you can make your site significantly faster
+by understanding how caching works, applying it correctly and learning to diagnose issues.
+Caching will also increase your site's reliability, making it able to cope with traffic spikes. 
 
-Leveraging caching will result in significantly faster page response times and will increase instance reliability making it able to cope with far higher volumes of instantaneous traffic (spikes).
+Check our [Performance Guide](http://www.cwp.govt.nz/developer-docs/en/performance_guide/caching) for more detail on how to apply the following advice.
 
 ## Transparent caches
 
