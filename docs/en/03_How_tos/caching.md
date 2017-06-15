@@ -1,12 +1,11 @@
-title: Caching
-summary: Improve performance with caching.
+title: HTTP Caching
+summary: Improve performance with HTTP caching layers built into CWP
 
-# Caching your website
+# HTTP Caching
 
-This page describes the different types of caching that can be used on CWP:
-
- * **Transparent caches** are a black-box solution which can be interacted with through the HTTP headers - it's always-on and external to the instances.
- * **Partial caching** is a feature of the SilverStripe templates allowing developers to cache repetitive content blocks - such as menus.
+This page describes how you can use **Transparent HTTP caches** to speed up your website.
+These caches are a black-box solution which can be interacted with through the HTTP headers
+They're always-on and external to the instances.
 
 Most caching is disabled by default in CWP to avoid accidental information leaks.
 As a CWP developer, you can make your site significantly faster
@@ -15,7 +14,7 @@ Caching will also increase your site's reliability, making it able to cope with 
 
 Check our [Performance Guide](http://www.cwp.govt.nz/developer-docs/en/performance_guide/caching) for more detail on how to apply the following advice.
 
-## Transparent caches
+## System Overview
 
 CWP is equipped with two transparent cache systems: A *Local Cache Layer* in the CWP data centre (Varnish), and an external *CDN Cache Layer* (Content Delivery Network) provided by [Incapsula](https://www.incapsula.com/).
 
@@ -193,18 +192,6 @@ See "Varying content" chapter for more details. If your site is completely publi
 Your Incapsula dashboard only controls handling of the responses from the publicly accessible domain. Content under "*.cwp.govt.nz" will not be affected by your changes - this conveniently includes the CMS admin area for the live site which shouldn't be retained in the cache.
 
 You would need to reconsider your configuration if you ever decide to serve the "admin" or "Security" area from your public domain.
-
-## Static caching
-
-To make this work, you need to use the [staticpublishqueue](https://github.com/silverstripe-labs/silverstripe-staticpublishqueue) module to produce the static content into the "cache" folder in your webroot.
-
-## Partial caching
-
-SilverStripe Framework provides a **partial caching** template tag to easily cache template parts through the `<% cached %>` syntax. This is especially useful for computationally intense parts of the site that don't change often. 
-
-Partial caching lets you trade off memory for processing power. If overused (e.g. if the block IDs are too sparse), your environment can run out of memory.
-
-You can read more about it in the [partial caching documentation](https://docs.silverstripe.org/en/3.2/developer_guides/performance/partial_caching/).
 
 ## Debugging
 
