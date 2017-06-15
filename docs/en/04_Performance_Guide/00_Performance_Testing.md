@@ -64,3 +64,7 @@ frequently. While you can run low concurrency tests with a handful of users unan
 the team to configure the site to expect unusual traffic peaks, whitelist testing IP addresses, and generally not panic 
 if the site begins to show signs of struggle. You should do this at least three days before you intend to test. 
 Generally this will performed by a specialist testing company.
+
+## Next
+
+Continue to our [Overview on Caching](caching).

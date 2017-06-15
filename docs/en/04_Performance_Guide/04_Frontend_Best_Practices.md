@@ -73,3 +73,7 @@ bring this content in asynchronously.
 [read more...](https://browserdiet.com/#3rd-party-async)
 
 For more information on optimising your third-party integrations, see [our guide](../third-party-link).
+
+## Next
+
+Continue to our performance guide on [Handling Third Parties](third-parties).

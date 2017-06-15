@@ -242,3 +242,7 @@ Since SSL traffic is terminated before it hits CWP's Local Cache layer, you can 
 ## Resources
 
  * [Google Web Fundamentals: Caching](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching)
+
+## Next
+
+Continue to our performance guide on [Deferring Work](deferring-work)

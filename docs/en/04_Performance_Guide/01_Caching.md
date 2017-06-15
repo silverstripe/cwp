@@ -19,7 +19,7 @@ In SilverStripe there are several patterns that are used frequently that are qui
  * Using (potentially large) relation getters on `DataObject` (has_many and many_many)
  * Nesting relation getters within loops on large `DataList` collections
  * Using expensive SQL join operations
- * Network calls to third party services 
+ * Network calls to third party services (see [Deferring Work](deferring-work))
  * Frequent filesystem access
 
 We'll describe common caching approaches below. You'll want to apply a layered approach to
@@ -146,3 +146,7 @@ you can use the best of both worlds: Generate static HTML content once for all v
 but run the response through a lightweight SilverStripe PHP request in order to add dynamic bits to the response.
 You can do this with the [staticpublishqueue module](https://github.com/silverstripe/silverstripe-staticpublishqueue)
 module as well as [markguinn/silverstripe-livepub](https://github.com/markguinn/silverstripe-livepub).
+
+## Next
+
+Continue to our performance guide on [HTTP Caching](http-caching)
