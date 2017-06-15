@@ -136,7 +136,11 @@ Additionally, if you are serving both https and http from the same instance, you
 
 A table of some more obvious _Vary_ headers can be found in the [controllerpolicy documentation](https://github.com/silverstripe-labs/silverstripe-controllerpolicy/blob/master/README.md#vary-headers). Keep in mind the more of these you specify, the more cache variations you'll create. More variations make it less likely that your visitors will get a cached response.
 
+Check your `.htaccess` files in the webroot and any subfolders, as they can influence the `Vary` header. For example, a `%{HTTP_HOST}` rewrite condition will [auto-add](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) a `Vary: Host` header.
+
 If your content truly does not vary depending on the request, you will be able to utilise full caching for that URL - see the "Full caching on dynamic content" chapter.
+
+Note that CWP's Local Cache (Varnish) has slightly different caching rules from the CDN (Incapsula). Depending on your headers, you might see cache hits from the Local Cache, but not from the CDN.
 
 #### Custom static response headers
 
@@ -204,15 +208,34 @@ You can read more about it in the [partial caching documentation](https://docs.s
 
 ## Debugging
 
-Request caching is complex and depends on many factors. The main method to debug efficiently are the HTTP response headers received by your HTTP client (e.g. your browser). Google Chrome has a developer toolbar for this purpose, but please ensure you don’t disable caching there. Otherwise a good old `curl -I <your-url>` will serve the purpose.
+### Tools
 
-The primary indicator for caching behaviour is the `Age` header, which determines the cache age in seconds. For cached content, it should increase on subsequent requests. For uncached content, it either stays at zero or is not set at all. The controllerpolicy module has more details on the various caching headers and how they influence caching behaviour.
+Request caching is complex and depends on many factors. The main method to debug efficiently are the HTTP response headers received by your HTTP client (e.g. your browser). It is quite easy to send a request which disables caching, so ensure that you follow the steps below to diagnose caching behaviour on your site.
 
-A common case for lack of caching is the presence of cookies in the HTTP request or response. Make sure that SilverStripe is not trying to start a PHP session alongside your request. SilverStripe will only attempt this if required by using the Session API in SilverStripe Framework. A PHP session will be started whenever a SilverStripe form is included in the generated HTML, in order to create a secure submission token. Please refer to SilverStripe’s [Secure Coding Guidelines](http://docs.silverstripe.org/en/3.2/developer_guides/security/secure_coding/#cross-site-request-forgery-csrf) to find out how and when to disable this submission token.
+ * **Through CURL**: The `curl` commandline tool is widely available, and can be controlled more granularly than a browser. The following command sends a `GET` request, but only returns the HTTP headers. It also shows total time taken for the request. 
+ `curl -s -D - -w 'Total (secs): %{time_total}' http://www.mydomain.govt.nz -o /dev/null`
+ * **Through your browser**: Google Chrome has a developer toolbar with a "Network" panel. Always use an "Incognito" session to avoid using browser caches, and clear cookies before any request. Do not rely on the "disable cache" setting or hard reloads, since these methods will create inaccurate responses.
 
-Conditional HTTP basic authentication through IP whitelists might also interfere with caching. Please keep in mind that Incapsula won’t cache any responses which are sent with this authentication challenge. Since the same caching is applied to multiple requesting IPs, Incapsula might have already decided that the response is uncacheable based on previous requests.
+### Caching indicators
 
-If you have opted to purchase the Premium Managed Service, the Incapsula dashboard will show you statistics on cache hit ratios. Otherwise you can contact the CWP Service Desk to retrieve this information for you.
+ * **Does the `Age` header count up?** It determines the cache age in seconds. For cached content, it should increase on subsequent requests. For uncached content, it either stays at zero or is not set at all. The [controllerpolicy](https://github.com/silverstripe-archive/silverstripe-controllerpolicy) module has more details on the various caching headers and how they influence caching behaviour.
+ * **Does the `X-Varnish` header contain two numbers?** Varnish [indicates](https://www.varnish-cache.org/docs/2.1/faq/http.html) cache hits through the presence of two numbers.
+ * **Does the `X-Iinfo` header contain `C` values?** This Incapsula specific response header contains four characters which declare the caching level of the response (`NNNN` means not cached, `CNNN` or `NCNN` means cached). This is undocumented behaviour, your mileage may vary.
+ * **Incapsula cache stats** If you have opted to purchase the Premium Managed Service, the Incapsula dashboard will show you statistics on cache hit ratios. Otherwise you can contact the CWP Service Desk to retrieve this information for you.
+
+### Checklist
+
+The following are reasons why your response might not be cached:
+
+ * *Vary header* Does your `Vary` header contain anything other than `Accept-Encoding`? See "Varying content" for more details.
+ * *Cookies* Do you have any cookies set for this domain? Incapsula ignores it's own “utm” and “incap” cookies, any other cookies will likely prevent caching.
+ * *PHP sessions* Any requests with a PHP session will prevent caching. Make sure that SilverStripe is not trying to start a PHP session alongside your request. SilverStripe will only attempt this if required by using the Session API in SilverStripe Framework. A PHP session will be started whenever a SilverStripe form is included in the generated HTML, in order to create a secure submission token. Please refer to SilverStripe’s [Secure Coding Guidelines](http://docs.silverstripe.org/en/3/developer_guides/security/secure_coding/#cross-site-request-forgery-csrf) to find out how and when to disable this submission token.
+ * *Basic Authentication* Are you running HTTP Basic Authentication (e.g. on a UAT site)? This will prevent caching. You can disable authentication on a non-live site through YAML configuration (`CwpControllerExtension.test_basicauth_enabled`). Conditional HTTP basic authentication through IP whitelists might also interfere with caching. Please keep in mind that Incapsula won’t cache any responses which are sent with this authentication challenge. Since the same caching is applied to multiple requesting IPs, Incapsula might have already decided that the response is uncacheable based on previous requests.
+ * *HTTP request verbs* Are you sending a GET request? Any other HTTP verb will prevent caching. This includes HEAD (commonly used through `curl -I`)
+ * *Cache preventing request headers:* Are you preventing caching through a “Cache-Control: private” or “Cache-Control: max-age=0” header? Are you sending `Pragma: no-cache`?
+ * *Incapsula settings* Are you running any non-standard settings or have [path-specific cache rules](https://docs.incapsula.com/Content/management-console-and-settings/performance-settings.htm)? Contact CWP Service Desk or check your dashboard for Premium Managed Service
+ * *nginx settings* Has CWP operations set up any custom nginx rules for you?
+ * *Different CDN nodes* By nature, a Content Delivery Network consists of globally distributed nodes. Subsequent requests might be processed by different nodes, even when coming from the same IP. Each of these nodes have their own caches. Retry your request a few times, the cache might still be propagating.
 
 ## FAQ
 
