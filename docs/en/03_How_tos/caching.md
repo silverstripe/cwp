@@ -152,11 +152,7 @@ As an example the following will apply a new "cache for 900 seconds" header to a
     SetEnvIf Request_URI ".*.php$" NO_CACHE=true
     Header set Cache-Control "max-age=900, public" env=!NO_CACHE
   </IfModule>
-```
-  
-#### Caching and SSL
-
-Since SSL traffic is terminated before it hits CWP's Local Cache layer, you can also cache content delivered through HTTPS. 
+``` 
 
 ### Configuration via Incapsula
 
@@ -241,3 +237,7 @@ If you are using [controllerpolicy](https://github.com/silverstripe-labs/silvers
 There are various triggers in the CWP infrastructure which could detect unusually high load as denial of service attacks (DDos), and temporarily deny access to the originating IPs. In order to perform load testing, you need to contact the CWP Service Desk to whitelist IPs for this purpose. 
 
 *If you have any other questions, please contact the Service Desk.*
+
+**Q: Can I use HTTP-based caching with SSL?**
+
+Since SSL traffic is terminated before it hits CWP's Local Cache layer, you can also cache content delivered through HTTPS.
