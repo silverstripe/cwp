@@ -63,25 +63,21 @@ We will now explain some simple techniques on how to increase your cache utilisa
 
 *) see "Varying content" chapter below
 
-#### Content caching defaults
+#### Defaults
 
 With the basic recipe all SilverStripe Framework responses come with the following _Cache-Control_ directive. You will see this response headers coming from the default recipe site.
+This means the response is classified as "Cache-level: None".
 
 ```
 Cache-Control: no-cache, max-age=0, must-revalidate, no-transform
 ```
 
-This means the response is classified as "Cache-level: None".
-
-#### Asset caching defaults
-
 Furthermore, all CWP instances are configured to set the following header on anything that is NOT served by the framework. This includes all requests for theme files and any asset requests that are not served by the [secureassets](https://github.com/silverstripe/silverstripe-secureassets) module.
+These responses are effectively "Cache-level: Full". The `max-age` value is currently 120 seconds, but could change in the future. CWP customers can’t actively clear CDN caches on Incapsula unless they purchase an optional Premium Managed Service plan. Due to this restriction, asset invalidation needs to take place via the URL, through so called “cache busters”. SilverStripe adds a GET parameter with the last file modification timestamp to each stylesheet and javascript file included through its [Requirements API](http://docs.silverstripe.org/en/3/developer_guides/templates/requirements/). If you are referencing files in other ways, please take care to add your own “cache busters”, e.g. through a Grunt build task modifying the including SilverStripe template.
 
 ```
 Cache-Control: max-age=120, public
 ```
-
-These responses are effectively "Cache-level: Full". The `max-age` value is currently 120 seconds, but could change in the future. CWP customers can’t actively clear CDN caches on Incapsula unless they purchase an optional Premium Managed Service plan. Due to this restriction, asset invalidation needs to take place via the URL, through so called “cache busters”. SilverStripe adds a GET parameter with the last file modification timestamp to each stylesheet and javascript file included through its [Requirements API](http://docs.silverstripe.org/en/3/developer_guides/templates/requirements/). If you are referencing files in other ways, please take care to add your own “cache busters”, e.g. through a Grunt build task modifying the including SilverStripe template.
 
 #### Light caching on dynamic content
 
