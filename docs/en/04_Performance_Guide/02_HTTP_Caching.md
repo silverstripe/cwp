@@ -12,8 +12,6 @@ As a CWP developer, you can make your site significantly faster
 by understanding how caching works, applying it correctly and learning to diagnose issues.
 Caching will also increase your site's reliability, making it able to cope with traffic spikes. 
 
-Check our [Performance Guide](http://www.cwp.govt.nz/developer-docs/en/performance_guide/caching) for more detail on how to apply the following advice.
-
 ## System Overview
 
 CWP is equipped with two transparent cache systems: A *Local Cache Layer* in the CWP data centre (Varnish), and an external *CDN Cache Layer* (Content Delivery Network) provided by [Incapsula](https://www.incapsula.com/).
@@ -64,7 +62,8 @@ We will now explain some simple techniques on how to increase your cache utilisa
 | Light | "max-age=X" | "Cookie, […]" | all |
 | Full | "max-age=X" | _none_ or "Accept-Encoding" | non-varying* |
 
-*) see "Varying content" chapter below
+The easiest way improve caching on your dynamic responses is to use the [controllerpolicy](https://github.com/silverstripe-labs/silverstripe-controllerpolicy) module. It allows you to customise the response headers per `Controller` without the need to modify any PHP code.
+For deeper customisations, you also [set HTTP Cache headers directly](https://docs.silverstripe.org/en/3/developer_guides/performance/http_cache_headers/).
 
 #### Defaults
 
@@ -83,8 +82,6 @@ Cache-Control: max-age=120, public
 ```
 
 #### Light caching on dynamic content
-
-The easiest way improve caching on your dynamic responses is to use the [controllerpolicy](https://github.com/silverstripe-labs/silverstripe-controllerpolicy) module. It allows you to customise the response headers per `Controller` without the need to modify any PHP code.
 
 You'll need to talk to your business owner about cache lifetimes: Updated content might not reach visitors until caches expire. This policy is generally safe, but specific controllers may need tweaks. For example the "userforms" module requires caching to be disabled through a `NoopPolicy` because it generates a unique form submission token for each visitor.
 
@@ -171,7 +168,13 @@ On CWP the _Static+Dynamic_ mode was not observed to be any different from the _
 
 Incapsula will also attempt to compress JPEG and PNG images as well as minify CSS, but will not minify JS.
 
-#### Potentially dangerous settings
+
+Important: If you have a access to the Incapsula dashboard through the Premium Managed Service,
+your settings there only influence responses from your own domain(s).
+Content served through "*.cwp.govt.nz" domains will not be affected by your changes.
+This conveniently includes responses generated from the CMS admin area which shouldn't be retained in the cache at all.
+
+### Potentially dangerous settings in Incapsula
 
 We do not recommend switching the mode to __Aggressive__ nor disabling "Comply with Vary: User-Agent". These put you at a risk of leaking user-specific or confidential data and should only be considered for sites without varying content. The reasons are explained in the "Content Security" chapter.
 
@@ -182,12 +185,6 @@ You should not change these if any of the following is true:
 - Your site is protected by an IP whitelist which wasn’t requested through CWP Service Desk
 
 See "Varying content" chapter for more details. If your site is completely public information, or you endeavour to maintain a tightly controlled list of Incapsula exceptions, you can change these __at your own risk__.
-
-#### *.cwp.govt.nz domain
-
-Your Incapsula dashboard only controls handling of the responses from the publicly accessible domain. Content under "*.cwp.govt.nz" will not be affected by your changes - this conveniently includes the CMS admin area for the live site which shouldn't be retained in the cache.
-
-You would need to reconsider your configuration if you ever decide to serve the "admin" or "Security" area from your public domain.
 
 ## Debugging
 
@@ -241,3 +238,7 @@ There are various triggers in the CWP infrastructure which could detect unusuall
 Since SSL traffic is terminated before it hits CWP's Local Cache layer, you can also cache content delivered through HTTPS.
 
 *If you have any other questions, please contact the Service Desk.*
+
+## Resources
+
+ * [Google Web Fundamentals: Caching](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching)
