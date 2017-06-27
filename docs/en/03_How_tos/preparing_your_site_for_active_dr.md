@@ -13,9 +13,11 @@ Active DR instances have two properties:
  * They are highly-available: if one datacentre / node exhibits a problem and is not reachable, or emits 5xx HTTP status
  code, this node will be pulled out of the pool and all traffic will be redirected to the other datacentre.
 
+
 Your custom domains will be actively load balanced between the two nodes. *.cwp.govt.nz domains are not load balanced and point to either the Wellington or Auckland node. We supply two domains for Active DR environments for both UAT and PROD to help debug issues:
-<instance>.cwp.govt.nz - points to Wellington
-<instance>-dr.cwp.govt.nz - points to Auckland
+ * instance.cwp.govt.nz - points to Wellington
+ * instance-dr.cwp.govt.nz - points to Auckland
+
 
 <div class="warning" markdown='1'>
 In other words: we cannot make your site highly-available if your production domain is not pointing to CWP (i.e. your
