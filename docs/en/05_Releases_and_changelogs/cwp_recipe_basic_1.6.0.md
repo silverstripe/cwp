@@ -97,7 +97,7 @@ BasePage_Controller:
 
 You're now all set up for Steps 2 and 3. Let's get to it!
 
-##### Step 2: From `getBaseScripts` to `updateBaseScripts`**
+##### Step 2: From `getBaseScripts` to `updateBaseScripts`
 
 If you have overriden `getBaseScripts`, you will need to add the `updateBaseScripts` method to your `BasePageControllerExtension`. There are **two** ways this is likely to go for you depending on how you have overridden `getBaseScripts` and if you have (or have not) made use of the `parent::getBaseScripts()` method: 
 
@@ -161,7 +161,7 @@ DefaultThemeExtension:
   disable_default_scripts: true
 ```
 
-##### Step 3: From `getBaseStyles` to `updateBaseStyles`**
+##### Step 3: From `getBaseStyles` to `updateBaseStyles`
 
 If you have overriden `getBaseStyles`, you will need to add the `updateBaseStyles` method to your `BasePageControllerExtension`. There are **two** ways this is likely to go for you depending on how you have overridden `getBaseStyles` and if you have (or have not) made use of the `parent::getBaseStyles()` method: 
 
@@ -225,7 +225,7 @@ DefaultThemeExtension:
   disable_default_styles: true
 ```
 
-#### Theme Migration Conclusion
+#### Theme migration conclusion
 That's it! You should be all ready to go! We do understand this is a bit of a tricky update, so if you have any questions, do not hesitate to submit a [Support Request](https://www.cwp.govt.nz/service-desk/requests/?target=set_project.php%3Fproject_id%3D33%3B4%26redirect_bug%3D1) with any questions or suggestions you might have. Happy to discuss! 
  
 
