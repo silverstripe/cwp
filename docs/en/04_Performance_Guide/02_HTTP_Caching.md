@@ -68,14 +68,14 @@ For deeper customisations, you also [set HTTP Cache headers directly](https://do
 #### Defaults
 
 With the basic recipe all SilverStripe Framework responses come with the following _Cache-Control_ directive. You will see this response headers coming from the default recipe site.
-This means the response is classified as "Cache-level: None".
+This means the response is classified as the "None" cache level.
 
 ```
 Cache-Control: no-cache, max-age=0, must-revalidate, no-transform
 ```
 
 Furthermore, all CWP instances are configured to set the following header on anything that is NOT served by the framework. This includes all requests for theme files and any asset requests that are not served by the [secureassets](https://github.com/silverstripe/silverstripe-secureassets) module.
-These responses are effectively "Cache-level: Full". The `max-age` value is currently 120 seconds, but could change in the future. CWP customers can’t actively clear CDN caches on Incapsula unless they purchase an optional Premium Managed Service plan. Due to this restriction, asset invalidation needs to take place via the URL, through so called “cache busters”. SilverStripe adds a GET parameter with the last file modification timestamp to each stylesheet and javascript file included through its [Requirements API](http://docs.silverstripe.org/en/3/developer_guides/templates/requirements/). If you are referencing files in other ways, please take care to add your own “cache busters”, e.g. through a Grunt build task modifying the including SilverStripe template.
+These responses are effectively the "Full" cache level. The `max-age` value is currently 120 seconds, but could change in the future. CWP customers can’t actively clear CDN caches on Incapsula unless they purchase an optional Premium Managed Service plan. Due to this restriction, asset invalidation needs to take place via the URL, through so called “cache busters”. SilverStripe adds a GET parameter with the last file modification timestamp to each stylesheet and javascript file included through its [Requirements API](http://docs.silverstripe.org/en/3/developer_guides/templates/requirements/). If you are referencing files in other ways, please take care to add your own “cache busters”, e.g. through a Grunt build task modifying the including SilverStripe template.
 
 ```
 Cache-Control: max-age=120, public
@@ -126,7 +126,7 @@ As a rule of thumb, if you configure your _Cache-Control_ and _Vary_ correctly, 
 
 Varying content is any URL which content depends on request data from the visitor. Lack of a session (_Cookie_ or _Authorization_ headers in the request) is usually a good first step to find non-varying URLs.
 
-Login abilities, IP whitelisting, and Basic Authentication all imply the content varies per user. All header-driven content changes need to be properly highlighted via a _Vary_ response header (which will automatically reduce to "Cache-level: Light").
+Login abilities, IP whitelisting, and Basic Authentication all imply the content varies per user. All header-driven content changes need to be properly highlighted via a _Vary_ response header (which will automatically reduce to the "Light" cache level).
 
 Additionally, if you are serving both https and http from the same instance, you need to vary on _X-Forwarded-Protocol_ because of the `BaseURL` differences and the CWP network layout. You won't currently be able to use full caching on such double-protocol site.
 
@@ -157,7 +157,7 @@ The [Incapsula](http://incapsula.com) CDN is active for all requests on all CWP 
 headers both from static assets (usually configured through `.htaccess`), as well as dynamic SilverStripe responses
 configured through the controllerpolicy module.
 
-If you opted for the Premium Managed Service you will have an additional way to control the cache through your own Incapsula web-based dashboard. Please see the [site performance settings](https://incapsula.zendesk.com/hc/en-us/articles/200627760-Site-performance-settings) in the Incapsula docs for more information.
+If you opted for the Premium Managed Service you get readonly access to the Incapsula web-based dashboard incl. metrics. The CWP operations team remains responsible for changing configuration there. Please see the [site performance settings](https://incapsula.zendesk.com/hc/en-us/articles/200627760-Site-performance-settings) in the Incapsula docs for more information.
 
 If you haven't opted for the Premium Managed Service, requests to change Incapsula settings need to go through the CWP help desk.
 These changes only apply to your production environment. Other environments like Test or UAT share a common CWP configuration
@@ -200,7 +200,7 @@ Request caching is complex and depends on many factors. The main method to debug
 
  * **Does the `Age` header count up?** It determines the cache age in seconds. For cached content, it should increase on subsequent requests. For uncached content, it either stays at zero or is not set at all. The [controllerpolicy](https://github.com/silverstripe-archive/silverstripe-controllerpolicy) module has more details on the various caching headers and how they influence caching behaviour.
  * **Does the `X-Varnish` header contain two numbers?** Varnish [indicates](https://www.varnish-cache.org/docs/2.1/faq/http.html) cache hits through the presence of two numbers.
- * **Does the `X-Iinfo` header contain `C` values?** This Incapsula specific response header contains four characters which declare the caching level of the response (`NNNN` means not cached, `CNNN` or `NCNN` means cached). This is undocumented behaviour, your mileage may vary.
+ * **Does the `X-Iinfo` header contain `C` values?** This Incapsula specific response header contains four characters which declare the caching level of the response (`NNNN` means not cached, `CNNN` or `NCNN` means cached). This behaviour is not officially documented by Incapsula, your mileage may vary.
  * **Incapsula cache stats** If you have opted to purchase the Premium Managed Service, the Incapsula dashboard will show you statistics on cache hit ratios. Otherwise you can contact the CWP Service Desk to retrieve this information for you.
 
 ### Checklist
