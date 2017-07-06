@@ -40,11 +40,11 @@ composer require cwp/agency-extensions
 
 If you're upgrading from a project that uses the `cwp-themes/default` theme, or has a theme that was based on this theme
 in the past, you may need to install the agency-extensions module (instructions above) to reinstate some functionality
-such as combined scripts and styles, hero/carousel etc.
+such as combined scripts and styles, hero/carousel etc. 
 
 If you have renamed the "default" theme to something else, you will need to add your custom theme name to a configuration
 array of "default themes". Without doing so your pages may render with no CSS or Javascript. This can be defined either
-in YAML or PHP (in `mysite/_config.php`).
+in YAML or PHP (in `mysite/_config.php`). 
 
 **YAML: mysite/\_config/config.yml**
 
@@ -62,7 +62,166 @@ CwpThemeHelper:
 Config::inst()->update('CwpThemeHelper', 'default_themes', array('my_custom_theme_name'));
 ```
 
-### Accepted failing tests
+####SSViewer Theme
+One potential issues you may encounter is that your `Security` login page is not styled. To ensure this doesn't happen, please check your `config.yml` and ensure that you have specified the theme your `SSViewer` uses like this: 
+
+```
+SSViewer:
+  theme: 'my_custom_theme_name'
+```
+
+####Customised `getBaseStyles` and `getBaseScripts`
+In previous versions of the recipe, you may followed the **"Adding JS and CSS files" [instructions](https://www.cwp.govt.nz/developer-docs/en/1.5/working_with_projects/customising_the_default_theme#adding-js-and-css-files-2)**. If have overriden the `getBaseStyles` and/or `getBaseScripts` methods in `Page_Controller` (which inherits from `BasePage_Controller`), we will need to make a few more adjustments. 
+
+`BasePage_Controller` no longer has the methods `getBaseStyles` and `getBaseScripts`. Meaning, overriding them in `Page_Controller` will no longer give us the results we expect. Instead, we are going to have to create an extension for `BasePage_Controller` so we can hook our custom Styles and Scripts back in. 
+
+**Step 1: Create and Apply a BasePageControllerExtension**
+
+Let's start with creating our Extension. We can name it say `BasePageControllerExtension`. It should look something like this: 
+
+```
+class BasePageControllerExtension extends DataExtension { 
+   ... 
+}
+```
+And it can live in `BasePageControllerExtension.php`. 
+Alright! Now we need to apply it to our `BasePage_Controller`. In your `config.yml`, you will need to add: 
+
+
+```
+BasePage_Controller:
+  extensions:
+    - BasePageControllerExtension
+``` 
+
+Okay, now we're all set up for Steps 2 and 3. Let's get to it!
+
+**Step 2: From `getBaseScripts` to `updateBaseScripts`**
+
+If you have overriden `getBaseScripts`, you will need to add the `updateBaseScripts` method to your BaseControllerExtension. There are **two** ways this is likely to go for you depending on how you have overridden `getBaseScripts` and if you have (or have not) made use of the `parent::getBaseScripts()` method: 
+
+#####1. `Page_Controller` has the method `getBaseScripts` and it makes use of `parent::getBaseScripts()` like this: 
+
+```
+public function getBaseScripts() {
+    $scripts = parent::getBaseScripts();
+
+    $themeDir = SSViewer::get_theme_folder();
+    array_push($scripts, "$themeDir/js/my.js");
+
+    return $scripts;
+}
+```
+
+In 1.6.0, we would need to remove the above method from `Page_Controller` and then add the following method to the `BasePageControllerExtension`: 
+
+```
+public function updateBaseScripts(&$scripts){
+    $themeDir = SSViewer::get_theme_folder();
+
+    $scripts = array_merge($scripts, array(
+        "$themeDir/js/my.js"
+    ));
+}
+```
+
+#####2. `Page_Controller` has the method `getBaseScripts` and it does not make use of `parent::getBaseScripts()` like this: 
+
+```
+public function getBaseScripts() {
+    $themeDir = SSViewer::get_theme_folder();
+
+    return array(
+    	"$themeDir/js/my.js"
+    );
+}
+```
+
+Again, we would need to remove the above method from `Page_Controller` and then add the following method to the `BasePageControllerExtension`: 
+
+```
+public function updateBaseScripts(&$scripts)
+{
+    $themeDir = SSViewer::get_theme_folder();
+
+    $scripts = array_merge($scripts, array(
+        "$themeDir/js/my.js"
+    ));
+}
+```
+
+And finally, we have to disable the default theme scripts in our `config.yml`:
+
+```
+DefaultThemeExtension:
+  disable_default_scripts: true
+```
+
+**Step 3: From `getBaseStyles` to `updateBaseStyles`**
+
+If you have overriden `getBaseStyles`, you will need to add the `updateBaseStyles` method to your BaseControllerExtension. There are **two** ways this is likely to go for you depending on how you have overridden `getBaseStyles` and if you have (or have not) made use of the `parent::getBaseStyles()` method: 
+
+#####1. `Page_Controller` has the method `getBaseStyles` and it makes use of `parent:: getBaseStyles()` like this: 
+
+```
+public function getBaseStyles() {
+    $styles = parent::getBaseStyles();
+
+    $themeDir = SSViewer::get_theme_folder();
+    array_push($styles['all'], "$themeDir/css/my.css");
+
+    return $styles;
+}
+```
+
+In 1.6.0, we would need to remove the above method from `Page_Controller` and then add the following method to the `BasePageControllerExtension`: 
+
+```
+public function updateBaseStyles(&$styles){
+    $themeDir = SSViewer::get_theme_folder();
+
+    $styles['all'] = array_merge($styles['all'], array(
+        "$themeDir/css/my.css"
+    ));
+}
+```
+
+#####2. `Page_Controller` has the method `getBaseStyles ` and it does not make use of `parent:: getBaseStyles()` like this: 
+
+```
+public function getBaseStyles() {
+    $themeDir = SSViewer::get_theme_folder();
+
+    return array(
+    	"all" => "$themeDir/js/my.js"
+    );
+}
+```
+
+Again, we would need to remove the above method from `Page_Controller` and then add the following method to the `BasePageControllerExtension`: 
+
+```
+public function updateBaseStyles(&$styles){
+    $themeDir = SSViewer::get_theme_folder();
+
+    $styles['all'] = array_merge($styles['all'], array(
+        "$themeDir/css/my.css"
+    ));
+}
+```
+
+And finally, we have to disable the default theme scripts in our `config.yml`:
+
+```
+DefaultThemeExtension:
+  disable_default_styles: true
+```
+
+####Theme Migration Conclusion
+That's it! You should be complete and all ready to go! We do understand this is a bit of a tricky update, so if you have any questions, do not hesitate to submit a [Support Request](https://www.cwp.govt.nz/service-desk/requests/?target=set_project.php%3Fproject_id%3D33%3B4%26redirect_bug%3D1) with any questions or suggestions you might have. Happy to discuss! 
+ 
+
+## Accepted failing tests
 
 In recipe 1.6.0 these module unit tests cause external errors, but do not represent legitimate issues.
 
