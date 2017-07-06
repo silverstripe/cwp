@@ -85,7 +85,7 @@ class BasePageControllerExtension extends Extension
    ... 
 }
 ```
-And it can live in `mysite/code/BasePageControllerExtension.php`. 
+And it can live in `mysite/code/extensions/BasePageControllerExtension.php`. 
 Now you need to apply it to your `BasePage_Controller`. In your `config.yml`, you will need to add: 
 
 
