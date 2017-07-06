@@ -96,3 +96,7 @@ API failures before they happen if you can.
 If it's possible you should avoid making API requests before you know you will need the data. Performing a request in
 a controller's `init` method may have an unnecessary impact on your site's performance. It's best to perform an API 
 request "just in time" to ensure you only fetch the data you need.
+
+## Next
+
+Continue to our performance guide on [404s](404s).

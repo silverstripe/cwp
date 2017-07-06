@@ -46,6 +46,8 @@ This may take some time to run as it is collecting and downloading all the code 
 You should now be able to visit: http://localhost/my-project and see a basic CWP-themed site in your browser.
 
 For a more in-depth walkthrough through CWP development activities, please refer to ["Working with projects"](working_with_projects).
+Even if you already know how to develop in SilverStripe, please review our
+[Performance Guide](performance-guide) to ensure you create a stable and performant site.
 
 ## Troubleshooting
 
