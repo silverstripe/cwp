@@ -173,7 +173,7 @@ public function getBaseStyles()
     $styles = parent::getBaseStyles();
 
     $themeDir = SSViewer::get_theme_folder();
-    array_push($styles['all'], "$themeDir/css/my.css");
+    $styles['all'][] = "$themeDir/css/my.css"
 
     return $styles;
 }
@@ -200,7 +200,7 @@ public function getBaseStyles()
     $themeDir = SSViewer::get_theme_folder();
 
     return array(
-    	"all" => "$themeDir/js/my.js"
+    	"all" => "$themeDir/css/my.css"
     );
 }
 ```
