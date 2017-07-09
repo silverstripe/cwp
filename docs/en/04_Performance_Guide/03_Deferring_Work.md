@@ -58,4 +58,4 @@ sustain higher amounts of simultaneous users.
 
 ## Next
 
-Continue to our performance guide on [Frontend Best Practices](frontend-best-practices).
+Continue to our performance guide on [Frontend Best Practices](frontend_best_practices).

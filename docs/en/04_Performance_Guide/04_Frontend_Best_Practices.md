@@ -15,7 +15,7 @@ will focus on a few that will have the most use on the CWP environments.
 
 Firstly though, it is important to know what is already being done. Incapsula, as well as being a Web Application 
 Firewall, provides CWP sites with a Content Distribution Network (CDN). This means that some requests can be served by
-Incapsula, rather than using server processing power. Read the ["HTTP Caching" chapter](http-caching) for details.
+Incapsula, rather than using server processing power. Read the ["HTTP Caching" chapter](http_caching) for details.
 
 One of the other benefits of Incapsula is that it provides content optimisation, which CWP sites will use by default. 
 This includes:
@@ -76,4 +76,4 @@ For more information on optimising your third-party integrations, see [our guide
 
 ## Next
 
-Continue to our performance guide on [Handling Third Parties](third-parties).
+Continue to our performance guide on [Handling Third Parties](third_parties).
