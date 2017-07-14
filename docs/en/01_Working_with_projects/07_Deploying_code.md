@@ -57,7 +57,7 @@ as seen in Deploynaut.
 When including private repositories remember they have to have a "private" flag set on them in the `composer.json`
 file. See [working with modules](working_with_modules) for more information.
 
-If you have [migrated to a Github Git repository](/working_with_projects/setting_up_your_project/#making-your-first-project-commit-2), [refer to the Github documentation](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys).
+If you have [migrated to a GitHub Git repository](/working_with_projects/setting_up_your_project/#making-your-first-project-commit-2), [refer to the GitHub documentation](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys).
 
 ## Fetching changes
 
