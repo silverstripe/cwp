@@ -3,7 +3,7 @@ summary: Using or creating reusable modules for SilverStripe CMS.
 
 # Working with modules
 
-Public (or private) modules are available as separate repositories (projects) within Gitlab or GitHub. They can then be included in any other projects through Composer. For more information about Composer usage with SilverStripe see
+Public (or private) modules are available as separate repositories (projects) within GitLab or GitHub. They can then be included in any other projects through Composer. For more information about Composer usage with SilverStripe see
 [Installing and Upgrading with Composer](https://docs.silverstripe.org/en/3.2/getting_started/composer/).
 
 We assume here that you have your website project already started, based off the basic recipe.
@@ -97,7 +97,7 @@ root directory of your main project.
 	]
 
 <div class="notice" markdown='1'>
-The `private` parameter is non-standard and is used by  Deploynaut to distinguish between private repositories and
+The `private` parameter is non-standard and is used by Deploynaut to distinguish between private repositories and
 public repositories. See the section below about public modules.
 </div>
 
