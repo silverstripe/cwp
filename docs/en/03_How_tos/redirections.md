@@ -39,7 +39,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 This will then force all traffic to redirect to HTTPS on `my.domain.govt.nz`.
 
-## _config.php
+## \_config.php
 
 Redirection to https or www can also be enabled using the `Director` class in your `_config.php` file, however using the `.htaccess` method is often more predictable. The following redirects all web traffic to https and www on a live site.
 
