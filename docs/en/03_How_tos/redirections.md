@@ -39,7 +39,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 This will then force all traffic to redirect to HTTPS on `my.domain.govt.nz`.
 
-## _config.php
+## \_config.php
 
 Redirection to https or www can also be enabled using the `Director` class in your `_config.php` file, however using the `.htaccess` method is often more predictable. The following redirects all web traffic to https and www on a live site.
 
@@ -52,9 +52,8 @@ if(Director::isLive() && !Director::is_cli()) {
 
 In this example `Director::isLive()` is used to only redirect on the CWP production environment. `!Director::is_cli()` ensures that this redirection does not impact command line actions such as the `dev/build` that occurs during deployment.
 
-Note that this applies to all domains on your instance so be sure to check that they support https. 
+Note that this applies to all domains on your instance so be sure to check that they support https.
 
 ## Module
 
 There's a number of modules that implement redirections in different ways, try searching the [add-ons site](http://addons.silverstripe.org/add-ons) for one that suits your needs. One popular example is [redirectedurls.](https://github.com/silverstripe/silverstripe-redirectedurls)
-
