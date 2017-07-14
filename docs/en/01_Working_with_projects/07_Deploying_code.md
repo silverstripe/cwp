@@ -57,6 +57,8 @@ as seen in Deploynaut.
 When including private repositories remember they have to have a "private" flag set on them in the `composer.json`
 file. See [working with modules](working_with_modules) for more information.
 
+If you have [migrated to a Github Git repository](/working_with_projects/setting_up_your_project/#making-your-first-project-commit-2), [refer to the Github documentation](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys).
+
 ## Fetching changes
 
 To get the latest changes available in the repository hit the "Fetch latest changes" button. This is an equivalent of a
@@ -120,7 +122,7 @@ The general process for deploying to test / UAT is as follows:
    of pre-defined urls that deploynaut expects the site to have, and will test their expected responses.
  * The initiator will be messaged (via text / email) that their deployment has succeeded.
 
-If at any point in the process a failure occurs, the pipeline will create an additional set of steps to 
+If at any point in the process a failure occurs, the pipeline will create an additional set of steps to
 deploy back to the last known good release. These steps are:
 
  * Initiate the deployment targeting the last known good state
@@ -177,7 +179,7 @@ If the deployment succeeds and passes all tests then the following process will 
    to revert the site back to the way it was prior to the release. This will also revert the database, so take care
    not to revert if there are important content updates made in this time. Unlike a normal deployment, this rollback
    request will not require further approval and can be initiated immediately.
- * After a period of one hour this rollback step will expire automatically, and the initiator will be notified by 
+ * After a period of one hour this rollback step will expire automatically, and the initiator will be notified by
    text and / or email that the pipeline has completed successfully. Expiry can be invoked manually at any time
    by pressing "dismiss" on the deployment dashboard.
 
