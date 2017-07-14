@@ -23,10 +23,25 @@ id:
     Terms: Istilah
     TermsDescription: 'Klik untuk mencari term tambahan'
   CustomSiteConfig:
+    LogosIconsTab: Logo/Ikon
     SocialMediaTab: 'Media Sosial'
+  CwpCarousel:
+    LinkField: Tautan
   CwpConfig:
+    AddThisField: 'IP Profil AddThis'
+    AddThisFieldDesc: 'ID Profil untuk digunakan pada seluruh situs (dalam format <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
+    AppleIconField114: 'Ikon Apple Touch Web Clip (dimensi 114x114, format PNG)'
+    AppleIconField144: 'Ikon Apple Touch Web Clip dan Windows 8 Tile (dimensi 144x144, format PNG)'
+    AppleIconField57: 'Ikon Apple Touch Web Clip (dimensi 57x57, format PNG)'
+    AppleIconField72: 'Ikon Apple Touch Web Clip (dimensi 72x72, format PNG)'
+    FavIconField: 'Favicon, dalam format .ico, dimensi 16x16, 32x32, atau 48x48'
     FbField: 'UID atau nama pengguna Facebook'
     FbFieldDesc: 'Tautan Facebook (semua bagian tautan setelah "http://facebook.com/", misal http://facebook.com/<strong>nama_pengguna</strong> atau http://facebook.com/<strong>pages/108510539573</strong>)'
+    FooterLogoDescField: 'Deskripsi Logo footer'
+    FooterLogoField: 'Logo footer, tampil pada bagian bawah'
+    FooterLogoLinkDesc: 'Mohon isikan juga nama protokol (misal, http:// atau https://) kecuali untuk tautan internal.'
+    FooterLogoLinkField: 'Tautan Logo Footer'
+    FooterLogoRetinaField: 'Logo footer beresolusi tinggi (direkomendasikan berukuran dua kali tinggi dan lebar dari logo footer standar)'
     GaField: 'Akun Google Analytics'
     GaFieldDesc: 'Angka akun untuk digunakan di seluruh bagian situs (dalam format <strong>UA-XXXXX-X</strong>)'
     TwitterField: 'Nama Pengguna Twitter '

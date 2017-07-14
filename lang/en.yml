@@ -26,13 +26,43 @@ en:
     Term: Term
     Terms: Terms
     TermsDescription: 'Click to search for additional terms'
+  CWP_Search:
+    EmptySearch: 'Search field empty, please enter your search query.'
+    MetaTitle: 'Search {keywords}'
+    NoResult: 'Sorry, your search query did not return any results.'
+  CarouselItem:
+    PLURALNAME: 'Carousel Items'
+    SINGULARNAME: 'Carousel Item'
   CustomSiteConfig:
+    LogosIconsTab: Logos/Icons
     SocialMediaTab: 'Social Media'
+  CwpCarousel:
+    ArchivedField: 'Archive this carousel item?'
+    LinkField: Link
+    NoteField: 'Note: You will need to create the carousel item before you can add an image'
+  CwpCommentingExtension:
+    EMAIL_TITLE: Email
+    WEBSITE_TITLE: 'Your website (optional)'
+    WILL_NOT_BE_PUBLISHED: 'Will not be published.'
   CwpConfig:
+    AddThisField: 'AddThis Profile ID'
+    AddThisFieldDesc: 'Profile ID to be used all across the site (in the format <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
+    AppleIconField114: 'Apple Touch Web Clip Icon (dimensions of 114x114, PNG format)'
+    AppleIconField144: 'Apple Touch Web Clip and Windows 8 Tile Icon (dimensions of 144x144, PNG format)'
+    AppleIconField57: 'Apple Touch Web Clip Icon (dimensions of 57x57, PNG format)'
+    AppleIconField72: 'Apple Touch Web Clip Icon (dimensions of 72x72, PNG format)'
+    FavIconField: 'Favicon, in .ico format, dimensions of 16x16, 32x32, or 48x48'
     FbField: 'Facebook UID or username'
     FbFieldDesc: 'Facebook link (everything after the "http://facebook.com/", eg http://facebook.com/<strong>username</strong> or http://facebook.com/<strong>pages/108510539573</strong>)'
+    FooterLogoDescField: 'Footer Logo description'
+    FooterLogoField: 'Footer logo, to appear in the footer'
+    FooterLogoLinkDesc: 'Please include the protocol (ie, http:// or https://) unless it is an internal link.'
+    FooterLogoLinkField: 'Footer Logo link'
+    FooterLogoRetinaField: 'High resolution footer logo (recommended twice the height and width of the standard footer logo)'
     GaField: 'Google Analytics account'
     GaFieldDesc: 'Account number to be used all across the site (in the format <strong>UA-XXXXX-X</strong>)'
+    LogoRetinaUploadField: 'High resolution logo, to appear in the top left (recommended twice the height and width of the standard logo)'
+    LogoUploadField: 'Logo, to appear in the top left'
     SearchSynonyms: 'Search Synonyms'
     SearchSynonyms_Description: 'Enter as many comma separated synonyms as you wish, where each line represents a group of synonyms.<br /> You will need to run <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a> if you make any changes'
     TwitterField: 'Twitter username'
@@ -60,13 +90,16 @@ en:
     LocationFieldLabel: Location
     StartTimeFieldLabel: 'Start Time'
   DatedUpdateHolder:
+    DATE_EXAMPLE: '(example: 2017/12/30)'
     DESCRIPTION: 'Generic content page'
+    FILTER_BETWEEN: between
+    FILTER_IN: in
+    FILTER_ON: 'on'
+    FILTER_WITHIN: within
+    FROM_DATE: 'From date'
     PLURALNAME: 'Dated Update Holders'
     SINGULARNAME: 'Dated Update Holder'
-    FILTER_WITHIN: 'within'
-    FILTER_BETWEEN: 'between'
-    FILTER_ON: 'on'
-    FILTER_IN: 'in'
+    TO_DATE: 'To date'
   DatedUpdatePage:
     DESCRIPTION: 'Generic content page'
     PLURALNAME: 'Dated Update Pages'
@@ -116,9 +149,9 @@ en:
     FeatureOne: 'Feature One'
     FeatureTwo: 'Feature Two'
     PLURALNAME: Pages
-    SINGULARNAME: Page
     SHOW_PAGE_UTILITIES: 'Show page utilities?'
     SHOW_PAGE_UTILITIES_HELP: 'You can disable page utilities (print, share, etc) for this page'
+    SINGULARNAME: Page
   SiteTreeFileExtension:
     BACKLINK_LIST_DESCRIPTION: 'This list shows all pages where the file has been added through a WYSIWYG editor.'
     EDIT: Edit

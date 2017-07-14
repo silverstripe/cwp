@@ -55,3 +55,7 @@ because the web server has far fewer elements and data to process, resulting in 
 that the user has "stayed on the page". This is another example of "perceived performance". Reducing the amount of 
 processing required on each click is a simple way to reduce server load and establish overall better response times and 
 sustain higher amounts of simultaneous users.
+
+## Next
+
+Continue to our performance guide on [Frontend Best Practices](frontend_best_practices).

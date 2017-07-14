@@ -26,20 +26,43 @@ eo:
     Term: Termino
     Terms: Terminoj
     TermsDescription: 'Alklaku por serĉi pluajn erojn'
+  CWP_Search:
+    EmptySearch: 'Sercota kampo malplenas, bonvolu enigi informpeton.'
+    MetaTitle: 'Serĉi {keywords}'
+    NoResult: 'Via informpeto ne liveris rezulton.'
   CarouselItem:
     PLURALNAME: 'Karuselaj elementoj'
     SINGULARNAME: 'Karusela elemento'
   CustomSiteConfig:
+    LogosIconsTab: Bildsimboloj
     SocialMediaTab: 'Interkona retejo'
   CwpCarousel:
     ArchivedField: 'Ĉu enarkivigi ĉi tiun karuselan elementon?'
     LinkField: Ligilo
     NoteField: 'Notu: Necesas krei la karuselan elementon antaŭ ol vi povos aldoni bildon'
+  CwpCommentingExtension:
+    EMAIL_TITLE: Retpoŝto
+    WEBSITE_TITLE: 'Via retejo (malnepra)'
+    WILL_NOT_BE_PUBLISHED: 'Ne publikiĝos.'
   CwpConfig:
+    AddThisField: 'Aldoni ĉi tiun ID-agordaron'
+    AddThisFieldDesc: 'ID-agordaro uzota ie en la retejo (en la formato <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
+    AppleIconField114: 'Bildsimbolo por Apple Touch Web eltondaĵo (dimensioj 114x114, PNG-formato)'
+    AppleIconField144: 'Bildsimbolo por Apple Touch Web eltondaĵo kaj Windows 8 kahelo (dimensioj 144x144, PNG-formato)'
+    AppleIconField57: 'Bildsimbolo por Apple Touch Web eltondaĵo (dimensioj 57x57, PNG-formato)'
+    AppleIconField72: 'Bildsimbolo por Apple Touch Web eltondaĵo (dimensioj 72x72, PNG-formato)'
+    FavIconField: 'Favorbildo, en .ico-formato, dimensioj 16x16, 32x32, aŭ 48x48'
     FbField: 'UID aŭ salutnomo por Facebook'
     FbFieldDesc: 'Facebook-ligilo (ĉio post "http://facebook.com/", ekzemple http://facebook.com/<strong>salutnomo</strong> aŭ http://facebook.com/<strong>paĝoj/108510539573</strong>)'
+    FooterLogoDescField: 'Priskribo de la paĝopieda bildsimbolo'
+    FooterLogoField: 'Paĝopieda bildsimbolo, aperonta en la paĝopiedo'
+    FooterLogoLinkDesc: 'Bonvole inkludu la protokolon (t.e., http:// or https://) krom se ĝi estas interna ligilo.'
+    FooterLogoLinkField: 'Paĝopieda bildsimbola ligilo'
+    FooterLogoRetinaField: 'Tredistingiva paĝopieda bildsimbolo (rekomeninda dufoje la alton kaj larĝon de la normala paĝopieda bildsimbolo)'
     GaField: 'Konto poe Google Analytics'
     GaFieldDesc: 'Kontnumero uzota ie en la retejo (en la formato <strong>UA-XXXXX-X</strong>)'
+    LogoRetinaUploadField: 'Tredistingiva bildsimbolo, aperonta ĉe la maldekstra supro (rekomeninda dufoje la alton kaj larĝon de la normala bildsimbolo)'
+    LogoUploadField: 'Bildsimbolo, aperonta ĉe la maldekstra supro'
     SearchSynonyms: 'Serĉi sinonimojn'
     SearchSynonyms_Description: 'Enigu tiom da komodisigitaj sinonimoj kiel bezonate, kie ĉiu linio prezentas grupon de sinonimoj.<br /> Necesos ke vi rulu je <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a> se vi ŝanĝos ion'
     TwitterField: 'Salutnomo por Twitter'
@@ -67,9 +90,16 @@ eo:
     LocationFieldLabel: Loko
     StartTimeFieldLabel: 'Komenca horo'
   DatedUpdateHolder:
+    DATE_EXAMPLE: '(ekzemplo: 2017/12/30)'
     DESCRIPTION: 'Ĝenerala paĝo por enhavo'
+    FILTER_BETWEEN: inter
+    FILTER_IN: en
+    FILTER_ON: sur
+    FILTER_WITHIN: 'ene de'
+    FROM_DATE: 'Eka dato'
     PLURALNAME: 'Ĝisdatigaj datujoj'
     SINGULARNAME: 'Ĝisdatiga datujo'
+    TO_DATE: 'Ĝisa dato'
   DatedUpdatePage:
     DESCRIPTION: 'Ĝenerala paĝo por enhavo'
     PLURALNAME: 'Ĝisdatigaj datujoj'
@@ -119,6 +149,8 @@ eo:
     FeatureOne: 'Prezentita unua'
     FeatureTwo: 'Prezentita dua'
     PLURALNAME: Paĝoj
+    SHOW_PAGE_UTILITIES: 'Ĉu vidigu paĝajn utilaĵojn?'
+    SHOW_PAGE_UTILITIES_HELP: 'Vi povas malŝalti paĝajn utilaĵojn (presi, kunhavigi, ktp) por ĉi tiu paĝo.'
     SINGULARNAME: Paĝo
   SiteTreeFileExtension:
     BACKLINK_LIST_DESCRIPTION: 'Ĉi tiu listo vidigas ĉiujn paĝojn kie la dosiero estas enmetita per la faksimila redaktilo.'

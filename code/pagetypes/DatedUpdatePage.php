@@ -37,27 +37,26 @@ class DatedUpdatePage extends Page {
 	}
 
 	public function getCMSFields() {
-		$fields = parent::getCMSFields();
+		$this->beforeUpdateCMSFields(function (FieldList $fields) {
+			$fields->addFieldToTab(
+				'Root.Main',
+				$dateTimeField = DatetimeField::create('Date', $this->fieldLabel('Date')),
+				'Content'
+			);
+			$dateTimeField->getDateField()->setConfig('showcalendar', true);
 
-		$fields->addFieldToTab(
-			'Root.Main', 
-			$dateTimeField = DatetimeField::create('Date', $this->fieldLabel('Date')), 
-			'Content'
-		);
-		$dateTimeField->getDateField()->setConfig('showcalendar', true);
-
-		$fields->addfieldToTab(
-			'Root.Main', 
-			$abstractField = TextareaField::create('Abstract', $this->fieldLabel('Abstract')), 
-			'Content'
-		);
-		$abstractField->setAttribute('maxlength', '160');
-		$abstractField->setRightTitle(
-			_t('DateUpdatePage.AbstractDesc','The abstract is used as a summary on the listing pages. It is limited to 160 characters.')
-		);
-		$abstractField->setRows(6);
-
-		return $fields;
+			$fields->addfieldToTab(
+				'Root.Main',
+				$abstractField = TextareaField::create('Abstract', $this->fieldLabel('Abstract')),
+				'Content'
+			);
+			$abstractField->setAttribute('maxlength', '160');
+			$abstractField->setRightTitle(
+				_t('DateUpdatePage.AbstractDesc','The abstract is used as a summary on the listing pages. It is limited to 160 characters.')
+			);
+			$abstractField->setRows(6);
+		});
+		return parent::getCMSFields();
 	}
 }
 

@@ -24,7 +24,7 @@ The following additional constants and globals are also configured.
 
 |Constant/Global|Description|Guaranteed value|
 |-|-|-|
-|CWP_ENVIRONMENT|CWP Environment|"prod", "uat", or "test"|
+|CWP_ENVIRONMENT|CWP Environment|"prod", "uat", "dr", "uatdr" or "test"|
 |CWP_INSTANCE_DR_TYPE|DR type this instance is configured for|"backup", "passive", or "active"|
 |CWP_URANDOM_TOKEN_1|Random 24-character alphanumeric (A-Z, a-z, 0-9) token, free for your custom use|-|
 |CWP_URANDOM_TOKEN_2|As above, 2nd token|-|

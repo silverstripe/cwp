@@ -86,7 +86,7 @@ and replaced with a single mention of the `cwp/cwp-recipe-basic` (not to be conf
 is now deprecated). The result should look like follows:
 
 	"require": {
-		cwp/cwp-recipe-basic": "~1.0.1@stable",
+		"cwp/cwp-recipe-basic": "~1.0.1@stable",
 		"my-agency/my-dependency": "*"
 	},
 

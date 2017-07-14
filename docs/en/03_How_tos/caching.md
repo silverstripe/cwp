@@ -3,7 +3,7 @@ summary: Improve performance with caching.
 
 # Caching your website
 
-This page describes the three types of caching that can readily be used on Common Web Platform. For tips about where to 
+This page describes the three types of caching that can readily be used on Common Web Platform. For tips about where to
 apply your caching, please see our [Performance Guide section on caching](http://www.cwp.govt.nz/developer-docs/en/performance_guide/caching).
 
 **Transparent caches** are a black-box solution which can be interacted with through the HTTP headers - it's always-on and external to the instances.
@@ -37,7 +37,7 @@ A simplistic test conducted by the CWP team has shown the CDN can sustain 400 re
 
 This test should not be treated as representative for all CWP sites as it depends on many variables such as site's architecture, configuration and traffic profile. Agencies are urged to carry out their own load testing to determine the exact performance profile of their site.
 
-Also see the *"Can I leverage caching so that I can fit a large site on a small instance?"* question in the 
+Also see the *"Can I leverage caching so that I can fit a large site on a small instance?"* question in the
 [FAQ below](#faq-2).
 
 ### Cache tiers
@@ -62,7 +62,7 @@ We will now explain some simple techniques on how to increase your cache utilisa
 | 1 | "max-age=X" | "Cookie, […]" | all |
 | 2 | "max-age=X" | _none_ or "Accept-Encoding" | non-varying* |
 
-*) see "Varying content" chapter below
+* see "Varying content" chapter below
 
 #### Content caching defaults
 
@@ -151,10 +151,10 @@ As an example the following will apply a new "cache for 900 seconds" header to a
     Header set Cache-Control "max-age=900, public" env=!NO_CACHE
   </IfModule>
 ```
-  
+
 #### Caching and SSL
 
-Since SSL traffic is terminated before it hits the Varnish cache layer, you can also cache content delivered through HTTPS. 
+Since SSL traffic is terminated before it hits the Varnish cache layer, you can also cache content delivered through HTTPS.
 
 ### Configuration via Incapsula
 
@@ -197,7 +197,7 @@ To make this work, you need to use the [staticpublishqueue](https://github.com/s
 
 ## Partial caching
 
-SilverStripe Framework provides a **partial caching** template tag to easily cache template parts through the `<% cached %>` syntax. This is especially useful for computationally intense parts of the site that don't change often. 
+SilverStripe Framework provides a **partial caching** template tag to easily cache template parts through the `<% cached %>` syntax. This is especially useful for computationally intense parts of the site that don't change often.
 
 Partial caching lets you trade off memory for processing power. If overused (e.g. if the block IDs are too sparse), your environment can run out of memory.
 
@@ -229,6 +229,6 @@ If you are using [controllerpolicy](https://github.com/silverstripe-labs/silvers
 
 **Q: How do I perform load testing on a CWP environment?**
 
-There are various triggers in the CWP infrastructure which could detect unusually high load as denial of service attacks (DDos), and temporarily deny access to the originating IPs. In order to perform load testing, you need to contact the CWP Service Desk to whitelist IPs for this purpose. 
+There are various triggers in the CWP infrastructure which could detect unusually high load as denial of service attacks (DDos), and temporarily deny access to the originating IPs. In order to perform load testing, you need to contact the CWP Service Desk to whitelist IPs for this purpose.
 
 *If you have any other questions, please contact the Service Desk.*

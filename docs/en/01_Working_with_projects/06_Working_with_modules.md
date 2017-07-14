@@ -3,8 +3,7 @@ summary: Using or creating reusable modules for SilverStripe CMS.
 
 # Working with modules
 
-Public (or private) modules are available as separate repositories (projects) within Gitlab or GitHub. They can then be included in any other projects through Composer. For more information about Composer usage with SilverStripe see
-[Installing and Upgrading with Composer](https://docs.silverstripe.org/en/3.2/getting_started/composer/).
+Public (or private) modules are available as separate repositories (projects) within GitLab or GitHub. They can then be included in any other projects through Composer. For more information about Composer usage with SilverStripe see [Installing and Upgrading with Composer](https://docs.silverstripe.org/en/3.2/getting_started/composer/).
 
 We assume here that you have your website project already started, based off the basic recipe.
 
@@ -32,17 +31,19 @@ You need to set your module up to be importable via composer. For this, create a
 your module. Here is an example for module that builds on the functionality provided by the `cwp` main module (hence the
 requirement):
 
-	{
-		"name": "my-agency/foobar",
-		"description": "Short module description",
-		"type": "silverstripe-module",
-		"require": {
-			"composer/installers": "*",
-			"silverstripe/cms": ">=3.0",
-			"silverstripe/framework": ">=3.0",
-			"cwp/cwp": "dev-master",
-		}
+```json
+{
+	"name": "my-agency/foobar",
+	"description": "Short module description",
+	"type": "silverstripe-module",
+	"require": {
+		"composer/installers": "*",
+		"silverstripe/cms": ">=3.0",
+		"silverstripe/framework": ">=3.0",
+		"cwp/cwp": "dev-master",
 	}
+}
+```
 
 <div class="notice" markdown='1'>
 Please change the module name and namespace. The first part of the "name" in the `composer.json` file constitutes a
@@ -97,7 +98,7 @@ root directory of your main project.
 	]
 
 <div class="notice" markdown='1'>
-The `private` parameter is non-standard and is used by  Deploynaut to distinguish between private repositories and
+The `private` parameter is non-standard and is used by Deploynaut to distinguish between private repositories and
 public repositories. See the section below about public modules.
 </div>
 
@@ -118,10 +119,12 @@ The `no-api` parameter prevents API usage which will remove the need for an API 
 This will add the repository to the list of URLs composer checks when updating the project dependencies. Hence you can
 now include the following requirement in the same `composer.json`:
 
+```
 	"require": {
 		...
 		"my-agency/foobar": "*"
-	},
+	}
+```
 
 Add the module directory name (`foobar/`) to `.gitignore` - we will rely on the *composer* to update the dependencies so
 we don't need to version-control it through the master repository.

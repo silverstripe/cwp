@@ -9,6 +9,8 @@ fr:
     DESCRIPTION: 'Generic content page'
     PLURALNAME: 'Base Pages'
     TagsTabTitle: Tags
+  CwpConfig:
+    AddThisField: 'ID du profil AddThis'
   CwpSearchPage:
     DESCRIPTION: 'Generic content page'
     PLURALNAME: 'Base Pages'

@@ -3,6 +3,8 @@ summary: How to create a new GitLab repository and grant access.
 
 # Creating a project/repository
 
+The below relates to the use of a GitLab CWP hosted repository. If you have [migrated to a GitHub Git repository](/working_with_projects/setting_up_your_project/#making-your-first-project-commit-2), [please refer to the GitHub documentation](https://help.github.com/).
+
 In Gitlab, a **Project** is also considered to be a repository.
 
 Create a new one by clicking the **New Project** button in the Gitlab **Dashboard**.

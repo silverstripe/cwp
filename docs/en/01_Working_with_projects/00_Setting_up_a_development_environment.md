@@ -8,7 +8,7 @@ them to provide the custom functionality where needed. A description of the high
 is available on this website.
 
 CWP projects are installed using the Composer PHP package management tool. For general information about Composer, visit
-the [SilverStripe Composer documentation](http://doc.silverstripe.org/framework/en/installation/composer) or read the
+the [SilverStripe Composer documentation](https://docs.silverstripe.org/en/3/getting_started/composer/) or read the
 installation documentation on the [Composer site](http://getcomposer.org/doc/00-intro.md).
 
 Please familiarise yourself with [CWP recipes](recipes) before starting to develop on CWP. To ensure your code works
@@ -19,7 +19,7 @@ smoothly with the platform it's important to either start from the stable releas
 <div class="notice" markdown='1'>
 To ensure security of your site and CWP in general make sure your code can be upgraded - maintain your modules using
 composer. Then keep your dependencies updated with respect to the patch and sub-patch versions of the recipe - read
-more about [CWP recipes](recipes).
+more about [CWP recipes](recipes_and_supported_modules).
 </div>
 
 Another reason why it's best to maintain your modules using composer is that this will allow you to easily share the
@@ -28,20 +28,20 @@ for more information. If you decide to remove the `composer.json` file and inste
 
 ## Server Configuration
 
-You'll need an environment following SilverStripe's 
-[server requirements](https://docs.silverstripe.org/en/getting_started/server_requirements/).
+You'll need an environment following SilverStripe's
+[server requirements](https://docs.silverstripe.org/en/3/getting_started/server_requirements/).
 
 CWP's configuration is detailed in [infrastructure considerations](working_with_projects/infrastructural_considerations).
 
 ## Git
 
-When working with CWP code you will be utilising git version control system, and the repositories will be stored on
-Gitlab. We recommend reading through tutorials on using Git, available online. The [Pro Git](http://git-scm.com/book) book is a good reference guide.
+When working with CWP code you will be utilising the Git version control system, and the repositories will be stored on
+GitLab. We recommend reading through tutorials on using Git, available online. The [Pro Git](http://git-scm.com/book) book is a good reference guide.
 
 ### Installing Git
 
 If you're on Mac OS X, one way to get Git installed is to get Xcode with command line tools component included. Git will
-be included in that package.
+be included in that package. You could also install it using the [Homebrew package manager](https://brew.sh).
 
 On Linux, depending on your flavour, the package manager should have Git available so you can install it.  On Debian or
 Ubuntu Linux `apt-get install git` should be enough to get you started.
@@ -54,14 +54,14 @@ Apply some configuration changes to git for a smoother experience when working o
 #### Name and email
 Setup your global user name and e-mail:
 
-	git config --global user.name "<Your Name>"
-	git config --global user.email "<Your E-mail Address"
+	git config --global user.name "Your Name"
+	git config --global user.email "your@emailaddress.com"
 
-These will identify you in code commits.
+These will identify you in code commits that you make.
 
 #### Increase the default post size
 
-A common issue with using our specific installation of Gitlab is the limit to the git post size on the client side
+A common issue with using our specific installation of GitLab is the limit to the Git post size on the client side
 (developer's machine). It will result in a 411 errors showing up when trying to push a significant amount of work to
 upstream.
 
@@ -71,7 +71,7 @@ The default post size for git is 1 MB. To increase the value run the below comma
 
 #### Caching Git passwords
 
-You can avoid having to type the password in every time by using a git credential helper.
+You can avoid having to type the password in every time by using a Git credential helper.
 
 The easiest way is to use the in-built cacher:
 
@@ -81,17 +81,16 @@ You can adjust the timeout period from the default 15 minutes:
 
 	git config credential.helper 'cache --timeout=3600'
 
-See [this stackoverflow thread](http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github)
+See [this Stackoverflow thread](http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github)
 for more information.
 
 This will save you some typing, but not all of it. Another way to approach this is to store the password in a keychain
-on your machine using the software built by a company called GitHub (not related to Gitlab). This will allow you to
-securely store your password permanently. The software is available directly from
+on your machine using the software built by a company called GitHub (not related to GitLab). This will allow you to permanently store your password in a secure manner. The software is available directly from
 [GitHub](https://help.github.com/articles/set-up-git).
 
 ## Where to from here?
 
-For people seasoned with SilverStripe development, you can try jump-starting your development activities with the
+For people seasoned with SilverStripe development you can try jump-starting your development activities with the
 [getting started](/getting_started) guide.
 
-For more information on correctly setting up your CWP project see [Setting up your project](setting_up_your_project). It shows how to set up Git and how to access Gitlab to manage your code repositories on the CWP platform.
+For more information on correctly setting up your CWP project see [Setting up your project](setting_up_your_project). It shows how to set up Git and how to access GitLab to manage your code repositories on the CWP platform.

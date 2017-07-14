@@ -3,37 +3,36 @@ summary: Development information for developing your own custom project features
 
 # Customising the default functionality
 
-You should have started your project from the cwp installer or included the recipe module with your project for the maximum level of
+You should have started your project from the CWP installer or included the recipe module with your project for the maximum level of
 compatibility with the platform.
 
-For custom development work for your website the best source of technical information for SilverStripe CMS development is the [Official SilverStripe CMS developer documentation](https://docs.silverstripe.org/en/3.2/). 
+For custom development work for your website the best source of technical information for SilverStripe CMS development is the [Official SilverStripe CMS developer documentation](https://docs.silverstripe.org/en/3/).
 
 With Composer you can easily add to the modules that are included in the project. Full instructions can be found in the
-[Official SilverStripe CMS documentation](https://docs.silverstripe.org/en/3.2/getting_started/composer/#advanced-usage).
+[Official SilverStripe CMS documentation](https://docs.silverstripe.org/en/3/getting_started/composer/#advanced-usage).
 
-For site-specific SilverStripe installation, fine tune your configuration with `mysite/_config` and
-`mysite/_config.php`. More information is available in the [configuration
-reference](https://docs.silverstripe.org/en/3.2/developer_guides/configuration/configuration/). Make sure to preserve the database and
+For site-specific SilverStripe installation, fine tune your configuration with `mysite/_config` YAML files and
+`mysite/_config.php` PHP configuration. More information is available in the [configuration
+reference](https://docs.silverstripe.org/en/3/developer_guides/configuration/configuration/). Make sure to preserve the database and
 environment configuration code, otherwise your deployment may not work (e.g. the database connection will not work).
 
-The best way to work with your site is to commit all your modifications to your own theme and in the `mysite` directory.
+The best way to work with your site is to commit all your modifications to your own theme and/or in the `mysite` directory.
 
 Avoid changing modules directly. Instead, SilverStripe CMS's architecture allows safe customisation through:
 
 * [Modules](https://addons.silverstripe.org/)
-* [Class inheritance](https://docs.silverstripe.org/en/3.2/developer_guides/model/data_model_and_orm/#subclasses)
-* [SilverStripe DataExtensions](https://docs.silverstripe.org/en/3.2/developer_guides/extending/extensions/)
-* [Dependancy injection](https://docs.silverstripe.org/en/3.2/developer_guides/extending/injector/)
+* [Class inheritance](https://docs.silverstripe.org/en/3/developer_guides/model/data_model_and_orm/#subclasses)
+* [SilverStripe DataExtensions](https://docs.silverstripe.org/en/3/developer_guides/extending/extensions/)
+* [Dependency injection](https://docs.silverstripe.org/en/3/developer_guides/extending/injector/)
 
 To gain deeper understanding on how the SilverStripe Framework can be used to develop custom solutions, we recommend
 going through the [SilverStripe CMS online lessons](https://www.silverstripe.org/learn/lessons/) and searching through
-the [Official SilverStripe CMS development documentation](http://docs.silverstripe.org/en/3.2/).
+the [Official SilverStripe CMS development documentation](https://docs.silverstripe.org/en/3).
 
-Directly modifying module files is not recommended because it makes future upgrades harder (or in some cases
-impossible). You will also have a harder time getting support from the community.
+Directly modifying module files is not recommended because it makes future upgrades harder. You will also have a harder time getting support from the community.
 
-The preferred way to modify modules is to submit pull-requests to the module maintainer and make sure the changes are
-propagated to the master repository. This ensures upgrade-ability and moreover ensures that all valuable changes are
+The preferred way to modify modules is to submit pull requests to the module maintainer and make sure the changes are
+propagated to the master repository. This ensures upgradability and moreover ensures that all valuable changes are
 given back to the community and the platform's users.
 
 ## Adding an additional text area or WYSIWYG editor field
@@ -44,13 +43,14 @@ and have it apply to *all* page types, then your code might look something like 
 `Page.php` page type definition:
 
 	:::php
+	// File: mysite/code/Page.php
 	<?php
 	class Page extends BasePage {
-		...
+		// ...
 		private static $db = array(
 			'Abstract' => 'HTMLText'
 		);
-		
+
 		public function getCMSFields() {
 			$fields = parent::getCMSFields();
 			$fields->addFieldToTab('Root.Main', $abstractField = HtmlEditorField::create('Abstract'), 'Content');
@@ -67,11 +67,11 @@ and have it apply to *all* page types, then your code might look something like 
 	$Abstract.RichLinks
 	...
 
-Because all page types extend from **Page**, this will apply the editor field to *all* page types that extend from
-**Page**. If you only want your new editor field on a specific page type, you'd apply the above `$db` and
-`getCMSFields()` code to a specific page type class instead.
+Because all page types extend from `Page`, this will apply the editor field to *all* page types that extend from
+`Page`. If you only want your new editor field on a specific page type, you'd apply the above `$db` and
+`getCMSFields()` code to a specific page type class instead, or by using a DataExtension applied to a specific page type class with YAML configuration.
 
-If you want your field to be a plain-text area field instead, simply replace `HTMLText` with `Text` and
+If you want your field to be a plain text area field instead, simply replace `HTMLText` with `Text` and
 `HtmlEditorField` with `TextareaField`.
 
 <div class="notice" markdown='1'>
@@ -85,9 +85,9 @@ The TinyMCE editor is the default WYSIWYG editor used with all *Content* fields 
 allows developers to configure it through the `HtmlEditorField` wrapper.
 
 The details are documented in SilverStripe documentation at [Rich-Text Editing (WYSIWYG)
-documentation](https://docs.silverstripe.org/en/3.2/developer_guides/forms/field_types/htmleditorfield/).
+documentation](https://docs.silverstripe.org/en/3/developer_guides/forms/field_types/htmleditorfield/).
 
-TinyMCE options are documented at [Configuration Reference](http://www.tinymce.com/wiki.php/Configuration).
+TinyMCE options are documented at [Configuration Reference](https://www.tinymce.com/docs-3x/reference/Configuration3x/).
 
 ## Configuring the WYSIWYG spellchecker
 

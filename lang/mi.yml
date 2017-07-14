@@ -24,10 +24,24 @@ mi:
     LinkField: Hono
     NoteField: 'Tuhipoka: Me hanga e koe te tuemi takawhawhe i mua i te tāpiri atahanga'
   CwpConfig:
+    AddThisField: TāpiriTēneiTTKōtaha
+    AddThisFieldDesc: 'Me whakamahi i te TT kōtaha puta noa i te pae (ki te hōputu <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
+    AppleIconField114: 'Ata Topenga Tukutuku Pā Apple (ko te 114x114 ngā ahu, hōputu PNG) '
+    AppleIconField144: 'Ata Topenga Tukutuku Pā Apple me te Ata Tāpa Windows 8 (ko te 144x144 ngā ahu, hōputu PNG) '
+    AppleIconField57: 'Ata Topenga Tukutuku Pā Apple (ko te 57x57 ngā ahu, hōputu PNG) '
+    AppleIconField72: 'Ata Topenga Tukutuku Pā Apple (ko te 72x72 ngā ahu, hōputu PNG) '
+    FavIconField: 'Hōputu Favicon, in .ico, 16x16, 32x32,  48x48 rānei ngā ahu'
     FbField: 'UID Facebook, ingoakawhakamahi rānei'
     FbFieldDesc: 'Hono Facebook (te katoa kei muri i te "http://facebook.com/", hei tauira, http://facebook.com/<strong>username</strong>, http://facebook.com/<strong>pages/108510539573</strong> rānei)'
+    FooterLogoDescField: 'Whakaahuatanga Moko Hiku'
+    FooterLogoField: 'Moko hiku, kia kitea i te hiku'
+    FooterLogoLinkDesc: 'Tāurua te kawa (arā, http://, https:// rānei) engari ia he hono ā-roto tēnā.'
+    FooterLogoLinkField: 'Hono Moko hiku'
+    FooterLogoRetinaField: 'Moko hiko taumira rahi (ka taunakitia kia rua whakareanga ake te teitei me te whānui o te moko hiku arowhānui)'
     GaField: 'Pūkete Tātaritanga Google'
     GaFieldDesc: 'Tau pūkete kia whakamahia puta noa i te pae  (i te hōputu <strong>UA-XXXXX-X</strong>)'
+    LogoRetinaUploadField: 'Moko taumira rahi kia whakaaturia ki runga mauī (ka taunakitia kia rua whakareanga ake te teitei me te whānui o te moko hiku arowhānui)'
+    LogoUploadField: 'Moko, kia whakaaturia ki runga mauī'
     TwitterField: 'Ingoakaiwhakamahi Twitter'
     TwitterFieldDesc: 'Ingoakaiwhakamahi Twitter (hei tauira, http://twitter.com/<strong>username</strong>)'
   DateUpdateHolder:

@@ -11,12 +11,11 @@ You simply enter your URL and it will break down and highlight areas in which yo
 [Browser Diet](https://browserdiet.com/) is a fantastic resource for front-end optimisation strategies - and below we
 will focus on a few that will have the most use on the CWP environments.
 
-## Incapsula
+## Using the CWP CDN
 
 Firstly though, it is important to know what is already being done. Incapsula, as well as being a Web Application 
 Firewall, provides CWP sites with a Content Distribution Network (CDN). This means that some requests can be served by
-Incapsula, rather than using server processing power. For more information about how Incapsula's caching works, see our
-["How-to guide" on Caching](https://www.cwp.govt.nz/developer-docs/en/how_tos/caching#configuration-via-incapsula-2). 
+Incapsula, rather than using server processing power. Read the ["HTTP Caching" chapter](http_caching) for details.
 
 One of the other benefits of Incapsula is that it provides content optimisation, which CWP sites will use by default. 
 This includes:
@@ -74,3 +73,7 @@ bring this content in asynchronously.
 [read more...](https://browserdiet.com/#3rd-party-async)
 
 For more information on optimising your third-party integrations, see [our guide](../third-party-link).
+
+## Next
+
+Continue to our performance guide on [Handling Third Parties](third_parties).
