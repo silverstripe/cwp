@@ -14,7 +14,7 @@ In order to get through basic auth you must have a CMS account on the environmen
 UAT and test environments have basic auth enabled by default, you can disable this in your code base with the following code in your `config.yml`:
 
 ```
-CwpControllerExtension
+CwpControllerExtension:
   test_basicauth_enabled: false
 ```
 
@@ -23,6 +23,6 @@ CwpControllerExtension
 Production is not protected with basic auth by default, but you may want to enable it in order to lock down the site prior to go-live. To enable, in your `config.yml` add:
 
 ```
-CwpControllerExtension
+CwpControllerExtension:
   live_basicauth_enabled: true
 ```
