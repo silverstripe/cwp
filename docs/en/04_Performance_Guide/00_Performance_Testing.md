@@ -5,7 +5,7 @@ work to.
 
 ### What to test
 
-If you are migrating an existing site, analysis of the access logs will help will help you identify areas for testing,
+If you are migrating an existing site, analysis of the access logs will help you identify areas for testing,
 such as the most commonly accessed pages, sections, or user behaviours. A great tool for a visual representation of your
 log data is [GoAccess](https://goaccess.io/).
 
