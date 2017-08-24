@@ -5,7 +5,7 @@ work to.
 
 ### What to test
 
-If you are migrating an existing site, analysis of the access logs will help will help you identify areas for testing,
+If you are migrating an existing site, analysis of the access logs will help you identify areas for testing,
 such as the most commonly accessed pages, sections, or user behaviours. A great tool for a visual representation of your
 log data is [GoAccess](https://goaccess.io/).
 
@@ -55,6 +55,8 @@ page that has a problem.
 
 You can [set up Page Speed Insights for a development environment](https://una.im/gulp-local-psi/) using Ngrok and Gulp
 if you want to include it in your development workflow.
+
+The [SilverStripe DebugBar](https://github.com/lekoala/silverstripe-debugbar) module will allow developers to profile SilverStripe page execution, database queries, `SS_Log` messages, requirements, template use and environment settings from within a toolbar at the bottom of a page. It can help developers to identify bottlenecks in an application, duplicated or slow running database queries and pages that are taking longer than a configurable amount of time to load.
 
 ### Requesting a performance testing window
 
