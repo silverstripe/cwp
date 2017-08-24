@@ -3,7 +3,7 @@ summary: Lose weight in the browser with this one weird trick!
 introduction: The goal with front-end performance work is to reduce the amount of HTML that the browser has to render.
  
 A useful thing to consider is "perceived performance". Users are far more likely to stay and wait for the page to load 
-if the most of the page has already loaded, so getting as much in as quickly as possible is crucial for user experience. 
+if most of the page has already loaded, so getting as much in as quickly as possible is crucial for user experience. 
 
 [Google Page Speed Insights](https://developers.google.com/speed/pagespeed/insights/) is a quick and easy analysis tool.
 You simply enter your URL and it will break down and highlight areas in which you can improve your page's performance.
