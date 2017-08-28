@@ -19,6 +19,16 @@
 
 ### Bugfixes
 
+ * 2017-08-28 [277db10](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/commit/277db10bc7c949f214eab276ecdd492d36ccd55d) gridfieldextensions updated to ^2.0 (Franco Springveldt)
+ * 2017-08-28 [e65d91a](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/commit/e65d91a172ce97db0620a8288d2288ee9e3bcfd9) updated versionedfiles version constraint (Franco Springveldt)
+ * 2017-08-28 [11e8cc5](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/commit/11e8cc56f14d575b6c7326c0364338de0290b930) updated queuedjobs version constraint (Franco Springveldt)
+ * 2017-08-28 [357366d](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/commit/357366d69fcf59559e56da0204878946e9761fbd) updated multivaluefield version constraint (Franco Springveldt)
+ * 2017-08-28 [722f9d3](https://github.com/silverstripe/silverstripe-userforms/commit/722f9d3f82b2968dbdec4e76a623bd36ccd6f90b) updated gridfieldextensions constraint (Franco Springveldt)
+ * 2017-08-28 [03ae4cc](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/commit/03ae4cc33345abe3a56f1412eb47c8046b5cc779) gridfieldextensions updated to 2.0.x-dev (Franco Springveldt)
+ * 2017-08-28 [0ded303](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/commit/0ded3038b929f7726c5e495a4a0702c35085e545) versionedfiles vendor updated to symbiote (Franco Springveldt)
+ * 2017-08-28 [34c3ffa](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/commit/34c3ffad622836ac72a8429b6d5da51eb551dede) bumped advancedworkflow version constraint as 4.0.x-dev (Franco Springveldt)
+ * 2017-08-28 [da1b715](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/commit/da1b715de77e57ec0b26b8e8a2dc45aa12cd9e46) bumped advancedworkflow version constraint (Franco Springveldt)
+ * 2017-08-27 [19bb05b](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/commit/19bb05b4ad9bee73998884ade09d7f4da01498d7) referenced symbiote as a vendor (Franco Springveldt)
  * 2017-08-25 [e2d01ba](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/commit/e2d01badd2e89c2c3f185e7c8b6c4857fa3bb148) loosened core version constraints (Franco Springveldt)
  * 2017-08-24 [1bbef96](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-blog/commit/1bbef9642d5595117c4a634253f45492818a85fd) lumberjack version updated (Franco Springveldt)
  * 2017-08-24 [0d56304](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/commit/0d56304c885ed9885c91c6bc64002eea8eb2ede5) - prepended silverstripe to symbiote module names (Franco Springveldt)
