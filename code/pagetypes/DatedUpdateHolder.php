@@ -54,6 +54,7 @@ class DatedUpdateHolder extends Page {
 			$dateTo = null, $year = null, $monthNumber = null) {
 
 		$items = $className::get();
+		$dbTableName = ClassInfo::table_for_object_field($className, 'Date');;
 
 		// Filter by parent holder.
 		if (isset($parentID)) {
@@ -64,7 +65,7 @@ class DatedUpdateHolder extends Page {
 		if (isset($tagID)) {
 			$items = $items->innerJoin(
 				'BasePage_Terms',
-				'"DatedUpdatePage"."ID" = "BasePage_Terms"."BasePageID"'
+				sprintf('"%s"."ID" = "BasePage_Terms"."BasePageID"', $dbTableName)
 			)->innerJoin(
 				'TaxonomyTerm',
 				sprintf('"BasePage_Terms"."TaxonomyTermID" = "TaxonomyTerm"."ID" AND "TaxonomyTerm"."ID" = \'%d\'', $tagID)
@@ -79,8 +80,8 @@ class DatedUpdateHolder extends Page {
 			}
 
 			$items = $items->where(array(
-				sprintf('"DatedUpdatePage"."Date" >= \'%s\'', Convert::raw2sql("$dateFrom 00:00:00")),
-				sprintf('"DatedUpdatePage"."Date" <= \'%s\'', Convert::raw2sql("$dateTo 23:59:59"))
+				sprintf('"%s"."Date" >= \'%s\'', $dbTableName, Convert::raw2sql("$dateFrom 00:00:00")),
+				sprintf('"%s"."Date" <= \'%s\'', $dbTableName, Convert::raw2sql("$dateTo 23:59:59"))
 			));
 		}
 
@@ -89,12 +90,12 @@ class DatedUpdateHolder extends Page {
 			$year = (int)$year;
 			$monthNumber = (int)$monthNumber;
 
-			$beginDate = sprintf("%d-%d-01 00:00:00", $year, $monthNumber);
+			$beginDate = sprintf("%04d-%02d-01 00:00:00", $year, $monthNumber);
 			$endDate = date('Y-m-d H:i:s', strtotime("{$beginDate} +1 month"));
 
 			$items = $items->where(array(
-				sprintf('"DatedUpdatePage"."Date" >= \'%s\'', Convert::raw2sql($beginDate)),
-				sprintf('"DatedUpdatePage"."Date" < \'%s\'', Convert::raw2sql($endDate))
+				sprintf('"%s"."Date" >= \'%s\'', $dbTableName, Convert::raw2sql($beginDate)),
+				sprintf('"%s"."Date" < \'%s\'', $dbTableName, Convert::raw2sql($endDate))
 			));
 		}
 
