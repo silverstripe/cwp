@@ -55,6 +55,9 @@ class DatedUpdateHolder extends Page {
 
 		$items = $className::get();
 		$dbTableName = ClassInfo::table_for_object_field($className, 'Date');
+		if (!$dbTableName) {
+			$dbTableName = 'DatedUpdatePage';
+		}
 
 		// Filter by parent holder.
 		if (isset($parentID)) {
