@@ -65,7 +65,7 @@ class DatedUpdateHolder extends Page {
 		if (isset($tagID)) {
 			$items = $items->innerJoin(
 				'BasePage_Terms',
-				sprintf('"%s"."ID" = "BasePage_Terms"."BasePageID"', $dbTableName)
+				sprintf('"%s"."ID" = "BasePage_Terms"."BasePageID"', $className)
 			)->innerJoin(
 				'TaxonomyTerm',
 				sprintf('"BasePage_Terms"."TaxonomyTermID" = "TaxonomyTerm"."ID" AND "TaxonomyTerm"."ID" = \'%d\'', $tagID)
