@@ -3,7 +3,7 @@ summary: What to add in your DNS SPF record to ensure mail deliverability when s
 
 # Mail deliverability
 
-If you wish to send mail from your instance as coming from your own domain, for example From: info@example.com,
+If you wish to send mail from your stack as coming from your own domain, for example From: info@example.com,
 the receiving mail server might mark your emails as SPAM unless you make the following changes.
 
 The mail server will typically look up your DNS information and look for SPF to check legitimacy.

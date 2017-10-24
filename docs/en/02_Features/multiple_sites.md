@@ -1,5 +1,5 @@
 title: Multiple sites
-summary: Set up an instance with multiple websites
+summary: Set up a stack with multiple websites
 
 # Subsites
 

@@ -74,8 +74,8 @@ to apply. One old minor and one old major branch will still receive security pat
 We estimate that on a small site you may need to spend a day upgrading to a new minor version, and a few days or more
 upgrading to a new major version.
 
-CWP Team may in some situations hot-patch (possibly in a destructive way) your site or pull an instance down if it is
-found to endanger other sites on the CWP. The timeframe in which this could happen will be specified on the release
+CWP Team may in some situations hot-patch (possibly in a destructive way) your site or pull an environment down if it is
+found to endanger other sites on the CWP infrastructure. The timeframe in which this could happen will be specified on the release
 notification.
 
 See [upgrading guide](upgrading) for instructions.
