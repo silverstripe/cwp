@@ -4,15 +4,15 @@ introduction: Describes how to use CWP centralised logging
 
 # Centralised logging
 
-The logs for each instance you have on CWP are collected and stored in a
+The logs for each environment you have on CWP are collected and stored in a
 centralised installation of Graylog.
 
 You can access Graylog using your CWP log-in at the following URL:
 [https://logs.cwp.govt.nz/](https://logs.cwp.govt.nz/).
 
-In order to gain access to these logs per Instance please raise a general support request with the [CWP service desk](https://www.cwp.govt.nz/service-desk/new-request/).
+In order to gain access to these logs please raise a general support request with the [CWP service desk](https://www.cwp.govt.nz/service-desk/new-request/).
 
-We provide a stream for each instance environment. Streams are where
+We provide a stream for each environment. Streams are where
 you can view and query the stored logs. These include Apache, PHP, and any
 custom events that you want to log.
 
@@ -62,7 +62,7 @@ Following are a couple of examples on search queries:
 
 ## Log types
 
-CWP instance will automatically write several log types which can be searched with the `log_type` keyword in Graylog, as
+CWP environments will automatically write several log types which can be searched with the `log_type` keyword in Graylog, as
 long as the project includes the `cwp-core` module.
 
 * `SilverStripe_log`: standard log output of the Framework, will capture all events occuring after successful Framework

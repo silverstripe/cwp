@@ -1,9 +1,9 @@
 title: Implement a redirect
-summary: How to implement a redirect on your instance.
+summary: How to implement a redirect on your stack.
 
 # Introduction
 
-There's a few ways developers can implement redirections on their CWP instance:
+There's a few ways developers can implement redirections on their CWP stacks:
 - in the `.htaccess` file
 - within the site's `_config.php`
 - with a module
@@ -52,7 +52,7 @@ if(Director::isLive() && !Director::is_cli()) {
 
 In this example `Director::isLive()` is used to only redirect on the CWP production environment. `!Director::is_cli()` ensures that this redirection does not impact command line actions such as the `dev/build` that occurs during deployment.
 
-Note that this applies to all domains on your instance so be sure to check that they support https.
+Note that this applies to all domains on your environment so be sure to check that they support https.
 
 ## Module
 
