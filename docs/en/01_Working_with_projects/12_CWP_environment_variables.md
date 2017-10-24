@@ -1,6 +1,6 @@
 title: CWP environment variables
-summary: Describes the environment variables present on CWP instances.
-introduction: Describes the environment variables present on CWP instances.
+summary: Describes the environment variables present on CWP environments.
+introduction: Describes the environment variables present on CWP environments.
 
 # CWP environment variables
 
@@ -18,18 +18,18 @@ are set by default on CWP environments.
 |SS_DATABASE_PASSWORD|-|
 |SS_DEFAULT_ADMIN_USERNAME|-|
 |SS_DEFAULT_ADMIN_PASSWORD|-|
-|$_FILE_TO_URL_MAPPING|"http://INSTANCEID-ENV.cwp.govt.nz"|
+|$_FILE_TO_URL_MAPPING|"http://STACKID-ENV.cwp.govt.nz"|
 
 The following additional constants and globals are also configured.
 
 |Constant/Global|Description|Guaranteed value|
 |-|-|-|
 |CWP_ENVIRONMENT|CWP Environment|"prod", "uat", or "test"|
-|CWP_INSTANCE_DR_TYPE|DR type this instance is configured for|"backup", "passive", or "active"|
+|CWP_INSTANCE_DR_TYPE|DR type this stack is configured for|"backup", "passive", or "active"|
 |CWP_URANDOM_TOKEN_1|Random 24-character alphanumeric (A-Z, a-z, 0-9) token, free for your custom use|-|
 |CWP_URANDOM_TOKEN_2|As above, 2nd token|-|
 |CWP_URANDOM_TOKEN_3|As above, 3rd token|-|
-|SS_STATIC_BASE_URL|Base URL for use with the static publisher (includes trailing slash)|"http://INSTANCEID-ENV.cwp.govt.nz/"|
+|SS_STATIC_BASE_URL|Base URL for use with the static publisher (includes trailing slash)|"http://STACKID-ENV.cwp.govt.nz/"|
 |SS_OUTBOUND_PROXY|Proxy domain to use for outbound HTTP(S) requests|-|
 |SS_OUTBOUND_PROXY_PORT|Proxy port|-|
 |CWP_SECURE_DOMAIN|Default domain used for secure redirects, used by the recipe|-|

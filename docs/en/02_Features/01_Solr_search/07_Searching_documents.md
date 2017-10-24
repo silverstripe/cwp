@@ -5,14 +5,14 @@ summary: How to configure Solr indexing and searching of documentation such as W
 
 <div class="notice" markdown='1'>This feature requires cwp recipe 1.1.0 or above specifically the [textextraction](https://github.com/silverstripe-labs/silverstripe-textextraction) module</div>
 
-By default all CWP instances have text extraction services configured. These services can be used by user code
+By default all CWP environments have text extraction services configured. These services can be used by user code
 to transform text-based documents (such as PDF, MS Word, or rich text) into plain text in a format which can
 be readily used as a Solr index data source, or for use by the CWP site itself.
 
 We recommend the use of the following available services:
 
 * Apache Tika 1.7 server can be accessed at http://localhost:9998 (which is defined by SS_TIKA_ENDPOINT for all
-  instances). This provides the most effective mechanism for indexing multiple documents in quick succession, and
+  environments). This provides the most effective mechanism for indexing multiple documents in quick succession, and
   supports a wide range of file formats.
 * pdf2text is also available for PDF document extraction if Apache Tika does not provide the required output
   for these files.
@@ -77,21 +77,21 @@ with content matching the specified search term.
 
 ## Performance Implications and Limitations
 
-While the size of documents can vary from instance to instance, there are reasonable performance limits of
-document indexing at various instance sizes.
+While the size of documents can vary from stack to stack, there are reasonable performance limits of
+document indexing at various stack sizes.
 
 As a general rule, given that the 100kb limitation for each indexed document is in place, the various maximum
 number of documents that can be indexed are included in the "max pages in CMS" as per the 
-[instance sizes](https://www.cwp.govt.nz/about/selecting-the-right-instance-for-your-website/)
+[stack sizes](https://www.cwp.govt.nz/about/selecting-the-right-instance-for-your-website/)
 guide. If the number of files and pages exceeds these limitations it is advisable not to include the File type
 in any Solr index.
 
 Another important consideration is the potential for downtime during indexing of content to affect your website.
 If indexing a large number of documents it is advisable to upgrade to Medium or Large, as heavily trafficked Small
-instances may suffer from performance degradation during background indexing processes. If indexing documents
+stacks may suffer from performance degradation during background indexing processes. If indexing documents
 on Small it's advisable to do so outside of normal business hours to ensure website performance is unaffected.
 
-As a general rule, you should allocate approximately 0.5 seconds per document indexed, regardless of instance size.
+As a general rule, you should allocate approximately 0.5 seconds per document indexed, regardless of stack size.
 This number may increase or decrease depending on the size and type of each file.
 
 If possible this step should be performed outside of normal busy periods.
@@ -103,7 +103,7 @@ Running `dev/tasks/Solr_Reindex` will invoke the following steps, depending on y
 * A single queuedjob will be added to the queue, and the `Solr_Reindex` task will immediately exit.
 If there are existing reindex jobs on the queue, these will be cancelled, and any in-progress tasks will
 be forced to exit.
-* In the background, a worker process on the instance will invoke this job, which will first clear any obsolete
+* In the background, a worker process on the environment will invoke this job, which will first clear any obsolete
 data from the search index (such as those with obsolete class names), and then create several batches of updates,
 grouped by classname, variant (such as stage or subsite), and batch number. Each of these batches is a queuedjob
 itself and will appear in the job queue in the cms "jobs" section.
@@ -118,9 +118,9 @@ again.
 * All existing indexed documents will be cleared from search. These documents will not be searchable until
 indexing is complete, and thus any functional dependency on this function must be factored into your workflow.
 * All documents in the database will be added to a job queue. This task should only take a few minutes, but during
-this time a large amount of system memory will be allocated, and will affect the performance of the instance.
+this time a large amount of system memory will be allocated, and will affect the performance of the environment.
 * Once all documents are added to the queue, a background task will run and incrementally add each document to the
-Solr service backend. During this time fewer resources are reserved, the instance will be able to respond
+Solr service backend. During this time fewer resources are reserved, the environment will be able to respond
 normally to requests. 
 * Once the queue is complete, all indexed files will be committed to the Solr service and search will be available
 again.

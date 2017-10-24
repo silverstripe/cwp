@@ -5,7 +5,7 @@ summary: Improve performance with caching.
 
 This page describes the three types of caching that can readily be used on Common Web Platform.
 
-**Transparent caches** are a black-box solution which can be interacted with through the HTTP headers - it's always-on and external to the instances.
+**Transparent caches** are a black-box solution which can be interacted with through the HTTP headers - it's always-on and external to the environments.
 
 **Partial caching** is a feature of the SilverStripe templates allowing developers to cache repetitive content blocks - such as menus.
 
@@ -13,14 +13,14 @@ This page describes the three types of caching that can readily be used on Commo
 
 CWP clusters are equipped with two levels of transparent cache: a cache in the CWP data centre and an external CDN provided by Content Delivery Network (CDN) provided by [Incapsula](https://www.incapsula.com/).
 
-All instance responses are analysed and some of them may be cached to increase performance. Their behaviour can be controlled:
+All environment responses are analysed and some of them may be cached to increase performance. Their behaviour can be controlled:
 
 * through the response headers configured in your code (see the "Configuration via headers" chapter)
 * if you opted for the Premium Managed Service, through Incapsula configuration panel (see the "Configuration via Incapsula" chapter)
 
 The default recipe is configured conservatively to protect the data. This means SilverStripe framework responses will not be cached at all. All other resources (static files) will be cached for a short period of time (see below for details).
 
-Leveraging the caching will result in significantly faster page response times and will increase instance reliability making it able to cope with far higher volumes of instantaneous traffic (spikes).
+Leveraging the caching will result in significantly faster page response times and will increase environment reliability making it able to cope with far higher volumes of instantaneous traffic (spikes).
 
 ### Content Security
 
@@ -32,17 +32,17 @@ It's easy to extend this example to more significant user details - addresses, p
 
 ### Possible performance gains
 
-A simplistic test conducted by the CWP team has shown the CDN can sustain 400 resource requests per second in certain configurations without impacting the instance considerably. In our case the test harness turned out to be the bottleneck and the top limit was not established.
+A simplistic test conducted by the CWP team has shown the CDN can sustain 400 resource requests per second in certain configurations without impacting the environment considerably. In our case the test harness turned out to be the bottleneck and the top limit was not established.
 
 This test should not be treated as representative for all CWP sites as it depends on many variables such as site's architecture, configuration and traffic profile. Agencies are urged to carry out their own load testing to determine the exact performance profile of their site.
 
-Also see the "Can I leverage caching so that I can fit a large site on a small instance?" question in the FAQ below.
+Also see the "Can I leverage caching so that I can fit a large site on a small stack?" question in the FAQ below.
 
 ### Cache tiers
 
 To help explain how actively the content could be cached on CWP let's split the possible behaviours into three tiers.
 
-| Tier | Caches used | Potential response times | Instance load |
+| Tier | Caches used | Potential response times | Environment load |
 | - | - | - | - |
 | 0 | - | >100ms | Full |
 | 1 | Local | 10 - 100ms for NZ users, more for overseas users due to the transmission latency. | Reduced in proportion to the amount of cache-able responses and their cache duration. |
@@ -74,7 +74,7 @@ This means the response is _tier 0_ (not cache-able).
 
 #### Asset caching defaults
 
-Furthermore, all CWP instances are configured to set the following header on anything that is NOT served by the framework. This includes all requests for theme files and any asset requests that are not served by the "silverstripe-secureassets" module.
+Furthermore, all CWP environments are configured to set the following header on anything that is NOT served by the framework. This includes all requests for theme files and any asset requests that are not served by the "silverstripe-secureassets" module.
 
 ```
 Cache-Control: max-age=120, public
@@ -131,7 +131,7 @@ Varying content is any URL which content depends on an impulse from the visitor.
 
 Login, IP whitelisting, BasicAuth all imply the content varies per user. All header-driven content changes need to be properly highlighted via a _Vary_ response header (which will automatically reduce the tier to 1).
 
-Additionally, if you are serving both https and http from the same instance, you need to vary on _X-Forwarded-Protocol_ because of the `BaseURL` differences and the CWP network layout. You won't currently be able to use tier 2 on such double-protocol site.
+Additionally, if you are serving both https and http from the same environment, you need to vary on _X-Forwarded-Protocol_ because of the `BaseURL` differences and the CWP network layout. You won't currently be able to use tier 2 on such double-protocol site.
 
 A table of some more obvious _Vary_ headers can be found in the [controllerpolicy documentation](https://github.com/silverstripe-labs/silverstripe-controllerpolicy/blob/master/README.md#vary-headers). Keep in mind the more of these you specify, the more partitioned the cache, which will nullify potential gains. Use as few as you are confident with.
 
@@ -215,9 +215,9 @@ If you have opted to purchase the Premium Managed Service, the Incapsula dashboa
 
 ## FAQ
 
-**Q: Can I leverage caching so that I can fit my site on a "small" instance?**
+**Q: Can I leverage caching so that I can fit my site on a "small" stack?**
 
-To a certain degree, yes - if you are just worried about infrequent but large spikes of traffic. However since Incapsula has a bandwidth cap as well as CWP, you should not use this scheme to regularly go over the bandwidth and throughput limits allocated for your instance size. If your site consistently breaches these we will need to to upgrade your instance.
+To a certain degree, yes - if you are just worried about infrequent but large spikes of traffic. However since Incapsula has a bandwidth cap as well as CWP, you should not use this scheme to regularly go over the bandwidth and throughput limits allocated for your stack size. If your site consistently breaches these we will need to to upgrade your stack.
 
 **Q: What if I really don't want something cached in the transparent caches?**
 
