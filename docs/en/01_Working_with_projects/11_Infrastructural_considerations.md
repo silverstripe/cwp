@@ -16,13 +16,13 @@ for recommendations on how to use the available infrastructure efficiently.
 The PHP execution limit (`max_execution_time`) is 30 seconds,
 after which a 503 (Service Unavailable) error will be returned. 
 
-The CWP "Gateway" server which fronts all CWP instances
+The CWP "Gateway" server which fronts all CWP stacks
 has a HTTP request timeout limit of 120 seconds, after which it will
 generate a 504 (Gateway Timeout) error.
 This is preventing overloading of the shared parts of the infrastructure.
 
 <div class="warning" markdown='1'>
-Your publicly accessible URLs should never take a long time to process, as this leaves your instance open to denial of
+Your publicly accessible URLs should never take a long time to process, as this leaves your environment open to denial of
 service attacks. You should definitely hide these behind a login or a captcha, or use caching and other optimisations
 to bring down the processing time.
 </div>
@@ -35,7 +35,7 @@ Consider using [caching](../performance-guide/caching) to speed up request execu
 
 ## PHP configuration
 
-CWP instances are running PHP 5.6 (see Debian "Jessie" [packages](https://packages.debian.org/jessie/)).
+CWP environments are running PHP 5.6 (see Debian "Jessie" [packages](https://packages.debian.org/jessie/)).
 
 The default `memory_limit` configuration is 128 MB. You can increase this to 256 MB
 with `ini_set('memory_limit', '256M');` in your code.
@@ -45,9 +45,9 @@ Please raise a ticket via [Service Desk](https://www.cwp.govt.nz/service-desk) f
 
 ## PHP extensions
 
-Environments within a CWP instance are turnkey deployments of a standardised environment. For security and
+Environments within a CWP stack are turnkey deployments of a standardised environment. For security and
 supportability reasons we do not allow the installation of binaries, PHP extensions or other deviations from the
-standard environment that are not encapsulated within the PHP code deployed into the instance.
+standard environment that are not encapsulated within the PHP code deployed into the environment.
 
 These PHP extensions are part of the standard environment, and can be relied on to be available:
 
@@ -59,8 +59,8 @@ These PHP extensions are part of the standard environment, and can be relied on 
 
 ## Webserver
 
-CWP instances are running Apache 2.4 (see Debian "Jessie" [packages](https://packages.debian.org/jessie/)).
-Note that there's other [caching infrastructure](/how_tos/caching) in front of CWP instances.
+CWP environments are running Apache 2.4 (see Debian "Jessie" [packages](https://packages.debian.org/jessie/)).
+Note that there's other [caching infrastructure](/how_tos/caching) in front of CWP environment.
 
 ## Database
 
@@ -69,17 +69,17 @@ For local development, you can also choose MySQL 5.6.
 
 ## Hosting video
 
-CWP instances do not provide built in hosting of video content, and we recommend you do not attempt to do so.
+CWP stacks do not provide built in hosting of video content, and we recommend you do not attempt to do so.
 
 Instead, we recommend hosting video on a third-party service, such as vimeo.com. They provide a simple, turn-key
-solution optimised for hosting video that is easily integrated with CWP instances.
+solution optimised for hosting video that is easily integrated with CWP environments.
 
-Since the resource allocated to a CWP instance is directly related to the cost per month for an instance, we have
-optimised the network bandwidth allocated to an instance for hosting standard HTML content and regular files such as
+Since the resource allocated to a CWP environment is directly related to the cost per month for a stack, we have
+optimised the network bandwidth allocated to an environment for hosting standard HTML content and regular files such as
 pdfs, docs, etc. Video files are much larger than most other assets, and exceed this network bandwidth. Attempting to
 host video files will cause severely degraded performance for your other users.
 
-If you do need to host video within CWP, please contact us to have a quote provided for a custom instance with
+If you do need to host video within CWP, please contact us to have a quote provided for a custom stack with
 sufficient bandwidth for hosting. You will also need to provide your own solution for other elements of video hosting,
 such as:
 

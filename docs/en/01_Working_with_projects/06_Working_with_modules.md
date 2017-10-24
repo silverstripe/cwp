@@ -145,9 +145,9 @@ composer](https://docs.silverstripe.org/en/3.2/getting_started/composer/#deployi
 ## Deploying repositories with private modules
 
 If you decide to include private modules in your website project (also your own private repositories), Deploynaut
-will need a permission to access them. If you already have your repository associated with the instance you will be
+will need a permission to access them. If you already have your repository associated with the stack you will be
 deploying to, the only thing you need to do is to enable the project key on the module as shown on the image below. The
-key is named after your instance identifier.
+key is named after your stack identifier.
 
 <div class="notice" markdown='1'>
 You will only see the deployment key if you are the owner of the repository. See [deploying code](deploying-code) for
