@@ -43,6 +43,6 @@ receive immediate security patches.
 This is relatively easy - if your `composer.json` is configured as in the installer, it should be as easy as running
 `composer update`, doing a smoke test and pushing to the upstream Git remote. See the [Upgrading](upgrading) guide for instructions.
 
-See [Recipes and supported modules](recipes_and_supported_modules) for more information on versioning and on how to keep your instance secure.
+See [Recipes and supported modules](recipes_and_supported_modules) for more information on versioning and on how to keep your stacks secure.
 
-See [infrastructural considerations](infrastructural_considerations) for hints on how to keep your instance stable.
+See [infrastructural considerations](infrastructural_considerations) for hints on how to keep your stacks stable.

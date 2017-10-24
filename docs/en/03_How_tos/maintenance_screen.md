@@ -4,7 +4,7 @@ summary: How to add an "under maintenance" for deployments and server outages.
 # Maintenance screen
 
 In some situations it is necessary to display a temporary error or maintenance screen, in order to provide a
-fallback page when an instance is unavailable.
+fallback page when an environment is unavailable.
 
 In order to ensure that this error page is available, it's necessary to create *ErrorPages* in the CMS with
 the appropriate error codes. Setup the following (as below) with the codes 500 and 503. This generates the
@@ -16,7 +16,7 @@ These pages will be displayed to the user in the following situations:
 
 ## During server error or outage
 
-In the event that the destination instance is completely unavailable, the error-500.html page will be served directly
+In the event that the destination environment is completely unavailable, the error-500.html page will be served directly
 from the gateway.  This will also respond to most general server errors.
 
 This page and its assets will be updated regularly to ensure that a cached backup of all necessary files are available.

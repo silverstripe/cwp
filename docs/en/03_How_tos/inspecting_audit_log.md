@@ -13,7 +13,7 @@ events as:
 * Security-related changes such as Members being added to groups or permission changes.
 
 To inspect the audit log, proceed to the [centralised logging](https://logs.cwp.govt.nz/) system, select the stream
-related to your instance and search for:
+related to your environment and search for:
 
 	log_type:SilverStripe_audit
 

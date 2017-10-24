@@ -91,7 +91,7 @@ If it's necessary to require secure authentication to certain areas of the front
 password protected forms or information) then there are some configuration changes that must be made.
 
 By default all attempts to access secure pages will redirect the user to an SSL protected domain
-specific to that instance (e.g. myinstance.cwp.govt.nz). This is in place in order to prevent
+specific to that environment (e.g. mystack.cwp.govt.nz). This is in place in order to prevent
 users wishing to access the CMS having to log in for each individual domain, as well as the
 dependency on each domain having its own SSL certificate.
 

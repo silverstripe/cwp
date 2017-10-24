@@ -81,7 +81,7 @@ To find more information about the solution, please see the
 SilverStripe Active Directory module [documentation on github](https://github.com/silverstripe/silverstripe-activedirectory/blob/master/README.md#overview).
 
 To start the process of setting up a VPN connection between a CWP
-instance and your internal network, please create a support ticket
+stack and your internal network, please create a support ticket
 in the [CWP Service Desk](https://www.cwp.govt.nz/service-desk/new-request/) as a **Support request**.
 
 ## CWP technical implementation
@@ -99,19 +99,19 @@ To be able to use them on a CWP site you will override the default
 [YAML configuration](https://github.com/silverstripe/silverstripe-activedirectory/blob/master/docs/en/developer.md#yaml-configuration)
 with the following in `mysite/_config.php`
 
-**Replace 'instancename' with the actual instance name so that the URL is correct.**
+**Replace 'stackname' with the actual stack name so that the URL is correct.**
 
 	// Configure SAML certificates for the CWP UAT environment
 	if(defined('CWP_ENVIRONMENT') && (CWP_ENVIRONMENT == 'uat' || CWP_ENVIRONMENT == 'uatdr')) {
 	    Config::inst()->update('SAMLConfiguration', 'SP', array(
-	        'entityId' => 'https://instancename-uat.cwp.govt.nz/',
+	        'entityId' => 'https://stackname-uat.cwp.govt.nz/',
 	        'privateKey' => '../../certs/saml.pem',
 	        'x509cert' => '../../certs/saml.crt'
 	    ));
 	// Configure SAML certificates for the CWP Production environment
 	} elseif(defined('CWP_ENVIRONMENT') && (CWP_ENVIRONMENT == 'prod' || CWP_ENVIRONMENT == 'dr')) {
 	    Config::inst()->update('SAMLConfiguration', 'SP', array(
-	        'entityId' => 'https://instancename.cwp.govt.nz/',
+	        'entityId' => 'https://stackname.cwp.govt.nz/',
 	        'privateKey' => '../../certs/saml.pem',
 	        'x509cert' => '../../certs/saml.crt'
 	    ));
@@ -121,7 +121,7 @@ with the following in `mysite/_config.php`
 
 CWP by default prevents access to the UAT environment by
 restricting access people with logins. This prevents the ADFS
-server from [accessing the metadata](https://github.com/silverstripe/silverstripe-activedirectory/blob/master/docs/en/adfs.md#select-data-source) on this instance.
+server from [accessing the metadata](https://github.com/silverstripe/silverstripe-activedirectory/blob/master/docs/en/adfs.md#select-data-source) on this environment.
 
 Since the intranet site should only be reachable over a VPN link,
 this feature can be disabled.
