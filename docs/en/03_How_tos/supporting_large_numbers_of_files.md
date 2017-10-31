@@ -47,6 +47,14 @@ Injector:
     class: SimpleAssetAdmin
 ```
 
+**(Optional)** In some instances, you may notice that you have two "Files" menu items. To remove the now unused "Files" menu item, add the following to your `_config.php`.  
 
-After making this change, flush the site with ?flush=1 in your querystring, and the assets area
+`mysite/_config.php`:
+
+
+```php
+CMSMenu::remove_menu_item('AssetAdmin');
+```
+
+After making these changes, flush the site with ?flush=1 in your querystring, and the assets area
 will load much more quickly.

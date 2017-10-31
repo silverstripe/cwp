@@ -67,11 +67,3 @@ This module sets up:
  * Spelling and Synonyms (including setting synonym groups in SiteConfig)
  * Boosting keywords extension to pages
  * Custom routing to the CWP search controller (see _config/routes.yml)
-
-
-
-
- 
- 
- 
-
