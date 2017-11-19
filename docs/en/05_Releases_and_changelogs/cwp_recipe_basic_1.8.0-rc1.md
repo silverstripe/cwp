@@ -50,8 +50,6 @@ In recipe 1.8.0 these module unit tests cause external errors, but do not repres
 
  * TranslatableSearchFormTest.testPublishedPagesMatchedByTitleInDefaultLanguage - Test failure
    affected by global state. See https://github.com/silverstripe/silverstripe-translatable/issues/223
- * TranslatableSiteConfigTest.testCanEditTranslatedRootPages - Test failure affected by global state.
-   See https://github.com/silverstripe/silverstripe-translatable/issues/224
 
 #### silverstripe/userforms
 
