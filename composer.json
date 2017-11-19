@@ -9,8 +9,8 @@
 		"silverstripe/taxonomy": "*"
 	},
         "extra": {
-          "branch-alias": {
-            "dev-master": "1.8.x-dev"
-          }
-        }
+		"branch-alias": {
+			"dev-master": "1.9.x-dev"
+		}
+	}
 }
