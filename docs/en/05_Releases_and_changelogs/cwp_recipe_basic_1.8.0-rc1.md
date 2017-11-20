@@ -39,6 +39,21 @@ In recipe 1.8.0 these module unit tests cause external errors, but do not repres
    be uploaded with a mismatched mime and file extension. The original test is
    attempting to upload a bunch of text as a gzip file.
 
+##### Expected output modified by the starter theme
+
+ * CheckboxSetFieldTest.testSetDefaultItems
+ * EmailFieldTest.testEmailFieldPopulation
+ * LookupFieldTest.testNullValueWithNumericArraySource
+ * LookupFieldTest.testStringValueWithNumericArraySource
+ * LookupFieldTest.testUnknownStringValueWithNumericArraySource
+ * LookupFieldTest.testArrayValueWithAssociativeArraySource
+ * LookupFieldTest.testArrayValueWithNumericArraySource
+ * LookupFieldTest.testArrayValueWithSqlMapSource
+ * LookupFieldTest.testWithMultiDimensionalSource
+ * OptionsetFieldTest.testSetDisabledItems
+ * GridFieldDetailFormTest.testValidator
+ * GridFieldSortableHeaderTest.testRenderHeaders
+
 #### silverstripe/queuedjobs
 
  * QueuedJobsTest.testImmediateQueuedJob - Test self-aborts when detecting lack of available system
