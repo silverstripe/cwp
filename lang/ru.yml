@@ -112,7 +112,7 @@ ru:
     SINGULARNAME: Страница
   SiteTreeFileExtension:
     BACKLINK_LIST_DESCRIPTION: 'В этом списке находятся все страницы где есть файл добавленный с помощью визуального редактора.'
-    EDIT: 'Редактировать'
+    EDIT: Редактировать
   SitemapPage:
     DESCRIPTION: 'Отобразить все страницы этого сайта'
     PLURALNAME: 'Страницы карты сайта'

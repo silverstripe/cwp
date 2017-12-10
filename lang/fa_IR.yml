@@ -1,7 +1,7 @@
 fa_IR:
   BaseHomePage:
     DESCRIPTION: 'صفحه محتوای عمومی'
-    FeatureContentFieldLabel: 'محتوا'
+    FeatureContentFieldLabel: محتوا
     Title: عنوان
   BasePage:
     ColumnTitle: عنوان
