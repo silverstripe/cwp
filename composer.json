@@ -4,7 +4,11 @@
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "cwp"],
 	"require": {
-		"cwp/cwp-core": "*",
-		"silverstripe/taxonomy": "*"
-	}
+		"cwp/cwp-core": "^1",
+		"silverstripe/taxonomy": "^1"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^3.7"
+	},
+	"extra": []
 }
