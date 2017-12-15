@@ -5,7 +5,7 @@
 	"keywords": ["silverstripe", "cwp"],
 	"license": "BSD-3-Clause",
 	"require": {
-		"cwp/cwp-core": "^1",
+		"cwp/cwp-core": "^2",
 		"silverstripe/taxonomy": "^1"
 	},
 	"require-dev": {
