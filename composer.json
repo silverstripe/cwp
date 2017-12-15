@@ -5,12 +5,15 @@
 	"keywords": ["silverstripe", "cwp"],
 	"license": "BSD-3-Clause",
 	"require": {
-		"cwp/cwp-core": "*",
-		"silverstripe/taxonomy": "*"
+		"cwp/cwp-core": "^1",
+		"silverstripe/taxonomy": "^1"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^3.7"
 	},
         "extra": {
-		"branch-alias": {
-			"dev-master": "1.9.x-dev"
-		}
-	}
+                "branch-alias": {
+                        "1.x-dev": "1.9.x-dev"
+                }
+        }
 }
