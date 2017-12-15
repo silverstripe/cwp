@@ -5,6 +5,13 @@ class SitemapPageTest extends FunctionalTest {
 
 	protected static $use_draft_site = true;
 
+	public function setUp()
+	{
+		parent::setUp();
+
+		Config::inst()->update('SSViewer', 'theme', 'starter');
+	}
+
 	/**
 	 * Note: this test depends on the "starter" theme being installed and configured as default
 	 */
