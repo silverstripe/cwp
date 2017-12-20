@@ -1,16 +1,27 @@
 <?php
 
+namespace CWP\CWP\PageTypes;
+
+
+
+use CWP\CWP\PageTypes\EventPage;
+use SilverStripe\ORM\FieldType\DBDate;
+use SilverStripe\ORM\FieldType\DBDatetime;
+use SilverStripe\ORM\PaginatedList;
+
+
+
 class EventHolder extends DatedUpdateHolder {
 	
 	private static $description = 'Container page for Event Pages, provides event filtering and pagination';
 
-	private static $allowed_children = array('EventPage');
+	private static $allowed_children = array(EventPage::class);
 
-	private static $default_child = 'EventPage';
+	private static $default_child = EventPage::class;
 
 	private static $update_name = 'Events';
 
-	private static $update_class = 'EventPage';
+	private static $update_class = EventPage::class;
 
 	private static $icon = 'cwp/images/icons/sitetree_images/event_holder.png';
 
@@ -37,7 +48,7 @@ class EventHolder extends DatedUpdateHolder {
 	public static function AllUpdates($className = 'Events', $parentID = null, $tagID = null, $dateFrom = null,
 		$dateTo = null, $year = null, $monthNumber = null) {
 
-		return parent::AllUpdates($className, $parentID, $tagID, $dateFrom, $dateTo, $year, $monthNumber)->Sort('Date', 'ASC');
+		return parent::AllUpdates($className, $parentID, $tagID, $dateFrom, $dateTo, $year, $monthNumber)->Sort(DBDate::class, 'ASC');
 	}
 }
 
@@ -93,7 +104,7 @@ class EventHolder_Controller extends DatedUpdateHolder_Controller {
 		);
 
 		if ($params['upcomingOnly']) {
-			$items = $items->filter(array('Date:LessThan:Not' => SS_Datetime::now()->Format('Y-m-d')));
+			$items = $items->filter(array('Date:LessThan:Not' => DBDatetime::now()->Format('Y-m-d')));
 		}
 
 		// Apply pagination

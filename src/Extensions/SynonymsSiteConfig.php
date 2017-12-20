@@ -1,5 +1,21 @@
 <?php
 
+namespace CWP\CWP\Extensions;
+
+
+
+
+
+
+use Traversable;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Security\Permission;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\ORM\ValidationResult;
+use SilverStripe\ORM\DataExtension;
+
+
+
 /**
  * Allows siteconfig to configure synonyms for fulltext search
  * Requires silverstripe/fulltextsearch 1.1.1 or above

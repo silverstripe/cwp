@@ -1,4 +1,24 @@
 <?php
+
+namespace CWP\CWP\Tasks;
+
+
+
+
+
+
+
+
+use SilverStripe\UserForms\Model\UserDefinedForm;
+use SilverStripe\Versioned\Versioned;
+use SilverStripe\UserForms\Model\EditableFormField\EditableFormStep;
+use SilverStripe\UserForms\Model\EditableFormField\EditableTextField;
+use SilverStripe\Control\Email\Email;
+use SilverStripe\UserForms\Model\EditableFormField\EditableEmailField;
+use SilverStripe\Control\Director;
+use SilverStripe\Dev\BuildTask;
+
+
 /**
  * Used to populate sample data when installing the starter or Wātea theme
  */
@@ -40,7 +60,7 @@ class PopulateThemeSampleDataTask extends BuildTask
 	{
 		$exists = false;
 		foreach (UserDefinedForm::get()->column('ID') as $formId) {
-			$count = Versioned::get_all_versions('UserDefinedForm', $formId)
+			$count = Versioned::get_all_versions(UserDefinedForm::class, $formId)
 				->filter('URLSegment', 'contact')
 				->count();
 
@@ -84,7 +104,7 @@ class PopulateThemeSampleDataTask extends BuildTask
 				'RightTitle' => 'Please enter your first and last name'
 			)),
 			EditableEmailField::create(array(
-				'Title' => 'Email',
+				'Title' => Email::class,
 				'Required' => true,
 				'Placeholder' => 'example@example.com'
 			)),

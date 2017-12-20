@@ -1,5 +1,13 @@
 <?php
 
+namespace CWP\CWP\Tests\Extensions;
+
+use PHPUnit_Framework_TestCase;
+
+use CWP\CWP\Extensions\SynonymValidator;
+
+
+
 class SynonymValidatorTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @var SynonymValidator

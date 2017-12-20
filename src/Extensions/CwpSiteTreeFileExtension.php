@@ -1,4 +1,19 @@
 <?php
+
+namespace CWP\CWP\Extensions;
+
+
+
+
+
+
+use SilverStripe\Forms\FieldList;
+use SilverStripe\View\Requirements;
+use SilverStripe\Forms\ReadonlyField;
+use SilverStripe\Core\Convert;
+use SilverStripe\ORM\DataExtension;
+
+
 class CwpSiteTreeFileExtension extends DataExtension {
 
 	public function updateCMSFields(FieldList $fields) {

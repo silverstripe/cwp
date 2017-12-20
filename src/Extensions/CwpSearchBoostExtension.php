@@ -1,5 +1,16 @@
 <?php
 
+namespace CWP\CWP\Extensions;
+
+
+
+
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\ORM\DataExtension;
+
+
+
 /**
  * Adds field boosting capabilities to fulltext search for pages
  */

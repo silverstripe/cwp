@@ -1,8 +1,26 @@
 <?php
+
+namespace CWP\CWP\PageTypes;
+
+use Page;
+
+
+
+
+
+use CWP\CWP\PageTypes\DatedUpdatePage;
+use SilverStripe\ORM\FieldType\DBDatetime;
+use SilverStripe\ORM\FieldType\DBDate;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\DatetimeField;
+use SilverStripe\Forms\TextareaField;
+use PageController;
+
+
 class DatedUpdatePage extends Page {
 
 	// Meant as an abstract base class.
-	private static $hide_ancestor = 'DatedUpdatePage';
+	private static $hide_ancestor = DatedUpdatePage::class;
 
 	private static $singular_name = 'Dated Update Page';
 
@@ -24,13 +42,13 @@ class DatedUpdatePage extends Page {
 		parent::populateDefaults();
 
 		if(!isset($this->Date) || $this->Date === null) {
-			$this->Date = SS_Datetime::now()->Format('Y-m-d 09:00:00');
+			$this->Date = DBDatetime::now()->Format('Y-m-d 09:00:00');
 		}
 	}
 
 	public function fieldLabels($includerelations = true) {
 		$labels = parent::fieldLabels($includerelations);
-		$labels['Date'] = _t('DateUpdatePage.DateLabel', 'Date');
+		$labels[DBDate::class] = _t('DateUpdatePage.DateLabel', DBDate::class);
 		$labels['Abstract'] = _t('DateUpdatePage.AbstractTextFieldLabel', 'Abstract');
 
 		return $labels;
@@ -40,7 +58,7 @@ class DatedUpdatePage extends Page {
 		$this->beforeUpdateCMSFields(function (FieldList $fields) {
 			$fields->addFieldToTab(
 				'Root.Main',
-				$dateTimeField = DatetimeField::create('Date', $this->fieldLabel('Date')),
+				$dateTimeField = DatetimeField::create(DBDate::class, $this->fieldLabel(DBDate::class)),
 				'Content'
 			);
 			$dateTimeField->getDateField()->setConfig('showcalendar', true);
@@ -60,5 +78,5 @@ class DatedUpdatePage extends Page {
 	}
 }
 
-class DatedUpdatePage_Controller extends Page_Controller {
+class DatedUpdatePage_Controller extends PageController {
 }

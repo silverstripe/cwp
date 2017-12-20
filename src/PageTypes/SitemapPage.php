@@ -1,4 +1,18 @@
 <?php
+
+namespace CWP\CWP\PageTypes;
+
+use Page;
+
+
+
+
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Dev\Deprecation;
+use SilverStripe\CMS\Model\SiteTree;
+use PageController;
+
+
 class SitemapPage extends Page {
 
 	private static $description = 'Lists all pages on the site';
@@ -8,7 +22,7 @@ class SitemapPage extends Page {
 	private static $plural_name = 'Sitemap Pages';
 
 }
-class SitemapPage_Controller extends Page_Controller {
+class SitemapPage_Controller extends PageController {
 
 	private static $allowed_actions = array(
 		'showpage',
@@ -19,7 +33,7 @@ class SitemapPage_Controller extends Page_Controller {
 	);
 
 	public function Page($link) {
-		if($link instanceof SS_HTTPRequest) {
+		if($link instanceof HTTPRequest) {
 			Deprecation::notice('2.0', 'Using page() as a url handler is deprecated. Use showpage() action instead');
 			return $this->showpage($link);
 		}

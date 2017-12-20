@@ -1,5 +1,15 @@
 <?php
 
+namespace CWP\CWP\Search;
+
+use Object;
+
+use Exception;
+use SS_Log;
+use SilverStripe\FullTextSearch\Search\Queries\SearchQuery;
+
+
+
 /**
  * Provides interface for generating search results for a SolrIndex
  */

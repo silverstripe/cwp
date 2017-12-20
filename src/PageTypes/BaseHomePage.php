@@ -1,4 +1,37 @@
 <?php
+
+namespace CWP\CWP\PageTypes;
+
+use Page;
+
+
+
+
+
+use GridFieldSortableRows;
+
+
+
+
+
+use CWP\CWP\PageTypes\BaseHomePage;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use CWP\CWP\Model\Quicklink;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\ToggleCompositeField;
+use CWP\CWP\PageTypes\NewsHolder;
+use PageController;
+
+
 /**
  * **BaseHomePage** is the basic home page.
  * By default it is hidden from the CMS - we rely on developers creating their own
@@ -9,7 +42,7 @@ class BaseHomePage extends Page {
 
 	private static $icon = 'cwp/images/icons/sitetree_images/home.png';
 
-	private static $hide_ancestor = 'BaseHomePage';
+	private static $hide_ancestor = BaseHomePage::class;
 
 	private static $singular_name = 'Home Page';
 
@@ -27,9 +60,9 @@ class BaseHomePage extends Page {
 	);
 
 	private static $has_one = array(
-		'LearnMorePage' => 'SiteTree',
-		'FeatureOneLink' => 'SiteTree',
-		'FeatureTwoLink' => 'SiteTree'
+		'LearnMorePage' => SiteTree::class,
+		'FeatureOneLink' => SiteTree::class,
+		'FeatureTwoLink' => SiteTree::class
 	);
 
 	private static $has_many = array(
@@ -50,7 +83,7 @@ class BaseHomePage extends Page {
 				TreeDropdownField::create(
 					'LearnMorePageID',
 					_t('BaseHomePage.LearnMoreLink','Page to link the "Learn More" button to:'),
-					'SiteTree'
+					SiteTree::class
 				),
 				'Metadata'
 			);
@@ -62,14 +95,14 @@ class BaseHomePage extends Page {
 				GridFieldConfig_RelationEditor::create()
 			);
 			$gridConfig = $gridField->getConfig();
-			$gridConfig->getComponentByType('GridFieldAddNewButton')->setButtonName(
+			$gridConfig->getComponentByType(GridFieldAddNewButton::class)->setButtonName(
 				_t('BaseHomePage.AddNewButton','Add new')
 			);
-			$gridConfig->removeComponentsByType('GridFieldAddExistingAutocompleter');
-			$gridConfig->removeComponentsByType('GridFieldDeleteAction');
+			$gridConfig->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
+			$gridConfig->removeComponentsByType(GridFieldDeleteAction::class);
 			$gridConfig->addComponent(new GridFieldDeleteAction());
 			$gridConfig->addComponent(new GridFieldSortableRows('SortOrder'));
-			$gridField->setModelClass('Quicklink');
+			$gridField->setModelClass(Quicklink::class);
 
 			$fields->addFieldToTab('Root.Quicklinks', $gridField);
 
@@ -83,7 +116,7 @@ class BaseHomePage extends Page {
 						$dropdownField = DropdownField::create(
 							'FeatureOneCategory',
 							_t('BaseHomePage.FeatureCategoryDropdown','Category icon'),
-							singleton('BaseHomePage')->dbObject('FeatureOneCategory')->enumValues()
+							singleton(BaseHomePage::class)->dbObject('FeatureOneCategory')->enumValues()
 						),
 						HTMLEditorField::create(
 							'FeatureOneContent',
@@ -96,7 +129,7 @@ class BaseHomePage extends Page {
 						TreeDropdownField::create(
 							'FeatureOneLinkID',
 							_t('BaseHomePage.FeatureLink','Page to link to'),
-							'SiteTree'
+							SiteTree::class
 						)->setDescription(_t('BaseHomePage.ButtonTextRequired','Button text must be filled in'))
 					)
 				)->setHeadingLevel(3)
@@ -109,7 +142,7 @@ class BaseHomePage extends Page {
 					$dropdownField = DropdownField::create(
 						'FeatureTwoCategory',
 						_t('BaseHomePage.FeatureCategoryDropdown','Category icon'),
-						singleton('BaseHomePage')->dbObject('FeatureTwoCategory')->enumValues()
+						singleton(BaseHomePage::class)->dbObject('FeatureTwoCategory')->enumValues()
 					),
 					HTMLEditorField::create(
 						'FeatureTwoContent',
@@ -122,7 +155,7 @@ class BaseHomePage extends Page {
 					TreeDropdownField::create(
 						'FeatureTwoLinkID',
 						_t('BaseHomePage.FeatureLink','Page to link to'),
-						'SiteTree'
+						SiteTree::class
 					)->setDescription(_t('BaseHomePage.ButtonTextRequired','Button text must be filled in'))
 				)
 				)->setHeadingLevel(3)
@@ -134,10 +167,10 @@ class BaseHomePage extends Page {
 	}
 }
 
-class BaseHomePage_Controller extends Page_Controller {
+class BaseHomePage_Controller extends PageController {
 
 	public function getNewsPage() {
-		return NewsHolder::get_one('NewsHolder');
+		return NewsHolder::get_one(NewsHolder::class);
 	}
 
 	/**

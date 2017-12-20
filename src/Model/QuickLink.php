@@ -1,4 +1,19 @@
 <?php
+
+namespace CWP\CWP\Model;
+
+
+
+
+
+use CWP\CWP\PageTypes\BaseHomePage;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\CompositeField;
+use SilverStripe\ORM\DataObject;
+
+
 class Quicklink extends DataObject {
 
 	private static $db = array(
@@ -8,8 +23,8 @@ class Quicklink extends DataObject {
 	);
 
 	private static $has_one = array(
-		'Parent' => 'BaseHomePage',
-		'InternalLink' => 'SiteTree'
+		'Parent' => BaseHomePage::class,
+		'InternalLink' => SiteTree::class
 	);
 
 	private static $summary_fields = array(
@@ -77,7 +92,7 @@ class Quicklink extends DataObject {
 				TreeDropdownField::create(
 					'InternalLinkID', 
 					$this->fieldLabel('InternalLinkID'),
-					'SiteTree'
+					SiteTree::class
 				),
 				$externalLinkField,
 				$wrap = CompositeField::create(

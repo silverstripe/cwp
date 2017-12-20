@@ -1,5 +1,18 @@
 <?php
 
+namespace CWP\CWP\Extensions;
+
+
+
+use WorkflowDefinition;
+
+use SilverStripe\Core\Config\Config;
+use CWP\CWP\Extensions\CwpWorkflowDefinitionExtension;
+use SilverStripe\ORM\DB;
+use SilverStripe\ORM\DataExtension;
+
+
+
 /**
  * Ensures that the default template is created
  */
@@ -14,7 +27,7 @@ class CwpWorkflowDefinitionExtension extends DataExtension {
 	private static $create_default_workflow = true;
 
 	public function requireDefaultRecords() {
-		if(Config::inst()->get('CwpWorkflowDefinitionExtension', 'create_default_workflow')) {
+		if(Config::inst()->get(CwpWorkflowDefinitionExtension::class, 'create_default_workflow')) {
 			// Only proceed if a definition using this template has not been created yet
 			$definition = WorkflowDefinition::get()->filter("Template", "Review and Approve")->First();
 			if($definition && $definition->exists()) return;

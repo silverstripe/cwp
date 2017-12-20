@@ -1,4 +1,15 @@
 <?php
+
+namespace CWP\CWP\PageTypes;
+
+
+
+
+use SilverStripe\Forms\FieldList;
+use SilverStripe\CMS\Model\RedirectorPage;
+use SilverStripe\CMS\Model\RedirectorPageController;
+
+
 /**
  * FooterHolder is intended as an invisible container for footer links and pages.
  * All child pages will be shown within the footer area of the site.
@@ -56,6 +67,6 @@ class FooterHolder extends RedirectorPage {
 	}
 }
 
-class FooterHolder_Controller extends RedirectorPage_Controller {
+class FooterHolder_Controller extends RedirectorPageController {
 
 }

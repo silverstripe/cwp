@@ -1,4 +1,59 @@
 <?php
+
+namespace CWP\CWP\PageTypes;
+
+
+
+
+
+
+
+use GridFieldSortableRows;
+
+
+
+use Translatable;
+
+
+
+
+
+
+
+
+
+
+use Object;
+use CWP\CWP\PageTypes\BasePage;
+use SilverStripe\Taxonomy\TaxonomyTerm;
+use CWP\CWP\PageTypes\FooterHolder;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Versioned\Versioned;
+use SilverStripe\Control\Director;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridFieldEditButton;
+use SilverStripe\Forms\GridField\GridFieldFilterHeader;
+use SilverStripe\Forms\GridField\GridFieldDataColumns;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Forms\TreeMultiselectField;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\i18n\i18n;
+use SilverStripe\View\ArrayData;
+use SilverStripe\CMS\Model\SiteTree;
+use CWP\Core\Model\CwpSolrIndex;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Assets\Filesystem;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\CMS\Search\SearchForm;
+use CWP\CWP\Search\CwpSearchEngine;
+use SilverStripe\ORM\FieldType\DBDatetime;
+use SilverStripe\CMS\Controllers\ContentController;
+
+
 /**
  * **BasePage** is the foundation which can be used for constructing your own pages.
  * By default it is hidden from the CMS - we rely on developers creating their own
@@ -10,7 +65,7 @@ class BasePage extends SiteTree {
 	private static $icon = 'cwp/images/icons/sitetree_images/page.png';
 
 	// Hide this page type from the CMS. hide_ancestor is slightly misnamed, should really be just "hide"
-	private static $hide_ancestor = 'BasePage';
+	private static $hide_ancestor = BasePage::class;
 
 	private static $pdf_export = false;
 
@@ -38,8 +93,8 @@ class BasePage extends SiteTree {
 	public static $related_pages_title = 'Related pages';
 
 	private static $many_many = array(
-		'Terms' => 'TaxonomyTerm',
-		'RelatedPages' => 'BasePage'
+		'Terms' => TaxonomyTerm::class,
+		'RelatedPages' => BasePage::class
 	);
 
 	private static $many_many_extraFields = array(
@@ -56,7 +111,7 @@ class BasePage extends SiteTree {
 	 * Get the footer holder.
 	 */
 	public function getFooter() {
-		return FooterHolder::get_one('FooterHolder');
+		return FooterHolder::get_one(FooterHolder::class);
 	}
 
 	/**
@@ -65,7 +120,7 @@ class BasePage extends SiteTree {
 	public function getPdfFilename() {
 		$baseName = sprintf('%s-%s', $this->URLSegment, $this->ID);
 
-		$folderPath = Config::inst()->get('BasePage', 'generated_pdf_path');
+		$folderPath = Config::inst()->get(BasePage::class, 'generated_pdf_path');
 		if($folderPath[0] != '/') $folderPath = BASE_PATH . '/' . $folderPath;
 
 		return sprintf('%s/%s.pdf', $folderPath, $baseName);
@@ -75,7 +130,7 @@ class BasePage extends SiteTree {
 	 * Build pdf link for template.
 	 */
 	public function PdfLink() {
-		if(!Config::inst()->get('BasePage', 'pdf_export')) return false;
+		if(!Config::inst()->get(BasePage::class, 'pdf_export')) return false;
 
 		$path = $this->getPdfFilename();
 
@@ -138,12 +193,12 @@ class BasePage extends SiteTree {
 		$this->beforeUpdateCMSFields(function (FieldList $fields) {
 			// Related Pages
 			$components = GridFieldConfig_RelationEditor::create();
-			$components->removeComponentsByType('GridFieldAddNewButton');
-			$components->removeComponentsByType('GridFieldEditButton');
-			$components->removeComponentsByType('GridFieldFilterHeader');
+			$components->removeComponentsByType(GridFieldAddNewButton::class);
+			$components->removeComponentsByType(GridFieldEditButton::class);
+			$components->removeComponentsByType(GridFieldFilterHeader::class);
 			$components->addComponent(new GridFieldSortableRows('SortOrder'));
 
-			$dataColumns = $components->getComponentByType('GridFieldDataColumns');
+			$dataColumns = $components->getComponentByType(GridFieldDataColumns::class);
 			$dataColumns->setDisplayFields(array(
 				'Title' => _t('BasePage.ColumnTitle', 'Title'),
 				'ClassName' => _t('BasePage.ColumnPageType', 'Page Type')
@@ -166,13 +221,13 @@ class BasePage extends SiteTree {
 			// Taxonomies - Unless they have their own 'Tags' field (such as in Blog, etc)
 			if(!$this->has_many('Tags') && !$this->many_many('Tags')) {
 				$components = GridFieldConfig_RelationEditor::create();
-				$components->removeComponentsByType('GridFieldAddNewButton');
-				$components->removeComponentsByType('GridFieldEditButton');
+				$components->removeComponentsByType(GridFieldAddNewButton::class);
+				$components->removeComponentsByType(GridFieldEditButton::class);
 
-				$autoCompleter = $components->getComponentByType('GridFieldAddExistingAutocompleter');
+				$autoCompleter = $components->getComponentByType(GridFieldAddExistingAutocompleter::class);
 				$autoCompleter->setResultsFormat('$Name ($TaxonomyName)');
 
-				$dataColumns = $components->getComponentByType('GridFieldDataColumns');
+				$dataColumns = $components->getComponentByType(GridFieldDataColumns::class);
 				$dataColumns->setDisplayFields(array(
 					'Name' => _t('BasePage.Term','Term'),
 					'TaxonomyName' => _t('BasePage.Taxonomy','Taxonomy')
@@ -184,7 +239,7 @@ class BasePage extends SiteTree {
 					TreeMultiselectField::create(
 						'Terms',
 						_t('BasePage.Terms','Terms'),
-						'TaxonomyTerm'
+						TaxonomyTerm::class
 					)->setDescription(_t('BasePage.TermsDescription', 'Click to search for additional terms'))
 				);
 			}
@@ -282,7 +337,7 @@ class BasePage_Controller extends ContentController {
 	 */
 	public static $results_per_page = 10;
 
-	public static $search_index_class = 'CwpSolrIndex';
+	public static $search_index_class = CwpSolrIndex::class;
 
 	/**
 	 * If spelling suggestions for searches are given, enable
@@ -308,7 +363,7 @@ class BasePage_Controller extends ContentController {
 	 * Serve the page rendered as PDF.
 	 */
 	public function downloadpdf() {
-		if(!Config::inst()->get('BasePage', 'pdf_export')) return false;
+		if(!Config::inst()->get(BasePage::class, 'pdf_export')) return false;
 
 		// We only allow producing live pdf. There is no way to secure the draft files.
 		Versioned::reading_stage('Live');
@@ -318,7 +373,7 @@ class BasePage_Controller extends ContentController {
 			$this->generatePDF();
 		}
 
-		return SS_HTTPRequest::send_file(file_get_contents($path), basename($path), 'application/pdf');
+		return HTTPRequest::send_file(file_get_contents($path), basename($path), 'application/pdf');
 	}
 
 	/*
@@ -327,8 +382,8 @@ class BasePage_Controller extends ContentController {
 	*/
 	public function getPDFBaseURL() {
 		//if base url YML is defined in YML, use that
-		if(Config::inst()->get('BasePage', 'pdf_base_url')){
-			$pdf_base_url = Config::inst()->get('BasePage', 'pdf_base_url').'/';
+		if(Config::inst()->get(BasePage::class, 'pdf_base_url')){
+			$pdf_base_url = Config::inst()->get(BasePage::class, 'pdf_base_url').'/';
 		//otherwise, if we are CWP use the secure domain
 		} elseif (defined('CWP_SECURE_DOMAIN')){
 			$pdf_base_url = CWP_SECURE_DOMAIN.'/';
@@ -356,9 +411,9 @@ class BasePage_Controller extends ContentController {
 	 * Render the page as PDF using wkhtmltopdf.
 	 */
 	public function generatePDF() {
-		if(!Config::inst()->get('BasePage', 'pdf_export')) return false;
+		if(!Config::inst()->get(BasePage::class, 'pdf_export')) return false;
 
-		$binaryPath = Config::inst()->get('BasePage', 'wkhtmltopdf_binary');
+		$binaryPath = Config::inst()->get(BasePage::class, 'wkhtmltopdf_binary');
 		if(!$binaryPath || !is_executable($binaryPath)) {
 			if(defined('WKHTMLTOPDF_BINARY') && is_executable(WKHTMLTOPDF_BINARY)) {
 				$binaryPath = WKHTMLTOPDF_BINARY;
@@ -389,10 +444,10 @@ class BasePage_Controller extends ContentController {
 		// Force http protocol on CWP - fetching from localhost without using the proxy, SSL terminates on gateway.
 		if (defined('CWP_ENVIRONMENT')) {
 			Config::inst()->nest();
-			Config::inst()->update('Director', 'alternate_protocol', 'http');
+			Config::inst()->update(Director::class, 'alternate_protocol', 'http');
 			//only set alternate protocol if CWP_SECURE_DOMAIN is defined OR pdf_base_url is
 			if($pdf_base_url){
-				Config::inst()->update('Director', 'alternate_base_url', 'http://'.$pdf_base_url);
+				Config::inst()->update(Director::class, 'alternate_base_url', 'http://'.$pdf_base_url);
 			}
 		}
 
@@ -430,7 +485,7 @@ class BasePage_Controller extends ContentController {
 		}
 
 		// serve the generated file
-		return SS_HTTPRequest::send_file(file_get_contents($pdfFile), basename($pdfFile), 'application/pdf');
+		return HTTPRequest::send_file(file_get_contents($pdfFile), basename($pdfFile), 'application/pdf');
 	}
 
 	/**
@@ -447,7 +502,7 @@ class BasePage_Controller extends ContentController {
 			new FormAction('results', _t('SearchForm.GO', 'Go'))
 		);
 
-		$form = SearchForm::create($this, 'SearchForm', $fields, $actions);
+		$form = SearchForm::create($this, SearchForm::class, $fields, $actions);
 		$form->setFormAction('search/SearchForm');
 
 		return $form;
@@ -557,7 +612,7 @@ class BasePage_Controller extends ContentController {
 	 * Provide current year.
 	 */
 	public function CurrentDatetime() {
-		return SS_Datetime::now();
+		return DBDatetime::now();
 	}
 
 	public function getRSSLink() {

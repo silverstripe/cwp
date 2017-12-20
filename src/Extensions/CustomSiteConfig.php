@@ -1,4 +1,15 @@
 <?php
+
+namespace CWP\CWP\Extensions;
+
+
+
+
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\DataExtension;
+
+
 /**
  * Adds new global settings.
  */

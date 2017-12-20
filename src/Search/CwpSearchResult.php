@@ -1,5 +1,14 @@
 <?php
 
+namespace CWP\CWP\Search;
+
+
+
+use SilverStripe\View\ArrayData;
+use SilverStripe\View\ViewableData;
+
+
+
 /**
  * Container for a set of search results
  */

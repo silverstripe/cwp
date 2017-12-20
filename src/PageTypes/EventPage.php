@@ -1,10 +1,35 @@
 <?php
 
+namespace CWP\CWP\PageTypes;
+
+
+
+
+
+
+
+
+
+
+use CWP\CWP\PageTypes\EventHolder;
+use SilverStripe\ORM\FieldType\DBDatetime;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\ORM\FieldType\DBDate;
+use SilverStripe\Forms\DateField;
+use SilverStripe\Security\Member;
+use SilverStripe\Forms\TimeField;
+use SilverStripe\Forms\FieldGroup;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Core\Convert;
+use PageController;
+
+
+
 class EventPage extends DatedUpdatePage {
 
 	private static $description = 'Describes an event occurring on a specific date.';
 
-	static $default_parent = 'EventHolder';
+	static $default_parent = EventHolder::class;
 
 	static $can_be_root = false;
 
@@ -36,7 +61,7 @@ class EventPage extends DatedUpdatePage {
 	 */
 	public function populateDefaults() {
 		if(!isset($this->Date) || $this->Date === null) {
-			$this->Date = SS_Datetime::now()->Format('Y-m-d');
+			$this->Date = DBDatetime::now()->Format('Y-m-d');
 		}
 
 		if(!isset($this->StartTime) || $this->StartTime === null) {
@@ -52,11 +77,11 @@ class EventPage extends DatedUpdatePage {
 
 	public function getCMSFields() {
 		$this->beforeUpdateCMSFields(function (FieldList $fields) {
-			$fields->removeByName('Date');
+			$fields->removeByName(DBDate::class);
 
 			$dateTimeFields = array();
 
-			$dateTimeFields[] = $dateField = DateField::create('Date', 'Date');
+			$dateTimeFields[] = $dateField = DateField::create(DBDate::class, DBDate::class);
 			$dateField->setConfig('showcalendar', true);
 			$dateField->setConfig('dateformat', Member::currentUser()->getDateFormat());
 
@@ -82,6 +107,6 @@ class EventPage extends DatedUpdatePage {
 	}
 }
 
-class EventPage_Controller extends Page_Controller {
+class EventPage_Controller extends PageController {
 
 }

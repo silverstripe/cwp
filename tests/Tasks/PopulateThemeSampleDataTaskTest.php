@@ -1,5 +1,20 @@
 <?php
 
+namespace CWP\CWP\Tests\Tasks;
+
+
+
+
+
+
+use CWP\CWP\Tasks\PopulateThemeSampleDataTask;
+use SilverStripe\UserForms\Model\UserDefinedForm;
+use SilverStripe\Dev\BuildTask;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Dev\SapphireTest;
+
+
+
 class PopulateThemeSampleDataTaskTest extends SapphireTest
 {
 	protected $usesDatabase = true;
@@ -41,7 +56,7 @@ class PopulateThemeSampleDataTaskTest extends SapphireTest
 	protected function bufferedTask(BuildTask $task)
 	{
 		ob_start();
-		$task->run(new SS_HTTPRequest('GET', '/'));
+		$task->run(new HTTPRequest('GET', '/'));
 		return ob_get_clean();
 	}
 }

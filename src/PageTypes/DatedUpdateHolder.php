@@ -1,13 +1,64 @@
 <?php
 
+namespace CWP\CWP\PageTypes;
+
+use Page;
+
+
+
+
+
+
+use Datetime;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+use CWP\CWP\PageTypes\DatedUpdateHolder;
+use CWP\CWP\PageTypes\DatedUpdatePage;
+use SilverStripe\Taxonomy\TaxonomyTerm;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\ORM\FieldType\DBDate;
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\Core\Convert;
+use SilverStripe\ORM\DataList;
+use SilverStripe\Control\Director;
+use SilverStripe\Control\HTTP;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\Control\RSS\RSSFeed;
+use SilverStripe\ORM\FieldType\DBDatetime;
+use SilverStripe\Control\Session;
+use SilverStripe\ORM\PaginatedList;
+use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\Forms\DateField;
+use SilverStripe\Forms\HiddenField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\Form;
+use CWP\Core\Feed\CwpAtomFeed;
+use PageController;
+
+
+
 class DatedUpdateHolder extends Page {
 
 	// Meant as an abstract base class.
-	private static $hide_ancestor = 'DatedUpdateHolder';
+	private static $hide_ancestor = DatedUpdateHolder::class;
 
 	private static $update_name = 'Updates';
 
-	private static $update_class = 'DatedUpdatePage';
+	private static $update_class = DatedUpdatePage::class;
 
 	private static $singular_name = 'Dated Update Holder';
 
@@ -20,7 +71,7 @@ class DatedUpdateHolder extends Page {
 		$tags = TaxonomyTerm::get()
 			->innerJoin('BasePage_Terms', '"TaxonomyTerm"."ID"="BasePage_Terms"."TaxonomyTermID"')
 			->innerJoin(
-				'SiteTree',
+				SiteTree::class,
 				sprintf('"SiteTree"."ID" = "BasePage_Terms"."BasePageID" AND "SiteTree"."ParentID" = \'%d\'', $this->ID)
 			)
 			->sort('Name');
@@ -50,13 +101,13 @@ class DatedUpdateHolder extends Page {
 	 *
 	 * @returns DataList | PaginatedList
 	 */
-	public static function AllUpdates($className = 'DatedUpdatePage', $parentID = null, $tagID = null, $dateFrom = null,
+	public static function AllUpdates($className = DatedUpdatePage::class, $parentID = null, $tagID = null, $dateFrom = null,
 			$dateTo = null, $year = null, $monthNumber = null) {
 
 		$items = $className::get();
-		$dbTableName = ClassInfo::table_for_object_field($className, 'Date');
+		$dbTableName = ClassInfo::table_for_object_field($className, DBDate::class);
 		if (!$dbTableName) {
-			$dbTableName = 'DatedUpdatePage';
+			$dbTableName = DatedUpdatePage::class;
 		}
 
 		// Filter by parent holder.
@@ -70,7 +121,7 @@ class DatedUpdateHolder extends Page {
 				'BasePage_Terms',
 				sprintf('"%s"."ID" = "BasePage_Terms"."BasePageID"', $className)
 			)->innerJoin(
-				'TaxonomyTerm',
+				TaxonomyTerm::class,
 				sprintf('"BasePage_Terms"."TaxonomyTermID" = "TaxonomyTerm"."ID" AND "TaxonomyTerm"."ID" = \'%d\'', $tagID)
 			);
 		}
@@ -139,7 +190,7 @@ class DatedUpdateHolder extends Page {
 		$dates = $updates->dataQuery()
 			->groupby('YEAR("Date")')
 			->groupby('MONTH("Date")')
-			->sort('Date', 'DESC')
+			->sort(DBDate::class, 'DESC')
 			->query()
 			->setSelect(array(
 				'Year' => 'YEAR("Date")',
@@ -220,7 +271,7 @@ class DatedUpdateHolder extends Page {
  * When the user clicks on a month, pagination will be reset, but tags retained. Pagination retains all other
  * parameters.
  */
-class DatedUpdateHolder_Controller extends Page_Controller {
+class DatedUpdateHolder_Controller extends PageController {
 
 	private static $allowed_actions = array(
 		'rss',
@@ -260,7 +311,7 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 
 		$filters = array();
 		if ($params['tag']) {
-			$term = TaxonomyTerm::get_by_id('TaxonomyTerm', $params['tag']);
+			$term = TaxonomyTerm::get_by_id(TaxonomyTerm::class, $params['tag']);
 			if ($term) {
 				$filters[] = _t('DatedUpdateHolder.FILTER_WITHIN', 'within') . ' "' . $term->Name . '"';
 			}
@@ -322,13 +373,13 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 		if (isset($tag)) $tag = (int)$tag;
 		if (isset($from)) {
 			$from = urldecode($from);
-			$parser = new SS_Datetime;
+			$parser = new DBDatetime;
 			$parser->setValue($from);
 			$from = $parser->Format('Y-m-d');
 		}
 		if (isset($to)) {
 			$to = urldecode($to);
-			$parser = new SS_Datetime;
+			$parser = new DBDatetime;
 			$parser->setValue($to);
 			$to = $parser->Format('Y-m-d');
 		}
@@ -414,7 +465,7 @@ class DatedUpdateHolder_Controller extends Page_Controller {
 		$tagID = $this->request->getVar('tag');
 
 		if (isset($tagID)) {
-			return TaxonomyTerm::get_by_id('TaxonomyTerm', (int)$tagID);
+			return TaxonomyTerm::get_by_id(TaxonomyTerm::class, (int)$tagID);
 		}
 	}
 

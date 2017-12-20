@@ -1,16 +1,27 @@
 <?php
 
+namespace CWP\CWP\PageTypes;
+
+
+
+use CWP\CWP\PageTypes\NewsPage;
+use SilverStripe\ORM\FieldType\DBDate;
+use SilverStripe\Control\RSS\RSSFeed;
+use CWP\Core\Feed\CwpAtomFeed;
+
+
+
 class NewsHolder extends DatedUpdateHolder {
 
 	private static $description = 'Container page for News Pages, provides news filtering and pagination';
 
-	private static $allowed_children = array('NewsPage');
+	private static $allowed_children = array(NewsPage::class);
 
-	private static $default_child = 'NewsPage';
+	private static $default_child = NewsPage::class;
 
 	private static $update_name = 'News';
 
-	private static $update_class = 'NewsPage';
+	private static $update_class = NewsPage::class;
 
 	private static $icon = 'cwp/images/icons/sitetree_images/news_listing.png';
 
@@ -34,10 +45,10 @@ class NewsHolder extends DatedUpdateHolder {
 	 *
 	 * @returns DataList | PaginatedList
 	 */
-	public static function AllUpdates($className = 'NewsPage', $parentID = null, $tagID = null, $dateFrom = null,
+	public static function AllUpdates($className = NewsPage::class, $parentID = null, $tagID = null, $dateFrom = null,
 			$dateTo = null, $year = null, $monthNumber = null) {
 
-		return parent::AllUpdates($className, $parentID, $tagID, $dateFrom, $dateTo, $year, $monthNumber)->Sort('Date', 'DESC');
+		return parent::AllUpdates($className, $parentID, $tagID, $dateFrom, $dateTo, $year, $monthNumber)->Sort(DBDate::class, 'DESC');
 	}
 }
 

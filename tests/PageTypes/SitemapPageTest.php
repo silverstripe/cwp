@@ -1,4 +1,16 @@
 <?php
+
+namespace CWP\CWP\Tests\PageTypes;
+
+
+
+
+use SilverStripe\Core\Config\Config;
+use SilverStripe\View\SSViewer;
+use SilverStripe\Dev\CSSContentParser;
+use SilverStripe\Dev\FunctionalTest;
+
+
 class SitemapPageTest extends FunctionalTest {
 
 	protected static $fixture_file = 'SitemapPageTest.yml';
@@ -9,7 +21,7 @@ class SitemapPageTest extends FunctionalTest {
 	{
 		parent::setUp();
 
-		Config::inst()->update('SSViewer', 'theme', 'starter');
+		Config::inst()->update(SSViewer::class, 'theme', 'starter');
 	}
 
 	/**

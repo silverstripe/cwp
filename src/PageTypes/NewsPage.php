@@ -1,5 +1,17 @@
 <?php
 
+namespace CWP\CWP\PageTypes;
+
+
+
+
+use SilverStripe\Assets\Image;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+
+
+
 class NewsPage extends DatedUpdatePage {
 
 	private static $description = 'Describes an item of news';
@@ -19,7 +31,7 @@ class NewsPage extends DatedUpdatePage {
 	);
 
 	private static $has_one = array(
-		'FeaturedImage' => 'Image'
+		'FeaturedImage' => Image::class
 	);
 
 	public $pageIcon =  'images/icons/sitetree_images/news.png';

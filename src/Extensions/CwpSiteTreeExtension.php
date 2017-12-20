@@ -1,5 +1,18 @@
 <?php
 
+namespace CWP\CWP\Extensions;
+
+
+
+
+
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\ORM\DataExtension;
+
+
+
 class CwpSiteTreeExtension extends DataExtension
 {
 	private static $db = array(

@@ -1,4 +1,13 @@
 <?php
+
+namespace CWP\CWP\Tasks;
+
+
+
+use CWP\CWP\PageTypes\BasePage;
+use SilverStripe\Dev\BuildTask;
+
+
 class CleanupGeneratedPdfBuildTask extends BuildTask {
 
 	protected $title = 'Cleanup generated PDFs';

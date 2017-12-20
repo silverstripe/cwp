@@ -1,5 +1,12 @@
 <?php
 
+namespace CWP\CWP\Extensions;
+
+
+use SilverStripe\Forms\Validator;
+
+
+
 class SynonymValidator extends Validator {
 	/**
 	 * @var array

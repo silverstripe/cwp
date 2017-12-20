@@ -1,10 +1,20 @@
 <?php
 
+namespace CWP\CWP\Tests\PageTypes;
+
+
+
+use CWP\CWP\PageTypes\EventHolder;
+use SilverStripe\Taxonomy\TaxonomyTerm;
+use SilverStripe\Dev\SapphireTest;
+
+
+
 class EventHolderTest extends SapphireTest {
 	static $fixture_file = 'cwp/tests/EventHolderTest.yml';
 
 	function testEventTags() {
-		$holder = $this->objFromFixture('EventHolder', 'EventHolder1');
+		$holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
 		$tags = $holder->UpdateTags();
 		$this->assertNotNull($tags->find('Name', 'Future'), 'Finds present terms.');
@@ -13,7 +23,7 @@ class EventHolderTest extends SapphireTest {
 	}
 
 	function testEventWithParentFilter() {
-		$holder = $this->objFromFixture('EventHolder', 'EventHolder2');
+		$holder = $this->objFromFixture(EventHolder::class, 'EventHolder2');
 
 		$items = $holder->Updates();
 		
@@ -22,10 +32,10 @@ class EventHolderTest extends SapphireTest {
 	}
 
 	function testEventsWithTagFilter() {
-		$holder = $this->objFromFixture('EventHolder', 'EventHolder1');
+		$holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
 		//Get the "Future" tag.
-		$tag = $this->objFromFixture('TaxonomyTerm', 'TaxonomyTerm1');
+		$tag = $this->objFromFixture(TaxonomyTerm::class, 'TaxonomyTerm1');
 
 		$items = $holder->Updates($tag->ID);
 		
@@ -34,7 +44,7 @@ class EventHolderTest extends SapphireTest {
 	}
 
 	function testEventsWithMonthFilter() {
-		$holder = $this->objFromFixture('EventHolder', 'EventHolder1');
+		$holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
 		$items = $holder->Updates(null, null, null, 2013, 7);
 		
@@ -43,7 +53,7 @@ class EventHolderTest extends SapphireTest {
 	}
 
 	function testEventsWithDateRangeFilter() {
-		$holder = $this->objFromFixture('EventHolder', 'EventHolder1');
+		$holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
 		$items = $holder->Updates(null, '2013-01-19', null);
 		$this->assertNotNull($items->find('URLSegment', 'past-event-2'), 'Finds the event at the date');
@@ -55,7 +65,7 @@ class EventHolderTest extends SapphireTest {
 	}
 
 	function testExtractMonths() {
-		$holder = $this->objFromFixture('EventHolder', 'EventHolder1');
+		$holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
 		$months = EventHolder::ExtractMonths(
 			$holder->Updates(),
