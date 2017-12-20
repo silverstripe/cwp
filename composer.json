@@ -1,7 +1,7 @@
 {
     "name": "cwp/cwp",
     "description": "CWP features module. We strongly recommend using it for all new sites. Future features will be delivered here.",
-    "type": "silverstripe-module",
+    "type": "silverstripe-vendormodule",
     "keywords": [
         "silverstripe",
         "cwp"
@@ -15,8 +15,19 @@
         "phpunit/phpunit": "^5.7"
     },
     "extra": {
+        "expose": [
+            "css",
+            "javascript",
+            "images"
+        ],
         "branch-alias": {
             "dev-master": "2.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "CWP\\CWP\\": "src/",
+            "CWP\\CWP\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",
