@@ -1,21 +1,24 @@
 {
-	"name": "cwp/cwp",
-	"description": "CWP features module. We strongly recommend using it for all new sites. Future features will be delivered here.",
-	"type": "silverstripe-module",
-	"keywords": ["silverstripe", "cwp"],
-	"license": "BSD-3-Clause",
-	"require": {
-		"cwp/cwp-core": "^2",
-		"silverstripe/taxonomy": "^1"
-	},
-	"require-dev": {
-		"phpunit/phpunit": "^3.7"
-	},
-        "extra": {
-                "branch-alias": {
-                        "dev-master": "2.x-dev"
-                }
-        },
-	"minimum-stability": "dev",
-	"prefer-stable": true
+    "name": "cwp/cwp",
+    "description": "CWP features module. We strongly recommend using it for all new sites. Future features will be delivered here.",
+    "type": "silverstripe-module",
+    "keywords": [
+        "silverstripe",
+        "cwp"
+    ],
+    "license": "BSD-3-Clause",
+    "require": {
+        "cwp/cwp-core": "^2",
+        "silverstripe/taxonomy": "^2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
