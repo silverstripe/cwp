@@ -91,7 +91,7 @@ by adding the `SynonymsSiteConfig` extension.
 	    - SynonymsSiteConfig
 
 
-It is also necessary to ensure that any solr index configured either extends the base `SolrSearchIndex`
+It is also necessary to ensure that any solr index configured either extends the base `CwpSolrIndex`
 class, or includes the following code (as copied from the basic recipe) to override the 
 `SolrIndex::uploadConfig` method.
 
@@ -153,7 +153,7 @@ In order to add this functionality to pages you can use the `CwpSearchBoostExten
 		- CwpSearchBoostExtension
 
 
-Ensure that you are using either the default SolrSearchIndex, or are extending CwpSearchIndex and are calling
+Ensure that you are using either the default CwpSolrIndex, or are extending CwpSearchIndex and are calling
 `parent::init()` after your custom field definitions.
 
 

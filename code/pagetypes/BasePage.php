@@ -282,7 +282,7 @@ class BasePage_Controller extends ContentController {
 	 */
 	public static $results_per_page = 10;
 
-	public static $search_index_class = 'SolrSearchIndex';
+	public static $search_index_class = 'CwpSolrIndex';
 
 	/**
 	 * If spelling suggestions for searches are given, enable
