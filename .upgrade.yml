@@ -25,11 +25,10 @@ mappings:
   BaseHomePage: CWP\CWP\PageTypes\BaseHomePage
   BaseHomePage_Controller: CWP\CWP\PageTypes\BaseHomePageController
   NewsPage: CWP\CWP\PageTypes\NewsPage
-  NewsPage_Controller: CWP\CWP\PageTypes\NewsPage_Controller
   CwpSearchEngine: CWP\CWP\Search\CwpSearchEngine
   CwpSearchResult: CWP\CWP\Search\CwpSearchResult
   CwpSearchPage: CWP\CWP\Search\CwpSearchPage
-  CwpSearchPage_Controller: CWP\CWP\Search\CwpSearchPage_Controller
+  CwpSearchPage_Controller: CWP\CWP\Search\CwpSearchPageController
   CleanupGeneratedPdfBuildTask: CWP\CWP\Tasks\CleanupGeneratedPdfBuildTask
   CleanupGeneratedPdfDailyTask: CWP\CWP\Tasks\CleanupGeneratedPdfDailyTask
   PopulateThemeSampleDataTask: CWP\CWP\Tasks\PopulateThemeSampleDataTask

@@ -2,10 +2,12 @@
 
 namespace CWP\CWP\Search;
 
-use Object;
-
 use Exception;
-use SS_Log;
+use Psr\Log\LoggerInterface;
+use SilverStripe\Core\Config\Configurable;
+use SilverStripe\Core\Extensible;
+use SilverStripe\Core\Injector\Injectable;
+use SilverStripe\Core\Injector\Injector;
 use SilverStripe\FullTextSearch\Search\Queries\SearchQuery;
 
 
@@ -13,8 +15,11 @@ use SilverStripe\FullTextSearch\Search\Queries\SearchQuery;
 /**
  * Provides interface for generating search results for a SolrIndex
  */
-class CwpSearchEngine extends Object {
-	
+class CwpSearchEngine {
+    use Configurable;
+    use Extensible;
+    use Injectable;
+
 	/**
 	 * Default search options
 	 *
@@ -24,13 +29,13 @@ class CwpSearchEngine extends Object {
 	private static $search_options = array(
 		'hl' => 'true'
 	);
-	
+
 	/**
 	 * Additional search options to send to search when spellcheck
 	 * is included
 	 *
 	 * @var array
-	 * @config 
+	 * @config
 	 */
 	private static $spellcheck_options = array(
 		'spellcheck' => 'true',
@@ -39,10 +44,10 @@ class CwpSearchEngine extends Object {
 		// dictionary when indexing fields under the _spellcheckText column
 		'spellcheck.dictionary' => 'default'
 	);
-	
+
 	/**
 	 * Build a SearchQuery for a new search
-	 * 
+	 *
 	 * @param string $keywords
 	 * @param array $classes
 	 * @return SearchQuery
@@ -59,10 +64,10 @@ class CwpSearchEngine extends Object {
 		$query->limit(100);
 		return $query;
 	}
-	
+
 	/**
 	 * Get solr search options for this query
-	 * 
+	 *
 	 * @param bool $spellcheck True if we should include spellcheck support
 	 * @return array
 	 */
@@ -73,10 +78,10 @@ class CwpSearchEngine extends Object {
 		}
 		return $options;
 	}
-	
+
 	/**
 	 * Get results for a search term
-	 * 
+	 *
 	 * @param string $keywords
 	 * @param array $classes
 	 * @param SolrIndex $searchIndex
@@ -89,7 +94,7 @@ class CwpSearchEngine extends Object {
 		// Prepare options
 		$query = $this->getSearchQuery($keywords, $classes);
 		$options = $this->getSearchOptions($spellcheck);
-		
+
 		// Get results
 		$solrResult = $searchIndex->search(
 			$query,
@@ -97,13 +102,13 @@ class CwpSearchEngine extends Object {
 			$limit,
 			$options
 		);
-		
+
 		return CwpSearchResult::create($keywords, $solrResult);
 	}
-	
+
 	/**
 	 * Get a CwpSearchResult for a given criterea
-	 * 
+	 *
 	 * @param string $keywords
 	 * @param array $classes
 	 * @param SolrIndex $searchIndex
@@ -120,12 +125,12 @@ class CwpSearchEngine extends Object {
 		try {
 			// Begin search
 			$result = $this->getResult($keywords, $classes, $searchIndex, $limit, $start, true);
-			
+
 			// Return results if we don't need to refine this any further
 			if(!$followSuggestions || $result->hasResults() || !$result->getSuggestion()) {
 				return $result;
 			}
-			
+
 			// Perform new search with the suggested terms
 			$suggested = $result->getSuggestion();
 			$newResult = $this->getResult($suggested, $classes, $searchIndex, $limit, $start, false);
@@ -138,10 +143,10 @@ class CwpSearchEngine extends Object {
 				return $result;
 			}
 
-		} catch(Exception $e) {
-			SS_Log::log($e, SS_Log::WARN);
+		} catch (Exception $e) {
+		    Injector::inst()->get(LoggerInterface::class)->warning($e);
 		}
-		
+
 		return null;
 	}
 }
