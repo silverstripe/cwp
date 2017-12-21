@@ -9,14 +9,16 @@ use PageController;
  *
  * @author dmooyman
  */
-class CwpSearchPageController extends PageController {
+class CwpSearchPageController extends PageController
+{
 
     /**
      * Create the dummy search record for this page
      *
      * @return CwpSearchPage
      */
-    protected function generateSearchRecord() {
+    protected function generateSearchRecord()
+    {
         $searchPage = CwpSearchPage::create();
         $searchPage->URLSegment = 'search';
         $searchPage->Title = _t('SearchForm.SearchResults', 'Search Results');
@@ -24,11 +26,11 @@ class CwpSearchPageController extends PageController {
         return $searchPage;
     }
 
-    public function __construct($dataRecord = null) {
-        if(!$dataRecord) {
+    public function __construct($dataRecord = null)
+    {
+        if (!$dataRecord) {
             $dataRecord = $this->generateSearchRecord();
         }
         parent::__construct($dataRecord);
     }
-
 }

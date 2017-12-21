@@ -2,15 +2,6 @@
 
 namespace CWP\CWP\PageTypes;
 
-
-
-
-
-
-
-
-
-
 use CWP\CWP\PageTypes\EventHolder;
 use SilverStripe\ORM\FieldType\DBDatetime;
 use SilverStripe\Forms\FieldList;
@@ -23,88 +14,91 @@ use SilverStripe\Forms\TextareaField;
 use SilverStripe\Core\Convert;
 use PageController;
 
+class EventPage extends DatedUpdatePage
+{
 
+    private static $description = 'Describes an event occurring on a specific date.';
 
-class EventPage extends DatedUpdatePage {
+    private static $default_parent = EventHolder::class;
 
-	private static $description = 'Describes an event occurring on a specific date.';
+    private static $can_be_root = false;
 
-	private static $default_parent = EventHolder::class;
+    private static $icon = 'cwp/images/icons/sitetree_images/event_page.png';
 
-	private static $can_be_root = false;
+    public $pageIcon =  'images/icons/sitetree_images/event_page.png';
 
-	private static $icon = 'cwp/images/icons/sitetree_images/event_page.png';
+    private static $singular_name = 'Event Page';
 
-	public $pageIcon =  'images/icons/sitetree_images/event_page.png';
+    private static $plural_name = 'Event Pages';
 
-	private static $singular_name = 'Event Page';
-
-	private static $plural_name = 'Event Pages';
-
-	private static $db = array(
-		'StartTime' => 'Time',
-		'EndTime' => 'Time',
-		'Location' => 'Text'
-	);
+    private static $db = array(
+        'StartTime' => 'Time',
+        'EndTime' => 'Time',
+        'Location' => 'Text'
+    );
 
     private static $table_name = 'EventPage';
 
-	public function fieldLabels($includerelations = true) {
-		$labels = parent::fieldLabels($includerelations);
-		$labels['StartTime'] = _t('DateUpdatePage.StartTimeFieldLabel', 'Start Time');
-		$labels['EndTime'] = _t('DateUpdatePage.EndTimeFieldLabel', 'End Time');
-		$labels['Location'] = _t('DateUpdatePage.LocationFieldLabel', 'Location');
+    public function fieldLabels($includerelations = true)
+    {
+        $labels = parent::fieldLabels($includerelations);
+        $labels['StartTime'] = _t('DateUpdatePage.StartTimeFieldLabel', 'Start Time');
+        $labels['EndTime'] = _t('DateUpdatePage.EndTimeFieldLabel', 'End Time');
+        $labels['Location'] = _t('DateUpdatePage.LocationFieldLabel', 'Location');
 
-		return $labels;
-	}
+        return $labels;
+    }
 
-	/**
-	 * Add the default for the Date being the current day.
-	 */
-	public function populateDefaults() {
-		if(!isset($this->Date) || $this->Date === null) {
-			$this->Date = DBDatetime::now()->Format('Y-m-d');
-		}
+    /**
+     * Add the default for the Date being the current day.
+     */
+    public function populateDefaults()
+    {
+        if (!isset($this->Date) || $this->Date === null) {
+            $this->Date = DBDatetime::now()->Format('Y-m-d');
+        }
 
-		if(!isset($this->StartTime) || $this->StartTime === null) {
-			$this->StartTime = '09:00:00';
-		}
+        if (!isset($this->StartTime) || $this->StartTime === null) {
+            $this->StartTime = '09:00:00';
+        }
 
-		if(!isset($this->EndTime) || $this->EndTime === null) {
-			$this->EndTime = '17:00:00';
-		}
+        if (!isset($this->EndTime) || $this->EndTime === null) {
+            $this->EndTime = '17:00:00';
+        }
 
-		parent::populateDefaults();
-	}
+        parent::populateDefaults();
+    }
 
-	public function getCMSFields() {
-		$this->beforeUpdateCMSFields(function (FieldList $fields) {
-			$fields->removeByName('Date');
+    public function getCMSFields()
+    {
+        $this->beforeUpdateCMSFields(function (FieldList $fields) {
+            $fields->removeByName('Date');
 
-			$dateTimeFields = array();
+            $dateTimeFields = array();
 
-			$dateTimeFields[] = $dateField = DateField::create('Date', 'Date');
-			$dateField->setConfig('showcalendar', true);
-			$dateField->setConfig('dateformat', Member::currentUser()->getDateFormat());
+            $dateTimeFields[] = $dateField = DateField::create('Date', 'Date');
+            $dateField->setConfig('showcalendar', true);
+            $dateField->setConfig('dateformat', Member::currentUser()->getDateFormat());
 
-			$dateTimeFields[] = $startTimeField = TimeField::create('StartTime', '&nbsp;&nbsp;' . $this->fieldLabel('StartTime'));
-			$dateTimeFields[] = $endTimeField = TimeField::create('EndTime', $this->fieldLabel('EndTime'));
-			// Would like to do this, but the width of the form field doesn't scale based on the time
-			// format. OS ticket raised: http://open.silverstripe.org/ticket/8260
-			//$startTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
-			//$endTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
-			$startTimeField->setConfig('timeformat', 'h:ma');
-			$endTimeField->setConfig('timeformat', 'h:ma');
+            $dateTimeFields[] = $startTimeField = TimeField::create('StartTime', '&nbsp;&nbsp;' . $this->fieldLabel('StartTime'));
+            $dateTimeFields[] = $endTimeField = TimeField::create('EndTime', $this->fieldLabel('EndTime'));
+            // Would like to do this, but the width of the form field doesn't scale based on the time
+            // format. OS ticket raised: http://open.silverstripe.org/ticket/8260
+            //$startTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
+            //$endTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
+            $startTimeField->setConfig('timeformat', 'h:ma');
+            $endTimeField->setConfig('timeformat', 'h:ma');
 
-			$fields->addfieldToTab('Root.Main', $dateTimeField = new FieldGroup('Date and time', $dateTimeFields), 'Abstract');
+            $fields->addfieldToTab('Root.Main', $dateTimeField = new FieldGroup('Date and time', $dateTimeFields), 'Abstract');
 
-			$fields->addfieldToTab('Root.Main', $locationField = TextareaField::create('Location', $this->fieldLabel('Location')), 'Abstract');
-			$locationField->setRows(4);
-		});
-		return parent::getCMSFields();
-	}
+            $fields->addfieldToTab('Root.Main', $locationField = TextareaField::create('Location', $this->fieldLabel('Location')), 'Abstract');
+            $locationField->setRows(4);
+        });
+        return parent::getCMSFields();
+    }
 
-	public function NiceLocation() {
-		return (nl2br(Convert::raw2xml($this->Location), true));
-	}
+    public function NiceLocation()
+    {
+        return (nl2br(Convert::raw2xml($this->Location), true));
+    }
 }

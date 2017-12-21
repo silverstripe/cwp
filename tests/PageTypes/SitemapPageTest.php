@@ -2,36 +2,34 @@
 
 namespace CWP\CWP\Tests\PageTypes;
 
-
-
-
 use SilverStripe\Core\Config\Config;
 use SilverStripe\View\SSViewer;
 use SilverStripe\Dev\CSSContentParser;
 use SilverStripe\Dev\FunctionalTest;
 
+class SitemapPageTest extends FunctionalTest
+{
 
-class SitemapPageTest extends FunctionalTest {
+    protected static $fixture_file = 'SitemapPageTest.yml';
 
-	protected static $fixture_file = 'SitemapPageTest.yml';
+    protected static $use_draft_site = true;
 
-	protected static $use_draft_site = true;
+    public function setUp()
+    {
+        parent::setUp();
 
-	public function setUp()
-	{
-		parent::setUp();
+        Config::inst()->update(SSViewer::class, 'theme', 'starter');
+    }
 
-		Config::inst()->update(SSViewer::class, 'theme', 'starter');
-	}
-
-	/**
-	 * Note: this test depends on the "starter" theme being installed and configured as default
-	 */
-	public function testSitemapShowsNavigationTitleNotNormalTitle() {
-		$response = $this->get('sitemap');
-		$parser = new CSSContentParser($response->getBody());
-		$elements = $parser->getBySelector('.sitemap li.first .sitemap-link');
-		$this->assertNotEmpty($elements);
-		$this->assertEquals('Top page nav 1', (string) $elements[0]);
-	}
+    /**
+     * Note: this test depends on the "starter" theme being installed and configured as default
+     */
+    public function testSitemapShowsNavigationTitleNotNormalTitle()
+    {
+        $response = $this->get('sitemap');
+        $parser = new CSSContentParser($response->getBody());
+        $elements = $parser->getBySelector('.sitemap li.first .sitemap-link');
+        $this->assertNotEmpty($elements);
+        $this->assertEquals('Top page nav 1', (string) $elements[0]);
+    }
 }

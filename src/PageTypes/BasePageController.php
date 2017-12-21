@@ -19,7 +19,8 @@ use SilverStripe\ORM\FieldType\DBDatetime;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Versioned\Versioned;
 
-class BasePageController extends ContentController {
+class BasePageController extends ContentController
+{
 
     private static $allowed_actions = array(
         'downloadpdf',
@@ -58,14 +59,17 @@ class BasePageController extends ContentController {
     /**
      * Serve the page rendered as PDF.
      */
-    public function downloadpdf() {
-        if(!Config::inst()->get(BasePage::class, 'pdf_export')) return false;
+    public function downloadpdf()
+    {
+        if (!Config::inst()->get(BasePage::class, 'pdf_export')) {
+            return false;
+        }
 
         // We only allow producing live pdf. There is no way to secure the draft files.
         Versioned::reading_stage('Live');
 
         $path = $this->dataRecord->getPdfFilename();
-        if(!file_exists($path)) {
+        if (!file_exists($path)) {
             $this->generatePDF();
         }
 
@@ -76,12 +80,13 @@ class BasePageController extends ContentController {
     * This will return either pdf_base_url from YML, CWP_SECURE_DOMAIN
     * from _ss_environment, or blank. In that order of importance.
     */
-    public function getPDFBaseURL() {
+    public function getPDFBaseURL()
+    {
         //if base url YML is defined in YML, use that
-        if(Config::inst()->get(BasePage::class, 'pdf_base_url')){
+        if (Config::inst()->get(BasePage::class, 'pdf_base_url')) {
             $pdf_base_url = Config::inst()->get(BasePage::class, 'pdf_base_url').'/';
             //otherwise, if we are CWP use the secure domain
-        } elseif (defined('CWP_SECURE_DOMAIN')){
+        } elseif (defined('CWP_SECURE_DOMAIN')) {
             $pdf_base_url = CWP_SECURE_DOMAIN.'/';
             //or if neither, leave blank
         } else {
@@ -94,7 +99,8 @@ class BasePageController extends ContentController {
     * Don't use the proxy if the pdf domain is the CWP secure domain
     * Or if we aren't on a CWP server
     */
-    public function getPDFProxy($pdf_base_url) {
+    public function getPDFProxy($pdf_base_url)
+    {
         if (!defined('CWP_SECURE_DOMAIN') || $pdf_base_url == CWP_SECURE_DOMAIN.'/') {
             $proxy = '';
         } else {
@@ -106,21 +112,24 @@ class BasePageController extends ContentController {
     /**
      * Render the page as PDF using wkhtmltopdf.
      */
-    public function generatePDF() {
-        if(!Config::inst()->get(BasePage::class, 'pdf_export')) return false;
+    public function generatePDF()
+    {
+        if (!Config::inst()->get(BasePage::class, 'pdf_export')) {
+            return false;
+        }
 
         $binaryPath = Config::inst()->get(BasePage::class, 'wkhtmltopdf_binary');
-        if(!$binaryPath || !is_executable($binaryPath)) {
-            if(defined('WKHTMLTOPDF_BINARY') && is_executable(WKHTMLTOPDF_BINARY)) {
+        if (!$binaryPath || !is_executable($binaryPath)) {
+            if (defined('WKHTMLTOPDF_BINARY') && is_executable(WKHTMLTOPDF_BINARY)) {
                 $binaryPath = WKHTMLTOPDF_BINARY;
             }
         }
 
-        if(!$binaryPath) {
+        if (!$binaryPath) {
             user_error('Neither WKHTMLTOPDF_BINARY nor BasePage.wkhtmltopdf_binary are defined', E_USER_ERROR);
         }
 
-        if(Versioned::get_reading_mode() == 'Stage.Stage') {
+        if (Versioned::get_reading_mode() == 'Stage.Stage') {
             user_error('Generating PDFs on draft is not supported', E_USER_ERROR);
         }
 
@@ -132,7 +141,9 @@ class BasePageController extends ContentController {
         $footerFile = str_replace('.pdf', '_pdffooter.html', $pdfFile);
 
         // make sure the work directory exists
-        if(!file_exists(dirname($pdfFile))) Filesystem::makeFolder(dirname($pdfFile));
+        if (!file_exists(dirname($pdfFile))) {
+            Filesystem::makeFolder(dirname($pdfFile));
+        }
 
         //decide the domain to use in generation
         $pdf_base_url = $this->getPDFBaseURL();
@@ -142,7 +153,7 @@ class BasePageController extends ContentController {
             Config::inst()->nest();
             Config::inst()->update(Director::class, 'alternate_protocol', 'http');
             //only set alternate protocol if CWP_SECURE_DOMAIN is defined OR pdf_base_url is
-            if($pdf_base_url){
+            if ($pdf_base_url) {
                 Config::inst()->update(Director::class, 'alternate_base_url', 'http://'.$pdf_base_url);
             }
         }
@@ -176,7 +187,7 @@ class BasePageController extends ContentController {
         unlink($footerFile);
 
         // output any errors
-        if($return_val != 0) {
+        if ($return_val != 0) {
             user_error('wkhtmltopdf failed: ' . implode("\n", $output), E_USER_ERROR);
         }
 
@@ -222,7 +233,8 @@ class BasePageController extends ContentController {
      * @param HTTPRequest $request Request generated for this action
      * @return DBHTMLText
      */
-    public function results($data, $form, $request) {
+    public function results($data, $form, $request)
+    {
         // Check parameters for terms, pagination, and if we should follow suggestions
         $keywords = empty($data['Search']) ? '' : $data['Search'];
         $start = isset($data['start']) ? $data['start'] : 0;
@@ -252,7 +264,7 @@ class BasePageController extends ContentController {
 
         // Customise page
         $response = $this->customise($properties);
-        if($results) {
+        if ($results) {
             $response = $response
                 ->customise($results)
                 ->customise(array( 'Results' => $results->getResults() ));
@@ -269,7 +281,8 @@ class BasePageController extends ContentController {
      * @param HTTPRequest $request
      * @return array
      */
-    protected function getResultsTemplate($request) {
+    protected function getResultsTemplate($request)
+    {
         $templates = array('Page_results', 'Page');
         if ($request->getVar('format') == 'rss') {
             array_unshift($templates, 'Page_results_rss');
@@ -286,7 +299,8 @@ class BasePageController extends ContentController {
      *
      * @deprecated 1.6..2.0 Use "starter" theme instead
      */
-    public function getBaseScripts() {
+    public function getBaseScripts()
+    {
         $scripts = array();
         $this->extend('updateBaseScripts', $scripts);
         return $scripts;
@@ -298,7 +312,8 @@ class BasePageController extends ContentController {
      *
      * @deprecated 1.6..2.0 Use "starter" theme instead
      */
-    public function getBaseStyles() {
+    public function getBaseStyles()
+    {
         $styles = array();
         $this->extend('updateBaseStyles', $styles);
         return $styles;
@@ -307,11 +322,13 @@ class BasePageController extends ContentController {
     /**
      * Provide current year.
      */
-    public function CurrentDatetime() {
+    public function CurrentDatetime()
+    {
         return DBDatetime::now();
     }
 
-    public function getRSSLink() {
+    public function getRSSLink()
+    {
     }
 
     /**

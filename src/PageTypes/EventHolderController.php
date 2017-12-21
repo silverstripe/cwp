@@ -5,7 +5,6 @@ namespace CWP\CWP\PageTypes;
 use SilverStripe\ORM\FieldType\DBDatetime;
 use SilverStripe\ORM\PaginatedList;
 
-
 /**
  * The parameters apply in the following preference order:
  *  - Highest priority: Tag & date (or date range)
@@ -18,12 +17,14 @@ use SilverStripe\ORM\PaginatedList;
  * When the user clicks on a month, pagination will be reset, but tags retained. Pagination retains all other
  * parameters.
  */
-class EventHolderController extends DatedUpdateHolderController {
+class EventHolderController extends DatedUpdateHolderController
+{
 
-    public function getUpdateName() {
+    public function getUpdateName()
+    {
         $params = $this->parseParams();
         if ($params['upcomingOnly']) {
-            return _t('EventHolder.Upcoming','Upcoming events');
+            return _t('EventHolder.Upcoming', 'Upcoming events');
         }
 
         return 'Events';
@@ -34,7 +35,8 @@ class EventHolderController extends DatedUpdateHolderController {
      *
      * @param boolean $produceErrorMessages Set to false to omit session messages.
      */
-    public function parseParams($produceErrorMessages = true) {
+    public function parseParams($produceErrorMessages = true)
+    {
         $params = parent::parseParams($produceErrorMessages);
 
         // We need to set whether or not we're supposed to be displaying only upcoming events or all events.
@@ -46,7 +48,8 @@ class EventHolderController extends DatedUpdateHolderController {
     /**
      * Get the events based on the current query.
      */
-    public function FilteredUpdates($pageSize = 20) {
+    public function FilteredUpdates($pageSize = 20)
+    {
         $params = $this->parseParams();
 
         $items = $this->Updates(
@@ -67,4 +70,3 @@ class EventHolderController extends DatedUpdateHolderController {
         return $list;
     }
 }
-

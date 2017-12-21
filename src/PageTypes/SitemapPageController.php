@@ -6,7 +6,8 @@ use PageController;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Dev\Deprecation;
 
-class SitemapPage_Controller extends PageController {
+class SitemapPage_Controller extends PageController
+{
 
     private static $allowed_actions = [
         'showpage',
@@ -16,28 +17,30 @@ class SitemapPage_Controller extends PageController {
         'page/$ID' => 'showpage',
     ];
 
-    public function Page($link) {
-        if($link instanceof HTTPRequest) {
+    public function Page($link)
+    {
+        if ($link instanceof HTTPRequest) {
             Deprecation::notice('2.0', 'Using page() as a url handler is deprecated. Use showpage() action instead');
             return $this->showpage($link);
         }
         return parent::Page($link);
     }
 
-    public function showpage($request) {
+    public function showpage($request)
+    {
         $id = (int) $request->param('ID');
-        if(!$id) {
+        if (!$id) {
             return false;
         }
         $page = SiteTree::get()->byId($id);
 
         // does the page exist?
-        if(!($page && $page->exists())) {
+        if (!($page && $page->exists())) {
             return $this->httpError(404);
         }
 
         // can the page be viewed?
-        if(!$page->canView()) {
+        if (!$page->canView()) {
             return $this->httpError(403);
         }
 
@@ -47,11 +50,10 @@ class SitemapPage_Controller extends PageController {
             'Children' => $page->Children(),
         ]);
 
-        if($request->isAjax()) {
+        if ($request->isAjax()) {
             return $viewer->renderWith('SitemapNodeChildren');
         }
 
         return $viewer;
     }
-
 }

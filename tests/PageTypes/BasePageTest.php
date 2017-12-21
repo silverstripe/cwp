@@ -2,13 +2,10 @@
 
 namespace CWP\CWP\Tests\PageTypes;
 
-
-
 use Translatable;
 use SilverStripe\Core\Config\Config;
 use CWP\CWP\PageTypes\BasePage;
 use SilverStripe\Dev\SapphireTest;
-
 
 class BasePageTest extends SapphireTest
 {

@@ -6,60 +6,63 @@ use PHPUnit_Framework_TestCase;
 
 use CWP\CWP\Extensions\SynonymValidator;
 
+class SynonymValidatorTest extends PHPUnit_Framework_TestCase
+{
+    /**
+     * @var SynonymValidator
+     */
+    protected $validator;
 
+    /**
+     * @inheritdoc
+     */
+    public function setUp()
+    {
+        parent::setUp();
 
-class SynonymValidatorTest extends PHPUnit_Framework_TestCase {
-	/**
-	 * @var SynonymValidator
-	 */
-	protected $validator;
+        $this->validator = new SynonymValidator(array(
+            'Synonyms',
+        ));
+    }
 
-	/**
-	 * @inheritdoc
-	 */
-	public function setUp() {
-		parent::setUp();
+    /**
+     * @inheritdoc
+     */
+    public function tearDown()
+    {
+        $this->validator = null;
 
-		$this->validator = new SynonymValidator(array(
-			'Synonyms',
-		));
-	}
+        parent::tearDown();
+    }
 
-	/**
-	 * @inheritdoc
-	 */
-	public function tearDown() {
-		$this->validator = null;
+    /**
+     * @dataProvider validValuesProvider
+     */
+    public function testItAllowsValidValues($value)
+    {
+        $this->validator->php(array(
+            'Synonyms' => $value,
+        ));
 
-		parent::tearDown();
-	}
+        $this->assertEmpty($this->validator->getErrors());
+    }
 
-	/**
-	 * @dataProvider validValuesProvider
-	 */
-	public function testItAllowsValidValues($value) {
-		$this->validator->php(array(
-			'Synonyms' => $value,
-		));
-
-		$this->assertEmpty($this->validator->getErrors());
-	}
-
-	/**
-	 * @return array
-	 */
-	public function validValuesProvider() {
-		return array(
-			array('foo'),
-			array('foo,bar,baz'),
-			array('foo, bar, baz'),
-			array('
+    /**
+     * @return array
+     */
+    public function validValuesProvider()
+    {
+        return array(
+            array('foo'),
+            array('foo,bar,baz'),
+            array('foo, bar, baz'),
+            array('
 				foo
 				bar
 				baz
 			'),
-			array('foo => bar, baz'),
-			array('
+            array('foo => bar, baz'),
+            array('
 				# this is a comment, it should be ignored!
 
 				foo, bar, baz
@@ -67,29 +70,31 @@ class SynonymValidatorTest extends PHPUnit_Framework_TestCase {
 
 				# ...as should this.
 			'),
-		);
-	}
+        );
+    }
 
-	/**
-	 * @dataProvider invalidValuesProvider
-	 *
-	 * @param string $value
-	 */
-	public function testItDisallowsInvalidValues($value) {
-		$this->validator->php(array(
-			'Synonyms' => $value,
-		));
+    /**
+     * @dataProvider invalidValuesProvider
+     *
+     * @param string $value
+     */
+    public function testItDisallowsInvalidValues($value)
+    {
+        $this->validator->php(array(
+            'Synonyms' => $value,
+        ));
 
-		$this->assertNotEmpty($this->validator->getErrors());
-	}
+        $this->assertNotEmpty($this->validator->getErrors());
+    }
 
-	/**
-	 * @return array
-	 */
-	public function invalidValuesProvider() {
-		return array(
-			array('foo, bar baz, qux'),
-			array('foo => bar baz, qux')
-		);
-	}
+    /**
+     * @return array
+     */
+    public function invalidValuesProvider()
+    {
+        return array(
+            array('foo, bar baz, qux'),
+            array('foo => bar baz, qux')
+        );
+    }
 }

@@ -30,7 +30,8 @@ use SilverStripe\Taxonomy\TaxonomyTerm;
  * When the user clicks on a month, pagination will be reset, but tags retained. Pagination retains all other
  * parameters.
  */
-class DatedUpdateHolderController extends PageController {
+class DatedUpdateHolderController extends PageController
+{
 
     private static $allowed_actions = [
         'rss',
@@ -48,10 +49,11 @@ class DatedUpdateHolderController extends PageController {
      *
      * @return string
      */
-    public function getMetaTitle() {
+    public function getMetaTitle()
+    {
         $title = $this->data()->getTitle();
         $filter = $this->FilterDescription();
-        if($filter) {
+        if ($filter) {
             $title = "{$title} - {$filter}";
         }
 
@@ -64,7 +66,8 @@ class DatedUpdateHolderController extends PageController {
      *
      * @return string
      */
-    public function FilterDescription() {
+    public function FilterDescription()
+    {
         $params = $this->parseParams();
 
         $filters = array();
@@ -101,11 +104,13 @@ class DatedUpdateHolderController extends PageController {
         }
     }
 
-    public function getUpdateName() {
+    public function getUpdateName()
+    {
         return Config::inst()->get($this->data()->ClassName, 'update_name');
     }
 
-    protected function init() {
+    protected function init()
+    {
         parent::init();
         RSSFeed::linkToFeed($this->Link() . 'rss', $this->getSubscriptionTitle());
     }
@@ -115,20 +120,33 @@ class DatedUpdateHolderController extends PageController {
      *
      * @param bool $produceErrorMessages Set to false to omit session messages.
      */
-    public function parseParams($produceErrorMessages = true) {
+    public function parseParams($produceErrorMessages = true)
+    {
         $tag = $this->request->getVar('tag');
         $from = $this->request->getVar('from');
         $to = $this->request->getVar('to');
         $year = $this->request->getVar('year');
         $month = $this->request->getVar('month');
 
-        if ($tag=='') $tag = null;
-        if ($from=='') $from = null;
-        if ($to=='') $to = null;
-        if ($year=='') $year = null;
-        if ($month=='') $month = null;
+        if ($tag=='') {
+            $tag = null;
+        }
+        if ($from=='') {
+            $from = null;
+        }
+        if ($to=='') {
+            $to = null;
+        }
+        if ($year=='') {
+            $year = null;
+        }
+        if ($month=='') {
+            $month = null;
+        }
 
-        if (isset($tag)) $tag = (int)$tag;
+        if (isset($tag)) {
+            $tag = (int)$tag;
+        }
         if (isset($from)) {
             $from = urldecode($from);
             $parser = DBDatetime::create();
@@ -141,8 +159,12 @@ class DatedUpdateHolderController extends PageController {
             $parser->setValue($to);
             $to = $parser->Format('Y-m-d');
         }
-        if (isset($year)) $year = (int)$year;
-        if (isset($month)) $month = (int)$month;
+        if (isset($year)) {
+            $year = (int)$year;
+        }
+        if (isset($month)) {
+            $month = (int)$month;
+        }
 
         // If only "To" has been provided filter by single date. Normalise by swapping with "From".
         if (isset($to) && !isset($from)) {
@@ -157,7 +179,7 @@ class DatedUpdateHolderController extends PageController {
                 // @todo replace
                 Session::setFormMessage(
                     'Form_DateRangeForm',
-                    _t('DateUpdateHolder.FilterAppliedMessage','Filter has been applied with the dates reversed.'),
+                    _t('DateUpdateHolder.FilterAppliedMessage', 'Filter has been applied with the dates reversed.'),
                     'warning'
                 );
             }
@@ -169,7 +191,7 @@ class DatedUpdateHolderController extends PageController {
                 // @todo replace
                 Session::setFormMessage(
                     'Form_DateRangeForm',
-                    _t('DateUpdateHolder.DateRangeFilterMessage','Filtered by a single date.'),
+                    _t('DateUpdateHolder.DateRangeFilterMessage', 'Filtered by a single date.'),
                     'warning'
                 );
             }
@@ -187,7 +209,8 @@ class DatedUpdateHolderController extends PageController {
     /**
      * Build the link - keep the date range, reset the rest.
      */
-    public function AllTagsLink() {
+    public function AllTagsLink()
+    {
         $link = HTTP::setGetVar('tag', null, null, '&');
         $link = HTTP::setGetVar('month', null, $link, '&');
         $link = HTTP::setGetVar('year', null, $link, '&');
@@ -199,7 +222,8 @@ class DatedUpdateHolderController extends PageController {
     /**
      * List tags and attach links.
      */
-    public function UpdateTagsWithLinks() {
+    public function UpdateTagsWithLinks()
+    {
         $tags = $this->UpdateTags();
 
         $processed = new ArrayList();
@@ -221,7 +245,8 @@ class DatedUpdateHolderController extends PageController {
     /**
      * Get the TaxonomyTerm related to the current tag GET parameter.
      */
-    public function CurrentTag() {
+    public function CurrentTag()
+    {
         $tagID = $this->request->getVar('tag');
 
         if (isset($tagID)) {
@@ -233,7 +258,8 @@ class DatedUpdateHolderController extends PageController {
      * Extract the available months based on the current query.
      * Only tag is respected. Pagination and months are ignored.
      */
-    public function AvailableMonths() {
+    public function AvailableMonths()
+    {
         $params = $this->parseParams();
 
         return DatedUpdateHolder::ExtractMonths(
@@ -247,7 +273,8 @@ class DatedUpdateHolderController extends PageController {
     /**
      * Get the updates based on the current query.
      */
-    public function FilteredUpdates($pageSize = 20) {
+    public function FilteredUpdates($pageSize = 20)
+    {
         $params = $this->parseParams();
 
         $items = $this->Updates(
@@ -267,7 +294,8 @@ class DatedUpdateHolderController extends PageController {
     /**
      * @return Form
      */
-    public function DateRangeForm() {
+    public function DateRangeForm()
+    {
         $dateFromTitle = DBField::create_field('HTMLText', sprintf(
             '%s <span class="field-note">%s</span>',
             _t('DatedUpdateHolder.FROM_DATE', 'From date'),
@@ -304,28 +332,35 @@ class DatedUpdateHolderController extends PageController {
         return $form;
     }
 
-    public function doDateFilter() {
+    public function doDateFilter()
+    {
         $params = $this->parseParams();
 
         // Build the link - keep the tag, but reset month, year and pagination.
         $link = HTTP::setGetVar('from', $params['from'], $this->AbsoluteLink(), '&');
         $link = HTTP::setGetVar('to', $params['to'], $link, '&');
-        if (isset($params['tag'])) $link = HTTP::setGetVar('tag', $params['tag'], $link, '&');
+        if (isset($params['tag'])) {
+            $link = HTTP::setGetVar('tag', $params['tag'], $link, '&');
+        }
 
         $this->redirect($link);
     }
 
-    public function doDateReset() {
+    public function doDateReset()
+    {
         $params = $this->parseParams(false);
 
         // Reset the link - only include the tag.
         $link = $this->AbsoluteLink();
-        if (isset($params['tag'])) $link = HTTP::setGetVar('tag', $params['tag'], $link, '&');
+        if (isset($params['tag'])) {
+            $link = HTTP::setGetVar('tag', $params['tag'], $link, '&');
+        }
 
         $this->redirect($link);
     }
 
-    public function rss() {
+    public function rss()
+    {
         $rss = RSSFeed::create(
             $this->Updates()->sort('Created DESC')->limit(20),
             $this->Link('rss'),
@@ -334,7 +369,8 @@ class DatedUpdateHolderController extends PageController {
         return $rss->outputToBrowser();
     }
 
-    public function atom() {
+    public function atom()
+    {
         $atom = CwpAtomFeed::create(
             $this->Updates()->sort('Created DESC')->limit(20),
             $this->Link('atom'),
