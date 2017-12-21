@@ -55,30 +55,3 @@ class NewsHolder extends DatedUpdateHolder {
 		return parent::AllUpdates($className, $parentID, $tagID, $dateFrom, $dateTo, $year, $monthNumber)->Sort('Date', 'DESC');
 	}
 }
-
-class NewsHolder_Controller extends DatedUpdateHolder_Controller {
-	private static $allowed_actions = array(
-		'rss',
-		'atom'
-	);
-
-	public function rss() {
-		$rss = RSSFeed::create(
-			$this->Updates()->sort('Created DESC')->limit(20),
-			$this->Link('rss'),
-			$this->getSubscriptionTitle()
-		);
-		$rss->setTemplate('NewsHolder_rss');
-		return $rss->outputToBrowser();
-	}
-
-	public function atom() {
-		$atom = CwpAtomFeed::create(
-			$this->Updates()->sort('Created DESC')->limit(20),
-			$this->Link('atom'),
-			$this->getSubscriptionTitle()
-		);
-		$atom->setTemplate('NewsHolder_atom');
-		return $atom->outputToBrowser();
-	}
-}

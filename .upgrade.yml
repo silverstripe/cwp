@@ -13,6 +13,7 @@ mappings:
   EventPage_Controller: CWP\CWP\PageTypes\EventPageController
   DatedUpdatePage: CWP\CWP\PageTypes\DatedUpdatePage
   NewsHolder: CWP\CWP\PageTypes\NewsHolder
+  NewsHolder_Controller: CWP\CWP\PageTypes\NewsHolderController
   SitemapPage: CWP\CWP\PageTypes\SitemapPage
   SitemapPage_Controller: CWP\CWP\PageTypes\SitemapPageController
   BasePage: CWP\CWP\PageTypes\BasePage
