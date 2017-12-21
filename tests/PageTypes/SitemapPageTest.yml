@@ -1,0 +1,44 @@
+SilverStripe\Security\Member:
+  author-1:
+    FirstName: Author
+    Email: author1
+
+SilverStripe\Security\Group:
+  authors:
+    Title: Authors
+    Members: =>Member.author-1
+
+CWP\CWP\PageTypes\SitemapPage:
+  sitemap:
+    Title: Sitemap
+    ShowInMenus: 0
+
+Page:
+  page-top-1:
+    Title: Top page 1
+    MenuTitle: Top page nav 1
+  page-top-2:
+    Title: Top page 2
+  page-second-1:
+    Title: Second page 1
+    Parent: =>Page.page-top-1
+  page-second-2:
+    Title: Second page 2
+    Parent: =>Page.page-top-2
+  page-third-1:
+    Title: Third page 1
+    Parent: =>Page.page-second-1
+  page-third-2:
+    Title: Third page 2
+    Parent: =>Page.page-second-2
+  hidden-page-top-1:
+    Title: Top hidden page 1
+    ShowInMenus: 0
+  hidden-page-second-1:
+    Title: Second hidden page 1
+    Parent: =>Page.page-top-1
+    ShowInMenus: 0
+  secured-page-1:
+    Title: Secured page 1
+    CanViewType: OnlyTheseUsers
+    ViewerGroups: =>Group.authors

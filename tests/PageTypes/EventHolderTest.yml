@@ -1,0 +1,60 @@
+CWP\CWP\PageTypes\EventHolder:
+	EventHolder1:
+		URLSegment: "events"
+		Title: "Events"
+	EventHolder2:
+		URLSegment: "events2"
+		Title: "Events"
+
+CWP\CWP\PageTypes\EventPage:
+	EventPage1:
+		URLSegment: "future-event-1"
+		Title: "Future event 1"
+		Date: "2013-07-05 13:51:19"
+		Parent: =>EventHolder.EventHolder1
+	EventPage2:
+		URLSegment: "future-event-2"
+		Title: "Future event 2"
+		Date: "2013-07-06 17:20:00"
+		Parent: =>EventHolder.EventHolder1
+	EventPage3:
+		URLSegment: "past-event-1"
+		Title: "Past event 1"
+		Date: "2013-01-20 08:00:00"
+		Parent: =>EventHolder.EventHolder1
+	EventPage4:
+		URLSegment: "past-event-2"
+		Title: "Past event 2"
+		Date: "2013-01-19 09:00:00"
+		Parent: =>EventHolder.EventHolder1
+	EventPage5:
+		URLSegment: "last-year"
+		Title: "Last year"
+		Date: "2012-12-07 12:58:13"
+		Parent: =>EventHolder.EventHolder1
+	EventPage6:
+		URLSegment: "other-holder"
+		Title: "Other holder"
+		Date: "2012-12-07 12:58:13"
+		Parent: =>EventHolder.EventHolder2
+
+SilverStripe\Taxonomy\TaxonomyTerm:
+	TaxonomyTerm4:
+		Name: "Event types"
+	TaxonomyTerm1:
+		Name: "Future"
+		Parent: =>TaxonomyTerm.TaxonomyTerm4
+		Pages: =>EventPage.EventPage1,=>EventPage.EventPage2
+	TaxonomyTerm2:
+		Name: "Interesting"
+		Parent: =>TaxonomyTerm.TaxonomyTerm4
+		Pages: =>EventPage.EventPage1
+	TaxonomyTerm3:
+		Name: "Past"
+		Parent: =>TaxonomyTerm.TaxonomyTerm4
+		Pages: =>EventPage.EventPage3,=>EventPage.EventPage4,=>EventPage.EventPage5
+	TaxonomyTerm7:
+		Name: "Vegetables"
+	TaxonomyTerm6:
+		Name: "Carrot"
+		Parent: =>TaxonomyTerm.TaxonomyTerm7
