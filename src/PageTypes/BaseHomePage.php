@@ -16,6 +16,7 @@ use GridFieldSortableRows;
 
 use CWP\CWP\PageTypes\BaseHomePage;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
@@ -100,10 +101,13 @@ class BaseHomePage extends Page {
 			$gridConfig->getComponentByType(GridFieldAddNewButton::class)->setButtonName(
 				_t('BaseHomePage.AddNewButton','Add new')
 			);
+
+			$injector = Injector::inst();
+
 			$gridConfig->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
 			$gridConfig->removeComponentsByType(GridFieldDeleteAction::class);
-			$gridConfig->addComponent(new GridFieldDeleteAction());
-			$gridConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+			$gridConfig->addComponent($injector->create(GridFieldDeleteAction::class));
+			$gridConfig->addComponent($injector->create(GridFieldSortableRows::class, 'SortOrder'));
 			$gridField->setModelClass(Quicklink::class);
 
 			$fields->addFieldToTab('Root.Quicklinks', $gridField);
