@@ -1,32 +1,37 @@
 title: Default CWP search index
-summary: Information about how the SOlr search index is pre-configured for CWP.
+summary: Information about how the Solr search index is pre-configured for CWP.
 
 ## Default CWP search index
 
-By default, a standard search index `SolrSearchIndex` is included in the default recipe. This includes basic configuration
+By default, a standard search index `CwpSolrIndex` is included in the default recipe. This includes basic configuration
 necessary for searching pages.
 
-	```php
-	class SolrSearchIndex extends CwpSearchIndex {
-		public function init() {
-			$this->addClass('SiteTree');
+```php
+use CWP\Core\Model\CwpSearchIndex;
+use SilverStripe\CMS\Model\SiteTree;
 
-			// By default, we only add text fields that are 'visible' to users (where the content is directly visible on 
-			// the website), along with the 'meta' fields that are commonly used to boost / refine search results
-			$this->addFulltextField('Title');
-			$this->addFulltextField('MenuTitle');
-			$this->addFulltextField('Content');
-			$this->addFulltextField('MetaDescription');
-			$this->addFulltextField('ExtraMeta');
+class CwpSolrIndex extends CwpSearchIndex
+{
+    public function init()
+    {
+        $this->addClass(SiteTree::class);
 
-			// Adds 'ShowInSearch' boolean field to Solr document so we can later ensure that only documents included in 
-			// search are returned by Solr.
-			$this->addFilterField('ShowInSearch');
+        // By default, we only add text fields that are 'visible' to users (where the content is directly visible on 
+        // the website), along with the 'meta' fields that are commonly used to boost / refine search results
+        $this->addFulltextField('Title');
+        $this->addFulltextField('MenuTitle');
+        $this->addFulltextField('Content');
+        $this->addFulltextField('MetaDescription');
+        $this->addFulltextField('ExtraMeta');
 
-			parent::init();
-		}
-	}
-	```
+        // Adds 'ShowInSearch' boolean field to Solr document so we can later ensure that only documents included in 
+        // search are returned by Solr.
+        $this->addFilterField('ShowInSearch');
+
+        parent::init();
+    }
+}
+```
 
 This index extends the core `CwpSearchIndex` abstract class, which includes additional functionality specific to CWP.
 Please note that if you want to index other database fields or need to create a custom index, it is necessary to extend this base class (`CwpSearchIndex`) in order to use much of the functionality detailed in this section (e.g. spell checking).
