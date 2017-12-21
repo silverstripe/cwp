@@ -53,6 +53,6 @@ class EventHolder extends DatedUpdateHolder
     ) {
 
         return parent::AllUpdates($className, $parentID, $tagID, $dateFrom, $dateTo, $year,
-            $monthNumber)->Sort(DBDate::class, 'ASC');
+            $monthNumber)->Sort('Date', 'ASC');
     }
 }

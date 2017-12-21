@@ -79,11 +79,11 @@ class EventPage extends DatedUpdatePage {
 
 	public function getCMSFields() {
 		$this->beforeUpdateCMSFields(function (FieldList $fields) {
-			$fields->removeByName(DBDate::class);
+			$fields->removeByName('Date');
 
 			$dateTimeFields = array();
 
-			$dateTimeFields[] = $dateField = DateField::create(DBDate::class, DBDate::class);
+			$dateTimeFields[] = $dateField = DateField::create('Date', 'Date');
 			$dateField->setConfig('showcalendar', true);
 			$dateField->setConfig('dateformat', Member::currentUser()->getDateFormat());
 

@@ -58,7 +58,7 @@ class EventHolderController extends DatedUpdateHolderController {
         );
 
         if ($params['upcomingOnly']) {
-            $items = $items->filter(array('Date:LessThan:Not' => DBDatetime::now()->Format('Y-m-d')));
+            $items = $items->filter(['Date:LessThan:Not' => DBDatetime::now()->Format('y-MM-dd')]);
         }
 
         // Apply pagination

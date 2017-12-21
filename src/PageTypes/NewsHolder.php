@@ -52,7 +52,7 @@ class NewsHolder extends DatedUpdateHolder {
 	public static function AllUpdates($className = NewsPage::class, $parentID = null, $tagID = null, $dateFrom = null,
 			$dateTo = null, $year = null, $monthNumber = null) {
 
-		return parent::AllUpdates($className, $parentID, $tagID, $dateFrom, $dateTo, $year, $monthNumber)->Sort(DBDate::class, 'DESC');
+		return parent::AllUpdates($className, $parentID, $tagID, $dateFrom, $dateTo, $year, $monthNumber)->Sort('Date', 'DESC');
 	}
 }
 

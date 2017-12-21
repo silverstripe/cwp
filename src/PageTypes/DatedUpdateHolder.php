@@ -107,7 +107,7 @@ class DatedUpdateHolder extends Page {
 			$dateTo = null, $year = null, $monthNumber = null) {
 
 		$items = $className::get();
-		$dbTableName = ClassInfo::table_for_object_field($className, DBDate::class);
+		$dbTableName = ClassInfo::table_for_object_field($className, 'Date');
 		if (!$dbTableName) {
 			$dbTableName = DatedUpdatePage::class;
 		}
@@ -192,7 +192,7 @@ class DatedUpdateHolder extends Page {
 		$dates = $updates->dataQuery()
 			->groupby('YEAR("Date")')
 			->groupby('MONTH("Date")')
-			->sort(DBDate::class, 'DESC')
+			->sort('Date','DESC')
 			->query()
 			->setSelect(array(
 				'Year' => 'YEAR("Date")',

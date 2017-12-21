@@ -44,13 +44,13 @@ class DatedUpdatePage extends Page {
 		parent::populateDefaults();
 
 		if(!isset($this->Date) || $this->Date === null) {
-			$this->Date = DBDatetime::now()->Format('Y-m-d 09:00:00');
+			$this->Date = DBDatetime::now()->Format('y-MM-dd 09:00:00');
 		}
 	}
 
 	public function fieldLabels($includerelations = true) {
 		$labels = parent::fieldLabels($includerelations);
-		$labels[DBDate::class] = _t('DateUpdatePage.DateLabel', DBDate::class);
+		$labels['Date'] = _t('DateUpdatePage.DateLabel', 'Date');
 		$labels['Abstract'] = _t('DateUpdatePage.AbstractTextFieldLabel', 'Abstract');
 
 		return $labels;
@@ -60,7 +60,7 @@ class DatedUpdatePage extends Page {
 		$this->beforeUpdateCMSFields(function (FieldList $fields) {
 			$fields->addFieldToTab(
 				'Root.Main',
-				$dateTimeField = DatetimeField::create(DBDate::class, $this->fieldLabel(DBDate::class)),
+				$dateTimeField = DatetimeField::create('Date', $this->fieldLabel('Date')),
 				'Content'
 			);
 			$dateTimeField->getDateField()->setConfig('showcalendar', true);
