@@ -33,6 +33,8 @@ class Quicklink extends DataObject {
 		'ExternalLink' => 'External Link'
 	);
 
+	private static $table_name = 'Quicklink';
+
 	public function fieldLabels($includerelations = true) {
 		$labels = parent::fieldLabels($includerelations);
 		$labels['Name'] = _t('Quicklink.NameLabel', 'Name');
@@ -90,14 +92,14 @@ class Quicklink extends DataObject {
 		$fields->addFieldToTab('Root.Main',CompositeField::create(
 			array(
 				TreeDropdownField::create(
-					'InternalLinkID', 
+					'InternalLinkID',
 					$this->fieldLabel('InternalLinkID'),
 					SiteTree::class
 				),
 				$externalLinkField,
 				$wrap = CompositeField::create(
 					$extraLabel = LiteralField::create(
-						'NoteOverride', 
+						'NoteOverride',
 						_t('Quicklink.Note','<div class="message good notice">Note:  If you specify an External Link, the Internal Link will be ignored.</div>')
 					)
 				)
@@ -105,12 +107,12 @@ class Quicklink extends DataObject {
 		));
 		$fields->insertBefore(
 			LiteralField::create(
-				'Note', 
+				'Note',
 				_t(
 					'Quicklink.Note2',
 					'<p>Use this to specify a link to a page either on this site (Internal Link) or another site (External Link).</p>'
 				)
-			), 
+			),
 			'Name'
 		);
 

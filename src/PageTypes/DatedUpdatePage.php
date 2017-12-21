@@ -26,6 +26,8 @@ class DatedUpdatePage extends Page {
 
 	private static $plural_name = 'Dated Update Pages';
 
+    private static $table_name = 'DatedUpdatePage';
+
 	private static $defaults = array(
 		'ShowInMenus' => false
 	);
@@ -76,7 +78,4 @@ class DatedUpdatePage extends Page {
 		});
 		return parent::getCMSFields();
 	}
-}
-
-class DatedUpdatePage_Controller extends PageController {
 }

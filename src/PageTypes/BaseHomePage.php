@@ -48,6 +48,8 @@ class BaseHomePage extends Page {
 
 	private static $plural_name = 'Home Pages';
 
+	private static $table_name = 'BaseHomePage';
+
 	private static $db = array(
 		'FeatureOneTitle' => 'Varchar(255)',
 		'FeatureOneCategory' => "Enum('bell,comments,film,flag,globe,group,list,phone,rss,time,user','comments')",
@@ -164,23 +166,5 @@ class BaseHomePage extends Page {
 		});
 
 		return parent::getCMSFields();
-	}
-}
-
-class BaseHomePage_Controller extends PageController {
-
-	public function getNewsPage() {
-		return NewsHolder::get_one(NewsHolder::class);
-	}
-
-	/**
-	 * @param int $amount The amount of items to provide.
-	 */
-	public function getNewsItems($amount = 2) {
-		$newsHolder = $this->getNewsPage();
-		if ($newsHolder) {
-			$controller = new NewsHolder_Controller($newsHolder);
-			return $controller->Updates()->limit($amount);
-		}
 	}
 }

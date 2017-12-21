@@ -34,6 +34,8 @@ class NewsPage extends DatedUpdatePage {
 		'FeaturedImage' => Image::class
 	);
 
+    private static $table_name = 'NewsPage';
+
 	public $pageIcon =  'images/icons/sitetree_images/news.png';
 
 	public function fieldLabels($includerelations = true) {
@@ -60,8 +62,4 @@ class NewsPage extends DatedUpdatePage {
 		});
 		return parent::getCMSFields();
 	}
-}
-
-class NewsPage_Controller extends DatedUpdatePage_Controller {
-
 }

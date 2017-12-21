@@ -10,23 +10,20 @@ mappings:
   CwpSearchBoostExtension: CWP\CWP\Extensions\CwpSearchBoostExtension
   Quicklink: CWP\CWP\Model\Quicklink
   EventPage: CWP\CWP\PageTypes\EventPage
-  EventPage_Controller: CWP\CWP\PageTypes\EventPage_Controller
+  EventPage_Controller: CWP\CWP\PageTypes\EventPageController
   DatedUpdatePage: CWP\CWP\PageTypes\DatedUpdatePage
-  DatedUpdatePage_Controller: CWP\CWP\PageTypes\DatedUpdatePage_Controller
   NewsHolder: CWP\CWP\PageTypes\NewsHolder
-  NewsHolder_Controller: CWP\CWP\PageTypes\NewsHolder_Controller
   SitemapPage: CWP\CWP\PageTypes\SitemapPage
-  SitemapPage_Controller: CWP\CWP\PageTypes\SitemapPage_Controller
+  SitemapPage_Controller: CWP\CWP\PageTypes\SitemapPageController
   BasePage: CWP\CWP\PageTypes\BasePage
-  BasePage_Controller: CWP\CWP\PageTypes\BasePage_Controller
+  BasePage_Controller: CWP\CWP\PageTypes\BasePageController
   EventHolder: CWP\CWP\PageTypes\EventHolder
-  EventHolder_Controller: CWP\CWP\PageTypes\EventHolder_Controller
+  EventHolder_Controller: CWP\CWP\PageTypes\EventHolderController
   FooterHolder: CWP\CWP\PageTypes\FooterHolder
-  FooterHolder_Controller: CWP\CWP\PageTypes\FooterHolder_Controller
   DatedUpdateHolder: CWP\CWP\PageTypes\DatedUpdateHolder
-  DatedUpdateHolder_Controller: CWP\CWP\PageTypes\DatedUpdateHolder_Controller
+  DatedUpdateHolder_Controller: CWP\CWP\PageTypes\DatedUpdateHolderController
   BaseHomePage: CWP\CWP\PageTypes\BaseHomePage
-  BaseHomePage_Controller: CWP\CWP\PageTypes\BaseHomePage_Controller
+  BaseHomePage_Controller: CWP\CWP\PageTypes\BaseHomePageController
   NewsPage: CWP\CWP\PageTypes\NewsPage
   NewsPage_Controller: CWP\CWP\PageTypes\NewsPage_Controller
   CwpSearchEngine: CWP\CWP\Search\CwpSearchEngine

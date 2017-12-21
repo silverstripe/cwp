@@ -29,11 +29,11 @@ class EventPage extends DatedUpdatePage {
 
 	private static $description = 'Describes an event occurring on a specific date.';
 
-	static $default_parent = EventHolder::class;
+	private static $default_parent = EventHolder::class;
 
-	static $can_be_root = false;
+	private static $can_be_root = false;
 
-	static $icon = 'cwp/images/icons/sitetree_images/event_page.png';
+	private static $icon = 'cwp/images/icons/sitetree_images/event_page.png';
 
 	public $pageIcon =  'images/icons/sitetree_images/event_page.png';
 
@@ -41,11 +41,13 @@ class EventPage extends DatedUpdatePage {
 
 	private static $plural_name = 'Event Pages';
 
-	static $db = array(
+	private static $db = array(
 		'StartTime' => 'Time',
 		'EndTime' => 'Time',
 		'Location' => 'Text'
 	);
+
+    private static $table_name = 'EventPage';
 
 	public function fieldLabels($includerelations = true) {
 		$labels = parent::fieldLabels($includerelations);
@@ -105,8 +107,4 @@ class EventPage extends DatedUpdatePage {
 	public function NiceLocation() {
 		return (nl2br(Convert::raw2xml($this->Location), true));
 	}
-}
-
-class EventPage_Controller extends PageController {
-
 }

@@ -29,6 +29,8 @@ class FooterHolder extends RedirectorPage {
 		'ShowInSearch' => 0
 	);
 
+    private static $table_name = 'FooterHolder';
+
 	public function getCMSFields() {
 		$this->beforeUpdateCMSFields(function (FieldList $fields) {
 			$fields->removeByName('RedirectorDescHeader');
@@ -65,8 +67,4 @@ class FooterHolder extends RedirectorPage {
 			$this->HasBrokenLink = true;
 		}
 	}
-}
-
-class FooterHolder_Controller extends RedirectorPageController {
-
 }
