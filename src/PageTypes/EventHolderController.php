@@ -19,7 +19,6 @@ use SilverStripe\ORM\PaginatedList;
  */
 class EventHolderController extends DatedUpdateHolderController
 {
-
     public function getUpdateName()
     {
         $params = $this->parseParams();

@@ -118,8 +118,7 @@ eo:
     PLURALNAME: 'Paĝopieda tenanto'
     SINGULARNAME: 'Paĝopieda tenanto'
   FullTextSearch:
-    SynonymValidator:
-      InvalidValue: 'Sinonimoj ne povas enhavi vortojn disigitajn per spacetoj'
+    SynonymValidator_InvalidValue: 'Sinonimoj ne povas enhavi vortojn disigitajn per spacetoj'
   GridField:
     Archived: Enarkivigita
     Live: Publika

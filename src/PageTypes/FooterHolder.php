@@ -2,9 +2,8 @@
 
 namespace CWP\CWP\PageTypes;
 
-use SilverStripe\Forms\FieldList;
 use SilverStripe\CMS\Model\RedirectorPage;
-use SilverStripe\CMS\Model\RedirectorPageController;
+use SilverStripe\Forms\FieldList;
 
 /**
  * FooterHolder is intended as an invisible container for footer links and pages.
@@ -21,10 +20,10 @@ class FooterHolder extends RedirectorPage
 
     private static $plural_name = 'Footer Holders';
 
-    private static $defaults = array(
+    private static $defaults = [
         'ShowInMenus' => 0,
-        'ShowInSearch' => 0
-    );
+        'ShowInSearch' => 0,
+    ];
 
     private static $table_name = 'FooterHolder';
 
@@ -47,16 +46,14 @@ class FooterHolder extends RedirectorPage
         $childPage = $this->Children()->first();
 
         if ($childPage) {
-            // If we're linking to another redirectorpage then just return the URLSegment, to prevent a cycle of redirector
-            // pages from causing an infinite loop.  Instead, they will cause a 30x redirection loop in the browser, but
-            // this can be handled sufficiently gracefully by the browser.
+            // If we're linking to another redirectorpage then just return the URLSegment, to prevent a cycle of
+            // redirector pages from causing an infinite loop.  Instead, they will cause a 30x redirection loop in
+            // the browser, but this can be handled sufficiently gracefully by the browser.
             if ($childPage instanceof RedirectorPage) {
                 return $childPage->regularLink();
-
-            // For all other pages, just return the link of the page.
-            } else {
-                return $childPage->Link();
             }
+            // For all other pages, just return the link of the page.
+            return $childPage->Link();
         }
     }
 

@@ -3,14 +3,15 @@
 namespace CWP\CWP\PageTypes;
 
 use SilverStripe\ORM\DataList;
-use SilverStripe\ORM\FieldType\DBDate;
 use SilverStripe\ORM\PaginatedList;
 
 class EventHolder extends DatedUpdateHolder
 {
     private static $description = 'Container page for Event Pages, provides event filtering and pagination';
 
-    private static $allowed_children = array(EventPage::class);
+    private static $allowed_children = [
+        EventPage::class,
+    ];
 
     private static $default_child = EventPage::class;
 
@@ -51,7 +52,6 @@ class EventHolder extends DatedUpdateHolder
         $year = null,
         $monthNumber = null
     ) {
-
         return parent::AllUpdates(
             $className,
             $parentID,

@@ -2,50 +2,24 @@
 
 namespace CWP\CWP\PageTypes;
 
-use GridFieldSortableRows;
-
-
-
-use Translatable;
-
-
-
-
-
-
-
-
-
-
-use Object;
-use CWP\CWP\PageTypes\BasePage;
-use SilverStripe\Taxonomy\TaxonomyTerm;
-use CWP\CWP\PageTypes\FooterHolder;
-use SilverStripe\Core\Config\Config;
-use SilverStripe\Versioned\Versioned;
+use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Director;
+use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
-use SilverStripe\Forms\GridField\GridFieldAddNewButton;
-use SilverStripe\Forms\GridField\GridFieldEditButton;
-use SilverStripe\Forms\GridField\GridFieldFilterHeader;
-use SilverStripe\Forms\GridField\GridFieldDataColumns;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridFieldDataColumns;
+use SilverStripe\Forms\GridField\GridFieldEditButton;
+use SilverStripe\Forms\GridField\GridFieldFilterHeader;
 use SilverStripe\Forms\TreeMultiselectField;
-use SilverStripe\ORM\ArrayList;
 use SilverStripe\i18n\i18n;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\Taxonomy\TaxonomyTerm;
+use SilverStripe\Versioned\Versioned;
 use SilverStripe\View\ArrayData;
-use SilverStripe\CMS\Model\SiteTree;
-use CWP\Core\Model\CwpSolrIndex;
-use SilverStripe\Control\HTTPRequest;
-use SilverStripe\Assets\Filesystem;
-use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\FormAction;
-use SilverStripe\CMS\Search\SearchForm;
-use CWP\CWP\Search\CwpSearchEngine;
-use SilverStripe\ORM\FieldType\DBDatetime;
-use SilverStripe\CMS\Controllers\ContentController;
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 /**
  * **BasePage** is the foundation which can be used for constructing your own pages.
@@ -55,10 +29,13 @@ use SilverStripe\CMS\Controllers\ContentController;
 
 class BasePage extends SiteTree
 {
-
     private static $icon = 'cwp/images/icons/sitetree_images/page.png';
 
-    // Hide this page type from the CMS. hide_ancestor is slightly misnamed, should really be just "hide"
+    /**
+     * Hide this page type from the CMS. hide_ancestor is slightly misnamed, should really be just "hide"
+     *
+     * {@inheritDoc}
+     */
     private static $hide_ancestor = BasePage::class;
 
     private static $pdf_export = false;
@@ -79,25 +56,31 @@ class BasePage extends SiteTree
 
     private static $generated_pdf_path = 'assets/_generated_pdfs';
 
-    private static $api_access = array(
-        'view' => array('Locale', 'URLSegment', 'Title', 'MenuTitle', 'Content', 'MetaDescription', 'ExtraMenu', 'Sort', 'Version', 'ParentID', 'ID'),
-        'edit' => array('Locale', 'URLSegment', 'Title', 'MenuTitle', 'Content', 'MetaDescription', 'ExtraMenu', 'Sort', 'Version', 'ParentID', 'ID')
-    );
+    private static $api_access = [
+        'view' => [
+            'Locale', 'URLSegment', 'Title', 'MenuTitle', 'Content', 'MetaDescription',
+            'ExtraMenu', 'Sort', 'Version', 'ParentID', 'ID'
+        ],
+        'edit' => [
+            'Locale', 'URLSegment', 'Title', 'MenuTitle', 'Content', 'MetaDescription',
+            'ExtraMenu', 'Sort', 'Version', 'ParentID', 'ID'
+        ],
+    ];
 
     private static $table_name = 'BasePage';
 
     public static $related_pages_title = 'Related pages';
 
-    private static $many_many = array(
+    private static $many_many = [
         'Terms' => TaxonomyTerm::class,
-        'RelatedPages' => BasePage::class
-    );
+        'RelatedPages' => BasePage::class,
+    ];
 
-    private static $many_many_extraFields = array(
-        'RelatedPages' => array(
-            'SortOrder' => 'Int'
-        )
-    );
+    private static $many_many_extraFields = [
+        'RelatedPages' => [
+            'SortOrder' => 'Int',
+        ],
+    ];
 
     private static $plural_name = 'Base Pages';
 
@@ -137,11 +120,10 @@ class BasePage extends SiteTree
 
         $path = $this->getPdfFilename();
 
-        if ((Versioned::current_stage() == 'Live') && file_exists($path)) {
+        if ((Versioned::get_stage() === Versioned::LIVE) && file_exists($path)) {
             return Director::baseURL() . preg_replace('#^/#', '', Director::makeRelative($path));
-        } else {
-            return $this->Link('downloadpdf');
         }
+        return $this->Link('downloadpdf');
     }
 
     public function RelatedPages()
@@ -158,7 +140,7 @@ class BasePage extends SiteTree
      * Remove linked pdf when publishing the page,
      * as it would be out of date.
      */
-    public function onAfterPublish(&$original)
+    public function onAfterPublish()
     {
         $filepath = $this->getPdfFilename();
         if (file_exists($filepath)) {
@@ -187,6 +169,7 @@ class BasePage extends SiteTree
     }
 
     /**
+     * @deprecated 2.0.0 remove with other deprecations
      * @todo Remove once CWP moves to 3.3 core (which includes this in SiteTree)
      * @return self
      */
@@ -210,10 +193,10 @@ class BasePage extends SiteTree
             $components->addComponent(new GridFieldSortableRows('SortOrder'));
 
             $dataColumns = $components->getComponentByType(GridFieldDataColumns::class);
-            $dataColumns->setDisplayFields(array(
+            $dataColumns->setDisplayFields([
                 'Title' => _t('BasePage.ColumnTitle', 'Title'),
                 'ClassName' => _t('BasePage.ColumnPageType', 'Page Type')
-            ));
+            ]);
 
             $fields->findOrMakeTab(
                 'Root.RelatedPages',
@@ -230,7 +213,9 @@ class BasePage extends SiteTree
             );
 
             // Taxonomies - Unless they have their own 'Tags' field (such as in Blog, etc)
-            if (!$this->has_many('Tags') && !$this->many_many('Tags')) {
+            $hasMany = $this->hasMany();
+            $manyMany = $this->manyMany();
+            if (!isset($hasMany['Tags']) && !isset($manyMany['Tags'])) {
                 $components = GridFieldConfig_RelationEditor::create();
                 $components->removeComponentsByType(GridFieldAddNewButton::class);
                 $components->removeComponentsByType(GridFieldEditButton::class);
@@ -239,10 +224,10 @@ class BasePage extends SiteTree
                 $autoCompleter->setResultsFormat('$Name ($TaxonomyName)');
 
                 $dataColumns = $components->getComponentByType(GridFieldDataColumns::class);
-                $dataColumns->setDisplayFields(array(
+                $dataColumns->setDisplayFields([
                     'Name' => _t('BasePage.Term', 'Term'),
                     'TaxonomyName' => _t('BasePage.Taxonomy', 'Taxonomy')
-                ));
+                ]);
 
                 $fields->findOrMakeTab('Root.Tags', _t('BasePage.TagsTabTitle', 'Tags'));
                 $fields->addFieldToTab(
@@ -263,10 +248,10 @@ class BasePage extends SiteTree
      * Collects all site translations, marks the current one, and redirects
      * to the translated home page if a. there is a translated homepage and b. the
      * translation of the specific page is not available.
+     * @todo re-implement with Fluent
      */
     public function getAvailableTranslations()
     {
-
         if (!class_exists('Translatable')) {
             return false;
         }
@@ -322,6 +307,7 @@ class BasePage extends SiteTree
      * Returns the native language name for the selected locale/language, empty string if Translatable is not available
      *
      * @return string
+     * @todo re-implement with Fluent
      */
     public function getSelectedLanguage()
     {

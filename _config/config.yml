@@ -2,66 +2,21 @@
 Name: cwpconfig
 After: 'cwp-core/*'
 ---
-SiteConfig:
+SilverStripe\SiteConfig\SiteConfig:
   extensions:
-   - CustomSiteConfig
-SiteTree:
+   - CWP\CWP\Extensions\CustomSiteConfig
+
+SilverStripe\CMS\Model\SiteTree:
   extensions:
-    - CwpSiteTreeExtension
-TaxonomyTerm:
+    - CWP\CWP\Extensions\CwpSiteTreeExtension
+
+SilverStripe\Taxonomy\TaxonomyTerm:
   extensions:
-   - TaxonomyTermExtension
-Member:
+   - CWP\CWP\Extensions\TaxonomyTermExtension
+
+SilverStripe\Security\Member:
   title_format:
     columns:
       - FirstName
       - Surname
     sep: ' '
----
-Name: cwpsitetreefileextensions
----
-File:
-  extensions:
-    - CwpSiteTreeFileExtension
----
-Name: mimeuploadvalidator
-Only:
-  moduleexists: 'mimevalidator'
----
-Injector:
-  Upload_Validator:
-    class: MimeUploadValidator
----
-Name: cwpuploadextensions
-Only:
-  moduleexists: 'selectupload'
----
-Injector:
-  UploadField: SelectUploadField
----
-Name: cwpspellcheck
-Only:
-  moduleexists: 'spellcheck'
----
-SpellRequestFilter:
-  editor: 'cwp'
-SpellController:
-  locales:
-    - en_NZ
-    - mi_NZ
----
-Name: cwpworkflowextensions
-Only:
-  moduleexists: 'advancedworkflow'
----
-WorkflowDefinition:
-  extensions:
-    - CwpWorkflowDefinitionExtension
----
-Name: cwpcommentingextensions
-Only:
-  moduleexists: 'comments'
----
-CommentingController:
-  extensions:
-    - CwpCommentingExtension

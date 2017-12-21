@@ -3,14 +3,14 @@
 namespace CWP\CWP\Tests\PageTypes;
 
 use CWP\CWP\PageTypes\EventHolder;
-use SilverStripe\Taxonomy\TaxonomyTerm;
 use SilverStripe\Dev\SapphireTest;
+use SilverStripe\Taxonomy\TaxonomyTerm;
 
 class EventHolderTest extends SapphireTest
 {
-    static $fixture_file = 'cwp/tests/EventHolderTest.yml';
+    protected static $fixture_file = 'EventHolderTest.yml';
 
-    function testEventTags()
+    public function testEventTags()
     {
         $holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
@@ -20,17 +20,17 @@ class EventHolderTest extends SapphireTest
         $this->assertNull($tags->find('Name', 'Carrot'), 'Does not find terms that are not applied.');
     }
 
-    function testEventWithParentFilter()
+    public function testEventWithParentFilter()
     {
         $holder = $this->objFromFixture(EventHolder::class, 'EventHolder2');
 
         $items = $holder->Updates();
-        
+
         $this->assertNotNull($items->find('URLSegment', 'other-holder'), 'Event from the holder is shown.');
         $this->assertNull($items->find('URLSegment', 'future-event-1'), 'Events from other holders are not shown.');
     }
 
-    function testEventsWithTagFilter()
+    public function testEventsWithTagFilter()
     {
         $holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
@@ -38,22 +38,22 @@ class EventHolderTest extends SapphireTest
         $tag = $this->objFromFixture(TaxonomyTerm::class, 'TaxonomyTerm1');
 
         $items = $holder->Updates($tag->ID);
-        
+
         $this->assertNotNull($items->find('URLSegment', 'future-event-1'), 'Finds the tagged page.');
         $this->assertNull($items->find('URLSegment', 'past-event-1'), 'Does not find pages that are not tagged.');
     }
 
-    function testEventsWithMonthFilter()
+    public function testEventsWithMonthFilter()
     {
         $holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
         $items = $holder->Updates(null, null, null, 2013, 7);
-        
+
         $this->assertNotNull($items->find('URLSegment', 'future-event-1'), 'Finds the event in 2013-07.');
         $this->assertNull($items->find('URLSegment', 'past-event-1'), 'Does not find events at other dates.');
     }
 
-    function testEventsWithDateRangeFilter()
+    public function testEventsWithDateRangeFilter()
     {
         $holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
@@ -66,7 +66,7 @@ class EventHolderTest extends SapphireTest
         $this->assertNull($items->find('URLSegment', 'future-event-1'), 'Does not find event out of range');
     }
 
-    function testExtractMonths()
+    public function testExtractMonths()
     {
         $holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 

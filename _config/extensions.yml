@@ -1,0 +1,6 @@
+---
+Name: cwpsitetreefileextensions
+---
+SilverStripe\Assets\File:
+  extensions:
+    - CWP\CWP\Extensions\CwpSiteTreeFileExtension

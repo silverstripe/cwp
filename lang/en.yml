@@ -118,8 +118,7 @@ en:
     PLURALNAME: 'Footer Holders'
     SINGULARNAME: 'Footer Holder'
   FullTextSearch:
-    SynonymValidator:
-      InvalidValue: 'Synonyms cannot contain words separated by spaces'
+    SynonymValidator_InvalidValue: 'Synonyms cannot contain words separated by spaces'
   GridField:
     Archived: Archived
     Live: Live

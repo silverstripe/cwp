@@ -2,21 +2,16 @@
 
 namespace CWP\CWP\PageTypes;
 
-use CWP\CWP\PageTypes\EventHolder;
-use SilverStripe\ORM\FieldType\DBDatetime;
-use SilverStripe\Forms\FieldList;
-use SilverStripe\ORM\FieldType\DBDate;
-use SilverStripe\Forms\DateField;
-use SilverStripe\Security\Member;
-use SilverStripe\Forms\TimeField;
-use SilverStripe\Forms\FieldGroup;
-use SilverStripe\Forms\TextareaField;
 use SilverStripe\Core\Convert;
-use PageController;
+use SilverStripe\Forms\DateField;
+use SilverStripe\Forms\FieldGroup;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\TimeField;
+use SilverStripe\ORM\FieldType\DBDatetime;
 
 class EventPage extends DatedUpdatePage
 {
-
     private static $description = 'Describes an event occurring on a specific date.';
 
     private static $default_parent = EventHolder::class;
@@ -31,11 +26,11 @@ class EventPage extends DatedUpdatePage
 
     private static $plural_name = 'Event Pages';
 
-    private static $db = array(
+    private static $db = [
         'StartTime' => 'Time',
         'EndTime' => 'Time',
-        'Location' => 'Text'
-    );
+        'Location' => 'Text',
+    ];
 
     private static $table_name = 'EventPage';
 
@@ -55,7 +50,7 @@ class EventPage extends DatedUpdatePage
     public function populateDefaults()
     {
         if (!isset($this->Date) || $this->Date === null) {
-            $this->Date = DBDatetime::now()->Format('Y-m-d');
+            $this->Date = DBDatetime::now()->Format('y-MM-dd');
         }
 
         if (!isset($this->StartTime) || $this->StartTime === null) {
@@ -77,21 +72,16 @@ class EventPage extends DatedUpdatePage
             $dateTimeFields = array();
 
             $dateTimeFields[] = $dateField = DateField::create('Date', 'Date');
-            $dateField->setConfig('showcalendar', true);
-            $dateField->setConfig('dateformat', Member::currentUser()->getDateFormat());
-
-            $dateTimeFields[] = $startTimeField = TimeField::create('StartTime', '&nbsp;&nbsp;' . $this->fieldLabel('StartTime'));
+            $dateTimeFields[] = $startTimeField = TimeField::create(
+                'StartTime',
+                '&nbsp;&nbsp;' . $this->fieldLabel('StartTime')
+            );
             $dateTimeFields[] = $endTimeField = TimeField::create('EndTime', $this->fieldLabel('EndTime'));
-            // Would like to do this, but the width of the form field doesn't scale based on the time
-            // format. OS ticket raised: http://open.silverstripe.org/ticket/8260
-            //$startTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
-            //$endTimeField->setConfig('timeformat', Member::currentUser()->getTimeFormat());
-            $startTimeField->setConfig('timeformat', 'h:ma');
-            $endTimeField->setConfig('timeformat', 'h:ma');
 
-            $fields->addfieldToTab('Root.Main', $dateTimeField = new FieldGroup('Date and time', $dateTimeFields), 'Abstract');
-
-            $fields->addfieldToTab('Root.Main', $locationField = TextareaField::create('Location', $this->fieldLabel('Location')), 'Abstract');
+            $fields->addFieldsToTab('Root.Main', [
+                $dateTimeField = FieldGroup::create('Date and time', $dateTimeFields),
+                $locationField = TextareaField::create('Location', $this->fieldLabel('Location'))
+            ], 'Abstract');
             $locationField->setRows(4);
         });
         return parent::getCMSFields();
@@ -99,6 +89,6 @@ class EventPage extends DatedUpdatePage
 
     public function NiceLocation()
     {
-        return (nl2br(Convert::raw2xml($this->Location), true));
+        return nl2br(Convert::raw2xml($this->Location), true);
     }
 }

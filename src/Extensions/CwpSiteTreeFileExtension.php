@@ -35,17 +35,22 @@ class CwpSiteTreeFileExtension extends DataExtension
      */
     public function BackLinkHTMLList()
     {
-        $html = '<em>' . _t('SiteTreeFileExtension.BACKLINK_LIST_DESCRIPTION', 'This list shows all pages where the file has been added through a WYSIWYG editor.') . '</em>';
+        $html = '<em>' . _t(
+            'SiteTreeFileExtension.BACKLINK_LIST_DESCRIPTION',
+            'This list shows all pages where the file has been added through a WYSIWYG editor.'
+        ) . '</em>';
         $html .= '<ul>';
 
         foreach ($this->owner->BackLinkTracking() as $backLink) {
             $listItem = '<li>';
 
             // Add the page link
-            $listItem .= '<a href="' . $backLink->Link() . '" target="_blank">' . Convert::raw2xml($backLink->MenuTitle) . '</a> &ndash; ';
+            $listItem .= '<a href="' . $backLink->Link() . '" target="_blank">'
+                . Convert::raw2xml($backLink->MenuTitle) . '</a> &ndash; ';
 
             // Add the CMS link
-            $listItem .= '<a href="' . $backLink->CMSEditLink() . '">' . _t('SiteTreeFileExtension.EDIT', 'Edit') . '</a>';
+            $listItem .= '<a href="' . $backLink->CMSEditLink() . '">'
+                . _t('SiteTreeFileExtension.EDIT', 'Edit') . '</a>';
 
             $html .= $listItem . '</li>';
         }

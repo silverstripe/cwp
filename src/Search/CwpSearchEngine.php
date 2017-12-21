@@ -9,6 +9,7 @@ use SilverStripe\Core\Extensible;
 use SilverStripe\Core\Injector\Injectable;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\FullTextSearch\Search\Queries\SearchQuery;
+use SilverStripe\FullTextSearch\Solr\SolrIndex;
 
 /**
  * Provides interface for generating search results for a SolrIndex
@@ -25,9 +26,9 @@ class CwpSearchEngine
      * @var array
      * @config
      */
-    private static $search_options = array(
-        'hl' => 'true'
-    );
+    private static $search_options = [
+        'hl' => 'true',
+    ];
 
     /**
      * Additional search options to send to search when spellcheck
@@ -36,13 +37,13 @@ class CwpSearchEngine
      * @var array
      * @config
      */
-    private static $spellcheck_options = array(
+    private static $spellcheck_options = [
         'spellcheck' => 'true',
         'spellcheck.collate' => 'true',
         // spellcheck.dictionary can also be configured to use '_spellcheck'
         // dictionary when indexing fields under the _spellcheckText column
-        'spellcheck.dictionary' => 'default'
-    );
+        'spellcheck.dictionary' => 'default',
+    ];
 
     /**
      * Build a SearchQuery for a new search
@@ -148,7 +149,5 @@ class CwpSearchEngine
         } catch (Exception $e) {
             Injector::inst()->get(LoggerInterface::class)->warning($e);
         }
-
-        return null;
     }
 }

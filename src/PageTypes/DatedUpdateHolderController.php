@@ -32,7 +32,6 @@ use SilverStripe\Taxonomy\TaxonomyTerm;
  */
 class DatedUpdateHolderController extends PageController
 {
-
     private static $allowed_actions = [
         'rss',
         'atom',
@@ -128,19 +127,19 @@ class DatedUpdateHolderController extends PageController
         $year = $this->request->getVar('year');
         $month = $this->request->getVar('month');
 
-        if ($tag=='') {
+        if ($tag == '') {
             $tag = null;
         }
-        if ($from=='') {
+        if ($from == '') {
             $from = null;
         }
-        if ($to=='') {
+        if ($to == '') {
             $to = null;
         }
-        if ($year=='') {
+        if ($year == '') {
             $year = null;
         }
-        if ($month=='') {
+        if ($month == '') {
             $month = null;
         }
 
@@ -151,13 +150,13 @@ class DatedUpdateHolderController extends PageController
             $from = urldecode($from);
             $parser = DBDatetime::create();
             $parser->setValue($from);
-            $from = $parser->Format('Y-m-d');
+            $from = $parser->Format('y-MM-dd');
         }
         if (isset($to)) {
             $to = urldecode($to);
             $parser = DBDatetime::create();
             $parser->setValue($to);
-            $to = $parser->Format('Y-m-d');
+            $to = $parser->Format('y-MM-dd');
         }
         if (isset($year)) {
             $year = (int)$year;
@@ -177,11 +176,11 @@ class DatedUpdateHolderController extends PageController
 
             if ($produceErrorMessages) {
                 // @todo replace
-                Session::setFormMessage(
-                    'Form_DateRangeForm',
-                    _t('DateUpdateHolder.FilterAppliedMessage', 'Filter has been applied with the dates reversed.'),
-                    'warning'
-                );
+//                Session::setFormMessage(
+//                    'Form_DateRangeForm',
+//                    _t('DateUpdateHolder.FilterAppliedMessage', 'Filter has been applied with the dates reversed.'),
+//                    'warning'
+//                );
             }
         }
 
@@ -189,21 +188,21 @@ class DatedUpdateHolderController extends PageController
         if (isset($from) && !isset($to)) {
             if ($produceErrorMessages) {
                 // @todo replace
-                Session::setFormMessage(
-                    'Form_DateRangeForm',
-                    _t('DateUpdateHolder.DateRangeFilterMessage', 'Filtered by a single date.'),
-                    'warning'
-                );
+//                Session::setFormMessage(
+//                    'Form_DateRangeForm',
+//                    _t('DateUpdateHolder.DateRangeFilterMessage', 'Filtered by a single date.'),
+//                    'warning'
+//                );
             }
         }
 
-        return array(
+        return [
             'tag' => $tag,
             'from' => $from,
             'to' => $to,
             'year' => $year,
-            'month' => $month
-        );
+            'month' => $month,
+        ];
     }
 
     /**
@@ -226,7 +225,7 @@ class DatedUpdateHolderController extends PageController
     {
         $tags = $this->UpdateTags();
 
-        $processed = new ArrayList();
+        $processed = ArrayList::create();
 
         foreach ($tags as $tag) {
             // Build the link - keep the tag, and date range, but reset month, year and pagination.
@@ -308,10 +307,8 @@ class DatedUpdateHolderController extends PageController
         ));
 
         $fields = FieldList::create(
-            DateField::create('from', $dateFromTitle)
-                ->setConfig('showcalendar', true),
-            DateField::create('to', $dateToTitle)
-                ->setConfig('showcalendar', true),
+            DateField::create('from', $dateFromTitle),
+            DateField::create('to', $dateToTitle),
             HiddenField::create('tag')
         );
 

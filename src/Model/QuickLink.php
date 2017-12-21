@@ -4,30 +4,29 @@ namespace CWP\CWP\Model;
 
 use CWP\CWP\PageTypes\BaseHomePage;
 use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\Forms\TreeDropdownField;
-use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\ORM\DataObject;
 
 class Quicklink extends DataObject
 {
-
-    private static $db = array(
+    private static $db = [
         'Name' => 'Varchar(255)',
         'ExternalLink' => 'Varchar(255)',
-        'SortOrder' => 'Int'
-    );
+        'SortOrder' => 'Int',
+    ];
 
-    private static $has_one = array(
+    private static $has_one = [
         'Parent' => BaseHomePage::class,
-        'InternalLink' => SiteTree::class
-    );
+        'InternalLink' => SiteTree::class,
+    ];
 
-    private static $summary_fields = array(
+    private static $summary_fields = [
         'Name' => 'Name',
         'InternalLink.Title' => 'Internal Link',
-        'ExternalLink' => 'External Link'
-    );
+        'ExternalLink' => 'External Link',
+    ];
 
     private static $table_name = 'Quicklink';
 
@@ -59,9 +58,9 @@ class Quicklink extends DataObject
         }
     }
 
-    public function canCreate($member = null)
+    public function canCreate($member = null, $context = [])
     {
-        return $this->Parent()->canCreate($member);
+        return $this->Parent()->canCreate($member, $context);
     }
 
     public function canEdit($member = null)
@@ -103,7 +102,12 @@ class Quicklink extends DataObject
                 $wrap = CompositeField::create(
                     $extraLabel = LiteralField::create(
                         'NoteOverride',
-                        _t('Quicklink.Note', '<div class="message good notice">Note:  If you specify an External Link, the Internal Link will be ignored.</div>')
+                        _t(
+                            __CLASS__ . '.Note',
+                            // @todo remove the HTML from this translation
+                            '<div class="message good notice">Note:  If you specify an External Link, '
+                            . 'the Internal Link will be ignored.</div>'
+                        )
                     )
                 )
             )
@@ -112,8 +116,10 @@ class Quicklink extends DataObject
             LiteralField::create(
                 'Note',
                 _t(
-                    'Quicklink.Note2',
-                    '<p>Use this to specify a link to a page either on this site (Internal Link) or another site (External Link).</p>'
+                    __CLASS__ . '.Note2',
+                    // @todo remove the HTML from this translation
+                    '<p>Use this to specify a link to a page either on this site '
+                    . '(Internal Link) or another site (External Link).</p>'
                 )
             ),
             'Name'

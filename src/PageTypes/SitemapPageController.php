@@ -4,11 +4,11 @@ namespace CWP\CWP\PageTypes;
 
 use PageController;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Dev\Deprecation;
 
-class SitemapPage_Controller extends PageController
+class SitemapPageController extends PageController
 {
-
     private static $allowed_actions = [
         'showpage',
     ];

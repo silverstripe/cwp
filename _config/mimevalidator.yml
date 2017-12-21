@@ -1,0 +1,8 @@
+---
+Name: mimeuploadvalidator
+Only:
+  moduleexists: 'silverstripe/mimevalidator'
+---
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Assets\Upload_Validator:
+    class: SilverStripe\MimeValidator\MimeUploadValidator

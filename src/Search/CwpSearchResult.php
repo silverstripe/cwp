@@ -2,6 +2,7 @@
 
 namespace CWP\CWP\Search;
 
+use SilverStripe\ORM\PaginatedList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\View\ViewableData;
 
@@ -10,8 +11,7 @@ use SilverStripe\View\ViewableData;
  */
 class CwpSearchResult extends ViewableData
 {
-    
-    private static $casting = array(
+    private static $casting = [
         'Original' => 'Text',
         'OriginalLink' => 'Text',
         'Suggestion' => 'Text',
@@ -20,22 +20,22 @@ class CwpSearchResult extends ViewableData
         'SearchLink' => 'Text',
         'RSSLink' => 'Text',
         'AtomLink' => 'Text',
-    );
-    
+    ];
+
     /**
      * List of results
      *
      * @var PaginatedList
      */
     protected $matches;
-    
+
     /**
      * Search terms for these results
      *
      * @var string
      */
     protected $query;
-    
+
     /**
      * Suggested search keywords
      * Used when this search has suggested terms, but following suggestions isn't enabled
@@ -43,15 +43,15 @@ class CwpSearchResult extends ViewableData
      * @var string
      */
     protected $suggestion;
-    
+
     /**
      * Original terms superceded by these result.
      * Used when a prior search had suggested terms, and follow suggestions is enabled.
      *
-     * @var type
+     * @var PaginatedList
      */
     protected $original;
-    
+
     /**
      * Create a new CwpSearchResult
      *
@@ -74,7 +74,7 @@ class CwpSearchResult extends ViewableData
             $this->suggestion = $results->SuggestionNice;
         }
     }
-    
+
     /**
      * Get search results
      *
@@ -145,7 +145,7 @@ class CwpSearchResult extends ViewableData
     {
         return $this->getLink($this->suggestion, $format);
     }
-    
+
     /**
      * Gets the link to the given search
      *
@@ -156,7 +156,7 @@ class CwpSearchResult extends ViewableData
     {
         return $this->getLink($this->query, $format);
     }
-    
+
     /**
      * Gets the link to the original search, with suggestions disabled
      *
@@ -167,7 +167,7 @@ class CwpSearchResult extends ViewableData
     {
         return $this->getLink($this->original, $format) . "&suggestions=0";
     }
-    
+
     /**
      * Get link to these results in RSS format
      *
@@ -177,7 +177,7 @@ class CwpSearchResult extends ViewableData
     {
         return $this->getLink($this->query, 'rss');
     }
-    
+
     /**
      * Get link to these results in atom format
      *
@@ -187,7 +187,7 @@ class CwpSearchResult extends ViewableData
     {
         return $this->getLink($this->query, 'atom');
     }
-    
+
     /**
      * Get a search link for given terms
      *
@@ -205,7 +205,7 @@ class CwpSearchResult extends ViewableData
         }
         return $link;
     }
-    
+
     public function hasField($field)
     {
         // Fix customise not detecting custom field getters

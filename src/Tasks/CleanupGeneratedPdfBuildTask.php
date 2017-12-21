@@ -7,11 +7,11 @@ use SilverStripe\Dev\BuildTask;
 
 class CleanupGeneratedPdfBuildTask extends BuildTask
 {
-
     protected $title = 'Cleanup generated PDFs';
 
-    protected $description = 'Removes generated PDFs on the site, forcing a regeneration of all exports to PDF when users
-		go to download them. This is most useful when templates have been changed so users should receive a new copy';
+    protected $description = 'Removes generated PDFs on the site, forcing a regeneration of all exports to PDF '
+        . 'when users go to download them. This is most useful when templates have been changed so users should '
+        . 'receive a new copy';
 
     public function run($request)
     {

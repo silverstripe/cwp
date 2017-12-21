@@ -6,7 +6,6 @@ use PageController;
 
 class BaseHomePageController extends PageController
 {
-
     public function getNewsPage()
     {
         return NewsHolder::get_one(NewsHolder::class);

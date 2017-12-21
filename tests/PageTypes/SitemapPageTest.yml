@@ -6,7 +6,7 @@ SilverStripe\Security\Member:
 SilverStripe\Security\Group:
   authors:
     Title: Authors
-    Members: =>Member.author-1
+    Members: =>SilverStripe\Security\Member.author-1
 
 CWP\CWP\PageTypes\SitemapPage:
   sitemap:
@@ -41,4 +41,4 @@ Page:
   secured-page-1:
     Title: Secured page 1
     CanViewType: OnlyTheseUsers
-    ViewerGroups: =>Group.authors
+    ViewerGroups: =>SilverStripe\Security\Group.authors

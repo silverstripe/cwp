@@ -2,22 +2,20 @@
 
 namespace CWP\CWP\Tests\PageTypes;
 
-use Translatable;
-use SilverStripe\Core\Config\Config;
 use CWP\CWP\PageTypes\BasePage;
+use SilverStripe\Core\Config\Config;
 use SilverStripe\Dev\SapphireTest;
 
 class BasePageTest extends SapphireTest
 {
-    public static $fixture_file = 'BasePageTest.yml';
+    protected static $fixture_file = 'BasePageTest.yml';
 
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
-        Config::nest();
-        Config::inst()->update(BasePage::class, 'pdf_export', true);
-        Config::inst()->update(BasePage::class, 'generated_pdf_path', 'assets/_generated_pdfs');
+        Config::modify()->set(BasePage::class, 'pdf_export', true);
+        Config::modify()->set(BasePage::class, 'generated_pdf_path', 'assets/_generated_pdfs');
     }
 
     public function testPdfFilename()
@@ -44,45 +42,8 @@ class BasePageTest extends SapphireTest
 
     public function testPdfLinkDisabled()
     {
-        Config::inst()->update(BasePage::class, 'pdf_export', false);
+        Config::modify()->set(BasePage::class, 'pdf_export', false);
         $page = $this->objFromFixture(BasePage::class, 'test-page-one');
         $this->assertFalse($page->PdfLink(), 'No PDF link as the functionality is disabled');
-    }
-
-    /**
-     * Test that the native language name can be returned for the current locale
-     *
-     * @see i18n
-     * @param string $locale
-     * @param string $expected
-     * @dataProvider localeProvider
-     */
-    public function testGetSelectedLanguage($locale, $expected)
-    {
-        if (!class_exists('Translatable')) {
-            $this->markTestSkipped('Language tests require Translatable module.');
-        }
-
-        Translatable::set_current_locale($locale);
-        $page = $this->objFromFixture(BasePage::class, 'test-page-one');
-        $this->assertSame($expected, $page->getSelectedLanguage());
-    }
-
-    /**
-     * @return array[]
-     */
-    public function localeProvider()
-    {
-        return array(
-            array('en_NZ', 'English'),
-            array('af_ZA', 'Afrikaans'),
-            array('es_ES', 'espa&ntilde;ol')
-        );
-    }
-
-    public function tearDown()
-    {
-        Config::unnest();
-        parent::tearDown();
     }
 }
