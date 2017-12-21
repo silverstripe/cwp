@@ -23,8 +23,9 @@ before_script:
 
   # Install composer dependencies
   - composer validate
-  - composer require --no-update silverstripe/recipe-cms:1.0.x-dev cwp/starter-theme:1.x-dev symbiote/silverstripe-advancedworkflow:5.0.x-dev silverstripe/userforms:^5 silverstripe/fulltextsearch:^3
+  - composer require --no-update silverstripe/recipe-cms:1.0.x-dev cwp/starter-theme:1.x-dev symbiote/silverstripe-advancedworkflow:5.0.x-dev silverstripe/userforms:^5
   - composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
+  - composer require --prefer-source  silverstripe/fulltextsearch ^3
 
 script:
   - if [[ $PHPUNIT_TEST ]]; then vendor/bin/phpunit; fi
