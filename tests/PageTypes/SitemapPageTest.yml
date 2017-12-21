@@ -1,15 +1,18 @@
-Member:
+SilverStripe\Security\Member:
   author-1:
     FirstName: Author
     Email: author1
-Group:
+
+SilverStripe\Security\Group:
   authors:
     Title: Authors
     Members: =>Member.author-1
-SitemapPage:
+
+CWP\CWP\PageTypes\SitemapPage:
   sitemap:
     Title: Sitemap
     ShowInMenus: 0
+
 Page:
   page-top-1:
     Title: Top page 1

@@ -1,11 +1,12 @@
-EventHolder:
+CWP\CWP\PageTypes\EventHolder:
 	EventHolder1:
 		URLSegment: "events"
 		Title: "Events"
 	EventHolder2:
 		URLSegment: "events2"
 		Title: "Events"
-EventPage:
+
+CWP\CWP\PageTypes\EventPage:
 	EventPage1:
 		URLSegment: "future-event-1"
 		Title: "Future event 1"
@@ -36,7 +37,8 @@ EventPage:
 		Title: "Other holder"
 		Date: "2012-12-07 12:58:13"
 		Parent: =>EventHolder.EventHolder2
-TaxonomyTerm:
+
+SilverStripe\Taxonomy\TaxonomyTerm:
 	TaxonomyTerm4:
 		Name: "Event types"
 	TaxonomyTerm1:

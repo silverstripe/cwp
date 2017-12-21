@@ -1,4 +1,4 @@
-BasePage:
+CWP\CWP\PageTypes\BasePage:
   test-page-one:
     Title: Test Page One
   home-page:
