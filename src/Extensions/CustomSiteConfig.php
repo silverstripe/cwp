@@ -46,7 +46,8 @@ class CustomSiteConfig extends DataExtension
         $facebookURL->setRightTitle(
             _t(
                 'CwpConfig.FbFieldDesc',
-                'Facebook link (everything after the "http://facebook.com/", eg http://facebook.com/<strong>username</strong> or http://facebook.com/<strong>pages/108510539573</strong>)'
+                'Facebook link (everything after the "http://facebook.com/", eg http://facebook.com/'
+                . '<strong>username</strong> or http://facebook.com/<strong>pages/108510539573</strong>)'
             )
         );
 

@@ -1,0 +1,12 @@
+---
+Name: cwpspellcheck
+Only:
+  moduleexists: silverstripe/spellcheck
+---
+SilverStripe\SpellCheck\Handling\SpellCheckMiddleware:
+  editor: cwp
+
+SilverStripe\SpellCheck\Handling\SpellController:
+  locales:
+    - en_NZ
+    - mi_NZ

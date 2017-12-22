@@ -1,0 +1,8 @@
+---
+Name: cwpworkflowextensions
+Only:
+  moduleexists: symbiote/silverstripe-advancedworkflow
+---
+Symbiote\AdvancedWorkflow\DataObjects\WorkflowDefinition:
+  extensions:
+    - CWP\CWP\Extensions\CwpWorkflowDefinitionExtension

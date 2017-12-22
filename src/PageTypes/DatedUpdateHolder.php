@@ -2,57 +2,26 @@
 
 namespace CWP\CWP\PageTypes;
 
+use DateTime;
 use Page;
-
-
-
-
-
-
-use Datetime;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-use CWP\CWP\PageTypes\DatedUpdateHolder;
-use CWP\CWP\PageTypes\DatedUpdatePage;
-use SilverStripe\Taxonomy\TaxonomyTerm;
 use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\Core\Config\Config;
-use SilverStripe\ORM\FieldType\DBDate;
-use SilverStripe\Core\ClassInfo;
-use SilverStripe\Core\Convert;
-use SilverStripe\ORM\DataList;
 use SilverStripe\Control\Director;
 use SilverStripe\Control\HTTP;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Convert;
 use SilverStripe\ORM\ArrayList;
-use SilverStripe\Control\RSS\RSSFeed;
-use SilverStripe\ORM\FieldType\DBDatetime;
-use SilverStripe\Control\Session;
+use SilverStripe\ORM\DataList;
+use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\PaginatedList;
-use SilverStripe\ORM\FieldType\DBField;
-use SilverStripe\Forms\DateField;
-use SilverStripe\Forms\HiddenField;
-use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\FormAction;
-use SilverStripe\Forms\Form;
-use CWP\Core\Feed\CwpAtomFeed;
-use PageController;
+use SilverStripe\Taxonomy\TaxonomyTerm;
 
 class DatedUpdateHolder extends Page
 {
-
-    // Meant as an abstract base class.
+    /**
+     * Meant as an abstract base class.
+     *
+     * {@inheritDoc}
+     */
     private static $hide_ancestor = DatedUpdateHolder::class;
 
     private static $update_name = 'Updates';
@@ -70,11 +39,19 @@ class DatedUpdateHolder extends Page
      */
     public function UpdateTags()
     {
+        $siteTree = DataObject::getSchema()->tableName(SiteTree::class);
+        $taxonomy = DataObject::getSchema()->tableName(TaxonomyTerm::class);
+
         $tags = TaxonomyTerm::get()
-            ->innerJoin('BasePage_Terms', '"TaxonomyTerm"."ID"="BasePage_Terms"."TaxonomyTermID"')
+            ->innerJoin('BasePage_Terms', sprintf('"%s"."ID"="BasePage_Terms"."TaxonomyTermID"', $taxonomy))
             ->innerJoin(
-                SiteTree::class,
-                sprintf('"SiteTree"."ID" = "BasePage_Terms"."BasePageID" AND "SiteTree"."ParentID" = \'%d\'', $this->ID)
+                $siteTree,
+                sprintf(
+                    '"%s"."ID" = "BasePage_Terms"."BasePageID" AND "%s"."ParentID" = \'%d\'',
+                    $siteTree,
+                    $siteTree,
+                    $this->ID
+                )
             )
             ->sort('Name');
 
@@ -115,24 +92,31 @@ class DatedUpdateHolder extends Page
     ) {
 
         $items = $className::get();
-        $dbTableName = ClassInfo::table_for_object_field($className, 'Date');
+        $dbTableName = DataObject::getSchema()->tableForField($className, 'Date');
         if (!$dbTableName) {
             $dbTableName = DatedUpdatePage::class;
         }
 
         // Filter by parent holder.
         if (isset($parentID)) {
-            $items = $items->filter(array('ParentID'=>$parentID));
+            $items = $items->filter(['ParentID'=>$parentID]);
         }
 
         // Filter down to a single tag.
         if (isset($tagID)) {
+            $taxonomy = DataObject::getSchema()->tableName(TaxonomyTerm::class);
+            $tableName = DataObject::getSchema()->tableName($className);
+
             $items = $items->innerJoin(
                 'BasePage_Terms',
-                sprintf('"%s"."ID" = "BasePage_Terms"."BasePageID"', $className)
+                sprintf('"%s"."ID" = "BasePage_Terms"."BasePageID"', $tableName)
             )->innerJoin(
-                TaxonomyTerm::class,
-                sprintf('"BasePage_Terms"."TaxonomyTermID" = "TaxonomyTerm"."ID" AND "TaxonomyTerm"."ID" = \'%d\'', $tagID)
+                $taxonomy,
+                sprintf(
+                    '"BasePage_Terms"."TaxonomyTermID" = "%s"."ID" AND "TaxonomyTerm"."ID" = \'%d\'',
+                    $taxonomy,
+                    $tagID
+                )
             );
         }
 
@@ -142,10 +126,10 @@ class DatedUpdateHolder extends Page
                 $dateTo = $dateFrom;
             }
 
-            $items = $items->where(array(
+            $items = $items->where([
                 sprintf('"%s"."Date" >= \'%s\'', $dbTableName, Convert::raw2sql("$dateFrom 00:00:00")),
                 sprintf('"%s"."Date" <= \'%s\'', $dbTableName, Convert::raw2sql("$dateTo 23:59:59"))
-            ));
+            ]);
         }
 
         // Filter down to single month.
@@ -183,15 +167,19 @@ class DatedUpdateHolder extends Page
      *     Months => ArrayList:
      *     ...
      *
-     * @param $updates DataList DataList to extract months from.
-     * @param $link Link used as abase to construct the MonthLink.
-     * @param $currentYear Currently selected year, for computing the link active state.
-     * @param $currentMonthNumber Currently selected month, for computing the link active state.
+     * @param DataList $updates DataList DataList to extract months from.
+     * @param string $link Link used as abase to construct the MonthLink.
+     * @param int $currentYear Currently selected year, for computing the link active state.
+     * @param int $currentMonthNumber Currently selected month, for computing the link active state.
      *
      * @returns ArrayList
      */
-    public static function ExtractMonths(DataList $updates, $link = null, $currentYear = null, $currentMonthNumber = null)
-    {
+    public static function ExtractMonths(
+        DataList $updates,
+        $link = null,
+        $currentYear = null,
+        $currentMonthNumber = null
+    ) {
         // Set the link to current URL in the same way the HTTP::setGetVar does it.
         if (!isset($link)) {
             $link = Director::makeRelative($_SERVER['REQUEST_URI']);
@@ -200,25 +188,28 @@ class DatedUpdateHolder extends Page
         $dates = $updates->dataQuery()
             ->groupby('YEAR("Date")')
             ->groupby('MONTH("Date")')
-            ->sort('Date', 'DESC')
             ->query()
-            ->setSelect(array(
+            ->setSelect([
                 'Year' => 'YEAR("Date")',
                 'Month' => 'MONTH("Date")',
-            ))
+            ])
             ->addWhere('"Date" IS NOT NULL')
+            ->setOrderBy([
+                'YEAR("Date")' => 'DESC',
+                'MONTH("Date")' => 'DESC',
+            ])
             ->execute();
 
-        $years = array();
+        $years = [];
         foreach ($dates as $date) {
             $monthNumber = $date['Month'];
             $year = $date['Year'];
-            $dateObj = new Datetime(implode('-', array($year, $monthNumber, 1)));
+            $dateObj = new DateTime(implode('-', [$year, $monthNumber, 1]));
             $monthName = $dateObj->Format('M');
 
             // Set up the relevant year array, if not yet available.
             if (!isset($years[$year])) {
-                $years[$year] = array('YearName'=>$year, 'Months'=>array());
+                $years[$year] = ['YearName'=>$year, 'Months' => []];
             }
 
             // Check if the currently processed month is the one that is selected via GET params.

@@ -3,18 +3,17 @@
 namespace CWP\CWP\Tests\PageTypes;
 
 use SilverStripe\Core\Config\Config;
-use SilverStripe\View\SSViewer;
 use SilverStripe\Dev\CSSContentParser;
 use SilverStripe\Dev\FunctionalTest;
+use SilverStripe\View\SSViewer;
 
 class SitemapPageTest extends FunctionalTest
 {
-
     protected static $fixture_file = 'SitemapPageTest.yml';
 
     protected static $use_draft_site = true;
 
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 

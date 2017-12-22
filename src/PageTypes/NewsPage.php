@@ -2,14 +2,13 @@
 
 namespace CWP\CWP\PageTypes;
 
+use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
-use SilverStripe\AssetAdmin\Forms\UploadField;
 
 class NewsPage extends DatedUpdatePage
 {
-
     private static $description = 'Describes an item of news';
 
     private static $default_parent = 'NewsHolderPage';
@@ -22,13 +21,13 @@ class NewsPage extends DatedUpdatePage
 
     private static $plural_name = 'News Pages';
 
-    private static $db = array(
-        'Author' => 'Varchar(255)'
-    );
+    private static $db = [
+        'Author' => 'Varchar(255)',
+    ];
 
-    private static $has_one = array(
-        'FeaturedImage' => Image::class
-    );
+    private static $has_one = [
+        'FeaturedImage' => Image::class,
+    ];
 
     private static $table_name = 'NewsPage';
 

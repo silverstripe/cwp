@@ -1,6 +1,8 @@
 <?php
 
+use SilverStripe\Core\Environment;
+
 // default to the binary being in the usual path on Linux
-if (!defined('WKHTMLTOPDF_BINARY')) {
-    define('WKHTMLTOPDF_BINARY', '/usr/local/bin/wkhtmltopdf_12');
+if (!Environment::getEnv('WKHTMLTOPDF_BINARY')) {
+    Environment::setEnv('WKHTMLTOPDF_BINARY', '/usr/local/bin/wkhtmltopdf_12');
 }

@@ -11,6 +11,7 @@ use SilverStripe\CMS\Search\SearchForm;
 use SilverStripe\Control\Director;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Environment;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FormAction;
@@ -21,12 +22,11 @@ use SilverStripe\Versioned\Versioned;
 
 class BasePageController extends ContentController
 {
-
-    private static $allowed_actions = array(
+    private static $allowed_actions = [
         'downloadpdf',
         'SearchForm',
-        'results'
-    );
+        'results',
+    ];
 
     /**
      * How many search results should be shown per-page?
@@ -49,12 +49,12 @@ class BasePageController extends ContentController
      * Which classes should be queried when searching?
      * @var array
      */
-    public static $classes_to_search = array(
-        array(
+    public static $classes_to_search = [
+        [
             'class' => 'Page',
-            'includeSubclasses' => true
-        )
-    );
+            'includeSubclasses' => true,
+        ]
+    ];
 
     /**
      * Serve the page rendered as PDF.
@@ -66,7 +66,7 @@ class BasePageController extends ContentController
         }
 
         // We only allow producing live pdf. There is no way to secure the draft files.
-        Versioned::reading_stage('Live');
+        Versioned::set_stage(Versioned::LIVE);
 
         $path = $this->dataRecord->getPdfFilename();
         if (!file_exists($path)) {
@@ -84,24 +84,24 @@ class BasePageController extends ContentController
     {
         //if base url YML is defined in YML, use that
         if (Config::inst()->get(BasePage::class, 'pdf_base_url')) {
-            $pdf_base_url = Config::inst()->get(BasePage::class, 'pdf_base_url').'/';
+            $pdfBaseUrl = Config::inst()->get(BasePage::class, 'pdf_base_url').'/';
             //otherwise, if we are CWP use the secure domain
-        } elseif (defined('CWP_SECURE_DOMAIN')) {
-            $pdf_base_url = CWP_SECURE_DOMAIN.'/';
+        } elseif (Environment::getEnv('CWP_SECURE_DOMAIN')) {
+            $pdfBaseUrl = Environment::getEnv('CWP_SECURE_DOMAIN') . '/';
             //or if neither, leave blank
         } else {
-            $pdf_base_url = '';
+            $pdfBaseUrl = '';
         }
-        return $pdf_base_url;
+        return $pdfBaseUrl;
     }
 
     /*
     * Don't use the proxy if the pdf domain is the CWP secure domain
     * Or if we aren't on a CWP server
     */
-    public function getPDFProxy($pdf_base_url)
+    public function getPDFProxy($pdfBaseUrl)
     {
-        if (!defined('CWP_SECURE_DOMAIN') || $pdf_base_url == CWP_SECURE_DOMAIN.'/') {
+        if (!defined('CWP_SECURE_DOMAIN') || $pdfBaseUrl == CWP_SECURE_DOMAIN.'/') {
             $proxy = '';
         } else {
             $proxy = ' --proxy ' . SS_OUTBOUND_PROXY . ':' . SS_OUTBOUND_PROXY_PORT;
@@ -146,15 +146,15 @@ class BasePageController extends ContentController
         }
 
         //decide the domain to use in generation
-        $pdf_base_url = $this->getPDFBaseURL();
+        $pdfBaseUrl = $this->getPDFBaseURL();
 
         // Force http protocol on CWP - fetching from localhost without using the proxy, SSL terminates on gateway.
         if (defined('CWP_ENVIRONMENT')) {
             Config::inst()->nest();
             Config::inst()->update(Director::class, 'alternate_protocol', 'http');
             //only set alternate protocol if CWP_SECURE_DOMAIN is defined OR pdf_base_url is
-            if ($pdf_base_url) {
-                Config::inst()->update(Director::class, 'alternate_base_url', 'http://'.$pdf_base_url);
+            if ($pdfBaseUrl) {
+                Config::inst()->update(Director::class, 'alternate_base_url', 'http://'.$pdfBaseUrl);
             }
         }
 
@@ -174,20 +174,25 @@ class BasePageController extends ContentController
         }
 
         //decide what the proxy should look like
-        $proxy = $this->getPDFProxy($pdf_base_url);
+        $proxy = $this->getPDFProxy($pdfBaseUrl);
 
         // finally, generate the PDF
-        $command = $binaryPath . $proxy . ' --outline -B 40pt -L 20pt -R 20pt -T 20pt --encoding utf-8 --orientation Portrait --disable-javascript --quiet --print-media-type ';
+        $command = $binaryPath . $proxy . ' --outline -B 40pt -L 20pt -R 20pt -T 20pt --encoding utf-8 '
+            . '--orientation Portrait --disable-javascript --quiet --print-media-type ';
         $retVal = 0;
         $output = array();
-        exec($command . " --footer-html \"$footerFile\" \"$bodyFile\" \"$pdfFile\" &> /dev/stdout", $output, $return_val);
+        exec(
+            $command . " --footer-html \"$footerFile\" \"$bodyFile\" \"$pdfFile\" &> /dev/stdout",
+            $output,
+            $retVal
+        );
 
         // remove temporary file
         unlink($bodyFile);
         unlink($footerFile);
 
         // output any errors
-        if ($return_val != 0) {
+        if ($retVal != 0) {
             user_error('wkhtmltopdf failed: ' . implode("\n", $output), E_USER_ERROR);
         }
 

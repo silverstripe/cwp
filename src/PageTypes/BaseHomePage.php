@@ -2,45 +2,30 @@
 
 namespace CWP\CWP\PageTypes;
 
+use CWP\CWP\Model\Quicklink;
 use Page;
-
-
-
-
-
-use GridFieldSortableRows;
-
-
-
-
-
-use CWP\CWP\PageTypes\BaseHomePage;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Core\Injector\Injector;
-use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\TreeDropdownField;
-use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
-use SilverStripe\Forms\GridField\GridField;
-use SilverStripe\Forms\GridField\GridFieldAddNewButton;
-use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
-use SilverStripe\Forms\GridField\GridFieldDeleteAction;
-use CWP\CWP\Model\Quicklink;
-use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\ToggleCompositeField;
-use CWP\CWP\PageTypes\NewsHolder;
-use PageController;
+use SilverStripe\Forms\TreeDropdownField;
+use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 /**
  * **BaseHomePage** is the basic home page.
  * By default it is hidden from the CMS - we rely on developers creating their own
  * `HomePage` class in the `mysite/code` which will extend from the **BaseHomePage**.
  */
-
 class BaseHomePage extends Page
 {
-
     private static $icon = 'cwp/images/icons/sitetree_images/home.png';
 
     private static $hide_ancestor = BaseHomePage::class;

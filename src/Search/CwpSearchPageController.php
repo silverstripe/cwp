@@ -11,7 +11,6 @@ use PageController;
  */
 class CwpSearchPageController extends PageController
 {
-
     /**
      * Create the dummy search record for this page
      *

@@ -2,18 +2,15 @@
 
 namespace CWP\CWP\Tests\Extensions;
 
-use WorkflowDefinition;
-use SilverStripe\ORM\DB;
-use SilverStripe\Core\Config\Config;
 use CWP\CWP\Extensions\CwpWorkflowDefinitionExtension;
+use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Dev\FunctionalTest;
+use SilverStripe\ORM\DB;
+use Symbiote\AdvancedWorkflow\DataObjects\WorkflowDefinition;
 
 /**
- * Tests the data extension {@link: CWPWorkflowDefinitionExtension}
- *
- * @package framework
- * @subpackage tests
+ * Tests the data extension {@link CWPWorkflowDefinitionExtension}
  */
 class WorkflowDefinitionExtensionTest extends FunctionalTest
 {
@@ -24,7 +21,7 @@ class WorkflowDefinitionExtensionTest extends FunctionalTest
      * {@link $fixture_file}, which always forces a database build.
      */
     protected $usesDatabase = true;
-    
+
     /**
      * Tests the config option that controls the creation of a default workflow definition
      *
@@ -33,16 +30,16 @@ class WorkflowDefinitionExtensionTest extends FunctionalTest
     public function testCreateDefaultWorkflowTest()
     {
         DB::quiet();
-        
+
         // test disabling the default workflow definition
-        Config::inst()->update(CwpWorkflowDefinitionExtension::class, 'create_default_workflow', false);
+        Config::modify()->set(CwpWorkflowDefinitionExtension::class, 'create_default_workflow', false);
         $workflowExtn = Injector::inst()->create(CwpWorkflowDefinitionExtension::class);
         $workflowExtn->requireDefaultRecords();
         $definition = WorkflowDefinition::get()->first();
         $this->assertNull($definition);
 
         // test enabling the default workflow definition
-        Config::inst()->update(CwpWorkflowDefinitionExtension::class, 'create_default_workflow', true);
+        Config::modify()->set(CwpWorkflowDefinitionExtension::class, 'create_default_workflow', true);
         $workflowExtn = Injector::inst()->create(CwpWorkflowDefinitionExtension::class);
         $workflowExtn->requireDefaultRecords();
         $definition = WorkflowDefinition::get()->first();

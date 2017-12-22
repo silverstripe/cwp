@@ -2,14 +2,15 @@
 
 namespace CWP\CWP\Tasks;
 
-use SilverStripe\UserForms\Model\UserDefinedForm;
-use SilverStripe\Versioned\Versioned;
+use SilverStripe\Control\Director;
+use SilverStripe\Control\Email\Email;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Dev\BuildTask;
+use SilverStripe\UserForms\Model\EditableFormField\EditableEmailField;
 use SilverStripe\UserForms\Model\EditableFormField\EditableFormStep;
 use SilverStripe\UserForms\Model\EditableFormField\EditableTextField;
-use SilverStripe\Control\Email\Email;
-use SilverStripe\UserForms\Model\EditableFormField\EditableEmailField;
-use SilverStripe\Control\Director;
-use SilverStripe\Dev\BuildTask;
+use SilverStripe\UserForms\Model\UserDefinedForm;
+use SilverStripe\Versioned\Versioned;
 
 /**
  * Used to populate sample data when installing the starter or Wātea theme
@@ -18,12 +19,13 @@ class PopulateThemeSampleDataTask extends BuildTask
 {
     protected $title = 'Populate sample data for theme demo';
 
-    protected $description = 'Populates some sample data for showcasing the functionality of the starter and Wātea themes';
+    protected $description = 'Populates some sample data for showcasing the functionality of the '
+        . 'starter and Wātea themes';
 
     /**
      * A series of method calls to create sample data
      *
-     * @param SS_HTTPRequest $request
+     * @param HTTPRequest $request
      */
     public function run($request)
     {
