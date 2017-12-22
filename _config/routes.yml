@@ -4,4 +4,4 @@ After: 'rootroutes'
 ---
 SilverStripe\Control\Director:
   rules:
-    search: CwpSearchPageController
+    search: CWP\CWP\Search\CwpSearchPageController

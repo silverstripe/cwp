@@ -19,7 +19,7 @@ class EventHolder extends DatedUpdateHolder
 
     private static $update_class = EventPage::class;
 
-    private static $icon = 'cwp/images/icons/sitetree_images/event_holder.png';
+    private static $icon = 'cwp/cwp:images/icons/sitetree_images/event_holder.png';
 
     public $pageIcon = 'images/icons/sitetree_images/event_holder.png';
 

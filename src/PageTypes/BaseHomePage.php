@@ -26,7 +26,7 @@ use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
  */
 class BaseHomePage extends Page
 {
-    private static $icon = 'cwp/images/icons/sitetree_images/home.png';
+    private static $icon = 'cwp/cwp:images/icons/sitetree_images/home.png';
 
     private static $hide_ancestor = BaseHomePage::class;
 

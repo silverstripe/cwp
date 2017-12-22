@@ -16,8 +16,8 @@ class CwpSearchBoostExtension extends DataExtension
      * Quality to boost the 'SearchBoost' field by.
      * Default boost is 2x
      *
-     * @var config
-     * @string
+     * @config
+     * @var string
      */
     private static $search_boost = '2';
 

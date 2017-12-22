@@ -19,7 +19,7 @@ class NewsHolderController extends DatedUpdateHolderController
             $this->Link('rss'),
             $this->getSubscriptionTitle()
         );
-        $rss->setTemplate('NewsHolder_rss');
+        $rss->setTemplate('CWP\\CWP\\PageTypes\\NewsHolder_rss');
         return $rss->outputToBrowser();
     }
 
@@ -30,7 +30,7 @@ class NewsHolderController extends DatedUpdateHolderController
             $this->Link('atom'),
             $this->getSubscriptionTitle()
         );
-        $atom->setTemplate('NewsHolder_atom');
+        $atom->setTemplate('CWP\\CWP\\PageTypes\\NewsHolder_atom');
         return $atom->outputToBrowser();
     }
 }

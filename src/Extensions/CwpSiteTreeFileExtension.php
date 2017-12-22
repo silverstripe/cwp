@@ -13,8 +13,8 @@ class CwpSiteTreeFileExtension extends DataExtension
 
     public function updateCMSFields(FieldList $fields)
     {
-        Requirements::css('cwp/css/fieldDescriptionToggle.css');
-        Requirements::javascript('cwp/javascript/fieldDescriptionToggle.js');
+        Requirements::css('cwp/cwp:css/fieldDescriptionToggle.css');
+        Requirements::javascript('cwp/cwp:javascript/fieldDescriptionToggle.js');
 
         $fields->insertAfter(
             ReadonlyField::create(
