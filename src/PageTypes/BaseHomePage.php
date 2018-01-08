@@ -57,8 +57,6 @@ class BaseHomePage extends Page
         'Quicklinks' => 'Quicklink.Parent'
     );
 
-    public $pageIcon = 'images/icons/sitetree_images/home.png';
-
     public function Quicklinks()
     {
         return $this->getComponents('Quicklinks')->sort('SortOrder');

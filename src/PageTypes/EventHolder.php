@@ -21,8 +21,6 @@ class EventHolder extends DatedUpdateHolder
 
     private static $icon = 'cwp/cwp:images/icons/sitetree_images/event_holder.png';
 
-    public $pageIcon = 'images/icons/sitetree_images/event_holder.png';
-
     private static $singular_name = 'Event Holder';
 
     private static $plural_name = 'Event Holders';

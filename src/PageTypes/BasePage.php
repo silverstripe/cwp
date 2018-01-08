@@ -84,8 +84,6 @@ class BasePage extends SiteTree
 
     private static $plural_name = 'Base Pages';
 
-    public $pageIcon = 'images/icons/sitetree_images/page.png';
-
     /**
      * Get the footer holder.
      */

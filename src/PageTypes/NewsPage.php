@@ -31,8 +31,6 @@ class NewsPage extends DatedUpdatePage
 
     private static $table_name = 'NewsPage';
 
-    public $pageIcon =  'images/icons/sitetree_images/news.png';
-
     public function fieldLabels($includerelations = true)
     {
         $labels = parent::fieldLabels($includerelations);
