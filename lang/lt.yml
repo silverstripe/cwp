@@ -1,24 +1,17 @@
 lt:
-  BaseHomePage:
+  CWP\CWP\PageTypes\BaseHomePage:
     DESCRIPTION: 'Standartinio turinio puslapis'
     FeatureContentFieldLabel: Turinys
     Title: Pavadinimas
-  BasePage:
+  CWP\CWP\PageTypes\BasePage:
     ColumnPageType: 'Puslapio tipas'
     ColumnTitle: Pavadinimas
     DESCRIPTION: 'Standartinio turinio puslapis'
     PLURALNAME: 'Baziniai puslapiai'
-  CwpSearchPage:
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    DESCRIPTION: 'Standartinio turinio puslapis'
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DESCRIPTION: 'Standartinio turinio puslapis'
+  CWP\CWP\Search\CwpSearchPage:
     DESCRIPTION: 'Standartinio turinio puslapis'
     PLURALNAME: 'Baziniai puslapiai'
-  DatedUpdateHolder:
-    DESCRIPTION: 'Standartinio turinio puslapis'
-  DatedUpdatePage:
-    DESCRIPTION: 'Standartinio turinio puslapis'
-  SearchForm:
-    SEARCH: Ieškoti
-  SiteTree:
-    PLURALNAME: Puslapiai
-    SINGULARNAME: Puslapis
-  SiteTreeFileExtension:
-    EDIT: Redaguoti

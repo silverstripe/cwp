@@ -1,24 +1,67 @@
 en:
-  AssetTableField:
-    BACKLINKCOUNT: 'Used on:'
-    PAGES: page(s)
-  BaseHomePage:
+  CWP\CWP\Extensions\CustomSiteConfig:
+    FbField: 'Facebook UID or username'
+    FbFieldDesc: 'Facebook link (everything after the "http://facebook.com/", eg http://facebook.com/<strong>username</strong> or http://facebook.com/<strong>pages/108510539573</strong>)'
+    GaField: 'Google Analytics account'
+    GaFieldDesc: 'Account number to be used all across the site (in the format <strong>UA-XXXXX-X</strong>)'
+    SocialMediaTab: 'Social Media'
+    TwitterField: 'Twitter username'
+    TwitterFieldDesc: 'Twitter username (eg, http://twitter.com/<strong>username</strong>)'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    WEBSITE_TITLE: 'Your website (optional)'
+    WILL_NOT_BE_PUBLISHED: 'Will not be published.'
+  CWP\CWP\Extensions\CwpSearchBoostExtension:
+    PAGEINFO: 'Page info and SEO'
+    SearchBoost: 'Boost Keywords'
+    SearchBoostDescription: 'Enter keywords separated by comma ( , ) for which to boost the ranking of this page within the search results on this site.'
+    SearchBoostNote: '(Only applies to the search results on this site e.g. not on Google search)'
+  CWP\CWP\Extensions\CwpSiteTreeExtension:
+    SHOW_PAGE_UTILITIES: 'Show page utilities?'
+    SHOW_PAGE_UTILITIES_HELP: 'You can disable page utilities (print, share, etc) for this page'
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'This list shows all pages where the file has been added through a WYSIWYG editor.'
+    EDIT: Edit
+  CWP\CWP\Extensions\SynonymValidator:
+    InvalidValue: 'Synonyms cannot contain words separated by spaces'
+  CWP\CWP\Extensions\SynonymsSiteConfig:
+    SearchSynonyms: 'Search Synonyms'
+    SearchSynonyms_Description: 'Enter as many comma separated synonyms as you wish, where each line represents a group of synonyms.<br /> You will need to run <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a> if you make any changes'
+  CWP\CWP\Model\Quicklink:
+    ExternalLinkLabel: 'External Link'
+    InternalLinkLabel: 'Internal Link'
+    NameLabel: Name
+    Note: '<div class="message good notice">Note:  If you specify an External Link, the Internal Link will be ignored.</div>'
+    Note2: '<p>Use this to specify a link to a page either on this site (Internal Link) or another site (External Link).</p>'
+    PLURALNAME: Quicklinks
+    PLURALS:
+      one: 'A Quicklink'
+      other: '{count} Quicklinks'
+    ParentRelationLabel: Parent
+    SINGULARNAME: Quicklink
+    SortOrderLabel: 'Sort Order'
+  CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Add new'
     ButtonTextRequired: 'Button text must be filled in'
-    DESCRIPTION: 'Generic content page'
     FeatureButtonText: 'Button text'
     FeatureCategoryDropdown: 'Category icon'
     FeatureContentFieldLabel: Content
     FeatureLink: 'Page to link to'
+    FeatureOne: 'Feature One'
+    FeatureTwo: 'Feature Two'
     LearnMoreLink: 'Page to link the "Learn More" button to:'
     PLURALNAME: 'Home Pages'
+    PLURALS:
+      one: 'A Home Page'
+      other: '{count} Home Pages'
     SINGULARNAME: 'Home Page'
     Title: Title
-  BasePage:
+  CWP\CWP\PageTypes\BasePage:
     ColumnPageType: 'Page Type'
     ColumnTitle: Title
-    DESCRIPTION: 'Generic content page'
     PLURALNAME: 'Base Pages'
+    PLURALS:
+      one: 'A Base Page'
+      other: '{count} Base Pages'
     RelatedPages: 'Related pages'
     SINGULARNAME: 'Base Page'
     TagsTabTitle: Tags
@@ -26,135 +69,84 @@ en:
     Term: Term
     Terms: Terms
     TermsDescription: 'Click to search for additional terms'
-  CWP_Search:
+  CWP\CWP\PageTypes\BasePageController:
     EmptySearch: 'Search field empty, please enter your search query.'
     MetaTitle: 'Search {keywords}'
     NoResult: 'Sorry, your search query did not return any results.'
-  CarouselItem:
-    PLURALNAME: 'Carousel Items'
-    SINGULARNAME: 'Carousel Item'
-  CustomSiteConfig:
-    LogosIconsTab: Logos/Icons
-    SocialMediaTab: 'Social Media'
-  CwpCarousel:
-    ArchivedField: 'Archive this carousel item?'
-    LinkField: Link
-    NoteField: 'Note: You will need to create the carousel item before you can add an image'
-  CwpCommentingExtension:
-    EMAIL_TITLE: Email
-    WEBSITE_TITLE: 'Your website (optional)'
-    WILL_NOT_BE_PUBLISHED: 'Will not be published.'
-  CwpConfig:
-    AddThisField: 'AddThis Profile ID'
-    AddThisFieldDesc: 'Profile ID to be used all across the site (in the format <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
-    AppleIconField114: 'Apple Touch Web Clip Icon (dimensions of 114x114, PNG format)'
-    AppleIconField144: 'Apple Touch Web Clip and Windows 8 Tile Icon (dimensions of 144x144, PNG format)'
-    AppleIconField57: 'Apple Touch Web Clip Icon (dimensions of 57x57, PNG format)'
-    AppleIconField72: 'Apple Touch Web Clip Icon (dimensions of 72x72, PNG format)'
-    FavIconField: 'Favicon, in .ico format, dimensions of 16x16, 32x32, or 48x48'
-    FbField: 'Facebook UID or username'
-    FbFieldDesc: 'Facebook link (everything after the "http://facebook.com/", eg http://facebook.com/<strong>username</strong> or http://facebook.com/<strong>pages/108510539573</strong>)'
-    FooterLogoDescField: 'Footer Logo description'
-    FooterLogoField: 'Footer logo, to appear in the footer'
-    FooterLogoLinkDesc: 'Please include the protocol (ie, http:// or https://) unless it is an internal link.'
-    FooterLogoLinkField: 'Footer Logo link'
-    FooterLogoRetinaField: 'High resolution footer logo (recommended twice the height and width of the standard footer logo)'
-    GaField: 'Google Analytics account'
-    GaFieldDesc: 'Account number to be used all across the site (in the format <strong>UA-XXXXX-X</strong>)'
-    LogoRetinaUploadField: 'High resolution logo, to appear in the top left (recommended twice the height and width of the standard logo)'
-    LogoUploadField: 'Logo, to appear in the top left'
-    SearchSynonyms: 'Search Synonyms'
-    SearchSynonyms_Description: 'Enter as many comma separated synonyms as you wish, where each line represents a group of synonyms.<br /> You will need to run <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a> if you make any changes'
-    TwitterField: 'Twitter username'
-    TwitterFieldDesc: 'Twitter username (eg, http://twitter.com/<strong>username</strong>)'
-  CwpSearchBoostExtension:
-    PAGEINFO: 'Page info and SEO'
-  CwpSearchPage:
-    DESCRIPTION: 'Generic content page'
-    PLURALNAME: 'Base Pages'
-    SINGULARNAME: 'Cwp Search Page'
-  CwpSiteTreeSearchBoost:
-    SearchBoost: 'Boost Keywords'
-    SearchBoostDescription: 'Enter keywords separated by comma ( , ) for which to boost the ranking of this page within the search results on this site.'
-    SearchBoostNote: '(Only applies to the search results on this site e.g. not on Google search)'
-  DateUpdateHolder:
-    DateRangeFilterMessage: 'Filtered by a single date.'
-    FilterAppliedMessage: 'Filter has been applied with the dates reversed.'
-  DateUpdatePage:
-    AbstractDesc: 'The abstract is used as a summary on the listing pages. It is limited to 160 characters.'
-    AbstractTextFieldLabel: Abstract
+  CWP\CWP\PageTypes\DateUpdatePage:
     AuthorFieldLabel: Author
-    DateLabel: Date
     EndTimeFieldLabel: 'End Time'
     FeaturedImageFieldLabel: 'Featured Image'
     LocationFieldLabel: Location
     StartTimeFieldLabel: 'Start Time'
-  DatedUpdateHolder:
+  CWP\CWP\PageTypes\DatedUpdateHolder:
     DATE_EXAMPLE: '(example: 2017/12/30)'
-    DESCRIPTION: 'Generic content page'
     FILTER_BETWEEN: between
     FILTER_IN: in
     FILTER_ON: 'on'
     FILTER_WITHIN: within
     FROM_DATE: 'From date'
     PLURALNAME: 'Dated Update Holders'
+    PLURALS:
+      one: 'A Dated Update Holder'
+      other: '{count} Dated Update Holders'
     SINGULARNAME: 'Dated Update Holder'
     TO_DATE: 'To date'
-  DatedUpdatePage:
-    DESCRIPTION: 'Generic content page'
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    AbstractDesc: 'The abstract is used as a summary on the listing pages. It is limited to 160 characters.'
+    AbstractTextFieldLabel: Abstract
+    DateLabel: Date
     PLURALNAME: 'Dated Update Pages'
+    PLURALS:
+      one: 'A Dated Update Page'
+      other: '{count} Dated Update Pages'
     SINGULARNAME: 'Dated Update Page'
-  EventHolder:
+  CWP\CWP\PageTypes\EventHolder:
     DESCRIPTION: 'Container page for Event Pages, provides event filtering and pagination'
     PLURALNAME: 'Event Holders'
+    PLURALS:
+      one: 'An Event Holder'
+      other: '{count} Event Holders'
     SINGULARNAME: 'Event Holder'
     Upcoming: 'Upcoming events'
-  EventPage:
+  CWP\CWP\PageTypes\EventPage:
     DESCRIPTION: 'Describes an event occurring on a specific date.'
     PLURALNAME: 'Event Pages'
+    PLURALS:
+      one: 'An Event Page'
+      other: '{count} Event Pages'
     SINGULARNAME: 'Event Page'
-  FooterHolder:
+  CWP\CWP\PageTypes\FooterHolder:
     DESCRIPTION: 'Holder page that displays all child pages as links in the footer'
     PLURALNAME: 'Footer Holders'
+    PLURALS:
+      one: 'A Footer Holder'
+      other: '{count} Footer Holders'
     SINGULARNAME: 'Footer Holder'
-  FullTextSearch:
-    SynonymValidator_InvalidValue: 'Synonyms cannot contain words separated by spaces'
-  GridField:
-    Archived: Archived
-    Live: Live
-  NewsHolder:
+  CWP\CWP\PageTypes\NewsHolder:
     DESCRIPTION: 'Container page for News Pages, provides news filtering and pagination'
     PLURALNAME: 'News Holders'
+    PLURALS:
+      one: 'A News Holder'
+      other: '{count} News Holders'
     SINGULARNAME: 'News Holder'
-  NewsPage:
+  CWP\CWP\PageTypes\NewsPage:
     DESCRIPTION: 'Describes an item of news'
     PLURALNAME: 'News Pages'
+    PLURALS:
+      one: 'A News Page'
+      other: '{count} News Pages'
     SINGULARNAME: 'News Page'
-  Quicklink:
-    ExternalLinkLabel: 'External Link'
-    InternalLinkLabel: 'Internal Link'
-    NameLabel: Name
-    Note: '<div class="message good notice">Note:  If you specify an External Link, the Internal Link will be ignored.</div>'
-    Note2: '<p>Use this to specify a link to a page either on this site (Internal Link) or another site (External Link).</p>'
-    PLURALNAME: Quicklinks
-    ParentRelationLabel: Parent
-    SINGULARNAME: Quicklink
-    SortOrderLabel: 'Sort Order'
-  SearchForm:
-    GO: Go
-    SEARCH: Search
-    SearchResults: 'Search Results'
-  SiteTree:
-    FeatureOne: 'Feature One'
-    FeatureTwo: 'Feature Two'
-    PLURALNAME: Pages
-    SHOW_PAGE_UTILITIES: 'Show page utilities?'
-    SHOW_PAGE_UTILITIES_HELP: 'You can disable page utilities (print, share, etc) for this page'
-    SINGULARNAME: Page
-  SiteTreeFileExtension:
-    BACKLINK_LIST_DESCRIPTION: 'This list shows all pages where the file has been added through a WYSIWYG editor.'
-    EDIT: Edit
-  SitemapPage:
+  CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 'Lists all pages on the site'
     PLURALNAME: 'Sitemap Pages'
+    PLURALS:
+      one: 'A Sitemap Page'
+      other: '{count} Sitemap Pages'
     SINGULARNAME: 'Sitemap Page'
+  CWP\CWP\Search\CwpSearchPage:
+    PLURALNAME: 'Cwp Search Pages'
+    PLURALS:
+      one: 'A Cwp Search Page'
+      other: '{count} Cwp Search Pages'
+    SINGULARNAME: 'Cwp Search Page'

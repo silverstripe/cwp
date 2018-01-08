@@ -1,53 +1,11 @@
 de:
-  AssetTableField:
-    BACKLINKCOUNT: 'Verwendet auf:'
-    PAGES: Seite(n)
-  BaseHomePage:
-    AddNewButton: 'Neue hinzufügen'
-    DESCRIPTION: 'Allgemeine Inhaltsseite'
-    FeatureButtonText: Schaltflächentext
-    FeatureCategoryDropdown: Kategoriesymbol
-    FeatureContentFieldLabel: Inhalt
-    Title: Titel
-  BasePage:
-    ColumnPageType: Seitentyp
-    ColumnTitle: Titel
-    DESCRIPTION: 'Allgemeine Inhaltsseite'
-    PLURALNAME: 'Basis Seiten'
-    RelatedPages: 'Abhängige Seiten'
-    TagsTabTitle: Schlagwörter
-  CustomSiteConfig:
-    LogosIconsTab: Logos/Symbole
-    SocialMediaTab: 'Soziale Medien'
-  CwpCarousel:
-    LinkField: Link
-  CwpConfig:
-    AddThisField: 'Diese Profilkennung hinzufügen'
+  CWP\CWP\Extensions\CustomSiteConfig:
     FbField: 'Facebook-Benutzerkennung oder Benutzername'
     GaField: Google-Analytics-Konto
+    SocialMediaTab: 'Soziale Medien'
     TwitterField: Twitter-Benutzername
     TwitterFieldDesc: 'Twitter-Benutzername (z.B. http://twitter.com/<strong>Benutzername</strong>)'
-  CwpSearchPage:
-    DESCRIPTION: 'Allgemeine Inhaltsseite'
-    PLURALNAME: 'Basis Seiten'
-  DateUpdatePage:
-    AuthorFieldLabel: Autor
-    DateLabel: Datum
-    EndTimeFieldLabel: Endzeit
-    LocationFieldLabel: Ort
-    StartTimeFieldLabel: Startzeit
-  DatedUpdateHolder:
-    DESCRIPTION: 'Allgemeine Inhaltsseite'
-  DatedUpdatePage:
-    DESCRIPTION: 'Allgemeine Inhaltsseite'
-  EventHolder:
-    Upcoming: 'Anstehende Ereignisse'
-  EventPage:
-    PLURALNAME: Ereignisseiten
-    SINGULARNAME: Ereignisseite
-  GridField:
-    Live: Live
-  Quicklink:
+  CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 'Externer Link'
     InternalLinkLabel: 'Interner Link'
     NameLabel: Name
@@ -55,11 +13,34 @@ de:
     ParentRelationLabel: Übergeordnet
     SINGULARNAME: Schnelllink
     SortOrderLabel: Sortierreihenfolge
-  SearchForm:
-    GO: Los
-    SEARCH: Suche
-  SiteTree:
-    PLURALNAME: Seiten
-    SINGULARNAME: Seite
-  SiteTreeFileExtension:
-    EDIT: Bearbeiten
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Neue hinzufügen'
+    DESCRIPTION: 'Allgemeine Inhaltsseite'
+    FeatureButtonText: Schaltflächentext
+    FeatureCategoryDropdown: Kategoriesymbol
+    FeatureContentFieldLabel: Inhalt
+    Title: Titel
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: Seitentyp
+    ColumnTitle: Titel
+    DESCRIPTION: 'Allgemeine Inhaltsseite'
+    PLURALNAME: 'Basis Seiten'
+    RelatedPages: 'Abhängige Seiten'
+    TagsTabTitle: Schlagwörter
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    DESCRIPTION: 'Allgemeine Inhaltsseite'
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    AuthorFieldLabel: Autor
+    DESCRIPTION: 'Allgemeine Inhaltsseite'
+    DateLabel: Datum
+    EndTimeFieldLabel: Endzeit
+    LocationFieldLabel: Ort
+    StartTimeFieldLabel: Startzeit
+  CWP\CWP\PageTypes\EventHolder:
+    Upcoming: 'Anstehende Ereignisse'
+  CWP\CWP\PageTypes\EventPage:
+    PLURALNAME: Ereignisseiten
+    SINGULARNAME: Ereignisseite
+  CWP\CWP\Search\CwpSearchPage:
+    DESCRIPTION: 'Allgemeine Inhaltsseite'
+    PLURALNAME: 'Basis Seiten'

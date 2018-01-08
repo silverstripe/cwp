@@ -1,8 +1,27 @@
 ru:
-  AssetTableField:
-    BACKLINKCOUNT: 'Используется на:'
-    PAGES: страниц(ы)
-  BaseHomePage:
+  CWP\CWP\Extensions\CustomSiteConfig:
+    LogosIconsTab: Логотипы/Иконки
+    SocialMediaTab: 'Социальные сети'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Email
+    WEBSITE_TITLE: 'Ваш сайт (опционально)'
+    WILL_NOT_BE_PUBLISHED: 'Не будет опубликовано.'
+  CWP\CWP\Extensions\CwpSearchBoostExtension:
+    PAGEINFO: 'Информация о странице и SEO'
+    SearchBoostDescription: 'Введите ключевые слова через запятую ( , ). Это необходимо для улучшения позиций этой страницы в результатах поиска по сайту.'
+    SearchBoostNote: '(Применяется исключительно для поиска внутри сайта, не Google и пр.)'
+  CWP\CWP\Extensions\CwpSiteTreeExtension:
+    SHOW_PAGE_UTILITIES: 'Показать утилиты?'
+    SHOW_PAGE_UTILITIES_HELP: 'Вы можете отключить функционал для этой страницы (распечатать, поделиться, и пр.)'
+  CWP\CWP\Extensions\SynonymsSiteConfig:
+    SearchSynonyms: 'Поиск синонимов'
+    SearchSynonyms_Description: 'Вводите синонимы через запятую, каждая группа синонимов с новой строки.<br /> Для применения изменений запустите <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a>'
+  CWP\CWP\Model\Quicklink:
+    ExternalLinkLabel: 'Внешняя ссылка'
+    InternalLinkLabel: 'Внутренняя ссылка'
+    NameLabel: Название
+    SortOrderLabel: 'Порядок сортировки'
+  CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Добавить новую'
     ButtonTextRequired: 'Название кнопок должно быть указано'
     DESCRIPTION: 'Обычная страница'
@@ -14,7 +33,7 @@ ru:
     PLURALNAME: 'Главные страницы'
     SINGULARNAME: 'Главная Страница'
     Title: Заголовок
-  BasePage:
+  CWP\CWP\PageTypes\BasePage:
     ColumnPageType: 'Тип страницы'
     ColumnTitle: Заголовок
     DESCRIPTION: 'Обычная страница'
@@ -26,94 +45,39 @@ ru:
     Term: Условие
     Terms: Условия
     TermsDescription: 'Нажмите для расширения условий поиска'
-  CWP_Search:
+  CWP\CWP\PageTypes\BasePageController:
     EmptySearch: 'Задан пустой поисковый запрос.'
     MetaTitle: 'Поиск {keywords}'
     NoResult: 'По Вашему запросу ничего не найдено.'
-  CarouselItem:
-    PLURALNAME: Слайдшоу
-    SINGULARNAME: Слайд
-  CustomSiteConfig:
-    LogosIconsTab: Логотипы/Иконки
-    SocialMediaTab: 'Социальные сети'
-  CwpCarousel:
-    ArchivedField: 'Отправить в архив этот слайд?'
-    LinkField: Ссылка
-    NoteField: 'Внимание: вы должны создать/сохранить слайд прежде чем вы сможете добавить изображение'
-  CwpCommentingExtension:
-    EMAIL_TITLE: Email
-    WEBSITE_TITLE: 'Ваш сайт (опционально)'
-    WILL_NOT_BE_PUBLISHED: 'Не будет опубликовано.'
-  CwpConfig:
-    AddThisField: 'Добавить этот Профайл'
-    AddThisFieldDesc: 'Индфикатор профайл для использования на сайте должен быть в формате <strong>ra-XXXXXXXXXXXXXXXX</strong>'
-    AppleIconField114: 'Иконка Apple Touch Web Clip (разрешение 114x114, формат PNG)'
-    AppleIconField144: 'Иконка Apple Touch Web Clip и Windows 8 Tile (разрешение 144x144, формат PNG)'
-    AppleIconField57: 'Иконка Apple Touch Web Clip (разрешение 57x57, формат PNG)'
-    AppleIconField72: 'Иконка Apple Touch Web Clip (разрешение 72x72, формат PNG)'
-    FavIconField: 'Значок сайта, формат .ico, разрешение 16x16, 32x32 или 48x48'
-    FbField: 'Фейсбук номер или имя пользователя'
-    FbFieldDesc: 'Ссылка на Фейсбук (всё, что после "https://www.facebook.com/", например https://www.facebook.com/<strong>ДжонГалт</strong> или https://www.facebook.com/<strong>pages/108510539573</strong>)'
-    FooterLogoDescField: 'Описание логотипа в футере'
-    FooterLogoField: 'Логотип для футера'
-    FooterLogoLinkDesc: 'Укажите протокол (http:// или https://) для внешней ссылки.'
-    FooterLogoLinkField: 'Ссылка для логотипа футера'
-    FooterLogoRetinaField: 'Логотип для футера в высоком разрешении (рекомендуется вдвое выше, чем у стандартного)'
-    GaField: 'Аккаунт Google Analytics'
-    GaFieldDesc: 'Номер аккаунта для использования на сайте (в формате <strong>UA-XXXXX-X</strong>)'
-    LogoRetinaUploadField: 'Логотип в высоком разрешении (рекомендуется вдвое выше, чем у стандартного)'
-    LogoUploadField: 'Логотип для отображения в левом верхнем углу'
-    SearchSynonyms: 'Поиск синонимов'
-    SearchSynonyms_Description: 'Вводите синонимы через запятую, каждая группа синонимов с новой строки.<br /> Для применения изменений запустите <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a>'
-    TwitterField: 'Имя пользователя в Twitter'
-    TwitterFieldDesc: 'Имя пользователя в Twitter (например, https://twitter.com/<strong>ДжонГалт</strong>)'
-  CwpSearchBoostExtension:
-    PAGEINFO: 'Информация о странице и SEO'
-  CwpSearchPage:
-    DESCRIPTION: 'Обычная страница'
-    PLURALNAME: 'Базовые страницы'
-    SINGULARNAME: 'Страница поиска Cwp'
-  CwpSiteTreeSearchBoost:
-    SearchBoostDescription: 'Введите ключевые слова через запятую ( , ). Это необходимо для улучшения позиций этой страницы в результатах поиска по сайту.'
-    SearchBoostNote: '(Применяется исключительно для поиска внутри сайта, не Google и пр.)'
-  DateUpdateHolder:
-    DateRangeFilterMessage: 'Ограничено одной датой'
-  DatedUpdateHolder:
+  CWP\CWP\PageTypes\DatedUpdateHolder:
     DATE_EXAMPLE: '(например: 2017/12/30)'
     DESCRIPTION: 'Обычная страница'
+    DateRangeFilterMessage: 'Ограничено одной датой'
     FILTER_BETWEEN: между
     FILTER_IN: в
     FILTER_ON: на
     FILTER_WITHIN: в
-  DatedUpdatePage:
+  CWP\CWP\PageTypes\DatedUpdatePage:
     DESCRIPTION: 'Обычная страница'
-  NewsHolder:
+  CWP\CWP\PageTypes\NewsHolder:
     PLURALNAME: 'Контейнеры новостей'
     SINGULARNAME: 'Контейнер новости'
-  NewsPage:
+  CWP\CWP\PageTypes\NewsPage:
     DESCRIPTION: 'Описывает новость'
     PLURALNAME: 'Новостные страницы'
     SINGULARNAME: 'Новостная страница'
-  Quicklink:
-    ExternalLinkLabel: 'Внешняя ссылка'
-    InternalLinkLabel: 'Внутренняя ссылка'
-    NameLabel: Название
-    SortOrderLabel: 'Порядок сортировки'
-  SearchForm:
-    GO: Найти
-    SEARCH: Поиск
-    SearchResults: 'Результаты поиска'
-  SiteTree:
-    FeatureOne: 'Первый признак'
-    FeatureTwo: 'Второй признак'
-    PLURALNAME: Страницы
-    SHOW_PAGE_UTILITIES: 'Показать утилиты?'
-    SHOW_PAGE_UTILITIES_HELP: 'Вы можете отключить функционал для этой страницы (распечатать, поделиться, и пр.)'
-    SINGULARNAME: Страница
-  SiteTreeFileExtension:
-    BACKLINK_LIST_DESCRIPTION: 'В этом списке находятся все страницы где есть файл добавленный с помощью визуального редактора.'
-    EDIT: Редактировать
-  SitemapPage:
+  CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 'Отобразить все страницы этого сайта'
     PLURALNAME: 'Страницы карты сайта'
     SINGULARNAME: 'Страница карты сайта'
+  CWP\CWP\Search\CwpSearchPage:
+    DESCRIPTION: 'Обычная страница'
+    PLURALNAME: 'Базовые страницы'
+    SINGULARNAME: 'Страница поиска Cwp'
+  CwpConfig:
+    FbField: 'Фейсбук номер или имя пользователя'
+    FbFieldDesc: 'Ссылка на Фейсбук (всё, что после "https://www.facebook.com/", например https://www.facebook.com/<strong>ДжонГалт</strong> или https://www.facebook.com/<strong>pages/108510539573</strong>)'
+    GaField: 'Аккаунт Google Analytics'
+    GaFieldDesc: 'Номер аккаунта для использования на сайте (в формате <strong>UA-XXXXX-X</strong>)'
+    TwitterField: 'Имя пользователя в Twitter'
+    TwitterFieldDesc: 'Имя пользователя в Twitter (например, https://twitter.com/<strong>ДжонГалт</strong>)'

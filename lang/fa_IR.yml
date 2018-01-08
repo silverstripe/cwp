@@ -1,28 +1,20 @@
 fa_IR:
-  BaseHomePage:
+  CWP\CWP\Model\Quicklink:
+    ParentRelationLabel: والد
+    SortOrderLabel: 'ترتیب مرتب‌سازی'
+  CWP\CWP\PageTypes\BaseHomePage:
     DESCRIPTION: 'صفحه محتوای عمومی'
     FeatureContentFieldLabel: محتوا
     Title: عنوان
-  BasePage:
+  CWP\CWP\PageTypes\BasePage:
     ColumnTitle: عنوان
     DESCRIPTION: 'صفحه محتوای عمومی'
     PLURALNAME: 'صفحه اصلی'
-  CwpSearchPage:
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    DESCRIPTION: 'صفحه محتوای عمومی'
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DESCRIPTION: 'صفحه محتوای عمومی'
+    DateLabel: تاریخ
+  CWP\CWP\Search\CwpSearchPage:
     DESCRIPTION: 'صفحه محتوای عمومی'
     PLURALNAME: 'صفحه اصلی'
-  DateUpdatePage:
-    DateLabel: تاریخ
-  DatedUpdateHolder:
-    DESCRIPTION: 'صفحه محتوای عمومی'
-  DatedUpdatePage:
-    DESCRIPTION: 'صفحه محتوای عمومی'
-  Quicklink:
-    ParentRelationLabel: والد
-    SortOrderLabel: 'ترتیب مرتب‌سازی'
-  SearchForm:
-    SEARCH: جستجو
-  SiteTree:
-    PLURALNAME: صفحات
-    SINGULARNAME: صفحه
-  SiteTreeFileExtension:
-    EDIT: ویرایش

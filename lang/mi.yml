@@ -1,91 +1,12 @@
 mi:
-  BaseHomePage:
-    AddNewButton: 'Tāpiri Hou'
-    DESCRIPTION: 'Whārangi ihirangi whānui'
-    FeatureButtonText: 'Kuputuhi pātene'
-    FeatureCategoryDropdown: 'Ata kāwai'
-    FeatureContentFieldLabel: 'Ngā ihirangi'
-    FeatureLink: 'Whārangi hono ki'
-    LearnMoreLink: 'Whārangi hono i te pātene "Ako Anō" ki:'
-    Title: Taitara
-  BasePage:
-    DESCRIPTION: 'Whārangi ihirangi whānui'
-    PLURALNAME: 'Ngā Whārangi Taketake'
-    RelatedPages: 'Ngā whārangi pāhono'
-    SINGULARNAME: 'Whārangi Taketake'
-    Taxonomy: 'Pūnaha Whakarōpū'
-    Term: Ture
-    Terms: 'Ngā Ture'
-  CarouselItem:
-    PLURALNAME: 'Ngā tuemi takawhawhe'
-    SINGULARNAME: 'Tuemi Takawhawhe'
-  CwpCarousel:
-    ArchivedField: 'Me pūranga tēnei tuemi takawhawhe?'
-    LinkField: Hono
-    NoteField: 'Tuhipoka: Me hanga e koe te tuemi takawhawhe i mua i te tāpiri atahanga'
-  CwpConfig:
-    AddThisField: TāpiriTēneiTTKōtaha
-    AddThisFieldDesc: 'Me whakamahi i te TT kōtaha puta noa i te pae (ki te hōputu <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
-    AppleIconField114: 'Ata Topenga Tukutuku Pā Apple (ko te 114x114 ngā ahu, hōputu PNG) '
-    AppleIconField144: 'Ata Topenga Tukutuku Pā Apple me te Ata Tāpa Windows 8 (ko te 144x144 ngā ahu, hōputu PNG) '
-    AppleIconField57: 'Ata Topenga Tukutuku Pā Apple (ko te 57x57 ngā ahu, hōputu PNG) '
-    AppleIconField72: 'Ata Topenga Tukutuku Pā Apple (ko te 72x72 ngā ahu, hōputu PNG) '
-    FavIconField: 'Hōputu Favicon, in .ico, 16x16, 32x32,  48x48 rānei ngā ahu'
+  CWP\CWP\Extensions\CustomSiteConfig:
     FbField: 'UID Facebook, ingoakawhakamahi rānei'
     FbFieldDesc: 'Hono Facebook (te katoa kei muri i te "http://facebook.com/", hei tauira, http://facebook.com/<strong>username</strong>, http://facebook.com/<strong>pages/108510539573</strong> rānei)'
-    FooterLogoDescField: 'Whakaahuatanga Moko Hiku'
-    FooterLogoField: 'Moko hiku, kia kitea i te hiku'
-    FooterLogoLinkDesc: 'Tāurua te kawa (arā, http://, https:// rānei) engari ia he hono ā-roto tēnā.'
-    FooterLogoLinkField: 'Hono Moko hiku'
-    FooterLogoRetinaField: 'Moko hiko taumira rahi (ka taunakitia kia rua whakareanga ake te teitei me te whānui o te moko hiku arowhānui)'
     GaField: 'Pūkete Tātaritanga Google'
     GaFieldDesc: 'Tau pūkete kia whakamahia puta noa i te pae  (i te hōputu <strong>UA-XXXXX-X</strong>)'
-    LogoRetinaUploadField: 'Moko taumira rahi kia whakaaturia ki runga mauī (ka taunakitia kia rua whakareanga ake te teitei me te whānui o te moko hiku arowhānui)'
-    LogoUploadField: 'Moko, kia whakaaturia ki runga mauī'
     TwitterField: 'Ingoakaiwhakamahi Twitter'
     TwitterFieldDesc: 'Ingoakaiwhakamahi Twitter (hei tauira, http://twitter.com/<strong>username</strong>)'
-  DateUpdateHolder:
-    DateRangeFilterMessage: 'I tātaritia mā te rā kotahi.'
-    FilterAppliedMessage: 'Kua hoatu te tātari engari kua kōarotia ngā rā.'
-  DateUpdatePage:
-    AbstractDesc: 'Ka whakamahia te tangohanga hei whakarāpopotonga i ngā whārangi whakarārangi. Ka whakatikia ki te 160 pūāhua.'
-    AbstractTextFieldLabel: Tangohanga
-    AuthorFieldLabel: Kaituhi
-    DateLabel: Rā
-    EndTimeFieldLabel: 'Wā Mutu'
-    FeaturedImageFieldLabel: 'Atahanga Kua Whakaaturia'
-    LocationFieldLabel: Tauwāhi
-    StartTimeFieldLabel: 'Wā Tīmata'
-  DatedUpdateHolder:
-    DESCRIPTION: 'Whārangi ihirangi whānui'
-    PLURALNAME: 'Ngā Whārangi Taketake'
-    SINGULARNAME: 'Pūpupuri Whakahōu Whai Rā'
-  DatedUpdatePage:
-    DESCRIPTION: 'Whārangi ihirangi ahuwhānui'
-    SINGULARNAME: 'Whārangi Whakahōu Whai Rā'
-  EventHolder:
-    DESCRIPTION: 'Whārangi ipu mō ngā Whārangi Takahanga, ka whakarato tātaringa takahanga me te whakawhārangitanga'
-    PLURALNAME: 'Ngā Whārangi Taketake'
-    SINGULARNAME: 'Pūpupuri Takahanga'
-    Upcoming: 'Ngā takahanga taumai'
-  EventPage:
-    DESCRIPTION: 'Ka whakaahua i tētahi takahanga i tētahi rā tauwhāiti.'
-    SINGULARNAME: 'Whārangi Takahanga'
-  FooterHolder:
-    DESCRIPTION: 'Whārangi pupuri ka whakaatu i ngā whārangi tamariki katoa hei hononga i te hiku'
-    PLURALNAME: 'Ngā Whārangi Taketake'
-    SINGULARNAME: 'Pūpupuri Hiku'
-  GridField:
-    Archived: 'I putumōhiotia'
-    Live: 'Wā Tūturu'
-  NewsHolder:
-    DESCRIPTION: 'Whārangi ipu mō ngā Whārangi Rongokōrero, ka whakarato tātaringa rongokōrero me te whakawhārangitanga'
-    PLURALNAME: 'Ngā Whārangi Taketake'
-    SINGULARNAME: 'Pūpupuri Rongokōrero'
-  NewsPage:
-    DESCRIPTION: 'Ka whakaatu i tētahi tuemi rongokōrero'
-    SINGULARNAME: 'Whārangi Rongokōrero'
-  Quicklink:
+  CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 'Hono ā-Waho'
     InternalLinkLabel: 'Hono ā-Roto'
     NameLabel: Ingoa
@@ -95,15 +16,59 @@ mi:
     ParentRelationLabel: Matua
     SINGULARNAME: Honotere
     SortOrderLabel: 'Raupapa Kōmaka'
-  SearchForm:
-    GO: Haere
-    SEARCH: Rapu
-    SearchResults: 'Ngā Hua Rapu'
-  SiteTree:
-    FeatureOne: 'Whakaaturanga Tuatahi'
-    FeatureTwo: 'Whakaaturanga Tuarua'
-    PLURALNAME: 'Ngā Whārangi'
-    SINGULARNAME: Whārangi
-  SitemapPage:
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Tāpiri Hou'
+    DESCRIPTION: 'Whārangi ihirangi whānui'
+    FeatureButtonText: 'Kuputuhi pātene'
+    FeatureCategoryDropdown: 'Ata kāwai'
+    FeatureContentFieldLabel: 'Ngā ihirangi'
+    FeatureLink: 'Whārangi hono ki'
+    LearnMoreLink: 'Whārangi hono i te pātene "Ako Anō" ki:'
+    Title: Taitara
+  CWP\CWP\PageTypes\BasePage:
+    DESCRIPTION: 'Whārangi ihirangi whānui'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    RelatedPages: 'Ngā whārangi pāhono'
+    SINGULARNAME: 'Whārangi Taketake'
+    Taxonomy: 'Pūnaha Whakarōpū'
+    Term: Ture
+    Terms: 'Ngā Ture'
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    DESCRIPTION: 'Whārangi ihirangi whānui'
+    DateRangeFilterMessage: 'I tātaritia mā te rā kotahi.'
+    FilterAppliedMessage: 'Kua hoatu te tātari engari kua kōarotia ngā rā.'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    SINGULARNAME: 'Pūpupuri Whakahōu Whai Rā'
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    AbstractDesc: 'Ka whakamahia te tangohanga hei whakarāpopotonga i ngā whārangi whakarārangi. Ka whakatikia ki te 160 pūāhua.'
+    AbstractTextFieldLabel: Tangohanga
+    AuthorFieldLabel: Kaituhi
+    DESCRIPTION: 'Whārangi ihirangi ahuwhānui'
+    DateLabel: Rā
+    EndTimeFieldLabel: 'Wā Mutu'
+    FeaturedImageFieldLabel: 'Atahanga Kua Whakaaturia'
+    LocationFieldLabel: Tauwāhi
+    SINGULARNAME: 'Whārangi Whakahōu Whai Rā'
+    StartTimeFieldLabel: 'Wā Tīmata'
+  CWP\CWP\PageTypes\EventHolder:
+    DESCRIPTION: 'Whārangi ipu mō ngā Whārangi Takahanga, ka whakarato tātaringa takahanga me te whakawhārangitanga'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    SINGULARNAME: 'Pūpupuri Takahanga'
+    Upcoming: 'Ngā takahanga taumai'
+  CWP\CWP\PageTypes\EventPage:
+    DESCRIPTION: 'Ka whakaahua i tētahi takahanga i tētahi rā tauwhāiti.'
+    SINGULARNAME: 'Whārangi Takahanga'
+  CWP\CWP\PageTypes\FooterHolder:
+    DESCRIPTION: 'Whārangi pupuri ka whakaatu i ngā whārangi tamariki katoa hei hononga i te hiku'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    SINGULARNAME: 'Pūpupuri Hiku'
+  CWP\CWP\PageTypes\NewsHolder:
+    DESCRIPTION: 'Whārangi ipu mō ngā Whārangi Rongokōrero, ka whakarato tātaringa rongokōrero me te whakawhārangitanga'
+    PLURALNAME: 'Ngā Whārangi Taketake'
+    SINGULARNAME: 'Pūpupuri Rongokōrero'
+  CWP\CWP\PageTypes\NewsPage:
+    DESCRIPTION: 'Ka whakaatu i tētahi tuemi rongokōrero'
+    SINGULARNAME: 'Whārangi Rongokōrero'
+  CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 'Ka whakarārangi i ngā whārangi katoa i te pae'
     SINGULARNAME: 'Whārangi Maherepae'
