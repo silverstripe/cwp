@@ -1,7 +1,13 @@
 ru:
   CWP\CWP\Extensions\CustomSiteConfig:
+    FbField: 'Фейсбук номер или имя пользователя'
+    FbFieldDesc: 'Ссылка на Фейсбук (всё, что после "https://www.facebook.com/", например https://www.facebook.com/<strong>ДжонГалт</strong> или https://www.facebook.com/<strong>pages/108510539573</strong>)'
+    GaField: 'Аккаунт Google Analytics'
+    GaFieldDesc: 'Номер аккаунта для использования на сайте (в формате <strong>UA-XXXXX-X</strong>)'
     LogosIconsTab: Логотипы/Иконки
     SocialMediaTab: 'Социальные сети'
+    TwitterField: 'Имя пользователя в Twitter'
+    TwitterFieldDesc: 'Имя пользователя в Twitter (например, https://twitter.com/<strong>ДжонГалт</strong>)'
   CWP\CWP\Extensions\CwpCommentingExtension:
     EMAIL_TITLE: Email
     WEBSITE_TITLE: 'Ваш сайт (опционально)'
@@ -74,10 +80,3 @@ ru:
     DESCRIPTION: 'Обычная страница'
     PLURALNAME: 'Базовые страницы'
     SINGULARNAME: 'Страница поиска Cwp'
-  CwpConfig:
-    FbField: 'Фейсбук номер или имя пользователя'
-    FbFieldDesc: 'Ссылка на Фейсбук (всё, что после "https://www.facebook.com/", например https://www.facebook.com/<strong>ДжонГалт</strong> или https://www.facebook.com/<strong>pages/108510539573</strong>)'
-    GaField: 'Аккаунт Google Analytics'
-    GaFieldDesc: 'Номер аккаунта для использования на сайте (в формате <strong>UA-XXXXX-X</strong>)'
-    TwitterField: 'Имя пользователя в Twitter'
-    TwitterFieldDesc: 'Имя пользователя в Twitter (например, https://twitter.com/<strong>ДжонГалт</strong>)'
