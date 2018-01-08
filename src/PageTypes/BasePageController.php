@@ -211,7 +211,7 @@ class BasePageController extends ContentController
             TextField::create('Search', false, $searchText)
         );
         $actions = FieldList::create(
-            FormAction::create('results', _t('SearchForm.GO', 'Go'))
+            FormAction::create('results', _t('SilverStripe\\CMS\\Search\\SearchForm.GO', 'Go'))
         );
 
         $form = SearchForm::create($this, SearchForm::class, $fields, $actions);
@@ -258,13 +258,13 @@ class BasePageController extends ContentController
             );
 
         // Customise content with these results
-        $properties = array(
-            'MetaTitle' => _t('CWP_Search.MetaTitle', 'Search {keywords}', array('keywords' => $keywords)),
-            'NoSearchResults' => _t('CWP_Search.NoResult', 'Sorry, your search query did not return any results.'),
-            'EmptySearch' => _t('CWP_Search.EmptySearch', 'Search field empty, please enter your search query.'),
+        $properties = [
+            'MetaTitle' => _t(__CLASS__ . '.MetaTitle', 'Search {keywords}', ['keywords' => $keywords]),
+            'NoSearchResults' => _t(__CLASS__ . '.NoResult', 'Sorry, your search query did not return any results.'),
+            'EmptySearch' => _t(__CLASS__ . '.EmptySearch', 'Search field empty, please enter your search query.'),
             'PdfLink' => '',
-            'Title' => _t('SearchForm.SearchResults', 'Search Results'),
-        );
+            'Title' => _t('SilverStripe\\CMS\\Search\\SearchForm.SearchResults', 'Search Results'),
+        ];
         $this->extend('updateSearchResults', $results, $properties);
 
         // Customise page

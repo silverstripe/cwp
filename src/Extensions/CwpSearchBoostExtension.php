@@ -36,21 +36,21 @@ class CwpSearchBoostExtension extends DataExtension
 
         // Rename metafield
         $meta = $fields->fieldByName('Root.Main.Metadata');
-        $meta->setTitle(_t('CwpSearchBoostExtension.PAGEINFO', 'Page info and SEO'));
+        $meta->setTitle(_t(__CLASS__ . '.PAGEINFO', 'Page info and SEO'));
 
-        $boostTitle = _t('CwpSiteTreeSearchBoost.SearchBoost', 'Boost Keywords');
+        $boostTitle = _t(__CLASS__ . '.SearchBoost', 'Boost Keywords');
         $boostNote = _t(
-            'CwpSiteTreeSearchBoost.SearchBoostNote',
+            __CLASS__ . '.SearchBoostNote',
             '(Only applies to the search results on this site e.g. not on Google search)'
         );
         $boostDescription = _t(
-            'CwpSiteTreeSearchBoost.SearchBoostDescription',
+            __CLASS__ . '.SearchBoostDescription',
             'Enter keywords separated by comma ( , ) for which to boost the ranking of this page '
             . 'within the search results on this site.'
         );
         $boostField = TextareaField::create('SearchBoost', $boostTitle)
             ->setRightTitle($boostNote)
             ->setDescription($boostDescription);
-        $fields->insertBefore($boostField, 'MetaDescription');
+        $fields->insertBefore('MetaDescription', $boostField);
     }
 }

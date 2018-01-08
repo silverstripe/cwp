@@ -2,9 +2,9 @@
 
 namespace CWP\CWP\Extensions;
 
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\LiteralField;
-use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\DataExtension;
 
 class CwpSiteTreeExtension extends DataExtension
@@ -27,7 +27,7 @@ class CwpSiteTreeExtension extends DataExtension
     public function updateSettingsFields(FieldList $fields)
     {
         $helpText = _t(
-            'SiteTree.SHOW_PAGE_UTILITIES_HELP',
+            __CLASS__ . '.SHOW_PAGE_UTILITIES_HELP',
             'You can disable page utilities (print, share, etc) for this page'
         );
 
@@ -42,6 +42,6 @@ class CwpSiteTreeExtension extends DataExtension
 
     public function updateFieldLabels(&$labels)
     {
-        $labels['ShowPageUtilities'] = _t('SiteTree.SHOW_PAGE_UTILITIES', 'Show page utilities?');
+        $labels['ShowPageUtilities'] = _t(__CLASS__ . '.SHOW_PAGE_UTILITIES', 'Show page utilities?');
     }
 }

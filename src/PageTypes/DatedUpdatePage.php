@@ -47,8 +47,8 @@ class DatedUpdatePage extends Page
     public function fieldLabels($includerelations = true)
     {
         $labels = parent::fieldLabels($includerelations);
-        $labels['Date'] = _t('DateUpdatePage.DateLabel', 'Date');
-        $labels['Abstract'] = _t('DateUpdatePage.AbstractTextFieldLabel', 'Abstract');
+        $labels['Date'] = _t(__CLASS__ . '.DateLabel', 'Date');
+        $labels['Abstract'] = _t(__CLASS__ . '.AbstractTextFieldLabel', 'Abstract');
 
         return $labels;
     }
@@ -69,7 +69,7 @@ class DatedUpdatePage extends Page
             );
             $abstractField->setAttribute('maxlength', '160');
             $abstractField->setRightTitle(_t(
-                'DateUpdatePage.AbstractDesc',
+                __CLASS__ . '.AbstractDesc',
                 'The abstract is used as a summary on the listing pages. It is limited to 160 characters.'
             ));
             $abstractField->setRows(6);

@@ -33,11 +33,11 @@ class Quicklink extends DataObject
     public function fieldLabels($includerelations = true)
     {
         $labels = parent::fieldLabels($includerelations);
-        $labels['Name'] = _t('Quicklink.NameLabel', 'Name');
-        $labels['ExternalLink'] = _t('Quicklink.ExternalLinkLabel', 'External Link');
-        $labels['SortOrder'] = _t('Quicklink.SortOrderLabel', 'Sort Order');
-        $labels['ParentID'] = _t('Quicklink.ParentRelationLabel', 'Parent');
-        $labels['InternalLinkID'] = _t('Quicklink.InternalLinkLabel', 'Internal Link');
+        $labels['Name'] = _t(__CLASS__ . '.NameLabel', 'Name');
+        $labels['ExternalLink'] = _t(__CLASS__ . '.ExternalLinkLabel', 'External Link');
+        $labels['SortOrder'] = _t(__CLASS__ . '.SortOrderLabel', 'Sort Order');
+        $labels['ParentID'] = _t(__CLASS__ . '.ParentRelationLabel', 'Parent');
+        $labels['InternalLinkID'] = _t(__CLASS__ . '.InternalLinkLabel', 'Internal Link');
 
         return $labels;
     }
@@ -113,6 +113,7 @@ class Quicklink extends DataObject
             )
         ));
         $fields->insertBefore(
+            'Name',
             LiteralField::create(
                 'Note',
                 _t(
@@ -121,8 +122,7 @@ class Quicklink extends DataObject
                     '<p>Use this to specify a link to a page either on this site '
                     . '(Internal Link) or another site (External Link).</p>'
                 )
-            ),
-            'Name'
+            )
         );
 
         return $fields;

@@ -89,36 +89,39 @@ class PopulateThemeSampleDataTask extends BuildTask
 
         // Add form fields
         $fields = array(
-            EditableFormStep::create(array(
-                'Title' => _t('EditableFormStep.TITLE_FIRST', 'First Page')
-            )),
-            EditableTextField::create(array(
+            EditableFormStep::create([
+                'Title' => _t(
+                    'SilverStripe\\UserForms\\Model\\EditableFormField\\EditableFormStep.TITLE_FIRST',
+                    'First Page'
+                )
+            ]),
+            EditableTextField::create([
                 'Title' => 'Name',
                 'Required' => true,
                 'RightTitle' => 'Please enter your first and last name'
-            )),
-            EditableEmailField::create(array(
+            ]),
+            EditableEmailField::create([
                 'Title' => Email::class,
                 'Required' => true,
                 'Placeholder' => 'example@example.com'
-            )),
-            EditableTextField::create(array(
+            ]),
+            EditableTextField::create([
                 'Title' => 'Subject'
-            )),
-            EditableTextField::create(array(
+            ]),
+            EditableTextField::create([
                 'Title' => 'Message',
                 'Required' => true,
                 'Rows' => 5
-            ))
+            ])
         );
 
         foreach ($fields as $field) {
             $field->write();
             $form->Fields()->add($field);
-            $field->publish('Stage', 'Live');
+            $field->copyVersionToStage(Versioned::DRAFT, Versioned::LIVE);
         }
 
-        $form->publish('Stage', 'Live');
+        $form->copyVersionToStage(Versioned::DRAFT, Versioned::LIVE);
         $form->flushCache();
 
         $this->output(' + Created "contact" UserDefinedForm page');

@@ -23,29 +23,29 @@ class CustomSiteConfig extends DataExtension
             'Root.Main',
             $gaCode = TextField::create(
                 'GACode',
-                _t('CwpConfig.GaField', 'Google Analytics account')
+                _t(__CLASS__ . '.GaField', 'Google Analytics account')
             )
         );
 
         $gaCode->setRightTitle(
             _t(
-                'CwpConfig.GaFieldDesc',
+                __CLASS__ . '.GaFieldDesc',
                 'Account number to be used all across the site (in the format <strong>UA-XXXXX-X</strong>)'
             )
         );
 
-        $fields->findOrMakeTab('Root.SocialMedia', _t('CustomSiteConfig.SocialMediaTab', 'Social Media'));
+        $fields->findOrMakeTab('Root.SocialMedia', _t(__CLASS__ . '.SocialMediaTab', 'Social Media'));
 
         $fields->addFieldToTab(
             'Root.SocialMedia',
             $facebookURL = TextField::create(
                 'FacebookURL',
-                _t('CwpConfig.FbField', 'Facebook UID or username')
+                _t(__CLASS__ . '.FbField', 'Facebook UID or username')
             )
         );
         $facebookURL->setRightTitle(
             _t(
-                'CwpConfig.FbFieldDesc',
+                __CLASS__ . '.FbFieldDesc',
                 'Facebook link (everything after the "http://facebook.com/", eg http://facebook.com/'
                 . '<strong>username</strong> or http://facebook.com/<strong>pages/108510539573</strong>)'
             )
@@ -55,11 +55,11 @@ class CustomSiteConfig extends DataExtension
             'Root.SocialMedia',
             $twitterUsername = TextField::create(
                 'TwitterUsername',
-                _t('CwpConfig.TwitterField', 'Twitter username')
+                _t(__CLASS__ . '.TwitterField', 'Twitter username')
             )
         );
         $twitterUsername->setRightTitle(
-            _t('CwpConfig.TwitterFieldDesc', 'Twitter username (eg, http://twitter.com/<strong>username</strong>)')
+            _t(__CLASS__ . '.TwitterFieldDesc', 'Twitter username (eg, http://twitter.com/<strong>username</strong>)')
         );
     }
 }

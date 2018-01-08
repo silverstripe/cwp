@@ -72,7 +72,7 @@ class BaseHomePage extends Page
                 'Root.Main',
                 TreeDropdownField::create(
                     'LearnMorePageID',
-                    _t('BaseHomePage.LearnMoreLink', 'Page to link the "Learn More" button to:'),
+                    _t(__CLASS__ . '.LearnMoreLink', 'Page to link the "Learn More" button to:'),
                     SiteTree::class
                 ),
                 'Metadata'
@@ -86,7 +86,7 @@ class BaseHomePage extends Page
             );
             $gridConfig = $gridField->getConfig();
             $gridConfig->getComponentByType(GridFieldAddNewButton::class)->setButtonName(
-                _t('BaseHomePage.AddNewButton', 'Add new')
+                _t(__CLASS__ . '.AddNewButton', 'Add new')
             );
 
             $injector = Injector::inst();
@@ -105,27 +105,27 @@ class BaseHomePage extends Page
                 'Root.Features',
                 ToggleCompositeField::create(
                     'FeatureOne',
-                    _t('SiteTree.FeatureOne', 'Feature One'),
+                    _t(__CLASS__ . '.FeatureOne', 'Feature One'),
                     array(
-                        TextField::create('FeatureOneTitle', _t('BaseHomePage.Title', 'Title')),
+                        TextField::create('FeatureOneTitle', _t(__CLASS__ . '.Title', 'Title')),
                         $dropdownField = DropdownField::create(
                             'FeatureOneCategory',
-                            _t('BaseHomePage.FeatureCategoryDropdown', 'Category icon'),
+                            _t(__CLASS__ . '.FeatureCategoryDropdown', 'Category icon'),
                             singleton(BaseHomePage::class)->dbObject('FeatureOneCategory')->enumValues()
                         ),
                         HTMLEditorField::create(
                             'FeatureOneContent',
-                            _t('BaseHomePage.FeatureContentFieldLabel', 'Content')
+                            _t(__CLASS__ . '.FeatureContentFieldLabel', 'Content')
                         ),
                         TextField::create(
                             'FeatureOneButtonText',
-                            _t('BaseHomePage.FeatureButtonText', 'Button text')
+                            _t(__CLASS__ . '.FeatureButtonText', 'Button text')
                         ),
                         TreeDropdownField::create(
                             'FeatureOneLinkID',
-                            _t('BaseHomePage.FeatureLink', 'Page to link to'),
+                            _t(__CLASS__ . '.FeatureLink', 'Page to link to'),
                             SiteTree::class
-                        )->setDescription(_t('BaseHomePage.ButtonTextRequired', 'Button text must be filled in'))
+                        )->setDescription(_t(__CLASS__ . '.ButtonTextRequired', 'Button text must be filled in'))
                     )
                 )->setHeadingLevel(3)
             );
@@ -133,27 +133,27 @@ class BaseHomePage extends Page
 
             $fields->addFieldToTab('Root.Features', ToggleCompositeField::create(
                 'FeatureTwo',
-                _t('SiteTree.FeatureTwo', 'Feature Two'),
+                _t(__CLASS__ . '.FeatureTwo', 'Feature Two'),
                 array(
-                    TextField::create('FeatureTwoTitle', _t('BaseHomePage.Title', 'Title')),
+                    TextField::create('FeatureTwoTitle', _t(__CLASS__ . '.Title', 'Title')),
                     $dropdownField = DropdownField::create(
                         'FeatureTwoCategory',
-                        _t('BaseHomePage.FeatureCategoryDropdown', 'Category icon'),
+                        _t(__CLASS__ . '.FeatureCategoryDropdown', 'Category icon'),
                         singleton(BaseHomePage::class)->dbObject('FeatureTwoCategory')->enumValues()
                     ),
                     HTMLEditorField::create(
                         'FeatureTwoContent',
-                        _t('BaseHomePage.FeatureContentFieldLabel', 'Content')
+                        _t(__CLASS__ . '.FeatureContentFieldLabel', 'Content')
                     ),
                     TextField::create(
                         'FeatureTwoButtonText',
-                        _t('BaseHomePage.FeatureButtonText', 'Button text')
+                        _t(__CLASS__ . '.FeatureButtonText', 'Button text')
                     ),
                     TreeDropdownField::create(
                         'FeatureTwoLinkID',
-                        _t('BaseHomePage.FeatureLink', 'Page to link to'),
+                        _t(__CLASS__ . '.FeatureLink', 'Page to link to'),
                         SiteTree::class
-                    )->setDescription(_t('BaseHomePage.ButtonTextRequired', 'Button text must be filled in'))
+                    )->setDescription(_t(__CLASS__ . '.ButtonTextRequired', 'Button text must be filled in'))
                 )
             )->setHeadingLevel(3));
             $dropdownField->setEmptyString('none');

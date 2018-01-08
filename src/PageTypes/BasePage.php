@@ -192,21 +192,22 @@ class BasePage extends SiteTree
             $components->removeComponentsByType(GridFieldFilterHeader::class);
             $components->addComponent(new GridFieldSortableRows('SortOrder'));
 
+            /** @var GridFieldDataColumns $dataColumns */
             $dataColumns = $components->getComponentByType(GridFieldDataColumns::class);
             $dataColumns->setDisplayFields([
-                'Title' => _t('BasePage.ColumnTitle', 'Title'),
-                'ClassName' => _t('BasePage.ColumnPageType', 'Page Type')
+                'Title' => _t(__CLASS__ . '.ColumnTitle', 'Title'),
+                'ClassName' => _t(__CLASS__ . '.ColumnPageType', 'Page Type')
             ]);
 
             $fields->findOrMakeTab(
                 'Root.RelatedPages',
-                _t('BasePage.RelatedPages', 'Related pages')
+                _t(__CLASS__ . '.RelatedPages', 'Related pages')
             );
             $fields->addFieldToTab(
                 'Root.RelatedPages',
                 GridField::create(
                     'RelatedPages',
-                    _t('BasePage.RelatedPages', 'Related pages'),
+                    _t(__CLASS__ . '.RelatedPages', 'Related pages'),
                     $this->RelatedPages(),
                     $components
                 )
@@ -220,23 +221,25 @@ class BasePage extends SiteTree
                 $components->removeComponentsByType(GridFieldAddNewButton::class);
                 $components->removeComponentsByType(GridFieldEditButton::class);
 
+                /** @var GridFieldAddExistingAutocompleter $autoCompleter */
                 $autoCompleter = $components->getComponentByType(GridFieldAddExistingAutocompleter::class);
                 $autoCompleter->setResultsFormat('$Name ($TaxonomyName)');
 
+                /** @var GridFieldDataColumns $dataColumns */
                 $dataColumns = $components->getComponentByType(GridFieldDataColumns::class);
                 $dataColumns->setDisplayFields([
-                    'Name' => _t('BasePage.Term', 'Term'),
-                    'TaxonomyName' => _t('BasePage.Taxonomy', 'Taxonomy')
+                    'Name' => _t(__CLASS__ . '.Term', 'Term'),
+                    'TaxonomyName' => _t(__CLASS__ . '.Taxonomy', 'Taxonomy')
                 ]);
 
-                $fields->findOrMakeTab('Root.Tags', _t('BasePage.TagsTabTitle', 'Tags'));
+                $fields->findOrMakeTab('Root.Tags', _t(__CLASS__ . '.TagsTabTitle', 'Tags'));
                 $fields->addFieldToTab(
                     'Root.Tags',
                     TreeMultiselectField::create(
                         'Terms',
-                        _t('BasePage.Terms', 'Terms'),
+                        _t(__CLASS__ . '.Terms', 'Terms'),
                         TaxonomyTerm::class
-                    )->setDescription(_t('BasePage.TermsDescription', 'Click to search for additional terms'))
+                    )->setDescription(_t(__CLASS__ . '.TermsDescription', 'Click to search for additional terms'))
                 );
             }
         });

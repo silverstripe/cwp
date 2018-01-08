@@ -36,8 +36,11 @@ class NewsPage extends DatedUpdatePage
     public function fieldLabels($includerelations = true)
     {
         $labels = parent::fieldLabels($includerelations);
-        $labels['Author'] = _t('DateUpdatePage.AuthorFieldLabel', 'Author');
-        $labels['FeaturedImageID'] = _t('DateUpdatePage.FeaturedImageFieldLabel', 'Featured Image');
+        $labels['Author'] = _t('CWP\\CWP\\PageTypes\\DateUpdatePage.AuthorFieldLabel', 'Author');
+        $labels['FeaturedImageID'] = _t(
+            'CWP\\CWP\\PageTypes\\DateUpdatePage.FeaturedImageFieldLabel',
+            'Featured Image'
+        );
 
         return $labels;
     }
