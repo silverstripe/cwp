@@ -5,6 +5,7 @@ namespace CWP\CWP\PageTypes;
 use CWP\Core\Model\CwpSearchIndex;
 use CWP\Core\Model\CwpSolrIndex;
 use CWP\CWP\Search\CwpSearchEngine;
+use Page;
 use SilverStripe\Assets\Filesystem;
 use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\CMS\Search\SearchForm;
@@ -101,10 +102,13 @@ class BasePageController extends ContentController
     */
     public function getPDFProxy($pdfBaseUrl)
     {
-        if (!defined('CWP_SECURE_DOMAIN') || $pdfBaseUrl == CWP_SECURE_DOMAIN.'/') {
+        if (!Environment::getEnv('CWP_SECURE_DOMAIN')
+            || $pdfBaseUrl == Environment::getEnv('CWP_SECURE_DOMAIN') . '/'
+        ) {
             $proxy = '';
         } else {
-            $proxy = ' --proxy ' . SS_OUTBOUND_PROXY . ':' . SS_OUTBOUND_PROXY_PORT;
+            $proxy = ' --proxy ' . Environment::getEnv('SS_OUTBOUND_PROXY')
+                . ':' . Environment::getEnv('SS_OUTBOUND_PROXY_PORT');
         }
         return $proxy;
     }
@@ -120,8 +124,10 @@ class BasePageController extends ContentController
 
         $binaryPath = Config::inst()->get(BasePage::class, 'wkhtmltopdf_binary');
         if (!$binaryPath || !is_executable($binaryPath)) {
-            if (defined('WKHTMLTOPDF_BINARY') && is_executable(WKHTMLTOPDF_BINARY)) {
-                $binaryPath = WKHTMLTOPDF_BINARY;
+            if (Environment::getEnv('WKHTMLTOPDF_BINARY')
+                && is_executable(Environment::getEnv('WKHTMLTOPDF_BINARY'))
+            ) {
+                $binaryPath = Environment::getEnv('WKHTMLTOPDF_BINARY');
             }
         }
 
@@ -149,12 +155,11 @@ class BasePageController extends ContentController
         $pdfBaseUrl = $this->getPDFBaseURL();
 
         // Force http protocol on CWP - fetching from localhost without using the proxy, SSL terminates on gateway.
-        if (defined('CWP_ENVIRONMENT')) {
-            Config::inst()->nest();
-            Config::inst()->update(Director::class, 'alternate_protocol', 'http');
+        if (Environment::getEnv('CWP_ENVIRONMENT')) {
+            Config::modify()->set(Director::class, 'alternate_protocol', 'http');
             //only set alternate protocol if CWP_SECURE_DOMAIN is defined OR pdf_base_url is
             if ($pdfBaseUrl) {
-                Config::inst()->update(Director::class, 'alternate_base_url', 'http://'.$pdfBaseUrl);
+                Config::modify()->set(Director::class, 'alternate_base_url', 'http://' . $pdfBaseUrl);
             }
         }
 
@@ -168,10 +173,6 @@ class BasePageController extends ContentController
 
         // write the output of the footer template to HTML, ready for conversion to PDF
         file_put_contents($footerFile, $footerViewer->process($this));
-
-        if (defined('CWP_ENVIRONMENT')) {
-            Config::inst()->unnest();
-        }
 
         //decide what the proxy should look like
         $proxy = $this->getPDFProxy($pdfBaseUrl);
@@ -211,7 +212,7 @@ class BasePageController extends ContentController
             TextField::create('Search', false, $searchText)
         );
         $actions = FieldList::create(
-            FormAction::create('results', _t('SearchForm.GO', 'Go'))
+            FormAction::create('results', _t('SilverStripe\\CMS\\Search\\SearchForm.GO', 'Go'))
         );
 
         $form = SearchForm::create($this, SearchForm::class, $fields, $actions);
@@ -258,13 +259,13 @@ class BasePageController extends ContentController
             );
 
         // Customise content with these results
-        $properties = array(
-            'MetaTitle' => _t('CWP_Search.MetaTitle', 'Search {keywords}', array('keywords' => $keywords)),
-            'NoSearchResults' => _t('CWP_Search.NoResult', 'Sorry, your search query did not return any results.'),
-            'EmptySearch' => _t('CWP_Search.EmptySearch', 'Search field empty, please enter your search query.'),
+        $properties = [
+            'MetaTitle' => _t(__CLASS__ . '.MetaTitle', 'Search {keywords}', ['keywords' => $keywords]),
+            'NoSearchResults' => _t(__CLASS__ . '.NoResult', 'Sorry, your search query did not return any results.'),
+            'EmptySearch' => _t(__CLASS__ . '.EmptySearch', 'Search field empty, please enter your search query.'),
             'PdfLink' => '',
-            'Title' => _t('SearchForm.SearchResults', 'Search Results'),
-        );
+            'Title' => _t('SilverStripe\\CMS\\Search\\SearchForm.SearchResults', 'Search Results'),
+        ];
         $this->extend('updateSearchResults', $results, $properties);
 
         // Customise page
@@ -288,7 +289,7 @@ class BasePageController extends ContentController
      */
     protected function getResultsTemplate($request)
     {
-        $templates = array('Page_results', 'Page');
+        $templates = [Page::class . '_results', Page::class];
         if ($request->getVar('format') == 'rss') {
             array_unshift($templates, 'Page_results_rss');
         }

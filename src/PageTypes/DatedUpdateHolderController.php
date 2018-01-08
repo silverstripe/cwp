@@ -74,7 +74,10 @@ class DatedUpdateHolderController extends PageController
         if ($params['tag']) {
             $term = TaxonomyTerm::get_by_id(TaxonomyTerm::class, $params['tag']);
             if ($term) {
-                $filters[] = _t('DatedUpdateHolder.FILTER_WITHIN', 'within') . ' "' . $term->Name . '"';
+                $filters[] = _t(
+                    'CWP\\CWP\\PageTypes\\DatedUpdateHolder.FILTER_WITHIN',
+                    'within'
+                ) . ' "' . $term->Name . '"';
             }
         }
 
@@ -83,20 +86,23 @@ class DatedUpdateHolderController extends PageController
                 $from = strtotime($params['from']);
                 if ($params['to']) {
                     $to = strtotime($params['to']);
-                    $filters[] = _t('DatedUpdateHolder.FILTER_BETWEEN', 'between') . ' '
+                    $filters[] = _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.FILTER_BETWEEN', 'between') . ' '
                         . date('j/m/Y', $from) . ' and ' . date('j/m/Y', $to);
                 } else {
-                    $filters[] = _t('DatedUpdateHolder.FILTER_ON', 'on') . ' ' . date('j/m/Y', $from);
+                    $filters[] = _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.FILTER_ON', 'on')
+                        . ' ' . date('j/m/Y', $from);
                 }
             } else {
                 $to = strtotime($params['to']);
-                $filters[] = _t('DatedUpdateHolder.FILTER_ON', 'on') . ' ' . date('j/m/Y', $to);
+                $filters[] = _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.FILTER_ON', 'on')
+                    . ' ' . date('j/m/Y', $to);
             }
         }
 
         if ($params['year'] && $params['month']) {
             $timestamp = mktime(1, 1, 1, $params['month'], 1, $params['year']);
-            $filters[] = _t('DatedUpdateHolder.FILTER_IN', 'in') . ' ' . date('F', $timestamp) . ' ' . $params['year'];
+            $filters[] = _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.FILTER_IN', 'in')
+                . ' ' . date('F', $timestamp) . ' ' . $params['year'];
         }
 
         if ($filters) {
@@ -298,13 +304,13 @@ class DatedUpdateHolderController extends PageController
     {
         $dateFromTitle = DBField::create_field('HTMLText', sprintf(
             '%s <span class="field-note">%s</span>',
-            _t('DatedUpdateHolder.FROM_DATE', 'From date'),
-            _t('DatedUpdateHolder.DATE_EXAMPLE', '(example: 2017/12/30)')
+            _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.FROM_DATE', 'From date'),
+            _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.DATE_EXAMPLE', '(example: 2017/12/30)')
         ));
         $dateToTitle = DBField::create_field('HTMLText', sprintf(
             '%s <span class="field-note">%s</span>',
-            _t('DatedUpdateHolder.TO_DATE', 'To date'),
-            _t('DatedUpdateHolder.DATE_EXAMPLE', '(example: 2017/12/30)')
+            _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.TO_DATE', 'To date'),
+            _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.DATE_EXAMPLE', '(example: 2017/12/30)')
         ));
 
         $fields = FieldList::create(
@@ -314,8 +320,12 @@ class DatedUpdateHolderController extends PageController
         );
 
         $actions = FieldList::create(
-            FormAction::create("doDateFilter")->setTitle("Filter")->addExtraClass('btn btn-primary primary'),
-            FormAction::create("doDateReset")->setTitle("Clear")->addExtraClass('btn')
+            FormAction::create("doDateFilter")
+                ->setTitle(_t(__CLASS__ . '.Filter'))
+                ->addExtraClass('btn btn-primary primary'),
+            FormAction::create("doDateReset")
+                ->setTitle(_t(__CLASS__ . '.Clear'))
+                ->addExtraClass('btn')
         );
 
         $form = Form::create($this, 'DateRangeForm', $fields, $actions);

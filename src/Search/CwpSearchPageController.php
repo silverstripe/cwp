@@ -20,7 +20,7 @@ class CwpSearchPageController extends PageController
     {
         $searchPage = CwpSearchPage::create();
         $searchPage->URLSegment = 'search';
-        $searchPage->Title = _t('SearchForm.SearchResults', 'Search Results');
+        $searchPage->Title = _t('SilverStripe\\CMS\\Search\\SearchForm.SearchResults', 'Search Results');
         $searchPage->ID = -1;
         return $searchPage;
     }

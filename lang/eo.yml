@@ -1,8 +1,38 @@
 eo:
-  AssetTableField:
-    BACKLINKCOUNT: 'Uzita je:'
-    PAGES: paĝo(j)
-  BaseHomePage:
+  CWP\CWP\Extensions\CustomSiteConfig:
+    FbField: 'UID aŭ salutnomo por Facebook'
+    FbFieldDesc: 'Facebook-ligilo (ĉio post "http://facebook.com/", ekzemple http://facebook.com/<strong>salutnomo</strong> aŭ http://facebook.com/<strong>paĝoj/108510539573</strong>)'
+    GaField: 'Konto poe Google Analytics'
+    GaFieldDesc: 'Kontnumero uzota ie en la retejo (en la formato <strong>UA-XXXXX-X</strong>)'
+    LogosIconsTab: Bildsimboloj
+    SocialMediaTab: 'Interkona retejo'
+    TwitterField: 'Salutnomo por Twitter'
+    TwitterFieldDesc: 'Salutnomo por Twitter (eg, http://twitter.com/<strong>salutnomo</strong>)'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Retpoŝto
+    WEBSITE_TITLE: 'Via retejo (malnepra)'
+    WILL_NOT_BE_PUBLISHED: 'Ne publikiĝos.'
+  CWP\CWP\Extensions\CwpSearchBoostExtension:
+    PAGEINFO: 'Paĝa informo kaj SEO'
+    SearchBoost: 'Plialtigotaj  ŝlosilvortoj'
+    SearchBoostDescription: 'Enigu la ŝlosilvortojn disigitaj per komo ( , ) por kiu plialtigi la rangon de ĉi tiu paĝo en la serĉaj rezultoj en ĉi tiu retejo.'
+    SearchBoostNote: '(Aplikiĝas nur al la serĉaj rezultoj en ĉi tiu retejo, ekzemple ne en Google-serĉo)'
+  CWP\CWP\Extensions\SynonymValidator:
+    InvalidValue: 'Sinonimoj ne povas enhavi vortojn disigitajn per spacetoj'
+  CWP\CWP\Extensions\SynonymsSiteConfig:
+    SearchSynonyms: 'Serĉi sinonimojn'
+    SearchSynonyms_Description: 'Enigu tiom da komodisigitaj sinonimoj kiel bezonate, kie ĉiu linio prezentas grupon de sinonimoj.<br /> Necesos ke vi rulu je <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a> se vi ŝanĝos ion'
+  CWP\CWP\Model\Quicklink:
+    ExternalLinkLabel: 'Ekstera ligilo'
+    InternalLinkLabel: 'Interna ligilo'
+    NameLabel: Nomo
+    Note: '<div class="message good notice">Notu: Se vi agordas eksteran ligilon, la interna ligilo ne estos malatentata.</div>'
+    Note2: '<p>Uzu ĉi tion por ligi al paĝo aŭ en ĉi tiu retejo (internaligilo) aŭ en alia retejo (ekstera ligilo).</p>'
+    PLURALNAME: 'Rapidaj ligiloj'
+    ParentRelationLabel: Patra
+    SINGULARNAME: 'Rapida ligilo'
+    SortOrderLabel: 'Ordiga Ordo'
+  CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Aldoni novan'
     ButtonTextRequired: 'Necesas plenigi butonan tekston'
     DESCRIPTION: 'Ĝenerala paĝo por enhavo'
@@ -14,7 +44,7 @@ eo:
     PLURALNAME: Hejmpaĝoj
     SINGULARNAME: Hejmpaĝo
     Title: Titolo
-  BasePage:
+  CWP\CWP\PageTypes\BasePage:
     ColumnPageType: 'Tipo de paĝo'
     ColumnTitle: Titolo
     DESCRIPTION: 'Ĝenerala paĝo por enhavo'
@@ -26,135 +56,61 @@ eo:
     Term: Termino
     Terms: Terminoj
     TermsDescription: 'Alklaku por serĉi pluajn erojn'
-  CWP_Search:
+  CWP\CWP\PageTypes\BasePageController:
     EmptySearch: 'Sercota kampo malplenas, bonvolu enigi informpeton.'
     MetaTitle: 'Serĉi {keywords}'
     NoResult: 'Via informpeto ne liveris rezulton.'
-  CarouselItem:
-    PLURALNAME: 'Karuselaj elementoj'
-    SINGULARNAME: 'Karusela elemento'
-  CustomSiteConfig:
-    LogosIconsTab: Bildsimboloj
-    SocialMediaTab: 'Interkona retejo'
-  CwpCarousel:
-    ArchivedField: 'Ĉu enarkivigi ĉi tiun karuselan elementon?'
-    LinkField: Ligilo
-    NoteField: 'Notu: Necesas krei la karuselan elementon antaŭ ol vi povos aldoni bildon'
-  CwpCommentingExtension:
-    EMAIL_TITLE: Retpoŝto
-    WEBSITE_TITLE: 'Via retejo (malnepra)'
-    WILL_NOT_BE_PUBLISHED: 'Ne publikiĝos.'
-  CwpConfig:
-    AddThisField: 'Aldoni ĉi tiun ID-agordaron'
-    AddThisFieldDesc: 'ID-agordaro uzota ie en la retejo (en la formato <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
-    AppleIconField114: 'Bildsimbolo por Apple Touch Web eltondaĵo (dimensioj 114x114, PNG-formato)'
-    AppleIconField144: 'Bildsimbolo por Apple Touch Web eltondaĵo kaj Windows 8 kahelo (dimensioj 144x144, PNG-formato)'
-    AppleIconField57: 'Bildsimbolo por Apple Touch Web eltondaĵo (dimensioj 57x57, PNG-formato)'
-    AppleIconField72: 'Bildsimbolo por Apple Touch Web eltondaĵo (dimensioj 72x72, PNG-formato)'
-    FavIconField: 'Favorbildo, en .ico-formato, dimensioj 16x16, 32x32, aŭ 48x48'
-    FbField: 'UID aŭ salutnomo por Facebook'
-    FbFieldDesc: 'Facebook-ligilo (ĉio post "http://facebook.com/", ekzemple http://facebook.com/<strong>salutnomo</strong> aŭ http://facebook.com/<strong>paĝoj/108510539573</strong>)'
-    FooterLogoDescField: 'Priskribo de la paĝopieda bildsimbolo'
-    FooterLogoField: 'Paĝopieda bildsimbolo, aperonta en la paĝopiedo'
-    FooterLogoLinkDesc: 'Bonvole inkludu la protokolon (t.e., http:// or https://) krom se ĝi estas interna ligilo.'
-    FooterLogoLinkField: 'Paĝopieda bildsimbola ligilo'
-    FooterLogoRetinaField: 'Tredistingiva paĝopieda bildsimbolo (rekomeninda dufoje la alton kaj larĝon de la normala paĝopieda bildsimbolo)'
-    GaField: 'Konto poe Google Analytics'
-    GaFieldDesc: 'Kontnumero uzota ie en la retejo (en la formato <strong>UA-XXXXX-X</strong>)'
-    LogoRetinaUploadField: 'Tredistingiva bildsimbolo, aperonta ĉe la maldekstra supro (rekomeninda dufoje la alton kaj larĝon de la normala bildsimbolo)'
-    LogoUploadField: 'Bildsimbolo, aperonta ĉe la maldekstra supro'
-    SearchSynonyms: 'Serĉi sinonimojn'
-    SearchSynonyms_Description: 'Enigu tiom da komodisigitaj sinonimoj kiel bezonate, kie ĉiu linio prezentas grupon de sinonimoj.<br /> Necesos ke vi rulu je <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a> se vi ŝanĝos ion'
-    TwitterField: 'Salutnomo por Twitter'
-    TwitterFieldDesc: 'Salutnomo por Twitter (eg, http://twitter.com/<strong>salutnomo</strong>)'
-  CwpSearchBoostExtension:
-    PAGEINFO: 'Paĝa informo kaj SEO'
-  CwpSearchPage:
-    DESCRIPTION: 'Komuna enhavpaĝo'
-    PLURALNAME: 'Bazaj paĝoj'
-    SINGULARNAME: 'Cwp-serĉa paĝo'
-  CwpSiteTreeSearchBoost:
-    SearchBoost: 'Plialtigotaj  ŝlosilvortoj'
-    SearchBoostDescription: 'Enigu la ŝlosilvortojn disigitaj per komo ( , ) por kiu plialtigi la rangon de ĉi tiu paĝo en la serĉaj rezultoj en ĉi tiu retejo.'
-    SearchBoostNote: '(Aplikiĝas nur al la serĉaj rezultoj en ĉi tiu retejo, ekzemple ne en Google-serĉo)'
-  DateUpdateHolder:
-    DateRangeFilterMessage: 'Filtri laŭ unuopa dato'
-    FilterAppliedMessage: 'Aplikis filtron laŭ la inversigitaj datoj'
-  DateUpdatePage:
-    AbstractDesc: 'La resumo uzatas kiel resumo en la listaj paĝoj. Ĝi havas la limon 160 signoj'
-    AbstractTextFieldLabel: Resumo
-    AuthorFieldLabel: Aŭtoro
-    DateLabel: Dato
-    EndTimeFieldLabel: 'Fina horo'
-    FeaturedImageFieldLabel: 'Prezentita bildo'
-    LocationFieldLabel: Loko
-    StartTimeFieldLabel: 'Komenca horo'
-  DatedUpdateHolder:
+  CWP\CWP\PageTypes\DatedUpdateHolder:
     DATE_EXAMPLE: '(ekzemplo: 2017/12/30)'
     DESCRIPTION: 'Ĝenerala paĝo por enhavo'
+    DateRangeFilterMessage: 'Filtri laŭ unuopa dato'
     FILTER_BETWEEN: inter
     FILTER_IN: en
     FILTER_ON: sur
     FILTER_WITHIN: 'ene de'
     FROM_DATE: 'Eka dato'
+    FilterAppliedMessage: 'Aplikis filtron laŭ la inversigitaj datoj'
     PLURALNAME: 'Ĝisdatigaj datujoj'
     SINGULARNAME: 'Ĝisdatiga datujo'
     TO_DATE: 'Ĝisa dato'
-  DatedUpdatePage:
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    AbstractDesc: 'La resumo uzatas kiel resumo en la listaj paĝoj. Ĝi havas la limon 160 signoj'
+    AbstractTextFieldLabel: Resumo
+    AuthorFieldLabel: Aŭtoro
     DESCRIPTION: 'Ĝenerala paĝo por enhavo'
+    DateLabel: Dato
+    EndTimeFieldLabel: 'Fina horo'
+    FeaturedImageFieldLabel: 'Prezentita bildo'
+    LocationFieldLabel: Loko
     PLURALNAME: 'Ĝisdatigaj datujoj'
     SINGULARNAME: 'Ĝisdatiga datujo'
-  EventHolder:
+    StartTimeFieldLabel: 'Komenca horo'
+  CWP\CWP\PageTypes\EventHolder:
     DESCRIPTION: 'Paĝo por enhavi eventpaĝojn, donas eventfiltradon kaj paĝonumeradon'
     PLURALNAME: Eventujoj
     SINGULARNAME: Eventujo
     Upcoming: 'Futuraj eventoj'
-  EventPage:
+  CWP\CWP\PageTypes\EventPage:
     DESCRIPTION: 'Priskribas eventon okazontan je specifa dato.'
     PLURALNAME: Eventopaĝoj
     SINGULARNAME: Eventopaĝo
-  FooterHolder:
+  CWP\CWP\PageTypes\FooterHolder:
     DESCRIPTION: 'Paĝo por enhavi kaj vidigi ĉiujn paĝidojn kiel ligilojn en la paĝopiedo'
     PLURALNAME: 'Paĝopieda tenanto'
     SINGULARNAME: 'Paĝopieda tenanto'
-  FullTextSearch:
-    SynonymValidator_InvalidValue: 'Sinonimoj ne povas enhavi vortojn disigitajn per spacetoj'
-  GridField:
-    Archived: Enarkivigita
-    Live: Publika
-  NewsHolder:
+  CWP\CWP\PageTypes\NewsHolder:
     DESCRIPTION: 'Paĝo por enhavi Novaĵpaĝojn, donas filtradon de novaĵoj kaj paĝonumeradon'
     PLURALNAME: Novaĵujoj
     SINGULARNAME: Novaĵujo
-  NewsPage:
+  CWP\CWP\PageTypes\NewsPage:
     DESCRIPTION: 'Priskribas novaĵeron'
     PLURALNAME: Novaĵopaĝoj
     SINGULARNAME: Novaĵopaĝo
-  Quicklink:
-    ExternalLinkLabel: 'Ekstera ligilo'
-    InternalLinkLabel: 'Interna ligilo'
-    NameLabel: Nomo
-    Note: '<div class="message good notice">Notu: Se vi agordas eksteran ligilon, la interna ligilo ne estos malatentata.</div>'
-    Note2: '<p>Uzu ĉi tion por ligi al paĝo aŭ en ĉi tiu retejo (internaligilo) aŭ en alia retejo (ekstera ligilo).</p>'
-    PLURALNAME: 'Rapidaj ligiloj'
-    ParentRelationLabel: Patra
-    SINGULARNAME: 'Rapida ligilo'
-    SortOrderLabel: 'Ordiga Ordo'
-  SearchForm:
-    GO: Ek
-    SEARCH: Serĉi
-    SearchResults: 'Serĉaj rezultoj'
-  SiteTree:
-    FeatureOne: 'Prezentita unua'
-    FeatureTwo: 'Prezentita dua'
-    PLURALNAME: Paĝoj
-    SHOW_PAGE_UTILITIES: 'Ĉu vidigu paĝajn utilaĵojn?'
-    SHOW_PAGE_UTILITIES_HELP: 'Vi povas malŝalti paĝajn utilaĵojn (presi, kunhavigi, ktp) por ĉi tiu paĝo.'
-    SINGULARNAME: Paĝo
-  SiteTreeFileExtension:
-    BACKLINK_LIST_DESCRIPTION: 'Ĉi tiu listo vidigas ĉiujn paĝojn kie la dosiero estas enmetita per la faksimila redaktilo.'
-    EDIT: Redakti
-  SitemapPage:
+  CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 'Listigas ĉiujn paĝojn en la retejo'
     PLURALNAME: 'Paĝo de paĝarmapo'
     SINGULARNAME: 'Paĝo de paĝarmapo'
+  CWP\CWP\Search\CwpSearchPage:
+    DESCRIPTION: 'Komuna enhavpaĝo'
+    PLURALNAME: 'Bazaj paĝoj'
+    SINGULARNAME: 'Cwp-serĉa paĝo'

@@ -2,11 +2,11 @@
 
 namespace CWP\CWP\Extensions;
 
-use SilverStripe\Forms\FieldList;
-use SilverStripe\View\Requirements;
-use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Core\Convert;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\View\Requirements;
 
 class CwpSiteTreeFileExtension extends DataExtension
 {
@@ -17,26 +17,27 @@ class CwpSiteTreeFileExtension extends DataExtension
         Requirements::javascript('cwp/cwp:javascript/fieldDescriptionToggle.js');
 
         $fields->insertAfter(
+            'LastEdited',
             ReadonlyField::create(
                 'BackLinkCount',
-                _t('AssetTableField.BACKLINKCOUNT', 'Used on:'),
-                $this->owner->BackLinkTracking()->Count() . ' ' . _t('AssetTableField.PAGES', 'page(s)')
+                _t('SilverStripe\\CMS\\Model\\SiteTreeFileExtension.BACKLINKCOUNT', 'Used on:'),
+                $this->owner->BackLinkTracking()->Count() . ' '
+                    . _t('SilverStripe\\CMS\\Model\\SiteTreeFileExtension.PAGES', 'page(s)')
             )
             ->addExtraClass('cms-description-toggle')
-            ->setDescription($this->BackLinkHTMLList()),
-            'LastEdited'
+            ->setDescription($this->BackLinkHTMLList())
         );
     }
 
     /**
      * Generate an HTML list which provides links to where a file is used.
      *
-     * @return String
+     * @return string
      */
     public function BackLinkHTMLList()
     {
         $html = '<em>' . _t(
-            'SiteTreeFileExtension.BACKLINK_LIST_DESCRIPTION',
+            __CLASS__ . '.BACKLINK_LIST_DESCRIPTION',
             'This list shows all pages where the file has been added through a WYSIWYG editor.'
         ) . '</em>';
         $html .= '<ul>';
@@ -50,11 +51,13 @@ class CwpSiteTreeFileExtension extends DataExtension
 
             // Add the CMS link
             $listItem .= '<a href="' . $backLink->CMSEditLink() . '">'
-                . _t('SiteTreeFileExtension.EDIT', 'Edit') . '</a>';
+                . _t(__CLASS__ . '.EDIT', 'Edit') . '</a>';
 
             $html .= $listItem . '</li>';
         }
 
-        return $html .= '</ul>';
+        $html .= '</ul>';
+
+        return $html;
     }
 }

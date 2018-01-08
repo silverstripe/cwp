@@ -30,9 +30,9 @@ class SynonymsSiteConfig extends DataExtension
         // Search synonyms
         $fields->addFieldToTab(
             'Root.FulltextSearch',
-            TextareaField::create('SearchSynonyms', _t('CwpConfig.SearchSynonyms', 'Search Synonyms'))
+            TextareaField::create('SearchSynonyms', _t(__CLASS__ . '.SearchSynonyms', 'Search Synonyms'))
                 ->setDescription(_t(
-                    'CwpConfig.SearchSynonyms_Description',
+                    __CLASS__ . '.SearchSynonyms_Description',
                     'Enter as many comma separated synonyms as you wish, where '.
                     'each line represents a group of synonyms.<br /> ' .
                     'You will need to run <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">'
@@ -60,7 +60,7 @@ class SynonymsSiteConfig extends DataExtension
 
         if (is_array($errors) || $errors instanceof Traversable) {
             foreach ($errors as $error) {
-                $validationResult->error($error['message']);
+                $validationResult->addError($error['message']);
             }
         }
     }

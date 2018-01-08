@@ -1,22 +1,17 @@
 sk:
-  BaseHomePage:
+  CWP\CWP\PageTypes\BaseHomePage:
     DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
     FeatureContentFieldLabel: Obsah
     Title: Názov
-  BasePage:
+  CWP\CWP\PageTypes\BasePage:
     ColumnPageType: 'Typ stránky'
     ColumnTitle: Názov
     DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
     PLURALNAME: 'Základné stránky'
-  CwpSearchPage:
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
+  CWP\CWP\Search\CwpSearchPage:
     DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
     PLURALNAME: 'Základné stránky'
-  DatedUpdateHolder:
-    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
-  DatedUpdatePage:
-    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
-  SearchForm:
-    SEARCH: Hľadať
-  SiteTree:
-    PLURALNAME: Stránky
-    SINGULARNAME: Stránka

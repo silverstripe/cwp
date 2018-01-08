@@ -1,31 +1,18 @@
 it:
-  AssetTableField:
-    BACKLINKCOUNT: 'Usato in:'
-    PAGES: pagina(e)
-  BaseHomePage:
+  CWP\CWP\Model\Quicklink:
+    ParentRelationLabel: Parente
+  CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Aggiungi nuova'
     FeatureContentFieldLabel: Contenuto
     PLURALNAME: 'Pagine Principali'
     Title: Titolo
-  BasePage:
+  CWP\CWP\PageTypes\BasePage:
     ColumnTitle: Titolo
-  DateUpdatePage:
+  CWP\CWP\PageTypes\DatedUpdatePage:
     AuthorFieldLabel: Autore
-  FooterHolder:
+  CWP\CWP\PageTypes\FooterHolder:
     PLURALNAME: 'Footer Holder'
-  NewsHolder:
+  CWP\CWP\PageTypes\NewsHolder:
     SINGULARNAME: 'Holder Notizie'
-  Quicklink:
-    ParentRelationLabel: Parente
-  SearchForm:
-    GO: Vai
-    SEARCH: Cerca
-    SearchResults: 'Risultati della ricerca'
-  SiteTree:
-    FeatureOne: 'Funzione Uno'
-    PLURALNAME: Pagine
-    SINGULARNAME: Pagina
-  SiteTreeFileExtension:
-    EDIT: Modifica
-  SitemapPage:
+  CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 'Lista tutte le pagine sul sito'

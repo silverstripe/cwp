@@ -53,7 +53,7 @@ class SynonymValidator extends Validator
             $this->validationError(
                 $fieldName,
                 _t(
-                    'FullTextSearch.SynonymValidator.InvalidValue',
+                    __CLASS__ . '.InvalidValue',
                     'Synonyms cannot contain words separated by spaces'
                 )
             );

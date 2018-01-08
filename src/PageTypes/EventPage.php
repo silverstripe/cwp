@@ -20,8 +20,6 @@ class EventPage extends DatedUpdatePage
 
     private static $icon = 'cwp/cwp:images/icons/sitetree_images/event_page.png';
 
-    public $pageIcon =  'images/icons/sitetree_images/event_page.png';
-
     private static $singular_name = 'Event Page';
 
     private static $plural_name = 'Event Pages';
@@ -37,9 +35,9 @@ class EventPage extends DatedUpdatePage
     public function fieldLabels($includerelations = true)
     {
         $labels = parent::fieldLabels($includerelations);
-        $labels['StartTime'] = _t('DateUpdatePage.StartTimeFieldLabel', 'Start Time');
-        $labels['EndTime'] = _t('DateUpdatePage.EndTimeFieldLabel', 'End Time');
-        $labels['Location'] = _t('DateUpdatePage.LocationFieldLabel', 'Location');
+        $labels['StartTime'] = _t('CWP\\CWP\\PageTypes\\DateUpdatePage.StartTimeFieldLabel', 'Start Time');
+        $labels['EndTime'] = _t('CWP\\CWP\\PageTypes\\DateUpdatePage.EndTimeFieldLabel', 'End Time');
+        $labels['Location'] = _t('CWP\\CWP\\PageTypes\\DateUpdatePage.LocationFieldLabel', 'Location');
 
         return $labels;
     }

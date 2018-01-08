@@ -1,8 +1,29 @@
 fi:
-  AssetTableField:
-    BACKLINKCOUNT: Käytössä
-    PAGES: sivu(t)
-  BaseHomePage:
+  CWP\CWP\Extensions\CustomSiteConfig:
+    FbField: 'Facebook UID tai käyttäjänimi'
+    FbFieldDesc: 'Facebook-linkki (osan "http://facebook.com/" jälkeinen osa, esim. http://facebook.com/<strong>käyttäjänimi</strong> tai http://facebook.com/<strong>pages/108510539573</strong>)'
+    GaField: 'Google Analytics -tili'
+    GaFieldDesc: 'Tilinumero käytettäväksi läpi sivuston (formaatissa <strong>UA-XXXXX-X</strong>)'
+    LogosIconsTab: Logot/ikonit
+    SocialMediaTab: 'Sosiaalinen media'
+    TwitterField: Twitter-käyttäjänimi
+    TwitterFieldDesc: 'Twitter-käyttäjänimi (esim, http://twitter.com/<strong>käyttäjänimi</strong>)'
+  CWP\CWP\Extensions\CwpSearchBoostExtension:
+    PAGEINFO: 'Sivun tiedot ja hakukoneoptimointi'
+    SearchBoost: 'Painota avainsanoja'
+    SearchBoostDescription: 'Syötä pilkulla ( , ) erotettuna avainsanat joilla haluat nostaa tämän sivun sijoitusta sivuston sisäisen haun tuloksissa.'
+    SearchBoostNote: '(Vaikuttaa vain sivuston sisäiseen hakuun, ei esim. Googlen hakutuloksiin)'
+  CWP\CWP\Extensions\SynonymsSiteConfig:
+    SearchSynonyms: 'Haun synonyymit'
+  CWP\CWP\Model\Quicklink:
+    ExternalLinkLabel: 'Ulkoinen linkki'
+    InternalLinkLabel: 'Sisäinen linkki'
+    NameLabel: Nimi
+    PLURALNAME: Pikalinkit
+    ParentRelationLabel: Isäntä
+    SINGULARNAME: Pikalinkki
+    SortOrderLabel: Järjestys
+  CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Lisää uusi'
     ButtonTextRequired: 'Painiketeksti pitää syöttää'
     DESCRIPTION: 'Yleinen sisältösivu'
@@ -14,7 +35,7 @@ fi:
     PLURALNAME: Kotisivut
     SINGULARNAME: Kotisivu
     Title: Otsikko
-  BasePage:
+  CWP\CWP\PageTypes\BasePage:
     ColumnPageType: Sivutyyppi
     ColumnTitle: Otsikko
     DESCRIPTION: 'Yleinen sisältösivu'
@@ -26,96 +47,36 @@ fi:
     Term: Termi
     Terms: Termit
     TermsDescription: 'Klikkaa etsiäksesi muita termejä'
-  CarouselItem:
-    PLURALNAME: 'Karusellin kohteet'
-    SINGULARNAME: 'Karusellin kohde'
-  CustomSiteConfig:
-    LogosIconsTab: Logot/ikonit
-    SocialMediaTab: 'Sosiaalinen media'
-  CwpCarousel:
-    ArchivedField: 'Arkistoi tämä karuselliartikkeli?'
-    LinkField: Linkki
-    NoteField: 'Huomio: sinun täytyy luoda karusellisisältö ennen kuin lisäät siihen kuvan'
-  CwpConfig:
-    AddThisField: 'AddThis profiili-ID'
-    AddThisFieldDesc: 'Profiili-ID käytettäväksi läpi sivuston (formaatissa <strong>ra-XXXXXXXXXXXXXXXX</strong>)'
-    AppleIconField114: 'Apple Touch Web Clip ikoni (114x114 px PNG)'
-    AppleIconField144: 'Apple Touch Web Clip ja Windows 8/10 Tile-ikoni (144x144 px PNG)'
-    AppleIconField57: 'Apple Touch Web Clip ikoni (57x57 px PNG)'
-    AppleIconField72: 'Apple Touch Web Clip ikoni (72x72 px PNG)'
-    FavIconField: 'Favicon .ico -formaatissa, koko 16x16, 32x32, tai 48x48'
-    FbField: 'Facebook UID tai käyttäjänimi'
-    FbFieldDesc: 'Facebook-linkki (osan "http://facebook.com/" jälkeinen osa, esim. http://facebook.com/<strong>käyttäjänimi</strong> tai http://facebook.com/<strong>pages/108510539573</strong>)'
-    FooterLogoDescField: 'Alatunnisteen logon kuvaus'
-    FooterLogoField: 'Alatunnisteen logo, näytetään alatunnisteessa'
-    FooterLogoLinkDesc: 'Sisällytä protokolla (esim. http:// tai https://) ellei kyseessä ole sisäinen linkki.'
-    FooterLogoLinkField: 'Alaindeksin logon linkki'
-    FooterLogoRetinaField: 'Korkearesoluutioinen logo alatunnisteeseen (suositellaan kaksinkertaista resoluutiota suhteessa peruslogoon)'
-    GaField: 'Google Analytics -tili'
-    GaFieldDesc: 'Tilinumero käytettäväksi läpi sivuston (formaatissa <strong>UA-XXXXX-X</strong>)'
-    LogoRetinaUploadField: 'Korkearesoluutioinen logo vasempaan yläkulmaan (suositellaan kaksinkertaista resoluutiota suhteessa peruslogoon)'
-    LogoUploadField: 'Logo vasempaan yläkulmaan'
-    SearchSynonyms: 'Haun synonyymit'
-    TwitterField: Twitter-käyttäjänimi
-    TwitterFieldDesc: 'Twitter-käyttäjänimi (esim, http://twitter.com/<strong>käyttäjänimi</strong>)'
-  CwpSearchBoostExtension:
-    PAGEINFO: 'Sivun tiedot ja hakukoneoptimointi'
-  CwpSearchPage:
+  CWP\CWP\PageTypes\DatedUpdateHolder:
     DESCRIPTION: 'Yleinen sisältösivu'
-    PLURALNAME: Pohjasivut
-    SINGULARNAME: CWP-hakusivu
-  CwpSiteTreeSearchBoost:
-    SearchBoost: 'Painota avainsanoja'
-    SearchBoostDescription: 'Syötä pilkulla ( , ) erotettuna avainsanat joilla haluat nostaa tämän sivun sijoitusta sivuston sisäisen haun tuloksissa.'
-    SearchBoostNote: '(Vaikuttaa vain sivuston sisäiseen hakuun, ei esim. Googlen hakutuloksiin)'
-  DateUpdateHolder:
     DateRangeFilterMessage: 'Suodatettu yhden päivämäärän mukaan.'
-  DateUpdatePage:
+  CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractTextFieldLabel: Tiivistelmä
     AuthorFieldLabel: Kirjoittaja
+    DESCRIPTION: 'Yleinen sisältösivu'
     DateLabel: Päivämäärä
     EndTimeFieldLabel: Päättyen
     FeaturedImageFieldLabel: Kuvanosto
     LocationFieldLabel: Paikka
     StartTimeFieldLabel: Alkaen
-  DatedUpdateHolder:
-    DESCRIPTION: 'Yleinen sisältösivu'
-  DatedUpdatePage:
-    DESCRIPTION: 'Yleinen sisältösivu'
-  EventHolder:
+  CWP\CWP\PageTypes\EventHolder:
     Upcoming: 'Tulevat tapahtumat'
-  EventPage:
+  CWP\CWP\PageTypes\EventPage:
     PLURALNAME: Tapahtumasivut
     SINGULARNAME: Tapahtumasivu
-  FooterHolder:
+  CWP\CWP\PageTypes\FooterHolder:
     SINGULARNAME: 'Alaindeksin koonti'
-  GridField:
-    Archived: Arkistoitu
-  NewsHolder:
+  CWP\CWP\PageTypes\NewsHolder:
     PLURALNAME: 'Uutisten koontisivu'
     SINGULARNAME: 'Uutisten koontisivu'
-  NewsPage:
+  CWP\CWP\PageTypes\NewsPage:
     PLURALNAME: Uutissivut
     SINGULARNAME: Uutissivu
-  Quicklink:
-    ExternalLinkLabel: 'Ulkoinen linkki'
-    InternalLinkLabel: 'Sisäinen linkki'
-    NameLabel: Nimi
-    PLURALNAME: Pikalinkit
-    ParentRelationLabel: Isäntä
-    SINGULARNAME: Pikalinkki
-    SortOrderLabel: Järjestys
-  SearchForm:
-    GO: Suorita
-    SEARCH: Haku
-    SearchResults: Hakutulokset
-  SiteTree:
-    PLURALNAME: Sivut
-    SINGULARNAME: Sivu
-  SiteTreeFileExtension:
-    BACKLINK_LIST_DESCRIPTION: 'Tämä listaus näyttää kaikki sivut, joissa tiedosto on lisätty WYSIWYG-editorin avulla.'
-    EDIT: Muokkaa
-  SitemapPage:
+  CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 'Listaa sivuston kaikki sivut'
     PLURALNAME: Sivukarttasivut
     SINGULARNAME: Sivukarttasivu
+  CWP\CWP\Search\CwpSearchPage:
+    DESCRIPTION: 'Yleinen sisältösivu'
+    PLURALNAME: Pohjasivut
+    SINGULARNAME: CWP-hakusivu
