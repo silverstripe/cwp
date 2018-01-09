@@ -148,6 +148,7 @@ If you decide to include private modules in your website project (also your own 
 will need a permission to access them. If you already have your repository associated with the stack you will be
 deploying to, the only thing you need to do is to enable the project key on the module as shown on the image below. The
 key is named after your stack identifier.
+![Gitlab - private repository deploy access](/_images/gitlab-private-repository-deploy-access.png)
 
 <div class="notice" markdown='1'>
 You will only see the deployment key if you are the owner of the repository. See [deploying code](deploying-code) for
