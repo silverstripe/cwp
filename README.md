@@ -17,3 +17,25 @@ Install using Composer:
 ```
 composer require cwp/cwp 2.x-dev
 ```
+
+## Bugtracker
+
+Bugs are tracked on [github.com](https://github.com/silverstripe/cwp/issues). Please read our
+[issue reporting guidelines](https://docs.silverstripe.org/en/contributing/issues_and_bugs/).
+
+## Contributing
+
+If you would like to make changes to the SilverStripe core codebase, extra modules or the CWP core codebase, we have
+an extensive [guide to contributing code](https://docs.silverstripe.org/en/contributing/code).
+
+### Translations
+
+Translations of the natural language strings are managed through a third party translation interface, transifex.com.
+Newly added strings will be periodically uploaded there for translation, and any new translations will be merged
+back to the project source code.
+
+Please use https://www.transifex.com/silverstripe/silverstripe-cwp/ to contribute translations, rather than sending
+pull requests with YAML files.
+
+See the ["i18n" topic](https://docs.silverstripe.org/en/developer_guides/i18n/) on docs.silverstripe.org for more
+details.

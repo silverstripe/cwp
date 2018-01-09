@@ -1,4 +1,4 @@
-Copyright (c) 2017, SilverStripe Limited - www.silverstripe.com
+Copyright (c) 2018, SilverStripe Limited - www.silverstripe.com
 
 All rights reserved.
 
