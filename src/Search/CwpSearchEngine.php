@@ -74,9 +74,9 @@ class CwpSearchEngine
      */
     protected function getSearchOptions($spellcheck)
     {
-        $options = $this->config()->search_options;
+        $options = $this->config()->get('search_options');
         if ($spellcheck) {
-            $options = array_merge($options, $this->config()->spellcheck_options);
+            $options = array_merge($options, $this->config()->get('spellcheck_options'));
         }
         return $options;
     }
@@ -143,9 +143,9 @@ class CwpSearchEngine
             // Compare new results to the original query
             if ($newResult->hasResults()) {
                 return $newResult;
-            } else {
-                return $result;
             }
+
+            return $result;
         } catch (Exception $e) {
             Injector::inst()->get(LoggerInterface::class)->warning($e);
         }
