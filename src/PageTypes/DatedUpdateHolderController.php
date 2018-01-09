@@ -321,10 +321,10 @@ class DatedUpdateHolderController extends PageController
 
         $actions = FieldList::create(
             FormAction::create("doDateFilter")
-                ->setTitle(_t(__CLASS__ . '.Filter'))
+                ->setTitle(_t(__CLASS__ . '.Filter', 'Filter'))
                 ->addExtraClass('btn btn-primary primary'),
             FormAction::create("doDateReset")
-                ->setTitle(_t(__CLASS__ . '.Clear'))
+                ->setTitle(_t(__CLASS__ . '.Clear', 'Clear'))
                 ->addExtraClass('btn')
         );
 
