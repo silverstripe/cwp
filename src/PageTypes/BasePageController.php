@@ -300,32 +300,6 @@ class BasePageController extends ContentController
     }
 
     /**
-     * Provide scripts as needed by the *default* theme.
-     * Override this function if you are using a custom theme based on the *default*.
-     *
-     * @deprecated 1.6..2.0 Use "starter" theme instead
-     */
-    public function getBaseScripts()
-    {
-        $scripts = array();
-        $this->extend('updateBaseScripts', $scripts);
-        return $scripts;
-    }
-
-    /**
-     * Provide stylesheets, as needed by the *default* theme assumed by this recipe.
-     * Override this function if you are using a custom theme based on the *default*.
-     *
-     * @deprecated 1.6..2.0 Use "starter" theme instead
-     */
-    public function getBaseStyles()
-    {
-        $styles = array();
-        $this->extend('updateBaseStyles', $styles);
-        return $styles;
-    }
-
-    /**
      * Provide current year.
      */
     public function CurrentDatetime()
