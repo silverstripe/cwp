@@ -29,7 +29,7 @@ Please replace "my-project" below with the actual name of your project. One nami
 1. Change into your web server's document root: `cd /var/www/htdocs`
 2. Create new project using Composer by running the following command:
 
-	composer create-project cwp/cwp-installer my-project --repository-url="https://packages.cwp.govt.nz"
+	composer create-project cwp/cwp-installer my-project
 
 This may take some time to run as it is collecting and downloading all the code required to run a default SilverStripe CMS website on CWP (the `Recipe` code).
 3. If composer asks `Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]` then choose Y. This removes the existing cwp-installer history so you can turn this into your own project.
