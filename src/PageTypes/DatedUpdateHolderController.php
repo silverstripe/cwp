@@ -17,6 +17,7 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\FieldType\DBDatetime;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\ORM\PaginatedList;
+use SilverStripe\ORM\ValidationResult;
 use SilverStripe\Taxonomy\TaxonomyTerm;
 
 /**
@@ -43,6 +44,13 @@ class DatedUpdateHolderController extends PageController
         'MetaTitle' => 'Text',
         'FilterDescription' => 'Text',
     ];
+
+    /**
+     * The session key for storing temporary form messages
+     *
+     * @var string
+     */
+    const TEMP_FORM_MESSAGE = __CLASS__ . '.TempFormMessage';
 
     /**
      * Get the meta title for the current action
@@ -174,32 +182,27 @@ class DatedUpdateHolderController extends PageController
 
         // If only "To" has been provided filter by single date. Normalise by swapping with "From".
         if (isset($to) && !isset($from)) {
-            list($to, $from) = array($from, $to);
+            list($to, $from) = [$from, $to];
         }
 
         // Flip the dates if the order is wrong.
-        if (isset($to) && isset($from) && strtotime($from)>strtotime($to)) {
-            list($to, $from) = array($from, $to);
+        if (isset($to) && isset($from) && strtotime($from) > strtotime($to)) {
+            list($to, $from) = [$from, $to];
 
             if ($produceErrorMessages) {
-                // @todo replace
-//                Session::setFormMessage(
-//                    'Form_DateRangeForm',
-//                    _t('DateUpdateHolder.FilterAppliedMessage', 'Filter has been applied with the dates reversed.'),
-//                    'warning'
-//                );
+                $this->getRequest()->getSession()->set(self::TEMP_FORM_MESSAGE, _t(
+                    __CLASS__ . '.FilterAppliedMessage',
+                    'Filter has been applied with the dates reversed.'
+                ));
             }
         }
 
         // Notify the user that filtering by single date is taking place.
         if (isset($from) && !isset($to)) {
             if ($produceErrorMessages) {
-                // @todo replace
-//                Session::setFormMessage(
-//                    'Form_DateRangeForm',
-//                    _t('DateUpdateHolder.DateRangeFilterMessage', 'Filtered by a single date.'),
-//                    'warning'
-//                );
+                $this->getRequest()->getSession()->set(self::TEMP_FORM_MESSAGE, _t(
+                    __CLASS__ . '.DateRangeFilterMessage', 'Filtered by a single date.'
+                ));
             }
         }
 
@@ -332,10 +335,11 @@ class DatedUpdateHolderController extends PageController
         $form->loadDataFrom($this->request->getVars());
         $form->setFormMethod('get');
 
-        // Manually extract the message so we can clear it.
-        $form->ErrorMessage = $form->getMessage();
-        $form->ErrorMessageType = $form->getMessageType();
-        $form->clearMessage();
+        // Add any locally stored form messages before returning
+        if ($formMessage = $this->getRequest()->getSession()->get(self::TEMP_FORM_MESSAGE)) {
+            $form->setMessage($formMessage, ValidationResult::TYPE_WARNING);
+            $this->getRequest()->getSession()->clear(self::TEMP_FORM_MESSAGE);
+        }
 
         return $form;
     }

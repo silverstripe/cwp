@@ -23,10 +23,10 @@ class EventHolderController extends DatedUpdateHolderController
     {
         $params = $this->parseParams();
         if ($params['upcomingOnly']) {
-            return _t('CWP\\CWP\\PageTypes\\EventHolder.Upcoming', 'Upcoming events');
+            return _t(__CLASS__ . '.Upcoming', 'Upcoming events');
         }
 
-        return 'Events';
+        return _t(__CLASS__ . '.Events', 'Events');
     }
 
     /**
