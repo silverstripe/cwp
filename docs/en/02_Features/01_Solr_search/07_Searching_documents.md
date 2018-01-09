@@ -20,58 +20,55 @@ We recommend the use of the following available services:
 The CWP supported [text extraction module](https://github.com/silverstripe-labs/silverstripe-textextraction) is
 available to provide an interface to these services. In order to add this to a site include the following configuration:
 
-In composer.json
+In composer.json:
 
+```json
+"require": {
+    "silverstripe/textextraction": "^3"
+}
+```
 
-	"require": {
-		"silverstripe/textextraction": "~2.0.0@stable"
-	}
+In mysite/\_config/search.yml:
 
+```yaml
+---
+Name: mysearchconfig
+After: #cwpsearch
+---
+SilverStripe\Core\Injector\Injector:
+  CWP\CWP\Search\CwpSearchEngine.search_index:
+    class: MySolrSearchIndex
 
-In mysite/_config.php
+CWP\CWP\PageTypes\BasePageController:
+  classes_to_search:
+    - class: SilverStripe\Assets\File
+      includeSubclasses: true
+```
 
+In MySolrSearchIndex.php:
 
-	:::php
-	Page_Controller::$search_index_class = 'MySolrSearchIndex';
-	Page_Controller::$classes_to_search[] = array(
-		'class' => 'File',
-		'includeSubclasses' => true
-	);
+```php
+<?php
 
+use CWP\Core\Model\CwpSearchIndex;
+use SilverStripe\Assets\File;
+use SilverStripe\CMS\Model\SiteTree;
 
-In MySolrSearchIndex.php
+class MySolrSearchIndex extends CwpSearchIndex
+{
+    public function init()
+    {
+        $this->addClass(SiteTree::class);
+        $this->addClass(File::class);
+        $this->addAllFulltextFields();
+        $this->addFulltextField('FileContent');
+        $this->addFilterField('ShowInSearch');
+        parent::init();
+    }
+}
+```
 
-
-<div class="notice" markdown='1'>If using cwp recipe 1.1.1 or above</div>
-
-	:::php
-	<?php
-	class MySolrSearchIndex extends CwpSearchIndex {
-		public function init() {
-			$this->addClass('SiteTree');
-			$this->addClass('File');
-			$this->addAllFulltextFields();
-			$this->addFulltextField('FileContent');
-			$this->addFilterField('ShowInSearch');
-			parent::init();
-		}
-	}
-
-<div class="notice" markdown='1'>If using cwp recipe 1.1.0 or below [see the documentation archive](en/1.1/features/solr_search/#searching-within-documents-2)</div>
-
-	:::php
-	<?php
-	class MySolrSearchIndex extends SolrIndex {
-		public function init() {
-			$this->addClass('SiteTree');
-			$this->addClass('File');
-			$this->addAllFulltextFields();
-			$this->addFulltextField('FileContent');
-			$this->addFilterField('ShowInSearch');
-		}
-	}
-
-Ensure that your site's Solr index is configured by running `dev/tasks/Solr_configure` and `dev/tasks/Solr_reindex`
+Ensure that your site's Solr index is configured by running `dev/tasks/Solr_Configure` and `dev/tasks/Solr_Reindex`
 as above. Once indexing has completed, searching using the default search functionality should show all files
 with content matching the specified search term.
 
@@ -82,7 +79,7 @@ document indexing at various stack sizes.
 
 As a general rule, given that the 100kb limitation for each indexed document is in place, the various maximum
 number of documents that can be indexed are included in the "max pages in CMS" as per the 
-[stack sizes](https://www.cwp.govt.nz/about/selecting-the-right-instance-for-your-website/)
+[stack sizes](https://www.cwp.govt.nz/plans)
 guide. If the number of files and pages exceeds these limitations it is advisable not to include the File type
 in any Solr index.
 
@@ -98,8 +95,6 @@ If possible this step should be performed outside of normal busy periods.
 
 Running `dev/tasks/Solr_Reindex` will invoke the following steps, depending on your version of cwp recipe:
 
-### If you are on 1.1.1 or above
-
 * A single queuedjob will be added to the queue, and the `Solr_Reindex` task will immediately exit.
 If there are existing reindex jobs on the queue, these will be cancelled, and any in-progress tasks will
 be forced to exit.
@@ -110,17 +105,5 @@ itself and will appear in the job queue in the cms "jobs" section.
 * As each of these batch jobs is run, first obsolete records that exist in that batch will be cleared from the search
 index, after which these records will be reindexed. The batching process ensures that any removed records are also
 incrementally deleted from the index.
-* Once the queue is complete, all indexed files will be committed to the Solr service and search will be available
-again.
-
-### If you are on 1.1.0 or below:
-
-* All existing indexed documents will be cleared from search. These documents will not be searchable until
-indexing is complete, and thus any functional dependency on this function must be factored into your workflow.
-* All documents in the database will be added to a job queue. This task should only take a few minutes, but during
-this time a large amount of system memory will be allocated, and will affect the performance of the environment.
-* Once all documents are added to the queue, a background task will run and incrementally add each document to the
-Solr service backend. During this time fewer resources are reserved, the environment will be able to respond
-normally to requests. 
 * Once the queue is complete, all indexed files will be committed to the Solr service and search will be available
 again.
