@@ -36,7 +36,7 @@ class BaseHomePage extends Page
 
     private static $table_name = 'BaseHomePage';
 
-    private static $db = array(
+    private static $db = [
         'FeatureOneTitle' => 'Varchar(255)',
         'FeatureOneCategory' => "Enum('bell,comments,film,flag,globe,group,list,phone,rss,time,user','comments')",
         'FeatureOneContent' => 'HTMLText',
@@ -45,17 +45,17 @@ class BaseHomePage extends Page
         'FeatureTwoCategory' => "Enum('bell,comments,film,flag,globe,group,list,phone,rss,time,user','comments')",
         'FeatureTwoContent' => 'HTMLText',
         'FeatureTwoButtonText' => 'Varchar(255)'
-    );
+    ];
 
-    private static $has_one = array(
+    private static $has_one = [
         'LearnMorePage' => SiteTree::class,
         'FeatureOneLink' => SiteTree::class,
-        'FeatureTwoLink' => SiteTree::class
-    );
+        'FeatureTwoLink' => SiteTree::class,
+    ];
 
-    private static $has_many = array(
-        'Quicklinks' => 'Quicklink.Parent'
-    );
+    private static $has_many = [
+        'Quicklinks' => Quicklink::class . '.Parent',
+    ];
 
     public function Quicklinks()
     {
