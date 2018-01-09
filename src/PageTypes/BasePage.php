@@ -4,7 +4,6 @@ namespace CWP\CWP\PageTypes;
 
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Director;
-use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
@@ -38,12 +37,18 @@ class BasePage extends SiteTree
      */
     private static $hide_ancestor = BasePage::class;
 
+    /**
+     * @config
+     * @var bool
+     */
     private static $pdf_export = false;
 
-    /*
-    *Domain to generate PDF's from, DOES not include protocol
-    *i.e. google.com not http://google.com
-    */
+    /**
+     * Domain to generate PDF's from, DOES not include protocol
+     * i.e. google.com not http://google.com
+     * @config
+     * @var string
+     */
     private static $pdf_base_url = "";
 
     /**
@@ -51,9 +56,18 @@ class BasePage extends SiteTree
      * where multiple versions of the binary are available to choose from. This
      * should be the full path to the binary (e.g. /usr/local/bin/wkhtmltopdf)
      * @see BasePage_Controller::generatePDF();
+     *
+     * @config
+     * @var string|null
      */
     private static $wkhtmltopdf_binary = null;
 
+    /**
+     * Where to store generated PDF files
+     *
+     * @config
+     * @var string
+     */
     private static $generated_pdf_path = 'assets/_generated_pdfs';
 
     private static $api_access = [
@@ -69,7 +83,11 @@ class BasePage extends SiteTree
 
     private static $table_name = 'BasePage';
 
-    public static $related_pages_title = 'Related pages';
+    /**
+     * @config
+     * @var string
+     */
+    private static $related_pages_title = 'Related pages';
 
     private static $many_many = [
         'Terms' => TaxonomyTerm::class,
@@ -99,7 +117,7 @@ class BasePage extends SiteTree
     {
         $baseName = sprintf('%s-%s', $this->URLSegment, $this->ID);
 
-        $folderPath = Config::inst()->get(BasePage::class, 'generated_pdf_path');
+        $folderPath = $this->config()->get('generated_pdf_path');
         if ($folderPath[0] != '/') {
             $folderPath = BASE_PATH . '/' . $folderPath;
         }
@@ -112,7 +130,7 @@ class BasePage extends SiteTree
      */
     public function PdfLink()
     {
-        if (!Config::inst()->get(BasePage::class, 'pdf_export')) {
+        if (!$this->config()->get('pdf_export')) {
             return false;
         }
 
@@ -131,7 +149,7 @@ class BasePage extends SiteTree
 
     public function RelatedPagesTitle()
     {
-        return $this->stat('related_pages_title');
+        return $this->config()->get('related_pages_title');
     }
 
     /**
@@ -164,20 +182,6 @@ class BasePage extends SiteTree
         }
 
         return true;
-    }
-
-    /**
-     * @deprecated 2.0.0 remove with other deprecations
-     * @todo Remove once CWP moves to 3.3 core (which includes this in SiteTree)
-     * @return self
-     */
-    public function doRestoreToStage()
-    {
-        $this->invokeWithExtensions('onBeforeRestoreToStage', $this);
-        $result = parent::doRestoreToStage();
-        $this->invokeWithExtensions('onAfterRestoreToStage', $this);
-
-        return $result;
     }
 
     public function getCMSFields()

@@ -4,8 +4,6 @@ namespace CWP\CWP\PageTypes;
 
 use PageController;
 use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\Control\HTTPRequest;
-use SilverStripe\Dev\Deprecation;
 
 class SitemapPageController extends PageController
 {
@@ -16,15 +14,6 @@ class SitemapPageController extends PageController
     private static $url_handlers = [
         'page/$ID' => 'showpage',
     ];
-
-    public function Page($link)
-    {
-        if ($link instanceof HTTPRequest) {
-            Deprecation::notice('2.0', 'Using page() as a url handler is deprecated. Use showpage() action instead');
-            return $this->showpage($link);
-        }
-        return parent::Page($link);
-    }
 
     public function showpage($request)
     {
