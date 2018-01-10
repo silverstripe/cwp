@@ -86,8 +86,8 @@ After: #cwpsearch
 SilverStripe\Core\Injector\Injector:
   CWP\Search\CwpSearchEngine.search_index:
     class: MySolrSearchIndex
-# @todo move this to an extension
-CWP\CWP\PageTypes\BasePageController:
+
+CWP\Search\Extensions\SearchControllerExtension:
   classes_to_search:
     - class: StaffMember
 ```
