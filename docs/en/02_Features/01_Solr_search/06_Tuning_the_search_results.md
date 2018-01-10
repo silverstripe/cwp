@@ -15,6 +15,8 @@ for these terms will be displayed instead.
 
 In order to disable this automatic failover you can control this behaviour via config.
 
+@todo move this to a new extension
+
 ```php
 CWP\CWP\PageTypes\BasePageController:
   search_follow_suggestions: false
@@ -43,7 +45,7 @@ suggestions to specifically named fields. In which case, you can control which f
 `_spellcheckText` field using the following code.
 
 ```php
-use CWP\Core\Model\CwpSearchIndex;
+use CWP\Search\CwpSearchIndex;
 use SilverStripe\CMS\Model\SiteTree;
 
 class MyIndex extends CwpSearchIndex
@@ -91,7 +93,7 @@ by adding the `SynonymsSiteConfig` extension.
 ```yaml
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
-    - CWP\CWP\Extensions\SynonymsSiteConfig
+    - CWP\Search\Extensions\SynonymsSiteConfig
 ```
 
 It is also necessary to ensure that any solr index configured either extends the base `CwpSolrIndex`
@@ -157,14 +159,14 @@ In order to add this functionality to pages you can use the `CwpSearchBoostExten
 SilverStripe\CMS\Model\SiteTree:
   search_boost: 1.5
   extensions:
-    - CWP\CWP\Extensions\CwpSearchBoostExtension
+    - CWP\Search\Extensions\CwpSearchBoostExtension
 ```
 
 Ensure that you are using either the default CwpSolrIndex, or are extending `CwpSearchIndex` and are calling
 `parent::init()` after your custom field definitions.
 
 ```php
-use CWP\Core\Model\CwpSearchIndex;
+use CWP\Search\CwpSearchIndex;
 use PortfolioItem;
 use SilverStripe\CMS\Model\SiteTree;
 

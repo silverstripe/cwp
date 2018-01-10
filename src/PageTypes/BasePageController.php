@@ -2,7 +2,7 @@
 
 namespace CWP\CWP\PageTypes;
 
-use CWP\CWP\Search\CwpSearchEngine;
+use CWP\Search\CwpSearchEngine;
 use Page;
 use SilverStripe\Assets\Filesystem;
 use SilverStripe\CMS\Controllers\ContentController;

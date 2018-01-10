@@ -1,7 +1,0 @@
----
-Name: cwproutes
-After: 'rootroutes'
----
-SilverStripe\Control\Director:
-  rules:
-    search: CWP\CWP\Search\CwpSearchPageController

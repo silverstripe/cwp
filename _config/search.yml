@@ -1,7 +1,0 @@
----
-Name: cwpsearch
----
-SilverStripe\Core\Injector\Injector:
-  # The default CWP search index. Can be overridden in user configuration.
-  CWP\CWP\Search\CwpSearchEngine.search_index:
-    class: CWP\Core\Model\CwpSolrIndex

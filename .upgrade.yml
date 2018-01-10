@@ -1,13 +1,10 @@
 mappings:
   CwpCommentingExtension: CWP\CWP\Extensions\CwpCommentingExtension
   CwpSiteTreeFileExtension: CWP\CWP\Extensions\CwpSiteTreeFileExtension
-  SynonymsSiteConfig: CWP\CWP\Extensions\SynonymsSiteConfig
   TaxonomyTermExtension: CWP\CWP\Extensions\TaxonomyTermExtension
   CwpSiteTreeExtension: CWP\CWP\Extensions\CwpSiteTreeExtension
-  SynonymValidator: CWP\CWP\Extensions\SynonymValidator
   CustomSiteConfig: CWP\CWP\Extensions\CustomSiteConfig
   CwpWorkflowDefinitionExtension: CWP\CWP\Extensions\CwpWorkflowDefinitionExtension
-  CwpSearchBoostExtension: CWP\CWP\Extensions\CwpSearchBoostExtension
   Quicklink: CWP\CWP\Model\Quicklink
   EventPage: CWP\CWP\PageTypes\EventPage
   EventPage_Controller: CWP\CWP\PageTypes\EventPageController
@@ -26,15 +23,10 @@ mappings:
   BaseHomePage: CWP\CWP\PageTypes\BaseHomePage
   BaseHomePage_Controller: CWP\CWP\PageTypes\BaseHomePageController
   NewsPage: CWP\CWP\PageTypes\NewsPage
-  CwpSearchEngine: CWP\CWP\Search\CwpSearchEngine
-  CwpSearchResult: CWP\CWP\Search\CwpSearchResult
-  CwpSearchPage: CWP\CWP\Search\CwpSearchPage
-  CwpSearchPage_Controller: CWP\CWP\Search\CwpSearchPageController
   CleanupGeneratedPdfBuildTask: CWP\CWP\Tasks\CleanupGeneratedPdfBuildTask
   CleanupGeneratedPdfDailyTask: CWP\CWP\Tasks\CleanupGeneratedPdfDailyTask
   PopulateThemeSampleDataTask: CWP\CWP\Tasks\PopulateThemeSampleDataTask
   WorkflowDefinitionExtensionTest: CWP\CWP\Tests\Extensions\WorkflowDefinitionExtensionTest
-  SynonymValidatorTest: CWP\CWP\Tests\Extensions\SynonymValidatorTest
   EventHolderTest: CWP\CWP\Tests\PageTypes\EventHolderTest
   SitemapPageTest: CWP\CWP\Tests\PageTypes\SitemapPageTest
   BasePageTest: CWP\CWP\Tests\PageTypes\BasePageTest
