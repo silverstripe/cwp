@@ -47,24 +47,34 @@ There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf
 
 * [Download wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/downloads/list) for your system type:
 
-	wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.9.9-static-amd64.tar.bz2
+  ```
+  wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.9.9-static-amd64.tar.bz2
+  ```
 
 * Install it into `/usr/local/bin` so that it can be accessed on the path:
 
-	tar -jxvf wkhtmltopdf-0.9.9-static-amd64.tar.bz2
-	mv wkhtmltopdf-amd64 /usr/local/bin/wkhtmltopdf
+  ```
+  tar -jxvf wkhtmltopdf-0.9.9-static-amd64.tar.bz2
+  mv wkhtmltopdf-amd64 /usr/local/bin/wkhtmltopdf
+  ```
 
 * Test it works:
 
-	wkhtmltopdf -V
+  ```
+  wkhtmltopdf -V
+  ```
 
 * Update your `_ss_environment.php` file to point your site to the binary:
 
-	define('WKHTMLTOPDF_BINARY', '/usr/local/bin/wkhtmltopdf');
+  ```
+  define('WKHTMLTOPDF_BINARY', '/usr/local/bin/wkhtmltopdf');
+  ```
 
 * Install extra Microsoft fonts, such as Arial:
 
-	apt-get install ttf-mscorefonts-installer ttf-liberation
+  ```
+  apt-get install ttf-mscorefonts-installer ttf-liberation
+  ```
 
 If you're on Debian "squeeze" you might need to add `contrib` to the `squeeze` sources in `/etc/apt/sources.list` if
 the above command cannot find `ttf-mscorefonts-installer`.
@@ -79,9 +89,10 @@ Export to PDF functionality is disabled by default. You need to add a line of co
 
 In your `mysite/_config/config.yml` file, add the following:
 
-	:::yml
-	BasePage:
-	  pdf_export: 1
+```yaml
+CWP\CWP\PageTypes\BasePage:
+  pdf_export: 1
+```
 
 Note the yml files do not accept tabs, only spaces. You'll also have to call `flush=1` to have the new YML configuration
 take effect.
@@ -91,14 +102,15 @@ Note that a default "Export PDF" link is provided near the "Print" link at the b
 
 From recipe 1.4.1 onwards, if you would like to generate the PDF using a specific domain, you can set this in `mysite/_config/config.yml`. Please see the following example for how to do this, you can not add a protocol or any trailing slashes, for example, http://google.com/ will not work but google.com will.
 
-    :::yml
-    BasePage:
-      pdf_export: 1
-      pdf_base_url: 'example.com'
+```yaml
+CWP\CWP\PageTypes\BasePage:
+  pdf_export: 1
+  pdf_base_url: 'example.com'
+```
 
 ## Overriding the template for PDFs
 
-`BasePage_Controller` has an action called `downloadpdf()` which is called when you need to generate or send an existing
+`BasePageController` has an action called `downloadpdf()` which is called when you need to generate or send an existing
 generated PDF to the browser. `$PdfLink` is the template variable which uses this to send the PDF to the user's browser.
 
 By default, the PDF is rendered by the standard SilverStripe template system and templates are chosen in the same way
@@ -124,23 +136,24 @@ this updated version, you must define the binary to use.
 
 Since CWP Recipe release 1.0.4, the only configuration that is needed is an addition to your YAML configuration:
 
-	:::yml
-	BasePage:
-	  wkhtmltopdf_binary: '/usr/local/bin/wkhtmltopdf_12'
+```yaml
+CWP\CWP\PageTypes\BasePage:
+  wkhtmltopdf_binary: '/usr/local/bin/wkhtmltopdf_12'
+```
 
 However, if you are using an older version of the CWP recipe release, or not using the CWP recipe, then you can override
 the `generatePDF()` method similar to
-[this commit](https://gitlab.cwp.govt.nz/cwp/cwp/commit/21201d0b477430a6867e4307bab12c3e94e1c26b).
+[this commit](https://github.com/silverstripe/cwp/commit/21201d0b477430a6867e4307bab12c3e94e1c26b).
 
 ## Customising parameters to wkhtmltopdf
 
 Sometimes you'll need to override the default parameters to `wkhtmltopdf` to customise the PDF export, such as change
 the way the table of contents will display.
 
-`BasePage_Controller` contains a method called `generatePDF()` is responsible for exporting the currently viewed page
+`BasePageController` contains a method called `generatePDF()` is responsible for exporting the currently viewed page
 into an HTML file, then passing it along to the `wkhtmltopdf` binary for conversion into a PDF file.
 
-You can overload `generatePDF()` into your `Page_Controller` class (in `Page.php`) by copying the method across and
+You can overload `generatePDF()` into your `PageController` class (in `PageController.php`) by copying the method across and
 changing the code to suit. The newly overloaded method will be used instead of the one provided out of the box in
 `BasePage.php`
 
@@ -149,7 +162,19 @@ is available describing the different parameters you can use with `wkhtmltopdf`.
 
 ## Clean up tasks
 
-If you require the generated PDFs to be cleaned up on a regular basis, please contact support to set up `CleanupGeneratedPdfBuildTask` as a cron task.
+If you require the generated PDFs to be cleaned up on a regular basis, you can use the `CleanupGeneratedPdfDailyTask`
+scheduled task (requires the [crontask module](https://github.com/silverstripe/silverstripe-crontask)), which will
+run by default at midnight every night.
+
+The task is disabled by default, so you will need to enable it with YAML configuration. You can also change the
+schedule that the task will run on (default is every night at midnight):
+
+```yaml
+# Example: run the task at 4am every Sunday morning
+CWP\CWP\Tasks\CleanupGeneratedPdfDailyTask:
+  enabled: true
+  schedule: '0 4 * * 7'
+```
 
 This task can be run from the browser on demand by accessing `dev/tasks/CleanupGeneratedPdfBuildTask`.
 One example of where this is useful might be directly after deploying new templates to the site, so the cached

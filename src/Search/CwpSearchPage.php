@@ -13,6 +13,8 @@ class CwpSearchPage extends Page
 {
     private static $hide_ancestor = CwpSearchPage::class;
 
+    private static $table_name = 'CwpSearchPage';
+
     public function canViewStage($stage = Versioned::LIVE, $member = null)
     {
         if (Permission::checkMember($member, 'VIEW_DRAFT_CONTENT')) {
