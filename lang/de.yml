@@ -41,6 +41,3 @@ de:
   CWP\CWP\PageTypes\EventPage:
     PLURALNAME: Ereignisseiten
     SINGULARNAME: Ereignisseite
-  CWP\CWP\Search\CwpSearchPage:
-    DESCRIPTION: 'Allgemeine Inhaltsseite'
-    PLURALNAME: 'Basis Seiten'

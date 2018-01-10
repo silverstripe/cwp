@@ -12,16 +12,9 @@ ru:
     EMAIL_TITLE: Email
     WEBSITE_TITLE: 'Ваш сайт (опционально)'
     WILL_NOT_BE_PUBLISHED: 'Не будет опубликовано.'
-  CWP\CWP\Extensions\CwpSearchBoostExtension:
-    PAGEINFO: 'Информация о странице и SEO'
-    SearchBoostDescription: 'Введите ключевые слова через запятую ( , ). Это необходимо для улучшения позиций этой страницы в результатах поиска по сайту.'
-    SearchBoostNote: '(Применяется исключительно для поиска внутри сайта, не Google и пр.)'
   CWP\CWP\Extensions\CwpSiteTreeExtension:
     SHOW_PAGE_UTILITIES: 'Показать утилиты?'
     SHOW_PAGE_UTILITIES_HELP: 'Вы можете отключить функционал для этой страницы (распечатать, поделиться, и пр.)'
-  CWP\CWP\Extensions\SynonymsSiteConfig:
-    SearchSynonyms: 'Поиск синонимов'
-    SearchSynonyms_Description: 'Вводите синонимы через запятую, каждая группа синонимов с новой строки.<br /> Для применения изменений запустите <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a>'
   CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 'Внешняя ссылка'
     InternalLinkLabel: 'Внутренняя ссылка'
@@ -76,7 +69,3 @@ ru:
     DESCRIPTION: 'Отобразить все страницы этого сайта'
     PLURALNAME: 'Страницы карты сайта'
     SINGULARNAME: 'Страница карты сайта'
-  CWP\CWP\Search\CwpSearchPage:
-    DESCRIPTION: 'Обычная страница'
-    PLURALNAME: 'Базовые страницы'
-    SINGULARNAME: 'Страница поиска Cwp'

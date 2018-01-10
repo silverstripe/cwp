@@ -8,13 +8,6 @@ fi:
     SocialMediaTab: 'Sosiaalinen media'
     TwitterField: Twitter-käyttäjänimi
     TwitterFieldDesc: 'Twitter-käyttäjänimi (esim, http://twitter.com/<strong>käyttäjänimi</strong>)'
-  CWP\CWP\Extensions\CwpSearchBoostExtension:
-    PAGEINFO: 'Sivun tiedot ja hakukoneoptimointi'
-    SearchBoost: 'Painota avainsanoja'
-    SearchBoostDescription: 'Syötä pilkulla ( , ) erotettuna avainsanat joilla haluat nostaa tämän sivun sijoitusta sivuston sisäisen haun tuloksissa.'
-    SearchBoostNote: '(Vaikuttaa vain sivuston sisäiseen hakuun, ei esim. Googlen hakutuloksiin)'
-  CWP\CWP\Extensions\SynonymsSiteConfig:
-    SearchSynonyms: 'Haun synonyymit'
   CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 'Ulkoinen linkki'
     InternalLinkLabel: 'Sisäinen linkki'
@@ -76,7 +69,3 @@ fi:
     DESCRIPTION: 'Listaa sivuston kaikki sivut'
     PLURALNAME: Sivukarttasivut
     SINGULARNAME: Sivukarttasivu
-  CWP\CWP\Search\CwpSearchPage:
-    DESCRIPTION: 'Yleinen sisältösivu'
-    PLURALNAME: Pohjasivut
-    SINGULARNAME: CWP-hakusivu

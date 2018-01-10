@@ -77,15 +77,3 @@ ar:
   CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 'يقوم بعمل قوائم لجميع الصفحات فى الموقع'
     SINGULARNAME: 'صفحة خريطة الموقع'
-  SilverStripe\CMS\Model\SiteTree:
-    FeatureOne: 'الميزة رقم واحد'
-    FeatureTwo: 'تتميز باثنان'
-    PLURALNAME: صفحات
-    SINGULARNAME: صفحة
-  SilverStripe\CMS\Search\SearchForm:
-    GO: اذهب
-    SEARCH: ابحث
-    SearchResults: 'نتائج البحث'
-  SilverStripe\Forms\GridField\GridField:
-    Archived: 'مخزنة فى أرشيفات'
-    Live: مباشر

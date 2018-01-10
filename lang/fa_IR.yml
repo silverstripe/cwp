@@ -15,6 +15,3 @@ fa_IR:
   CWP\CWP\PageTypes\DatedUpdatePage:
     DESCRIPTION: 'صفحه محتوای عمومی'
     DateLabel: تاریخ
-  CWP\CWP\Search\CwpSearchPage:
-    DESCRIPTION: 'صفحه محتوای عمومی'
-    PLURALNAME: 'صفحه اصلی'

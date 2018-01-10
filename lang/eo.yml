@@ -12,16 +12,6 @@ eo:
     EMAIL_TITLE: Retpoŝto
     WEBSITE_TITLE: 'Via retejo (malnepra)'
     WILL_NOT_BE_PUBLISHED: 'Ne publikiĝos.'
-  CWP\CWP\Extensions\CwpSearchBoostExtension:
-    PAGEINFO: 'Paĝa informo kaj SEO'
-    SearchBoost: 'Plialtigotaj  ŝlosilvortoj'
-    SearchBoostDescription: 'Enigu la ŝlosilvortojn disigitaj per komo ( , ) por kiu plialtigi la rangon de ĉi tiu paĝo en la serĉaj rezultoj en ĉi tiu retejo.'
-    SearchBoostNote: '(Aplikiĝas nur al la serĉaj rezultoj en ĉi tiu retejo, ekzemple ne en Google-serĉo)'
-  CWP\CWP\Extensions\SynonymValidator:
-    InvalidValue: 'Sinonimoj ne povas enhavi vortojn disigitajn per spacetoj'
-  CWP\CWP\Extensions\SynonymsSiteConfig:
-    SearchSynonyms: 'Serĉi sinonimojn'
-    SearchSynonyms_Description: 'Enigu tiom da komodisigitaj sinonimoj kiel bezonate, kie ĉiu linio prezentas grupon de sinonimoj.<br /> Necesos ke vi rulu je <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a> se vi ŝanĝos ion'
   CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 'Ekstera ligilo'
     InternalLinkLabel: 'Interna ligilo'
@@ -110,7 +100,3 @@ eo:
     DESCRIPTION: 'Listigas ĉiujn paĝojn en la retejo'
     PLURALNAME: 'Paĝo de paĝarmapo'
     SINGULARNAME: 'Paĝo de paĝarmapo'
-  CWP\CWP\Search\CwpSearchPage:
-    DESCRIPTION: 'Komuna enhavpaĝo'
-    PLURALNAME: 'Bazaj paĝoj'
-    SINGULARNAME: 'Cwp-serĉa paĝo'
