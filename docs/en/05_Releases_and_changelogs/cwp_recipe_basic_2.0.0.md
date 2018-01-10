@@ -17,5 +17,11 @@ For a full overview of the SilverStripe 4 changes, see [the 4.0.0 changelog](htt
   * `BasePage::getBaseScripts`: use the starter theme instead.
   * `SitemapPageController::Page`: use the `showpage()` action instead.
   * `CwpSolr::options_from_environment`: use the implicit Solr configuration provided by the CwpSolr class in the cwp-core module.
+* Public search related properties in `BasePageController` have been converted to configuration options:
+  * `$results_per_page`
+  * `$classes_to_search`
+  * `$search_index_class` removed, use `Injector::inst()->get(\CWP\CWP\Search\CwpSearchEngine::class . '.search_index')` instead.
+
+For a detailed list of changes, see the full changelog below.
 
 <!--- Changes below this line will be automatically regenerated -->

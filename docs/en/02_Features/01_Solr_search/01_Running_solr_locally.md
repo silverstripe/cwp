@@ -35,18 +35,24 @@ If you have configured your project as described in the Configuration section of
 To start the local server instance (if you are using the *silverstripe/fulltextsearch-localsolr* package), from your
 website root do:
 
-	$ cd fulltextsearch-localsolr
-	$ ./start.sh
+```
+cd fulltextsearch-localsolr
+./start.sh
+```
 
 The screen should start filling with server messages.
 
 Now you can create the configuration files in another terminal. Run the following from your website root:
 
-	$ framework/sake dev/tasks/Solr_Configure "verbose=1"
+```
+$ vendor/bin/sake dev/tasks/Solr_Configure verbose=1
+```
 
 And finally, reindex the pages on your website (this could take some time):
 
-	$ framework/sake dev/tasks/Solr_Reindex "verbose=1"
+```
+vendor/bin/sake dev/tasks/Solr_Reindex verbose=1
+```
 
 You should be able to search your site now.
 
@@ -58,11 +64,11 @@ There you can search the contents of the index via the native SOLR web interface
 
 It is possible to manually replicate the data automatically sent 
 to Solr when saving/publishing in SilverStripe, 
-which is useful when debugging front-end queries, 
-see `thirdparty/fulltextsearch/server/silverstripe-solr-test.xml`.
+which is useful when debugging front-end queries.
 
-
-	java -Durl=http://localhost:8983/solr/MyIndex/update/ -Dtype=text/xml -jar post.jar silverstripe-solr-test.xml
+```
+java -Durl=http://localhost:8983/solr/MyIndex/update/ -Dtype=text/xml -jar post.jar silverstripe-solr-test.xml
+```
 
 ## Considerations
 

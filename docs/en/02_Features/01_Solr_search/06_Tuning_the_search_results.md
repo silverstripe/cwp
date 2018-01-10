@@ -15,11 +15,10 @@ for these terms will be displayed instead.
 
 In order to disable this automatic failover you can control this behaviour via config.
 
-
-	:::yaml
-	BasePage_Controller:
-	  search_follow_suggestions: false
-
+```php
+CWP\CWP\PageTypes\BasePageController:
+  search_follow_suggestions: false
+```
 
 Disabling this will not prevent misspellings from being detected and displayed, but 
 a prompt will be displayed rather than automatically performing the search.
@@ -43,34 +42,39 @@ for use with spelling suggestions. In some cases it may be necessary to limit th
 suggestions to specifically named fields. In which case, you can control which fields are copied into this
 `_spellcheckText` field using the following code.
 
+```php
+use CWP\Core\Model\CwpSearchIndex;
+use SilverStripe\CMS\Model\SiteTree;
 
-	:::php
-	class MyIndex extends CwpSearchIndex {
+class MyIndex extends CwpSearchIndex
+{
+    public function init()
+    {
+        // Copy all fields (as before) into `_text` for generating results
+        $this->addClass(SiteTree::class);
+        $this->addAllFulltextFields();
+        $this->addFilterField('ShowInSearch');
 
-		public function init() {
-			// Copy all fields (as before) into `_text` for generating results
-			$this->addClass('SiteTree');
-			$this->addAllFulltextFields();
-			$this->addFilterField('ShowInSearch');
+        // Explicitly copy only these fields into the _spellcheckText for spelling suggestions
+        $this->addCopyField(SiteTree::class . '_Title', '_spellcheckText');
+        $this->addCopyField(SiteTree::class . '_Content', '_spellcheckText');
 
-			// Explicitly copy only these fields into the _spellcheckText for spelling suggestions
-			$this->addCopyField('SiteTree_Title', '_spellcheckText');
-			$this->addCopyField('SiteTree_Content', '_spellcheckText');
+        parent::init();
+    }
 
-			parent::init();
-		}
-
-		
-		/**
-		 * Limit default destination to the `_text` field
-		 * @return array
-		 */
-		protected function getCopyDestinations() {
-			return array($this->getDefaultField());
-		}
-
-	}
-
+    
+    /**
+     * Limit default destination to the `_text` field
+     * @return array
+     */
+    protected function getCopyDestinations()
+    {
+        return [
+            $this->getDefaultField(),
+        ];
+    }
+}
+```
 
 ### Search term synonyms
 
@@ -84,41 +88,44 @@ for search queries for "cellphone" to match "mobile" or "cellular".
 The ability to configure this is not automatically enabled by default, but can be enabled
 by adding the `SynonymsSiteConfig` extension.
 
-
-	:::yaml
-	SiteConfig:
-	  extensions:
-	    - SynonymsSiteConfig
-
+```yaml
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - CWP\CWP\Extensions\SynonymsSiteConfig
+```
 
 It is also necessary to ensure that any solr index configured either extends the base `CwpSolrIndex`
 class, or includes the following code (as copied from the basic recipe) to override the 
 `SolrIndex::uploadConfig` method.
 
+```php
+use SilverStripe\FullTextSearch\Solr\SolrIndex;
+use SilverStripe\FullTextSearch\Solr\Stores\SolrConfigStore;
+use SilverStripe\SiteConfig\SiteConfig;
 
-	:::php
-	class MyIndex extends SolrIndex {
+class MyIndex extends SolrIndex
+{
+    /**
+     * Upload config for this index to the given store
+     * 
+     * @param SolrConfigStore $store
+     */
+    public function uploadConfig($store)
+    {
+        parent::uploadConfig($store);
 
-		/**
-		 * Upload config for this index to the given store
-		 * 
-		 * @param SolrConfigStore $store
-		 */
-		public function uploadConfig($store) {
-			parent::uploadConfig($store);
-
-			// Upload configured synonyms {@see SynonymsSiteConfig}
-			$siteConfig = SiteConfig::current_site_config();
-			if($siteConfig->SearchSynonyms) {
-				$store->uploadString(
-					$this->getIndexName(),
-					'synonyms.txt',
-					$siteConfig->SearchSynonyms
-				);
-			}
-		}
-
-	}
+        // Upload configured synonyms {@see SynonymsSiteConfig}
+        $siteConfig = SiteConfig::current_site_config();
+        if ($siteConfig->SearchSynonyms) {
+            $store->uploadString(
+                $this->getIndexName(),
+                'synonyms.txt',
+                $siteConfig->SearchSynonyms
+            );
+        }
+    }
+}
+```
 
 
 Once this is enabled, the Settings section of the CMS will have a tab called "Fulltext Search"
@@ -132,7 +139,7 @@ for more information on this format.
 Note that only admin users (who are those with privileges necessary to run the `Solr_Configure` task)
 will be able to view and edit this field.
 
-![Synonyms](/_images/synonyms.png)
+![Synonyms](../../_images/synonyms.png)
 
 It's essential that after changing this value, a CMS administrator should run the `Solr_Configure`
 task at http://mysite.cwp.govt.nz/div/tasks/Solr_Configure. It's not necessary to run
@@ -146,33 +153,35 @@ promote certain keywords on a per document basis.
 In order to add this functionality to pages you can use the `CwpSearchBoostExtension` in your config. The default
 `search_boost` option can also be customised from the default 2.
 
+```yaml
+SilverStripe\CMS\Model\SiteTree:
+  search_boost: 1.5
+  extensions:
+    - CWP\CWP\Extensions\CwpSearchBoostExtension
+```
 
-	SiteTree:
-	  search_boost: 1.5
-	  extensions:
-		- CwpSearchBoostExtension
-
-
-Ensure that you are using either the default CwpSolrIndex, or are extending CwpSearchIndex and are calling
+Ensure that you are using either the default CwpSolrIndex, or are extending `CwpSearchIndex` and are calling
 `parent::init()` after your custom field definitions.
 
+```php
+use CWP\Core\Model\CwpSearchIndex;
+use PortfolioItem;
+use SilverStripe\CMS\Model\SiteTree;
 
-	:::php
-	class MySolrSearchIndex extends CwpSearchIndex {
-		public function init() {
-			$this->addClass('SiteTree');
-			$this->addClass('PortfolioItem');
-			$this->addAllFulltextFields();
-			$this->addFilterField('ShowInSearch');
+class MySolrSearchIndex extends CwpSearchIndex
+{
+    public function init()
+    {
+        $this->addClass(SiteTree::class);
+        $this->addClass(PortfolioItem::class);
+        $this->addAllFulltextFields();
+        $this->addFilterField('ShowInSearch');
 
-			parent::init();
-		}
-	}
-
+        parent::init();
+    }
+}
+```
 
 Within the CMS, you can now provide a list of boost terms for each page.
 
-![boost cms](/_images/boost_fields.png)
-
-
-
+![boost cms](../../_images/boost_fields.png)

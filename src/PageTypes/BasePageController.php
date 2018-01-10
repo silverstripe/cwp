@@ -2,8 +2,6 @@
 
 namespace CWP\CWP\PageTypes;
 
-use CWP\Core\Model\CwpSearchIndex;
-use CWP\Core\Model\CwpSolrIndex;
 use CWP\CWP\Search\CwpSearchEngine;
 use Page;
 use SilverStripe\Assets\Filesystem;
@@ -31,11 +29,11 @@ class BasePageController extends ContentController
 
     /**
      * How many search results should be shown per-page?
+     *
+     * @config
      * @var int
      */
-    public static $results_per_page = 10;
-
-    public static $search_index_class = CwpSolrIndex::class;
+    private static $results_per_page = 10;
 
     /**
      * If spelling suggestions for searches are given, enable
@@ -48,9 +46,11 @@ class BasePageController extends ContentController
 
     /**
      * Which classes should be queried when searching?
+     *
+     * @config
      * @var array
      */
-    public static $classes_to_search = [
+    private static $classes_to_search = [
         [
             'class' => 'Page',
             'includeSubclasses' => true,
@@ -246,14 +246,14 @@ class BasePageController extends ContentController
         $start = isset($data['start']) ? $data['start'] : 0;
         $suggestions = isset($data['suggestions'])
             ? $data['suggestions']
-            : $this->config()->search_follow_suggestions;
+            : $this->config()->get('search_follow_suggestions');
 
         $results = CwpSearchEngine::create()
             ->search(
                 $keywords,
-                $this->getClassesToSearch(),
-                $this->getSearchIndex(),
-                $this->getSearchPageSize(),
+                $this->config()->get('classes_to_search'),
+                Injector::inst()->get(CwpSearchEngine::class . '.search_index'),
+                $this->config()->get('results_per_page'),
                 $start,
                 $suggestions
             );
@@ -309,43 +309,5 @@ class BasePageController extends ContentController
 
     public function getRSSLink()
     {
-    }
-
-    /**
-     * Get the search index registered for this application
-     *
-     * @return CwpSearchIndex
-     */
-    protected function getSearchIndex()
-    {
-        // Will be a service name in 2.0 and returned via injector
-        /** @var CwpSearchIndex $index */
-        $index = null;
-        if (self::$search_index_class) {
-            $index = Injector::inst()->get(self::$search_index_class);
-        }
-        return $index;
-    }
-
-    /**
-     * Gets the list of configured classes to search
-     *
-     * @return array
-     */
-    protected function getClassesToSearch()
-    {
-        // Will be private static config in 2.0
-        return self::$classes_to_search;
-    }
-
-    /**
-     * Get page size for search
-     *
-     * @return int
-     */
-    protected function getSearchPageSize()
-    {
-        // Will be private static config in 2.0
-        return self::$results_per_page;
     }
 }

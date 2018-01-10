@@ -4,6 +4,7 @@ namespace CWP\CWP\Search;
 
 use Exception;
 use Psr\Log\LoggerInterface;
+use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Core\Config\Configurable;
 use SilverStripe\Core\Extensible;
 use SilverStripe\Core\Injector\Injectable;
@@ -57,12 +58,15 @@ class CwpSearchEngine
         $query = new SearchQuery();
         $query->classes = $classes;
         $query->search($keywords);
-        $query->exclude('SiteTree_ShowInSearch', 0);
-        $query->exclude('File_ShowInSearch', 0);
+        $query->exclude(SiteTree::class . '_ShowInSearch', 0);
 
         // Artificially lower the amount of results to prevent too high resource usage.
         // on subsequent canView check loop.
         $query->limit(100);
+
+        // Allow user code to modify the search query before returning it
+        $this->extend('updateSearchQuery', $query);
+
         return $query;
     }
 
@@ -74,9 +78,9 @@ class CwpSearchEngine
      */
     protected function getSearchOptions($spellcheck)
     {
-        $options = $this->config()->search_options;
+        $options = $this->config()->get('search_options');
         if ($spellcheck) {
-            $options = array_merge($options, $this->config()->spellcheck_options);
+            $options = array_merge($options, $this->config()->get('spellcheck_options'));
         }
         return $options;
     }
@@ -143,9 +147,9 @@ class CwpSearchEngine
             // Compare new results to the original query
             if ($newResult->hasResults()) {
                 return $newResult;
-            } else {
-                return $result;
             }
+
+            return $result;
         } catch (Exception $e) {
             Injector::inst()->get(LoggerInterface::class)->warning($e);
         }
