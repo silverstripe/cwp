@@ -36,10 +36,10 @@ Name: mysearchconfig
 After: #cwpsearch
 ---
 SilverStripe\Core\Injector\Injector:
-  CWP\CWP\Search\CwpSearchEngine.search_index:
+  CWP\Search\CwpSearchEngine.search_index:
     class: MySolrSearchIndex
 
-CWP\CWP\PageTypes\BasePageController:
+CWP\Search\Extensions\SearchControllerExtension:
   classes_to_search:
     - class: SilverStripe\Assets\File
       includeSubclasses: true
@@ -50,7 +50,7 @@ In MySolrSearchIndex.php:
 ```php
 <?php
 
-use CWP\Core\Model\CwpSearchIndex;
+use CWP\Search\CwpSearchIndex;
 use SilverStripe\Assets\File;
 use SilverStripe\CMS\Model\SiteTree;
 

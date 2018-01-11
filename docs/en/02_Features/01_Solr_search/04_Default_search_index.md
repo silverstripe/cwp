@@ -7,7 +7,7 @@ By default, a standard search index `CwpSolrIndex` is included in the default re
 necessary for searching pages.
 
 ```php
-use CWP\Core\Model\CwpSearchIndex;
+use CWP\Search\CwpSearchIndex;
 use SilverStripe\CMS\Model\SiteTree;
 
 class CwpSolrIndex extends CwpSearchIndex

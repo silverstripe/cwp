@@ -5,7 +5,7 @@ summary: How to configure spelling suggestions, synonyms and keyword boosting to
 
 ## Before we begin
 
-**This feature requires cwp recipe 1.1.1 or above including the [cwp](https://gitlab.cwp.govt.nz/cwp/cwp), [cwp-core](https://gitlab.cwp.govt.nz/cwp/cwp-core) and [fulltextsearch](https://github.com/silverstripe-labs/silverstripe-fulltextsearch) modules specifically.**
+**This feature requires cwp recipe 1.1.1 or above including the [cwp](https://github.com/silverstripe/cwp), [cwp-core](https://github.com/silverstripe/cwp-core), [cwp/cwp-search](https://github.com/silverstripe/cwp-search) (for CWP 2.0 or higher) and [fulltextsearch](https://github.com/silverstripe/silverstripe-fulltextsearch) modules specifically.**
 
 ## Spelling corrections and suggestions
 
@@ -16,7 +16,7 @@ for these terms will be displayed instead.
 In order to disable this automatic failover you can control this behaviour via config.
 
 ```php
-CWP\CWP\PageTypes\BasePageController:
+CWP\Search\Extensions\SearchControllerExtension:
   search_follow_suggestions: false
 ```
 
@@ -43,7 +43,7 @@ suggestions to specifically named fields. In which case, you can control which f
 `_spellcheckText` field using the following code.
 
 ```php
-use CWP\Core\Model\CwpSearchIndex;
+use CWP\Search\CwpSearchIndex;
 use SilverStripe\CMS\Model\SiteTree;
 
 class MyIndex extends CwpSearchIndex
@@ -91,7 +91,7 @@ by adding the `SynonymsSiteConfig` extension.
 ```yaml
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
-    - CWP\CWP\Extensions\SynonymsSiteConfig
+    - CWP\Search\Extensions\SynonymsSiteConfig
 ```
 
 It is also necessary to ensure that any solr index configured either extends the base `CwpSolrIndex`
@@ -157,14 +157,14 @@ In order to add this functionality to pages you can use the `CwpSearchBoostExten
 SilverStripe\CMS\Model\SiteTree:
   search_boost: 1.5
   extensions:
-    - CWP\CWP\Extensions\CwpSearchBoostExtension
+    - CWP\Search\Extensions\CwpSearchBoostExtension
 ```
 
 Ensure that you are using either the default CwpSolrIndex, or are extending `CwpSearchIndex` and are calling
 `parent::init()` after your custom field definitions.
 
 ```php
-use CWP\Core\Model\CwpSearchIndex;
+use CWP\Search\CwpSearchIndex;
 use PortfolioItem;
 use SilverStripe\CMS\Model\SiteTree;
 

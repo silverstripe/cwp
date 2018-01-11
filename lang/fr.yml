@@ -1,17 +1,8 @@
 fr:
   CWP\CWP\PageTypes\BaseHomePage:
-    DESCRIPTION: 'Generic content page'
     Title: Titre
   CWP\CWP\PageTypes\BasePage:
     ColumnTitle: Titre
-    DESCRIPTION: 'Generic content page'
-    PLURALNAME: 'Base Pages'
     TagsTabTitle: Tags
-  CWP\CWP\PageTypes\DatedUpdateHolder:
-    DESCRIPTION: 'Generic content page'
   CWP\CWP\PageTypes\DatedUpdatePage:
     AuthorFieldLabel: Auteur
-    DESCRIPTION: 'Generic content page'
-  CWP\CWP\Search\CwpSearchPage:
-    DESCRIPTION: 'Generic content page'
-    PLURALNAME: 'Base Pages'

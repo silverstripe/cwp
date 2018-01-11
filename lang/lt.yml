@@ -12,6 +12,3 @@ lt:
     DESCRIPTION: 'Standartinio turinio puslapis'
   CWP\CWP\PageTypes\DatedUpdatePage:
     DESCRIPTION: 'Standartinio turinio puslapis'
-  CWP\CWP\Search\CwpSearchPage:
-    DESCRIPTION: 'Standartinio turinio puslapis'
-    PLURALNAME: 'Baziniai puslapiai'

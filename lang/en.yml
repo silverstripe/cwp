@@ -10,22 +10,12 @@ en:
   CWP\CWP\Extensions\CwpCommentingExtension:
     WEBSITE_TITLE: 'Your website (optional)'
     WILL_NOT_BE_PUBLISHED: 'Will not be published.'
-  CWP\CWP\Extensions\CwpSearchBoostExtension:
-    PAGEINFO: 'Page info and SEO'
-    SearchBoost: 'Boost Keywords'
-    SearchBoostDescription: 'Enter keywords separated by comma ( , ) for which to boost the ranking of this page within the search results on this site.'
-    SearchBoostNote: '(Only applies to the search results on this site e.g. not on Google search)'
   CWP\CWP\Extensions\CwpSiteTreeExtension:
     SHOW_PAGE_UTILITIES: 'Show page utilities?'
     SHOW_PAGE_UTILITIES_HELP: 'You can disable page utilities (print, share, etc) for this page'
   CWP\CWP\Extensions\CwpSiteTreeFileExtension:
     BACKLINK_LIST_DESCRIPTION: 'This list shows all pages where the file has been added through a WYSIWYG editor.'
     EDIT: Edit
-  CWP\CWP\Extensions\SynonymValidator:
-    InvalidValue: 'Synonyms cannot contain words separated by spaces'
-  CWP\CWP\Extensions\SynonymsSiteConfig:
-    SearchSynonyms: 'Search Synonyms'
-    SearchSynonyms_Description: 'Enter as many comma separated synonyms as you wish, where each line represents a group of synonyms.<br /> You will need to run <a rel="external" target="_blank" href="dev/tasks/Solr_Configure">Solr_Configure</a> if you make any changes'
   CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 'External Link'
     InternalLinkLabel: 'Internal Link'
@@ -144,9 +134,3 @@ en:
       one: 'A Sitemap Page'
       other: '{count} Sitemap Pages'
     SINGULARNAME: 'Sitemap Page'
-  CWP\CWP\Search\CwpSearchPage:
-    PLURALNAME: 'Cwp Search Pages'
-    PLURALS:
-      one: 'A Cwp Search Page'
-      other: '{count} Cwp Search Pages'
-    SINGULARNAME: 'Cwp Search Page'

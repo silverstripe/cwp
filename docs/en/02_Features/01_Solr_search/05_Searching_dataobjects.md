@@ -50,7 +50,7 @@ search result title.
 So with that, let's create a new class called `MySolrSearchIndex`:
 
 ```php
-use CWP\Core\Model\CwpSearchIndex;
+use CWP\Search\CwpSearchIndex;
 use SilverStripe\CMS\Model\SiteTree;
 use StaffMember;
 
@@ -84,10 +84,10 @@ Name: mysearchconfig
 After: #cwpsearch
 ---
 SilverStripe\Core\Injector\Injector:
-  CWP\CWP\Search\CwpSearchEngine.search_index:
+  CWP\Search\CwpSearchEngine.search_index:
     class: MySolrSearchIndex
 
-CWP\CWP\PageTypes\BasePageController:
+CWP\Search\Extensions\SearchControllerExtension:
   classes_to_search:
     - class: StaffMember
 ```

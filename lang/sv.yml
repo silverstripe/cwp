@@ -27,6 +27,3 @@ sv:
   CWP\CWP\PageTypes\DatedUpdatePage:
     AuthorFieldLabel: Författare
     DESCRIPTION: 'Generisk innehållssida'
-  CWP\CWP\Search\CwpSearchPage:
-    DESCRIPTION: 'Generisk innehållssida'
-    PLURALNAME: 'Bas sidor'

@@ -12,6 +12,3 @@ sk:
     DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
   CWP\CWP\PageTypes\DatedUpdatePage:
     DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
-  CWP\CWP\Search\CwpSearchPage:
-    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
-    PLURALNAME: 'Základné stránky'

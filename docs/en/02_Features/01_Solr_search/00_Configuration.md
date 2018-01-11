@@ -29,9 +29,9 @@ Solr on CWP is a shared service, and it comes with some limitations:
 
 ## Where are the CWP Solr related classes and configuration?
 
-### cwp-core module
+### cwp-search module
 
-The module source code is available at [https://github.com/silverstripe/cwp-core](https://github.com/silverstripe/cwp-core).
+The module source code is available at [https://github.com/silverstripe/cwp-search](https://github.com/silverstripe/cwp-search).
 
 This module sets up:
 
@@ -39,13 +39,6 @@ This module sets up:
  * The Solr environment configuration (host, port, path, version, indexstore etc.)
  * Uploads your application configuration to Solr running on CWP (apart from the solrconfig.xml file)
  * An extension to File class if document search has been enabled
-
-### cwp module
-
-The module source code is available at [https://github.com/silverstripe/cwp](https://github.com/silverstripe/cwp).
-
-This module sets up:
-
  * A search form and results page inherited by all other page types
  * Spelling and Synonyms (including setting synonym groups in SiteConfig)
  * Boosting keywords extension to pages
