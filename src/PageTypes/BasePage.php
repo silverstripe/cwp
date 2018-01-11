@@ -13,11 +13,11 @@ use SilverStripe\Forms\GridField\GridFieldDataColumns;
 use SilverStripe\Forms\GridField\GridFieldEditButton;
 use SilverStripe\Forms\GridField\GridFieldFilterHeader;
 use SilverStripe\Forms\TreeMultiselectField;
-use SilverStripe\i18n\i18n;
-use SilverStripe\ORM\ArrayList;
 use SilverStripe\Taxonomy\TaxonomyTerm;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\View\ArrayData;
+use TractorCow\Fluent\Model\Locale;
+use TractorCow\Fluent\State\FluentState;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 /**
@@ -249,81 +249,19 @@ class BasePage extends SiteTree
     }
 
     /**
-     * Provides data for translation navigation.
-     * Collects all site translations, marks the current one, and redirects
-     * to the translated home page if a. there is a translated homepage and b. the
-     * translation of the specific page is not available.
-     * @todo re-implement with Fluent
-     */
-    public function getAvailableTranslations()
-    {
-        if (!class_exists('Translatable')) {
-            return false;
-        }
-
-        $translations = new ArrayList();
-        $globalTranslations = Translatable::get_existing_content_languages();
-
-        foreach ($globalTranslations as $loc => $langName) {
-            // Find out the language name in native language.
-            $nativeLangName = i18n::get_language_name($loc, true);
-            if (!$nativeLangName) {
-                $nativeLangName = i18n::get_language_name(i18n::get_lang_from_locale($loc), true);
-            }
-            if (!$nativeLangName) {
-                // Fall back to the locale name.
-                $nativeLangName = $langName;
-            }
-
-            // Eliminate the part in brackets (e.g. [mandarin])
-            $nativeLangName = preg_replace('/ *[\(\[].*$/', '', $nativeLangName);
-
-            // Find out the link to the translated page.
-            $link = null;
-            $page = $this->getTranslation($loc);
-            if ($page) {
-                $link = $page->Link();
-            }
-            if (!$link) {
-                // Fall back to the home page
-                $link = Translatable::get_homepage_link_by_locale($loc);
-            }
-            if (!$link) {
-                continue;
-            }
-
-            // Assemble the table for the switcher.
-            $translations->push(new ArrayData(array(
-                'Locale' => i18n::convert_rfc1766($loc),
-                'LangName' => $nativeLangName,
-                'Link' => $link,
-                'Current' => (Translatable::get_current_locale()==$loc)
-            )));
-        }
-
-        if ($translations->count()>1) {
-            return $translations;
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * Returns the native language name for the selected locale/language, empty string if Translatable is not available
+     * Returns the native language name for the selected locale/language, empty string if Fluent is not available
      *
      * @return string
-     * @todo re-implement with Fluent
      */
     public function getSelectedLanguage()
     {
-        if (!class_exists('Translatable')) {
+        if (!class_exists(Locale::class) || !$this->hasMethod('Locales')) {
             return '';
         }
 
-        $language = explode('_', Translatable::get_current_locale());
-        $languageCode = array_shift($language);
-        $nativeName = i18n::get_language_name($languageCode, true);
+        /** @var ArrayData $information */
+        $information = $this->LocaleInformation(FluentState::singleton()->getLocale());
 
-        return $nativeName;
+        return $information->LanguageNative;
     }
 }
