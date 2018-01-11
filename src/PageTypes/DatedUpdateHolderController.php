@@ -201,7 +201,8 @@ class DatedUpdateHolderController extends PageController
         if (isset($from) && !isset($to)) {
             if ($produceErrorMessages) {
                 $this->getRequest()->getSession()->set(self::TEMP_FORM_MESSAGE, _t(
-                    __CLASS__ . '.DateRangeFilterMessage', 'Filtered by a single date.'
+                    __CLASS__ . '.DateRangeFilterMessage',
+                    'Filtered by a single date.'
                 ));
             }
         }
