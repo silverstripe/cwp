@@ -23,7 +23,7 @@ before_script:
 
   # Install composer dependencies
   - composer validate
-  - composer require --no-update silverstripe/recipe-cms:^1 cwp/starter-theme:2.x-dev symbiote/silverstripe-advancedworkflow:5.0.x-dev silverstripe/userforms:^5
+  - composer require --no-update silverstripe/installer:^4 cwp/starter-theme:2.x-dev symbiote/silverstripe-advancedworkflow:5.0.x-dev silverstripe/userforms:^5
   - if [[ $CRONTASK ]]; then composer require --no-update silverstripe/crontask ^2; fi
   - composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
   - composer require --prefer-source  silverstripe/fulltextsearch ^3
