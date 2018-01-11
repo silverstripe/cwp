@@ -3,13 +3,24 @@
 namespace CWP\CWP\Tests\PageTypes;
 
 use CWP\CWP\PageTypes\EventHolder;
+use SilverStripe\Core\Config\Config;
 use SilverStripe\Dev\FunctionalTest;
+use SilverStripe\View\SSViewer;
 
 class DatedUpdateHolderControllerTest extends FunctionalTest
 {
     protected static $fixture_file = 'EventHolderTest.yml';
 
     protected static $use_draft_site = true;
+
+    protected function setUp()
+    {
+        parent::setUp();
+
+        // Note: this test requires the starter theme to be installed
+        Config::modify()->set(SSViewer::class, 'themes', ['starter', '$default']);
+        Config::modify()->set(SSViewer::class, 'theme', 'starter');
+    }
 
     public function testSettingDateFiltersInReverseOrderShowsMessage()
     {
