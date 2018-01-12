@@ -20,8 +20,8 @@ en:
     ExternalLinkLabel: 'External Link'
     InternalLinkLabel: 'Internal Link'
     NameLabel: Name
-    Note: '<div class="message good notice">Note:  If you specify an External Link, the Internal Link will be ignored.</div>'
-    Note2: '<p>Use this to specify a link to a page either on this site (Internal Link) or another site (External Link).</p>'
+    Note: 'Note: If you specify an External Link, the Internal Link will be ignored.'
+    Note2: 'Use this to specify a link to a page either on this site (Internal Link) or another site (External Link).'
     PLURALNAME: Quicklinks
     PLURALS:
       one: 'A Quicklink'
@@ -82,6 +82,9 @@ en:
       other: '{count} Dated Update Holders'
     SINGULARNAME: 'Dated Update Holder'
     TO_DATE: 'To date'
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Clear
+    Filter: Filter
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractDesc: 'The abstract is used as a summary on the listing pages. It is limited to 160 characters.'
     AbstractTextFieldLabel: Abstract

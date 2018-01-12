@@ -102,12 +102,10 @@ class Quicklink extends DataObject
                 $wrap = CompositeField::create(
                     $extraLabel = LiteralField::create(
                         'NoteOverride',
-                        _t(
+                        sprintf('<div class="message good notice">%s</div>', _t(
                             __CLASS__ . '.Note',
-                            // @todo remove the HTML from this translation
-                            '<div class="message good notice">Note:  If you specify an External Link, '
-                            . 'the Internal Link will be ignored.</div>'
-                        )
+                            'Note: If you specify an External Link, the Internal Link will be ignored.'
+                        ))
                     )
                 )
             )
@@ -116,12 +114,11 @@ class Quicklink extends DataObject
             'Name',
             LiteralField::create(
                 'Note',
-                _t(
+                sprintf('<p>%s</p>', _t(
                     __CLASS__ . '.Note2',
-                    // @todo remove the HTML from this translation
-                    '<p>Use this to specify a link to a page either on this site '
-                    . '(Internal Link) or another site (External Link).</p>'
-                )
+                    'Use this to specify a link to a page either on this site '
+                        . '(Internal Link) or another site (External Link).'
+                ))
             )
         );
 
