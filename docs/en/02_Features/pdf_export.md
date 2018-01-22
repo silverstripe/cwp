@@ -1,11 +1,14 @@
 title: PDF export of website pages
 summary: Generating downloadable PDF versions of website pages.
-introduction: CWP provides some tools out of the box for generating downloadable PDF versions of website pages.
+introduction: CWP provides some tools for generating downloadable PDF versions of website pages.
 
 # HTML to PDF export
 
 [wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/) is being used to generate the PDF, it is a command line utility
 using WebKit to render the HTML into PDF format.
+
+You will also need to ensure you have the [cwp/cwp-pdfexport](https://github.com/silverstripe/cwp-pdfexport) module
+installed for this functionality to be enabled.
 
 ## How it works
 
@@ -64,10 +67,10 @@ There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf
   wkhtmltopdf -V
   ```
 
-* Update your `_ss_environment.php` file to point your site to the binary:
+* Update your `.env` file to point your site to the binary:
 
   ```
-  define('WKHTMLTOPDF_BINARY', '/usr/local/bin/wkhtmltopdf');
+  WKHTMLTOPDF_BINARY="/usr/local/bin/wkhtmltopdf"
   ```
 
 * Install extra Microsoft fonts, such as Arial:
@@ -110,8 +113,9 @@ CWP\CWP\PageTypes\BasePage:
 
 ## Overriding the template for PDFs
 
-`BasePageController` has an action called `downloadpdf()` which is called when you need to generate or send an existing
-generated PDF to the browser. `$PdfLink` is the template variable which uses this to send the PDF to the user's browser.
+`BasePageController` has an action called `downloadpdf()` applied via the `PdfExportControllerExtension` class, 
+which is called when you need to generate or send an existing generated PDF to the browser. `$PdfLink` is the
+template variable which uses this to send the PDF to the user's browser.
 
 By default, the PDF is rendered by the standard SilverStripe template system and templates are chosen in the same way
 the user would see them in their browser. That means if you have a specific page type and template, then that template
@@ -141,20 +145,17 @@ CWP\CWP\PageTypes\BasePage:
   wkhtmltopdf_binary: '/usr/local/bin/wkhtmltopdf_12'
 ```
 
-However, if you are using an older version of the CWP recipe release, or not using the CWP recipe, then you can override
-the `generatePDF()` method similar to
-[this commit](https://github.com/silverstripe/cwp/commit/21201d0b477430a6867e4307bab12c3e94e1c26b).
-
 ## Customising parameters to wkhtmltopdf
 
 Sometimes you'll need to override the default parameters to `wkhtmltopdf` to customise the PDF export, such as change
 the way the table of contents will display.
 
-`BasePageController` contains a method called `generatePDF()` is responsible for exporting the currently viewed page
-into an HTML file, then passing it along to the `wkhtmltopdf` binary for conversion into a PDF file.
+`BasePageController` has a method applied to it by `PdfExportControllerExtension` called `generatePDF()`, which is 
+responsible for exporting the currently viewed page into an HTML file, then passing it along to the `wkhtmltopdf`
+binary for conversion into a PDF file.
 
-You can overload `generatePDF()` into your `PageController` class (in `PageController.php`) by copying the method across and
-changing the code to suit. The newly overloaded method will be used instead of the one provided out of the box in
+You can overload `generatePDF()` into your `PageController` class (in `PageController.php`) by copying the method across
+and changing the code to suit. The newly overloaded method will be used instead of the one provided out of the box in
 `BasePage.php`
 
 [More detailed documentation](http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltopdf-0.9.9-doc.html)
@@ -171,7 +172,7 @@ schedule that the task will run on (default is every night at midnight):
 
 ```yaml
 # Example: run the task at 4am every Sunday morning
-CWP\CWP\Tasks\CleanupGeneratedPdfDailyTask:
+CWP\PDFExport\Tasks\CleanupGeneratedPdfDailyTask:
   enabled: true
   schedule: '0 4 * * 7'
 ```
