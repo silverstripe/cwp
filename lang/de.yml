@@ -1,9 +1,9 @@
 de:
   CWP\CWP\Extensions\CustomSiteConfig:
     FbField: 'Facebook-Benutzerkennung oder Benutzername'
-    GaField: Google-Analytics-Konto
+    GaField: 'Google-Analytics-Konto'
     SocialMediaTab: 'Soziale Medien'
-    TwitterField: Twitter-Benutzername
+    TwitterField: 'Twitter-Benutzername'
     TwitterFieldDesc: 'Twitter-Benutzername (z.B. http://twitter.com/<strong>Benutzername</strong>)'
   CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 'Externer Link'
@@ -12,32 +12,23 @@ de:
     PLURALNAME: Schnelllinks
     ParentRelationLabel: Übergeordnet
     SINGULARNAME: Schnelllink
-    SortOrderLabel: Sortierreihenfolge
+    SortOrderLabel: 'Sortierreihenfolge'
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Neue hinzufügen'
-    DESCRIPTION: 'Allgemeine Inhaltsseite'
-    FeatureButtonText: Schaltflächentext
-    FeatureCategoryDropdown: Kategoriesymbol
+    FeatureButtonText: 'Schaltflächentext'
+    FeatureCategoryDropdown: 'Kategoriesymbol'
     FeatureContentFieldLabel: Inhalt
     Title: Titel
   CWP\CWP\PageTypes\BasePage:
-    ColumnPageType: Seitentyp
+    ColumnPageType: 'Seitentyp'
     ColumnTitle: Titel
-    DESCRIPTION: 'Allgemeine Inhaltsseite'
     PLURALNAME: 'Basis Seiten'
     RelatedPages: 'Abhängige Seiten'
     TagsTabTitle: Schlagwörter
-  CWP\CWP\PageTypes\DatedUpdateHolder:
-    DESCRIPTION: 'Allgemeine Inhaltsseite'
   CWP\CWP\PageTypes\DatedUpdatePage:
-    AuthorFieldLabel: Autor
-    DESCRIPTION: 'Allgemeine Inhaltsseite'
     DateLabel: Datum
-    EndTimeFieldLabel: Endzeit
-    LocationFieldLabel: Ort
-    StartTimeFieldLabel: Startzeit
   CWP\CWP\PageTypes\EventHolder:
     Upcoming: 'Anstehende Ereignisse'
   CWP\CWP\PageTypes\EventPage:
-    PLURALNAME: Ereignisseiten
-    SINGULARNAME: Ereignisseite
+    PLURALNAME: 'Ereignisseiten'
+    SINGULARNAME: 'Ereignisseite'

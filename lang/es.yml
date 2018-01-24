@@ -4,7 +4,6 @@ es:
     FbFieldDesc: 'Enlace de Facebook (todo lo que sigue a "http://facebook.com/", por ejemplo, http://facebook.com/<strong>nombre de usuario</strong> o http://facebook.com/<strong>pages/108510539573</strong>)'
     GaField: 'Cuenta de Google Analytics'
     GaFieldDesc: 'Número de cuenta a usarse en todo el sitio (en el formato <strong>UA-XXXXX-X</strong>)'
-    LogosIconsTab: Logos/iconos
     SocialMediaTab: 'Medios sociales'
     TwitterField: 'Nombre de usuario de Twitter'
     TwitterFieldDesc: 'Nombre de usuario de Twitter (por ejemplo, http://twitter.com/<strong>nombre de usuario</strong>)'
@@ -12,13 +11,10 @@ es:
     ExternalLinkLabel: 'Enlace externo'
     InternalLinkLabel: 'Enlace interno'
     NameLabel: Nombre
-    Note: '<div class="message good notice">Nota: Si Ud especifica un Enlace Externo, se ignorará al Enlace Interno.</div>'
-    Note2: '<p>Use esto para especificar un enlace a una página sea tanto en este sitio (enlace interno) como de otro sitio (enlace externo).</p>'
     ParentRelationLabel: Padre
     SortOrderLabel: 'Orden de clasificación'
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Agregar nuevo'
-    DESCRIPTION: 'Página de contenido genérico'
     FeatureButtonText: 'Texto del botón'
     FeatureCategoryDropdown: 'Icono de categoría'
     FeatureContentFieldLabel: Contenido
@@ -28,7 +24,6 @@ es:
   CWP\CWP\PageTypes\BasePage:
     ColumnPageType: 'Tipo de página'
     ColumnTitle: Título
-    DESCRIPTION: 'Página de contenido genérico'
     PLURALNAME: 'Páginas base'
     RelatedPages: 'Páginas relacionadas'
     SINGULARNAME: 'Página base'
@@ -37,17 +32,8 @@ es:
     Term: Término
     Terms: Términos
     TermsDescription: 'Hacer clic para buscar términos adicionales'
-  CWP\CWP\PageTypes\DatedUpdateHolder:
-    DESCRIPTION: 'Página de contenido genérico'
-    DateRangeFilterMessage: 'Filtrado por una sola fecha.'
-    FilterAppliedMessage: 'El filtro se aplicó con las fechas invertidas.'
   CWP\CWP\PageTypes\DatedUpdatePage:
-    AuthorFieldLabel: Autor
-    DESCRIPTION: 'Página de contenido genérico'
     DateLabel: Fecha
-    EndTimeFieldLabel: 'Hora de fin'
-    LocationFieldLabel: Ubicación
-    StartTimeFieldLabel: 'Hora de inicio'
   CWP\CWP\PageTypes\EventHolder:
     DESCRIPTION: 'La página contenedora para páginas de eventos, proporciona filtrado de eventos y paginación'
     Upcoming: 'Próximos eventos'
@@ -65,5 +51,3 @@ es:
     DESCRIPTION: 'Lista todas las páginas del sitio'
     PLURALNAME: 'Páginas de mapa del sitio'
     SINGULARNAME: 'Página de mapa del sitio'
-  CWP\CWP\Search\CwpSearchPage:
-    PLURALNAME: 'Página base'

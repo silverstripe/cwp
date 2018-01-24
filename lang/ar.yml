@@ -4,7 +4,6 @@ ar:
     FbFieldDesc: 'رابط الفيس بوك(كل شئ بعد "/http://facebook.com", /http://facebook.com <strong>اسم المستخدم<strong/> /http://facebook.com <strong>صفحات/108510539573<strong/>)'
     GaField: 'حساب جوجل التحليلى'
     GaFieldDesc: 'رقم الحساب الذى سيتم استخدامه عبر الموقع بالكامل ( بصيغة <strong>UA-XXXXX-X<strong/>)'
-    LogosIconsTab: الشعارات/الأيقونات
     SocialMediaTab: 'وسائل الإعلام الاجتماعية'
     TwitterField: 'اسم المستخدم الخاص بتويتر'
     TwitterFieldDesc: 'اسم المستخدم الخاص بتويتر (مثلا, /http://twitter.com <strong>اسم المستخدم<strong/>)'
@@ -12,15 +11,12 @@ ar:
     ExternalLinkLabel: 'رابط خارجي'
     InternalLinkLabel: 'رابط داخلى'
     NameLabel: الاسم
-    Note: '<"div class="message good notice>ملاحظة: لو قمت بتحديد رابط خارجى, سيتم تجاهل الرابط الداخلى.<div/>'
-    Note2: '<p> استخدم هذا لتحديد رابط لصفحة إما فى هذا الموقع (رابط داخلى) أو موقع آخر (رابط آخر).<p/>'
-    PLURALNAME: 'روابط سريعة'
+    PLURALNAME: روابط سريعة
     ParentRelationLabel: والد
-    SINGULARNAME: 'رابط سريع'
+    SINGULARNAME: رابط سريع
     SortOrderLabel: 'ترتيب الفرز'
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'أضف جديد'
-    DESCRIPTION: 'صفحة المحتوى العام'
     FeatureButtonText: 'نص الزر'
     FeatureCategoryDropdown: 'أيقونة الفئة'
     FeatureContentFieldLabel: المحتوى
@@ -30,31 +26,21 @@ ar:
   CWP\CWP\PageTypes\BasePage:
     ColumnPageType: 'نوع الصفحة'
     ColumnTitle: عنوان
-    DESCRIPTION: 'صفحة المحتوى العام'
     PLURALNAME: 'الصفحات الأساسية'
     RelatedPages: 'الصفحات المرتبطة'
     SINGULARNAME: 'صفحة رئيسية'
     TagsTabTitle: البطاقات
-    Taxonomy: 'علم التصنيف'
+    Taxonomy: علم التصنيف
     Term: عنصر
     Terms: عناصر
   CWP\CWP\PageTypes\DatedUpdateHolder:
-    DESCRIPTION: 'صفحة المحتوى العام'
-    DateRangeFilterMessage: 'قد تم تصفيتها حسب تاريخ واحد'
-    FilterAppliedMessage: 'قد تم تطبيق الفلتر مع عكس المواعيد.'
     PLURALNAME: 'الصفحات الرئيسية'
     SINGULARNAME: 'حامل التحديث المحدد بموعد'
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractDesc: 'الملخص يستخدم لتلخيص صفحات القوائم. هى محددة ب 160 حرف.'
     AbstractTextFieldLabel: ملخص
-    AuthorFieldLabel: مؤلف
-    DESCRIPTION: 'صفحة المحتوى العام'
     DateLabel: تاريخ
-    EndTimeFieldLabel: 'وقت الانتهاء'
-    FeaturedImageFieldLabel: 'صورة مميزة'
-    LocationFieldLabel: موقع
     SINGULARNAME: 'صفحة التحديث المحددة بموعد'
-    StartTimeFieldLabel: 'وقت البدء'
   CWP\CWP\PageTypes\EventHolder:
     DESCRIPTION: 'صفحة حاوية لصفحات الأحداث, توفر تصفية للأحداث و ترقيم الصفحات'
     PLURALNAME: 'الصفحات الرئيسية'
