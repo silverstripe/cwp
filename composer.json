@@ -9,6 +9,7 @@
     "license": "BSD-3-Clause",
     "require": {
         "cwp/cwp-core": "^2",
+        "silverstripe/cms": "^4",
         "silverstripe/taxonomy": "^2"
     },
     "require-dev": {
