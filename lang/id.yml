@@ -36,3 +36,12 @@ id:
     DESCRIPTION: 'Tampilkan semua laman pada situs'
     PLURALNAME: 'Laman Peta Situs'
     SINGULARNAME: 'Laman Peta Situs'
+  CWP\CWP\Report\CwpStatsReport:
+    Count: Hitung
+    Description: 'Laporan ini menyediakan berbagai statistik situs. "jumlah hitungan laman live" adalah angka yang bisa dibandingkan dengan spesifikasi ukuran instans.'
+    FileCount: 'Hitung Berkas'
+    Name: Nama
+    PagesForMainSite: '- pada situs utama'
+    PagesForSubsite: '- pada sub-situs ''{SubsiteTitle}'''
+    Title: 'Ringkasan statistik'
+    TotalPageCount: 'Jumlah hitungan laman live, mencakup semua terjemahan dan sub-situs'

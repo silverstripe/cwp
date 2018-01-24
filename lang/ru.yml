@@ -61,3 +61,11 @@ ru:
     DESCRIPTION: 'Отобразить все страницы этого сайта'
     PLURALNAME: 'Страницы карты сайта'
     SINGULARNAME: 'Страница карты сайта'
+  CWP\CWP\Report\CwpStatsReport:
+    Count: Количество
+    FileCount: 'Количество файлов'
+    Name: Название
+    PagesForMainSite: '- на главном сайте'
+    PagesForSubsite: '- на подсайте ''{SubsiteTitle}'''
+    Title: 'Общая статистика'
+    TotalPageCount: 'Общее количество страниц - на всех подсайтах и языках'

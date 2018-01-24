@@ -32,3 +32,8 @@ de:
   CWP\CWP\PageTypes\EventPage:
     PLURALNAME: 'Ereignisseiten'
     SINGULARNAME: 'Ereignisseite'
+  CWP\CWP\Report\CwpStatsReport:
+    FileCount: 'Dateianzahl'
+    Name: Name
+    PagesForMainSite: '- auf der Hauptseite'
+    PagesForSubsite: '- auf der Unterseite ''{SubsiteTitle}'''

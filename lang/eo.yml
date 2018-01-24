@@ -132,3 +132,12 @@ eo:
       one: 'Unu paĝarmapa paĝo'
       other: '{count} paĝarmapaj paĝoj'
     SINGULARNAME: 'Paĝo de paĝarmapo'
+  CWP\CWP\Report\CwpStatsReport:
+    Count: Nombro
+    Description: 'Ĉi tiu raporto donas diversajn statistikojn por la retejo. La "nombro da publikaj paĝoj" estas la nombro komparebla kun la agorda grando de ekzemplo.'
+    FileCount: 'Nombro da dosieroj'
+    Name: Nomo
+    PagesForMainSite: '- en la ĉefa retejo'
+    PagesForSubsite: '- en la subretejo ''{SubsiteTitle}'''
+    Title: 'Resumaj statistikoj'
+    TotalPageCount: 'Totala nombro da paĝoj, en ĉiuj tradukoj kaj subretejoj'

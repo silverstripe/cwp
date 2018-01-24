@@ -57,3 +57,12 @@ fi:
     DESCRIPTION: 'Listaa sivuston kaikki sivut'
     PLURALNAME: 'Sivukarttasivut'
     SINGULARNAME: 'Sivukarttasivu'
+  CWP\CWP\Report\CwpStatsReport:
+    Count: Lukumäärä
+    Description: 'Tämä raportti sisältää tilastotietoa sivustosta. "Julkaistujen sivujen määrää" voidaan verrata osion kokoon.'
+    FileCount: 'Tiedostojen määrä'
+    Name: Nimi
+    PagesForMainSite: '- pääsivustolla'
+    PagesForSubsite: '- alasivustolla ''{SubsiteTitle}'''
+    Title: 'Yhteenvetotilasto'
+    TotalPageCount: 'Julkaistujen sivujen määrä, kaikki käännetyt ja alasivut huomioiden'

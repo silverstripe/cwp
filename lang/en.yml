@@ -137,3 +137,12 @@ en:
       one: 'A Sitemap Page'
       other: '{count} Sitemap Pages'
     SINGULARNAME: 'Sitemap Page'
+  CWP\CWP\Report\CwpStatsReport:
+    Count: Count
+    Description: 'This report provides various statistics for this site. The "total live page count" is the number that can be compared against the instance size specifications.'
+    FileCount: 'File count'
+    Name: Name
+    PagesForMainSite: '- in the main site'
+    PagesForSubsite: '- in the subsite ''{SubsiteTitle}'''
+    Title: 'Summary statistics'
+    TotalPageCount: 'Total live page count, across all translations and subsites'
