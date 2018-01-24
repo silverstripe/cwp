@@ -24,6 +24,7 @@ For a full overview of the SilverStripe 4 changes, see [the 4.0.0 changelog](htt
   * `$search_index_class` removed, use `Injector::inst()->get(\CWP\Search\CwpSearchEngine::class . '.search_index')` instead.
 * `BasePage::getAvailableTranslations` has been removed, use `FluentExtension::Locales` instead (`$Locales` from a template).
 * All PDF export functionality from `BasePage` and `BasePageController` has been removed and moved to a new module [cwp/cwp-pdfexport](https://github.com/silverstripe/cwp-pdfexport).
+* `CwpStatsReport` has been moved from the cwp/cwp-core module to cwp/cwp.
 
 For a detailed list of changes, see the full changelog below.
 

@@ -1,0 +1,17 @@
+Page:
+  page1:
+    Title: page1
+    Locale: en_NZ
+  page2:
+    Title: page2
+    Locale: pl_PL
+  page3:
+    Title: page3
+  page4:
+    Title: page4 - not published
+  page5s:
+    Title: page5s
+
+SilverStripe\Assets\File:
+  file1:
+    Title: file1
