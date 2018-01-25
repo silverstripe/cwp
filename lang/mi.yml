@@ -10,46 +10,33 @@ mi:
     ExternalLinkLabel: 'Hono ā-Waho'
     InternalLinkLabel: 'Hono ā-Roto'
     NameLabel: Ingoa
-    Note: '<div class="message good notice">Tuhipoka:  Mēnā ka whakarite koe i tētahi Hono ā-Waho, ka waiho te Hono ā-Roto.</div>'
-    Note2: '<p>Whakamahia tēnei hei whakarite i tētahi hono ki tētahi whārangi i tēnei pae (Hono ā-Roto), i tētahi atu pae (Hono ā-Waho).</p>'
-    PLURALNAME: 'Ngā Honotere'
+    PLURALNAME: Ngā Honotere
     ParentRelationLabel: Matua
     SINGULARNAME: Honotere
     SortOrderLabel: 'Raupapa Kōmaka'
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Tāpiri Hou'
-    DESCRIPTION: 'Whārangi ihirangi whānui'
     FeatureButtonText: 'Kuputuhi pātene'
     FeatureCategoryDropdown: 'Ata kāwai'
-    FeatureContentFieldLabel: 'Ngā ihirangi'
+    FeatureContentFieldLabel: Ngā ihirangi
     FeatureLink: 'Whārangi hono ki'
     LearnMoreLink: 'Whārangi hono i te pātene "Ako Anō" ki:'
     Title: Taitara
   CWP\CWP\PageTypes\BasePage:
-    DESCRIPTION: 'Whārangi ihirangi whānui'
     PLURALNAME: 'Ngā Whārangi Taketake'
     RelatedPages: 'Ngā whārangi pāhono'
     SINGULARNAME: 'Whārangi Taketake'
-    Taxonomy: 'Pūnaha Whakarōpū'
+    Taxonomy: Pūnaha Whakarōpū
     Term: Ture
-    Terms: 'Ngā Ture'
+    Terms: Ngā Ture
   CWP\CWP\PageTypes\DatedUpdateHolder:
-    DESCRIPTION: 'Whārangi ihirangi whānui'
-    DateRangeFilterMessage: 'I tātaritia mā te rā kotahi.'
-    FilterAppliedMessage: 'Kua hoatu te tātari engari kua kōarotia ngā rā.'
     PLURALNAME: 'Ngā Whārangi Taketake'
     SINGULARNAME: 'Pūpupuri Whakahōu Whai Rā'
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractDesc: 'Ka whakamahia te tangohanga hei whakarāpopotonga i ngā whārangi whakarārangi. Ka whakatikia ki te 160 pūāhua.'
     AbstractTextFieldLabel: Tangohanga
-    AuthorFieldLabel: Kaituhi
-    DESCRIPTION: 'Whārangi ihirangi ahuwhānui'
     DateLabel: Rā
-    EndTimeFieldLabel: 'Wā Mutu'
-    FeaturedImageFieldLabel: 'Atahanga Kua Whakaaturia'
-    LocationFieldLabel: Tauwāhi
     SINGULARNAME: 'Whārangi Whakahōu Whai Rā'
-    StartTimeFieldLabel: 'Wā Tīmata'
   CWP\CWP\PageTypes\EventHolder:
     DESCRIPTION: 'Whārangi ipu mō ngā Whārangi Takahanga, ka whakarato tātaringa takahanga me te whakawhārangitanga'
     PLURALNAME: 'Ngā Whārangi Taketake'

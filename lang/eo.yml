@@ -4,41 +4,52 @@ eo:
     FbFieldDesc: 'Facebook-ligilo (ĉio post "http://facebook.com/", ekzemple http://facebook.com/<strong>salutnomo</strong> aŭ http://facebook.com/<strong>paĝoj/108510539573</strong>)'
     GaField: 'Konto poe Google Analytics'
     GaFieldDesc: 'Kontnumero uzota ie en la retejo (en la formato <strong>UA-XXXXX-X</strong>)'
-    LogosIconsTab: Bildsimboloj
     SocialMediaTab: 'Interkona retejo'
     TwitterField: 'Salutnomo por Twitter'
     TwitterFieldDesc: 'Salutnomo por Twitter (eg, http://twitter.com/<strong>salutnomo</strong>)'
   CWP\CWP\Extensions\CwpCommentingExtension:
-    EMAIL_TITLE: Retpoŝto
     WEBSITE_TITLE: 'Via retejo (malnepra)'
     WILL_NOT_BE_PUBLISHED: 'Ne publikiĝos.'
+  CWP\CWP\Extensions\CwpSiteTreeExtension:
+    SHOW_PAGE_UTILITIES: 'Ĉu vidigu paĝajn utilaĵojn?'
+    SHOW_PAGE_UTILITIES_HELP: 'Vi povas malŝalti paĝajn utilaĵojn (presi, kunhavigi, ktp) por ĉi tiu paĝo.'
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Ĉi tiu listo vidigas ĉiujn paĝojn kie la dosiero estas enmetita per la faksimila redaktilo.'
+    EDIT: Redakti
   CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 'Ekstera ligilo'
     InternalLinkLabel: 'Interna ligilo'
     NameLabel: Nomo
-    Note: '<div class="message good notice">Notu: Se vi agordas eksteran ligilon, la interna ligilo ne estos malatentata.</div>'
-    Note2: '<p>Uzu ĉi tion por ligi al paĝo aŭ en ĉi tiu retejo (internaligilo) aŭ en alia retejo (ekstera ligilo).</p>'
-    PLURALNAME: 'Rapidaj ligiloj'
+    PLURALNAME: Rapidaj ligiloj
+    PLURALS:
+      one: 'Unu rapida ligilo'
+      other: '{count} rapidaj ligiloj'
     ParentRelationLabel: Patra
-    SINGULARNAME: 'Rapida ligilo'
+    SINGULARNAME: Rapida ligilo
     SortOrderLabel: 'Ordiga Ordo'
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Aldoni novan'
     ButtonTextRequired: 'Necesas plenigi butonan tekston'
-    DESCRIPTION: 'Ĝenerala paĝo por enhavo'
     FeatureButtonText: 'Butona teksto'
     FeatureCategoryDropdown: 'Kategoria bildsimbolo'
     FeatureContentFieldLabel: Enhavo
     FeatureLink: 'Paĝo alligota'
+    FeatureOne: 'Prezentita unua'
+    FeatureTwo: 'Prezentita dua'
     LearnMoreLink: 'Paĝo al kiu ligi la butonon "Lerni plu":'
-    PLURALNAME: Hejmpaĝoj
-    SINGULARNAME: Hejmpaĝo
+    PLURALNAME: 'Hejmpaĝoj'
+    PLURALS:
+      one: 'Unu hejmpaĝo'
+      other: '{count} Hejmpaĝoj'
+    SINGULARNAME: 'Hejmpaĝo'
     Title: Titolo
   CWP\CWP\PageTypes\BasePage:
     ColumnPageType: 'Tipo de paĝo'
     ColumnTitle: Titolo
-    DESCRIPTION: 'Ĝenerala paĝo por enhavo'
     PLURALNAME: 'Bazaj paĝoj'
+    PLURALS:
+      one: 'Unu baza paĝo'
+      other: '{count} bazaj paĝoj'
     RelatedPages: 'Rilataj paĝoj'
     SINGULARNAME: 'Baza paĝo'
     TagsTabTitle: Etikedoj
@@ -50,53 +61,83 @@ eo:
     EmptySearch: 'Sercota kampo malplenas, bonvolu enigi informpeton.'
     MetaTitle: 'Serĉi {keywords}'
     NoResult: 'Via informpeto ne liveris rezulton.'
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Aŭtoro
+    EndTimeFieldLabel: 'Fina horo'
+    FeaturedImageFieldLabel: 'Prezentita bildo'
+    LocationFieldLabel: Loko
+    StartTimeFieldLabel: 'Komenca horo'
   CWP\CWP\PageTypes\DatedUpdateHolder:
     DATE_EXAMPLE: '(ekzemplo: 2017/12/30)'
-    DESCRIPTION: 'Ĝenerala paĝo por enhavo'
-    DateRangeFilterMessage: 'Filtri laŭ unuopa dato'
     FILTER_BETWEEN: inter
     FILTER_IN: en
-    FILTER_ON: sur
-    FILTER_WITHIN: 'ene de'
+    FILTER_ON: 'sur'
+    FILTER_WITHIN: ene de
     FROM_DATE: 'Eka dato'
-    FilterAppliedMessage: 'Aplikis filtron laŭ la inversigitaj datoj'
     PLURALNAME: 'Ĝisdatigaj datujoj'
+    PLURALS:
+      one: 'Unu ĝisdatiga datujo'
+      other: '{count} ĝisdatigaj datujoj'
     SINGULARNAME: 'Ĝisdatiga datujo'
     TO_DATE: 'Ĝisa dato'
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractDesc: 'La resumo uzatas kiel resumo en la listaj paĝoj. Ĝi havas la limon 160 signoj'
     AbstractTextFieldLabel: Resumo
-    AuthorFieldLabel: Aŭtoro
-    DESCRIPTION: 'Ĝenerala paĝo por enhavo'
     DateLabel: Dato
-    EndTimeFieldLabel: 'Fina horo'
-    FeaturedImageFieldLabel: 'Prezentita bildo'
-    LocationFieldLabel: Loko
     PLURALNAME: 'Ĝisdatigaj datujoj'
+    PLURALS:
+      one: 'Unu ĝisdatiga datujo'
+      other: '{count} ĝisdatigaj datujoj'
     SINGULARNAME: 'Ĝisdatiga datujo'
-    StartTimeFieldLabel: 'Komenca horo'
   CWP\CWP\PageTypes\EventHolder:
     DESCRIPTION: 'Paĝo por enhavi eventpaĝojn, donas eventfiltradon kaj paĝonumeradon'
-    PLURALNAME: Eventujoj
-    SINGULARNAME: Eventujo
+    PLURALNAME: 'Eventujoj'
+    PLURALS:
+      one: 'Unu eventujo'
+      other: '{count} eventujoj'
+    SINGULARNAME: 'Eventujo'
     Upcoming: 'Futuraj eventoj'
   CWP\CWP\PageTypes\EventPage:
     DESCRIPTION: 'Priskribas eventon okazontan je specifa dato.'
-    PLURALNAME: Eventopaĝoj
-    SINGULARNAME: Eventopaĝo
+    PLURALNAME: 'Eventopaĝoj'
+    PLURALS:
+      one: 'Unu eventa paĝo'
+      other: '{count} eventaj paĝoj'
+    SINGULARNAME: 'Eventopaĝo'
   CWP\CWP\PageTypes\FooterHolder:
     DESCRIPTION: 'Paĝo por enhavi kaj vidigi ĉiujn paĝidojn kiel ligilojn en la paĝopiedo'
     PLURALNAME: 'Paĝopieda tenanto'
+    PLURALS:
+      one: 'Unu paĝopieda tenanto'
+      other: '{count} paĝopiedaj tenantoj'
     SINGULARNAME: 'Paĝopieda tenanto'
   CWP\CWP\PageTypes\NewsHolder:
     DESCRIPTION: 'Paĝo por enhavi Novaĵpaĝojn, donas filtradon de novaĵoj kaj paĝonumeradon'
-    PLURALNAME: Novaĵujoj
-    SINGULARNAME: Novaĵujo
+    PLURALNAME: 'Novaĵujoj'
+    PLURALS:
+      one: 'Unu novaĵujo'
+      other: '{count} novaĵujoj'
+    SINGULARNAME: 'Novaĵujo'
   CWP\CWP\PageTypes\NewsPage:
     DESCRIPTION: 'Priskribas novaĵeron'
-    PLURALNAME: Novaĵopaĝoj
-    SINGULARNAME: Novaĵopaĝo
+    PLURALNAME: 'Novaĵopaĝoj'
+    PLURALS:
+      one: 'Unu novaĵopaĝo'
+      other: '{count} novaĵopaĝoj'
+    SINGULARNAME: 'Novaĵopaĝo'
   CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 'Listigas ĉiujn paĝojn en la retejo'
     PLURALNAME: 'Paĝo de paĝarmapo'
+    PLURALS:
+      one: 'Unu paĝarmapa paĝo'
+      other: '{count} paĝarmapaj paĝoj'
     SINGULARNAME: 'Paĝo de paĝarmapo'
+  CWP\CWP\Report\CwpStatsReport:
+    Count: Nombro
+    Description: 'Ĉi tiu raporto donas diversajn statistikojn por la retejo. La "nombro da publikaj paĝoj" estas la nombro komparebla kun la agorda grando de ekzemplo.'
+    FileCount: 'Nombro da dosieroj'
+    Name: Nomo
+    PagesForMainSite: '- en la ĉefa retejo'
+    PagesForSubsite: '- en la subretejo ''{SubsiteTitle}'''
+    Title: 'Resumaj statistikoj'
+    TotalPageCount: 'Totala nombro da paĝoj, en ĉiuj tradukoj kaj subretejoj'

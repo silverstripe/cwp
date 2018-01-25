@@ -2,28 +2,20 @@ sv:
   CWP\CWP\Extensions\CustomSiteConfig:
     FbField: 'Facebook UID eller användarnamn'
     GaField: 'Google Analytics-konto'
-    LogosIconsTab: Logotyper/ikoner
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Skapa ny'
-    DESCRIPTION: 'Generisk innehållssida'
-    FeatureButtonText: Knapp-text
-    FeatureCategoryDropdown: Kategori-ikon
+    FeatureButtonText: 'Knapp-text'
+    FeatureCategoryDropdown: 'Kategori-ikon'
     FeatureContentFieldLabel: Innehåll
     FeatureLink: 'Sida att länka till'
     LearnMoreLink: 'Sida att länka "Läs mer"-knappen till'
-    PLURALNAME: Hem-sidor
-    SINGULARNAME: Hem
+    PLURALNAME: 'Hem-sidor'
+    SINGULARNAME: 'Hem'
     Title: Titel
   CWP\CWP\PageTypes\BasePage:
-    ColumnPageType: Sidtyp
+    ColumnPageType: 'Sidtyp'
     ColumnTitle: Titel
-    DESCRIPTION: 'Generisk innehållssida'
     PLURALNAME: 'Bas sidor'
     RelatedPages: 'Relaterade sidor'
     TagsTabTitle: Taggar
     Taxonomy: Taxonomi
-  CWP\CWP\PageTypes\DatedUpdateHolder:
-    DESCRIPTION: 'Generisk innehållssida'
-  CWP\CWP\PageTypes\DatedUpdatePage:
-    AuthorFieldLabel: Författare
-    DESCRIPTION: 'Generisk innehållssida'

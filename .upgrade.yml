@@ -26,8 +26,4 @@ mappings:
   CleanupGeneratedPdfBuildTask: CWP\CWP\Tasks\CleanupGeneratedPdfBuildTask
   CleanupGeneratedPdfDailyTask: CWP\CWP\Tasks\CleanupGeneratedPdfDailyTask
   PopulateThemeSampleDataTask: CWP\CWP\Tasks\PopulateThemeSampleDataTask
-  WorkflowDefinitionExtensionTest: CWP\CWP\Tests\Extensions\WorkflowDefinitionExtensionTest
-  EventHolderTest: CWP\CWP\Tests\PageTypes\EventHolderTest
-  SitemapPageTest: CWP\CWP\Tests\PageTypes\SitemapPageTest
-  BasePageTest: CWP\CWP\Tests\PageTypes\BasePageTest
-  PopulateThemeSampleDataTaskTest: CWP\CWP\Tests\Tasks\PopulateThemeSampleDataTaskTest
+  CwpStatsReport: CWP\CWP\Report\CwpStatsReport
