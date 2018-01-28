@@ -16,7 +16,6 @@ use SilverStripe\Taxonomy\TaxonomyTerm;
 use SilverStripe\View\ArrayData;
 use TractorCow\Fluent\Model\Locale;
 use TractorCow\Fluent\State\FluentState;
-use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
 
 /**
  * **BasePage** is the foundation which can be used for constructing your own pages.
@@ -93,7 +92,6 @@ class BasePage extends SiteTree
             $components->removeComponentsByType(GridFieldAddNewButton::class);
             $components->removeComponentsByType(GridFieldEditButton::class);
             $components->removeComponentsByType(GridFieldFilterHeader::class);
-            $components->addComponent(new GridFieldSortableRows('SortOrder'));
 
             /** @var GridFieldDataColumns $dataColumns */
             $dataColumns = $components->getComponentByType(GridFieldDataColumns::class);
