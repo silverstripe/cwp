@@ -5,6 +5,7 @@ namespace CWP\CWP\Extensions;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\ORM\FieldType\DBField;
 
 /**
  * Adds new global settings.
@@ -28,10 +29,10 @@ class CustomSiteConfig extends DataExtension
         );
 
         $gaCode->setRightTitle(
-            _t(
+            DBField::create_field('HTMLFragment', _t(
                 __CLASS__ . '.GaFieldDesc',
                 'Account number to be used all across the site (in the format <strong>UA-XXXXX-X</strong>)'
-            )
+            ))
         );
 
         $fields->findOrMakeTab('Root.SocialMedia', _t(__CLASS__ . '.SocialMediaTab', 'Social Media'));
@@ -44,11 +45,11 @@ class CustomSiteConfig extends DataExtension
             )
         );
         $facebookURL->setRightTitle(
-            _t(
+            DBField::create_field('HTMLFragment', _t(
                 __CLASS__ . '.FbFieldDesc',
                 'Facebook link (everything after the "http://facebook.com/", eg http://facebook.com/'
                 . '<strong>username</strong> or http://facebook.com/<strong>pages/108510539573</strong>)'
-            )
+            ))
         );
 
         $fields->addFieldToTab(
@@ -59,7 +60,10 @@ class CustomSiteConfig extends DataExtension
             )
         );
         $twitterUsername->setRightTitle(
-            _t(__CLASS__ . '.TwitterFieldDesc', 'Twitter username (eg, http://twitter.com/<strong>username</strong>)')
+            DBField::create_field('HTMLFragment', _t(
+                __CLASS__ . '.TwitterFieldDesc',
+                'Twitter username (eg, http://twitter.com/<strong>username</strong>)'
+            ))
         );
     }
 }
