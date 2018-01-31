@@ -17,6 +17,7 @@ use SilverStripe\View\ArrayData;
 use TractorCow\Fluent\Model\Locale;
 use TractorCow\Fluent\State\FluentState;
 use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+use SilverStripe\ORM\FieldType\DBInt;
 
 /**
  * **BasePage** is the foundation which can be used for constructing your own pages.
@@ -59,9 +60,13 @@ class BasePage extends SiteTree
         'RelatedPages' => BasePage::class,
     ];
 
+    /**
+     * @var array
+     * @config
+     */
     private static $many_many_extraFields = [
         'RelatedPages' => [
-            'SortOrder' => 'Int',
+            'SortOrder' => DBInt::class,
         ],
     ];
 
