@@ -29,6 +29,9 @@ class PopulateThemeSampleDataTask extends BuildTask
      */
     public function run($request)
     {
+        if (!class_exists(UserDefinedForm::class)) {
+            return;
+        }
         $this->handleContactForm();
     }
 
