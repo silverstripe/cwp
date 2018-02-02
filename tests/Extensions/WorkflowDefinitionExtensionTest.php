@@ -29,6 +29,10 @@ class WorkflowDefinitionExtensionTest extends FunctionalTest
      */
     public function testCreateDefaultWorkflowTest()
     {
+        if (!class_exists(WorkflowDefinition::class)) {
+            $this->markTestSkipped('This test requires the advancedworkflow module to be installed');
+        }
+
         DB::quiet();
 
         // test disabling the default workflow definition

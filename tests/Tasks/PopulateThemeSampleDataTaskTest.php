@@ -17,6 +17,10 @@ class PopulateThemeSampleDataTaskTest extends SapphireTest
      */
     public function testOnlyCreateContactFormOnce()
     {
+        if (!class_exists(UserDefinedForm::class)) {
+            $this->markTestSkipped('This test requires the userforms module to be installed');
+        }
+
         $createdMessage = 'Created "contact" UserDefinedForm';
 
         $task = new PopulateThemeSampleDataTask;
