@@ -126,12 +126,17 @@ server from [accessing the metadata](https://github.com/silverstripe/silverstrip
 Since the intranet site should only be reachable over a VPN link,
 this feature can be disabled.
 
-	// The basic authentication popup must be disabled in the UAT
-	// environment, otherwise the ADFS server can't get the
-	// metadata of the SAML Service Provider
-	if(defined('CWP_ENVIRONMENT')) {
-	    Config::inst()->update('CwpControllerExtension', 'test_basicauth_enabled', false);
-	}
+```yaml
+---
+Name: mysitesecuritytest
+After: '#cwpsecuritytest'
+---
+# The basic authentication popup must be disabled in the UAT
+# environment, otherwise the ADFS server can't get the
+# metadata of the SAML Service Provider
+SilverStripe\Security\BasicAuth:
+  entire_site_protected: false
+```
 
 ## Frequently Asked Questions
 
