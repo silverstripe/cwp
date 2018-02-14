@@ -40,7 +40,10 @@ class SitemapPageController extends PageController
         ]);
 
         if ($request->isAjax()) {
-            return $viewer->renderWith('SitemapNodeChildren');
+            return $viewer->renderWith([
+                'type' => 'Includes',
+                'SitemapNodeChildren'
+            ]);
         }
 
         return $viewer;
