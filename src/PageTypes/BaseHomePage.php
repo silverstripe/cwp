@@ -17,7 +17,7 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\ToggleCompositeField;
 use SilverStripe\Forms\TreeDropdownField;
-use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 /**
  * **BaseHomePage** is the basic home page.
@@ -92,7 +92,7 @@ class BaseHomePage extends Page
             $gridConfig->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
             $gridConfig->removeComponentsByType(GridFieldDeleteAction::class);
             $gridConfig->addComponent($injector->create(GridFieldDeleteAction::class));
-            $gridConfig->addComponent($injector->create(GridFieldSortableRows::class, 'SortOrder'));
+            $gridConfig->addComponent($injector->create(GridFieldOrderableRows::class, 'SortOrder'));
             $gridField->setModelClass(Quicklink::class);
 
             $fields->addFieldToTab('Root.Quicklinks', $gridField);

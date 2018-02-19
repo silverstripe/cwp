@@ -16,7 +16,7 @@ use SilverStripe\Taxonomy\TaxonomyTerm;
 use SilverStripe\View\ArrayData;
 use TractorCow\Fluent\Model\Locale;
 use TractorCow\Fluent\State\FluentState;
-use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\ORM\FieldType\DBInt;
 
 /**
@@ -98,7 +98,7 @@ class BasePage extends SiteTree
             $components->removeComponentsByType(GridFieldAddNewButton::class);
             $components->removeComponentsByType(GridFieldEditButton::class);
             $components->removeComponentsByType(GridFieldFilterHeader::class);
-            $components->addComponent(new GridFieldSortableRows('SortOrder'));
+            $components->addComponent(new GridFieldOrderableRows('SortOrder'));
 
             /** @var GridFieldDataColumns $dataColumns */
             $dataColumns = $components->getComponentByType(GridFieldDataColumns::class);
