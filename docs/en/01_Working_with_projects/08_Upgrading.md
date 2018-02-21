@@ -82,29 +82,16 @@ the only code supported by the CWP Team is the mix of modules present in the lat
 
 First, identify the list of modules which you have added to the project. In the above example this is represented as
 `my-agency/my-dependency` - these need to be kept. All the remaining original dependencies must be stripped off
-and replaced with a single mention of the `cwp/cwp-recipe-basic` (not to be confused with `cwp/recipe-basic` which
-is now deprecated). The result should look like follows:
+and replaced with a single mention of the `cwp/cwp-recipe-core`. The result should look like follows:
 
 	"require": {
-		"cwp/cwp-recipe-basic": "~1.0.1@stable",
+		"cwp/cwp-recipe-core": "~2.0.0@stable",
 		"my-agency/my-dependency": "*"
 	},
 
-We also need to apply similar approach to the "require-dev" section. The outcome will likely look like this:
-
-	"require-dev": {
-		"cwp/cwp-recipe-basic-dev": "~1.0.1@stable"
-	},
-
-Finally, the "repositories" section needs to be tidied up. All the original repository entries need to be replaced
-with a single definition pointing to [https://packages.cwp.govt.nz](https://packages.cwp.govt.nz). You still need to
-retain references to your private modules though. Here is an example outcome:
+Note that you need to retain references to your private modules in the "repositories" section. Here is an example outcome:
 
 	"repositories": [
-		{
-			"type": "composer",
-			"url": "https://packages.cwp.govt.nz/"
-		},
 		{
 			"type": "vcs",
 			"url": "https://gitlab.cwp.govt.nz/my-agency/my-module.git",
@@ -117,7 +104,7 @@ After you have finished cleaning up your `composer.json` file, you need to run:
 	composer update
 
 This will make sure you get the latest stable module versions. You also need to make sure all the external modules
-have been added to your `.gitignore` file to prevent them from being inadvertently commited. Just add the module names
+have been added to your `.gitignore` file to prevent them from being inadvertently committed. Just add the module names
 at the end of the file:
 
 	...
@@ -126,26 +113,17 @@ at the end of the file:
 
 Test the site on your dev machine and commit the resulting `composer.lock` file if all works well. Then deploy to UAT.
 
-For your reference, Here is a full example of a correct `composer.json` file on a real project, with default theme
+For your reference, here is a concise example of a correct `composer.json` file on a real project, with default theme
 excluded (as the project already provides its own theme):
 
 	{
 		"name": "<real-agency>/<real-project>",
 		"require": {
-			"cwp/cwp-recipe-basic": "~1.0.1@stable",
-		},
-		"require-dev": {
-			"cwp/cwp-recipe-basic-dev": "~1.0.1@stable"
+			"cwp/cwp-recipe-core": "~2.0.0@stable",
 		},
 		"config": {
 			"process-timeout": 900
 		},
-		"repositories": [
-			{
-				"type": "composer",
-				"url": "https://packages.cwp.govt.nz/"
-			}
-		],
 		"minimum-stability": "dev"
 	}
 
@@ -154,5 +132,5 @@ Links:
 * [CWP releases and changelogs](/releases_and_changelogs)
 * [old, unsupported composer.json](https://gitlab.cwp.govt.nz/cwp/recipe-basic/blob/1.0.0/composer.json) from
 deprecated `cwp/recipe-basic` module
-* [new, recommended composer.json](https://gitlab.cwp.govt.nz/cwp/cwp-installer/blob/1.0.1/composer.json) from the new
+* [new, recommended composer.json](https://github.com/silverstripe/cwp-installer/blob/master/composer.json) from the new
 `cwp/cwp-installer` package (this package is useful for jump-starting your projects)

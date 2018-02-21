@@ -3,17 +3,17 @@ summary: Development information for developing your own custom project features
 
 # Customising the default functionality
 
-You should have started your project from the CWP installer or included the recipe module with your project for the maximum level of
+You should have started your project from the CWP installer or included the desired recipe modules with your project for the maximum level of
 compatibility with the platform.
 
-For custom development work for your website the best source of technical information for SilverStripe CMS development is the [Official SilverStripe CMS developer documentation](https://docs.silverstripe.org/en/3/).
+For custom development work for your website the best source of technical information for SilverStripe CMS development is the [Official SilverStripe CMS developer documentation](https://docs.silverstripe.org/en/4/).
 
 With Composer you can easily add to the modules that are included in the project. Full instructions can be found in the
-[Official SilverStripe CMS documentation](https://docs.silverstripe.org/en/3/getting_started/composer/#advanced-usage).
+[Official SilverStripe CMS documentation](https://docs.silverstripe.org/en/4/getting_started/composer/#advanced-usage).
 
 For site-specific SilverStripe installation, fine tune your configuration with `mysite/_config` YAML files and
 `mysite/_config.php` PHP configuration. More information is available in the [configuration
-reference](https://docs.silverstripe.org/en/3/developer_guides/configuration/configuration/). Make sure to preserve the database and
+reference](https://docs.silverstripe.org/en/4/developer_guides/configuration/configuration/). Make sure to preserve the database and
 environment configuration code, otherwise your deployment may not work (e.g. the database connection will not work).
 
 The best way to work with your site is to commit all your modifications to your own theme and/or in the `mysite` directory.
@@ -21,13 +21,13 @@ The best way to work with your site is to commit all your modifications to your 
 Avoid changing modules directly. Instead, SilverStripe CMS's architecture allows safe customisation through:
 
 * [Modules](https://addons.silverstripe.org/)
-* [Class inheritance](https://docs.silverstripe.org/en/3/developer_guides/model/data_model_and_orm/#subclasses)
-* [SilverStripe DataExtensions](https://docs.silverstripe.org/en/3/developer_guides/extending/extensions/)
-* [Dependency injection](https://docs.silverstripe.org/en/3/developer_guides/extending/injector/)
+* [Class inheritance](https://docs.silverstripe.org/en/4/developer_guides/model/data_model_and_orm/#subclasses)
+* [SilverStripe DataExtensions](https://docs.silverstripe.org/en/4/developer_guides/extending/extensions/)
+* [Dependency injection](https://docs.silverstripe.org/en/4/developer_guides/extending/injector/)
 
 To gain deeper understanding on how the SilverStripe Framework can be used to develop custom solutions, we recommend
-going through the [SilverStripe CMS online lessons](https://www.silverstripe.org/learn/lessons/) and searching through
-the [Official SilverStripe CMS development documentation](https://docs.silverstripe.org/en/3).
+going through the [SilverStripe CMS online lessons](https://www.silverstripe.org/learn/lessons/v4/) and searching through
+the [Official SilverStripe CMS development documentation](https://docs.silverstripe.org/en/4).
 
 Directly modifying module files is not recommended because it makes future upgrades harder. You will also have a harder time getting support from the community.
 
@@ -42,23 +42,29 @@ and have it apply to *all* page types, then your code might look something like 
 
 `Page.php` page type definition:
 
-	:::php
-	// File: mysite/code/Page.php
-	<?php
-	class Page extends BasePage {
-		// ...
-		private static $db = array(
-			'Abstract' => 'HTMLText'
-		);
+```php
+// File: mysite/code/Page.php
+<?php
 
-		public function getCMSFields() {
-			$fields = parent::getCMSFields();
-			$fields->addFieldToTab('Root.Main', $abstractField = HtmlEditorField::create('Abstract'), 'Content');
-			$abstractField->setRows(8); // limit the height of the editor
-			return $fields;
-		}
-		...
+use CWP\CWP\PageTypes\BasePage;
+
+class Page extends BasePage 
+{
+	// ...
+	private static $db = [
+		'Abstract' => 'HTMLText'
+	];
+
+	public function getCMSFields() 
+	{
+		$fields = parent::getCMSFields();
+		$fields->addFieldToTab('Root.Main', $abstractField = HtmlEditorField::create('Abstract'), 'Content');
+		$abstractField->setRows(8); // limit the height of the editor
+		return $fields;
 	}
+	...
+}
+```
 
 `Page.ss` template:
 
@@ -85,9 +91,9 @@ The TinyMCE editor is the default WYSIWYG editor used with all *Content* fields 
 allows developers to configure it through the `HtmlEditorField` wrapper.
 
 The details are documented in SilverStripe documentation at [Rich-Text Editing (WYSIWYG)
-documentation](https://docs.silverstripe.org/en/3/developer_guides/forms/field_types/htmleditorfield/).
+documentation](https://docs.silverstripe.org/en/4/developer_guides/forms/field_types/htmleditorfield/).
 
-TinyMCE options are documented at [Configuration Reference](https://www.tinymce.com/docs-3x/reference/Configuration3x/).
+TinyMCE options are documented at [Configuration Reference](https://www.tinymce.com/docs/configure/).
 
 ## Configuring the WYSIWYG spellchecker
 
@@ -95,8 +101,7 @@ Editor bundled with CWP uses the inbuilt browser spellcheck capability that is i
 below links to find out more details about the usage:
 
 * [Firefox](http://support.mozilla.org/en-US/kb/how-do-i-use-firefox-spell-checker)
-* [Chrome](https://support.google.com/chrome/answer/95604?hl=en)
-* [IE10](http://ie.microsoft.com/testdrive/Browser/SpellChecking/)
+* [IE10](https://answers.microsoft.com/en-us/ie/forum/ie11-iewindows_10/spelling-correction-and-checking-in-internet/a1321c59-3623-49a2-8fce-388ecc2cb057?auth=1)
 
 Note that although there is currently a way to change the spellchecker with TinyMCE by modifying the framework code,
 this is not recommended. It would require forking the Framework which will result in a code that's harder to maintain.

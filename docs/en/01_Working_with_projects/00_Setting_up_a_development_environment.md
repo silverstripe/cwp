@@ -11,7 +11,7 @@ CWP projects are installed using the Composer PHP package management tool. For g
 the [SilverStripe Composer documentation](https://docs.silverstripe.org/en/3/getting_started/composer/) or read the
 installation documentation on the [Composer site](http://getcomposer.org/doc/00-intro.md).
 
-Please familiarise yourself with [CWP recipes](recipes) before starting to develop on CWP. To ensure your code works
+Please familiarise yourself with [CWP recipes](recipes_and_supported_modules) before starting to develop on CWP. To ensure your code works
 smoothly with the platform it's important to either start from the stable release of
 [cwp-installer](https://gitlab.cwp.govt.nz/cwp/cwp-installer/) or include
 [cwp-recipe-basic](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/) in your `composer.json`.
@@ -29,14 +29,13 @@ for more information. If you decide to remove the `composer.json` file and inste
 ## Server Configuration
 
 You'll need an environment following SilverStripe's
-[server requirements](https://docs.silverstripe.org/en/3/getting_started/server_requirements/).
+[server requirements](https://docs.silverstripe.org/en/4/getting_started/server_requirements/).
 
-CWP's configuration is detailed in [infrastructure considerations](working_with_projects/infrastructural_considerations).
+CWP's configuration is detailed in [infrastructure considerations](infrastructural_considerations).
 
 ## Git
 
-When working with CWP code you will be utilising the Git version control system, and the repositories will be stored on
-GitLab. We recommend reading through tutorials on using Git, available online. The [Pro Git](http://git-scm.com/book) book is a good reference guide.
+When working with CWP code you will be utilising the Git version control system, and the core CWP repositories will be stored on GitHub, while you are free to store your code wherever you choose. By default your code will be stored on GitLab. We recommend reading through tutorials on using Git, available online. The [Pro Git](http://git-scm.com/book) book is a good reference guide.
 
 ### Installing Git
 
