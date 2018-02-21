@@ -9,7 +9,7 @@ CWP provides a *starter* theme for you to work with. This has been developed bot
 be built on top of and as a reference example for meeting Government standards and accessibility guidelines.
 
 For more information on how a SilverStripe theme is constructed, see the [Developing
-Themes](https://docs.silverstripe.org/en/3/developer_guides/templates/themes/) page in the SilverStripe documentation.
+Themes](https://docs.silverstripe.org/en/4/developer_guides/templates/themes/) page in the SilverStripe documentation.
 
 When customising the theme, you can choose to work either with the powerful SASS framework (as explained below), or to
 use the CSS stylesheets directly. In the latter case we recommend you to remove the `.scss` files to make it clear they are
@@ -23,20 +23,20 @@ Note: The starter theme is the default CWP theme as of the CWP 1.6 recipe. If yo
 
 ## Getting Started
 
-The starter theme that comes with the basic site is cloned from the [CWP starter theme in GitLab](https://gitlab.cwp.govt.nz/cwp/starter-theme), so you are not able to
+The starter theme that comes with the basic site is cloned from the [CWP starter theme in GitHub](https://github.com/silverstripe/cwp-starter-theme), so you are not able to
 make changes to it directly. There are two recommended ways of creating your own theme:
 
 ### Forking the theme
 
 This will give you a copy of the starter theme repository that you can edit and can share with others.
 
-1. Browse to the [starter theme](https://gitlab.cwp.govt.nz/cwp/starter-theme) in GitLab.
+1. Browse to the [starter theme](https://github.com/silverstripe/cwp-starter-theme) in GitHub.
 2. Click on the *Fork* button in the toolbar. This will make a copy of the theme in your GitLab profile.
 3. Your forked repository has inherited the starter theme's public access. To disable this, go to the settings page.
 (*Settings / Edit Project*) of your repository in Gitlab, change the *Project Visibility* option as required and click *Save*.
 4.  In your theme's `composer.json` file and change the `"name"` parameter to `"my-agency/<theme-name-here>"`.
 5.  In your project's `composer.json` replace `"cwp/starter-theme"` with with the name you added in the previous step.
-6.  In the same `composer.json` file replace the `"https://gitlab.cwp.govt.nz/cwp/starter-theme.git"` with your
+6.  In the same `composer.json` file replace the `"https://github.com/silverstripe/cwp-starter-theme"` with your
 private repository address to the `repositories` array - see below for sample. You may need to add this manually.
 7.  Edit the `mysite/_config/config.yml` file and change the theme from `starter` to your theme's name.
 8.  Run `composer update`.
@@ -50,12 +50,11 @@ Your theme's composer.json file should look something like this:
 		"description": "My New Theme",
 		"type": "silverstripe-theme",
 		"require": {
-			"composer/installers": "*",
-			"cwp/cwp": "^1.6.0"
+			"silverstripe/framework": "^4.0"
 		},
 		"extra": {
 			"branch-alias": {
-				"dev-master": "1.2.x-dev"
+				"dev-master": "2.x-dev"
 			}
 		}
 	}
@@ -66,7 +65,7 @@ Your project's composer.json file should look something like this:
 		"name": "my-agency/my-project",
 		"description": "My CWP project",
 		"require": {
-			"cwp/cwp-recipe-basic": "~1.6.0@stable",
+			"cwp/cwp-recipe-cms": "~2.0.0@stable",
 			"my-agency/my-new-theme": "dev-master"
 		},
 		"require-dev": {
@@ -76,10 +75,6 @@ Your project's composer.json file should look something like this:
 			"process-timeout": 900
 		},
 		"repositories": [
-			{
-				"type": "composer",
-				"url": "https://packages.cwp.govt.nz/"
-			},
 			{
 				"type": "vcs",
 				"url": "https://gitlab.cwp.govt.nz/my-agency/my-new-theme.git",
@@ -104,7 +99,7 @@ also don't want to have access to your site's code as well, and will make it mor
  1. Edit your project's `.gitignore` file and remove the `themes/` line.
  2. Remove the `/themes/starter/.git` directory and the `/themes/starter/.gitignore` file.
  3. Rename the "starter" folder to your projects name (it should be all lower case and preferably one word).
-  * If you're also using the [Wātea theme](https://gitlab.cwp.govt.nz/cwp/watea-theme) you will also need to change "starter" to your projects name in the "starter_watea" folder. You may also wish to change the "watea" part of that folder name to your own customised subtheme name as well. Ensure you do not remove the underscore, and that the new "starter" theme name is reflected in the folder name of the Wātea theme if changed.
+  * If you're also using the [Wātea theme](https://github.com/silverstripe/cwp-watea-theme) you will also need to change "starter" to your projects name in the "starter_watea" folder. You may also wish to change the "watea" part of that folder name to your own customised subtheme name as well. Ensure you do not remove the underscore, and that the new "starter" theme name is reflected in the folder name of the Wātea theme if changed.
  4. Add the `.gitignore` file and the `themes` folder to your git project, commit it and push it back to the upstream repository.
  5. Remove the "cwp/starter-theme" line from the **require** list in `composer.json`. This will prevent composer from re-adding the *starter* theme to your project.
  6. Edit `mysite/_config/config.yml` and alter the `SSViewer: theme` setting to the name of your new theme.
@@ -140,8 +135,8 @@ The starter theme's NPM dependencies include the Bootstrap Sass files, and the c
 ### Bootstrap in the *starter* theme
 
 If you just want to dive in without reading the manual, the most important thing to understand is the [grid
-system](http://getbootstrap.com/css/#grid). In a nutshell, `.row` is a full-width
-container that can contain 12 columns. Elements define the number of columns they take up by using `.col-*-*` classes, where an asterisk is replaced with a [viewport reference](http://getbootstrap.com/css/#grid-options), and the other is replaced with the number of columns between 1 and 12. Take a look at the simple example in
+system](https://getbootstrap.com/docs/3.3/css/#grid). In a nutshell, `.row` is a full-width
+container that can contain 12 columns. Elements define the number of columns they take up by using `.col-*-*` classes, where an asterisk is replaced with a [viewport reference](https://getbootstrap.com/docs/3.3/css/#grid-options), and the other is replaced with the number of columns between 1 and 12. Take a look at the simple example in
 `/themes/starter/templates/Layout/Page.ss` and see how the sidenav and content sit beside each other.
 
 The basic page layout uses a `.col-md-7` on the left for the content and a `.col-md-3` for the main content area. The `.col-md-offset-1` class creates an indent for the content on the left side of the page.
@@ -268,7 +263,7 @@ npm run package
 
 ## Modifying template files
 
-The starter and Wātea themes are built with the same [template syntax SilverStripe developers are used to](https://docs.silverstripe.org/en/3/developer_guides/templates). Here's what has been changed from the previous "default" theme:
+The starter and Wātea themes are built with the same [template syntax SilverStripe developers are used to](https://docs.silverstripe.org/en/4/developer_guides/templates). Here's what has been changed from the previous "default" theme:
 
 * Use [Bootstrap 3](http://getbootstrap.com) HTML and CSS, instead of Bootstrap 2
 * Use a new, simplified build chain ([Laravel Mix](https://laravel.com/docs/5.4/mix))
@@ -281,19 +276,19 @@ When you make changes to a template, be sure to flush the site cache (by appendi
 
 ## Working with standards
 
-In his book [Clean Code](https://www.amazon.com/dp/0132350882), Robert Martin talks about the importance of reading code vs. writing code. That what we write needs to be entirely focussed on being easy to read and understand. That writing something succinctly is a waste of time if the effort makes understanding it harder.
+In his book [Clean Code](https://www.amazon.com/dp/0132350882), Robert Martin talks about the importance of reading code vs. writing code. That what we write needs to be entirely focused on being easy to read and understand. That writing something succinctly is a waste of time if the effort makes understanding it harder.
 
 That's the main reason that the starter and Wātea themes have opted to use [AirBnB code styles for Javascript]](https://github.com/airbnb/javascript] and  [AirBnB CSS/Sass styleguide](https://github.com/airbnb/css) for Sass and CSS (with a minor adjustment to follow Bootstrap's class naming convention of single dashes rather than BEM). You don't have to use these, in your project, but if you do all of your code will resemble the style used in the Sass and JS theme files.
 
 ## Javascript linting
 
-The [the AirBnB JS code style guide](https://github.com/airbnb/javascript) is aupplied, using [ESLint](https://github.com/eslint/eslint).
+The [AirBnB JS code style guide](https://github.com/airbnb/javascript) is applied, using [ESLint](https://github.com/eslint/eslint).
 
 > This assumes you're going for AirBnB Javascript code styles. You can of course configure ESLint to your preferred standard.
 
 It would also help if you configured ESLint to allow global variables (like `window` and `document`):
 
-**File: `.eslintrc`**
+**File:** `.eslintrc`
 ```json
 {
     "extends": "airbnb",
@@ -324,6 +319,6 @@ This theme comes with configuration for the [sass-lint](https://github.com/sasst
 npm run lint-sass
 ```
 
-The style rules are based on the [the AirBnB CSS/Sass style guide](https://github.com/airbnb/css). The exception is the BEM class naming rules, which has been substitued for Bootstrap-style class naming rules for compatibility with its framework. For example a BEM class name such as `.ListingCard__content` would be better suited here written a `.listingcard-content`.
+The style rules are based on the [AirBnB CSS/Sass style guide](https://github.com/airbnb/css). The exception is the BEM class naming rules, which has been substituted for Bootstrap-style class naming rules for compatibility with its framework. For example a BEM class name such as `.ListingCard__content` would be better suited here written a `.listingcard-content`.
 
 If you want to change the pre-configured rules for the linter, you can adjust the `.sass-lint.yml` file in the theme's root directory.

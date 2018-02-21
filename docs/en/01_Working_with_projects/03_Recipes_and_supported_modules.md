@@ -4,21 +4,20 @@ summary: Information about the default CWP codebase referred to as the CWP Recip
 # CWP recipe
 
 CWP supplies developers with a default set of packages for setting up their SilverStripe CMS projects.
-The [cwp-installer](https://gitlab.cwp.govt.nz/cwp/cwp-installer) package is create from the original
+The [cwp-installer](https://github.com/silverstripe/cwp-installer) package is created from the original
 [silverstripe-installer](https://github.com/silverstripe/silverstripe-installer). It can be used as a base for
 jump-starting development of a CWP project. This is a recommended way of creating a CWP project.
 
-The installer comes with a `composer.json` file which defines a single dependency:
-[cwp-recipe-basic](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic), a metapackage which sole purpose is to pull in
-a set of commercially supported SilverStripe CMS modules and supported dependencies that make up the feature set of a default CWP ready website.
+The installer comes with a `composer.json` file which defines dependencies. These make up the feature set of a default CWP ready website by
+pulling sets of commercially supported SilverStripe CMS modules.
 
-This 'metapackage' will be from now on referred to as a "recipe", and is a crucial element of keeping your CWP deployment running.
+These 'metapackages' will be from now on referred to as "recipes", and are crucial elements of keeping your CWP deployment running.
 
 Even if you did not start from the installer, you can make your project "stable" by
 including the following in your `composer.json`:
 
 	"require": {
-		"cwp/cwp-recipe-basic": "~1.0.1@stable",
+        "cwp/cwp-recipe-cms": "~2.0.0@stable"
 		...
 
 So if the above dependency can be found in your root `composer.json` file it can be said that you are running on a
@@ -41,8 +40,8 @@ The reasons include:
 * your site may break when infrastructure changes are rolled out - these changes will only be tested against the official CWP recipe releases
 
 If after careful consideration your development team decides to depart from the recipe model, it is recommended to pull
-in at least the [cwp](https://gitlab.cwp.govt.nz/cwp/cwp) module. If even this doesn't work for you, the last resort is
-including the [cwp-core](https://gitlab.cwp.govt.nz/cwp/cwp-core) module. This at least will ensure the minimal compatibility
+in at least the [CWP CMS recipe](https://github.com/silverstripe/cwp-recipe-cms). If even this doesn't work for you, the last resort is
+including the the [CWP core recipe](https://github.com/silverstripe/cwp-recipe-core). This at least will ensure the minimal compatibility
 with the platform infrastructure and will allow us to deliver some subset of fixes and features to you as they are released.
 
 Your development team will need to follow the releases of the recipe on their own and make sure the modules are either
@@ -81,13 +80,14 @@ See [upgrading guide](upgrading) for instructions.
 ## Recipe contents
 
 To obtain the composition of the latest stable recipe, the easiest way is to head to the
-[repository](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/) and look at the composer file and the dependencies
+[recipe repositories](https://github.com/topics/cwp) and look at the respective composer file and the dependencies
 contained there.
 
-For example here is the composition of version [1.5.2](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/blob/1.5.2/composer.json).
+To obtain the composition of the latest stable recipe, the easiest way is to head to the recipe's repository and look at the respective composer file, then update the dependencies contained there. 
 
-To find the location of specific repository, first check in the internal [CWP packages](https://packages.cwp.govt.nz/)
-service, then check on [Packagist](http://packagist.org/).
+For example, [here is the blog recipe contents](https://github.com/silverstripe/recipe-blog/blob/master/composer.json).
+
+To find the location of a specific repository check on [Packagist](http://packagist.org/).
 
 ## Dev recipe
 

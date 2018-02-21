@@ -7,7 +7,7 @@ Let's step through best practices in building your CWP site that will yield the 
 
 ## Starting off with the recipe
 
-We recommend to start your development by installing via the [cwp-installer](https://gitlab.cwp.govt.nz/cwp/cwp-installer/) using Composer.
+We recommend to start your development by installing via the [cwp-installer](https://github.com/silverstripe/cwp-installer) using Composer.
 This already sets up a reasonable structure to your site that will make future maintenance easier.
 
 See [Setting up your project](setting_up_your_project).
@@ -24,9 +24,7 @@ See [Recipes and supported modules](recipes_and_supported_modules) for more deta
 
 It's recommended that you don't modify third party module code in place, nor commit the code into your site's repository. Simply allow the `composer install` command to deploy the versions of your modules that are listed in the `composer.lock` file instead - this keeps your project code small and relevant.
 
-Modules are meant to be reusable between multiple agencies, so if there is a problem with a module, submit a pull
-request to the open source community (or file a bug report with the Service Desk if you think it's a problem
-with CWP modules).
+Modules are meant to be reusable between multiple agencies, so if there is a problem with a supported module included with CWP, submit a pull request to that module's github repository so the fix can be included in future releases. If you are unable to find a fix to make a pull request, you can log an issue instead of a pull request in a similar manner.
 
 This makes it easy to maintain the site by switching module versions at desired moments so this doesn't happen randomly.
 Deploynaut (our deployment tool) will never modify the module versions listed in `composer.lock`, so it's up to the
