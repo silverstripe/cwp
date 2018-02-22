@@ -8,9 +8,9 @@
     ],
     "license": "BSD-3-Clause",
     "require": {
-        "cwp/cwp-core": "^2",
+        "cwp/cwp-core": "2.0.0-rc1",
         "silverstripe/cms": "^4",
-        "silverstripe/taxonomy": "^2",
+        "silverstripe/taxonomy": "2.0.0@stable",
         "symbiote/silverstripe-gridfieldextensions": "^3.1"
     },
     "require-dev": {
