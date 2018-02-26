@@ -3,7 +3,7 @@ summary: How to install sample project data
 
 # Introduction
 
-When first starting with a CWP project you may find it useful to install some sample data. The `cwp/cwp` module come with a task you can run which will install some pre-defined sample data such as page content and a "contact us" [userform](https://github.com/silverstripe/silverstripe-userforms).
+When first starting with a CWP project you may find it useful to install some sample data. The `cwp/cwp` module comes with a task you can run which will install some pre-defined sample data such as page content and a "contact us" [userform](https://github.com/silverstripe/silverstripe-userforms).
 
 ## Running the task
 
@@ -30,4 +30,4 @@ An option for testing a number of features (including form fields, sample member
 composer require silverstripe/frameworktest
 ```
 
-Please see the module's documentation (linked above) for information on how to configure and use it.
+Please see [the module's documentation](https://github.com/silverstripe/silverstripe-frameworktest/blob/master/README.md) for information on how to configure and use it.

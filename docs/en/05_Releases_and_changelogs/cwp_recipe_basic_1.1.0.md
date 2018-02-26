@@ -14,7 +14,7 @@ The following new major features are included in this release:
 
  * Full blogging support, including nested comments, moderation tools, and multi-user functionality. Details on the new blog recipe can be found on the [blog recipe](/cwp-features/blog_recipe) page.
  * The ability to index and search uploaded documents via fulltext search. This is currently a beta feature, and any agency using this is advised to complete feasibility testing on any target environment. Details on configuring your environments for searching documents can be found on the [solr search](/cwp-features/solr_search) page.
- * A Single Sign-On functionality for SilverStripe intranet sites has been created. It is optional functionality and will require specific infrastructural architecture. See the [single sign on documentation](/cwp-features/single_sign_on).
+ * A single sign-on functionality for SilverStripe intranet sites has been created. It is optional functionality and will require specific infrastructural architecture. See the [single sign on documentation](/cwp-features/single_sign_on).
 
 Also included is a new file-tracking system to display which pages each image appears on.
 
@@ -30,7 +30,7 @@ Information to help manage upgrades is [here](https://www.cwp.govt.nz/working-wi
 ## Upgrading Instructions
 
 In order to assist agencies to upgrade their existing sites without the inclusion of new 1.1.0 blog features,
-these have been separated into a new module, [cwp-recipe-blog](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-blog),
+these have been separated into a new module, [cwp-recipe-blog](https://github.com/silverstripe/cwp-recipe-blog),
 which can be optionally excluded from any upgrade if desired.
 
 Document searching and Active Directory are supported but not installed by default, and thus can be excluded from

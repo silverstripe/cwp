@@ -111,11 +111,11 @@ In recipe 1.3.0 there are the following known issues in these failing tests:
 #### framework
 
  * FolderTest.testRenameFolderAndCheckTheFile - Known compatibility issue in versionedfiles
-   with 3.2. See https://github.com/silverstripe-australia/silverstripe-versionedfiles/issues/43
+   with 3.2. See https://github.com/symbiote/silverstripe-versionedfiles/issues/43
  * FolderTest.testSetNameChangesFilesystemOnWrite - Known compatibility issue in versionedfiles
-   with 3.2. See https://github.com/silverstripe-australia/silverstripe-versionedfiles/issues/43
+   with 3.2. See https://github.com/symbiote/silverstripe-versionedfiles/issues/43
  * FolderTest.testSetParentIDChangesFilesystemOnWrite - Known compatibility issue in versionedfiles
-   with 3.2. See https://github.com/silverstripe-australia/silverstripe-versionedfiles/issues/43
+   with 3.2. See https://github.com/symbiote/silverstripe-versionedfiles/issues/43
    
 #### userforms
 

@@ -9,7 +9,7 @@ If you are migrating an existing site, analysis of the access logs will help you
 such as the most commonly accessed pages, sections, or user behaviours. A great tool for a visual representation of your
 log data is [GoAccess](https://goaccess.io/).
 
-<div class='warning'>
+<div class='alert alert-warning'>
 Be wary of using Google Analytics as a source of your most-hit URLs - they don't include bot visitors, which can end up
 skewing your traffic a long way towards URLs that you would not expect. This is also why you should take your pageviews
 statistic with a grain of salt if it comes from Google Analytics - access logs are the truest record.
@@ -62,10 +62,10 @@ The [SilverStripe DebugBar](https://github.com/lekoala/silverstripe-debugbar) mo
 
 In addition to local testing, you want to get real world performance samples on the CWP infrastructure early and
 frequently. While you can run low concurrency tests with a handful of users unannounced, please contact the
-[CWP Helpdesk](https://www.cwp.govt.nz/service-desk/new-request/) before testing with high request volumes - this allows
+[CWP Service Desk](https://www.cwp.govt.nz/service-desk/new-request/) before testing with high request volumes - this allows
 the team to configure the site to expect unusual traffic peaks, whitelist testing IP addresses, and generally not panic
 if the site begins to show signs of struggle. You should do this at least three days before you intend to test.
-Generally this will performed by a specialist testing company.
+Generally this will be performed by a specialist testing company.
 
 ## Next
 

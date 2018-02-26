@@ -14,16 +14,19 @@ the appropriate error codes. Setup the following (as below) with the codes 500 a
 
 These pages will be displayed to the user in the following situations:
 
-## During server error or outage
+* [During server error or outage](#during-server-error-or-outage-2)
+* [During Deployment](#during-deployment-2)
+
+## Error pages during server error or outage
 
 In the event that the destination environment is completely unavailable, the error-500.html page will be served directly
-from the gateway.  This will also respond to most general server errors.
+from the gateway. This will also respond to most general server errors.
 
 This page and its assets will be updated regularly to ensure that a cached backup of all necessary files are available.
 
 Note that this page is normally created by default during install.
 
-## During Deployment
+## Error pages during Deployment
 
 During the course of certain deployment activities Deploynaut will display the error-503.html page for the duration
 of the process.

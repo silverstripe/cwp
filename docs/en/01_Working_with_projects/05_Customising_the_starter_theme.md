@@ -1,11 +1,11 @@
-title: Customising the starter theme
+title: Customising the CWP Starter theme
 summary: Development information for working with themes
 
-# Customising the starter theme
+# Customising the CWP Starter theme
 
 ## Introduction
 
-CWP provides a *starter* theme for you to work with. This has been developed both as a base for more complex themes to
+CWP provides a *CWP Starter* theme for you to work with. This has been developed both as a base for more complex themes to
 be built on top of and as a reference example for meeting Government standards and accessibility guidelines.
 
 For more information on how a SilverStripe theme is constructed, see the [Developing
@@ -15,22 +15,22 @@ When customising the theme, you can choose to work either with the powerful SASS
 use the CSS stylesheets directly. In the latter case we recommend you to remove the `.scss` files to make it clear they are
 not used.
 
-We recommend you follow the starter theme as a guideline and use the provided NPM configuration to build and recompile your frontend dependencies.
+We recommend you follow the CWP Starter theme as a guideline and use the provided npm configuration to build and recompile your frontend dependencies.
 
-<div class="notice" markdown='1'>
-Note: The starter theme is the default CWP theme as of the CWP 1.6 recipe. If you are looking for the old "default" CWP theme, [please see here](https://www.cwp.govt.nz/developer-docs/en/1.5/working_with_projects/customising_the_default_theme/).
+<div class="alert alert-info" markdown='1'>
+Note: The Starter theme is the default CWP theme as of the CWP 1.6 recipe. If you are looking for the old "default" CWP theme, [please see here](https://www.cwp.govt.nz/developer-docs/en/1.5/working_with_projects/customising_the_default_theme/).
 </div>
 
 ## Getting Started
 
-The starter theme that comes with the basic site is cloned from the [CWP starter theme in GitHub](https://github.com/silverstripe/cwp-starter-theme), so you are not able to
+The CWP Starter theme that comes with the basic site is cloned from the [CWP Starter theme in GitHub](https://github.com/silverstripe/cwp-starter-theme), so you are not able to
 make changes to it directly. There are two recommended ways of creating your own theme:
 
 ### Forking the theme
 
-This will give you a copy of the starter theme repository that you can edit and can share with others.
+This will give you a copy of the CWP Starter theme repository that you can edit and can share with others.
 
-1. Browse to the [starter theme](https://github.com/silverstripe/cwp-starter-theme) in GitHub.
+1. Browse to the [CWP Starter theme](https://github.com/silverstripe/cwp-starter-theme) in GitHub.
 2. Click on the *Fork* button in the toolbar. This will make a copy of the theme in your GitLab profile.
 3. Your forked repository has inherited the starter theme's public access. To disable this, go to the settings page.
 (*Settings / Edit Project*) of your repository in Gitlab, change the *Project Visibility* option as required and click *Save*.
@@ -94,17 +94,17 @@ GitLab hosted modules. See [Working with modules](working_with_modules) for more
 ### Committing a theme to your project repository
 
 This is a more straightforward process but not as flexible - you won't be able to share the theme with anyone that you
-also don't want to have access to your site's code as well, and will make it more difficult to update when the starter theme is updated.
+also don't want to have access to your site's code as well, and will make it more difficult to update when the CWP Starter theme is updated.
 
  1. Edit your project's `.gitignore` file and remove the `themes/` line.
  2. Remove the `/themes/starter/.git` directory and the `/themes/starter/.gitignore` file.
  3. Rename the "starter" folder to your projects name (it should be all lower case and preferably one word).
-  * If you're also using the [Wātea theme](https://github.com/silverstripe/cwp-watea-theme) you will also need to change "starter" to your projects name in the "starter_watea" folder. You may also wish to change the "watea" part of that folder name to your own customised subtheme name as well. Ensure you do not remove the underscore, and that the new "starter" theme name is reflected in the folder name of the Wātea theme if changed.
+  * If you're also using the [Wātea theme](https://github.com/silverstripe/cwp-watea-theme) you will also need to change "starter" to your projects name in the "starter_watea" folder. You may also wish to change the "watea" part of that folder name to your own customised subtheme name as well. Ensure you don't remove the underscore, and that the new "starter" theme name is reflected in the folder name of the Wātea theme if changed.
  4. Add the `.gitignore` file and the `themes` folder to your git project, commit it and push it back to the upstream repository.
  5. Remove the "cwp/starter-theme" line from the **require** list in `composer.json`. This will prevent composer from re-adding the *starter* theme to your project.
  6. Edit `mysite/_config/config.yml` and alter the `SSViewer: theme` setting to the name of your new theme.
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 Don't forget to `flush` by visiting `http://localhost/your-project/?flush=1` to get the new theme running!
 </div>
 
@@ -119,7 +119,7 @@ Now when you go into GitLab, you'll see a commit from yourself "Add custom theme
 
 ## Bootstrap
 
-The *starter* theme is built on top of a fork of the [Bootstrap 3](http://getbootstrap.com/)
+The CWP Starter theme is built on top of a fork of the [Bootstrap 3](http://getbootstrap.com/)
 front-end framework.
 
 Bootstrap is a free collection of tools for creating websites and web applications. It contains HTML and
@@ -130,9 +130,9 @@ uses the Sass port of Bootstrap.
 From Bootstrap's [Getting Started page](http://getbootstrap.com/getting-started/) you can find links about the basics of the system
 and the full documentation.
 
-The starter theme's NPM dependencies include the Bootstrap Sass files, and the compiled CSS output also includes the final output.
+The CWP Starter theme's npm dependencies include the Bootstrap Sass files, and the compiled CSS output also includes the final output.
 
-### Bootstrap in the *starter* theme
+### Bootstrap in the *CWP Starter* theme
 
 If you just want to dive in without reading the manual, the most important thing to understand is the [grid
 system](https://getbootstrap.com/docs/3.3/css/#grid). In a nutshell, `.row` is a full-width
@@ -143,7 +143,7 @@ The basic page layout uses a `.col-md-7` on the left for the content and a `.col
 
 ## Sass and Javascript
 
-The starter theme is build using Bootstrap's Sass source code to compile a customised version of Bootstrap, where colours, margins, paddings etc are modified and recompiled within the context of the rest of Bootstrap's source code.
+The CWP Starter theme is build using Bootstrap's Sass source code to compile a customised version of Bootstrap, where colours, margins, paddings etc are modified and recompiled within the context of the rest of Bootstrap's source code.
 
 We've added very little CSS and JS to the core Bootstrap 3 feature set, but that which we have added is neatly packaged in the theme folder. The files are built using a build chain abstraction, called [Laravel Mix](https://laravel.com/docs/5.4/mix). It uses [Webpack](https://webpack.github.io) to convert, combine, minify and improve the quality of CSS and JS files.
 
@@ -179,9 +179,9 @@ In the above example, the "src" files are all loaded and processed (although the
 
 ### Installing Webpack and Laravel Mix
 
-You'll need to have a recent versions of [Node](https://nodejs.org/en/) and [NPM](https://www.npmjs.com/) for this build chain to work. We recommend Node `v7.x` or later and NPM `v4.x` or later. You can check which version you have by running `node -v` and `npm version`.
+You'll need to have a recent versions of [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) for this build chain to work. We recommend Node `v7.x` or later and npm `v4.x` or later. You can check which version you have by running `node -v` and `npm version`.
 
-Once you have NPM installed, you can install the required package dependencies for the theme:
+Once you have npm installed, you can install the required package dependencies for the theme:
 
 ```
 cd themes/starter
@@ -245,7 +245,7 @@ And add the following to src/scss/main.scss:
 
 You can follow the same process for Javascript files - take a look at the existing components for examples.
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 It's generally encouraged to use Sass variables wherever possible. You can find a list of all predefined variables and values in the src/scss/variables.scss file. This file is based on the default Bootstrap 3 variable sheet, with some changes made and some new variables added.
 </div>
 
@@ -263,7 +263,7 @@ npm run package
 
 ## Modifying template files
 
-The starter and Wātea themes are built with the same [template syntax SilverStripe developers are used to](https://docs.silverstripe.org/en/4/developer_guides/templates). Here's what has been changed from the previous "default" theme:
+The CWP Starter and Wātea themes are built with the same [template syntax SilverStripe developers are used to](https://docs.silverstripe.org/en/4/developer_guides/templates). Here's what has been changed from the previous "default" theme:
 
 * Use [Bootstrap 3](http://getbootstrap.com) HTML and CSS, instead of Bootstrap 2
 * Use a new, simplified build chain ([Laravel Mix](https://laravel.com/docs/5.4/mix))
@@ -278,7 +278,7 @@ When you make changes to a template, be sure to flush the site cache (by appendi
 
 In his book [Clean Code](https://www.amazon.com/dp/0132350882), Robert Martin talks about the importance of reading code vs. writing code. That what we write needs to be entirely focused on being easy to read and understand. That writing something succinctly is a waste of time if the effort makes understanding it harder.
 
-That's the main reason that the starter and Wātea themes have opted to use [AirBnB code styles for Javascript]](https://github.com/airbnb/javascript] and  [AirBnB CSS/Sass styleguide](https://github.com/airbnb/css) for Sass and CSS (with a minor adjustment to follow Bootstrap's class naming convention of single dashes rather than BEM). You don't have to use these, in your project, but if you do all of your code will resemble the style used in the Sass and JS theme files.
+That's the main reason that the CWP Starter and Wātea themes have opted to use [AirBnB code styles for Javascript]](https://github.com/airbnb/javascript] and  [AirBnB CSS/Sass styleguide](https://github.com/airbnb/css) for Sass and CSS (with a minor adjustment to follow Bootstrap's class naming convention of single dashes rather than BEM). You don't have to use these, in your project, but if you do all of your code will resemble the style used in the Sass and JS theme files.
 
 ## Javascript linting
 

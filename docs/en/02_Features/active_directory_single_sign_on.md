@@ -11,7 +11,7 @@ further prompts when they switch applications.
 
 ## Introduction
 
-Single Sign-on is provided by the open sourced
+Single sign-on is provided by the open sourced
 module [SilverStripe Active Directory](https://github.com/silverstripe/silverstripe-activedirectory).
 
 This module allows users of a CWP intranet site to seamlessly login once and never be prompted to login to the site again.
@@ -50,7 +50,7 @@ The idea is that a user can open their browser, go to the
 intranet site and be automatically logged in with their already
 authenticated Windows user.
 
-This Single Sign-on solution is "opinionated", which means it has
+This single sign-on solution is "opinionated", which means it has
 very firm ideas about how things ought to be done. The solution
 tightly couples a set of services to provide the best user
 experience and therefore the requirements are strict.
@@ -100,22 +100,23 @@ To be able to use them on a CWP site you will override the default
 with the following in `mysite/_config.php`
 
 **Replace 'stackname' with the actual stack name so that the URL is correct.**
-
-	// Configure SAML certificates for the CWP UAT environment
-	if(defined('CWP_ENVIRONMENT') && (CWP_ENVIRONMENT == 'uat' || CWP_ENVIRONMENT == 'uatdr')) {
-	    Config::inst()->update('SAMLConfiguration', 'SP', array(
-	        'entityId' => 'https://stackname-uat.cwp.govt.nz/',
-	        'privateKey' => '../../certs/saml.pem',
-	        'x509cert' => '../../certs/saml.crt'
-	    ));
-	// Configure SAML certificates for the CWP Production environment
-	} elseif(defined('CWP_ENVIRONMENT') && (CWP_ENVIRONMENT == 'prod' || CWP_ENVIRONMENT == 'dr')) {
-	    Config::inst()->update('SAMLConfiguration', 'SP', array(
-	        'entityId' => 'https://stackname.cwp.govt.nz/',
-	        'privateKey' => '../../certs/saml.pem',
-	        'x509cert' => '../../certs/saml.crt'
-	    ));
-	}
+```php
+// Configure SAML certificates for the CWP UAT environment
+if(defined('CWP_ENVIRONMENT') && (CWP_ENVIRONMENT == 'uat' || CWP_ENVIRONMENT == 'uatdr')) {
+    Config::inst()->update('SAMLConfiguration', 'SP', [
+        'entityId' => 'https://stackname-uat.cwp.govt.nz/',
+        'privateKey' => '../../certs/saml.pem',
+        'x509cert' => '../../certs/saml.crt'
+    ]);
+// Configure SAML certificates for the CWP Production environment
+} elseif(defined('CWP_ENVIRONMENT') && (CWP_ENVIRONMENT == 'prod' || CWP_ENVIRONMENT == 'dr')) {
+    Config::inst()->update('SAMLConfiguration', 'SP', [
+        'entityId' => 'https://stackname.cwp.govt.nz/',
+        'privateKey' => '../../certs/saml.pem',
+        'x509cert' => '../../certs/saml.crt'
+    ]);
+}
+```
 	
 ### Disable the basic auth for an intranet site
 
@@ -159,7 +160,7 @@ The ADFS will step in as a web endpoint on a secure HTTPS
 connection that uses the DC as a Identity Provider.
 
 Mobile devices often can't provide IWA details so that would
-prevent Single Sign-on for mobile devices.
+prevent Single sign-on for mobile devices.
 
 Since ADFS is exposed as a website it can automatically login users
 if their device support IWA or can fall back to a standard login

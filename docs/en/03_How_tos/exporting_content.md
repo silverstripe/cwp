@@ -42,23 +42,25 @@ The list of properties that is exported from `Page` is restricted by the static 
 If you have added any properties or relations that you wish to include in this list, you'll need to redefine this
 static in the relevant classes and extend the array to include your new properties.
 
-So if you have added:
+So if you have added
 
-	:::php
-	class Page {
-		static $db = array(
-			'Author' => 'Varchar(255)'
-		);
-		static $has_one = array(
-			'Thumbnail' => 'Image'
-		);
-	}
+```php
+class Page 
+{
+    static $db = [
+        'Author' => 'Varchar(255)'
+    ];
+    static $has_one = [
+        'Thumbnail' => 'Image'
+    ];
+}
+```
 
 then you might always want to add:
 
-	:::php
-	private static $api_access = array('Locale', 'URLSegment' ... 'ParentID', 'ID', 'Author', 'Thumbnail');
-
+```php
+private static $api_access = ['Locale', 'URLSegment' ... 'ParentID', 'ID', 'Author', 'Thumbnail'];
+```
 This will include the extra fields in the XML result.
 
 ## Exposing existing objects
@@ -70,25 +72,30 @@ hassles when it came to upgrading the module.
 
 A better way to do it is with extensions. If you created these two class definitions:
 
-	:::php
-	class SubmittedFormExtension extends DataExtension {
-		private static $api_access = true;
-	}
+```php
+class SubmittedFormExtension extends DataExtension 
+{
+    private static $api_access = true;
+}
+```
 
-	:::php
-	class SubmittedFormFieldExtension extends DataExtension {
-		private static $api_access = true;
-	}
+```php
+class SubmittedFormFieldExtension extends DataExtension 
+{
+    private static $api_access = true;
+}
+```
 
 and then added this to your `mysite/_config/config.yml`:
 
-	:::yml
-	SubmittedForm:
-	  extensions:
-	   - SubmittedFormExtension
-	SubmittedFormField:
-	  extensions:
-	   - SubmittedFormFieldExtension
+```yml
+SubmittedForm:
+  extensions:
+   - SubmittedFormExtension
+SubmittedFormField:
+  extensions:
+   - SubmittedFormFieldExtension
+```
 
 Now the `SubmittedForm` and `SubmittedFormField` classes are exposed to the REST API without modifying them directly.
 
@@ -102,11 +109,12 @@ field contains just the ID. The "Portrait" field is an empty node that contains 
 a request URL that just displays that one field, `id` which is the same ID that is in the "Portrait" field, and
 `linktype` which will be set to "has_one" in this case. An example is below:
 
-	:::xml
-	<Page>
-		<PortraitID>100</PortraitID>
-		<Portrait href="http://mysite.com/api/v1/Page/1/Portrait.xml" id="100" linktype="has_one"/>
-	</Page>
+```xml
+<Page>
+    <PortraitID>100</PortraitID>
+    <Portrait href="http://mysite.com/api/v1/Page/1/Portrait.xml" id="100" linktype="has_one"/>
+</Page>
+```
 
 If this is not appearing, check that you've exposed the relation as specified in the "Exposing new properties" section.
 
@@ -115,19 +123,20 @@ If this is not appearing, check that you've exposed the relation as specified in
 Has many relationships can only be viewed as both sides of the relationship are exposed to the REST API. They appear in
 the following format:
 
-	:::xml
-	<?xml version="1.0" encoding="UTF-8"?>
-	<ArrayList totalSize="10">
-		<Page href="http://mysite.com/api/v1/Page/1">
-			...
-			<RelatedPages href="http://mysite.com/api/v1/Page/1/RelatedPages.xml" linktype="has_many">
-				<Page href="http//mysite.com/api/v1/Page/2" id="2" />
-				...
-			</RelatedPages>
-			...
-		</Page>
-		...
-	</ArrayList>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ArrayList totalSize="10">
+    <Page href="http://mysite.com/api/v1/Page/1">
+        ...
+        <RelatedPages href="http://mysite.com/api/v1/Page/1/RelatedPages.xml" linktype="has_many">
+            <Page href="http//mysite.com/api/v1/Page/2" id="2" />
+            ...
+        </RelatedPages>
+        ...
+    </Page>
+    ...
+</ArrayList>
+```
 
 If you browse to the location in the `href` attribute (`http://mysite.com/api/v1/Page/1/RelatedPages.xml` in this case)
 then you'll get the same content but without the additional attributes of the page.

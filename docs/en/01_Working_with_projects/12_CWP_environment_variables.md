@@ -6,7 +6,7 @@ introduction: Describes the environment variables present on CWP environments.
 
 ## Available environment variables (PHP constants)
 
-The following [SilverStripe CMS constants and globals](https://docs.silverstripe.org/en/3.2/getting_started/environment_management/)
+The following [SilverStripe CMS constants and globals](https://docs.silverstripe.org/en/4/getting_started/environment_management/)
 are set by default on CWP environments.
 
 |Constant/Global|Guaranteed value|

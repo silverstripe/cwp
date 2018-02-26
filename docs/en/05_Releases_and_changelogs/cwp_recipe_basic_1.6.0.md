@@ -59,7 +59,7 @@ CwpThemeHelper:
 ```php
 <?php
 
-Config::inst()->update('CwpThemeHelper', 'default_themes', array('my_custom_theme_name'));
+Config::inst()->update('CwpThemeHelper', 'default_themes', ['my_custom_theme_name']);
 ```
 
 #### SSViewer Theme
@@ -80,8 +80,8 @@ In previous versions of the recipe, you may have followed the **"Adding JS and C
 Let's start with creating our Extension. You could name it `BasePageControllerExtension` for example. It should look something like this: 
 
 ```php
-class BasePageControllerExtension extends Extension 
-{ 
+class BasePageControllerExtension extends Extension
+{
    ... 
 }
 ```
@@ -99,7 +99,7 @@ You're now all set up for Steps 2 and 3. Let's get to it!
 
 ##### Step 2: From `getBaseScripts` to `updateBaseScripts`
 
-If you have overriden `getBaseScripts`, you will need to add the `updateBaseScripts` method to your `BasePageControllerExtension`. There are **two** ways this is likely to go for you depending on how you have overridden `getBaseScripts` and if you have (or have not) made use of the `parent::getBaseScripts()` method: 
+If you have overridden `getBaseScripts`, you will need to add the `updateBaseScripts` method to your `BasePageControllerExtension`. There are **two** ways this is likely to go for you depending on how you have overridden `getBaseScripts` and if you have (or have not) made use of the `parent::getBaseScripts()` method: 
 
 ###### 1. `Page_Controller` has the method `getBaseScripts` and it makes use of `parent::getBaseScripts()` like this: 
 
@@ -122,9 +122,9 @@ public function updateBaseScripts(&$scripts)
 {
     $themeDir = SSViewer::get_theme_folder();
 
-    $scripts = array_merge($scripts, array(
+    $scripts = array_merge($scripts, [
         "$themeDir/js/my.js"
-    ));
+    ]);
 }
 ```
 
@@ -135,9 +135,9 @@ public function getBaseScripts()
 {
     $themeDir = SSViewer::get_theme_folder();
 
-    return array(
+    return [
     	"$themeDir/js/my.js"
-    );
+    ];
 }
 ```
 
@@ -148,9 +148,9 @@ public function updateBaseScripts(&$scripts)
 {
     $themeDir = SSViewer::get_theme_folder();
 
-    $scripts = array_merge($scripts, array(
+    $scripts = array_merge($scripts, [
         "$themeDir/js/my.js"
-    ));
+    ]);
 }
 ```
 
@@ -163,7 +163,7 @@ DefaultThemeExtension:
 
 ##### Step 3: From `getBaseStyles` to `updateBaseStyles`
 
-If you have overriden `getBaseStyles`, you will need to add the `updateBaseStyles` method to your `BasePageControllerExtension`. There are **two** ways this is likely to go for you depending on how you have overridden `getBaseStyles` and if you have (or have not) made use of the `parent::getBaseStyles()` method: 
+If you have overridden `getBaseStyles`, you will need to add the `updateBaseStyles` method to your `BasePageControllerExtension`. There are **two** ways this is likely to go for you depending on how you have overridden `getBaseStyles` and if you have (or have not) made use of the `parent::getBaseStyles()` method: 
 
 ###### 1. `Page_Controller` has the method `getBaseStyles` and it makes use of `parent:: getBaseStyles()` like this: 
 
@@ -186,9 +186,9 @@ public function updateBaseStyles(&$styles)
 {
     $themeDir = SSViewer::get_theme_folder();
 
-    $styles['all'] = array_merge($styles['all'], array(
+    $styles['all'] = array_merge($styles['all'], [
         "$themeDir/css/my.css"
-    ));
+    ]);
 }
 ```
 
@@ -199,9 +199,9 @@ public function getBaseStyles()
 {
     $themeDir = SSViewer::get_theme_folder();
 
-    return array(
+    return [
     	"all" => "$themeDir/css/my.css"
-    );
+    ];
 }
 ```
 
@@ -212,9 +212,9 @@ public function updateBaseStyles(&$styles)
 {
     $themeDir = SSViewer::get_theme_folder();
 
-    $styles['all'] = array_merge($styles['all'], array(
+    $styles['all'] = array_merge($styles['all'], [
         "$themeDir/css/my.css"
-    ));
+    ]);
 }
 ```
 

@@ -10,6 +10,9 @@ translations will be merged back to the project source code.
 Please register on Transifex and you will be able to contribute to all modules. Here is a list of translation projects
 for CWP-hosted modules:
 
-* [cwp/cwp](https://www.transifex.com/projects/p/silverstripe-cwp/)
-* [cwp/cwp-core](https://www.transifex.com/projects/p/silverstripe-cwp-core/)
-* [silverstripe/documentconverter](https://www.transifex.com/projects/p/silverstripe-documentconverter/)
+* [cwp/cwp](https://www.transifex.com/silverstripe/silverstripe-cwp/)
+* [cwp/cwp-core](https://www.transifex.com/silverstripe/silverstripe-cwp-core/)
+* [cwp/cwp-installer](https://www.transifex.com/silverstripe/silverstripe-cwp-installer/)
+* [cwp/cwp-search](https://www.transifex.com/silverstripe/silverstripe-cwp-search/)
+* [cwp-themes/default](https://www.transifex.com/silverstripe/silverstripe-cwp-themes-default/)
+* [silverstripe/documentconverter](https://www.transifex.com/silverstripe/silverstripe-documentconverter/)

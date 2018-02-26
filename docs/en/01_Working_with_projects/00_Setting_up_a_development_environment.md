@@ -11,12 +11,12 @@ CWP projects are installed using the Composer PHP package management tool. For g
 the [SilverStripe Composer documentation](https://docs.silverstripe.org/en/3/getting_started/composer/) or read the
 installation documentation on the [Composer site](http://getcomposer.org/doc/00-intro.md).
 
-Please familiarise yourself with [CWP recipes](recipes_and_supported_modules) before starting to develop on CWP. To ensure your code works
+Please familiarise yourself with the [CWP recipes](recipes_and_supported_modules) before starting to develop on CWP. To ensure your code works
 smoothly with the platform it's important to either start from the stable release of
-[cwp-installer](https://gitlab.cwp.govt.nz/cwp/cwp-installer/) or include
-[cwp-recipe-basic](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic/) in your `composer.json`.
+[cwp-installer](https://github.com/silverstripe/cwp-installer) or include
+your desired [CWP recipes](recipes_and_supported_modules) in your `composer.json`.
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 To ensure security of your site and CWP in general make sure your code can be upgraded - maintain your modules using
 composer. Then keep your dependencies updated with respect to the patch and sub-patch versions of the recipe - read
 more about [CWP recipes](recipes_and_supported_modules).

@@ -57,11 +57,12 @@ The cache stores the serialised root element. If a cache entry already exists, w
 of doing the expensive calculation again. Each cache has a default expiry time which can be customised.
 
 ```php
-function findRootParent() {
+function findRootParent() 
+{
 	$cache = SS_Cache::factory('rootparents');
 	if (!$cache->test($this->ID)) {
 		$parent = $this;
-		whilst ($parent->exists()) {
+		while ($parent->exists()) {
 			$lastParent = $parent;
 			$parent = $parent->Parent();
 		}
@@ -71,8 +72,8 @@ function findRootParent() {
 }
 ```
 
-Read more about [Object Caching](https://docs.silverstripe.org/en/3/developer_guides/performance/caching/)
-on doc.silverstripe.org.
+Read more about [Object Caching](https://docs.silverstripe.org/en/4/developer_guides/performance/caching/)
+on docs.silverstripe.org.
 
 ## Template Caching ("Partial Caching")
 
@@ -110,7 +111,7 @@ you are only executing this expensive calculation every 10 minutes
 (the default cache lifetime). More sophisticated cache logic is possible.
 
 Read more about
-[Partial Caching](https://docs.silverstripe.org/en/3/developer_guides/performance/partial_caching/) on doc.silverstripe.org
+[Partial Caching](https://docs.silverstripe.org/en/4/developer_guides/performance/partial_caching/) on docs.silverstripe.org
 
 
 ## Static caching on the server
@@ -123,9 +124,9 @@ without waiting for an intermediary cache layer to expire. Similarly to HTTP Cac
 this approach relies on sending the same response to all of your visitors.
 
 A common way to implement static caching in SilverStripe is the
-[staticpublishqueue module](https://github.com/silverstripe/silverstripe-staticpublishqueue).
+[Static Publisher with Queue module](https://github.com/silverstripe/silverstripe-staticpublishqueue).
 With this module, you'll need to define dependencies between pages
-to ensure accuracy, making Static caching a relatively advanced technique.
+to ensure accuracy, making static caching a relatively advanced technique.
 
 This approach can also be combined with HTTP Caching for maximum effect:
 In this scenario, the generated HTML files are further cached in intermediary layers.
@@ -134,7 +135,7 @@ In this scenario, the generated HTML files are further cached in intermediary la
 Your site will only be suitable for static caching if
 there is no dynamic content on the site, including user login and forms.
 
-If you have a dynamic area of your site but still wish to use some static caching, you can statically cache parts of
+If you have a dynamic area of your site, but still wish to use some static caching, you can statically cache parts of
 your site and leave other parts uncached. You could investigate caching your most popular or busy pages while leaving
 the others to be generated on request. This is the most common implementation of static caching.
 
@@ -144,8 +145,8 @@ Both HTTP Caching and Static Caching rely on serving the same content to all vis
 If your website is mostly cacheable, but you have minor dynamic behaviour such as a "logged in" menu indicator,
 you can use the best of both worlds: Generate static HTML content once for all visitors,
 but run the response through a lightweight SilverStripe PHP request in order to add dynamic bits to the response.
-You can do this with the [staticpublishqueue module](https://github.com/silverstripe/silverstripe-staticpublishqueue)
-module as well as [markguinn/silverstripe-livepub](https://github.com/markguinn/silverstripe-livepub).
+You can do this with the [Static Publisher with Queue module](https://github.com/silverstripe/silverstripe-staticpublishqueue)
+module as well as the [LivePub module](https://github.com/markguinn/silverstripe-livepub).
 
 ## Next
 

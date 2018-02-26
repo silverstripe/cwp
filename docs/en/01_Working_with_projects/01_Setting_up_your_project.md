@@ -27,7 +27,7 @@ access to. Access a project from here to find more information including the rep
 #### Project details
 ![GitLab project repository URL](/_images/gitlab-project-repo-url.jpg)
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 Use HTTPS address for interacting with your repository - SSH transport is not available currently.
 </div>
 
@@ -47,22 +47,22 @@ Use HTTPS address for interacting with your repository - SSH transport is not av
 
 This may take some time to run. There is some more information on these steps in the [Getting Started guide](../getting_started).
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 Assuming you followed through the "Setting up an development environment" guide, you can skip straight to "[Accessing the site](../working_with_projects/setting_up_your_project#accessing-the-site-2)" now.
 </div>
 
 ### Creating a new project?
 The preferred way to set up a new repository is to use the
-[cwp-installer](https://gitlab.cwp.govt.nz/cwp/cwp-installer/) module via Composer. Follow the instructions at [Getting Started](../getting_started) which will step you through how to create a project from scratch.
+[cwp-installer](https://github.com/silverstripe/cwp-installer) module via Composer. Follow the instructions at [Getting Started](../getting_started) which will step you through how to create a project from scratch.
 
 ## Making your first project commit
 You will need to make your first commit to Git and push your project into your Git repository provided on GitLab when you signed up for CWP.
 
 As mentioned you should not commit the packages of code managed by Composer to your project. To ensure this you need to use a `.gitignore` file stored in the root of your project (you should already have one of these files from the installation process).
 
-Inside the `.gitignore` you store references to the folders in your project you DO NOT want committed to your project Git repository.
+Inside the `.gitignore` you store references to the folders in your project you DON'T want committed to your project Git repository.
 
-For example a `.gitignore` for a CWP recipe codebase might include:
+For example, a `.gitignore` for a CWP recipe codebase might include:
 
     _ss_environment.php
     .buildpath
@@ -134,7 +134,7 @@ format of "my-agency/basic" - "cwp" namespace is reserved for platform-endorsed 
 
 ## Troubleshooting
 
-*Q: I cannot run "git remote add". git says: "fatal: remote origin already exists"*
+*Q: I can't run "git remote add". git says: "fatal: remote origin already exists"*
 
 A: If you've installed via the cwp-installer package and answered "no" the the question if the repository should be removed, the git remote named "origin" still exists and points at its git repository. You have two options:
 

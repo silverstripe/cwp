@@ -10,23 +10,16 @@ centralised installation of Graylog.
 You can access Graylog using your CWP log-in at the following URL:
 [https://logs.cwp.govt.nz/](https://logs.cwp.govt.nz/).
 
-In order to gain access to these logs please raise a general support request with the [CWP service desk](https://www.cwp.govt.nz/service-desk/new-request/).
+In order to gain access to these logs please raise a general support request with the [CWP Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
 
 We provide a stream for each environment. Streams are where
 you can view and query the stored logs. These include Apache, PHP, and any
 custom events that you want to log.
 
-<div class="notice" markdown='1'>
-`SS_SysLogWriter` use is now deprecated on CWP, because it could interfere with Graylog operation and could
-[cause side-effects](https://github.com/silverstripe/silverstripe-auditor#warning-do-not-use-ss_syslogwriter)
-with the audit logger. [Adding other writers](/how_tos/error_logging/) is fine.
-</div>
-
 ## Searching
 
-Each search requires a time period to search (default is last 5 minutes) and
-query string. The query string uses Graylog's query syntax which you can find
-more about by reading [Graylog documentation](http://docs.graylog.org/en/latest/pages/queries.html).
+Each search requires a time period to search and
+query strings (the default is 5 minutes). The query string uses Graylog's query syntax which you can find out more about by reading [Graylog documentation](http://docs.graylog.org/en/latest/pages/queries.html).
 
 To get you started with Graylog there are some predefined searches you can
 select from the top right corner. These are:
@@ -65,7 +58,7 @@ Following are a couple of examples on search queries:
 CWP environments will automatically write several log types which can be searched with the `log_type` keyword in Graylog, as
 long as the project includes the `cwp-core` module.
 
-* `SilverStripe_log`: standard log output of the Framework, will capture all events occuring after successful Framework
+* `SilverStripe_log`: standard log output of the Framework, will capture all events occurring after successful Framework
 bootstrap. This includes uncaught exceptions and any `SS_Log::log` events.
 * `SilverStripe_audit`: audit trail of security-related events provided by the *silverstripe/auditor* module.
 * `apache`: apache access logs.
@@ -81,10 +74,10 @@ on the button of the analysis you want to perform.
 
 ### Field statistics
 
-You can compute different statistics on your fields, to help you better summarize and 
+You can compute different statistics on your fields, to help you better summarise and 
 understand the data in them.
 
-The statistical information consist of: total, mean, minimum, maximum, standard
+The statistical information consists of: total, mean, minimum, maximum, standard
 deviation, variance, sum, and cardinality. On non-numeric fields, you can only
 see the total amount of messages containing that field, and the cardinality of
 the field, i.e. the number of unique values it has.
@@ -108,11 +101,11 @@ interpolation, as well as the time resolution.
 
 ![field graphs](/_images/logs/field_graph.png)
 
-For more information see [Graylog analysis documentation](http://docs.graylog.org/en/1.2/pages/queries.html#analysis).
+For more information see [Graylog analysis documentation](http://docs.graylog.org/en/stable/pages/queries.html#analysis).
 
 ## Logging custom events
 
-Basic recipe is configured to send all logs to syslog, which are then accessible through Graylog. The recommended way
+The recipes are configured to send all logs to syslog, which are then accessible through Graylog. The recommended way
 to log events on CWP is through the `SS_Log` API:
 
 ```php
@@ -120,7 +113,7 @@ SS_Log::log('Something seems to have happened', SS_Log::NOTICE);
 ```
 
 For more information on general usage of the Framework's logging subsystem, see
-[logging in SilverStripe documentation](https://docs.silverstripe.org/en/3.1/developer_guides/debugging/error_handling/).
+the [logging in SilverStripe documentation](https://docs.silverstripe.org/en/4/developer_guides/debugging/error_handling/).
 
 ## Custom audit trail
 
