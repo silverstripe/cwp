@@ -11,7 +11,7 @@ Active DR stacks have two properties:
  * They are load-balanced. The traffic is served from two data centres, increasing the maximum potential capacity of the
  stack.
  * They are highly-available. If one data centre / node exhibits a problem and is not reachable, or emits 5xx HTTP status
- code, this node will be pulled out of the pool and all traffic will be redirected to the other data centre.
+ codes, this node will be pulled out of the pool and all traffic will be redirected to the other data centre.
 
 
 Your custom domains will be actively load balanced between the two nodes. *.cwp.govt.nz domains are not load balanced and point to either the Wellington or Auckland node. We supply two domains for Active DR environments for both UAT and PROD to help debug issues:
@@ -50,11 +50,13 @@ composer require "silverstripe/hybridsessions:*"
 
 In your `mysite/_config.php` file, add this configuration:
 
-```
-if(defined('CWP_INSTANCE_DR_TYPE') && CWP_INSTANCE_DR_TYPE === 'active'
-    && defined('SS_SESSION_KEY') && class_exists('HybridSessionStore')
-    && !HybridSessionStore::is_enabled()
+```php
+// Automatically configure session key for activedr with hybridsessions module
+if (Environment::getEnv('CWP_INSTANCE_DR_TYPE')
+    && Environment::getEnv('CWP_INSTANCE_DR_TYPE') === 'active'
+    && Environment::getEnv('SS_SESSION_KEY')
+    && class_exists(HybridSession::class)
 ) {
-    HybridSessionStore::init(SS_SESSION_KEY);
+    HybridSession::init(Environment::getEnv('SS_SESSION_KEY'));
 }
 ```

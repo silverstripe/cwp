@@ -35,10 +35,10 @@ the development machine:
 
 ```php
 // use proxy if the environment file has a proxy definition
-if(defined('SS_OUTBOUND_PROXY') && defined('SS_OUTBOUND_PROXY_PORT')) {
+if(Environment::getEnv('SS_OUTBOUND_PROXY') && Environment::getEnv('SS_OUTBOUND_PROXY_PORT')) {
     $context = stream_context_create([
         'http' => [
-            'proxy' => sprintf('tcp://%s:%s', SS_OUTBOUND_PROXY, SS_OUTBOUND_PROXY_PORT),
+            'proxy' => sprintf('tcp://%s:%s', Environment::getEnv('SS_OUTBOUND_PROXY'), Environment::getEnv('SS_OUTBOUND_PROXY_PORT')),
             'request_fulluri' => true
         ]
     ]);
@@ -63,12 +63,12 @@ echo curl_exec($ch);
 
 You can also disable automatic proxy configuration globally by putting the following in one of your config files:
 
-```yml
+```yaml
 ---
 Name: mysiteconfig
 After: '#cwpcoreconfig'
 ---
-CwpInitialisationFilter:
+CWP\Core\Control\InitialisationMiddleware:
   egress_proxy_default_enabled: false
 ```
 
@@ -78,7 +78,7 @@ It's possible to exclude just some domains from being forced through the proxy i
 desirable. By default this is used by the Solr and Docvert services internal to CWP. The configuration can be appended
 to as follows:
 
-```yml
+```yaml
 ---
 Name: mysiteconfig
 After: '#cwpcoreconfig'

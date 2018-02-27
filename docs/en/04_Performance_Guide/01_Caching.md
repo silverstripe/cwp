@@ -57,7 +57,7 @@ The cache stores the serialised root element. If a cache entry already exists, w
 of doing the expensive calculation again. Each cache has a default expiry time which can be customised.
 
 ```php
-function findRootParent() 
+public function findRootParent() 
 {
 	$cache = SS_Cache::factory('rootparents');
 	if (!$cache->test($this->ID)) {

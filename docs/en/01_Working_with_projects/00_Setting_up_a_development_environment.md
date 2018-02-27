@@ -17,9 +17,9 @@ smoothly with the platform it's important to either start from the stable releas
 your desired [CWP recipes](recipes_and_supported_modules) in your `composer.json`.
 
 <div class="alert alert-info" markdown='1'>
-To ensure security of your site and CWP in general make sure your code can be upgraded - maintain your modules using
-composer. Then keep your dependencies updated with respect to the patch and sub-patch versions of the recipe - read
-more about [CWP recipes](recipes_and_supported_modules).
+To ensure security of your site, and of CWP in general, please make sure your code can be easily upgraded by 
+maintaining your modules using composer. This will help to keep your dependencies updated with respect to the patch and 
+sub-patch versions of the recipe - read more about [CWP recipes](recipes_and_supported_modules).
 </div>
 
 Another reason why it's best to maintain your modules using composer is that this will allow you to easily share the

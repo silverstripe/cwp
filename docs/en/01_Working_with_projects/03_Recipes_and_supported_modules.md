@@ -5,15 +5,18 @@ summary: Information about the default CWP codebase referred to as the CWP recip
 
 CWP supplies developers with a default set of packages for setting up their SilverStripe CMS projects.
 The [Common Web Platform Installer](https://github.com/silverstripe/cwp-installer)) package is created from the original
-[installer for SilverStripe CMS and Framework](https://github.com/silverstripe/silverstripe-installer). It can be used as a base for
-jump-starting development of a CWP project. This is a recommended way of creating a CWP project.
+[installer for SilverStripe CMS and Framework](https://github.com/silverstripe/silverstripe-installer). It can be used 
+as a base for jump-starting development of a CWP project. This is a recommended way of creating a CWP project.
 
 The installer comes with a `composer.json` file which defines dependencies. These make up the feature set of a default 
-CWP ready website by
-pulling sets of commercially supported SilverStripe CMS modules. 
+CWP ready website by pulling sets of commercially supported SilverStripe CMS modules. 
 
 The [Common Web Platform Installer](https://github.com/silverstripe/cwp-installer) package includes the 
-[CWP CMS Recipe](https://github.com/silverstripe/cwp-recipe-cms), the [CWP Search Recipe](https://github.com/silverstripe/cwp-recipe-search), and the SilverStripe [Registry module](https://github.com/silverstripe/silverstripe-registry).
+[CWP CMS Recipe](https://github.com/silverstripe/cwp-recipe-cms), 
+the [CWP Search Recipe](https://github.com/silverstripe/cwp-recipe-search), 
+the [Registry module](https://github.com/silverstripe/silverstripe-registry), 
+the [Fluent module](https://github.com/tractorcow/silverstripe-fluent), and
+the [Subsites module](https://github.com/silverstripe/silverstripe-subsites).
 
 These 'metapackages' will be from now on referred to as "recipes", and are crucial elements of keeping your CWP 
 deployment running.
@@ -23,19 +26,23 @@ deployment running.
 There are different recipe variations you can install for a CWP project. By default you get the kitchen sink (e.g. a 
 blog even if your site doesn't need one). 
 
-### [**CWP Core Recipe**](https://github.com/silverstripe/cwp-recipe-core)
+### [CWP Core Recipe](https://github.com/silverstripe/cwp-recipe-core)
 
-Core functionality only recipe for a  CWP 2.0 installation. It includes the following core SilverStripe and CWP modules:
+Core functionality only recipe for a CWP 2.0 installation. It includes the following core SilverStripe and CWP modules:
 
 * [SilverStripe Core Recipe](https://github.com/silverstripe/recipe-core) - The recipe containing framework, config, 
 and assets.
-* [CWP Core Module](https://github.com/silverstripe/cwp-core) - The CWP basic compatibility module
+* [CWP Core Module](https://github.com/silverstripe/cwp-core) - The CWP platform compatibility module
 * [SilverStripe Auditor](https://github.com/silverstripe/silverstripe-auditor) - The module provides audit trail logging for various events in the system
 * [SilverStripe Environment Checker](https://github.com/silverstripe/silverstripe-environmentcheck) - The module adds automated checks to monitor an environment's health status
 * [Hybrid Sessions](https://github.com/silverstripe/silverstripe-hybridsessions) - The module adds a hybrid cookie/database session store for SilverStripe
 * [MIME Upload Validator](https://github.com/silverstripe/silverstripe-mimevalidator) - The module checks that uploaded file content roughly matches a known MIME type for the file extension
 
-### [**CWP CMS Recipe**](https://github.com/silverstripe/cwp-recipe-cms) 
+<div class="alert alert-info" markdown='1'>
+Note, that this recipe is required if you are running an Active Disaster Recovery (DR) instance. Find out more about [preparing your site for active DR](/how_tos/preparing_your_site_for_active_dr).
+</div>
+
+### [CWP CMS Recipe](https://github.com/silverstripe/cwp-recipe-cms) 
 
 An extra CMS functionality recipe for a CWP 2.0 installation. It includes the following core SilverStripe and CWP modules:
 
@@ -44,9 +51,9 @@ An extra CMS functionality recipe for a CWP 2.0 installation. It includes the fo
 * [CWP features module](https://github.com/silverstripe/cwp) - The modules provides additional CMS functionality, page types, configuration
 * [CWP PDF Export](https://github.com/silverstripe/cwp-pdfexport) - The module adds PDF exporting functionality to pages
 * [HTML5 Support for SilverStripe](https://github.com/silverstripe/silverstripe-html5) - The module adds further HTML5 support to the CMS
-* [SilverStripe Grid Field Extensions](https://github.com/symbiote/silverstripe-gridfieldextensions)- This module adds extra feature components for GridFields
+* [SilverStripe GridField Extensions](https://github.com/symbiote/silverstripe-gridfieldextensions)- This module adds extra feature components for GridFields
 
-### [**CWP Search Recipe**](https://github.com/silverstripe/cwp-recipe-search) 
+### [CWP Search Recipe](https://github.com/silverstripe/cwp-recipe-search) 
 
 A recipe of modules to add search functionality to your CWP 2 project. It includes the following core SilverStripe and CWP modules:
 
@@ -56,7 +63,7 @@ A recipe of modules to add search functionality to your CWP 2 project. It includ
 * [FullTextSearch](https://github.com/silverstripe/silverstripe-fulltextsearch) - The module adds external full text search engine support to SilverStripe, specifically with Solr in a CWP context
 * [SilverStripe Queued Jobs](https://github.com/symbiote/silverstripe-queuedjobs) - The module provides interfaces for scheduling jobs for certain times
 
-### [**SilverStripe Authoring Tools Recipe**](https://github.com/silverstripe/recipe-authoring-tools) 
+### [SilverStripe Authoring Tools Recipe](https://github.com/silverstripe/recipe-authoring-tools) 
 
 Extra tools for CMS authoring in SilverStripe. It includes the following core SilverStripe and CWP modules:
 
@@ -67,19 +74,20 @@ Extra tools for CMS authoring in SilverStripe. It includes the following core Si
 * [Tag Field](https://github.com/silverstripe/silverstripe-tagfield) - The SilverStripe module for editing tags (both in the CMS and other forms)
 * [Taxonomy](https://github.com/silverstripe/silverstripe-taxonomy) - The module provides the capability to add and edit simple taxonomies within SilverStripe
 
-### [**SilverStripe Blog Recipe**](https://github.com/silverstripe/recipe-blog) 
+### [SilverStripe Blog Recipe](https://github.com/silverstripe/recipe-blog) 
 
 Adds blog functionality for your project. It includes the following core SilverStripe and CWP modules:
 
-* [Widgets](https://github.com/silverstripe/silverstripe-widgets) - The module enables the adding widget, which are small pieces of functionality 
+* [Widgets](https://github.com/silverstripe/silverstripe-widgets) - The module enables the adding of widgets, which are small pieces of functionality 
 * [SilverStripe Content Widget](https://github.com/silverstripe/silverstripe-content-widget) - The module adds functionality to display HTML content in a widget
-* [SpamProtection](https://github.com/silverstripe/silverstripe-spamprotection) - The module provides anAPI for adding spam protection to SilverStripe forms
+* [SpamProtection](https://github.com/silverstripe/silverstripe-spamprotection) - The module provides an API for adding spam protection to SilverStripe forms
 * [Akismet](https://github.com/silverstripe/silverstripe-akismet) - The module adds a simple spam filter using Akismet
 * [Comments](https://github.com/silverstripe/silverstripe-comments) - The module provides commenting functionality for Pages and other DataObjects
 * [Comment Notifications](https://github.com/silverstripe/comment-notifications) - The module provides simple email notification functionality for when new visitor comments are posted. 
 * [GridField Bulk Editing Tools](https://github.com/colymba/GridFieldBulkEditingTools) - The module provides a set of GridField components to facilitate bulk file upload & record editing.
+* [SilverStripe Lumberjack](https://github.com/silverstripe/silverstripe-lumberjack) - The module enables easy managing of pages in a GridField.
 
-### [**SilverStripe Collaboration Recipe**](https://github.com/silverstripe/recipe-collaboration) 
+### [SilverStripe Collaboration Recipe](https://github.com/silverstripe/recipe-collaboration) 
 
 Adds functionality to enhance CMS author collaboration. It includes the following core SilverStripe and CWP modules:
 
@@ -88,7 +96,7 @@ Adds functionality to enhance CMS author collaboration. It includes the followin
 * [Share Draft Content](https://github.com/silverstripe/silverstripe-sharedraftcontent) - The modules enables the sharing of draft page content with non-CMS users
 * [Advanced Workflow Module](Advanced Workflow Module) - This module provides highly configurable step-based workflow functionality
 
-### [**SilverStripe CMS Reporting Tools Recipe**](https://github.com/silverstripe/recipe-reporting-tools) 
+### [SilverStripe CMS Reporting Tools Recipe](https://github.com/silverstripe/recipe-reporting-tools) 
 
 Adds extra CMS reporting tools to your SilverStripe project. It includes the following core SilverStripe and CWP modules:
 
@@ -98,7 +106,7 @@ Adds extra CMS reporting tools to your SilverStripe project. It includes the fol
 * [Security Report](https://github.com/silverstripe/silverstripe-securityreport) - The module adds a "Users, Groups and Permissions" report in the SilverStripe CMS
 * [Site-wide Content Report](https://github.com/silverstripe/silverstripe-sitewidecontent-report) - The module adds a report of all pages and files across all the project, including subsites
 
-### [**SilverStripe Content Blocks Recipe**](https://github.com/silverstripe/recipe-content-blocks) 
+### [SilverStripe Content Blocks Recipe](https://github.com/silverstripe/recipe-content-blocks) 
 
 Adds content blocks to your SilverStripe project. It includes the following core SilverStripe and CWP modules:
 
@@ -106,7 +114,7 @@ Adds content blocks to your SilverStripe project. It includes the following core
 * [SilverStripe Elemental](https://github.com/dnadesign/silverstripe-elemental) - The module enables adding content "elements" to your pages
 * [SilverStripe Elemental Blocks](https://github.com/silverstripe/silverstripe-elemental-blocks) - The module enables adding some standard content blocks
 
-### [**SilverStripe Form Building Recipe**](https://github.com/silverstripe/recipe-form-building) 
+### [SilverStripe Form Building Recipe](https://github.com/silverstripe/recipe-form-building) 
 
 A recipe of modules to help you build forms in SilverStripe. It includes the following core SilverStripe and CWP modules:
 
@@ -115,7 +123,7 @@ A recipe of modules to help you build forms in SilverStripe. It includes the fol
 * [UserForms](https://github.com/silverstripe/silverstripe-userforms) - The module provides a visual form builder for the SilverStripe CMS
 * [SilverStripe Queued Jobs](https://github.com/symbiote/silverstripe-queuedjobs) - The module provides interfaces for scheduling jobs for certain times
 
-### [**SilverStripe Services Recipe**](https://github.com/silverstripe/recipe-services) 
+### [SilverStripe Services Recipe](https://github.com/silverstripe/recipe-services) 
 
 Adds API and content service modules to your SilverStripe project. It includes the following core SilverStripe and CWP modules:
 

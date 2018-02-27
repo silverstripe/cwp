@@ -15,7 +15,7 @@ integration, and will need to work with web developers to build whatever the sys
 only, or with SMS/Token as second factor) and only RealMe logon accounts. Support for RealMe verified accounts is 
 something that an interested agency could commission SilverStripe to add.
 
-This module doesn't come bundled in the CWP Basic Recipe, as it requires a number of steps to be completed by the 
+This module doesn't come bundled in the CWP installer, as it requires a number of steps to be completed by the 
 agency prior to being enabled, these are outlined below.
 
 Agencies are encouraged to [discuss their requirements with the RealMe team](https://www.realme.govt.nz/realme-business/) 

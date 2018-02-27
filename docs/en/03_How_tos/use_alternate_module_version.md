@@ -13,10 +13,10 @@ For example, if we wanted to use the `dev-master` version of the `silverstripe-a
 following statement into the `require` section of our project `composer.json`:
 
 ```
-"silverstripe/advancedworkflow": "dev-master as 4.0.1"
+"symbiote/silverstripe-advancedworkflow": "dev-master as 4.0.1"
 ```
 
-This will satisfy the `"silverstripe/advancedworkflow": "4.0.1"` requirement embedded in the recipe.
+This will satisfy the `"silverstripe/advancedworkflow": "4.0.1"` requirement embedded in the [SilverStripe collaboration recipe](https://github.com/silverstripe/recipe-collaboration).
 
 Please note that generally you should only do this if you are sure about the impact of switching the module version, and
 after you have tested it yourself for regressions with other modules.

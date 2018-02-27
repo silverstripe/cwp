@@ -31,10 +31,10 @@ Caching needs to be considered on a site-by-site basis.
 
 Here is an example of how things could go wrong: Let's assume a site serves "Hello, (FirstName)" snippet to logged-in users only. 
 Further assume a cache is misconfigured, and a logged-in user "John" requests a page: the cache retains the response containing the "Hello John" string. 
-Now, if user Steve comes along he will be served the cached version of the page erroneously containing "Hello John" string (unless the cache times out before his arrival).
+Now, if user Stella comes along she will be served the cached version of the page erroneously containing "Hello John" string (unless the cache times out before her arrival).
 
 It's easy to extend this example to more significant user details - addresses, private messages, personal records, etc. 
-We will show below how to avoid this kind of issues, and always highlight secure defaults.
+We will show below how to avoid these kind of issues, and always highlight secure defaults.
 
 ### Possible performance gains
 
@@ -70,7 +70,7 @@ We will now explain some simple techniques on how to increase your cache utilisa
 | Light | "max-age=X" | "Cookie, […]" | all |
 | Full | "max-age=X" | _none_ or "Accept-Encoding" | non-varying* |
 
-The easiest way improve caching on your dynamic responses is to use the [Controller Policy module](https://github.com/silverstripe-labs/silverstripe-controllerpolicy). It allows you to customise the response headers per `Controller` without the need to modify any PHP code.
+The easiest way improve caching on your dynamic responses is to use the [Controller Policy module](https://github.com/silverstripe/silverstripe-controllerpolicy). It allows you to customise the response headers per `Controller` without the need to modify any PHP code.
 For deeper customisations, you also [set HTTP Cache headers directly](https://docs.silverstripe.org/en/4/developer_guides/performance/http_cache_headers/).
 
 #### Defaults
@@ -82,7 +82,7 @@ This means the response is classified as the "None" cache level.
 Cache-Control: no-cache, max-age=0, must-revalidate, no-transform
 ```
 
-Furthermore, all CWP instances are configured to set the following header on anything that is NOT served by the framework. This includes all requests for theme files and any asset requests that are not served by the [Secure Assets module](https://github.com/silverstripe/silverstripe-secureassets).
+Furthermore, all CWP instances are configured to set the following header on anything that is NOT served by the framework.
 These responses are effectively the "Full" cache level. The `max-age` value is currently 120 seconds, but could change in the future. CWP customers can’t actively clear CDN caches on Incapsula unless they purchase an [optional Premium Managed Service plan](https://www.cwp.govt.nz/features/optional-extras/). 
 Due to this restriction, asset invalidation needs to take place via the URL, through so called “cache busters”. SilverStripe adds a GET parameter with the last file modification timestamp to each stylesheet and javascript file included through its [Requirements API](http://docs.silverstripe.org/en/4/developer_guides/templates/requirements/). 
 If you are referencing files in other ways, please take care to add your own “cache busters”, e.g. through a Grunt build task modifying the including SilverStripe template.
@@ -93,17 +93,21 @@ Cache-Control: max-age=120, public
 
 #### Light caching on dynamic content
 
-You'll need to talk to your business owner about cache lifetimes: Updated content might not reach visitors until caches expire. This policy is generally safe, but specific controllers may need tweaks. For example, the [UserForms module](https://github.com/silverstripe/silverstripe-userforms) requires caching to be disabled through a `NoopPolicy` because it generates a unique form submission token for each visitor.
+You'll need to talk to your business owner about cache lifetimes: Updated content might not reach visitors until caches 
+expire. This policy is generally safe, but specific controllers may need tweaks. For example, the 
+[UserForms module](https://github.com/silverstripe/silverstripe-userforms) requires caching to be disabled by removing 
+any [Controller Policy module](https://github.com/silverstripe/silverstripe-controllerpolicy) cache policies applied to 
+it with YAML configuration because it generates a unique form submission token for each visitor.
 
-```
-Injector:
+```yaml
+SilverStripe\Core\Injector\Injector:
   LightCachingPolicy:
-    class: CachingPolicy
+    class: SilverStripe\ControllerPolicy\Policies\CachingPolicy
     properties:
-      cacheAge: <cache-duration>
-Page_Controller:
-  dependencies:
-    Policies: '%$LightCachingPolicy'
+      CacheAge: <cache-duration>
+  PageController:
+    dependencies:
+      Policies: '%$LightCachingPolicy'
 ```
 
 You might also want to inspect the default _Vary_ used by this module to see if it works well with your content, and perhaps adjust it via `CachingPolicy::vary` configuration option. See the ["Varying content" chapter](#varying-content-2) on the possible permutations of this header.
@@ -169,7 +173,7 @@ The [Incapsula](http://incapsula.com) CDN is active for all requests on all CWP 
 headers both from static assets (usually configured through `.htaccess`), as well as dynamic SilverStripe responses
 configured through the [Controller Policy module](https://github.com/silverstripe/silverstripe-controllerpolicy).
 
-If you opted for the Premium Managed Service you get readonly access to the Incapsula web-based dashboard incl. metrics. The CWP operations team remains responsible for changing configuration there. Please see the [site performance settings](https://incapsula.zendesk.com/hc/en-us/articles/200627760-Site-performance-settings) in the Incapsula docs for more information.
+If you opted for the Premium Managed Service you get readonly access to the Incapsula web-based dashboard including metrics. The CWP operations team remains responsible for changing configuration there. Please see the [site performance settings](https://incapsula.zendesk.com/hc/en-us/articles/200627760-Site-performance-settings) in the Incapsula docs for more information.
 
 If you haven't opted for the [Premium Managed Service](https://www.cwp.govt.nz/features/optional-extras/), requests to change Incapsula settings need to go through the [CWP Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
 These changes only apply to your production environment. Other environments like Test or UAT share a common CWP configuration
@@ -195,7 +199,6 @@ We neither recommend switching the mode to __Aggressive__ nor disabling "Comply 
 
 You should not change these if any of the following is true:
 
-- You are actively using the [Secure Assets module](https://github.com/silverstripe/silverstripe-secureassets).
 - Sections of your publicly-accessible site are protected by HTTP Basic authentication.
 - Your site is protected by an IP whitelist which wasn’t requested through the CWP Service Desk.
 
@@ -213,10 +216,18 @@ Request caching is complex and depends on many factors. The main method to debug
 
 ### Caching indicators
 
- * **Does the `Age` header count up?** It determines the cache age in seconds. For cached content, it should increase on subsequent requests. For uncached content, it either stays at zero or is not set at all. The [Controller Policy module](https://github.com/silverstripe-archive/silverstripe-controllerpolicy) has more details on the various caching headers and how they influence caching behaviour.
- * **Does the `X-Varnish` header contain two numbers?** Varnish [indicates](https://www.varnish-cache.org/docs/2.1/faq/http.html) cache hits through the presence of two numbers.
- * **Does the `X-Iinfo` header contain `C` values?** This Incapsula specific response header contains four characters which declare the caching level of the response (`NNNN` means not cached, `CNNN` or `NCNN` means cached). This behaviour is not officially documented by Incapsula, your mileage may vary.
- * **Incapsula cache stats** If you have opted to purchase the Premium Managed Service, the Incapsula dashboard will show you statistics on cache hit ratios. Otherwise you can contact the CWP Service Desk to retrieve this information for you.
+ * **Does the `Age` header count up?** It determines the cache age in seconds. For cached content, it should increase 
+ on subsequent requests. For uncached content, it either stays at zero or is not set at all. The 
+ [Controller Policy module](https://github.com/silverstripe/silverstripe-controllerpolicy) has more details on the 
+ various caching headers and how they influence caching behaviour.
+ * **Does the `X-Varnish` header contain two numbers?** Varnish 
+ [indicates](https://www.varnish-cache.org/docs/2.1/faq/http.html) cache hits through the presence of two numbers.
+ * **Does the `X-Iinfo` header contain `C` values?** This Incapsula specific response header contains four characters 
+ which declare the caching level of the response (`NNNN` means not cached, `CNNN` or `NCNN` means cached). This 
+ behaviour is not officially documented by Incapsula, your mileage may vary.
+ * **Incapsula cache stats** If you have opted to purchase the Premium Managed Service, the Incapsula dashboard will 
+ show you statistics on cache hit ratios. Otherwise you can contact the CWP Service Desk to retrieve this information 
+ for you.
 
 ### Checklist
 
@@ -242,7 +253,7 @@ To a certain degree, yes - if you are just worried about infrequent but large sp
 *Q: What if I really don't want something cached in the transparent caches?*
 
 It depends on the headers supplied by your site and your Incapsula options. If you absolutely don't want to use the cache make sure you supply a _Cache-Control_ header of "no-cache" and "max-age=0". You also need to avoid Incapsula "Aggressive" setting.
-If you are using [controllerpolicy](https://github.com/silverstripe-labs/silverstripe-controllerpolicy) you can apply a `NoopPolicy` to cancel any implicit policy on a specific controller - see the module's README instruction under "Overriding policies".
+If you are using the [Controller Policy module](https://github.com/silverstripe/silverstripe-controllerpolicy) you can apply a `NoopPolicy` to cancel any implicit policy on a specific controller - see the module's README instruction under "Overriding policies".
 
 *Q: How do I perform load testing on a CWP environment?*
 

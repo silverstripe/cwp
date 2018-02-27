@@ -8,6 +8,6 @@ When rebuilding your database, the default 'Two-step Workflow' is created by def
 In your `mysite/_config/config.yml` file, add the following:
 
 ```yml
-CwpWorkflowDefinitionExtension:
+CWP\CWP\Extensions\CwpWorkflowDefinitionExtension:
     create_default_workflow: false
 ```

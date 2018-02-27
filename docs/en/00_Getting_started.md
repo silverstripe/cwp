@@ -12,7 +12,7 @@ This guide assumes you already have:
 
 * A server with [Apache, MySQL and PHP](working_with_projects/setting_up_a_development_environment)
 * [Git version control](working_with_projects/setting_up_a_development_environment/#git)
-* [Composer](https://docs.silverstripe.org/en/3/getting_started/composer/)
+* [Composer](https://docs.silverstripe.org/en/4/getting_started/composer/)
 
 If you're using Windows, you can use a command-line equivalent to interact with git and composer, offered by the [MsysGit package](http://msysgit.github.io)
 
@@ -34,14 +34,14 @@ Please replace "my-project" below with the actual name of your project. One nami
 This may take some time to run as it is collecting and downloading all the code required to run a default SilverStripe CMS website on CWP (the `Recipe` code).
 3. If composer asks `Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]` then choose Y. This removes the existing cwp-installer history so you can turn this into your own project.
 4. `cd my-project` to move into your new project folder
-5. Make sure your folder permissions are correctly set (see [File permission problems](https://docs.silverstripe.org/en/3/getting_started/installation/common_problems/#i-ve-got-file-permission-problems-during-installation)), you will also need to create an 'assets' folder if one isn't already created
-6. Create a `_ss_environment.php` environment file in the `/htdocs` folder and fill it in with your local details
+5. Make sure your folder permissions are correctly set (see [File permission problems](https://docs.silverstripe.org/en/4/getting_started/installation/common_problems/#i-ve-got-file-permission-problems-during-installation)), you will also need to create an 'assets' folder if one isn't already created
+6. Create a `.env` environment file in the `/htdocs` folder and fill it in with your local details
 
  * [CWP Environment variables](working_with_projects/cwp_environment_variables/) has more details about CWP specific variables that you can set in your environment file
- * [Environment management](https://docs.silverstripe.org/en/4/getting_started/environment_management/) for more details about how to create a environment file
- * Adding `define('SS_SEND_ALL_EMAILS_TO', 'your@address.govt.nz');` stops any debugging emails going out accidentally to live emails
+ * [Environment management](https://docs.silverstripe.org/en/4/getting_started/environment_management/) has more details about how to create a environment file
+ * Adding `SS_SEND_ALL_EMAILS_TO='your@address.govt.nz'` stops any debugging emails going out accidentally to live emails
 
-7. Now run a build of the database either by going to `http://localhost/my-project/dev/build?flush=1` or using [Sake](https://docs.silverstripe.org/en/4/developer_guides/cli/) to run the dev/build via the command line `./framework/sake dev/build`
+7. Now run a build of the database either by going to `http://localhost/my-project/dev/build?flush=1` or using [Sake](https://docs.silverstripe.org/en/4/developer_guides/cli/) to run the dev/build via the command line `vendor/bin/sake dev/build`
 
 You should now be able to visit: http://localhost/my-project and see a basic CWP-themed site in your browser.
 

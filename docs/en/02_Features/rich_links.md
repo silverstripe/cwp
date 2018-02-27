@@ -33,9 +33,9 @@ being provided in this specific format.
 The capability is built as a simple extension to `DBField`. It is applied in `cwp/_config/config.yml`:
 
 ```yml
-DBField:
+SilverStripe\ORM\FieldType\DBField:
   extensions:
-   - RichLinksExtension
+   - CWP\Core\Extension\RichLinksExtension
 ```
 
 It provides all fields with a `RichLinks` function.

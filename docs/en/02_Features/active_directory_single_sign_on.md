@@ -11,8 +11,8 @@ further prompts when they switch applications.
 
 ## Introduction
 
-Single sign-on is provided by the open sourced
-module [SilverStripe Active Directory](https://github.com/silverstripe/silverstripe-activedirectory).
+Single sign-on is provided by the open sourced module 
+[SilverStripe Active Directory](https://github.com/silverstripe/silverstripe-activedirectory).
 
 This module allows users of a CWP intranet site to seamlessly login once and never be prompted to login to the site again.
 

@@ -51,13 +51,13 @@ There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf
 * [Download wkhtmltopdf](https://wkhtmltopdf.org/downloads.html) for your system type:
 
   ```
-  wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4.tar.bz2
+  wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.1.1/wkhtmltox-0.12.1.1.tar.bz2
   ```
 
 * Install it into `/usr/local/bin` so that it can be accessed on the path:
 
   ```
-  tar -jxvf wkhtmltox-0.12.4.tar.bz2
+  tar -jxvf wkhtmltox-0.12.1.1.tar.bz2
   mv wkhtmltopdf-amd64 /usr/local/bin/wkhtmltopdf
   ```
 

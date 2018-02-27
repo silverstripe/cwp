@@ -29,7 +29,7 @@ to bring down the processing time.
 
 The preferred way to handle your long-running processes is via the 
 [queuedjobs](https://github.com/symbiote/silverstripe-queuedjobs) module. 
-You can extend the time limit of a PHP process by using the SilverStripe Framework APIs `increase_time_limit_to`.
+You can extend the time limit of a PHP process by using the SilverStripe Framework APIs `\SilverStripe\Core\Environment::increaseTimeLimitTo()`.
 
 Consider using [caching](/performance-guide/caching) to speed up request execution.
 
@@ -60,7 +60,7 @@ These PHP extensions are part of the standard environment, and can be relied on 
 ## Webserver
 
 CWP environments are running Apache 2.4 (see Debian "Jessie" [packages](https://packages.debian.org/jessie/)).
-Note that there's other [caching infrastructure](../../performance_guide/caching) in front of CWP environment.
+Note that there's other [caching infrastructure](/performance_guide/caching) in front of your CWP environment.
 
 ## Database
 
@@ -69,7 +69,7 @@ For local development, you can also choose MySQL 5.6.
 
 ## Hosting video
 
-CWP stacks don't provide built in hosting of video content, and we recommend you don't attempt to do so.
+CWP stacks don't provide built-in hosting of video content, and we recommend you don't attempt to do so.
 
 Instead, we recommend hosting video on a third-party service, such as vimeo.com. They provide a simple, turn-key
 solution optimised for hosting video that is easily integrated with CWP environments.

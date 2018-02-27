@@ -38,7 +38,7 @@ You can also add the following YAML code into your mysite/_config/config.yml
 ---
 Name: myspamprotection
 ---
-AkismetSpamProtector:
+SilverStripe\Akismet\AkismetSpamProtector:
   api_key: XXXXXXXXXXXXX
 ```
 
@@ -50,7 +50,9 @@ a site has multiple keys controlled by business logic via php.
 
 
 ```php
-define('SS_AKISMET_API_KEY', 'XXXXXXXXXXXXX');
+use SilverStripe\Core\Environment;
+
+Environment::setEnv('SS_AKISMET_API_KEY', 'XXXXXXXXXXXXX');
 ```
 
 

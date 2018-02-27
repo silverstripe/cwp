@@ -59,7 +59,7 @@ CWP environments will automatically write several log types which can be searche
 long as the project includes the `cwp-core` module.
 
 * `SilverStripe_log`: standard log output of the Framework, will capture all events occurring after successful Framework
-bootstrap. This includes uncaught exceptions and any `SS_Log::log` events.
+bootstrap. This includes uncaught exceptions and any `Injector::inst()->get(LoggerInterface::class)->...` events.
 * `SilverStripe_audit`: audit trail of security-related events provided by the *silverstripe/auditor* module.
 * `apache`: apache access logs.
 * `apache-errors`: errors reported by Apache, which could include `mod_php` segmentation faults.
@@ -109,7 +109,12 @@ The recipes are configured to send all logs to syslog, which are then accessible
 to log events on CWP is through the `SS_Log` API:
 
 ```php
-SS_Log::log('Something seems to have happened', SS_Log::NOTICE);
+use Psr\Log\LoggerInterface;
+use SilverStripe\Core\Injector\Injector;
+
+// ...
+
+Injector::inst()->get(LoggerInterface::class)->notice('Something seems to have happened');
 ```
 
 For more information on general usage of the Framework's logging subsystem, see

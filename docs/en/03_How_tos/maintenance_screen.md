@@ -28,15 +28,15 @@ Note that this page is normally created by default during install.
 
 ## Error pages during Deployment
 
-During the course of certain deployment activities Deploynaut will display the error-503.html page for the duration
+During the course of certain deployment activities Dashboard will display the error-503.html page for the duration
 of the process.
 
 ![Default maintenance screen](/_images/default-maintenance-screen.jpg)
 
-From the technical perspective, Deploynaut creates temporary `.htaccess` and `maintenance.html` files. It assumes that
+From the technical perspective, Dashboard creates temporary `.htaccess` and `maintenance.html` files. It assumes that
 the codebase comes with `.htaccess`, so this is renamed and stored for later retrieval. Websites must not create their
 own `maintenance.html` however as this will cause deployments to fail or the file to be destroyed. The maintenance page
-will either be uploaded from Deploynaut template, or created from `assets/error-503.html` (if available).
+will either be uploaded from Dashboard template, or created from `assets/error-503.html` (if available).
 
 `.htaccess` is then used to redirect all requests to the maintenance page. After the process has completed (or failed)
 the former `.htaccess` is restored and `maintenance.html` removed.

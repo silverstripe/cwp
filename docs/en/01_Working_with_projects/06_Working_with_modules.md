@@ -63,9 +63,9 @@ Now push your module to the upstream, to the empty repository just created:
 
 <div class="alert alert-info" markdown='1'>
 If you are pushing to an externally hosted GitHub repository, note that you will need to add the appropriate GitHub remote URL eg:
-</div>
 
-	git remote add origin git@github.com:myprivate/repo.git
+`git remote add origin git@github.com:myprivate/repo.git`
+</div>
 
 Once the module is pushed to the repository you should see the code on Gitlab. From now on it will be available for
 others to clone, as long as they have at least a "Reporter" level access (see the note below though: private modules are
@@ -96,7 +96,7 @@ root directory of your main project.
 	]
 
 <div class="alert alert-info" markdown='1'>
-The `private` parameter is non-standard and is used by Deploynaut to distinguish between private repositories and
+The `private` parameter is non-standard and is used by Dashboard to distinguish between private repositories and
 public repositories. See the section below about public modules.
 </div>
 
@@ -145,7 +145,7 @@ composer](https://docs.silverstripe.org/en/4/getting_started/composer/#deploying
 
 ## Deploying repositories with private modules
 
-If you decide to include private modules in your website project (also your own private repositories), Deploynaut
+If you decide to include private modules in your website project (also your own private repositories), Dashboard
 will need a permission to access them. If you already have your repository associated with the stack you will be
 deploying to, the only thing you need to do is to enable the project key on the module as shown on the image below. The
 key is named after your stack identifier.

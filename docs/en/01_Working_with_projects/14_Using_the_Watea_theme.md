@@ -4,7 +4,7 @@ introduction: Describes how to use the CWP Wātea theme
 
 # Using the Wātea theme
 
-[The Wātea theme](https://github.com/silverstripe/cwp-watea-theme) is a more "designed" [subtheme](https://docs.silverstripe.org/en/4/developer_guides/templates/themes) which can be installed over the top of the [CWP Starter theme](customising_the_starter_theme) to provide a more visually appealing starter project.
+[The Wātea theme](https://github.com/silverstripe/cwp-watea-theme) is a more "designed" [cascading theme](https://docs.silverstripe.org/en/4/developer_guides/templates/themes) which can be installed over the top of the [CWP Starter theme](customising_the_starter_theme) to provide a more visually appealing starter project.
 
 ## Installation
 
@@ -22,7 +22,9 @@ The installation of `cwp/agency-extensions` is suggested as it provides addition
 
 This theme is designed to augment the base functionality and framework provided by the [CWP Starter theme](https://github.com/silverstripe/cwp-starter-theme). As such, [all of the documentation for the CWP Starter theme](customising_the_starter_theme) is relevant to this theme as well. We suggest you familiarise yourself with this documentation.
 
-As a general rule, the CWP Team have endeavoured to constrain changes for this subtheme to CSS and Javascript wherever possible, as opposed to modifying and duplicating the templates. As a subtheme, all templates in this theme will be applied over the top (with priority) of the CWP Starter theme, and will be available to the SilverStripe template manifest under the "starter" theme name. You will not see the Wātea theme in theme selectors, etc.
+As a general rule, the CWP Team have endeavoured to constrain changes for this theme to CSS and Javascript wherever 
+possible, as opposed to modifying and duplicating the templates. As a cascading theme, all templates in this theme will 
+be applied over the top (with priority) of the CWP Starter theme.
 
 If you need to modify template markup from the SilverStripe framework, other modules or even the Starter theme, you can copy them into the "starter_watea" subtheme directory and modify them there.
 
@@ -71,11 +73,11 @@ For example:
 
 ```
 # File: templates/Page.ss - in the <head>
-<link rel="stylesheet" href="$ThemeDir(watea)/dist/css/main.css">
+<% require themedCss('dist/css/main.css') %>
 
 # File: templates/Page.ss - near the bottom of the <body>
-<script src="{$ThemeDir}/dist/js/main.js"></script>
-<script src="$ThemeDir(watea)/dist/js/main.js"></script>
+<% require javascript('themes/starter/dist/js/main.js') %>
+<% require javascript('themes/watea/dist/js/main.js') %>
 ```
 
 ### Linting

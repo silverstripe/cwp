@@ -29,7 +29,7 @@ The month selection is done (similarly to `EventHolder`) on the basis of the `ye
 parameters can then be passed to `AllEvents` to produce the single-month listing.
 
 We can create a function that will parse the parameters and provide us with a neat array of SQL-safe variables. We start
-by getting the parameters from the `SS_HTTPRequest`.
+by getting the parameters from the `HTTPRequest`.
 
 ```php
 public function parseEventParams() 
@@ -42,18 +42,26 @@ We need to sanitise them before doing anything else. We could use `Convert` help
 value:
 
 ```php
-    if (isset($year)) $year = (int)$year;
-    if (isset($month)) $month = (int)$month;
+    if (isset($year)) {
+        $year = (int)$year;
+    }
+    if (isset($month)) {
+        $month = (int)$month;
+    }
 ```
 
 Next, since the month without year doesn't have much sense, we make sure that we check for validity and reset to
 defaults if needed. This assures us that we don't end up displaying a listing of all site events.
 
 ```php
+use SilverStripe\ORM\FieldType\DBDatetime;
+
+//...
+
     // Default to current month if either not provided.
     if (!isset($month) || !isset($year)) {
-        $year = SS_Datetime::now()->Format('Y');
-        $month = SS_Datetime::now()->Format('m');
+        $year = DBDatetime::now()->Format('y');
+        $month = DBDatetime::now()->Format('MM');
     }
 ```
 
@@ -209,6 +217,10 @@ That will filter out events that are not marked as "Future".
 Code for `Page_Controller` class (or your custom page type):
 
 ```php
+use SilverStripe\ORM\FieldType\DBDatetime;
+
+//...
+
 public function parseEventParams() 
 {
     $year = $this->request->getVar('year');
@@ -218,8 +230,8 @@ public function parseEventParams()
 
     // Default to current month if either not provided.
     if (!isset($month) || !isset($year)) {
-        $year = SS_Datetime::now()->Format('Y');
-        $month = SS_Datetime::now()->Format('m');
+        $year = DBDatetime::now()->Format('y');
+        $month = DBDatetime::now()->Format('MM');
     }
 
     return [
@@ -257,7 +269,7 @@ public function SiteEvents()
 
 Code for `Page.ss` template:
 
-```ss
+```html
 <div class="span3 well">
 
     <h3>Site events</h3>

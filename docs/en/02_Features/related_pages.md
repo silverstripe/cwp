@@ -25,7 +25,7 @@ use Page;
 
 class StaffMemberPage extends Page 
 {
-    public static $related_pages_title = 'Offices';
+    private static $related_pages_title = 'Offices';
     ...
 }
 ```

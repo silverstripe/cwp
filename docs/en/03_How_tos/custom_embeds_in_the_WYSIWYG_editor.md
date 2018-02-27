@@ -8,9 +8,9 @@ of the `<embed>` and `<object>` tags.
 
 <div class="alert alert-info" markdown='1'>
 Proceeding with this guide will disable the ability of the CMS to embed `.swf` files through the "Insert Media"
-interface button. You will need to provide your own [custom TinyMCE
-plugins](https://docs.silverstripe.org/en/3.2/developer_guides/forms/field_types/htmleditorfield) or embed the files directly via HTML
-code.
+interface button. You will need to provide your own 
+[custom TinyMCE plugins](https://docs.silverstripe.org/en/3.2/developer_guides/forms/field_types/htmleditorfield) or 
+embed the files directly via HTML code.
 </div>
 
 ## Disable the media plugin
@@ -25,7 +25,9 @@ docs](https://docs.silverstripe.org/en/4/developer_guides/forms/field_types/html
 default editor installed by the `cwp` module:
 
 ```php
-HtmlEditorConfig::get('cwp')->disablePlugin('media');
+use SilverStripe\Forms\HTMLEditor\HTMLEditorConfig;
+
+HTMLEditorConfig::get('cwp')->disablePlugins('media');
 ```
 
 Note the editor configuration we want to amend is "cwp" here, different from the default SilverStripe configuration
@@ -39,5 +41,6 @@ If you find out some attributes are still being removed by the editor, your can 
 Copy the `extended_valid_elements` option from `cwp/_config.php`, and amend it in your own `_config.php` to suit.
 
 ```php
-HtmlEditorConfig::get('cwp')->setOption('extended_valid_elements', '<your modified whitelist goes here>');
-```
+use SilverStripe\Forms\HTMLEditor\HTMLEditorConfig;
+
+HTMLEditorConfig::get('cwp')->setOption('extended_valid_elements', '<your modified whitelist goes here>');```

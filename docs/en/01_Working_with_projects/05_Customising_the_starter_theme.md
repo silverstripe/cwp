@@ -31,7 +31,7 @@ make changes to it directly. There are two recommended ways of creating your own
 This will give you a copy of the CWP Starter theme repository that you can edit and can share with others.
 
 1. Browse to the [CWP Starter theme](https://github.com/silverstripe/cwp-starter-theme) in GitHub.
-2. Click on the *Fork* button in the toolbar. This will make a copy of the theme in your GitLab profile.
+2. Click on the *Fork* button in the toolbar. This will make a copy of the theme in your GitHub profile.
 3. Your forked repository has inherited the starter theme's public access. To disable this, go to the settings page.
 (*Settings / Edit Project*) of your repository in Gitlab, change the *Project Visibility* option as required and click *Save*.
 4.  In your theme's `composer.json` file and change the `"name"` parameter to `"my-agency/<theme-name-here>"`.

@@ -27,7 +27,7 @@ It's recommended that you don't modify third party module code in place, nor com
 Modules are meant to be reusable between multiple agencies, so if there is a problem with a supported module included with CWP, submit a pull request to that module's github repository so the fix can be included in future releases. If you are unable to find a fix to make a pull request, you can log an issue instead of a pull request in a similar manner.
 
 This makes it easy to maintain the site by switching module versions at desired moments so this doesn't happen randomly.
-Deploynaut (our deployment tool) will never modify the module versions listed in `composer.lock`, so it's up to the
+Dashboard (our deployment tool) will never modify the module versions listed in `composer.lock`, so it's up to the
 site developer to choose right versions via `composer.json`, and to run `composer update` at the right moments. Ensure you test updated modules thoroughly before deploying a new `composer.lock` file.
 
 You can also create private modules in GitLab for even better modularity. See [working with modules](working_with_modules)

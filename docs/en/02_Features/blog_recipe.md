@@ -8,7 +8,7 @@ engage with you by commenting on your posts. The module supports flexible
 categorisation and tagging of blog posts.
 
 <div class="alert alert-info" markdown='1'>
-From 1.1.0 onwards the `blog recipe` is included along side the basic recipe by default.
+From 1.1.0 onwards the `blog recipe` is included along side the other SilverStripe and CWP recipes by default.
 </div>
 
 [Three levels of permissions are supported](https://github.com/silverstripe/silverstripe-blog/blob/master/docs/en/userguide/roles.md):
@@ -69,26 +69,34 @@ For configuration of anti-spam please see the [Akismet configuration guide](/how
 
 For the basic configuration, see the default `mysite/_config/blog.yml` below for reference:
 
-
 ```yml
 ---
 Name: mywidgetsconfig
 Only:
-  moduleexists: widgets
+  moduleexists:
+    - silverstripe/blog
+    - silverstripe/widgets
 ---
-# Disable if you don't use widgets on your site
-SiteTree:
+# Disable if you do not use widgets on your blog
+SilverStripe\Blog\Model\Blog:
   extensions:
-    - WidgetPageExtension
+    - SilverStripe\Widgets\Extensions\WidgetPageExtension
+
+SilverStripe\Blog\Model\BlogPost:
+  extensions:
+    - SilverStripe\Widgets\Extensions\WidgetPageExtension
+
 ---
-Name: mycommentsextension
+Name: myblogconfig
 Only:
-  moduleexists: comments
+  moduleexists:
+    - silverstripe/blog
+    - silverstripe/comments
 ---
-# Enable page comments on the site by default, including frontend moderation / approval
-SiteTree:
+# Enable page comments for blogs and blog posts on the site by default, including frontend moderation / approval
+SilverStripe\Blog\Model\Blog:
   extensions:
-    - CommentsExtension
+    - SilverStripe\Comments\Extensions\CommentsExtension
   comments:
     enabled: false
     frontend_moderation: true
@@ -98,36 +106,43 @@ SiteTree:
     require_login_cms: true
     nested_comments: true
     order_comments_by: '"Created" ASC'
----
-Name: myblogconfig
-Only:
-  moduleexists: blog
----
-# Customise the email notification template here
-BlogPost:
-  default_notification_template: 'BlogCommentEmail'
+
+SilverStripe\Blog\Model\BlogPost:
+  default_notification_template: SilverStripe\CommentNotifications\BlogCommentEmail
+  extensions:
+    - SilverStripe\Comments\Extensions\CommentsExtension
   comments:
     enabled: true
+    frontend_moderation: true
+    require_moderation_nonmembers: true
+    require_moderation_cms: true
+    require_login: false
+    require_login_cms: true
+    nested_comments: true
+    order_comments_by: '"Created" ASC'
+
 ---
 Name: akismetconfig
 Only:
-  moduleexists: akismet
+  moduleexists: silverstripe/akismet
 ---
 # Customise your akismet configuration here
-SiteConfig:
+SilverStripe\SiteConfig\SiteConfig:
   extensions:
-    - AkismetConfig
+    - SilverStripe\Akismet\Config\AkismetConfig
 # Allows spam posts to be saved for review if necessary
-AkismetSpamProtector:
+SilverStripe\Akismet\AkismetSpamProtector:
   save_spam: true
+
 ---
 Name: mycommentspamprotection
 Only:
-  moduleexists: spamprotection
-  classexists: CommentingController
+  moduleexists:
+    - silverstripe/comments
+    - silverstripe/spamprotection
 ---
 # Enable spam protection for comments by default
-CommentingController:
+SilverStripe\Comments\Controllers\CommentingController:
   extensions:
-    - CommentSpamProtection
-```
+    - SilverStripe\SpamProtection\Extension\CommentSpamProtection
+``` 

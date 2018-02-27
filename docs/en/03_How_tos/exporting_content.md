@@ -13,16 +13,17 @@ the module's documentation on [GitHub](https://github.com/silverstripe/silverstr
 To browse all instances of a DataObject make the call `GET /api/v1/(ClassName)` to the website. This will return an XML
 array in the format:
 
-	:::xml
-	<?xml version="1.0" encoding="UTF-8"?>
-	<ArrayList totalSize="10">
-		<Page href="http://mysite.com/api/v1/Page/1">
-			<Title>My Page</Title>
-			<Content><p>Hello, World!</p></Content
-			...
-		</Page>
-		...
-	</ArrayList>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ArrayList totalSize="10">
+    <Page href="http://mysite.com/api/v1/Page/1">
+        <Title>My Page</Title>
+        <Content><p>Hello, World!</p></Content
+        ...
+    </Page>
+    ...
+</ArrayList>
+```
 
 As you might imagine, this could reach a very large size and take a long time to generate. To help with this, the API
 supports the `length` and `start` parameters which you can use to restrict the size of the block of content that you
@@ -45,13 +46,15 @@ static in the relevant classes and extend the array to include your new properti
 So if you have added
 
 ```php
+use SilverStripe\Assets\Image;
+
 class Page 
 {
-    static $db = [
+    private static $db = [
         'Author' => 'Varchar(255)'
     ];
-    static $has_one = [
-        'Thumbnail' => 'Image'
+    private static $has_one = [
+        'Thumbnail' => Image::class
     ];
 }
 ```
@@ -88,11 +91,11 @@ class SubmittedFormFieldExtension extends DataExtension
 
 and then added this to your `mysite/_config/config.yml`:
 
-```yml
-SubmittedForm:
+```yaml
+SilverStripe\UserForms\Model\Submission\SubmittedForm:
   extensions:
    - SubmittedFormExtension
-SubmittedFormField:
+SilverStripe\UserForms\Model\Submission\SubmittedFormField:
   extensions:
    - SubmittedFormFieldExtension
 ```
@@ -154,6 +157,6 @@ Out of the box the REST API is enabled giving access to already publicaly publis
 If you wish to disable this feature you can add the following into the `mysite/_config/config.yml`.
 
 ```yaml
-BasePage:
+CWP\CWP\PageTypes\BasePage:
   api_access: false
 ```

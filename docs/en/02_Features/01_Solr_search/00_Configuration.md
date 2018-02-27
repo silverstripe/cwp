@@ -8,7 +8,7 @@ summary: How Solr is pre-configured for CWP and what you can alter.
 You must satisfy the following requirements to successfully connect to the shared CWP Solr service:
 
 * If you are starting a new project, best compatibility is achieved by using the [cwp-installer](https://github.com/silverstripe/cwp-installer).
-* If it's an existing project, you should include the [cwp-recipe-basic](https://github.com/silverstripe/cwp/cwp-recipe-basic) for the ease of integration. Although we don't recommend it, with extra work you can get it working by only including the [cwp-core](https://github.com/silverstripe/cwp) module.
+* If it's an existing project, you should include the [cwp/cwp-recipe-cms](https://github.com/silverstripe/cwp-recipe-cms) for the ease of integration. Although we don't recommend it, with extra work you can get it working by only including the [cwp-core](https://github.com/silverstripe/cwp) module.
 
 ## Selecting Solr version
 

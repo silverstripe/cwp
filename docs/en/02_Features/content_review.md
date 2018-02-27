@@ -15,7 +15,7 @@ Both modules are pre-configured to apply a series of `DataExtension` classes so 
 
 In order to send reminder emails on CWP you must use the [`silverstripe/queuedjobs`](https://github.com/symbiote/silverstripe-queuedjobs) module. 
 
-This is installed by default when using the CWP basic recipe codebase (if you have used this), otherwise you'll 
+This is installed by default when using the [CWP search recipe](https://github.com/silverstripe/cwp-recipe-search) codebase (if you have used this), otherwise you'll 
 need to ensure you have installed.
   
 Queuedjobs will then send content review reminder emails (if any) daily at 9am.  

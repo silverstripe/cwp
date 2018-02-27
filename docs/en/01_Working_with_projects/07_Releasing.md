@@ -6,7 +6,7 @@ summary: Walkthrough for the deployment of a SilverStripe CMS code onto a CWP se
 A good release practice is to tag a certain Git revision to a version number each time you are doing a release.
 
 This is done by tagging a release from the developer's machine and pushing tags into Gitlab. They will be picked up
-automatically by Deploynaut. To get started, first check which tags are already available:
+automatically by Dashboard. To get started, first check which tags are already available:
 
 	git tag
 

@@ -22,7 +22,7 @@ YML configuration to replace the existing class via dependency injection.
 ```php
 <?php
 
-use SilverStripe\AssetAdmin;
+use SilverStripe\AssetAdmin\Controller\AssetAdmin;
 
 class SimpleAssetAdmin extends AssetAdmin
 {
