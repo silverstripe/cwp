@@ -21,7 +21,7 @@ By default the permission "Allow users to use their accounts to access the UAT s
 UAT and test environments have basic auth enabled by default. You can disable this in your code base with the
 following code in your `config.yml`:
 
-```
+```yml
 ---
 Name: mysitesecuritytest
 After: '#cwpsecuritytest'

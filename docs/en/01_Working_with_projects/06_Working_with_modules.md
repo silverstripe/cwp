@@ -44,7 +44,7 @@ requirement):
 }
 ```
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 Please change the module name and namespace. The first part of the "name" in the `composer.json` file constitutes a
 namespace - please use the same namespace that you are using in Gitlab, to distinguish between the officially supported
 CWP modules (that reside in the "cwp" namespace) and private modules.
@@ -61,11 +61,11 @@ Now push your module to the upstream, to the empty repository just created:
 	git remote add origin https://gitlab.cwp.govt.nz/mateusz/foobar.git
 	git push -u origin master
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 If you are pushing to an externally hosted GitHub repository, note that you will need to add the appropriate GitHub remote URL eg:
-</div>
 
-	git remote add origin git@github.com:myprivate/repo.git
+`git remote add origin git@github.com:myprivate/repo.git`
+</div>
 
 Once the module is pushed to the repository you should see the code on Gitlab. From now on it will be available for
 others to clone, as long as they have at least a "Reporter" level access (see the note below though: private modules are
@@ -95,8 +95,8 @@ root directory of your main project.
 		}
 	]
 
-<div class="notice" markdown='1'>
-The `private` parameter is non-standard and is used by Deploynaut to distinguish between private repositories and
+<div class="alert alert-info" markdown='1'>
+The `private` parameter is non-standard and is used by Dashboard to distinguish between private repositories and
 public repositories. See the section below about public modules.
 </div>
 
@@ -110,7 +110,7 @@ To include a private GitHub hosted module, for our *foobar* module pushed to an 
 		}
 	]
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 The `no-api` parameter prevents API usage which will remove the need for an API token from the CWP deployment systems.
 </div>
 
@@ -130,7 +130,7 @@ we don't need to version-control it through the master repository.
 Run `composer update` to pull the module in and update all other dependencies as well. You can also update just this one
 module by calling `composer update <modulename>`.
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 If you get cryptic composer errors it's worth checking that your module code is fully pushed. This is because composer
 can only access the code you have actually pushed to the upstream repository and it may be trying to use the stale
 versions of the files. Also, update composer regularly (`composer self-update`). You can also try deleting Composer
@@ -145,13 +145,13 @@ composer](https://docs.silverstripe.org/en/4/getting_started/composer/#deploying
 
 ## Deploying repositories with private modules
 
-If you decide to include private modules in your website project (also your own private repositories), Deploynaut
+If you decide to include private modules in your website project (also your own private repositories), Dashboard
 will need a permission to access them. If you already have your repository associated with the stack you will be
 deploying to, the only thing you need to do is to enable the project key on the module as shown on the image below. The
 key is named after your stack identifier.
 ![Gitlab - private repository deploy access](/_images/gitlab-private-repository-deploy-access.png)
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 You will only see the deployment key if you are the owner of the repository. See [deploying code](deploying-code) for
 more information.
 </div>

@@ -1,11 +1,11 @@
 title: Using content migration tools
-summary: How to use the available content mogration tools for SilverStripe CMS.
+summary: How to use the available content migration tools for SilverStripe CMS.
 
 # Using content migration tools
 
 The Common Web Platform provides migration tools to assist with migrating data and content from other platforms. Currently the tools support:
 
-* HTML-based spidering and scraping of a website.
+* HTML-based crawling and scraping of a website.
 * Connecting directly to a website running the Drupal content management system.
 
 The migration tools are extendable and can be adapted to connect with other software systems not currently supported. 
@@ -18,7 +18,7 @@ HTML
 
 Drupal
 
-* See [http://www.silverstripe.org/drupal-connector-module/](http://www.silverstripe.org/drupal-connector-module/) and  [https://github.com/silverstripe-droptables/silverstripe-drupal-connector](https://github.com/silverstripe-droptables/silverstripe-drupal-connector)
+* See [http://www.silverstripe.org/drupal-connector-module/](http://www.silverstripe.org/drupal-connector-module/) and [https://github.com/silverstripe-droptables/silverstripe-drupal-connector](https://github.com/silverstripe-droptables/silverstripe-drupal-connector)
 
 A screenshot of the HTML importer is shown here:
 

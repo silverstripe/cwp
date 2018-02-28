@@ -7,7 +7,7 @@ The [RealMe module](https://github.com/silverstripe/silverstripe-realme/) enable
 government's preferred approach for website authentication, to deliver online services or restrict information to 
 specific people.
 
-<div class="notice" markdown='1'>This module is only supported from cwp recipe 1.2.0 and above</div>
+<div class="alert alert-info" markdown='1'>This module is only supported from cwp recipe 1.2.0 and above.</div>
 
 The module facilitates the log-on process; agencies need to work with the RealMe team to conduct the 
 integration, and will need to work with web developers to build whatever the system performs after you have logged in 
@@ -15,7 +15,7 @@ integration, and will need to work with web developers to build whatever the sys
 only, or with SMS/Token as second factor) and only RealMe logon accounts. Support for RealMe verified accounts is 
 something that an interested agency could commission SilverStripe to add.
 
-This module does not come bundled in the CWP Basic Recipe, as it requires a number of steps to be completed by the 
+This module doesn't come bundled in the CWP installer, as it requires a number of steps to be completed by the 
 agency prior to being enabled, these are outlined below.
 
 Agencies are encouraged to [discuss their requirements with the RealMe team](https://www.realme.govt.nz/realme-business/) 
@@ -28,7 +28,7 @@ and working through the requirements.
 
 The CWP Operations team is available to assist with the integration of the ITE (Integrated Test Environment) and 
 production environments, which map to your CWP UAT and production environments. Please 
-[create a service desk ticket](https://www.cwp.govt.nz/service-desk/new-request/) once you are ready for integration to 
+[create a CWP Service Desk ticket](https://www.cwp.govt.nz/service-desk/new-request/) once you are ready for integration to 
 be setup. The CWP Operations team will then generate the required SSL certificates, configure your UAT and production 
 environments, and provide you with the necessary XML metadata to submit to RealMe in order to establish the two-way 
 trusted chain that your developers set up while running through the installation instructions for their own development 
@@ -45,4 +45,4 @@ If there are any further questions, please don't hesitate to
 
 ## See Also
 
- * [Single Sign on via Active Directory](active_directory_single_sign_on)
+ * [Single sign-on via Active Directory](active_directory_single_sign_on)

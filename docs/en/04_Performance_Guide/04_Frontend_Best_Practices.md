@@ -36,7 +36,7 @@ this is not as good for HTTP requests, as the browser will limit the number of s
 parallel. Combining them means less requests, and a faster load time.
 
 SilverStripe comes with a built-in method of combining your CSS and JavaScript files. Have a look at
-[the documentation](https://docs.silverstripe.org/en/3/developer_guides/templates/requirements/#combining-files) to see 
+[the documentation](https://docs.silverstripe.org/en/4/developer_guides/templates/requirements/#combining-files) to see 
 how easy it is - and remember, if your site is in `dev` mode, combined files will be disabled!
 
 [read more...](https://browserdiet.com/#combine-css)
@@ -47,6 +47,9 @@ To understand the value of asynchronous loading, we need to understand how the H
 bottom. With a standard load, you need to wait for any given element to load before the ones below it do. However, if we
 load something large (say, a script) asynchronously, we can let the HTML around it load, and then execute once the
 entire script has loaded. This is particularly advantageous in two situations:
+
+* [Large Scripts](#large-scripts-2)
+* [Third-party Content](#third-party-content-2)
 
 ### Large Scripts
 
@@ -72,7 +75,7 @@ bring this content in asynchronously.
 
 [read more...](https://browserdiet.com/#3rd-party-async)
 
-For more information on optimising your third-party integrations, see [our guide](../third-party-link).
+For more information on optimising your third-party integrations, see [our guide](../third-parties).
 
 ## Next
 

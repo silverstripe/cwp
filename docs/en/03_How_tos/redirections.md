@@ -4,9 +4,9 @@ summary: How to implement a redirect on your stack.
 # Introduction
 
 There's a few ways developers can implement redirections on their CWP stacks:
-- in the `.htaccess` file
-- within the site's `_config.php`
-- with a module
+- In the `.htaccess` file
+- Within the site's `_config.php`
+- With a module
 
 ## .htaccess
 

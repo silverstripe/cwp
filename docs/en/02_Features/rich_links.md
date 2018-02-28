@@ -15,13 +15,15 @@ The following abilities are included:
 
 To use the feature, explicitly invoke the parser function within the template.
 
-	:::html
-	$Content.RichLinks
+```html
+$Content.RichLinks
+```
 
 You can also chain it with other functions to achieve more complex outputs.
 
-	:::html
-	$Content.RichLinks.LimitWordCountXML(10)
+```html
+$Content.RichLinks.LimitWordCountXML(10)
+```
 
 Note: this parser might not work as expected on fields not edited with *HtmlEditorField*, as it relies on the content
 being provided in this specific format.
@@ -30,10 +32,11 @@ being provided in this specific format.
 
 The capability is built as a simple extension to `DBField`. It is applied in `cwp/_config/config.yml`:
 
-	:::yml
-	DBField:
-	  extensions:
-	   - RichLinksExtension
+```yml
+SilverStripe\ORM\FieldType\DBField:
+  extensions:
+   - CWP\Core\Extension\RichLinksExtension
+```
 
 It provides all fields with a `RichLinks` function.
 

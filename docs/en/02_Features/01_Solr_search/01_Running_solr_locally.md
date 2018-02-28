@@ -8,7 +8,7 @@ dependency in your top-level `composer.json` file.
 
 When selecting versions, make sure you use the version supported by CWP: `4.*@dev`.
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 Older versions of *silverstripe-fulltextsearch* module used to bundle the Solr binary. You should check the version of this module before proceeding with this guide.
 </div>
 

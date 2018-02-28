@@ -7,12 +7,12 @@ The [SilverStripe Fluent](https://github.com/tractorcow/silverstripe-fluent) mod
 multiple pages in various languages or locales within languages. This module also adds the ability for your users
 to select which language of a page they wish to view.
 
-<div class="notice" markdown='1'>The SilverStripe Fluent module does not translate content automatically, content
-authors will need to enter the translated content manually for each translated page</div>
+<div class="alert alert-info" markdown='1'>The SilverStripe Fluent module does not translate content automatically, content
+authors will need to enter the translated content manually for each translated page.</div>
 
 ## Setup
 
-The Fluent module is already included as part of the CWP basic recipe and the starter and Wātea CWP themes are
+The Fluent module is already included as part of the CWP installer and the CWP Starter and Wātea themes are
 set up to switch between different languages.
 
 To set up new locales in the CMS, navigate to the "Locales" tab and start creating new locales. You can switch
@@ -22,7 +22,7 @@ selected locale will be saved for that locale.
 You can also define inheritance for locales, meaning content that isn't modified at a certain locale can be inherited
 from the "fallback locale".
 
-For more information on using Fluent, please see the [module documentation](https://github.com/tractorcow/silverstripe-fluent/blob/4.0.0-beta2/readme.md).
+For more information on using Fluent, please see the [module documentation](https://github.com/tractorcow/silverstripe-fluent/blob/master/readme.md).
 
 ## Technical
 

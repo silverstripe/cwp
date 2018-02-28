@@ -28,7 +28,7 @@ for minor upgrade to take a day of work, and major upgrades could take several d
 To upgrade your code, open the root `composer.json` file (the one that was supplied with the installer). Find the
 lines that reference `cwp-recipe-basic` and `cwp-recipe-basic-dev` and change the referenced versions.
 
-For example assuming that you are currently on version `~1.0.1@stable`, if you wish to upgrade to 1.4.1 you will need to
+For example, assuming that you are currently on version `~1.0.1@stable`, if you wish to upgrade to 1.4.1 you will need to
 modify your `composer.json` file to explicitly specify the new release branch, here `~1.4.1`:
 
 	...
@@ -73,7 +73,7 @@ You will know you need to migrate your project if you see the following configur
 
 This long list of dependencies should no longer be pulled in directly. Here is how to fix this for the future.
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 If you have customised the original project based on recipe-basic by removing/changing versions of modules you will
 notice this migration will force you to pull these back via the new cwp-recipe-basic metapackage. This is intended -
 the only code supported by the CWP Team is the mix of modules present in the latest stable release of the

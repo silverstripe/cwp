@@ -15,8 +15,8 @@ installed for this functionality to be enabled.
 A special `$PdfLink` variable is provided to the templates, which if applied as the value of an `href` value to an
 anchor in the template, will provide users with a way to download the a PDF version of the current page.
 
-<div class="notice" markdown='1'>
-This variable is commented out by default in the starter and Wātea themes. You can re-enable it by uncommenting these lines in `PageUtilities.ss`.
+<div class="alert alert-info" markdown='1'>
+This variable is commented out by default in the CWP Starter and Wātea themes. You can re-enable it by uncommenting these lines in `PageUtilities.ss`.
 </div>
 
 When the user requests a PDF of the page, the page is exported as HTML by SilverStripe and then passed along to
@@ -33,31 +33,31 @@ by removing the `--print-media-type` parameter to `wkhtmltopdf`.
 
 ## Limitations
 
-Draft content cannot be exported to PDF, due to the fact that generated PDF files are publicly accessible by anyone
+Draft content can't be exported to PDF, due to the fact that generated PDF files are publicly accessible by anyone
 viewing the website, there are no permission checks when accessing files directly in the browser.
 
 ## Installation
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 The CWP test and production servers you'll be deploying your site to already have `wkhtmltopdf` installed.
 These instructions are only necessary if you want to develop or use the PDF export functionality in your local
-development environment. Skip to "Enabling PDF export ..." below if you simply want to enable the PDF export
+development environment. Skip to [Enabling PDF export ...](#enabling-pdf-export-functionality) below if you simply want to enable the PDF export
 functionality.
 
 The instructions below assume you're on a Debian or Ubuntu Linux environment.
 There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf` but they have not been tested.
 </div>
 
-* [Download wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/downloads/list) for your system type:
+* [Download wkhtmltopdf](https://wkhtmltopdf.org/downloads.html) for your system type:
 
   ```
-  wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.9.9-static-amd64.tar.bz2
+  wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.1.1/wkhtmltox-0.12.1.1.tar.bz2
   ```
 
 * Install it into `/usr/local/bin` so that it can be accessed on the path:
 
   ```
-  tar -jxvf wkhtmltopdf-0.9.9-static-amd64.tar.bz2
+  tar -jxvf wkhtmltox-0.12.1.1.tar.bz2
   mv wkhtmltopdf-amd64 /usr/local/bin/wkhtmltopdf
   ```
 
@@ -80,9 +80,9 @@ There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf
   ```
 
 If you're on Debian "squeeze" you might need to add `contrib` to the `squeeze` sources in `/etc/apt/sources.list` if
-the above command cannot find `ttf-mscorefonts-installer`.
+the above command can't find `ttf-mscorefonts-installer`.
 
-Note the [licensing information](http://www.microsoft.com/typography/RedistributionFAQ.mspx) provided by Microsoft.
+Note the [licensing information](https://docs.microsoft.com/en-us/typography/fonts/font-faq) provided by Microsoft.
 This means those fonts such as Arial can be embedded in the PDF document, provided they are for "Print and preview"
 only.
 
@@ -97,7 +97,7 @@ CWP\CWP\PageTypes\BasePage:
   pdf_export: 1
 ```
 
-Note the yml files do not accept tabs, only spaces. You'll also have to call `flush=1` to have the new YML configuration
+Note the yml files don't accept tabs, only spaces. You'll also have to call `flush=1` to have the new YML configuration
 take effect.
 
 Now you can use `$PdfLink` in your templates which gives you a link to generate the page as a PDF.

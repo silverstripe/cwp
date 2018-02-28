@@ -66,7 +66,7 @@ class MySolrSearchIndex extends CwpSearchIndex
 }
 ```
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 If you are using cwp recipe 1.1.0 or below please refer to the [version 1.1 and before documentation archive](https://www.cwp.govt.nz/developer-docs/en/1.1/features/solr_search#adding-dataobject-classes-to-solr-search-2) for the index code
 </div>
 

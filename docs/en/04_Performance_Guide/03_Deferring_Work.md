@@ -1,6 +1,6 @@
 title: Deferring Work
-summary: How to avoid doing it all in the request
-introduction: Users shouldn't have to wait for a background process to finish before their page reloads
+summary: How to avoid doing it all in the request.
+introduction: Users shouldn't have to wait for a background process to finish before their page reloads.
 
 One of the most effective techniques for improving user experience and overall performance on a site is embracing the
 concept of deferring work; using a request to trigger a background process, rather than executing the process in the 
@@ -8,11 +8,11 @@ request itself.
  
 ## Queued Jobs
  
-Making use of the [Queued Jobs Module](https://github.com/silverstripe-australia/silverstripe-queuedjobs) is an easy
-way to get the best out of your site, and it comes bundled in to the CWP Basic Recipe. On request, you should create
+Making use of the [Queued Jobs Module](https://github.com/symbiote/silverstripe-queuedjobs) is an easy
+way to get the best out of your site, and it comes bundled in the [CWP Search Recipe](https://github.com/silverstripe/cwp-recipe-search). On request, you should create
 a job that performs the task in the background, to be processed when it reaches the front of the queue. In this way, 
 you give instant feedback to the user, and the task is able to be executed in the background - which has less overhead 
-than the web version of the same request. Additionally, you should batch any requests that deal with large datasets, or 
+than the web version of the same request. Additionally, you should batch any requests that deal with large data sets, or 
 tasks that take a long time to process.
 
 For example, if you have a sign-up form that requires a large amount of processing before sending out a confirmation 
@@ -22,7 +22,7 @@ confirmation to the user once the job has been added, and let the queue run the 
 may mean a small delay on the sending of the email while the job makes its way to the top of the queue, but it provides 
 a much better experience for the user - and reduces the impact on the server.
 
-<div class="notice">
+<div class="alert alert-info">
     This also helps to mitigate the impact of Denial of Service (DOS) attacks, as it is much harder to induce load when 
     you remove the processing from the request. The queue ensures sensible distribution of the server resources.
 </div>
@@ -40,8 +40,8 @@ executed at a time that will impact the least number of users. There are
 [a lot of ways to tweak the frequency](http://www.thegeekstuff.com/2009/06/15-practical-crontab-examples) to achieve 
 what you need. This is especially useful if you need to export or import a large amount of data on a schedule.
 
-On CWP these will need to be added via a Service Desk request; alternatively you can utilise the 
-[Crontask module](https://github.com/silverstripe/silverstripe-crontask) to retain complete developer control over the 
+On CWP these will need to be added via a [CWP Service Desk request](https://www.cwp.govt.nz/service-desk/new-request/); alternatively you can utilise the 
+[CronTask module](https://github.com/silverstripe/silverstripe-crontask) to retain complete developer control over the 
 jobs. This will then require that a cron job be set up to run the cron tasks, but that means it is a one-off rather than
 per-task request.
 

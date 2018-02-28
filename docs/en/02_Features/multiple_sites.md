@@ -13,7 +13,7 @@ The subsites module is already included as part of the CWP basic recipe. To set 
 
 # Technical
 
-There is a good [overview](https://github.com/silverstripe/silverstripe-subsites/blob/1.2/docs/en/introduction.md) to get you familiarised with the module and if you wish to extend the existing subsites architecture then there is some [technical](https://github.com/silverstripe/silverstripe-subsites/blob/1.2/docs/en/technical.md) documentation to get you started.
+There is a good [overview](https://github.com/silverstripe/silverstripe-subsites/blob/master/docs/en/introduction.md) to get you familiarised with the module and if you wish to extend the existing subsites architecture then there is some [technical](https://github.com/silverstripe/silverstripe-subsites/blob/1.2/docs/en/technical.md) documentation to get you started.
 
 ## Go live
 

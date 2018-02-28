@@ -21,7 +21,7 @@ worth speaking with the external provider to find out what their expectation is 
 A good rule of thumb is to expect most requests to respond within 5 seconds; but remember, if you set a timeout to 5 
 seconds, then on some page loads you may see loading times increase by this much to accommodate slow responses. 
 
-<div class="notice">
+<div class="alert alert-info">
 Note that if a response from your site to your visitor takes over 30 seconds, a 502 error response will be sent by the
 CWP infrastructure, regardless of other timeout settings.
 </div>
@@ -51,7 +51,7 @@ Many times the data you'll be fetching from external providers will change infre
 longer without going "stale" (where the data you've cached is out-of-date compared to the live data source). Often there
 will be little harm in showing stale data to your visitors.
 
-<div class="notice">
+<div class="alert alert-info">
 Discuss with your stakeholders what level of stale data is acceptable - it may be different for each piece of data 
 you cache.
 </div>
@@ -78,7 +78,7 @@ When integrating APIs, we need to bear in mind that they will suffer from the sa
 availability and handling load. This requires that we take into account the availability of the APIs and what level of 
 impact is acceptable for our site.
 
-For some sites an API will be as integral to the site as the database; without it the site cannot work. When this is 
+For some sites an API will be as integral to the site as the database; without it the site can't work. When this is 
 the case, you still want to handle API failures gracefully - perhaps by retrying - if the API continues to fail 
 you'll want to log the issue internally and respond with an HTTP 502 error.
 

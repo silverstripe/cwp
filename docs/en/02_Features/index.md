@@ -5,6 +5,6 @@ introduction: This section details major features available in the default recip
 Features specific to CWP only will be documented in this section and many of the default features are well documented alongside the open source modules that enable them. 
 Where possible you'll be directed to the open source documentation as they are the most up to date and useful when looking to customise your SilverStripe CMS website for CWP.
 
-**For general SilverStripe CMS development development, ensure you are using the [official SilverStripe CMS developer documentation](http://docs.silverstripe.org).**  
+**For general SilverStripe CMS development development, ensure you are using the [official SilverStripe CMS developer documentation](https://docs.silverstripe.org/en/4/).**  
 
 [CHILDREN]

@@ -124,7 +124,7 @@ SilverStripe\Core\Injector\Injector:
 ```
 
 In this case it is necessary to ensure that an SSL certificate has been purchased and configured
-for each domain. If you are unsure, contact the [Service Desk](https://www.cwp.govt.nz/service-desk/).
+for each domain. If you are unsure, contact the [CWP Service Desk](https://www.cwp.govt.nz/service-desk/).
 
 Alternatively, you can completely disable SSL redirection by setting the 
 `CanonicalURLMiddleware.ForceSSL` property to false via Injector configuration (as in the example above),

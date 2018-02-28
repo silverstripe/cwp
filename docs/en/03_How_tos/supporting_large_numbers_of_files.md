@@ -21,8 +21,13 @@ YML configuration to replace the existing class via dependency injection.
 
 ```php
 <?php
-class SimpleAssetAdmin extends AssetAdmin {
-	public function getEditForm($id = null, $fields = null) {
+
+use SilverStripe\AssetAdmin\Controller\AssetAdmin;
+
+class SimpleAssetAdmin extends AssetAdmin
+{
+	public function getEditForm($id = null, $fields = null) 
+	{
 		$form = parent::getEditForm($id, $fields);
 		$form->Fields()->removeByName('TreeView');
 		return $form;

@@ -34,12 +34,13 @@ to store this value.
 You can also add the following YAML code into your mysite/_config/config.yml
 
 
-	:::yml
-	---
-	Name: myspamprotection
-	---
-	AkismetSpamProtector:
-	  api_key: XXXXXXXXXXXXX
+```yml
+---
+Name: myspamprotection
+---
+SilverStripe\Akismet\AkismetSpamProtector:
+  api_key: XXXXXXXXXXXXX
+```
 
 
 ### Configure via _config.php
@@ -48,8 +49,11 @@ You can also add the below code (or some similar version) to your _config.php. T
 a site has multiple keys controlled by business logic via php.
 
 
-	:::php
-	define('SS_AKISMET_API_KEY', 'XXXXXXXXXXXXX');
+```php
+use SilverStripe\Core\Environment;
+
+Environment::setEnv('SS_AKISMET_API_KEY', 'XXXXXXXXXXXXX');
+```
 
 
 ### Security

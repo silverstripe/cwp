@@ -29,6 +29,4 @@ introduction: The status of the recipe releases is summarised in the table below
 | [1.0.2](cwp_recipe_basic_1.0.2) | Tracks the Framework release 3.1.2 and fixes some module bugs. | 30/01/2014 | 31/05/2015 |
 | [1.0.1](cwp_recipe_basic_1.0.1) | First release of the recipe and all related modules. | 12/11/2013 | 31/05/2015 |
 
-# Other supported module releases
-
-Currently all supported modules are a part of the basic recipe.
+Currently all modules in the CWP recipes are commercially supported by SilverStripe Ltd.

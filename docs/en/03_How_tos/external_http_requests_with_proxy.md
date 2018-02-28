@@ -22,51 +22,55 @@ You can look up the implementation details in the `CwpInitialisationFilter` in t
 
 ## Stream-based requests
 
-Stream-based requests however will need extra manual configuration. For example the following will not work, resulting
+Stream-based requests however will need extra manual configuration. For example, the following will not work, resulting
 in a "Connection refused" error:
 
-	:::php
-	echo file_get_contents('http://www.silverstripe.org/blog/rss');
+```php
+echo file_get_contents('http://www.silverstripe.org/blog/rss');
+```
 
 We can modify it to use the proxy. Proxy URL on CWP environments is provided via `SS_OUTBOUND_PROXY` define, and port is
 provided via `SS_OUTBOUND_PROXY_PORT`. We can check for the existence of these so we are not forced to use the proxy on
 the development machine:
 
-	:::php
-	// use proxy if the environment file has a proxy definition
-	if(defined('SS_OUTBOUND_PROXY') && defined('SS_OUTBOUND_PROXY_PORT')) {
-		$context = stream_context_create(array(
-			'http' => array(
-				'proxy' => sprintf('tcp://%s:%s', SS_OUTBOUND_PROXY, SS_OUTBOUND_PROXY_PORT),
-				'request_fulluri' => true
-			)
-		));
-		
-		echo file_get_contents('http://www.silverstripe.org/blog/rss', false, $context);
-	} else {
-		echo file_get_contents('http://www.silverstripe.org/blog/rss');
-	}
+```php
+// use proxy if the environment file has a proxy definition
+if(Environment::getEnv('SS_OUTBOUND_PROXY') && Environment::getEnv('SS_OUTBOUND_PROXY_PORT')) {
+    $context = stream_context_create([
+        'http' => [
+            'proxy' => sprintf('tcp://%s:%s', Environment::getEnv('SS_OUTBOUND_PROXY'), Environment::getEnv('SS_OUTBOUND_PROXY_PORT')),
+            'request_fulluri' => true
+        ]
+    ]);
+    
+    echo file_get_contents('http://www.silverstripe.org/blog/rss', false, $context);
+} else {
+    echo file_get_contents('http://www.silverstripe.org/blog/rss');
+}
+```
 
 ## Disabling egress proxy
 
 In some situations you might want to disable the proxy. You can do it by customising curl configuration per request:
 
-	:::php
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_PROXY, false);
-	curl_setopt($ch, CURLOPT_PROXYPORT, false);
-	curl_setopt($ch, CURLOPT_URL, '<non-proxied-URL>');
-	echo curl_exec($ch);
+```php
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_PROXY, false);
+curl_setopt($ch, CURLOPT_PROXYPORT, false);
+curl_setopt($ch, CURLOPT_URL, '<non-proxied-URL>');
+echo curl_exec($ch);
+```
 
 You can also disable automatic proxy configuration globally by putting the following in one of your config files:
 
-	:::yml
-	---
-	Name: mysiteconfig
-	After: '#cwpcoreconfig'
-	---
-	CwpInitialisationFilter:
-	  egress_proxy_default_enabled: false
+```yaml
+---
+Name: mysiteconfig
+After: '#cwpcoreconfig'
+---
+CWP\Core\Control\InitialisationMiddleware:
+  egress_proxy_default_enabled: false
+```
 
 ## Excluding domains from egress proxy
 
@@ -74,11 +78,12 @@ It's possible to exclude just some domains from being forced through the proxy i
 desirable. By default this is used by the Solr and Docvert services internal to CWP. The configuration can be appended
 to as follows:
 
-	:::yml
-	---
-	Name: mysiteconfig
-	After: '#cwpcoreconfig'
-	---
-	CwpInitialisationFilter:
-	  egress_proxy_exclude_domains:
-	    - somewhere.cwp.govt.nz
+```yaml
+---
+Name: mysiteconfig
+After: '#cwpcoreconfig'
+---
+CwpInitialisationFilter:
+  egress_proxy_exclude_domains:
+    - somewhere.cwp.govt.nz
+```

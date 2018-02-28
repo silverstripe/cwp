@@ -6,7 +6,7 @@ introduction: This documentation covers specific information regarding how to wo
 This codebase is referred to as the CWP `Recipe` and is made up of your own custom developed code alongside:
  
  * SilverStripe CMS (open source CMS product).
- * SilverStripe commercially supported modules (which deliverers many of the default features). 
+ * SilverStripe commercially supported modules (which deliver many of the default features). 
  * Two CWP specific modules (cwp and cwp-core) that implement specific configuration and features related to running websites on CWP.
 
 For general information about working with SilverStripe CMS code, please consult the

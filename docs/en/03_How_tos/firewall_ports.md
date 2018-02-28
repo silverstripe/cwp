@@ -9,7 +9,7 @@ These are:
  * *.packagist.org - ports 80, 443 (Composer uses this to determine which code to install)
  * *.cwp.govt.nz - ports 80, 443 (CWP GitLab, Deployment tools, UAT servers etc)
 
-* refers to that the firewall should allow access to all subdomain websites for the domain name (a "wildcard"). 
+\* refers to that the firewall should allow access to all subdomain websites for the domain name (a "wildcard"). 
 For example, CWP has gitlab.cwp.govt.nz, deploy.cwp.govt.nz  etc.
 
-You may need to talk internally to your Netowrk or ICT team to ensure you can access these ports and sites.
+You may need to talk internally to your Network or ICT team to ensure you can access these ports and sites.

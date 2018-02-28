@@ -27,55 +27,45 @@ access to. Access a project from here to find more information including the rep
 #### Project details
 ![GitLab project repository URL](/_images/gitlab-project-repo-url.jpg)
 
-<div class="notice" markdown='1'>
-Use HTTPS address for interacting with your repository - SSH transport is not available currently.
-</div>
+1. Now that you have the repository URL for the project, you can check it out in your development environment with the 
+following command:
 
-1. Now that you have the repository URL for the project, you can check it out in your development environment with the following command:
-
-	git clone https://gitlab.cwp.govt.nz/my-agency/my-project.git /path/to/webroot/myproject
+    `git clone https://gitlab.cwp.govt.nz/my-agency/my-project.git /path/to/webroot/myproject`
 
 2. Replace `/path/to/webroot/myproject` with the path on your computer where you wish to store the project code.
 
 3. Then navigate to your project folder:
-
-	cd /path/to/webroot/myproject
+	
+    `cd /path/to/webroot/myproject`
 
 4. To install the SilverStripe CMS packages required for the project to run use the following command:
 
-	composer install
+    `composer install`
 
 This may take some time to run. There is some more information on these steps in the [Getting Started guide](../getting_started).
 
-<div class="notice" markdown='1'>
+<div class="alert alert-info" markdown='1'>
 Assuming you followed through the "Setting up an development environment" guide, you can skip straight to "[Accessing the site](../working_with_projects/setting_up_your_project#accessing-the-site-2)" now.
 </div>
 
 ### Creating a new project?
 The preferred way to set up a new repository is to use the
-[cwp-installer](https://gitlab.cwp.govt.nz/cwp/cwp-installer/) module via Composer. Follow the instructions at [Getting Started](../getting_started) which will step you through how to create a project from scratch.
+[cwp-installer](https://github.com/silverstripe/cwp-installer) module via Composer. Follow the instructions at [Getting Started](../getting_started) which will step you through how to create a project from scratch.
 
 ## Making your first project commit
 You will need to make your first commit to Git and push your project into your Git repository provided on GitLab when you signed up for CWP.
 
 As mentioned you should not commit the packages of code managed by Composer to your project. To ensure this you need to use a `.gitignore` file stored in the root of your project (you should already have one of these files from the installation process).
 
-Inside the `.gitignore` you store references to the folders in your project you DO NOT want committed to your project Git repository.
+Inside the `.gitignore` you store references to the folders in your project you DON'T want committed to your project Git repository.
 
-For example a `.gitignore` for a CWP recipe codebase might include:
+For example, a `.gitignore` for a CWP recipe codebase might include:
 
-    _ss_environment.php
-    .buildpath
-    .project
-    .settings
-    .solr
-    .ea
-    .idea
-    .DS_Store
-    .env/framework
-    /cms
-    /cwp
-    /cwp-core
+    /.env
+    /resources/
+    /silverstripe-cache/
+    /themes/simple/
+    /vendor/
     ...
 
 You can also install a Git hook module which will auto-generate this for you. [See here for more information](https://docs.silverstripe.org/en/4/getting_started/composer/#installing-and-enabling-the-ssautogitignore-package).
@@ -101,7 +91,7 @@ At this stage you should be able to run the website on the default theme include
 in your browser (assuming that your LAMP stack is properly configured).
 
 <div class="hint" markdown='1'>
-You might need to configure your admin access credentials in the `_ss_environment.php` file to be able to access the
+You might need to configure your admin access credentials in the `.env` file to be able to access the
 site (see [environment management](https://docs.silverstripe.org/en/4/getting_started/environment_management/) docs).
 </div>
 
@@ -114,9 +104,6 @@ The CWP recipe codebase includes the following directories that are either part 
  - `vendor/` - Used by composer for SilverStripe as well as 3rd party dependencies and tools (Composer).
  - `composer.json` - List of dependencies included in project. Human-readable, can be edited directly to include new modules. Inspected when `composer update` is run to determine any new versions of dependencies (Project).
  - `composer.lock` - Auto-generated, less human-readable. Tracks the exact state of the installed code modules. Used when `composer install` command is run and ensures other developers end up with same set of code (Project).
-
-The rest of the folders in a project are SilverStripe CMS code packages managed by the Composer tool.
-You should take care not to modify these module files, and should not commit these to your project (you instead commit a reference to these in your composer.json and composer.lock files).
 
 Periodically you will need to update modules to the newest versions by invoking `composer update` and committing
 the resulting `composer.lock` file.
@@ -134,7 +121,7 @@ format of "my-agency/basic" - "cwp" namespace is reserved for platform-endorsed 
 
 ## Troubleshooting
 
-*Q: I cannot run "git remote add". git says: "fatal: remote origin already exists"*
+*Q: I can't run "git remote add". git says: "fatal: remote origin already exists"*
 
 A: If you've installed via the cwp-installer package and answered "no" the the question if the repository should be removed, the git remote named "origin" still exists and points at its git repository. You have two options:
 
