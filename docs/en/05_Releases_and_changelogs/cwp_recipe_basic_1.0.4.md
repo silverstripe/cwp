@@ -5,17 +5,17 @@
 This release tracks the Framework release 3.1.6 and fixes some module bugs. The highlights are:
 
 * Addition of five new modules:
-  * [external links checker](https://github.com/silverstripe/silverstripe-externallinks)
+  * [external links checker](https://github.com/silverstripe-labs/silverstripe-externallinks)
     to detect broken links to external sites within pages.
-  * [mime validator](https://github.com/silverstripe/silverstripe-mimevalidator)
+  * [mime validator](https://github.com/silverstripe-labs/silverstripe-mimevalidator)
     module which validates the content of uploaded files.
-  * [select upload](https://github.com/silverstripe/silverstripe-selectupload)
+  * [select upload](https://github.com/silverstripe-labs/silverstripe-selectupload)
     to select where you want to upload files.
-  * [spell check](https://github.com/silverstripe/silverstripe-spellcheck)
+  * [spell check](https://github.com/silverstripe-labs/silverstripe-spellcheck)
     to provide spell checking support in NZ English and Maori locales.
-  * [hybrid sessions](https://github.com/silverstripe/silverstripe-hybridsessions)
+  * [hybrid sessions](https://github.com/silverstripe-labs/silverstripe-hybridsessions)
 * Several fixes to usability issues with
-   [advanced workflow module](https://github.com/symbiote/advancedworkflow).
+   [advanced workflow module](https://github.com/silverstripe-australia/advancedworkflow).
 * Additional support for [active disaster recovery](https://www.cwp.govt.nz/about/selecting-the-attributes-of-the-common-web-platform-instance-for-your-websites/#disaster-recovery-options)
    server configurations. When servers are arranged with multiple physical nodes in different geographic locations,
    user traffic may not always be served by the same one. Additional functionality is provided by the hybrid
