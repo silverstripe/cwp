@@ -106,7 +106,7 @@ For more information see [Graylog analysis documentation](http://docs.graylog.or
 ## Logging custom events
 
 The recipes are configured to send all logs to syslog, which are then accessible through Graylog. The recommended way
-to log events on CWP is through the `SS_Log` API:
+to log events on CWP is through the SilverStripe logging API:
 
 ```php
 use Psr\Log\LoggerInterface;

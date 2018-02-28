@@ -99,10 +99,17 @@ also don't want to have access to your site's code as well, and will make it mor
  1. Edit your project's `.gitignore` file and remove the `themes/` line.
  2. Remove the `/themes/starter/.git` directory and the `/themes/starter/.gitignore` file.
  3. Rename the "starter" folder to your projects name (it should be all lower case and preferably one word).
-  * If you're also using the [Wātea theme](https://github.com/silverstripe/cwp-watea-theme) you will also need to change "starter" to your projects name in the "starter_watea" folder. You may also wish to change the "watea" part of that folder name to your own customised subtheme name as well. Ensure you don't remove the underscore, and that the new "starter" theme name is reflected in the folder name of the Wātea theme if changed.
- 4. Add the `.gitignore` file and the `themes` folder to your git project, commit it and push it back to the upstream repository.
- 5. Remove the "cwp/starter-theme" line from the **require** list in `composer.json`. This will prevent composer from re-adding the *starter* theme to your project.
- 6. Edit `mysite/_config/config.yml` and alter the `SSViewer: theme` setting to the name of your new theme.
+  * If you're also using the [Wātea theme](https://github.com/silverstripe/cwp-watea-theme) you will also need to 
+  change "starter" to your projects name in the "starter_watea" folder. You may also wish to change the "watea" part of 
+  that folder name to your own customised subtheme name as well. Note that if you change the theme name from "watea" to 
+  something else you will need to update it in your `theme.yml` file as well
+ 4. Add the `.gitignore` file and the `themes` folder to your git project, commit it and push it back to the upstream 
+ repository.
+ 5. Remove the "cwp/starter-theme" line from the **require** list in `composer.json`. This will prevent composer from 
+ re-adding the *starter* theme to your project.
+ 6. Edit `mysite/_config/theme.yml` and add your theme name to the list in `SilverStripe\View\SSViewer.themes`. 
+ If you're using the public webroot feature (enabled by default from CWP 2.0 onwards) ensure you add your custom theme
+  _after_ `'$public'`.
 
 <div class="alert alert-info" markdown='1'>
 Don't forget to `flush` by visiting `http://localhost/your-project/?flush=1` to get the new theme running!

@@ -61,15 +61,7 @@ Inside the `.gitignore` you store references to the folders in your project you 
 
 For example, a `.gitignore` for a CWP recipe codebase might include:
 
-    /.buildpath
     /.env
-    /.project
-    /.settings
-    /.solr
-    /cms
-    /cwp
-    /cwp-core
-    /public/resources/
     /resources/
     /silverstripe-cache/
     /themes/simple/
