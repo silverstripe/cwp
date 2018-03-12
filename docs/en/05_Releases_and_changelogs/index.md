@@ -8,7 +8,7 @@ introduction: The status of the recipe releases is summarised in the table below
 | -------------- | ----------- | ------------ | ----------------- |
 | [2.0.0](cwp_recipe_basic_2.0.0) | Upgrades to SilverStripe 4, and all modules to support this. | _Unreleased_ | TBC |
 | [1.8.1](cwp_recipe_basic_1.8.1) | Tracks the Framework release 3.6.5, and includes minor module bug fixes. | 12/03/2018 | current |
-| [1.8.0](cwp_recipe_basic_1.8.0) | Tracks the Framework release 3.6.3 and includes security fixes. | 11/12/2017 | 12/03/2018 |
+| [1.8.0](cwp_recipe_basic_1.8.0) | Tracks the Framework release 3.6.3 and includes security fixes. | 11/12/2017 | 12/09/2019 |
 | [1.7.0](cwp_recipe_basic_1.7.0) | Tracks the Framework release 3.6.1 and includes security fixes. | 28/09/2017 | 11/06/2019 |
 | [1.6.0](cwp_recipe_basic_1.6.0) | Tracks the Framework release 3.6.0 and includes security fixes. | 02/06/2017 | 28/03/2019 |
 | [1.5.2](cwp_recipe_basic_1.5.2) | Tracks the Framework release 3.5.3 and includes a security fix. | 27/02/2017 | 02/12/2018 |
