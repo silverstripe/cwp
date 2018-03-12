@@ -2,9 +2,9 @@
 
 ## Overview
 
-This upgrade includes CMS and Framework version 3.6.3 which remains as the same version used in CWP Recipe 1.8.0.
+This upgrade includes CMS and Framework version 3.6.5.
 
- * [Framework 3.6.3](https://github.com/silverstripe/silverstripe-framework/blob/3.6.3/docs/en/04_Changelogs/3.6.2.md)
+ * [Framework 3.6.5](https://github.com/silverstripe/silverstripe-framework/blob/3.6.5/docs/en/04_Changelogs/3.6.5.md)
 
 Upgrade to Recipe 1.8.1 is optional, but is recommended for all CWP sites.
 
