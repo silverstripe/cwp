@@ -23,20 +23,20 @@ Note: The starter theme is the default CWP theme as of the CWP 1.6 recipe. If yo
 
 ## Getting Started
 
-The starter theme that comes with the basic site is cloned from the [CWP starter theme in GitLab](https://gitlab.cwp.govt.nz/cwp/starter-theme), so you are not able to
+The starter theme that comes with the basic site is cloned from the [CWP starter theme in GitHub](https://github.com/silverstripe/cwp-starter-theme), so you are not able to
 make changes to it directly. There are two recommended ways of creating your own theme:
 
 ### Forking the theme
 
 This will give you a copy of the starter theme repository that you can edit and can share with others.
 
-1. Browse to the [starter theme](https://gitlab.cwp.govt.nz/cwp/starter-theme) in GitLab.
+1. Browse to the [starter theme](https://github.com/silverstripecwp-starter-theme) in GitHub.
 2. Click on the *Fork* button in the toolbar. This will make a copy of the theme in your GitLab profile.
 3. Your forked repository has inherited the starter theme's public access. To disable this, go to the settings page.
 (*Settings / Edit Project*) of your repository in Gitlab, change the *Project Visibility* option as required and click *Save*.
 4.  In your theme's `composer.json` file and change the `"name"` parameter to `"my-agency/<theme-name-here>"`.
 5.  In your project's `composer.json` replace `"cwp/starter-theme"` with with the name you added in the previous step.
-6.  In the same `composer.json` file replace the `"https://gitlab.cwp.govt.nz/cwp/starter-theme.git"` with your
+6.  In the same `composer.json` file replace the `"https://github.com/silverstripe/cwp-starter-theme.git"` with your
 private repository address to the `repositories` array - see below for sample. You may need to add this manually.
 7.  Edit the `mysite/_config/config.yml` file and change the theme from `starter` to your theme's name.
 8.  Run `composer update`.
@@ -104,7 +104,7 @@ also don't want to have access to your site's code as well, and will make it mor
  1. Edit your project's `.gitignore` file and remove the `themes/` line.
  2. Remove the `/themes/starter/.git` directory and the `/themes/starter/.gitignore` file.
  3. Rename the "starter" folder to your projects name (it should be all lower case and preferably one word).
-  * If you're also using the [Wātea theme](https://gitlab.cwp.govt.nz/cwp/watea-theme) you will also need to change "starter" to your projects name in the "starter_watea" folder. You may also wish to change the "watea" part of that folder name to your own customised subtheme name as well. Ensure you do not remove the underscore, and that the new "starter" theme name is reflected in the folder name of the Wātea theme if changed.
+  * If you're also using the [Wātea theme](https://github.com/silverstripe/cwp-watea-theme) you will also need to change "starter" to your projects name in the "starter_watea" folder. You may also wish to change the "watea" part of that folder name to your own customised subtheme name as well. Ensure you do not remove the underscore, and that the new "starter" theme name is reflected in the folder name of the Wātea theme if changed.
  4. Add the `.gitignore` file and the `themes` folder to your git project, commit it and push it back to the upstream repository.
  5. Remove the "cwp/starter-theme" line from the **require** list in `composer.json`. This will prevent composer from re-adding the *starter* theme to your project.
  6. Edit `mysite/_config/config.yml` and alter the `SSViewer: theme` setting to the name of your new theme.

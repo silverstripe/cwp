@@ -35,7 +35,7 @@ are load-balanced between servers. We can also organise the SSL certificate for 
 
 ## Shared sessions across servers
 
-If you are running at least version 1.0.4 of the [cwp-core](https://gitlab.cwp.govt.nz/cwp/cwp-core) module, shared
+If you are running at least version 1.0.4 of the [cwp-core](https://github.com/silverstripe/cwp-core) module, shared
 sessions have already been configured. You can skip this step.
 
 Otherwise, if you running an earlier version, please follow these steps:

@@ -7,8 +7,8 @@ summary: How Solr is pre-configured for CWP and what you can alter.
 
 You must satisfy the following requirements to successfully connect to the shared CWP Solr service:
 
-* If you are starting a new project, best compatibility is achieved by using the [cwp-installer](https://gitlab.cwp.govt.nz/cwp/cwp-installer/).
-* If it's an existing project, you should include the [cwp-recipe-basic](https://gitlab.cwp.govt.nz/cwp/cwp-recipe-basic) for the ease of integration. Although we don't recommend it, with extra work you can get it working by only including the [cwp-core](https://gitlab.cwp.govt.nz/cwp/cwp-core/) module.
+* If you are starting a new project, best compatibility is achieved by using the [cwp-installer](https://github.com/silverstripe/cwp-installer/).
+* If it's an existing project, you should include the [cwp-recipe-basic](https://github.com/silverstripe/cwp-recipe-basic) for the ease of integration. Although we don't recommend it, with extra work you can get it working by only including the [cwp-core](https://github.com/silverstripe/cwp-core/) module.
 
 ## Selecting Solr version
 
@@ -31,7 +31,7 @@ Solr on CWP is a shared service, and it comes with some limitations:
 
 ### cwp-core module
 
-The module source code is available at [https://gitlab.cwp.govt.nz/cwp/cwp-core](https://gitlab.cwp.govt.nz/cwp/cwp-core).
+The module source code is available at [https://github.com/silverstripe/cwp-core](https://github.com/silverstripe/cwp-core).
 
 This module sets up:
 
@@ -42,7 +42,7 @@ This module sets up:
 
 ### cwp module
 
-The module source code is available at [https://gitlab.cwp.govt.nz/cwp/cwp](https://gitlab.cwp.govt.nz/cwp/cwp).
+The module source code is available at [https://github.com/silverstripe/cwp](https://github.com/silverstripe/cwp).
 
 This module sets up:
 
