@@ -14,12 +14,14 @@ You must satisfy the following requirements to successfully connect to the share
 
 Your project will be configured automatically by the *cwp-core* module to resemble production infrastructure as much as possible. Currently CWP supports only Solr version 4.
 
-## Limitations
+## Limitations and Acceptable Use Policy
 
 Solr on CWP is a shared service, and it comes with some limitations:
 
 * Production CWP enforces `solrconfig.xml` - customisations are not permitted, and will automatically be removed by the Solr server. The best way to add features to CWP is through the [Operational Review Board](https://www.cwp.govt.nz/about/frequently-asked-questions/).
-* Acceptable use policy applies, as described on the introduction page of this guide.
+* To ensure adequate sharing of resources on Solr the maximum size of each indexed item is limited to 100kb of data.
+* If you are indexing file content, files with text content exceeding
+  this limit will not be fully indexed. Content within this range will still be searchable.
 
 ## Where are the CWP Solr related classes and configuration?
 
