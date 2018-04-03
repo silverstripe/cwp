@@ -10,15 +10,9 @@ You must satisfy the following requirements to successfully connect to the share
 * If you are starting a new project, best compatibility is achieved by using the [cwp-installer](https://github.com/silverstripe/cwp-installer).
 * If it's an existing project, you should include the [cwp/cwp-recipe-cms](https://github.com/silverstripe/cwp-recipe-cms) for the ease of integration. Although we don't recommend it, with extra work you can get it working by only including the [cwp-core](https://github.com/silverstripe/cwp) module.
 
-## Selecting Solr version
+## Solr Version Support
 
-<div class="alert alert-info" markdown='1'>
-As of 28/09/2016 'legacy' and 'cwp-3' versions are not supported on CWP anymore.
-</div>
-
-Your project will be configured automatically by the *cwp-core* module to resemble production infrastructure as much as possible.
-
-Currently CWP supports only Solr version 4.
+Your project will be configured automatically by the *cwp-core* module to resemble production infrastructure as much as possible. Currently CWP supports only Solr version 4.
 
 ## Limitations
 
