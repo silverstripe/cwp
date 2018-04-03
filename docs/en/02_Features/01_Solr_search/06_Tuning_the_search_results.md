@@ -5,7 +5,7 @@ summary: How to configure spelling suggestions, synonyms and keyword boosting to
 
 ## Before we begin
 
-**This feature requires cwp recipe 1.1.1 or above including the [cwp](https://gitlab.cwp.govt.nz/cwp/cwp), [cwp-core](https://gitlab.cwp.govt.nz/cwp/cwp-core) and [fulltextsearch](https://github.com/silverstripe-labs/silverstripe-fulltextsearch) modules specifically.**
+**This feature requires cwp recipe 1.1.1 or above including the [cwp](https://github.com/silverstripe/cwp), [cwp-core](https://github.com/silverstripe/cwp-core) and [fulltextsearch](https://github.com/silverstripe/silverstripe-fulltextsearch) modules specifically.**
 
 ## Spelling corrections and suggestions
 

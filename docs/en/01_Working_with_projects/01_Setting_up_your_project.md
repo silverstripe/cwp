@@ -53,7 +53,7 @@ Assuming you followed through the "Setting up an development environment" guide,
 
 ### Creating a new project?
 The preferred way to set up a new repository is to use the
-[cwp-installer](https://gitlab.cwp.govt.nz/cwp/cwp-installer/) module via Composer. Follow the instructions at [Getting Started](../getting_started) which will step you through how to create a project from scratch.
+[cwp-installer](https://github.com/silverstripe/cwp-installer/) module via Composer. Follow the instructions at [Getting Started](../getting_started) which will step you through how to create a project from scratch.
 
 ## Making your first project commit
 You will need to make your first commit to Git and push your project into your Git repository provided on GitLab when you signed up for CWP.

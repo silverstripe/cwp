@@ -4,7 +4,7 @@ introduction: Describes how to use the CWP Wātea theme
 
 # Using the Wātea theme
 
-[The Wātea theme](https://gitlab.cwp.govt.nz/cwp/watea-theme) is a more "designed" [subtheme](https://docs.silverstripe.org/en/3/developer_guides/templates/themes) which can be installed over the top of the [Starter theme](customising_the_starter_theme) to provide a more visually appealing starter project.
+[The Wātea theme](https://github.com/silverstripe/cwp-watea-theme) is a more "designed" [subtheme](https://docs.silverstripe.org/en/3/developer_guides/templates/themes) which can be installed over the top of the [Starter theme](customising_the_starter_theme) to provide a more visually appealing starter project.
 
 ## Installation
 
@@ -21,7 +21,7 @@ This will also install the following dependencies:
 
 ## Getting started
 
-This theme is designed to augment the base functionality and framework provided by the [Starter theme](https://gitlab.cwp.govt.nz/cwp/starter-theme). As such, [all of the documentation for the Starter theme](customising_the_starter_theme) is relevant to this theme as well. We suggest you familiarise yourself with this documentation.
+This theme is designed to augment the base functionality and framework provided by the [Starter theme](https://github.com/silverstripe/cwp-starter-theme). As such, [all of the documentation for the Starter theme](customising_the_starter_theme) is relevant to this theme as well. We suggest you familiarise yourself with this documentation.
 
 As a general rule, CWP Team have endeavoured to constrain changes for this subtheme to CSS and Javascript wherever possible, as opposed to modifying and duplicating the templates. As a subtheme, all templates in this theme will be applied over the top (with priority) of the Starter theme, and will be available to the SilverStripe template manifest under the "starter" theme name. You will not see the Wātea theme in theme selectors, etc.
 
@@ -48,7 +48,7 @@ npm install
 
 ### Backend changes
 
-This theme and the base-theme also come with the [`cwp/agency-extensions` module](https://gitlab.cwp.govt.nz/cwp/agency-extensions) which helps us to clean up some parts of the CMS, rename some settings fields and provide a little bit of extra functionality to help the Wātea theme work.
+This theme and the base-theme also come with the [`cwp/agency-extensions` module](https://github.com/silverstripe/cwp-agencyextensions) which helps us to clean up some parts of the CMS, rename some settings fields and provide a little bit of extra functionality to help the Wātea theme work.
 
 If you need to extend or modify these changes at all, you can control the theme's extensions with YAML configuration, or create your own extensions in your `mysite` code.
 
