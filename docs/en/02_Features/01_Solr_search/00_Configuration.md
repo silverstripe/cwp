@@ -23,11 +23,17 @@ Solr on CWP is a shared service, and it comes with some limitations:
 * If you are indexing file content, files with text content exceeding
   this limit will not be fully indexed. Content within this range will still be searchable.
 
-## Where are the CWP Solr related classes and configuration?
+## Source Code
 
-### cwp-search module
+The base `silverstripe/fulltextsearch` module source code is available at 
+[https://github.com/silverstripe/silverstripe-fulltextsearch](github.com/silverstripe/silverstripe-fulltextsearch)
 
-The module source code is available at [https://github.com/silverstripe/cwp-search](https://github.com/silverstripe/cwp-search).
+## CWP Integration
+
+The base `silverstripe/fulltextsearch` module is tightly integrated into the CWP recipe
+through the `cwp/cwp-recipe-search` module, available at [https://github.com/silverstripe/cwp-search](github.com/silverstripe/cwp-search).
+It is bundled with the [CWP installer](https://github.com/silverstripe/cwp-installer),
+so you usually don't have to install anything extra.
 
 This module sets up:
 
