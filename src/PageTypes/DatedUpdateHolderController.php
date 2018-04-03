@@ -309,12 +309,12 @@ class DatedUpdateHolderController extends PageController
         $dateFromTitle = DBField::create_field('HTMLText', sprintf(
             '%s <span class="field-note">%s</span>',
             _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.FROM_DATE', 'From date'),
-            _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.DATE_EXAMPLE', '(example: 2017/12/30)')
+            _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.DATE_EXAMPLE', '(example: 30/12/2017)')
         ));
         $dateToTitle = DBField::create_field('HTMLText', sprintf(
             '%s <span class="field-note">%s</span>',
             _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.TO_DATE', 'To date'),
-            _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.DATE_EXAMPLE', '(example: 2017/12/30)')
+            _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.DATE_EXAMPLE', '(example: 30/12/2017)')
         ));
 
         $fields = FieldList::create(
