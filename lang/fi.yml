@@ -5,7 +5,7 @@ fi:
     GaField: 'Google Analytics -tili'
     GaFieldDesc: 'Tilinumero käytettäväksi läpi sivuston (formaatissa <strong>UA-XXXXX-X</strong>)'
     SocialMediaTab: 'Sosiaalinen media'
-    TwitterField: 'Twitter-käyttäjänimi'
+    TwitterField: Twitter-käyttäjänimi
     TwitterFieldDesc: 'Twitter-käyttäjänimi (esim, http://twitter.com/<strong>käyttäjänimi</strong>)'
   CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 'Ulkoinen linkki'
@@ -14,24 +14,24 @@ fi:
     PLURALNAME: Pikalinkit
     ParentRelationLabel: Isäntä
     SINGULARNAME: Pikalinkki
-    SortOrderLabel: 'Järjestys'
+    SortOrderLabel: Järjestys
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Lisää uusi'
     ButtonTextRequired: 'Painiketeksti pitää syöttää'
     FeatureButtonText: 'Nappulan teksti'
-    FeatureCategoryDropdown: 'Kategoriaikoni'
+    FeatureCategoryDropdown: Kategoriaikoni
     FeatureContentFieldLabel: Sisältö
     FeatureLink: 'Sivu, johon linkitetään'
     LearnMoreLink: 'Sivu jolle painike linkitetään:'
-    PLURALNAME: 'Kotisivut'
-    SINGULARNAME: 'Kotisivu'
+    PLURALNAME: Kotisivut
+    SINGULARNAME: Kotisivu
     Title: Otsikko
   CWP\CWP\PageTypes\BasePage:
-    ColumnPageType: 'Sivutyyppi'
+    ColumnPageType: Sivutyyppi
     ColumnTitle: Otsikko
-    PLURALNAME: 'Pohjasivut'
+    PLURALNAME: Pohjasivut
     RelatedPages: 'Liittyvät sivut'
-    SINGULARNAME: 'Pohjasivu'
+    SINGULARNAME: Pohjasivu
     TagsTabTitle: Avainsanat
     Taxonomy: Taksonomia
     Term: Termi
@@ -43,20 +43,20 @@ fi:
   CWP\CWP\PageTypes\EventHolder:
     Upcoming: 'Tulevat tapahtumat'
   CWP\CWP\PageTypes\EventPage:
-    PLURALNAME: 'Tapahtumasivut'
-    SINGULARNAME: 'Tapahtumasivu'
+    PLURALNAME: Tapahtumasivut
+    SINGULARNAME: Tapahtumasivu
   CWP\CWP\PageTypes\FooterHolder:
     SINGULARNAME: 'Alaindeksin koonti'
   CWP\CWP\PageTypes\NewsHolder:
     PLURALNAME: 'Uutisten koontisivu'
     SINGULARNAME: 'Uutisten koontisivu'
   CWP\CWP\PageTypes\NewsPage:
-    PLURALNAME: 'Uutissivut'
-    SINGULARNAME: 'Uutissivu'
+    PLURALNAME: Uutissivut
+    SINGULARNAME: Uutissivu
   CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 'Listaa sivuston kaikki sivut'
-    PLURALNAME: 'Sivukarttasivut'
-    SINGULARNAME: 'Sivukarttasivu'
+    PLURALNAME: Sivukarttasivut
+    SINGULARNAME: Sivukarttasivu
   CWP\CWP\Report\CwpStatsReport:
     Count: Lukumäärä
     Description: 'Tämä raportti sisältää tilastotietoa sivustosta. "Julkaistujen sivujen määrää" voidaan verrata osion kokoon.'
@@ -64,5 +64,5 @@ fi:
     Name: Nimi
     PagesForMainSite: '- pääsivustolla'
     PagesForSubsite: '- alasivustolla ''{SubsiteTitle}'''
-    Title: 'Yhteenvetotilasto'
+    Title: Yhteenvetotilasto
     TotalPageCount: 'Julkaistujen sivujen määrä, kaikki käännetyt ja alasivut huomioiden'

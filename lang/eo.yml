@@ -20,12 +20,12 @@ eo:
     ExternalLinkLabel: 'Ekstera ligilo'
     InternalLinkLabel: 'Interna ligilo'
     NameLabel: Nomo
-    PLURALNAME: Rapidaj ligiloj
+    PLURALNAME: 'Rapidaj ligiloj'
     PLURALS:
       one: 'Unu rapida ligilo'
       other: '{count} rapidaj ligiloj'
     ParentRelationLabel: Patra
-    SINGULARNAME: Rapida ligilo
+    SINGULARNAME: 'Rapida ligilo'
     SortOrderLabel: 'Ordiga Ordo'
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Aldoni novan'
@@ -37,11 +37,11 @@ eo:
     FeatureOne: 'Prezentita unua'
     FeatureTwo: 'Prezentita dua'
     LearnMoreLink: 'Paĝo al kiu ligi la butonon "Lerni plu":'
-    PLURALNAME: 'Hejmpaĝoj'
+    PLURALNAME: Hejmpaĝoj
     PLURALS:
       one: 'Unu hejmpaĝo'
       other: '{count} Hejmpaĝoj'
-    SINGULARNAME: 'Hejmpaĝo'
+    SINGULARNAME: Hejmpaĝo
     Title: Titolo
   CWP\CWP\PageTypes\BasePage:
     ColumnPageType: 'Tipo de paĝo'
@@ -71,8 +71,8 @@ eo:
     DATE_EXAMPLE: '(ekzemplo: 2017/12/30)'
     FILTER_BETWEEN: inter
     FILTER_IN: en
-    FILTER_ON: 'sur'
-    FILTER_WITHIN: ene de
+    FILTER_ON: sur
+    FILTER_WITHIN: 'ene de'
     FROM_DATE: 'Eka dato'
     PLURALNAME: 'Ĝisdatigaj datujoj'
     PLURALS:
@@ -91,19 +91,19 @@ eo:
     SINGULARNAME: 'Ĝisdatiga datujo'
   CWP\CWP\PageTypes\EventHolder:
     DESCRIPTION: 'Paĝo por enhavi eventpaĝojn, donas eventfiltradon kaj paĝonumeradon'
-    PLURALNAME: 'Eventujoj'
+    PLURALNAME: Eventujoj
     PLURALS:
       one: 'Unu eventujo'
       other: '{count} eventujoj'
-    SINGULARNAME: 'Eventujo'
+    SINGULARNAME: Eventujo
     Upcoming: 'Futuraj eventoj'
   CWP\CWP\PageTypes\EventPage:
     DESCRIPTION: 'Priskribas eventon okazontan je specifa dato.'
-    PLURALNAME: 'Eventopaĝoj'
+    PLURALNAME: Eventopaĝoj
     PLURALS:
       one: 'Unu eventa paĝo'
       other: '{count} eventaj paĝoj'
-    SINGULARNAME: 'Eventopaĝo'
+    SINGULARNAME: Eventopaĝo
   CWP\CWP\PageTypes\FooterHolder:
     DESCRIPTION: 'Paĝo por enhavi kaj vidigi ĉiujn paĝidojn kiel ligilojn en la paĝopiedo'
     PLURALNAME: 'Paĝopieda tenanto'
@@ -113,18 +113,18 @@ eo:
     SINGULARNAME: 'Paĝopieda tenanto'
   CWP\CWP\PageTypes\NewsHolder:
     DESCRIPTION: 'Paĝo por enhavi Novaĵpaĝojn, donas filtradon de novaĵoj kaj paĝonumeradon'
-    PLURALNAME: 'Novaĵujoj'
+    PLURALNAME: Novaĵujoj
     PLURALS:
       one: 'Unu novaĵujo'
       other: '{count} novaĵujoj'
-    SINGULARNAME: 'Novaĵujo'
+    SINGULARNAME: Novaĵujo
   CWP\CWP\PageTypes\NewsPage:
     DESCRIPTION: 'Priskribas novaĵeron'
-    PLURALNAME: 'Novaĵopaĝoj'
+    PLURALNAME: Novaĵopaĝoj
     PLURALS:
       one: 'Unu novaĵopaĝo'
       other: '{count} novaĵopaĝoj'
-    SINGULARNAME: 'Novaĵopaĝo'
+    SINGULARNAME: Novaĵopaĝo
   CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 'Listigas ĉiujn paĝojn en la retejo'
     PLURALNAME: 'Paĝo de paĝarmapo'

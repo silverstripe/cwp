@@ -11,9 +11,9 @@ ar:
     ExternalLinkLabel: 'رابط خارجي'
     InternalLinkLabel: 'رابط داخلى'
     NameLabel: الاسم
-    PLURALNAME: روابط سريعة
+    PLURALNAME: 'روابط سريعة'
     ParentRelationLabel: والد
-    SINGULARNAME: رابط سريع
+    SINGULARNAME: 'رابط سريع'
     SortOrderLabel: 'ترتيب الفرز'
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'أضف جديد'
@@ -30,7 +30,7 @@ ar:
     RelatedPages: 'الصفحات المرتبطة'
     SINGULARNAME: 'صفحة رئيسية'
     TagsTabTitle: البطاقات
-    Taxonomy: علم التصنيف
+    Taxonomy: 'علم التصنيف'
     Term: عنصر
     Terms: عناصر
   CWP\CWP\PageTypes\DatedUpdateHolder:

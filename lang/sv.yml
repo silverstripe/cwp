@@ -4,16 +4,16 @@ sv:
     GaField: 'Google Analytics-konto'
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Skapa ny'
-    FeatureButtonText: 'Knapp-text'
-    FeatureCategoryDropdown: 'Kategori-ikon'
+    FeatureButtonText: Knapp-text
+    FeatureCategoryDropdown: Kategori-ikon
     FeatureContentFieldLabel: Innehåll
     FeatureLink: 'Sida att länka till'
     LearnMoreLink: 'Sida att länka "Läs mer"-knappen till'
-    PLURALNAME: 'Hem-sidor'
-    SINGULARNAME: 'Hem'
+    PLURALNAME: Hem-sidor
+    SINGULARNAME: Hem
     Title: Titel
   CWP\CWP\PageTypes\BasePage:
-    ColumnPageType: 'Sidtyp'
+    ColumnPageType: Sidtyp
     ColumnTitle: Titel
     PLURALNAME: 'Bas sidor'
     RelatedPages: 'Relaterade sidor'

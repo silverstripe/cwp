@@ -10,7 +10,7 @@ mi:
     ExternalLinkLabel: 'Hono ā-Waho'
     InternalLinkLabel: 'Hono ā-Roto'
     NameLabel: Ingoa
-    PLURALNAME: Ngā Honotere
+    PLURALNAME: 'Ngā Honotere'
     ParentRelationLabel: Matua
     SINGULARNAME: Honotere
     SortOrderLabel: 'Raupapa Kōmaka'
@@ -18,7 +18,7 @@ mi:
     AddNewButton: 'Tāpiri Hou'
     FeatureButtonText: 'Kuputuhi pātene'
     FeatureCategoryDropdown: 'Ata kāwai'
-    FeatureContentFieldLabel: Ngā ihirangi
+    FeatureContentFieldLabel: 'Ngā ihirangi'
     FeatureLink: 'Whārangi hono ki'
     LearnMoreLink: 'Whārangi hono i te pātene "Ako Anō" ki:'
     Title: Taitara
@@ -26,9 +26,9 @@ mi:
     PLURALNAME: 'Ngā Whārangi Taketake'
     RelatedPages: 'Ngā whārangi pāhono'
     SINGULARNAME: 'Whārangi Taketake'
-    Taxonomy: Pūnaha Whakarōpū
+    Taxonomy: 'Pūnaha Whakarōpū'
     Term: Ture
-    Terms: Ngā Ture
+    Terms: 'Ngā Ture'
   CWP\CWP\PageTypes\DatedUpdateHolder:
     PLURALNAME: 'Ngā Whārangi Taketake'
     SINGULARNAME: 'Pūpupuri Whakahōu Whai Rā'

@@ -48,7 +48,7 @@ ru:
     DATE_EXAMPLE: '(например: 2017/12/30)'
     FILTER_BETWEEN: между
     FILTER_IN: в
-    FILTER_ON: 'на'
+    FILTER_ON: на
     FILTER_WITHIN: в
   CWP\CWP\PageTypes\NewsHolder:
     PLURALNAME: 'Контейнеры новостей'

@@ -59,10 +59,6 @@ en:
     Term: Term
     Terms: Terms
     TermsDescription: 'Click to search for additional terms'
-  CWP\CWP\PageTypes\BasePageController:
-    EmptySearch: 'Search field empty, please enter your search query.'
-    MetaTitle: 'Search {keywords}'
-    NoResult: 'Sorry, your search query did not return any results.'
   CWP\CWP\PageTypes\DateUpdatePage:
     AuthorFieldLabel: Author
     EndTimeFieldLabel: 'End Time'
@@ -84,7 +80,9 @@ en:
     TO_DATE: 'To date'
   CWP\CWP\PageTypes\DatedUpdateHolderController:
     Clear: Clear
+    DateRangeFilterMessage: 'Filtered by a single date.'
     Filter: Filter
+    FilterAppliedMessage: 'Filter has been applied with the dates reversed.'
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractDesc: 'The abstract is used as a summary on the listing pages. It is limited to 160 characters.'
     AbstractTextFieldLabel: Abstract
@@ -101,6 +99,8 @@ en:
       one: 'An Event Holder'
       other: '{count} Event Holders'
     SINGULARNAME: 'Event Holder'
+  CWP\CWP\PageTypes\EventHolderController:
+    Events: Events
     Upcoming: 'Upcoming events'
   CWP\CWP\PageTypes\EventPage:
     DESCRIPTION: 'Describes an event occurring on a specific date.'
@@ -146,3 +146,6 @@ en:
     PagesForSubsite: '- in the subsite ''{SubsiteTitle}'''
     Title: 'Summary statistics'
     TotalPageCount: 'Total live page count, across all translations and subsites'
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Used on:'
+    PAGES: page(s)
