@@ -42,7 +42,12 @@ class CwpSearchEngine extends Object {
 		$query->classes = $classes;
 		$query->search($keywords);
 		$query->exclude('SiteTree_ShowInSearch', 0);
-        $query->exclude('File_ShowInSearch', 0);
+
+		// Add File_ShowInSearch if the File class is in the query
+        $classes = array_column($classes, 'class');
+        if (in_array('File', $classes)) {
+            $query->exclude('File_ShowInSearch', 0);
+        }
 
 		// Artificially lower the amount of results to prevent too high resource usage.
 		// on subsequent canView check loop.
