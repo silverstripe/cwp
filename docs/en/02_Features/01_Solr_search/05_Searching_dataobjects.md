@@ -89,7 +89,8 @@ SilverStripe\Core\Injector\Injector:
 
 CWP\Search\Extensions\SearchControllerExtension:
   classes_to_search:
-    - class: StaffMember
+    StaffMember:
+      class: StaffMember
 ```
 
 Now when you search on the site, `StaffMember` results will show alongside normal `Page` results.
