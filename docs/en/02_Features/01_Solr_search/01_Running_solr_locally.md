@@ -14,17 +14,11 @@ Older versions of *silverstripe-fulltextsearch* module used to bundle the Solr b
 
 ## Differences to CWP
 
-### solrconfig.xml
+Please read through the [Limitations and Acceptable Use Policy](configuration#limitations)
+of running Solr in the CWP infrastructure. 
 
-CWP infrastructure enforces `solrconfig.xml` to ensure stability of the shared service.
-
+Most importantly, CWP infrastructure enforces `solrconfig.xml` to ensure stability of the shared service.
 While you can customise this file on your local development environment, these customisations will automatically be removed by the CWP Solr server, and the file restored to a version very similar to the default supplied by *fulltextsearch* module.
-
-### Auto-commits
-
-CWP Solr server ignores all commit requests originating from the client, and instead relies on auto-commits to update indexes. This preserves stability for all users of the shared service.
-
-This will manifest as index updates taking a minute or two to appear in the search results, while on local development environment they are immediate.
 
 ## Configuring
 
