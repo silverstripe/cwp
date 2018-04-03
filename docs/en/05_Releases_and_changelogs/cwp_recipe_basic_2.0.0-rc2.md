@@ -1,4 +1,6 @@
-# 2.0.0-rc2
+# CWP Recipe 2.0.0-rc2
+
+**Release Candidate 2**: All relase notes for this pre-release are merged into the release notes for `2.0.0` stable (which is as yet unreleased). Please [refer there](https://www.cwp.govt.nz/developer-docs/en/2/releases_and_changelogs/cwp_recipe_basic_2.0.0/) for more complete state of the upgrade, or below for the changes since `2.0.0-rc1`
 
 <!--- Changes below this line will be automatically regenerated -->
 
