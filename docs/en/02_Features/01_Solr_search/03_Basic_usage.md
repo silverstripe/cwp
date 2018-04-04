@@ -7,9 +7,7 @@ The following as already been pre-configured in the cwp-core and cwp modules tha
 If you used the cwp-installer, or have included the basic recipe in your code you won't need to implement the steps below in your project.
 Rather, these steps give you a high level idea of what is going on "under the hood" of Solr working with SilverStripe CMS.
 
-Basic usage is a four step process:
-
-1) Define an index in SilverStripe (Note: The specific connector index instance - that's what defines which engine gets used)
+1) Define an index, and which fields should be searchable.
 
 ```php
 use Page;
@@ -26,11 +24,13 @@ class MyIndex extends SolrIndex
 }
 ```
 
+In CWP, the default class is called `CWP\Search\Solr\CwpSolrIndex`.
 You can also skip listing all searchable fields, and have the index
 figure it out automatically via `addAllFulltextFields()`.
 
 
-2) Add something to the index (Note: You can also just update an existing document in the CMS. but adding _existing_ objects to the index is connector specific)
+2) Add something to the index, by creating or updating content in the CMS.
+Here's an example on how to do it in code. The new content will be automatically indexed.
 
 ```php
 $page = new Page([
@@ -38,8 +38,6 @@ $page = new Page([
 ]);
 $page->write();
 ```
-
-Note: There's usually a connector-specific "reindex" task for this.
 
 3) Build a query
 
@@ -55,8 +53,6 @@ $query->search('My house is on fire');
 ```php
 $results = singleton(MyIndex::class)->search($query);
 ```
-
-Note that for most connectors, changes won't be searchable until _after_ the request that triggered the change.
 
 ### Searching Specific Fields
 
