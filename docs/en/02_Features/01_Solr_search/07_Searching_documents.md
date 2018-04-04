@@ -41,7 +41,8 @@ SilverStripe\Core\Injector\Injector:
 
 CWP\Search\Extensions\SearchControllerExtension:
   classes_to_search:
-    - class: SilverStripe\Assets\File
+    SilverStripe\Assets\File:
+      class: SilverStripe\Assets\File
       includeSubclasses: true
 ```
 
