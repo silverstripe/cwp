@@ -72,7 +72,7 @@ class EventPage extends DatedUpdatePage
             $dateTimeFields[] = $dateField = DateField::create('Date', 'Date');
             $dateTimeFields[] = $startTimeField = TimeField::create(
                 'StartTime',
-                '&nbsp;&nbsp;' . $this->fieldLabel('StartTime')
+                $this->fieldLabel('StartTime')
             );
             $dateTimeFields[] = $endTimeField = TimeField::create('EndTime', $this->fieldLabel('EndTime'));
 
