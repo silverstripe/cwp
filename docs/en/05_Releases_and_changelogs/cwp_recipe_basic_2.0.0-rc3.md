@@ -1,5 +1,24 @@
 # 2.0.0-rc3
 
+**Release Candidate 3**: All relase notes for this pre-release are merged into the release notes for `2.0.0` stable (which is as yet unreleased). Please [refer there]
+(https://www.cwp.govt.nz/developer-docs/en/2/releases_and_changelogs/cwp_recipe_basic_2.0.0/) for more complete state of the upgrade, or below for the changes since `
+2.0.0-rc2`
+
+This release candidate is essentially the same as rc2, however addresses a few small issues with composer dependency resolutions which prevented rc2 from being able to be installed. The modules affected by this were:
+
+ - silverstripe/content-widget
+ - silverstripe/externallinks
+ - silverstripe/sitewidecontent-report
+ - silverstripe/akismet
+
+The following recipes were not updated in the last release as an oversight, and tried to require older versions of their modules which also impacted composer:
+
+ - silverstripe/recipe-reporting-tools
+ - silverstripe/recipe-content-blocks
+ - cwp/cwp-recipe-search
+
+The github issue tracking all of the above can be found at the cwp/cwp-installer repository on [github](https://github.com/silverstripe/cwp-installer/issues/18)
+
 <!--- Changes below this line will be automatically regenerated -->
 
 ## Change Log
