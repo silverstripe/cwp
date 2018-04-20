@@ -20,9 +20,13 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\ORM\FieldType\DBInt;
 
 /**
- * **BasePage** is the foundation which can be used for constructing your own pages.
- * By default it is hidden from the CMS - we rely on developers creating their own
- * `Page` class in the `mysite/code` which will extend from the **BasePage**.
+ * `BasePage` is a foundation page class which can be used for constructing your own page types. By default it is
+ * hidden from the CMS - we rely on developers creating their own `Page` class in `mysite/code` which will extend
+ * from `BasePage`.
+ *
+ * Please note: you should generally always extend `Page` with your custom page types. Refrain from subclassing
+ * `BasePage` directly. Doing so will omit `Page` from your custom class's hierarchy, and this can have unintended
+ * side effects where modules rely on modifying things on the `Page` class, as well as with templates and themes.
  */
 
 class BasePage extends SiteTree
