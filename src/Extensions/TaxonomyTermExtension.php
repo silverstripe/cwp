@@ -4,6 +4,8 @@ namespace CWP\CWP\Extensions;
 
 use CWP\CWP\PageTypes\BasePage;
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 
 class TaxonomyTermExtension extends DataExtension
 {
@@ -13,4 +15,12 @@ class TaxonomyTermExtension extends DataExtension
     private static $belongs_many_many = array(
         'Pages' => BasePage::class
     );
+
+    public function updateCMSFields(FieldList $fields)
+    {
+        $pagesGridField = $fields->dataFieldByName('Pages');
+        if ($pagesGridField) {
+            $pagesGridField->getConfig()->removeComponentsByType(GridFieldAddNewButton::class);
+        }
+    }
 }
