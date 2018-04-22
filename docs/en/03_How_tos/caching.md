@@ -145,7 +145,7 @@ As an example the following will apply a new "cache for 900 seconds" header to a
 
 ```
   <IfModule mod_headers.c>
-    SetEnvIf Request_URI ".*.php$" NO_CACHE=true
+    SetEnvIf Request_URI ".*\.php$" NO_CACHE=true
     Header set Cache-Control "max-age=900, public" env=!NO_CACHE
   </IfModule>
 ```
