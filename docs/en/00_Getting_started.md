@@ -10,15 +10,15 @@ code to GitLab.
 ## Before you begin
 This guide assumes you already have:
 
-* A server with [Apache, MySQL and PHP](working_with_projects/setting_up_a_development_environment)
-* [Git version control](working_with_projects/setting_up_a_development_environment/#git)
+* A server with [Apache, MySQL and PHP](01_Working_with_projects/00_Setting_up_a_development_environment.md)
+* [Git version control](01_Working_with_projects/00_Setting_up_a_development_environment.md/#git)
 * [Composer](https://docs.silverstripe.org/en/4/getting_started/composer/)
 
 If you're using Windows, you can use a command-line equivalent to interact with git and composer, offered by the [MsysGit package](http://msysgit.github.io)
 
 ### Have an existing GitLab project?
 
-Follow the instructions at [Setting up your project](../working_with_projects/01_Setting_up_your_project.md) to setup an environment with an existing CWP project.
+Follow the instructions at [Setting up your project](01_Working_with_projects/01_Setting_up_your_project.md) to setup an environment with an existing CWP project.
 
 ## Getting started with CWP codebase from scratch:
 
@@ -35,7 +35,7 @@ This may take some time to run as it is collecting and downloading all the code 
 5. Make sure your folder permissions are correctly set (see [File permission problems](https://docs.silverstripe.org/en/4/getting_started/installation/common_problems/#i-ve-got-file-permission-problems-during-installation)), you will also need to create an 'assets' folder if one isn't already created
 6. Create a `.env` environment file in the `/htdocs` folder and fill it in with your local details
 
- * [CWP Environment variables](working_with_projects/cwp_environment_variables/) has more details about CWP specific variables that you can set in your environment file
+ * [CWP Environment variables](01_Working_with_projects/12_CWP_environment_variables.md) has more details about CWP specific variables that you can set in your environment file
  * [Environment management](https://docs.silverstripe.org/en/4/getting_started/environment_management/) has more details about how to create a environment file
  * Adding `SS_SEND_ALL_EMAILS_TO='your@address.govt.nz'` stops any debugging emails going out accidentally to live emails
 
@@ -43,9 +43,9 @@ This may take some time to run as it is collecting and downloading all the code 
 
 You should now be able to visit: http://localhost/my-project and see a basic CWP-themed site in your browser.
 
-For a more in-depth walkthrough through CWP development activities, please refer to ["Working with projects"](working_with_projects).
+For a more in-depth walkthrough through CWP development activities, please refer to ["Working with projects"](01_Working_with_projects).
 Even if you already know how to develop in SilverStripe, please review our
-[Performance Guide](performance-guide) to ensure you create a stable and performant site.
+[Performance Guide](04_Performance_Guide) to ensure you create a stable and performant site.
 
 ## Troubleshooting
 
