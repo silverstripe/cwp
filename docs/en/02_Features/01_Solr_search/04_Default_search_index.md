@@ -40,7 +40,5 @@ Please note that if you want to index other database fields or need to create a 
 
 *Note:* The line `$this->addFilterField('ShowInSearch');` is a standard requirement for all CWP recipe versions, and will need to be added to any custom indexes created.
 
-
-<div class="alert alert-info" markdown='1'>
 If you are using cwp recipe 1.1.0 or below please refer to [version 1.1 and before documentation archive](https://www.cwp.govt.nz/developer-docs/en/1.1/features/solr_search#default-search-index-2) for the index code
-</div>
+

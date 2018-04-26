@@ -19,11 +19,9 @@ Your custom domains will be actively load balanced between the two nodes. *.cwp.
  * stack-dr.cwp.govt.nz - points to Auckland
 
 
-<div class="alert alert-warning" markdown='1'>
 In other words, we can't make your site highly-available if your production domain is not pointing to CWP (i.e. your
 site is not live).  Additionally, accessing your site at any time through the "cwp.govt.nz" domain will not exhibit the
 highly-available property.
-</div>
 
 The following chapters provide information on the required changes to your code to ensure the site works correctly with
 Active Disaster Recovery.

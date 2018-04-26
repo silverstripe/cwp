@@ -42,7 +42,7 @@ the contract. This is a last resort as it will incur cost and creates a risk of 
     for use in the database, greatly improving the security of applications by reducing the risk of SQL injection.
   - Reports and Siteconfig have been moved to separate modules.
 
-![3.2 screenshot](/_images/recipe_1.2.0_3.2_framework.png)
+![3.2 screenshot](../_images/recipe_1.2.0_3.2_framework.png)
 
 For more information on how to prepare your existing code for compatibility with 3.2, please review
 [the 3.2 changelog](https://docs.silverstripe.org/en/3.2/changelogs/3.2.0/) for specific upgrading instructions.

@@ -8,22 +8,22 @@ introduction: This how-to will show you how to share a repository with other Git
 
 You can add any user of the Gitlab site to one of your repositories.
 
-If you simply want to share some files, you could [create a new repository](creating_repositories) for these files
+If you simply want to share some files, you could [create a new repository](creating_repositories.md) for these files
 (note that changes to locked repositories by third parties require merge requests).
 
 Locate the repository that contains the files you wish to share and go to the Team tab.
 
 There are 2 options available to handle permissions:
 
-![Team Memberships](/_images/gitlab-team-home.png)
+![Team Memberships](../_images/gitlab-team-home.png)
 
 1. Import Members
     * This will allow you to import the team permissions from another project you have created.
-    ![Team Memberships](/_images/gitlab-team-copypermissions.png)
+    ![Team Memberships](../_images/gitlab-team-copypermissions.png)
     * From the *Project Access* drop down box select the project to copy the permissions from.
 2. Add Members
     * This will allow you to assign permissions to the repository to another Gitlab user
-    ![Team Memberships](/_images/gitlab-team-newuser.png)
+    ![Team Memberships](../_images/gitlab-team-newuser.png)
     * Either type the name of the user or select from the drop down box.
     * Select the access level required:
         1. Guest

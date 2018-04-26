@@ -9,11 +9,9 @@ If you are migrating an existing site, analysis of the access logs will help you
 such as the most commonly accessed pages, sections, or user behaviours. A great tool for a visual representation of your
 log data is [GoAccess](https://goaccess.io/).
 
-<div class='alert alert-warning'>
 Be wary of using Google Analytics as a source of your most-hit URLs - they don't include bot visitors, which can end up
 skewing your traffic a long way towards URLs that you would not expect. This is also why you should take your pageviews
 statistic with a grain of salt if it comes from Google Analytics - access logs are the truest record.
-</div>
 
 If you are building a site from scratch, there are a few good rules of thumb for pages to test:
 
@@ -69,4 +67,4 @@ Generally this will be performed by a specialist testing company.
 
 ## Next
 
-Continue to our [Overview on Caching](caching).
+Continue to our [Overview on Caching](01_Caching.md).

@@ -15,9 +15,7 @@ installed for this functionality to be enabled.
 A special `$PdfLink` variable is provided to the templates, which if applied as the value of an `href` value to an
 anchor in the template, will provide users with a way to download the a PDF version of the current page.
 
-<div class="alert alert-info" markdown='1'>
 This variable is commented out by default in the CWP Starter and Wātea themes. You can re-enable it by uncommenting these lines in `PageUtilities.ss`.
-</div>
 
 When the user requests a PDF of the page, the page is exported as HTML by SilverStripe and then passed along to
 `wkhtmltopdf` which generates a PDF of the HTML. The PDF is then stored in `assets/_generated_pdfs` and subsequent
@@ -38,7 +36,6 @@ viewing the website, there are no permission checks when accessing files directl
 
 ## Installation
 
-<div class="alert alert-info" markdown='1'>
 The CWP test and production servers you'll be deploying your site to already have `wkhtmltopdf` installed.
 These instructions are only necessary if you want to develop or use the PDF export functionality in your local
 development environment. Skip to [Enabling PDF export ...](#enabling-pdf-export-functionality) below if you simply want to enable the PDF export
@@ -46,7 +43,6 @@ functionality.
 
 The instructions below assume you're on a Debian or Ubuntu Linux environment.
 There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf` but they have not been tested.
-</div>
 
 * [Download wkhtmltopdf](https://wkhtmltopdf.org/downloads.html) for your system type:
 
