@@ -7,7 +7,7 @@ The [RealMe module](https://github.com/silverstripe/silverstripe-realme/) enable
 government's preferred approach for website authentication, to deliver online services or restrict information to 
 specific people.
 
-<div class="alert alert-info" markdown='1'>This module is only supported from cwp recipe 1.2.0 and above.</div>
+This module is only supported from cwp recipe 1.2.0 and above.
 
 The module facilitates the log-on process; agencies need to work with the RealMe team to conduct the 
 integration, and will need to work with web developers to build whatever the system performs after you have logged in 
@@ -45,4 +45,4 @@ If there are any further questions, please don't hesitate to
 
 ## See Also
 
- * [Single sign-on via Active Directory](active_directory_single_sign_on)
+ * [Single sign-on via Active Directory](active_directory_single_sign_on.md)

@@ -18,13 +18,11 @@ If you're using Windows, you can use a command-line equivalent to interact with 
 
 ### Have an existing GitLab project?
 
-Follow the instructions at [Setting up your project](working_with_projects/setting_up_your_project) to setup an environment with an existing CWP project.
+Follow the instructions at [Setting up your project](../working_with_projects/01_Setting_up_your_project.md) to setup an environment with an existing CWP project.
 
 ## Getting started with CWP codebase from scratch:
 
-<div class="alert alert-info" markdown='1'>
 Please replace "my-project" below with the actual name of your project. One naming technique is to use the intended project's hostname e.g. "my-project.govt.nz" as the project's folder name
-</div>
 
 1. Change into your web server's document root: `cd /var/www/htdocs`
 2. Create new project using Composer by running the following command:

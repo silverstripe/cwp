@@ -22,10 +22,8 @@ confirmation to the user once the job has been added, and let the queue run the 
 may mean a small delay on the sending of the email while the job makes its way to the top of the queue, but it provides 
 a much better experience for the user - and reduces the impact on the server.
 
-<div class="alert alert-info">
-    This also helps to mitigate the impact of Denial of Service (DOS) attacks, as it is much harder to induce load when 
-    you remove the processing from the request. The queue ensures sensible distribution of the server resources.
-</div>
+This also helps to mitigate the impact of Denial of Service (DOS) attacks, as it is much harder to induce load when 
+you remove the processing from the request. The queue ensures sensible distribution of the server resources.
 
 You can see this in action with the Solr Reindex Task - where previously this would execute inside the request and 
 potentially throw an error after timing out, now it adds a `SolrReindexJob` to the queue and returns a standard task
@@ -58,4 +56,4 @@ sustain higher amounts of simultaneous users.
 
 ## Next
 
-Continue to our performance guide on [Frontend Best Practices](frontend_best_practices).
+Continue to our performance guide on [Frontend Best Practices](04_Frontend_Best_Practices.md).

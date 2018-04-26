@@ -116,12 +116,12 @@ We can also provide an alternative string if no events are found:
 
 We can already test this snippet of code (this is using the *default* theme and Bootstrap `well` and `span3` classes):
 
-![](/_images/calendar-empty.jpg)
+![](../_images/calendar-empty.jpg)
 
 If we have no current events, as in the previous example, we can test the code by switching to another month using the
 GET parameters. Let's try `?year=2013&month=1`.
 
-![](/_images/calendar-month.jpg)
+![](../_images/calendar-month.jpg)
 
 That's pretty good.
 
@@ -184,7 +184,7 @@ month. The `MonthName` is a three-letter shorthand for a month, such as "Apr".
 
 Here is how will the calendar appear with the month picker added in:
 
-![](/_images/calendar-picker.jpg)
+![](../_images/calendar-picker.jpg)
 
 ## Limiting the events in the calendar
 
@@ -210,7 +210,7 @@ return EventHolder::ExtractMonths(
 
 That will filter out events that are not marked as "Future".
 
-![](/_images/calendar-filtered-by-tag.jpg)
+![](../_images/calendar-filtered-by-tag.jpg)
 
 ## Code listing
 

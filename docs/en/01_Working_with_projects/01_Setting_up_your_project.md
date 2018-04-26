@@ -5,9 +5,9 @@ summary: Getting started with git version control and GitLab code management too
 
 ## Development environment
 
-See [Setting up a development environment](/working_with_projects/setting_up_a_development_environment).
+See [Setting up a development environment](../01_Working_with_projects/00_Setting_up_a_development_environment.md).
 
-The below relates to the use of a GitLab CWP hosted repository. If you have [migrated to a GitHub Git repository](/working_with_projects/setting_up_your_project/#making-your-first-project-commit-2), [start here](https://help.github.com/articles/cloning-a-repository/).
+The below relates to the use of a GitLab CWP hosted repository. If you have [migrated to a GitHub Git repository](../01_Working_with_projects/01_Setting_up_your_project.md/#making-your-first-project-commit), [start here](https://help.github.com/articles/cloning-a-repository/).
 
 ## Accessing GitLab
 GitLab is the code management tool you'll use when working with code changes to your SilverStripe CMS website on the Common Web Platform.
@@ -22,10 +22,10 @@ When accessing GitLab you'll see a page like this (below). On the right hand sid
 access to. Access a project from here to find more information including the repository URL details:
 
 #### GitLab projects overview
-![GitLab projects](/_images/gitlab-projects.jpg)
+![GitLab projects](../_images/gitlab-projects.jpg)
 
 #### Project details
-![GitLab project repository URL](/_images/gitlab-project-repo-url.jpg)
+![GitLab project repository URL](../_images/gitlab-project-repo-url.jpg)
 
 1. Now that you have the repository URL for the project, you can check it out in your development environment with the 
 following command:
@@ -42,15 +42,13 @@ following command:
 
     `composer install`
 
-This may take some time to run. There is some more information on these steps in the [Getting Started guide](../getting_started).
+This may take some time to run. There is some more information on these steps in the [Getting Started guide](../00_Getting_started.md).
 
-<div class="alert alert-info" markdown='1'>
-Assuming you followed through the "Setting up an development environment" guide, you can skip straight to "[Accessing the site](../working_with_projects/setting_up_your_project#accessing-the-site-2)" now.
-</div>
+Assuming you followed through the "Setting up an development environment" guide, you can skip straight to "[Accessing the site](../01_Working_with_projects/01_Setting_up_your_project.md#accessing-the-site)" now.
 
 ### Creating a new project?
 The preferred way to set up a new repository is to use the
-[cwp-installer](https://github.com/silverstripe/cwp-installer) module via Composer. Follow the instructions at [Getting Started](../getting_started) which will step you through how to create a project from scratch.
+[cwp-installer](https://github.com/silverstripe/cwp-installer) module via Composer. Follow the instructions at [Getting Started](../00_Getting_started.md) which will step you through how to create a project from scratch.
 
 ## Making your first project commit
 You will need to make your first commit to Git and push your project into your Git repository provided on GitLab when you signed up for CWP.
@@ -90,10 +88,8 @@ Your team should now be able to commence development on the project.
 At this stage you should be able to run the website on the default theme included in this recipe locally by visiting it
 in your browser (assuming that your LAMP stack is properly configured).
 
-<div class="hint" markdown='1'>
 You might need to configure your admin access credentials in the `.env` file to be able to access the
 site (see [environment management](https://docs.silverstripe.org/en/4/getting_started/environment_management/) docs).
-</div>
 
 ## Structure of the project
 The CWP recipe codebase includes the following directories that are either part of your `Project`, committed into Git or managed via `Composer`.
@@ -114,9 +110,9 @@ You have now a private repository that you can modify. Here is a list of likely 
  * Editing the name of the project in the root `composer.json` - find the **name** entry and change it so it's in the
 format of "my-agency/basic" - "cwp" namespace is reserved for platform-endorsed modules and recipes.
  * Customising the `mysite/_config.php` to configure your project.
- * [Customise the theme](customising_the_starter_theme/)
+ * [Customise the theme](05_Customising_the_starter_theme.md)
  * Writing new project features
- * [Adding more modules](working_with_modules)
+ * [Adding more modules](06_Working_with_modules.md)
  * Do any other housekeeping as necessary, for example edit or remove the `README` file.
 
 ## Troubleshooting

@@ -15,7 +15,7 @@ will focus on a few that will have the most use on the CWP environments.
 
 Firstly though, it is important to know what is already being done. Incapsula, as well as being a Web Application 
 Firewall, provides CWP sites with a Content Distribution Network (CDN). This means that some requests can be served by
-Incapsula, rather than using server processing power. Read the ["HTTP Caching" chapter](http_caching) for details.
+Incapsula, rather than using server processing power. Read the ["HTTP Caching" chapter](02_HTTP_Caching.md) for details.
 
 One of the other benefits of Incapsula is that it provides content optimisation, which CWP sites will use by default. 
 This includes:
@@ -48,8 +48,8 @@ bottom. With a standard load, you need to wait for any given element to load bef
 load something large (say, a script) asynchronously, we can let the HTML around it load, and then execute once the
 entire script has loaded. This is particularly advantageous in two situations:
 
-* [Large Scripts](#large-scripts-2)
-* [Third-party Content](#third-party-content-2)
+* [Large Scripts](#large-scripts)
+* [Third-party Content](#third-party-content)
 
 ### Large Scripts
 
@@ -75,8 +75,8 @@ bring this content in asynchronously.
 
 [read more...](https://browserdiet.com/#3rd-party-async)
 
-For more information on optimising your third-party integrations, see [our guide](../third-parties).
+For more information on optimising your third-party integrations, see [our guide](05_Third_Parties.md).
 
 ## Next
 
-Continue to our performance guide on [Handling Third Parties](third_parties).
+Continue to our performance guide on [Handling Third Parties](05_Third_Parties.md).

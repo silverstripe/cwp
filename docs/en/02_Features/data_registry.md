@@ -9,8 +9,8 @@ download a CSV copy of the data for reuse.
 
 The SilverStripe CMS module used to provide this feature is the [`silverstripe/registry`](http://addons.silverstripe.org/add-ons/silverstripe/registry/) module. 
  
-<div class="alert alert-info" markdown='1'>This feature is **not** enabled by default in the CWP recipe and must be enabled by a developer first 
-before a CMS user can use it ([See the user documentation](https://userhelp.silverstripe.org/en/3.2/optional_features/online_databases_and_registries/)).</div>
+This feature is **not** enabled by default in the CWP recipe and must be enabled by a developer first 
+before a CMS user can use it ([See the user documentation](https://userhelp.silverstripe.org/en/3.2/optional_features/online_databases_and_registries/)).
 
 ## Enabling the data registry
 

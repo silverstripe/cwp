@@ -6,12 +6,10 @@ summary: How to allow custom embeds in the TinyMCE HTML editor.
 This how-to guides developers through the steps necessary to disable default TinyMCE handling
 of the `<embed>` and `<object>` tags.
 
-<div class="alert alert-info" markdown='1'>
 Proceeding with this guide will disable the ability of the CMS to embed `.swf` files through the "Insert Media"
 interface button. You will need to provide your own 
 [custom TinyMCE plugins](https://docs.silverstripe.org/en/3.2/developer_guides/forms/field_types/htmleditorfield) or 
 embed the files directly via HTML code.
-</div>
 
 ## Disable the media plugin
 

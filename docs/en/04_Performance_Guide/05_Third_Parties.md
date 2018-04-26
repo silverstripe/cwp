@@ -21,10 +21,8 @@ worth speaking with the external provider to find out what their expectation is 
 A good rule of thumb is to expect most requests to respond within 5 seconds; but remember, if you set a timeout to 5 
 seconds, then on some page loads you may see loading times increase by this much to accommodate slow responses. 
 
-<div class="alert alert-info">
 Note that if a response from your site to your visitor takes over 30 seconds, a 502 error response will be sent by the
 CWP infrastructure, regardless of other timeout settings.
-</div>
 
 ### Caching response data
 
@@ -51,10 +49,8 @@ Many times the data you'll be fetching from external providers will change infre
 longer without going "stale" (where the data you've cached is out-of-date compared to the live data source). Often there
 will be little harm in showing stale data to your visitors.
 
-<div class="alert alert-info">
 Discuss with your stakeholders what level of stale data is acceptable - it may be different for each piece of data 
 you cache.
-</div>
 
 If the data you're accessing changes frequently, you should adjust your caching rules to account for this.
 
@@ -99,4 +95,4 @@ request "just in time" to ensure you only fetch the data you need.
 
 ## Next
 
-Continue to our performance guide on [404s](404s).
+Continue to our performance guide on [404s](06_404s.md).

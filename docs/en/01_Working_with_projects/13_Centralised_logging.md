@@ -70,7 +70,7 @@ bootstrap. This includes uncaught exceptions and any `Injector::inst()->get(Logg
 Graylog provides several tools to analyse your search results. To analyse a 
 field from your search results, expand the field in the search sidebar and click
 on the button of the analysis you want to perform.
-![search analysis](/_images/logs/search_analysis.png)
+![search analysis](../_images/logs/search_analysis.png)
 
 ### Field statistics
 
@@ -82,7 +82,7 @@ deviation, variance, sum, and cardinality. On non-numeric fields, you can only
 see the total amount of messages containing that field, and the cardinality of
 the field, i.e. the number of unique values it has.
 
-![field_statistics](/_images/logs/field_statistics.png)
+![field_statistics](../_images/logs/field_statistics.png)
 
 ### Quick values
 You can use quick values to help you find out the distribution of values for a field. 
@@ -90,7 +90,7 @@ Alongside a graphic representation of the common values contained in a field,
 Graylog will display a table with all different values, allowing you to see the
 number of times they appear. You can include any value in your search query by
 clicking on the magnifying glass icon located in the value row.
-![quick values](/_images/logs/quick_values.png)
+![quick values](../_images/logs/quick_values.png)
 
 ### Field graphs
 You can create field graphs for any numeric field, by clicking on the Generate
@@ -99,7 +99,7 @@ top of the field graph, you can change the statistical function used in the
 graph, the kind of graph to use to represent the values, the graph
 interpolation, as well as the time resolution.
 
-![field graphs](/_images/logs/field_graph.png)
+![field graphs](../_images/logs/field_graph.png)
 
 For more information see [Graylog analysis documentation](http://docs.graylog.org/en/stable/pages/queries.html#analysis).
 

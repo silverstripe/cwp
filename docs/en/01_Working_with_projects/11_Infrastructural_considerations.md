@@ -8,7 +8,7 @@ summary: Aspects of the CWP server environment infrastructure to be aware of whe
 The high level CWP infrastructure is outlined on cwp.govt.nz.
 More detail is available through a solution architecture document on request
 to participating agencies. See [technical and architecture information](https://www.cwp.govt.nz/about/technical-and-architecture-information/).
-Please review our [Performance Guide](/performance-guide/index)
+Please review our [Performance Guide](../04_Performance_Guide/index.md)
 for recommendations on how to use the available infrastructure efficiently.
 
 ## HTTP request time limit
@@ -21,17 +21,15 @@ has a HTTP request timeout limit of 120 seconds, after which it will
 generate a 504 (Gateway Timeout) error.
 This is preventing overloading of the shared parts of the infrastructure.
 
-<div class="alert alert-warning" markdown='1'>
 Your publicly accessible URLs should never take a long time to process, as this leaves your environment open to denial of
 service attacks. You should definitely hide these behind a login or a captcha, or use caching and other optimisations
 to bring down the processing time.
-</div>
 
 The preferred way to handle your long-running processes is via the 
 [queuedjobs](https://github.com/symbiote/silverstripe-queuedjobs) module. 
 You can extend the time limit of a PHP process by using the SilverStripe Framework APIs `\SilverStripe\Core\Environment::increaseTimeLimitTo()`.
 
-Consider using [caching](/performance-guide/caching) to speed up request execution.
+Consider using [caching](../04_Performance_Guide/01_Caching.md) to speed up request execution.
 
 ## PHP configuration
 
@@ -60,7 +58,7 @@ These PHP extensions are part of the standard environment, and can be relied on 
 ## Webserver
 
 CWP environments are running Apache 2.4 (see Debian "Jessie" [packages](https://packages.debian.org/jessie/)).
-Note that there's other [caching infrastructure](/performance_guide/caching) in front of your CWP environment.
+Note that there's other [caching infrastructure](../04_Performance_Guide/01_Caching.md) in front of your CWP environment.
 
 ## Database
 
@@ -89,11 +87,11 @@ support
 
 ## Other features
 
- * [Varnish and Incapsula caching](/performance_guide/http_caching)
- * [Outgoing HTTP proxy](/how_tos/external_http_requests_with_proxy)
+ * [Varnish and Incapsula caching](../04_Performance_Guide/02_HTTP_Caching.md)
+ * [Outgoing HTTP proxy](../03_How_tos/external_http_requests_with_proxy.md)
  * [WKHTMLTOPDF](http://wkhtmltopdf.org/) is available in series 0.12.4.
- * [Solr search](/features/solr_search)
- * [Apache Tika](/features/solr_search/searching_documents)
+ * [Solr search](../02_Features/01_Solr_search)
+ * [Apache Tika](../02_Features/01_Solr_search/07_Searching_documents.md)
 
 ## Process for new infrastructure features
 

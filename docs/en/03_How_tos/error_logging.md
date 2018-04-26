@@ -4,7 +4,7 @@ summary: How to set up email error logging in CWP environments.
 # Error logging
 
 Basic recipe is configured to send all logs to syslog, which are accessible through the
-[centralised logging system](/working_with_projects/centralised_logging/).
+[centralised logging system](../01_Working_with_projects/13_Centralised_logging.md).
 
 To send logs to email (in addition to syslog) add the following to your `mysite/_config.php`:
 

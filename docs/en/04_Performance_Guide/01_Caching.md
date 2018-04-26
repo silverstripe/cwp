@@ -19,7 +19,7 @@ In SilverStripe there are several patterns that are used frequently that are qui
  * Using (potentially large) relation getters on `DataObject` (has_many and many_many)
  * Nesting relation getters within loops on large `DataList` collections
  * Using expensive SQL join operations
- * Network calls to third party services (see [Deferring Work](deferring_work))
+ * Network calls to third party services (see [Deferring Work](03_Deferring_Work.md))
  * Frequent filesystem access
 
 We'll describe common caching approaches below. You'll want to apply a layered approach to
@@ -28,11 +28,11 @@ caching to get the best results, and combine multiple approaches.
 ## HTTP Caching in the browser
 
 The fastest server request is one that's never made.
-With the correct use of [HTTP Caching](http_caching), resources can be stored by browsers for a defined amount of time.
+With the correct use of [HTTP Caching](02_HTTP_Caching.md), resources can be stored by browsers for a defined amount of time.
 This applies both to "static" resources likes images and JavaScript files, as well as dynamic requests coming from SilverStripe.
 Client-side caching will reduce load on your site as well as loading times for your end users.
 
-Read more about [Frontend Performance Best Practices](frontend_best_practices) in our CWP Performance Guide.
+Read more about [Frontend Performance Best Practices](04_Frontend_Best_Practices.md) in our CWP Performance Guide.
 
 ## HTTP Caching on the server
 
@@ -42,7 +42,7 @@ If your site serves the same content to all visitors, this is the easiest way to
 You can only cache a full response, so this approach isn't suitable for granular caching strategies
 or personalised content.
 
-Read more about [HTTP Caching](http_caching) in our CWP Performance Guide.
+Read more about [HTTP Caching](02_HTTP_Caching.md) in our CWP Performance Guide.
 
 ## Object Caching with SS_Cache
 
@@ -150,4 +150,4 @@ module as well as the [LivePub module](https://github.com/markguinn/silverstripe
 
 ## Next
 
-Continue to our performance guide on [HTTP Caching](http_caching)
+Continue to our performance guide on [HTTP Caching](02_HTTP_Caching.md)

@@ -8,13 +8,11 @@ dependency in your top-level `composer.json` file.
 
 When selecting versions, make sure you use the version supported by CWP: `4.*@dev`.
 
-<div class="alert alert-info" markdown='1'>
 Older versions of *silverstripe-fulltextsearch* module used to bundle the Solr binary. You should check the version of this module before proceeding with this guide.
-</div>
 
 ## Differences to CWP
 
-Please read through the [Limitations and Acceptable Use Policy](configuration#limitations)
+Please read through the [Limitations and Acceptable Use Policy](00_Configuration.md#limitations-and-acceptable-use-policy)
 of running Solr in the CWP infrastructure. 
 
 Most importantly, CWP infrastructure enforces `solrconfig.xml` to ensure stability of the shared service.

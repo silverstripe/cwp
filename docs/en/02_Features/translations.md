@@ -7,8 +7,8 @@ The [SilverStripe Fluent](https://github.com/tractorcow/silverstripe-fluent) mod
 multiple pages in various languages or locales within languages. This module also adds the ability for your users
 to select which language of a page they wish to view.
 
-<div class="alert alert-info" markdown='1'>The SilverStripe Fluent module does not translate content automatically, content
-authors will need to enter the translated content manually for each translated page.</div>
+The SilverStripe Fluent module does not translate content automatically, content
+authors will need to enter the translated content manually for each translated page.
 
 ## Setup
 
