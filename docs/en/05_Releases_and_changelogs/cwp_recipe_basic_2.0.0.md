@@ -8,7 +8,7 @@ This upgrade includes CMS and Framework version 4.1.0
 
  * [Framework 4.1.0](https://github.com/silverstripe/silverstripe-framework/blob/4.1.0/docs/en/04_Changelogs/4.1.0.md)
 
-Upgrade to Recipe 2.0.0-rc2 is optional, but is recommended as the base to start all new CWP projects from.
+Upgrade to Recipe 2.0.0 is optional, but is recommended as the base to start all new CWP projects from.
 
 
 ## Upgrading Instructions
@@ -53,6 +53,7 @@ Please note that the following modules have been superseded and do not have a di
 ## Notable changes
 
  * The minimum PHP version has been raised to 5.6 or higher.
+ * All web server requests will be served from the `/public` project subfolder (see point below).
  * All module classes have had PHP namespaces added, and template file locations may have changed to support this.
  * Previously deprecated code has been removed. This includes the following:
    * `BasePage::getBaseStyles`: use the [starter theme](https://github.com/silverstripe/cwp-starter-theme) instead.
@@ -72,6 +73,21 @@ Please note that the following modules have been superseded and do not have a di
    * `CwpControllerExtension.ssl_redirection_force_domain` moved to configuration in security.yml.
    * Forced SSL rules and domain policies have been implemented with core middleware configurations settings - see `cwp-core/_config/security.yml`.
    * IP whitelisting rules for basic authentication have been moved to `CwpBasicAuthMiddleware`.
+
+### Public webroot
+
+CWP 2.0 enforces the default SilverStripe 4.1 configuration to serve web requests from the `/public` project subfolder.
+This also applies to any frontend CSS, JavaScript and images that are
+[exposed from modules and project code](https://docs.silverstripe.org/en/4/changelogs/4.1.0/#expose-root-project-files),
+as well as assets uploaded via the CMS.
+
+When configuring your local development environment, ensure to set `/public` as the document root. The Common Web 
+Platform servers are already configured for this.
+
+Also ensure that you prepend your themes configuration list to contain `$public`.
+
+For more information please [see here](https://docs.silverstripe.org/en/4/changelogs/4.1.0/#upgrade-public-folder-optional), 
+but note that this configuration is mandatory in CWP 2.0.
 
 ### Security changes
 

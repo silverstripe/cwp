@@ -7,6 +7,9 @@ Assuming that you have followed the approach outlined in the tutorials, upgradin
 of the recipe shouldn't take long time. See [recipes and supported modules](recipes_and_supported_modules) documentation to learn more about how recipe
 versioning is structured.
 
+**Note:** For specific information regarding upgrading to CWP 2, please
+[see the changelog](../releases_and_changelogs/cwp_recipe_basic_2.0.0).
+
 ## Point upgrades
 
 To get the newest point (or micro) release of the recipe, just run:
