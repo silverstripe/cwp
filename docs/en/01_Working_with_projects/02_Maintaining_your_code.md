@@ -35,6 +35,10 @@ for more information on module creation, inclusion and sharing.
 
 ## Security patches
 
+From time to time we will include security patches in some CWP recipes. When this occurs, we will release a new patch
+version of the latest supported quarterly recipe release (e.g. 1.7.3 for recipe 1.7). Patches for older CWP recipes
+will be available on demand via the Service Desk.
+
 You need to keep your codebase's dependencies updated with respect to the patch or sub-patch releases of the recipe to
 receive immediate security patches.
 
