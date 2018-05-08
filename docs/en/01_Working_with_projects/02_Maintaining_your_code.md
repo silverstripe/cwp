@@ -10,7 +10,7 @@ Let's step through best practices in building your CWP site that will yield the 
 We recommend to start your development by installing via the [cwp-installer](https://github.com/silverstripe/cwp-installer) using Composer.
 This already sets up a reasonable structure to your site that will make future maintenance easier.
 
-See [Setting up your project](setting_up_your_project).
+See [Setting up your project](01_Setting_up_your_project.md).
 
 ## Using the CWP modules
 
@@ -18,7 +18,7 @@ Starting with the installer will also imply you use `cwp/cwp` and `cwp/cwp-core`
 This is where the updates to dependencies and essential code required for running your website on CWP infrastructure will be
 made available. It will make it much easier to keep your SilverStripe CMS up to date and take advantage of new feature if you use these modules as the basic of your website.
 
-See [Recipes and supported modules](recipes_and_supported_modules) for more details.
+See [Recipes and supported modules](03_Recipes_and_supported_modules.md) for more details.
 
 ## Maintaining modules using Composer
 
@@ -30,7 +30,7 @@ This makes it easy to maintain the site by switching module versions at desired 
 Dashboard (our deployment tool) will never modify the module versions listed in `composer.lock`, so it's up to the
 site developer to choose right versions via `composer.json`, and to run `composer update` at the right moments. Ensure you test updated modules thoroughly before deploying a new `composer.lock` file.
 
-You can also create private modules in GitLab for even better modularity. See [working with modules](working_with_modules)
+You can also create private modules in GitLab for even better modularity. See [working with modules](06_Working_with_modules.md)
 for more information on module creation, inclusion and sharing.
 
 ## Security patches
@@ -45,6 +45,6 @@ receive immediate security patches.
 This is relatively easy - if your `composer.json` is configured as in the installer, it should be as easy as running
 `composer update`, doing a smoke test and pushing to the upstream Git remote. See the [Upgrading](upgrading) guide for instructions.
 
-See [Recipes and supported modules](recipes_and_supported_modules) for more information on versioning and on how to keep your stacks secure.
+See [Recipes and supported modules](03_Recipes_and_supported_modules.md) for more information on versioning and on how to keep your stacks secure.
 
-See [infrastructural considerations](infrastructural_considerations) for hints on how to keep your stacks stable.
+See [infrastructural considerations](11_Infrastructural_considerations.md) for hints on how to keep your stacks stable.

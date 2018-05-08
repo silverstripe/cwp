@@ -22,6 +22,6 @@ Drupal
 
 A screenshot of the HTML importer is shown here:
 
-![screenshot of HTML importer](/_images/html-importer-screenshot.jpg)
+![screenshot of HTML importer](../_images/html-importer-screenshot.jpg)
 
 You can also commission SilverStripe for assistance in migrating websites, for example to tailor the migration tool to support a legacy system you use, or to re-implement features from your old website on the Common Web Platform.

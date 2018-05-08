@@ -14,7 +14,7 @@ You must satisfy the following requirements to successfully connect to the share
 
 Your project will be configured automatically by the [cwp/cwp-search](https://github.com/silverstripe/cwp-search) module to resemble production infrastructure as much as possible. Currently CWP supports only Solr version 4.
 
-## Limitations and Acceptable Use Policy {#limitations}
+## Limitations and Acceptable Use Policy
 
 Solr on CWP is a shared service, and it comes with some limitations:
 
@@ -31,12 +31,12 @@ Solr on CWP is a shared service, and it comes with some limitations:
 ## Source Code
 
 The base `silverstripe/fulltextsearch` module source code is available at 
-[https://github.com/silverstripe/silverstripe-fulltextsearch](github.com/silverstripe/silverstripe-fulltextsearch)
+[https://github.com/silverstripe/silverstripe-fulltextsearch](https://github.com/silverstripe/silverstripe-fulltextsearch)
 
 ## CWP Integration
 
 The base `silverstripe/fulltextsearch` module is tightly integrated into the [CWP installer](https://github.com/silverstripe/cwp-installer)
-through the [cwp/cwp-recipe-search](github.com/silverstripe/cwp-search) recipe. You usually don't have to install anything extra.
+through the [cwp/cwp-recipe-search](https://github.com/silverstripe/cwp-search) recipe. You usually don't have to install anything extra.
 
 This module sets up:
 

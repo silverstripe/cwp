@@ -18,7 +18,7 @@ The following new major features are included in this release:
 
 Also included is a new file-tracking system to display which pages each image appears on.
 
-![File List](/_images/recipe_1.1.0_filelist.png)
+![File List](../_images/recipe_1.1.0_filelist.png)
 
 ## Security Release Notes
 

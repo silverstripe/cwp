@@ -4,7 +4,7 @@ summary: Guidance on upgrading your website for new CWP recipe releases.
 # Upgrading
 
 Assuming that you have followed the approach outlined in the tutorials, upgrading to new patch and sub-patch versions
-of the recipe shouldn't take long time. See [recipes and supported modules](recipes_and_supported_modules) documentation to learn more about how recipe
+of the recipe shouldn't take long time. See [recipes and supported modules](03_Recipes_and_supported_modules.md) documentation to learn more about how recipe
 versioning is structured.
 
 **Note:** For specific information regarding upgrading to CWP 2, please
@@ -76,12 +76,10 @@ You will know you need to migrate your project if you see the following configur
 
 This long list of dependencies should no longer be pulled in directly. Here is how to fix this for the future.
 
-<div class="alert alert-info" markdown='1'>
 If you have customised the original project based on recipe-basic by removing/changing versions of modules you will
 notice this migration will force you to pull these back via the new cwp-recipe-basic metapackage. This is intended -
 the only code supported by the CWP Team is the mix of modules present in the latest stable release of the
 `cwp/cwp-recipe-basic` module.
-</div>
 
 First, identify the list of modules which you have added to the project. In the above example this is represented as
 `my-agency/my-dependency` - these need to be kept. All the remaining original dependencies must be stripped off
@@ -132,7 +130,7 @@ excluded (as the project already provides its own theme):
 
 Links:
 
-* [CWP releases and changelogs](/releases_and_changelogs)
+* [CWP releases and changelogs](../05_Releases_and_changelogs)
 * [old, unsupported composer.json](https://gitlab.cwp.govt.nz/cwp/recipe-basic/blob/1.0.0/composer.json) from
 deprecated `cwp/recipe-basic` module
 * [new, recommended composer.json](https://github.com/silverstripe/cwp-installer/blob/master/composer.json) from the new

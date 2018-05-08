@@ -17,5 +17,5 @@ related to your environment and search for:
 
 	log_type:SilverStripe_audit
 
-See the [centralised logging system](/working_with_projects/centralised_logging/) for more information on working
+See the [centralised logging system](../01_Working_with_projects/13_Centralised_logging.md) for more information on working
 with Graylog.

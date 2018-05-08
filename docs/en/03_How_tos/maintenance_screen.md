@@ -10,12 +10,12 @@ In order to ensure that this error page is available, it's necessary to create *
 the appropriate error codes. Setup the following (as below) with the codes 500 and 503. This generates the
 `assets/error-500.html` and `assets/error-503.html`files necessary.
 
-![Creating an error page](/_images/creating-an-error-page.png)
+![Creating an error page](../_images/creating-an-error-page.png)
 
 These pages will be displayed to the user in the following situations:
 
-* [During server error or outage](#during-server-error-or-outage-2)
-* [During Deployment](#during-deployment-2)
+* [During server error or outage](#error-pages-during-server-error-or-outage)
+* [During Deployment](#error-pages-during-deployment)
 
 ## Error pages during server error or outage
 
@@ -31,7 +31,7 @@ Note that this page is normally created by default during install.
 During the course of certain deployment activities Dashboard will display the error-503.html page for the duration
 of the process.
 
-![Default maintenance screen](/_images/default-maintenance-screen.jpg)
+![Default maintenance screen](../_images/default-maintenance-screen.jpg)
 
 From the technical perspective, Dashboard creates temporary `.htaccess` and `maintenance.html` files. It assumes that
 the codebase comes with `.htaccess`, so this is renamed and stored for later retrieval. Websites must not create their

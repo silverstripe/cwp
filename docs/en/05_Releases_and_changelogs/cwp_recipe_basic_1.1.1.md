@@ -35,12 +35,12 @@ module is present, then that folder will have the secure permissions applied aut
 Any existing user form with a file upload field can be secured in recipe 1.1.0 by ensuring that
 the selected folder of any such field is pointed to a secure folder location.
 
-![Select folder](/_images/recipe_1.1.1_select_folder.png)
+![Select folder](../_images/recipe_1.1.1_select_folder.png)
 
 Then manually confirm that the selected folder is set to an appropriate level of access under the
 "Files" cms section.
 
-![Secure folder](/_images/recipe_1.1.1_secure_folder.png)
+![Secure folder](../_images/recipe_1.1.1_secure_folder.png)
 
 ## New Features and Modules
 
@@ -59,7 +59,7 @@ Once you upgrade, the following features will be *automatically enabled*:
  * Search re-indexing now happens incrementally, and can now be queued. New re-index
    jobs will cancel running ones, leading to faster, and more robust indexing overall.
    You can read more about the performance improvements we have made in the
-   [module documentation](/features/solr_search#performance-implications-and-limitations).
+   [module documentation](../02_Features/solr_search#performance-implications-and-limitations).
  * QueuedJobs module has be greatly improved to be more stable and efficient. When enabled,
    jobs can now be executed in parallel processes. Failing parallel process jobs can no longer block the queue.
 
@@ -67,10 +67,10 @@ The following features will *require some additional work* in addition to the up
 
  * Full-text searching can support synonyms with some configuration by a back-end developer. Once this is
    complete, a content author will need to define appropriate synonyms for your site. Both steps are detailed in the
-   [module documentation](/features/solr_search#search-term-synonyms).
+   [module documentation](../02_Features/solr_search#search-term-synonyms).
  * Full-text search can support boosting with some configuration by a back-end developer. Once this
    is complete, content authors can mark certain pages as top-ranking results for specific pages in
-   the CMS. Both steps are detailed in the [module documentation](/features/solr_search#boosting-results).
+   the CMS. Both steps are detailed in the [module documentation](../02_Features/solr_search#boosting-results).
 
 ## Upgrading Instructions
 

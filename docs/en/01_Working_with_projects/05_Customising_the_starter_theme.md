@@ -17,9 +17,7 @@ not used.
 
 We recommend you follow the CWP Starter theme as a guideline and use the provided npm configuration to build and recompile your frontend dependencies.
 
-<div class="alert alert-info" markdown='1'>
 Note: The Starter theme is the default CWP theme as of the CWP 1.6 recipe. If you are looking for the old "default" CWP theme, [please see here](https://www.cwp.govt.nz/developer-docs/en/1.5/working_with_projects/customising_the_default_theme/).
-</div>
 
 ## Getting Started
 
@@ -89,7 +87,7 @@ That will have you set up with your own copy of the theme in the folder `/themes
 theme with others by adding them as team members to your project, or even making the repository public.
 
 Note the `"private": "true"` switch for your custom theme - this switch is needed to be able to deploy non-public,
-GitLab hosted modules. See [Working with modules](working_with_modules) for more information on this features.
+GitLab hosted modules. See [Working with modules](06_Working_with_modules.md) for more information on this features.
 
 ### Committing a theme to your project repository
 
@@ -111,9 +109,7 @@ also don't want to have access to your site's code as well, and will make it mor
  If you're using the public webroot feature (enabled by default from CWP 2.0 onwards) ensure you add your custom theme
   _after_ `'$public'`.
 
-<div class="alert alert-info" markdown='1'>
 Don't forget to `flush` by visiting `http://localhost/your-project/?flush=1` to get the new theme running!
-</div>
 
 Commit all changed files to your project repository so other collaborators can see it. This will include `composer.lock` file
 that "freezes" the current version of the modules to the ones you have currently included.
@@ -252,9 +248,7 @@ And add the following to src/scss/main.scss:
 
 You can follow the same process for Javascript files - take a look at the existing components for examples.
 
-<div class="alert alert-info" markdown='1'>
 It's generally encouraged to use Sass variables wherever possible. You can find a list of all predefined variables and values in the src/scss/variables.scss file. This file is based on the default Bootstrap 3 variable sheet, with some changes made and some new variables added.
-</div>
 
 Once you have added the new components, changed styles etc, you should run `npm run build` to compile and produce the "dist" files. On successful completion you can add and commit your updates files.
 

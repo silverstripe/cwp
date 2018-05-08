@@ -18,8 +18,8 @@ CWP is equipped with two transparent cache systems: A *Local Cache Layer* in the
 
 All instance responses are analysed and some of them may be cached to increase performance. Their behaviour can be controlled:
 
-* through the response headers configured in your code (see the ["Configuration via headers" chapter](#configuration-via-headers-2))
-* if you opted for the [Premium Managed Service](https://www.cwp.govt.nz/features/optional-extras/), through Incapsula configuration panel (see the ["Configuration via Incapsula" chapter](#configuration-via-incapsula-2))
+* through the response headers configured in your code (see the ["Configuration via headers" chapter](#configuration-via-headers))
+* if you opted for the [Premium Managed Service](https://www.cwp.govt.nz/features/optional-extras/), through Incapsula configuration panel (see the ["Configuration via Incapsula" chapter](#configuration-via-incapsula))
 
 The default recipes are configured conservatively to protect the data. This means SilverStripe Framework responses will not be cached at all. All other resources (static files) will be cached for a short period of time (see below for details).
 
@@ -45,7 +45,7 @@ This test should not be treated as representative for all CWP sites as it depend
 Agencies are urged to carry out their own load testing to determine the exact performance profile of their site.
 
 Also see the *"Can I leverage caching so that I can fit a large site on a small instance?"* question in the 
-[FAQ below](#faq-2).
+[FAQ below](#faq).
 
 ### Cache levels
 
@@ -110,15 +110,13 @@ SilverStripe\Core\Injector\Injector:
       Policies: '%$LightCachingPolicy'
 ```
 
-You might also want to inspect the default _Vary_ used by this module to see if it works well with your content, and perhaps adjust it via `CachingPolicy::vary` configuration option. See the ["Varying content" chapter](#varying-content-2) on the possible permutations of this header.
+You might also want to inspect the default _Vary_ used by this module to see if it works well with your content, and perhaps adjust it via `CachingPolicy::vary` configuration option. See the ["Varying content" chapter](#varying-content) on the possible permutations of this header.
 
 #### Full caching on dynamic content
 
-Full caching can only be achieved on dynamic content if that content is non-varying (see ["Varying content" chapter](#varying-content-2)).
+Full caching can only be achieved on dynamic content if that content is non-varying (see ["Varying content" chapter](#varying-content)).
 
-<div class="alert alert-warning" markdown='1'>
 Be cautious! If you feel uncertain about identifying content as non-varying, better stick to "Light" caching and avoid the danger of leaking user-specific or confidential data altogether.
-</div>
 
 ```
 Injector:
@@ -150,7 +148,7 @@ A table of some more obvious _Vary_ headers can be found in the [Controller Poli
 
 Check your `.htaccess` files in the webroot and any subfolders, as they can influence the `Vary` header. For example, a `%{HTTP_HOST}` rewrite condition will [auto-add](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) a `Vary: Host` header.
 
-If your content truly does not vary depending on the request, you will be able to utilise full caching for that URL - see the ["Full caching on dynamic content" chapter](#full-caching-on-dynamic-content-2).
+If your content truly does not vary depending on the request, you will be able to utilise full caching for that URL - see the ["Full caching on dynamic content" chapter](#full-caching-on-dynamic-content).
 
 Note that CWP's Local Cache (Varnish) has slightly different caching rules from the CDN (Incapsula). Depending on your headers, you might see cache hits from the Local Cache, but not from the CDN.
 
@@ -185,12 +183,10 @@ On CWP the _Static+Dynamic_ mode was not observed to be any different from the _
 
 Incapsula will also attempt to compress JPEG and PNG images as well as minify CSS, but will not minify JS.
 
-<div class="alert alert-info" markdown='1'>
 Important: If you have a access to the Incapsula dashboard through the Premium Managed Service,
 your settings there only influence responses from your own domain(s).
 Content served through "*.cwp.govt.nz" domains will not be affected by your changes.
 This conveniently includes responses generated from the CMS admin area which shouldn't be retained in the cache at all.
-</div>
 
 
 ### Potentially dangerous settings in Incapsula
@@ -202,7 +198,7 @@ You should not change these if any of the following is true:
 - Sections of your publicly-accessible site are protected by HTTP Basic authentication.
 - Your site is protected by an IP whitelist which wasn’t requested through the CWP Service Desk.
 
-See ["Varying content" chapter](#varying-content-2) for more details. If your site is completely public information, or you endeavour to maintain a tightly controlled list of Incapsula exceptions, you can change these __at your own risk__.
+See ["Varying content" chapter](#varying-content) for more details. If your site is completely public information, or you endeavour to maintain a tightly controlled list of Incapsula exceptions, you can change these __at your own risk__.
 
 ## Debugging
 
@@ -271,4 +267,4 @@ Since SSL traffic is terminated before it hits CWP's Local Cache layer, you can 
 
 ## Next
 
-Continue to our performance guide on [Deferring Work](deferring_work)
+Continue to our performance guide on [Deferring Work](03_Deferring_Work.md)

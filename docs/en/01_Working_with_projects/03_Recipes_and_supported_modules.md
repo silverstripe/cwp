@@ -38,9 +38,7 @@ and assets.
 * [Hybrid Sessions](https://github.com/silverstripe/silverstripe-hybridsessions) - The module adds a hybrid cookie/database session store for SilverStripe
 * [MIME Upload Validator](https://github.com/silverstripe/silverstripe-mimevalidator) - The module checks that uploaded file content roughly matches a known MIME type for the file extension
 
-<div class="alert alert-info" markdown='1'>
 Note, that this recipe is required if you are running an Active Disaster Recovery (DR) instance. Find out more about [preparing your site for active DR](/how_tos/preparing_your_site_for_active_dr).
-</div>
 
 ### [CWP CMS Recipe](https://github.com/silverstripe/cwp-recipe-cms) 
 
@@ -131,11 +129,9 @@ Adds API and content service modules to your SilverStripe project. It includes t
 * [SilverStripe RestfulServer](https://github.com/silverstripe/silverstripe-restfulserver) - The RestfulServer module for SilverStripe CMS; it adds REST API capability
 * [Version Feed](https://github.com/silverstripe/silverstripe-versionfeed) - The module provides an RSS feed for global site changes
 
-<div class="alert alert-info" markdown='1'>
 Note, when installing the Services Recipe you will also install 
 [the GraphQL module](https://github.com/silverstripe/silverstripe-graphql) which is bundled with the core SilverStripe
 4 CMS. You may choose to use this over RestfulServer.
-</div>
 
 ## Recipe combinations
 
@@ -153,10 +149,8 @@ There are two themes provided for the Common Web Platform 2.0 that help governme
 * The [**CWP Starter theme**](https://github.com/silverstripe/cwp-starter-theme) is a developer focused highly accessible Bootstrap 3 theme. It is suited for sites that require more customisation and a design applied with minimal restrictions.
 * The [**Wātea theme**](https://github.com/silverstripe/cwp-watea-theme) includes more design elements than the CWP Starter theme. It is well suited for smaller agencies with smaller sites, smaller budgets and less developer involvement.
 
-<div class="alert alert-info" markdown='1'>
 The Wātea theme is a more "designed" subtheme which can be installed over the top of the Starter theme to provide a 
 more visually appealing starter project. It also requires the [CWP Agency Extensions Module](https://github.com/silverstripe/cwp-agencyextensions) to be installed.
-</div>
 
 ## Stabilising the project
 
@@ -224,7 +218,7 @@ The CWP support team may in some situations hot-patch (possibly in a destructive
 found to endanger other sites on the CWP infrastructure. The timeframe in which this could happen will be specified on the release
 notification.
 
-See the [upgrading guide](upgrading) for instructions.
+See the [upgrading guide](08_Upgrading.md) for instructions.
 
 ## Recipe contents
 

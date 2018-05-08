@@ -11,19 +11,17 @@ CWP projects are installed using the Composer PHP package management tool. For g
 the [SilverStripe Composer documentation](https://docs.silverstripe.org/en/3/getting_started/composer/) or read the
 installation documentation on the [Composer site](http://getcomposer.org/doc/00-intro.md).
 
-Please familiarise yourself with the [CWP recipes](recipes_and_supported_modules) before starting to develop on CWP. To ensure your code works
+Please familiarise yourself with the [CWP recipes](03_Recipes_and_supported_modules.md) before starting to develop on CWP. To ensure your code works
 smoothly with the platform it's important to either start from the stable release of
 [cwp-installer](https://github.com/silverstripe/cwp-installer) or include
-your desired [CWP recipes](recipes_and_supported_modules) in your `composer.json`.
+your desired [CWP recipes](03_Recipes_and_supported_modules.md) in your `composer.json`.
 
-<div class="alert alert-info" markdown='1'>
 To ensure security of your site, and of CWP in general, please make sure your code can be easily upgraded by 
 maintaining your modules using composer. This will help to keep your dependencies updated with respect to the patch and 
-sub-patch versions of the recipe - read more about [CWP recipes](recipes_and_supported_modules).
-</div>
+sub-patch versions of the recipe - read more about [CWP recipes](03_Recipes_and_supported_modules.md).
 
 Another reason why it's best to maintain your modules using composer is that this will allow you to easily share the
-code with other agencies and enable easier upgrades. See [working with modules](working_with_modules)
+code with other agencies and enable easier upgrades. See [working with modules](06_Working_with_modules.md)
 for more information. If you decide to remove the `composer.json` file and instead commit the modules into the project code, we may not be able to support you because we will have to assume the modules have been customised.
 
 ## Server Configuration
@@ -31,7 +29,7 @@ for more information. If you decide to remove the `composer.json` file and inste
 You'll need an environment following SilverStripe's
 [server requirements](https://docs.silverstripe.org/en/4/getting_started/server_requirements/).
 
-CWP's configuration is detailed in [infrastructure considerations](infrastructural_considerations).
+CWP's configuration is detailed in [infrastructure considerations](11_Infrastructural_considerations.md).
 
 ## Git
 
@@ -90,6 +88,6 @@ on your machine using the software built by a company called GitHub (not related
 ## Where to from here?
 
 For people seasoned with SilverStripe development you can try jump-starting your development activities with the
-[getting started](/getting_started) guide.
+[getting started](../00_Getting_started.md) guide.
 
-For more information on correctly setting up your CWP project see [Setting up your project](setting_up_your_project). It shows how to set up Git and how to access GitLab to manage your code repositories on the CWP platform.
+For more information on correctly setting up your CWP project see [Setting up your project](01_Setting_up_your_project.md). It shows how to set up Git and how to access GitLab to manage your code repositories on the CWP platform.
