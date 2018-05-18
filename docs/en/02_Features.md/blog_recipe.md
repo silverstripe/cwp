@@ -9,14 +9,14 @@ The SilverStripe blog module lets you publish blog posts and allow the public to
 engage with you by commenting on your posts. The module supports flexible
 categorisation and tagging of blog posts.
 
-[Three levels of permissions are supported](https://github.com/silverstripe/silverstripe-blog/blob/master/docs/en/roles.md):
+[Three levels of permissions are supported](https://github.com/silverstripe/silverstripe-blog/blob/master/docs/en/userguide/roles.md):
 
  * Editors who can control everything in their blog
  * Writers who can create and publish in their blog
  * Contributors who can write, but have limited permissions otherwise.
 
 Commenting can be enabled and disabled, and all comments go through a
-[spam filter](/how-tos/akismet) and then need to be manually moderated before
+[spam filter](/how_tos/akismet) and then need to be manually moderated before
 they are published. The module provides an RSS feed to allow the public to
 subscribe to your blog posts.
 
@@ -63,7 +63,7 @@ customise the blog recipe for cwp defaults. These settings are included in the c
 blog.yml file under mysite/_config. Sites upgrading from 1.0.7 or below may require one or more of these settings
 to be manually added.
 
-For configuration of anti-spam please see the [Akismet configuration guide](/how-tos/akismet) for more information.
+For configuration of anti-spam please see the [Akismet configuration guide](/how_tos/akismet) for more information.
 
 For the basic configuration, see the default mysite/_config/blog.yml below for reference:
 
