@@ -4,7 +4,7 @@ introduction: CWP provides some tools out of the box for generating downloadable
 
 # HTML to PDF export
 
-[wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/) is being used to generate the PDF, it is a command line utility
+[wkhtmltopdf](https://wkhtmltopdf.org/) is being used to generate the PDF, it is a command line utility
 using WebKit to render the HTML into PDF format.
 
 ## How it works
@@ -45,7 +45,7 @@ The instructions below assume you're on a Debian or Ubuntu Linux environment.
 There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf` but they have not been tested.
 </div>
 
-* [Download wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/downloads/list) for your system type:
+* [Download wkhtmltopdf](https://wkhtmltopdf.org/downloads.html) for your system type:
 
 	wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.9.9-static-amd64.tar.bz2
 

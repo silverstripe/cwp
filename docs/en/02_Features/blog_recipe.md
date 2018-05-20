@@ -11,7 +11,7 @@ categorisation and tagging of blog posts.
 From 1.1.0 onwards the `blog recipe` is included along side the basic recipe by default.
 </div>
 
-[Three levels of permissions are supported](https://github.com/silverstripe/silverstripe-blog/blob/master/docs/en/roles.md):
+[Three levels of permissions are supported](https://github.com/silverstripe/silverstripe-blog/blob/master/docs/en/userguide/roles.md):
 
  * Editors who can control everything in their blog
  * Writers who can create and publish in their blog
