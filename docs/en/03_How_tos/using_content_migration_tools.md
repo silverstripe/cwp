@@ -18,7 +18,7 @@ HTML
 
 Drupal
 
-* See [http://www.silverstripe.org/drupal-connector-module/](http://www.silverstripe.org/drupal-connector-module/) and  [https://github.com/silverstripe-droptables/silverstripe-drupal-connector](https://github.com/silverstripe-droptables/silverstripe-drupal-connector)
+* See [https://addons.silverstripe.org/add-ons/silverstripe/drupal-connector](https://addons.silverstripe.org/add-ons/silverstripe/drupal-connector) and [https://github.com/silverstripe-droptables/silverstripe-drupal-connector](https://github.com/silverstripe-droptables/silverstripe-drupal-connector)
 
 A screenshot of the HTML importer is shown here:
 

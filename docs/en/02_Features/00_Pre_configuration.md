@@ -4,7 +4,7 @@ introduction: The CWP recipe codebase includes two modules that pre-configure yo
 
 # Pre-configuration of CWP recipe codebase
 
-The default SilverStripe CMS codebase used on the CWP infrastructure is referred to as the ["basic recipe"](../working_with_projects/recipes_and_supported_modules).
+The default SilverStripe CMS codebase used on the CWP infrastructure is referred to as the ["basic recipe"](/working_with_projects/recipes_and_supported_modules).
 When starting a new CWP project based on the [`cwp/cwp-installer`](/getting_started) custom SilverStripe CMS installer for CWP, a
 selection of pre-configured modules are included (we've done the work for you as you would usually have to configure
 these modules yourself) and provide a set of standardised features for Government agencies. Some of this
