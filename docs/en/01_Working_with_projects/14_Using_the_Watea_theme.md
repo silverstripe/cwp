@@ -47,6 +47,12 @@ cd ../starter_watea
 npm install
 ```
 
+### Backend changes
+
+This theme and the base-theme also come with the [`cwp/agency-extensions` module](https://github.com/silverstripe/cwp-agencyextensions) which helps us to clean up some parts of the CMS, rename some settings fields and provide a little bit of extra functionality to help the Wātea theme work.
+
+If you need to extend or modify these changes at all, you can control the theme's extensions with YAML configuration, or create your own extensions in your `mysite` code.
+
 ### Compiling assets
 
 Similarly to the CWP Starter theme, you can compile assets using npm commands:

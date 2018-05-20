@@ -4,6 +4,7 @@ summary: Information about the default CWP codebase referred to as the CWP recip
 # CWP recipes
 
 CWP supplies developers with a default set of packages for setting up their SilverStripe CMS projects.
+
 The [Common Web Platform Installer](https://github.com/silverstripe/cwp-installer)) package is created from the original
 [installer for SilverStripe CMS and Framework](https://github.com/silverstripe/silverstripe-installer). It can be used 
 as a base for jump-starting development of a CWP project. This is a recommended way of creating a CWP project.
@@ -193,6 +194,7 @@ You are welcome to remove recipes or features from the list of dependencies that
 If after careful consideration your development team decides to depart from the recipe model, it is recommended to pull
 in at least the [CWP CMS recipe](https://github.com/silverstripe/cwp-recipe-cms). If even this doesn't work for you, the last resort is
 including the [CWP Core recipe](https://github.com/silverstripe/cwp-recipe-core). This at least will ensure the minimal compatibility
+
 with the platform infrastructure and will allow us to deliver some subset of fixes and features to you as they are released.
 
 Your development team will need to follow the releases of the recipe on their own and make sure the modules are either

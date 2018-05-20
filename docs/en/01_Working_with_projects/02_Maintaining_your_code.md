@@ -8,6 +8,7 @@ Let's step through best practices in building your CWP site that will yield the 
 ## Starting off with the recipe
 
 We recommend to start your development by installing via the [cwp-installer](https://github.com/silverstripe/cwp-installer) using Composer.
+
 This already sets up a reasonable structure to your site that will make future maintenance easier.
 
 See [Setting up your project](setting_up_your_project).
