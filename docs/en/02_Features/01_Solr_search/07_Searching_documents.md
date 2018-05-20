@@ -3,7 +3,7 @@ summary: How to configure Solr indexing and searching of documentation such as W
 
 # Searching within documents
 
-<div class="alert alert-info" markdown='1'>This feature requires cwp recipe 1.1.0 or above specifically the [textextraction](https://github.com/silverstripe-labs/silverstripe-textextraction) module</div>
+<div class="alert alert-info" markdown='1'>This feature requires cwp recipe 1.1.0 or above specifically the [textextraction](https://github.com/silverstripe/silverstripe-textextraction) module</div>
 
 By default all CWP environments have text extraction services configured. These services can be used by user code
 to transform text-based documents (such as PDF, MS Word, or rich text) into plain text in a format which can
@@ -17,7 +17,7 @@ We recommend the use of the following available services:
 * pdf2text is also available for PDF document extraction if Apache Tika does not provide the required output
   for these files.
 
-The CWP supported [text extraction module](https://github.com/silverstripe-labs/silverstripe-textextraction) is
+The CWP supported [text extraction module](https://github.com/silverstripe/silverstripe-textextraction) is
 available to provide an interface to these services. In order to add this to a site include the following configuration:
 
 In composer.json:
