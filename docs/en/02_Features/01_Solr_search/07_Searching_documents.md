@@ -57,7 +57,7 @@ In MySolrSearchIndex.php
 		}
 	}
 
-<div class="notice" markdown='1'>If using cwp recipe 1.1.0 or below [see the documentation archive](en/1.1/features/solr_search/#searching-within-documents-2)</div>
+<div class="notice" markdown='1'>If using cwp recipe 1.1.0 or below [see the documentation archive](/features/solr_search/#searching-within-documents-2)</div>
 
 	:::php
 	<?php
