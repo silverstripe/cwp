@@ -102,6 +102,7 @@ below links to find out more details about the usage:
 
 * [Firefox](http://support.mozilla.org/en-US/kb/how-do-i-use-firefox-spell-checker)
 * [IE10](https://answers.microsoft.com/en-us/ie/forum/ie11-iewindows_10/spelling-correction-and-checking-in-internet/a1321c59-3623-49a2-8fce-388ecc2cb057?auth=1)
+* [Chrome](https://support.google.com/chrome/answer/95604?hl=en)
 
 Note that although there is currently a way to change the spellchecker with TinyMCE by modifying the framework code,
 this is not recommended. It would require forking the Framework which will result in a code that's harder to maintain.

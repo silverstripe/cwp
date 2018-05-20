@@ -4,7 +4,7 @@ introduction: CWP provides some tools for generating downloadable PDF versions o
 
 # HTML to PDF export
 
-[wkhtmltopdf](http://code.google.com/p/wkhtmltopdf/) is being used to generate the PDF, it is a command line utility
+[wkhtmltopdf](https://wkhtmltopdf.org/) is being used to generate the PDF, it is a command line utility
 using WebKit to render the HTML into PDF format.
 
 You will also need to ensure you have the [cwp/cwp-pdfexport](https://github.com/silverstripe/cwp-pdfexport) module
