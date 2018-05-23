@@ -65,3 +65,11 @@ Only:
 CommentingController:
   extensions:
     - CwpCommentingExtension
+---
+Name: cwpsitesummaryextensions
+Only:
+  moduleexists: 'silverstripe-maintenance'
+---
+SiteSummary:
+  extensions:
+    - CwpSiteSummaryExtension
