@@ -4,7 +4,7 @@ introduction: Describes how to use the CWP Wātea theme
 
 # Using the Wātea theme
 
-[The Wātea theme](https://github.com/silverstripe/cwp-watea-theme) is a more "designed" [cascading theme](https://docs.silverstripe.org/en/4/developer_guides/templates/themes) which can be installed over the top of the [CWP Starter theme](customising_the_starter_theme) to provide a more visually appealing starter project.
+The [Wātea theme](https://github.com/silverstripe/cwp-watea-theme) can be installed on top of the [Starter theme](https://github.com/silverstripe/cwp-starter-theme) (see [cascading themes](https://docs.silverstripe.org/en/4/developer_guides/templates/themes)) to provide a more visually appealing start to a CWP website.
 
 ## Installation
 
