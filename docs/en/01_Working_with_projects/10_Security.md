@@ -82,7 +82,7 @@ Uploaded files have their extension checked against known MIME types in the `HTT
 This basically means the file contents are checked to ensure the extension matches. For example, if you rename an image
 `test.jpg` to `test.txt` and attempt to upload it, the file will be rejected.
 
-Please see [technical docs for adding extensions](how-tos/adding_an_allowed_extension) for more information on
+Please see [technical docs for adding extensions](/how_tos/adding_an_allowed_extension) for more information on
 allowing new file extensions and MIME types.
 
 ### Front-end authentication
