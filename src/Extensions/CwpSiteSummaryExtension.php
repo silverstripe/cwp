@@ -1,5 +1,9 @@
 <?php
 
+namespace CWP\CWP\Extensions;
+
+use SilverStripe\Core\Extension;
+
 /**
  * Extends the site summary report to list the appropriate versions in the report header
  */
