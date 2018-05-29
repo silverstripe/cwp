@@ -1,15 +1,14 @@
-# CWP Recipe 2.0.0 (unreleased)
-
-_**Note:** This changelog is a work in progress, and is subject to change._
+# CWP Recipe 2.0.0
 
 ## Overview
 
-This upgrade includes CMS and Framework version 4.1.0
+This upgrade includes CMS and Framework version 4.1.1
 
- * [Framework 4.1.0](https://github.com/silverstripe/silverstripe-framework/blob/4.1.0/docs/en/04_Changelogs/4.1.0.md)
+ * [SilverStripe 4.1.1](https://docs.silverstripe.org/en/4/changelogs/4.1.1)
+ * [SilverStripe 4.1.0](https://docs.silverstripe.org/en/4/changelogs/4.1.0)
+ * [SilverStripe 4.0.0](https://docs.silverstripe.org/en/4/changelogs/4.0.0)
 
 Upgrade to Recipe 2.0.0 is optional, but is recommended as the base to start all new CWP projects from.
-
 
 ## Upgrading Instructions
 
@@ -45,10 +44,13 @@ Please note that the following modules have been superseded and do not have a di
  - `silverstripe/translatable` has been replaced by `tractorcow/silverstripe-fluent`
  - `silverstripe/active-directory` has been split into `silverstripe/ldap` (commercially supported) and `silverstripe/saml` (_not_ commercially supported)
  - `undefinedoffset/sortablegridfield` was a dependency of supported modules, which have been updated to use the equivalent functionality provided by `symbiote/silverstripe-gridfieldextensions`. If your project makes use of this module, it will need to specifically require it rather than assume its presence (if it does not already).
- - `silverstrpe/dms` has been deprecated and has no upgrade path (however was _not_ part of the CWP installer or basic recipe)
  - `silverstripe/selectupload` is deprecated and is not upgraded for SilverStripe 4
- - `silverstripe/secure-assets` has been replaced by SilverStripe core functionality
+ - `silverstripe/secureassets` has been replaced by SilverStripe core functionality
  - `silverstripe/versionedfiles` has been replaced by SilverStripe core functionality
+
+The following optional CWP modules are yet to be upgraded for CWP 2.0 compatibility:
+ - `silverstripe/realme`
+ - `silverstripe/textextraction`
 
 ## Notable changes
 
@@ -99,67 +101,75 @@ The IP whitelisting logic has been moved to `CwpBasicAuthMiddleware`, and will s
 `CWP_IP_BYPASS_BASICAUTH` environment variable by default. For more information on these configuration settings please
 see `cwp-core/_config/security.yml`.
 
-For a detailed list of changes, see the full changelog below.
+This release removes the following file extensions from the default whitelist of accepted types for 
+uploaded files: `dotm`, `potm`, `jar`, `css`, `js` and `xltm`.
 
+If you require the ability to upload these file types in your projects, you will need to add them back in again.
+For more information, see ["Configuring: File types"](https://docs.silverstripe.org/en/4/developer_guides/files/file_security/#configuring-file-types).
+
+For a detailed list of changes, see the full changelog below.
 
 ## Accepted Failing Tests
 
-### Tests that fail due to the presence of the `cwp/starter-theme` altering the expected output:
+### recipe-core
 
- - SilverStripe\Forms\Tests\SelectionGroupTest::testFieldHolder
- - SilverStripe\Forms\Tests\SelectionGroupTest::testLegacyItemsFieldHolder
- - SilverStripe\Forms\Tests\SelectionGroupTest::testLegacyItemsFieldHolderWithTitle
- - SilverStripe\UserForms\Tests\Control\UserDefinedFormControllerTest::testRenderingIntoFormTemplate
- - SilverStripe\UserForms\Tests\Control\UserDefinedFormControllerTest::testRenderingIntoTemplateWithSubstringReplacement
- - SilverStripe\Forms\Tests\EmailFieldTest::testEmailFieldPopulation
- - SilverStripe\Forms\Tests\FormTest::testValidationExemptActions
- - SilverStripe\Forms\Tests\FormTest::testSessionValidationMessage
- - SilverStripe\Forms\Tests\GridField\GridFieldDetailFormTest::testValidator
- - SilverStripe\Forms\Tests\LookupFieldTest::testNullValueWithNumericArraySource
- - SilverStripe\Forms\Tests\LookupFieldTest::testStringValueWithNumericArraySource
- - SilverStripe\Forms\Tests\LookupFieldTest::testUnknownStringValueWithNumericArraySource
- - SilverStripe\Forms\Tests\LookupFieldTest::testArrayValueWithAssociativeArraySource
- - SilverStripe\Forms\Tests\LookupFieldTest::testArrayValueWithNumericArraySource
- - SilverStripe\Forms\Tests\LookupFieldTest::testArrayValueWithSqlMapSource
- - SilverStripe\Forms\Tests\LookupFieldTest::testWithMultiDimensionalSource
- - SilverStripe\Forms\Tests\TreeDropdownFieldTest::testReadonly
+ * SilverStripe\Assets\Tests\UploadTest::testUploadTarGzFileTwiceAppendsNumber: This test is now expected to fail as
+   the MimeValidator module will no longer allow random content to be uploaded with a mismatched mime and file
+   extension. The original test is attempting to upload text as a gzip file ([issue](https://github.com/silverstripe/silverstripe-assets/issues/135)).
+ * SilverStripe\Forms\Tests\EmailFieldTest::testEmailFieldPopulation ([issue](https://github.com/silverstripe/silverstripe-framework/issues/8105))
+ * SilverStripe\Forms\Tests\FormTest::testValidationExemptActions ([issue](https://github.com/silverstripe/silverstripe-framework/issues/8105))
+ * SilverStripe\Forms\Tests\FormTest::testSessionValidationMessage ([issue](https://github.com/silverstripe/silverstripe-framework/issues/8105))
+ * SilverStripe\Forms\Tests\GridField\GridFieldDetailFormTest::testValidator ([issue](https://github.com/silverstripe/silverstripe-framework/issues/8105))
+ * SilverStripe\Forms\Tests\LookupFieldTest::testNullValueWithNumericArraySource ([issue](https://github.com/silverstripe/silverstripe-framework/issues/8105))
+ * SilverStripe\Forms\Tests\LookupFieldTest::testUnknownStringValueWithNumericArraySource ([issue](https://github.com/silverstripe/silverstripe-framework/issues/8105))
+ * SilverStripe\Forms\Tests\LookupFieldTest::testArrayValueWithAssociativeArraySource ([issue](https://github.com/silverstripe/silverstripe-framework/issues/8105))
+ * SilverStripe\Forms\Tests\LookupFieldTest::testArrayValueWithNumericArraySource ([issue](https://github.com/silverstripe/silverstripe-framework/issues/8105))
+ * SilverStripe\Forms\Tests\LookupFieldTest::testArrayValueWithSqlMapSource ([issue](https://github.com/silverstripe/silverstripe-framework/issues/8105))
+ * SilverStripe\Forms\Tests\LookupFieldTest::testWithMultiDimensionalSource ([issue](https://github.com/silverstripe/silverstripe-framework/issues/8105))
+ * SilverStripe\Forms\Tests\SelectionGroupTest::testSelectedFieldHolder ([issue](https://github.com/silverstripe/silverstripe-framework/issues/8105))
+ * SilverStripe\Forms\Tests\TreeDropdownFieldTest::testReadonly ([issue](https://github.com/silverstripe/silverstripe-framework/issues/8105))
+ * SilverStripe\Assets\Tests\FileTest::testCanEdit ([issue](https://github.com/silverstripe/silverstripe-assets/issues/136))
+ * SilverStripe\Assets\Tests\FileTest::testCanCreate ([issue](https://github.com/silverstripe/silverstripe-assets/issues/136))
+ * SilverStripe\Assets\Tests\UploadTest::testPHPUploadErrors ([issue](https://github.com/silverstripe/silverstripe-assets/issues/136))
+ * SilverStripe\Control\Tests\DirectorTest::testForceSSLProtectsEntireSite  ([fix](https://github.com/silverstripe/silverstripe-framework/pull/8102))
+ * SilverStripe\Control\Tests\DirectorTest::testForceSSLandForceWWW ([fix](https://github.com/silverstripe/silverstripe-framework/pull/8102))
  
-Many of these test are syntactically equivalent to the expected output, but include extra or different whitespace which is ignored by a browser when rendering a page.
-Others have open issues at https://github.com/silverstripe/cwp-starter-theme/issues
+### recipe-cms
 
-### Tests failing because of altered global state:
+ * SilverStripe\CMS\Tests\Model\SiteTreeFolderExtensionTest::testFindsFiles: Affected by global test state ([issue](https://github.com/silverstripe/silverstripe-framework/issues/7978)).
+ * SilverStripe\AssetAdmin\Tests\Controller\AssetAdminTest::testSaveOrPublish ([issue](https://github.com/silverstripe/silverstripe-asset-admin/issues/787))
+ * SilverStripe\CMS\Tests\Model\SiteTreeTest::testCanEditWithAccessToAllSections ([issue](https://github.com/silverstripe/silverstripe-cms/issues/2178))
+ * SilverStripe\CMS\Tests\Model\SiteTreeTest::testCanPublish ([issue](https://github.com/silverstripe/silverstripe-cms/issues/2178))
 
- - SilverStripe\CMS\Tests\Model\SiteTreeFolderExtensionTest::testFindsFiles
-SilverStripe\ORM\Connect\DatabaseException: Couldn't run query:
-Table 'ss_tmpdb_1522269580_3585803.DocvertTestPage' doesn't exist
+### recipe-blog
 
-This error occurs due to the test iterating through all Page subclasses, which in the test enviornment includes those marked `TestOnly`. However as this `TestOnly` Page type is not actively being tested, it has not been added to the database, and thus the query fails.
+ * SilverStripe\Comments\Tests\CommentingControllerTest::testRSS: Validated to not be an issue in practice ([issue](https://github.com/silverstripe/silverstripe-comments/issues/252))
+ * SilverStripe\Comments\Tests\CommentingControllerTest::testCommentsForm: Validated to not be an issue in practice ([issue](https://github.com/silverstripe/recipe-blog/issues/14)) 
+ * SilverStripe\Comments\Tests\CommentsExtensionTest::testCommentsForm ([issue](https://github.com/silverstripe/silverstripe-comments/issues/251))
 
- - SilverStripe\Control\Tests\DirectorTest::testForceSSLProtectsEntireSite
- - SilverStripe\Control\Tests\DirectorTest::testForceSSLandForceWWW
+### recipe-content-blocks
 
-These tests fail due to `cwp/cwp-core` adding patterns that affect the functionality of this feature. This failure is actually intended behaviour by the core, however the test does not allow for it.
+There are numerous test errors relating to missing database tables which are tests affected by global
+state ([issue](https://github.com/silverstripe/silverstripe-framework/issues/7978)).
 
- - SilverStripe\Control\Tests\Email\SwiftPluginTest::testSendAllEmailsTo
- - SilverStripe\Control\Tests\Email\SwiftPluginTest::testSendAllEmailsFrom
- - SilverStripe\Control\Tests\Email\SwiftPluginTest::testCCAllEmailsTo
- - SilverStripe\Control\Tests\Email\SwiftPluginTest::testBCCAllEmailsTo
+ * DNADesign\Elemental\Tests\ElementalAreaTest::testCanBePublished: Affected by global state ([issue]())
+ * DNADesign\Elemental\Tests\Reports\ElementTypeReportTest::testReportShowsBlockTypes
 
-These email tests fail due to the presence of a development environment setting: `SS_SEND_ALL_EMAILS_TO`
+### recipe-form-building
 
- - SilverStripe\Assets\Tests\FileTest::testCanEdit
- - SilverStripe\Assets\Tests\FileTest::testCanCreate
- - SilverStripe\AssetAdmin\Tests\Controller\AssetAdminTest::testSaveOrPublish
- - SilverStripe\CMS\Tests\Model\SiteTreeTest::testCanEditWithAccessToAllSections
- - SilverStripe\CMS\Tests\Model\SiteTreeTest::testCanPublish
+ * SilverStripe\UserForms\Tests\Control\UserDefinedFormControllerTest::testRenderingIntoFormTemplate: Affected by starter theme templates ([issue](https://github.com/silverstripe/silverstripe-userforms/issues/780))
+ * SilverStripe\UserForms\Tests\Control\UserDefinedFormControllerTest::testRenderingIntoTemplateWithSubstringReplacement: Affected by starter theme templates ([issue](https://github.com/silverstripe/silverstripe-userforms/issues/780))
+ * Symbiote\QueuedJobs\Tests\QueuedJobsTest::testStartJob: Affected by global state ([issue](https://github.com/symbiote/silverstripe-queuedjobs/issues/190))
+ * Symbiote\QueuedJobs\Tests\QueuedJobsTest::testImmediateQueuedJob: Affected by global state ([issue](https://github.com/symbiote/silverstripe-queuedjobs/issues/190))
 
-All fail because `silverstripe/subsites` alters the permissions model beyond what the tests allow for.
+### recipe-services
 
-### Others
+ * SilverStripe\VersionFeed\Tests\VersionFeedTest::testDiffedChangesTitle: Compatibility issue with
+   tractorcow/silverstripe-fluent ([issue](https://github.com/silverstripe/silverstripe-versionfeed/issues/54))
 
- - Error: Class 'org\bovigo\vfs\vfsStream' not found
+### Other
 
-The entire `silverstripe/config` suite fails due to a missing test only dependency (which is not installed because the core config module itself is a dependency - this is normal `composer` behaviour). Requiring [`mikey179/vfsStream`](https://github.com/silverstripe/silverstripe-config/blob/1.0.4/composer.json#L13) into the project sees all the tests pass.
-
+Error: Class 'org\bovigo\vfs\vfsStream' not found: the `silverstripe/config` suite will fail without this dev
+dependency installed in your project.
 
 <!--- Changes below this line will be automatically regenerated -->
