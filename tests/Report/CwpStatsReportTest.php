@@ -4,12 +4,21 @@ namespace CWP\CWP\Tests\Report;
 
 use CWP\CWP\Report\CwpStatsReport;
 use Page;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Core\Config\Config;
 use SilverStripe\Dev\SapphireTest;
 use SilverStripe\Subsites\Model\Subsite;
 
 class CwpStatsReportTest extends SapphireTest
 {
     protected static $fixture_file = 'CwpStatsReportTest.yml';
+
+    protected function setUp()
+    {
+        Config::modify()->set(SiteTree::class, 'create_default_pages', false);
+
+        parent::setUp();
+    }
 
     public function testCount()
     {
