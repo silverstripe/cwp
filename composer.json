@@ -25,10 +25,7 @@
             "css",
             "javascript",
             "images"
-        ],
-        "branch-alias": {
-            "dev-master": "2.x-dev"
-        }
+        ]
     },
     "autoload": {
         "psr-4": {
