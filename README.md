@@ -15,7 +15,7 @@
 Install using Composer:
 
 ```
-composer require cwp/cwp 2.x-dev
+composer require cwp/cwp ^2.0
 ```
 
 ## Bugtracker
