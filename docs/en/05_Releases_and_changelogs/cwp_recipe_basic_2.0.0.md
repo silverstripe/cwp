@@ -22,18 +22,19 @@ In particular, if one is to replace `cwp/cwp-recipe-basic`, the following combin
     "require": {
         "php": ">=5.6.0",
         "silverstripe/recipe-plugin": "^1",
-        "cwp/cwp-recipe-cms": "2.x-dev",
-        "cwp/cwp-recipe-core": "2.x-dev",
-        "cwp/cwp-recipe-search": "2.x-dev",
-        "silverstripe/recipe-blog": "1.x-dev",
-        "silverstripe/recipe-authoring-tools": "1.x-dev",
-        "silverstripe/recipe-collaboration": "1.x-dev",
-        "silverstripe/recipe-form-building": "1.x-dev",
-        "silverstripe/recipe-reporting-tools": "1.x-dev",
-        "silverstripe/recipe-services": "1.x-dev",
-        "silverstripe/registry": "2.x-dev"
-        "silverstripe/subsites": "2.0.x-dev",
-        "tractorcow/silverstripe-fluent": "4.0.x-dev",
+        "cwp/cwp-recipe-cms": "2.0.0@stable",
+        "cwp/cwp-recipe-core": "2.0.0@stable",
+        "cwp/cwp-recipe-search": "2.0.0@stable",
+        "silverstripe/recipe-blog": "1.0.0@stable",
+        "silverstripe/recipe-form-building": "1.0.0@stable",
+        "silverstripe/recipe-authoring-tools": "1.0.0@stable",
+        "silverstripe/recipe-collaboration": "1.0.0@stable",
+        "silverstripe/recipe-reporting-tools": "1.0.0@stable",
+        "silverstripe/recipe-services": "1.0.0@stable",
+        "silverstripe/subsites": "2.0.2@stable",
+        "tractorcow/silverstripe-fluent": "4.0.2@stable",
+        "silverstripe/registry": "2.0.1@stable",
+        "cwp/starter-theme": "2.0.0@stable"
     },
 ```
 
