@@ -132,7 +132,7 @@ key is named after your stack identifier.
 ![Gitlab - private repository deploy access](/_images/gitlab-private-repository-deploy-access.png)
 
 <div class="notice" markdown='1'>
-You will only see the deployment key if you are the owner of the repository. See [deploying code](deploying-code) for
+You will only see the deployment key if you are the owner of the repository. See [deploying code](/dashboard/deployments) for
 more information.
 </div>
 
