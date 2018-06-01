@@ -152,8 +152,8 @@ key is named after your stack identifier.
 ![Gitlab - private repository deploy access](/_images/gitlab-private-repository-deploy-access.png)
 
 <div class="alert alert-info" markdown='1'>
-You will only see the deployment key if you are the owner of the repository. See [deploying code](deploying-code) for
-more information.
+You will only see the deployment key if you are the owner of the repository. See 
+[deploying code](/dashboard/deployments) for more information.
 </div>
 
 Also, double check that your project's `composer.json` specifies the "private" parameter for all private repositories as
