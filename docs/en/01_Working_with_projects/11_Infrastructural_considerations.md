@@ -8,7 +8,7 @@ summary: Aspects of the CWP server environment infrastructure to be aware of whe
 The high level CWP infrastructure is outlined on cwp.govt.nz.
 More detail is available through a solution architecture document on request
 to participating agencies. See [technical and architecture information](https://www.cwp.govt.nz/about/technical-and-architecture-information/).
-Please review our [Performance Guide](../performance-guide)
+Please review our [Performance Guide](/performance_guide)
 for recommendations on how to use the available infrastructure efficiently.
 
 ## HTTP request time limit
@@ -89,7 +89,7 @@ support
 
 ## Other features
 
- * [Varnish and Incapsula caching](how_tos/caching)
+ * [Varnish and Incapsula caching](/performance_guide/caching)
  * [Outgoing HTTP proxy](/how_tos/external_http_requests_with_proxy)
  * [WKHTMLTOPDF](http://wkhtmltopdf.org/) is available in version 0.12.1.1.
  * [Solr search](/features/solr_search)
