@@ -23,7 +23,7 @@ as a first step. Prior to using this module, an agreement should be reached with
 Shared Workspace for RealMe should be granted.
 
 Once this access is available, your development team will be able to begin following the 
-[module installation process](https://github.com/silverstripe/silverstripe-realme/blob/master/docs/en/installation.md) 
+[module installation process](https://github.com/silverstripe/silverstripe-realme/blob/master/docs/en/configuration.md) 
 and working through the requirements.
 
 The CWP Operations team is available to assist with the integration of the ITE (Integrated Test Environment) and 

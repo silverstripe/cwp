@@ -82,7 +82,7 @@ If you want your field to be a plain text area field instead, simply replace `HT
 
 <div class="alert alert-info" markdown='1'>
 The "RichLinks" part of the template variable provides additional processing to the links in the content.
-[See more on the rich links functionality](cwp-features/rich_links).
+[See more on the rich links functionality](/features/rich_links).
 </div>
 
 ## Customising the WYSIWYG editor

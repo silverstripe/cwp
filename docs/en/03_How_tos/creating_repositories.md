@@ -31,4 +31,4 @@ This will mean anyone can `git checkout` your project.
 
 It will also be listed on the [Gitlab Public Projects](http://gitlab.cwp.govt.nz/public) list.
 
-![Setting public access in project settings](/_images/gitlab-public-project-setting.jpg)
+![Setting public access in project settings](/_images/gitlab-making-repository-public.jpg)

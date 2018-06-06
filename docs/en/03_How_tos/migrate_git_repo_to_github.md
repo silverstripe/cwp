@@ -13,7 +13,7 @@ Please ensure the below considerations are thought through prior to moving your 
 
 ## Preparation
 1. [Create the GitHub private or public repository](https://help.github.com/articles/create-a-repo/) Create the GitHub private or public repository to be associated with the CWP instance.
-2. [Locate your Deploy public key in the CWP Dashboard](https://www.cwp.govt.nz/developer-docs/en/working_with_projects/deploying_code/#deploy-key-2).
+2. [Locate your Deploy public key in the CWP Dashboard](/dashboard/deploy-keys).
 3. Allow access to CWP systems by adding the above deploy key to the repository [starting at Setup step 2](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys).
 
 ## Requesting repository migration to GitHub
