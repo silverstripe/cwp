@@ -187,4 +187,4 @@ site can connect to the AD.
 
 ## See Also
 
- * [Authentication via RealMe](realme_authentication.md)
+ * [Authentication via RealMe](realme_authentication)

@@ -8,7 +8,7 @@ summary: Aspects of the CWP server environment infrastructure to be aware of whe
 The high level CWP infrastructure is outlined on cwp.govt.nz.
 More detail is available through a solution architecture document on request
 to participating agencies. See [technical and architecture information](https://www.cwp.govt.nz/about/technical-and-architecture-information/).
-Please review our [Performance Guide](/performance-guide/index)
+Please review our [Performance Guide](/performance_guide/)
 for recommendations on how to use the available infrastructure efficiently.
 
 ## HTTP request time limit
@@ -31,7 +31,7 @@ The preferred way to handle your long-running processes is via the
 [queuedjobs](https://github.com/symbiote/silverstripe-queuedjobs) module. 
 You can extend the time limit of a PHP process by using the SilverStripe Framework APIs `\SilverStripe\Core\Environment::increaseTimeLimitTo()`.
 
-Consider using [caching](/performance-guide/caching) to speed up request execution.
+Consider using [caching](/performance_guide/http_caching) to speed up request execution.
 
 ## PHP configuration
 

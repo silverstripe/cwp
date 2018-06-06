@@ -95,7 +95,7 @@ Adds functionality to enhance CMS author collaboration. It includes the followin
 * [SilverStripe CMS Recipe](https://github.com/silverstripe/recipe-cms) - The recipe containing CMS, versioned, asset-admin, etc.
 * [Content Review](https://github.com/silverstripe/silverstripe-contentreview) - The module adds functionality to mark a page in SilverStripe CMS with a date and an owner for future review
 * [Share Draft Content](https://github.com/silverstripe/silverstripe-sharedraftcontent) - The modules enables the sharing of draft page content with non-CMS users
-* [Advanced Workflow Module](Advanced Workflow Module) - This module provides highly configurable step-based workflow functionality
+* [Advanced Workflow Module](https://github.com/symbiote/silverstripe-advancedworkflow) - This module provides highly configurable step-based workflow functionality
 
 ### [SilverStripe CMS Reporting Tools Recipe](https://github.com/silverstripe/recipe-reporting-tools) 
 

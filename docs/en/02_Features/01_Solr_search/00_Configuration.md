@@ -18,7 +18,7 @@ Your project will be configured automatically by the [cwp/cwp-search](https://gi
 
 Solr on CWP is a shared service, and it comes with some limitations:
 
-* CWP's Solr server enforces `solrconfig.xml` - customisations are not permitted, and will automatically be removed by the Solr server. The best way to add features to CWP is through the [Operational Review Board](https://www.cwp.govt.nz/about/frequently-asked-questions/).
+* CWP's Solr server enforces `solrconfig.xml` - customisations are not permitted, and will automatically be removed by the Solr server. The best way to add features to CWP is through the [co-funded development pool](https://www.cwp.govt.nz/features/the-co-funded-development-pool/).
 * CWP's Solr server ignores all search index commit requests,
   and instead relies on auto-commits to update indexes.
   This preserves stability for all users of the shared service.
@@ -36,7 +36,7 @@ The base `silverstripe/fulltextsearch` module source code is available at
 ## CWP Integration
 
 The base `silverstripe/fulltextsearch` module is tightly integrated into the [CWP installer](https://github.com/silverstripe/cwp-installer)
-through the [cwp/cwp-recipe-search](github.com/silverstripe/cwp-search) recipe. You usually don't have to install anything extra.
+through the [cwp/cwp-recipe-search](https://github.com/silverstripe/cwp-search) recipe. You usually don't have to install anything extra.
 
 This module sets up:
 

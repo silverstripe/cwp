@@ -133,7 +133,7 @@ excluded (as the project already provides its own theme):
 Links:
 
 * [CWP releases and changelogs](/releases_and_changelogs)
-* [old, unsupported composer.json](https://github.com/silverstripe/cwp-recipe-basic/blob/1.0.0/composer.json) from
+* [old, unsupported composer.json](https://github.com/silverstripe/cwp-recipe-basic/blob/1.0.1/composer.json) from
 deprecated `cwp/recipe-basic` module
 * [new, recommended composer.json](https://github.com/silverstripe/cwp-installer/blob/master/composer.json) from the new
 `cwp/cwp-installer` package (this package is useful for jump-starting your projects)
