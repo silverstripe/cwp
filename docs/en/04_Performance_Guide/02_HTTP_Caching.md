@@ -21,7 +21,7 @@ All instance responses are analysed and some of them may be cached to increase p
 * through the response headers configured in your code (see the ["Configuration via headers" chapter](#configuration-via-headers-2))
 * if you opted for the [Premium Managed Service](https://www.cwp.govt.nz/features/optional-extras/), through Incapsula configuration panel (see the ["Configuration via Incapsula" chapter](#configuration-via-incapsula-2))
 
-The default recipes are configured conservatively to protect the data. This means SilverStripe Framework responses will not be cached at all. All other resources (static files) will be cached for a short period of time (see below for details).
+The default recipes are configured conservatively to protect data. This means SilverStripe Framework responses will not be cached at all. All other resources (static files) will be cached for a short period of time (see below for details).
 
 ### Content Security
 
@@ -59,19 +59,19 @@ To help explain how actively the content could be cached on CWP let's split the 
 
 ### Configuration via headers
 
-Your best approach in controlling the caching behaviour is setting your response headers in accordance with the [RFC-2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). 
+Your best approach in controlling the caching behaviour is setting the `Cache-Control` response header (see [Google's Web Fundaments - HTTP Caching](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching)) 
 This will ensure that all caches on the way of the response will be able to make reasonable decisions. This includes CWP's Local Cache, the CDN (Incapsula), any other public proxies (such as corporate gateways) and the browser cache.
 
 We will now explain some simple techniques on how to increase your cache utilisation. Let's have a look at the mapping between the cache levels and specific response headers.
 
 | Cache level | _Cache-Control_ header | _Vary_ header | Appropriate for |
 | - | - | - |
-| None | "no-cache, max-age=0" | _n/a_ | all |
-| Light | "max-age=X" | "Cookie, […]" | all |
-| Full | "max-age=X" | _none_ or "Accept-Encoding" | non-varying* |
+| None | "no-store, no-cache, must-revalidate" | "X-Forwarded-Protocol, X-Requested-With" | all |
+| Light | "max-age=X, must-revalidate" | "X-Forwarded-Protocol, X-Requested-With, […]" | all |
+| Full | "max-age=X" | _none_ | non-varying* |
 
-The easiest way improve caching on your dynamic responses is to use the [Controller Policy module](https://github.com/silverstripe/silverstripe-controllerpolicy). It allows you to customise the response headers per `Controller` without the need to modify any PHP code.
-For deeper customisations, you also [set HTTP Cache headers directly](https://docs.silverstripe.org/en/4/developer_guides/performance/http_cache_headers/).
+In CWP 2.1+ developers can make use of the `HTTPCacheControlMiddleware` to control the `Cache-Control` header added to
+responses. This is covered in more detail in the SilverStripe docs on []HTTP cache headers](https://docs.silverstripe.org/en/4/developer_guides/performance/http_cache_headers/#cache-control-headers).
 
 #### Defaults
 
@@ -79,10 +79,11 @@ With the basic recipe all SilverStripe Framework responses come with the followi
 This means the response is classified as the "None" cache level.
 
 ```
-Cache-Control: no-cache, max-age=0, must-revalidate, no-transform
+Cache-Control: no-store, no-cache, must-revalidate
 ```
 
 Furthermore, all CWP instances are configured to set the following header on anything that is NOT served by the framework.
+
 These responses are effectively the "Full" cache level. The `max-age` value is currently 120 seconds, but could change in the future. CWP customers can’t actively clear CDN caches on Incapsula unless they purchase an [optional Premium Managed Service plan](https://www.cwp.govt.nz/features/optional-extras/). 
 Due to this restriction, asset invalidation needs to take place via the URL, through so called “cache busters”. SilverStripe adds a GET parameter with the last file modification timestamp to each stylesheet and javascript file included through its [Requirements API](http://docs.silverstripe.org/en/4/developer_guides/templates/requirements/). 
 If you are referencing files in other ways, please take care to add your own “cache busters”, e.g. through a Grunt build task modifying the including SilverStripe template.
@@ -95,22 +96,32 @@ Cache-Control: max-age=120, public
 
 You'll need to talk to your business owner about cache lifetimes: Updated content might not reach visitors until caches 
 expire. This policy is generally safe, but specific controllers may need tweaks. For example, the 
-[UserForms module](https://github.com/silverstripe/silverstripe-userforms) requires caching to be disabled by removing 
-any [Controller Policy module](https://github.com/silverstripe/silverstripe-controllerpolicy) cache policies applied to 
-it with YAML configuration because it generates a unique form submission token for each visitor.
+[UserForms module](https://github.com/silverstripe/silverstripe-userforms) requires caching to be disabled because it
+generates a unique form submission token for each visitor.
 
-```yaml
-SilverStripe\Core\Injector\Injector:
-  LightCachingPolicy:
-    class: SilverStripe\ControllerPolicy\Policies\CachingPolicy
-    properties:
-      CacheAge: <cache-duration>
-  PageController:
-    dependencies:
-      Policies: '%$LightCachingPolicy'
+To enable light caching on your site you can add the following to your `PageController::init()` method:
+
+```php
+<?php
+
+use CWP\CWP\PageTypes\BasePageController;
+
+class PageController extends BasePageController
+{
+    protected function init()
+    {
+        parent::init();
+        
+        HTTPCacheControlMiddleware::singleton()
+            ->enableCache()
+            ->setMaxAge(<max age>); // in seconds
+    }
+}
 ```
 
-You might also want to inspect the default _Vary_ used by this module to see if it works well with your content, and perhaps adjust it via `CachingPolicy::vary` configuration option. See the ["Varying content" chapter](#varying-content-2) on the possible permutations of this header.
+You might also want to adjust the default _Vary_ used by the framework to see if it works well with your content, 
+and perhaps adjust it via `HTTPCacheControlMiddleware::addVary()`. See the ["Varying content" chapter](#varying-content-2)
+on the possible permutations of this header.
 
 #### Full caching on dynamic content
 
@@ -120,39 +131,58 @@ Full caching can only be achieved on dynamic content if that content is non-vary
 Be cautious! If you feel uncertain about identifying content as non-varying, better stick to "Light" caching and avoid the danger of leaking user-specific or confidential data altogether.
 </div>
 
-```
-Injector:
-  FullCachingPolicy:
-    class: CachingPolicy
-    properties:
-      cacheAge: <cache-duration>
-      vary: ''
-MyFullyCached_Controller:
-  dependencies:
-    Policies: '%$FullCachingPolicy'
-```
+```php
+<?php
 
-You will need to adjust the `MyFullyCached_Controller` to the controller(s) of choice for this policy to work.
+use CWP\CWP\PageTypes\BasePageController;
+
+class FullyCachedPageController extends BasePageController
+{
+    protected function init()
+    {
+        parent::init();
+        
+        HTTPCacheControlMiddleware::singleton()
+            ->enableCache()
+            ->setVary([])
+            ->setMaxAge(<max age>); // in seconds
+    }
+}
+```
 
 Note that 'Accept-Encoding' will automatically be added to the _Vary_ header by Apache's mod_deflate.
 
 #### Varying content
 
-As a rule of thumb, if you configure your _Cache-Control_ and _Vary_ correctly, you don't need to be worried about the caching levels.
+As a rule of thumb, if you configure your _Cache-Control_ and _Vary_ correctly, you don't need to be worried about the
+caching levels.
 
-Varying content is any URL which content depends on request data from the visitor. Lack of a session (_Cookie_ or _Authorization_ headers in the request) is usually a good first step to find non-varying URLs.
+Responses can declare that they vary on any header that is (or could be) sent with a request. It is unusual for a site to
+vary it's content on arbitrary headers, but it is possible. Sometimes your content might vary on User-Agent (if you redirect
+to a mobile site depending on user agent). If this is the case, then you should add a default vary to your config:
 
-Login abilities, IP whitelisting, and Basic Authentication all imply the content varies per user. All header-driven content changes need to be properly highlighted via a _Vary_ response header (which will automatically reduce to the "Light" cache level).
+```yml
+SilverStripe\Control\Middleware\HTTPCacheControlMiddleware:
+  defaultVary:
+    - User-Agent
+```
 
-Additionally, if you are serving both https and http from the same instance, you need to vary on _X-Forwarded-Protocol_ because of the `BaseURL` differences and the CWP network layout. You won't currently be able to use full caching on such double-protocol site.
+Login abilities, IP whitelisting, and Basic Authentication all imply the content varies per user. All header-driven
+content changes need to be properly highlighted via a _Vary_ response header (which will automatically reduce to the
+"Light" cache level).
 
-A table of some more obvious _Vary_ headers can be found in the [Controller Policy module documentation](https://github.com/silverstripe/silverstripe-controllerpolicy/blob/master/README.md#vary-headers). Keep in mind the more of these you specify, the more cache variations you'll create. More variations make it less likely that your visitors will get a cached response.
+Additionally, if you are serving both https and http from the same instance, you need to vary on _X-Forwarded-Protocol_ 
+because of the `BaseURL` differences and the CWP network layout. You won't currently be able to use full caching on such
+double-protocol site.
 
-Check your `.htaccess` files in the webroot and any subfolders, as they can influence the `Vary` header. For example, a `%{HTTP_HOST}` rewrite condition will [auto-add](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) a `Vary: Host` header.
+Keep in mind the more of these you specify, the more cache variations you'll create. More variations make it less likely
+that your visitors will get a cached response.
 
-If your content truly does not vary depending on the request, you will be able to utilise full caching for that URL - see the ["Full caching on dynamic content" chapter](#full-caching-on-dynamic-content-2).
+If your content truly does not vary depending on the request, you will be able to utilise full caching for that URL - see
+the ["Full caching on dynamic content" chapter](#full-caching-on-dynamic-content-2).
 
-Note that CWP's Local Cache (Varnish) has slightly different caching rules from the CDN (Incapsula). Depending on your headers, you might see cache hits from the Local Cache, but not from the CDN.
+Note that CWP's Local Cache (Varnish) has slightly different caching rules from the CDN (Incapsula). Depending on your
+headers, you might see cache hits from the Local Cache, but not from the CDN.
 
 #### Custom static response headers
 
