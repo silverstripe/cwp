@@ -48,3 +48,5 @@ This module sets up:
  * Spelling and Synonyms (including setting synonym groups in SiteConfig)
  * Boosting keywords extension to pages
  * Custom routing to the CWP search controller (see _config/routes.yml)
+
+ If you choose to customise the module's out-of-the-box behaviour with your own custom integration, ensure that your code gracefully handles Solr connectivity or configuration issues, such as server outages or invalid search index definitions.
