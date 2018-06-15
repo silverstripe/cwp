@@ -106,6 +106,9 @@ Adds extra CMS reporting tools to your SilverStripe project. It includes the fol
 * [Reports](https://github.com/silverstripe/silverstripe-reports) The module contains the API for creating backend reports in the SilverStripe Framework
 * [Security Report](https://github.com/silverstripe/silverstripe-securityreport) - The module adds a "Users, Groups and Permissions" report in the SilverStripe CMS
 * [Site-wide Content Report](https://github.com/silverstripe/silverstripe-sitewidecontent-report) - The module adds a report of all pages and files across all the project, including subsites
+* [SilverStripe Maintenance](https://github.com/bringyourownideas/silverstripe-maintenance) - The module reduces your maintenance related work.
+* [SilverStripe Security Checker](https://github.com/bringyourownideas/silverstripe-composer-security-checker) - The module adds a task which runs a check if any of the dependencies has known security vulnerabilities.
+* [SilverStripe Composer Update Checker](https://github.com/bringyourownideas/silverstripe-composer-update-checker) - The module checks if any of your Composer dependencies needs to be updated, and tracks the available and latest versions that can be updated to.
 
 ### [SilverStripe Content Blocks Recipe](https://github.com/silverstripe/recipe-content-blocks) 
 
