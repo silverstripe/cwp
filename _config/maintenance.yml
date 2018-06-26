@@ -1,0 +1,13 @@
+---
+Name: maintenanceproxyextensions
+Before: updatecheckerextensions
+Only:
+  moduleexists: bringyourownideas/silverstripe-maintenance
+---
+BringYourOwnIdeas\Maintenance\Util\ComposerLoader:
+  extensions:
+    - CWP\CWP\Extension\MaintenanceProxyExtension
+
+BringYourOwnIdeas\Maintenance\Util\ApiLoader:
+  extensions:
+    - CWP\CWP\Extension\MaintenanceProxyExtension
