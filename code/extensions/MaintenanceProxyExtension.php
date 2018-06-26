@@ -2,13 +2,7 @@
 
 namespace CWP\CWP\Extension;
 
-use BringYourOwnIdeas\Maintenance\Reports\SiteSummary;
-use SilverStripe\Core\Environment;
-use SilverStripe\Core\Extension;
-
-if (!class_exists(SiteSummary::class)) {
-    return;
-}
+use Extension;
 
 /**
  * Used to configure proxy settings for bringyourownideas/silverstripe-maintenance and its related modules
@@ -25,11 +19,6 @@ class MaintenanceProxyExtension extends Extension
      */
     public function onAfterBuild()
     {
-        // Mock COMPOSER_HOME if it's not defined already. Composer requires one of the two to be set.
-        if (!Environment::getEnv('HOME') && !Environment::getEnv('COMPOSER_HOME')) {
-            putenv('COMPOSER_HOME=/tmp');
-        }
-
         // Provide access for Composer's StreamContextFactory, since it creates its own stream context
         if ($proxy = $this->getCwpProxy()) {
             $_SERVER['CGI_HTTP_PROXY'] = $proxy;
@@ -56,14 +45,14 @@ class MaintenanceProxyExtension extends Extension
      */
     protected function getCwpProxy()
     {
-        if (!Environment::getEnv('SS_OUTBOUND_PROXY') || !Environment::getEnv('SS_OUTBOUND_PROXY_PORT')) {
+        if (!defined('SS_OUTBOUND_PROXY') || !defined('SS_OUTBOUND_PROXY_PORT')) {
             return '';
         }
 
         return sprintf(
             'tcp://%s:%d',
-            Environment::getEnv('SS_OUTBOUND_PROXY'),
-            Environment::getEnv('SS_OUTBOUND_PROXY_PORT')
+            SS_OUTBOUND_PROXY,
+            SS_OUTBOUND_PROXY_PORT
         );
     }
 }

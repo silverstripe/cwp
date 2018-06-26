@@ -2,12 +2,12 @@
 Name: maintenanceproxyextensions
 Before: updatecheckerextensions
 Only:
-  moduleexists: bringyourownideas/silverstripe-maintenance
+  moduleexists: silverstripe-maintenance
 ---
 BringYourOwnIdeas\Maintenance\Util\ComposerLoader:
   extensions:
     - CWP\CWP\Extension\MaintenanceProxyExtension
 
-BringYourOwnIdeas\Maintenance\Util\ApiLoader:
+BringYourOwnIdeas\Maintenance\Util\SupportedAddonsLoader:
   extensions:
     - CWP\CWP\Extension\MaintenanceProxyExtension
