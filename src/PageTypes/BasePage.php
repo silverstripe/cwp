@@ -62,7 +62,8 @@ class BasePage extends SiteTree
 
     private static $many_many = [
         'Terms' => TaxonomyTerm::class,
-        'RelatedPages' => [
+        'RelatedPages' => BasePage::class,
+        'RelatedPagesThrough' => [
             'through' => RelatedPageLink::class,
             'from' => 'BasePage',
             'to' => 'Child',
@@ -129,7 +130,7 @@ class BasePage extends SiteTree
                 GridField::create(
                     'RelatedPages',
                     _t(__CLASS__ . '.RelatedPages', 'Related pages'),
-                    $this->RelatedPages(),
+                    $this->RelatedPagesThrough(),
                     $components
                 )
             );
