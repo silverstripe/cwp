@@ -6,10 +6,6 @@ use BringYourOwnIdeas\Maintenance\Reports\SiteSummary;
 use SilverStripe\Core\Environment;
 use SilverStripe\Core\Extension;
 
-if (!class_exists(SiteSummary::class)) {
-    return;
-}
-
 /**
  * Used to configure proxy settings for bringyourownideas/silverstripe-maintenance and its related modules
  *
@@ -25,11 +21,6 @@ class MaintenanceProxyExtension extends Extension
      */
     public function onAfterBuild()
     {
-        // Mock COMPOSER_HOME if it's not defined already. Composer requires one of the two to be set.
-        if (!Environment::getEnv('HOME') && !Environment::getEnv('COMPOSER_HOME')) {
-            putenv('COMPOSER_HOME=/tmp');
-        }
-
         // Provide access for Composer's StreamContextFactory, since it creates its own stream context
         if ($proxy = $this->getCwpProxy()) {
             $_SERVER['CGI_HTTP_PROXY'] = $proxy;
