@@ -12,7 +12,7 @@ You must satisfy the following requirements to successfully connect to the share
 
 ## Solr Version Support
 
-Your project will be configured automatically by the [cwp/cwp-search](https://github.com/silverstripe/cwp-search) module to resemble production infrastructure as much as possible. Currently CWP supports only Solr version 4.
+Your project will be configured automatically by the [cwp/cwp-search](https://github.com/silverstripe/cwp-search) module to resemble production infrastructure as much as possible. Currently CWP only supports Solr version 4.
 
 ## Limitations and Acceptable Use Policy {#limitations}
 

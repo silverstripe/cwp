@@ -7,6 +7,8 @@ The following as already been pre-configured in the cwp-core and cwp modules tha
 If you used the cwp-installer, or have included the basic recipe in your code you won't need to implement the steps below in your project.
 Rather, these steps give you a high level idea of what is going on "under the hood" of Solr working with SilverStripe CMS.
 
+For additional insight you should take a look at [the official fulltext search documentation](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/master/docs/en/03_configuration.md)
+
 1) Define an index, and which fields should be searchable.
 
 ```php
@@ -44,8 +46,8 @@ $page->write();
 ```php
 use SilverStripe\FullTextSearch\Search\Queries\SearchQuery;
 
-$query = new SearchQuery();
-$query->search('My house is on fire');
+$query = SearchQuery::create()
+    ->addSearchTerm('My house is on fire');
 ```
 
 4) Apply that query to an index
@@ -54,59 +56,9 @@ $query->search('My house is on fire');
 $results = singleton(MyIndex::class)->search($query);
 ```
 
-### Searching Specific Fields
+### Querying
 
-By default, the index searches through all indexed fields.
-This can be limited by arguments to the `search()` call.
-
-```php
-use Page;
-use SilverStripe\FullTextSearch\Search\Queries\SearchQuery;
-
-$query = new SearchQuery();
-$query->search('My house is on fire', [Page::class . '_Title']);
-// No results, since we're searching in title rather than page content
-$results = singleton(MyIndex::class)->search($query);
-```
-
-### Searching Value Ranges
-
-Most values can be expressed as ranges, most commonly dates or numbers.
-To search for a range of values rather than an exact match, 
-use the `SearchQuery_Range` class. The range can include bounds on both sides,
-or stay open ended by simply leaving the argument blank.
-
-```php
-use Page;
-use SilverStripe\FullTextSearch\Search\Queries\SearchQuery;
-use SilverStripe\FullTextSearch\Search\Queries\SearchQuery_Range;
-
-$query = new SearchQuery();
-$query->search('My house is on fire');
-// Only include documents edited in 2011 or earlier
-$query->filter(Page::class . '_LastEdited', new SearchQuery_Range(null, '2011-12-31T23:59:59Z'));
-$results = singleton(MyIndex::class)->search($query);
-```
-
-Note: At the moment, the date format is specific to the search implementation.
-
-### Searching Empty or Existing Values
-
-Since there's a type conversion between the SilverStripe database, object properties
-and the search index persistence, its often not clear which condition is searched for.
-Should it equal an empty string, or only match if the field wasn't indexed at all?
-The `SearchQuery` API has the concept of a "missing" and "present" field value for this:
-
-```php
-use Page;
-use SilverStripe\FullTextSearch\Search\Queries\SearchQuery;
-
-$query = new SearchQuery();
-$query->search('My house is on fire');
-// Needs a value, although it can be false
-$query->filter(Page::class . '_ShowInMenus', SearchQuery::$present);
-$results = singleton(MyIndex::class)->search($query);	
-```
+To find out more about querying and how to write more complex queries, visit the [official fulltext search documentation](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/master/docs/en/04_querying.md). 
 
 ### Indexing Multiple Classes
 
