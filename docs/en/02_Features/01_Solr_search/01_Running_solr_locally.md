@@ -13,7 +13,7 @@ Older versions of *silverstripe-fulltextsearch* module used to bundle the Solr b
 </div>
 
 Alternatively you can use the quickstart installer that ships with the latest version of the fulltextsearch module. The 
-quickstart script will install a solr service on your local machine and set up your `_config.php` to allow you to get
+quickstart script will install a Solr service on your local machine and set up your `_config.php` to allow you to get
 started with minimal intervention.
 
 You can execute the quick start script by running `vendor/bin/fulltextsearch_quickstart` in your project root.
@@ -23,7 +23,7 @@ You can execute the quick start script by running `vendor/bin/fulltextsearch_qui
 Please read through the [Limitations and Acceptable Use Policy](configuration#limitations)
 of running Solr in the CWP infrastructure. 
 
-Most importantly, CWP infrastructure does no permit customisations to `solrconfig.xml`, this is to ensure stability of the shared service.
+Most importantly, CWP infrastructure does not permit customisations to `solrconfig.xml`, this is to ensure stability of the shared service.
 While you can customise this file on your local development environment, these customisations will be ignored by the CWP Solr server, and the file restored to a version very similar to the default supplied by *fulltextsearch* module.
 
 ## Configuring
@@ -32,7 +32,7 @@ If you have configured your project as described in the Configuration section of
 
 ## Running
 
-### With localsorl
+### With localsolr
 
 To start the local server instance from your run the following commands
 
