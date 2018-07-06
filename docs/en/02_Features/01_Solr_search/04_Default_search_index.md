@@ -3,7 +3,7 @@ summary: Information about how the Solr search index is pre-configured for CWP.
 
 ## Default CWP search index
 
-By default, a standard search index `CWP\Search\Solr\CwpSolrIndex` is included in the default recipe.
+By default, a standard search index `CWP\Search\Solr\CwpSolrIndex` is included in the CWP search recipe.
 This includes basic configuration necessary for searching pages.
 
 ```php
@@ -35,8 +35,8 @@ class CwpSolrIndex extends CwpSearchIndex
 }
 ```
 
-This index extends the core `CwpSearchIndex` abstract class, which includes additional functionality specific to CWP.
-Please note that if you want to index other database fields or need to create a custom index, it is necessary to extend this base class (`CwpSearchIndex`) in order to use much of the functionality detailed in this section (e.g. spell checking).
+This index extends the core `CWP\Search\CwpSearchIndex` abstract class, which includes additional functionality specific to CWP.
+Please note that if you want to index other database fields or need to create a custom index, it is necessary to extend this base class (`CWP\Search\CwpSearchIndex`) in order to use much of the functionality detailed in this section (e.g. spell checking).
 
 *Note:* The line `$this->addFilterField('ShowInSearch');` is a standard requirement for all CWP recipe versions, and will need to be added to any custom indexes created.
 

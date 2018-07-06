@@ -32,7 +32,7 @@ class StaffMember extends DataObject
         return 1;
     }
     
-    public canView()
+    public function canView()
     {
         return true;
     }

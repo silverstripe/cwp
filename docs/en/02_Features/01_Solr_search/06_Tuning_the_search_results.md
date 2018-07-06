@@ -142,7 +142,7 @@ will be able to view and edit this field.
 ![Synonyms](../../_images/synonyms.png)
 
 It's essential that after changing this value, a CMS administrator should run the `Solr_Configure`
-task at http://mysite.cwp.govt.nz/div/tasks/Solr_Configure. It's not necessary to run
+task at http://mysite.cwp.govt.nz/dev/tasks/Solr_Configure. It's not necessary to run
 Solr_Reindex in order for changes in synonyms to take effect.
 
 ## Boosting results

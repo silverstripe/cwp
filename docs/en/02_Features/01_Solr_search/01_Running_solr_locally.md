@@ -12,13 +12,19 @@ When selecting versions, make sure you use the version supported by CWP: `4.*@de
 Older versions of *silverstripe-fulltextsearch* module used to bundle the Solr binary. You should check the version of this module before proceeding with this guide.
 </div>
 
-## Differences to CWP
+Alternatively you can use the quickstart installer that ships with the latest version of the fulltextsearch module. The 
+quickstart script will install a Solr service on your local machine and set up your `_config.php` to allow you to get
+started with minimal intervention.
+
+You can execute the quick start script by running `vendor/bin/fulltextsearch_quickstart` in your project root.
+
+## Differences on CWP
 
 Please read through the [Limitations and Acceptable Use Policy](configuration#limitations)
 of running Solr in the CWP infrastructure. 
 
-Most importantly, CWP infrastructure enforces `solrconfig.xml` to ensure stability of the shared service.
-While you can customise this file on your local development environment, these customisations will automatically be removed by the CWP Solr server, and the file restored to a version very similar to the default supplied by *fulltextsearch* module.
+Most importantly, CWP infrastructure does not permit customisations to `solrconfig.xml`, this is to ensure stability of the shared service.
+While you can customise this file on your local development environment, these customisations will be ignored by the CWP Solr server, and the file restored to a version very similar to the default supplied by *fulltextsearch* module.
 
 ## Configuring
 
@@ -26,17 +32,25 @@ If you have configured your project as described in the Configuration section of
 
 ## Running
 
-To start the local server instance (if you are using the *silverstripe/fulltextsearch-localsolr* package), from your
-website root do:
+### With localsolr
+
+To start the local server instance from your run the following commands
 
 ```
 cd fulltextsearch-localsolr
 ./start.sh
 ```
 
-The screen should start filling with server messages.
+The screen should start filling with server messages. You will need to open another terminal to run any other commands.
 
-Now you can create the configuration files in another terminal. Run the following from your website root:
+### With quickstart script
+
+The quickstart script will install a full Solr service that will be running (and starts on system boot as well). You 
+won't need to do anything else after running the quickstart script.
+
+## Setting up the Solr index
+
+Now you can create the configuration files. Run the following from your website root:
 
 ```
 $ vendor/bin/sake dev/tasks/Solr_Configure verbose=1
@@ -52,18 +66,5 @@ You should be able to search your site now.
 
 ## Debugging locally via the web interface
 
-You can visit `http://localhost:8983/solr`, which will show you a list
-to the admin interfaces of all available indices.
+You can visit `http://localhost:8983/solr`, which will show you a list of the admin interfaces of all available indices.
 There you can search the contents of the index via the native SOLR web interface.
-
-It is possible to manually replicate the data automatically sent 
-to Solr when saving/publishing in SilverStripe, 
-which is useful when debugging front-end queries.
-
-```
-java -Durl=http://localhost:8983/solr/MyIndex/update/ -Dtype=text/xml -jar post.jar silverstripe-solr-test.xml
-```
-
-## Considerations
-
-Adding this module can cause automated buildtools (e.g. Travis CI) to try to include this package in their builds, thus considerably extending the build time.
