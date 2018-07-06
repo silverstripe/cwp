@@ -29,6 +29,10 @@ class NewsPage extends DatedUpdatePage
         'FeaturedImage' => Image::class,
     ];
 
+    private static $owns = [
+        'FeaturedImage',
+    ];
+
     private static $table_name = 'NewsPage';
 
     public function fieldLabels($includerelations = true)
