@@ -7,7 +7,8 @@ The following as already been pre-configured in the cwp-core and cwp modules tha
 If you used the cwp-installer, or have included the basic recipe in your code you won't need to implement the steps below in your project.
 Rather, these steps give you a high level idea of what is going on "under the hood" of Solr working with SilverStripe CMS.
 
-For additional insight you should take a look at [the official fulltext search documentation](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/master/docs/en/03_configuration.md)
+This document aims to describe the CWP-specific configuration.
+More options are described in the main [fulltextsearch module documentation](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/master/docs/en/index.md).
 
 1) Define an index, and which fields should be searchable.
 
@@ -58,7 +59,7 @@ $results = singleton(MyIndex::class)->search($query);
 
 ### Querying
 
-To find out more about querying and how to write more complex queries, visit the [official fulltext search documentation](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/master/docs/en/04_querying.md). 
+To find out more about querying and how to write more complex queries, visit the main [fulltextsearch module documentation](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/master/docs/en/04_querying.md). 
 
 ### Indexing Multiple Classes
 
