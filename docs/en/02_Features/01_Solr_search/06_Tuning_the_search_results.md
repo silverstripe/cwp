@@ -3,6 +3,14 @@ summary: How to configure spelling suggestions, synonyms and keyword boosting to
 
 # Fine tuning the search results
 
+## Overview
+
+Search behaviour often needs to adapt to the indexed content.
+The CWP search allows some fine tuning, for example
+by adding spelling suggestions and synonyms.
+
+More ways to adjust search behaviour are described in the main [fulltextsearch module documentation](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/master/docs/en/index.md).
+
 ## Before we begin
 
 **This feature requires cwp recipe 1.1.1 or above including the [cwp](https://github.com/silverstripe/cwp), [cwp-core](https://github.com/silverstripe/cwp-core), [cwp/cwp-search](https://github.com/silverstripe/cwp-search) (for CWP 2.0 or higher) and [fulltextsearch](https://github.com/silverstripe/silverstripe-fulltextsearch) modules specifically.**

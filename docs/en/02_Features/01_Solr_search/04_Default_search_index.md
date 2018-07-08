@@ -6,6 +6,9 @@ summary: Information about how the Solr search index is pre-configured for CWP.
 By default, a standard search index `CWP\Search\Solr\CwpSolrIndex` is included in the CWP search recipe.
 This includes basic configuration necessary for searching pages.
 
+This document aims to describe the CWP-specific configuration.
+More options on how to configure indexes are described in main [fulltextsearch module documentation](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/master/docs/en/index.md).
+
 ```php
 namespace CWP\Search\Solr;
 
