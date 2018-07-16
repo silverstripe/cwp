@@ -35,7 +35,7 @@ Consider using [caching](../performance-guide/caching) to speed up request execu
 
 ## PHP configuration
 
-CWP environments are running PHP 5.6 (see Debian "Jessie" [packages](https://packages.debian.org/jessie/)).
+CWP environments run PHP 5.6 by default (see Debian "Jessie" [packages](https://packages.debian.org/jessie/)). They can be upgraded to run PHP 7.1 via a request to the helpdesk. SilverStripe sites running Framework/CMS version 3.6 and up support PHP 7.
 
 The default `memory_limit` configuration is 128 MB. You can increase this to 256 MB
 with `ini_set('memory_limit', '256M');` in your code.
