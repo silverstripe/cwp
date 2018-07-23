@@ -92,14 +92,18 @@ If you are referencing files in other ways, please take care to add your own “
 Cache-Control: max-age=120, public
 ```
 
+**Important**: Even when caching is turned on via the `HTTPCacheControlMiddleware` API,
+SilverStripe automatically disables caching in many cases where it
+has the potential to expose uncacheable content (unless the `$force` argument is used).
+This behaviour applies when a PHP session is active,
+a [CSRF token](/developer_guides/forms/form_security) token is present,
+or draft content has been requested.
+
+
 #### Light caching on dynamic content
 
 You'll need to talk to your business owner about cache lifetimes: Updated content might not reach visitors until caches 
-expire. This policy is generally safe, but specific controllers may need tweaks. For example, the 
-[UserForms module](https://github.com/silverstripe/silverstripe-userforms) requires caching to be disabled because it
-generates a unique form submission token for each visitor.
-
-To enable light caching on your site you can add the following to your `PageController::init()` method:
+expire. To enable light caching on your site you can add the following to your `PageController::init()` method:
 
 ```php
 <?php
@@ -168,12 +172,8 @@ SilverStripe\Control\Middleware\HTTPCacheControlMiddleware:
 ```
 
 Login abilities, IP whitelisting, and Basic Authentication all imply the content varies per user. All header-driven
-content changes need to be properly highlighted via a _Vary_ response header (which will automatically reduce to the
+changes to your response content need to be properly highlighted via a _Vary_ response header (which will automatically reduce to the
 "Light" cache level).
-
-Additionally, if you are serving both https and http from the same instance, you need to vary on _X-Forwarded-Protocol_ 
-because of the `BaseURL` differences and the CWP network layout. You won't currently be able to use full caching on such
-double-protocol sites.
 
 Keep in mind the more of these you specify, the more cache variations you'll create. More variations make it less likely
 that your visitors will get a cached response.
@@ -183,6 +183,27 @@ the ["Full caching on dynamic content" chapter](#full-caching-on-dynamic-content
 
 Note that CWP's Local Cache (Varnish) has slightly different caching rules from the CDN (Incapsula). Depending on your
 headers, you might see cache hits from the Local Cache, but not from the CDN.
+
+#### Varying content with HTTPS and X-Forwarded-Protocol
+
+On CWP, both HTTPS and HTTP requests are sent to your PHP process via HTTP.
+HTTPS requests have a `X-Fowarded-Protocol: https` header added.
+SilverStripe is built to automatically pick this up and respond
+appropriately for methods such as `Director::is_ssl()`.
+
+
+SilverStripe adds a `Vary: X-Forwarded-Protocol` header by default
+to prepare for cases where the returned content might vary on protocol.
+The most common case is an absolute domain in the `<base>` tag.
+
+CWP is responsible for managing this header:
+
+* The `X-Forwarded-Protocol` header will be removed from any incoming requests
+  from the outside world before being passed to PHP.
+* The `Vary: X-Forwarded-Protocol` that your PHP generates will be removed from
+  any responses sent back to visitors. In particular, this ensures
+  that Incapsula’s caching remains operational.
+
 
 #### Custom static response headers
 
