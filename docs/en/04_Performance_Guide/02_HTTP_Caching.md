@@ -58,8 +58,8 @@ We will now explain some simple techniques on how to increase your cache utilisa
 
 | Cache level | _Cache-Control_ header | _Vary_ header | Appropriate for |
 | - | - | - |
-| None | "no-store, no-cache, must-revalidate" | "X-Forwarded-Protocol, X-Requested-With" | all |
-| Light | "max-age=X, must-revalidate" | "X-Forwarded-Protocol, X-Requested-With, […]" | all |
+| None | "no-store, no-cache, must-revalidate" | "X-Forwarded-Protocol" | all |
+| Light | "max-age=X, must-revalidate" | "X-Forwarded-Protocol, […]" | all |
 | Full | "max-age=X" | _none_ | non-varying* |
 
 In CWP 1.9+ developers can make use of the `HTTPCacheControl` class to control the `Cache-Control` header added to responses. This is covered in more detail in the SilverStripe docs on [HTTP cache headers](https://docs.silverstripe.org/en/3/developer_guides/performance/http_cache_headers/#cache-control-headers).
