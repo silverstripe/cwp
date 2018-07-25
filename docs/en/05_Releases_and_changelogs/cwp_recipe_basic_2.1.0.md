@@ -48,6 +48,8 @@ A stable version of `silverstripe/textextraction` (3.0.0) is now available for u
 
 ## Accepted Failing Tests
 
+All noted failures have been fixed and will be resolved in the next CWP 2.1 or 2.x recipe release.
+
 ### recipe-cms
 
  * SilverStripe\AssetAdmin\Tests\Controller\AssetAdminTest::testSaveOrPublish ([issue](https://github.com/silverstripe/silverstripe-asset-admin/issues/787))
