@@ -40,10 +40,6 @@ ru:
     Term: Условие
     Terms: Условия
     TermsDescription: 'Нажмите для расширения условий поиска'
-  CWP\CWP\PageTypes\BasePageController:
-    EmptySearch: 'Задан пустой поисковый запрос.'
-    MetaTitle: 'Поиск {keywords}'
-    NoResult: 'По Вашему запросу ничего не найдено.'
   CWP\CWP\PageTypes\DatedUpdateHolder:
     DATE_EXAMPLE: '(например: 2017/12/30)'
     FILTER_BETWEEN: между

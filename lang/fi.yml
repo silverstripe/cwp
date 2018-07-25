@@ -40,8 +40,6 @@ fi:
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractTextFieldLabel: Tiivistelmä
     DateLabel: Päivämäärä
-  CWP\CWP\PageTypes\EventHolder:
-    Upcoming: 'Tulevat tapahtumat'
   CWP\CWP\PageTypes\EventPage:
     PLURALNAME: Tapahtumasivut
     SINGULARNAME: Tapahtumasivu

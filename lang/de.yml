@@ -27,8 +27,6 @@ de:
     TagsTabTitle: Schlagwörter
   CWP\CWP\PageTypes\DatedUpdatePage:
     DateLabel: Datum
-  CWP\CWP\PageTypes\EventHolder:
-    Upcoming: 'Anstehende Ereignisse'
   CWP\CWP\PageTypes\EventPage:
     PLURALNAME: Ereignisseiten
     SINGULARNAME: Ereignisseite

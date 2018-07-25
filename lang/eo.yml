@@ -20,6 +20,8 @@ eo:
     ExternalLinkLabel: 'Ekstera ligilo'
     InternalLinkLabel: 'Interna ligilo'
     NameLabel: Nomo
+    Note: 'Notu: Se vi agordas eksteran ligilon, la interna ligilo estos malatentata.'
+    Note2: 'Uzu ĉi tion por agordi ligilon al paĝo aŭ en ĉi tiu retejo (interna ligilo) aŭ al alia retejo (ekstera ligilo).'
     PLURALNAME: 'Rapidaj ligiloj'
     PLURALS:
       one: 'Unu rapida ligilo'
@@ -57,10 +59,6 @@ eo:
     Term: Termino
     Terms: Terminoj
     TermsDescription: 'Alklaku por serĉi pluajn erojn'
-  CWP\CWP\PageTypes\BasePageController:
-    EmptySearch: 'Sercota kampo malplenas, bonvolu enigi informpeton.'
-    MetaTitle: 'Serĉi {keywords}'
-    NoResult: 'Via informpeto ne liveris rezulton.'
   CWP\CWP\PageTypes\DateUpdatePage:
     AuthorFieldLabel: Aŭtoro
     EndTimeFieldLabel: 'Fina horo'
@@ -80,6 +78,11 @@ eo:
       other: '{count} ĝisdatigaj datujoj'
     SINGULARNAME: 'Ĝisdatiga datujo'
     TO_DATE: 'Ĝisa dato'
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Vakigi
+    DateRangeFilterMessage: 'Filtri laŭ unuopa dato'
+    Filter: Filtrilo
+    FilterAppliedMessage: 'Aplikis filtron laŭ la inversigitaj datoj'
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractDesc: 'La resumo uzatas kiel resumo en la listaj paĝoj. Ĝi havas la limon 160 signoj'
     AbstractTextFieldLabel: Resumo
@@ -96,6 +99,8 @@ eo:
       one: 'Unu eventujo'
       other: '{count} eventujoj'
     SINGULARNAME: Eventujo
+  CWP\CWP\PageTypes\EventHolderController:
+    Events: Eventoj
     Upcoming: 'Futuraj eventoj'
   CWP\CWP\PageTypes\EventPage:
     DESCRIPTION: 'Priskribas eventon okazontan je specifa dato.'
@@ -141,3 +146,6 @@ eo:
     PagesForSubsite: '- en la subretejo ''{SubsiteTitle}'''
     Title: 'Resumaj statistikoj'
     TotalPageCount: 'Totala nombro da paĝoj, en ĉiuj tradukoj kaj subretejoj'
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Uzita je:'
+    PAGES: paĝo(j)

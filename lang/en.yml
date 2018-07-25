@@ -66,7 +66,7 @@ en:
     LocationFieldLabel: Location
     StartTimeFieldLabel: 'Start Time'
   CWP\CWP\PageTypes\DatedUpdateHolder:
-    DATE_EXAMPLE: '(example: 30/12/2017)'
+    DATE_EXAMPLE: '(example: 2017/12/30)'
     FILTER_BETWEEN: between
     FILTER_IN: in
     FILTER_ON: 'on'
