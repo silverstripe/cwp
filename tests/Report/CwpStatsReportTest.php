@@ -42,11 +42,11 @@ class CwpStatsReportTest extends SapphireTest
         $report = CwpStatsReport::create();
         $records = $report->sourceRecords([])->toArray();
         $i = 0;
-        $this->assertEquals($records[$i++]['Count'], 4, 'Four pages in total, across locales, subsites, live only.');
+        $this->assertEquals(4, $records[$i++]['Count'], 'Four pages in total, across locales, subsites, live only.');
         if (class_exists(Subsite::class)) {
-            $this->assertEquals($records[$i++]['Count'], 3, 'Three pages in the main site, if subsites installed.');
-            $this->assertEquals($records[$i++]['Count'], 1, 'One page in the subsite, if subsites installed');
+            $this->assertEquals(3, $records[$i++]['Count'], 'Three pages in the main site, if subsites installed.');
+            $this->assertEquals(1, $records[$i++]['Count'], 'One page in the subsite, if subsites installed');
         }
-        $this->assertEquals($records[$i++]['Count'], 1, 'One file in total.');
+        $this->assertEquals(1, $records[$i++]['Count'], 'One file in total.');
     }
 }
