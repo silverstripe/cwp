@@ -18,6 +18,7 @@ use TractorCow\Fluent\Model\Locale;
 use TractorCow\Fluent\State\FluentState;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\ORM\FieldType\DBInt;
+use CWP\CWP\Model\RelatedPageLink;
 
 /**
  * `BasePage` is a foundation page class which can be used for constructing your own page types. By default it is
@@ -62,6 +63,15 @@ class BasePage extends SiteTree
     private static $many_many = [
         'Terms' => TaxonomyTerm::class,
         'RelatedPages' => BasePage::class,
+        'RelatedPagesThrough' => [
+            'through' => RelatedPageLink::class,
+            'from' => 'BasePage',
+            'to' => 'Child',
+        ]
+    ];
+
+    private static $belongs_many_many = [
+        'SimilarPages' => BasePage::class
     ];
 
     /**
@@ -120,7 +130,7 @@ class BasePage extends SiteTree
                 GridField::create(
                     'RelatedPages',
                     _t(__CLASS__ . '.RelatedPages', 'Related pages'),
-                    $this->RelatedPages(),
+                    $this->RelatedPagesThrough(),
                     $components
                 )
             );
