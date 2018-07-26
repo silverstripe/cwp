@@ -82,8 +82,9 @@ More information on upgrading major versions of CWP can be found in the [online 
 
 ### Security
 
- * 2018-07-16 [4e1bb1b]() Convert serialisation to JSON where possible. PHP serialise is still used as a deprecated fallback (Guy Marriott) - See [ss-2018-017](https://www.silverstripe.org/download/security-releases/ss-2018-017)
- * 2018-07-16 [ef4801a]() Potential XSS vulnerability in checkbox field, update overloading from core (Robbie Averill) - See [ss-2018-017](https://www.silverstripe.org/download/security-releases/ss-2018-017)
+ * 2018-07-18 [e2af1cf](https://github.com/silverstripe/cwp-installer/commit/e2af1cfdee33be8e8a4e89fd099c7d9d12d4cb6b) Disabling use of serialise fallback in MultiValueField for new installations (Guy Marriott) - See [ss-2018-017](https://www.silverstripe.org/download/security-releases/ss-2018-017)
+ * 2018-07-16 [31fbc8c](https://github.com/symbiote/silverstripe-multivaluefield/commit/31fbc8c208431fc7d7e96da6fa39ca057d978953) Convert serialisation to JSON where possible. PHP serialise is still used as a deprecated fallback (Guy Marriott) - See [ss-2018-017](https://www.silverstripe.org/download/security-releases/ss-2018-017)
+ * 2018-07-16 [f523dfc](https://github.com/symbiote/silverstripe-multivaluefield/commit/f523dfcb13b2bd9eb110ffa0c83087a49322ad3b) Potential XSS vulnerability in checkbox field, update overloading from core (Robbie Averill) - See [ss-2018-017](https://www.silverstripe.org/download/security-releases/ss-2018-017)
  * 2018-04-24 [e4c0f271b](https://github.com/silverstripe/silverstripe-framework/commit/e4c0f271b00765b46ce85e614d0c48aad4e72630) Ensure passwords do not get added to session on submission failure (Aaron Carlino) - See [ss-2018-013](https://www.silverstripe.org/download/security-releases/ss-2018-013)
 
 ### API Changes
@@ -115,7 +116,6 @@ More information on upgrading major versions of CWP can be found in the [online 
 
 ### Bugfixes
 
- * 2018-07-25 [51b2883](https://github.com/silverstripe/cwp-installer/commit/51b28835aea2dfbc563bd9a2dc7fb68bec9b08ef) ing lock (Guy Marriott)
  * 2018-07-17 [e38c30ff0](https://github.com/silverstripe/silverstripe-framework/commit/e38c30ff0d9e4ae8ae31a59836fb8e9891f559a5) sizeof doesnt work with null types (Daniel Hensby)
  * 2018-06-26 [837920a](https://github.com/silverstripe/cwp/commit/837920a6bd00d190444c70fb69f6566d1d02f975) Maintenance module extension now provides CWP proxy information for HTTP requests (Robbie Averill)
  * 2018-06-19 [d392ca7](https://github.com/silverstripe/silverstripe-blog/commit/d392ca72f19e607f69973f635b559229c61d337a) Make sure `setAllowMultibyte` is on when looking up by URLSegment (Daniel Hensby)
