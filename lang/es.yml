@@ -36,7 +36,6 @@ es:
     DateLabel: Fecha
   CWP\CWP\PageTypes\EventHolder:
     DESCRIPTION: 'La página contenedora para páginas de eventos, proporciona filtrado de eventos y paginación'
-    Upcoming: 'Próximos eventos'
   CWP\CWP\PageTypes\EventPage:
     DESCRIPTION: 'Describe un evento que ocurre en una fecha específica.'
     PLURALNAME: 'Páginas de eventos'

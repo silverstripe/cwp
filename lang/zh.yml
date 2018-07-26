@@ -9,7 +9,7 @@ zh:
     TwitterFieldDesc: 'Twitter 用户名 (eg, http://twitter.com/<strong>username</strong>)'
   CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 外部链接
-    InternalLinkLabel: 内部链接
+    InternalLinkLabel: '内部链接'
     NameLabel: 姓名
     PLURALNAME: 快速链接
     ParentRelationLabel: 父
@@ -18,24 +18,24 @@ zh:
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 新增
     FeatureButtonText: 按钮文字
-    FeatureCategoryDropdown: 类别图标
-    FeatureContentFieldLabel: 内容
-    FeatureLink: 跳转目标页
-    LearnMoreLink: 链接到“了解详情”按钮的页面：
-    Title: 标题
+    FeatureCategoryDropdown: '类别图标'
+    FeatureContentFieldLabel: '内容'
+    FeatureLink: '跳转目标页'
+    LearnMoreLink: '链接到“了解详情”按钮的页面：'
+    Title: '标题'
   CWP\CWP\PageTypes\BasePage:
     ColumnPageType: 页面类型
     ColumnTitle: 题目
     PLURALNAME: 基本页面
-    RelatedPages: 相关页面
+    RelatedPages: '相关页面'
     SINGULARNAME: 基本页面
-    TagsTabTitle: 标签
+    TagsTabTitle: '标签'
     Taxonomy: 分类法
     Term: 条款
     Terms: 条款
   CWP\CWP\PageTypes\DatedUpdateHolder:
     PLURALNAME: 基本页面
-    SINGULARNAME: 日期更新持有者
+    SINGULARNAME: '日期更新持有者'
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractDesc: '此摘要在清单页面用作概要。其上限是 160 个字符。'
     AbstractTextFieldLabel: 摘要
@@ -44,19 +44,18 @@ zh:
   CWP\CWP\PageTypes\EventHolder:
     DESCRIPTION: 事件页面的容器页面，提供事件筛选与分页导航
     PLURALNAME: 基页
-    SINGULARNAME: 事件举办者
-    Upcoming: 后续事件
+    SINGULARNAME: '事件举办者'
   CWP\CWP\PageTypes\EventPage:
     DESCRIPTION: 描述特定日期发生的事件
     SINGULARNAME: 活动页面
   CWP\CWP\PageTypes\FooterHolder:
-    DESCRIPTION: 举办者页面将所有子页面显示为页脚的链接
+    DESCRIPTION: '举办者页面将所有子页面显示为页脚的链接'
     PLURALNAME: 基本页面
-    SINGULARNAME: 脚注持有者
+    SINGULARNAME: '脚注持有者'
   CWP\CWP\PageTypes\NewsHolder:
     DESCRIPTION: 新闻页面的容器页面，提供新闻筛选与分页导航
     PLURALNAME: 基本页面
-    SINGULARNAME: 新举办者
+    SINGULARNAME: '新举办者'
   CWP\CWP\PageTypes\NewsPage:
     DESCRIPTION: 描述一则新闻
     SINGULARNAME: 新闻页面

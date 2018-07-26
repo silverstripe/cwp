@@ -2,20 +2,65 @@ sv:
   CWP\CWP\Extensions\CustomSiteConfig:
     FbField: 'Facebook UID eller användarnamn'
     GaField: 'Google Analytics-konto'
+    SocialMediaTab: 'Sociala medier'
+    TwitterField: Twitter-användarnamn
+    TwitterFieldDesc: 'Twitter-användarnamn (t.ex. http://twitter.com/<strong>användarnamn</strong>)'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    WEBSITE_TITLE: 'Din hemsida (valfritt)'
+    WILL_NOT_BE_PUBLISHED: 'Kommer inte att publiceras.'
+  CWP\CWP\Extensions\CwpSiteTreeExtension:
+    SHOW_PAGE_UTILITIES: 'Visa sidverktyg?'
+    SHOW_PAGE_UTILITIES_HELP: 'Du kan stänga av sidverktyg (skriv ut, dela, etc) för den här sidan'
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Den här listan visar alla sidor där filen har lagts till genom en WYSIWYG-editor.'
+    EDIT: Ändra
+  CWP\CWP\Model\Quicklink:
+    ExternalLinkLabel: 'Extern länk'
+    InternalLinkLabel: 'Intern länk'
+    NameLabel: Namn
+    Note: 'Obs: Om du anger en extern länk kommer den interna länken att ignoreras.'
+    Note2: 'Använd detta för att ange en länk till en sida på denna webbplats (intern länk) eller på en annan webbplats (extern länk).'
+    PLURALNAME: Snabblänkar
+    PLURALS:
+      one: 'En snabblänk'
+      other: '{count} snabblänkar'
+    ParentRelationLabel: Förälder
+    SINGULARNAME: Snabblänk
+    SortOrderLabel: Ordning
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Skapa ny'
+    ButtonTextRequired: 'Knapptexten måste fyllas i'
     FeatureButtonText: Knapp-text
     FeatureCategoryDropdown: Kategori-ikon
     FeatureContentFieldLabel: Innehåll
     FeatureLink: 'Sida att länka till'
     LearnMoreLink: 'Sida att länka "Läs mer"-knappen till'
     PLURALNAME: Hem-sidor
+    PLURALS:
+      one: 'En hemsida'
+      other: '{count} hemsidor'
     SINGULARNAME: Hem
     Title: Titel
   CWP\CWP\PageTypes\BasePage:
     ColumnPageType: Sidtyp
     ColumnTitle: Titel
-    PLURALNAME: 'Bas sidor'
+    PLURALNAME: Bas-sidor
+    PLURALS:
+      one: 'En bas-sida'
+      other: '{count} bas-sidor'
     RelatedPages: 'Relaterade sidor'
+    SINGULARNAME: Bas-sida
     TagsTabTitle: Taggar
     Taxonomy: Taxonomi
+    TermsDescription: 'Klicka för att söka efter ytterligare objekt'
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Författare
+    EndTimeFieldLabel: Sluttid
+    LocationFieldLabel: Plats
+    StartTimeFieldLabel: Starttid
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    DATE_EXAMPLE: '(till exempel: 2017/12/30)'
+    FROM_DATE: 'Från datum'
+    TO_DATE: 'Till datum'
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Rensa

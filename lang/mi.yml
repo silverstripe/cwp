@@ -41,7 +41,6 @@ mi:
     DESCRIPTION: 'Whārangi ipu mō ngā Whārangi Takahanga, ka whakarato tātaringa takahanga me te whakawhārangitanga'
     PLURALNAME: 'Ngā Whārangi Taketake'
     SINGULARNAME: 'Pūpupuri Takahanga'
-    Upcoming: 'Ngā takahanga taumai'
   CWP\CWP\PageTypes\EventPage:
     DESCRIPTION: 'Ka whakaahua i tētahi takahanga i tētahi rā tauwhāiti.'
     SINGULARNAME: 'Whārangi Takahanga'
