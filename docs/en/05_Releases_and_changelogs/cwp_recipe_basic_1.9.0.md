@@ -2,9 +2,10 @@
 
 ## Overview
 
-This upgrade includes CMS and Framework version 3.7.0
+This upgrade includes CMS and Framework version 3.7.1
 
  * [SilverStripe 3.7.0](https://docs.silverstripe.org/en/3/changelogs/3.7.0)
+ * [SilverStripe 3.7.1](https://docs.silverstripe.org/en/3/changelogs/3.7.1)
 
 Upgrade to Recipe 1.9.0 is optional, but is recommended for all CWP sites currently on CWP 1.0.0 or above.
 
