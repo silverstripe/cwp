@@ -35,6 +35,14 @@ The Installed Modules report can be added to your site through the combination o
 
 Information on accessing the report is covered in this [user guide](https://github.com/bringyourownideas/silverstripe-maintenance/blob/1/docs/en/userguide/index.md).
 
+### Page History Viewer
+
+The CWP 2.0 release [introduced content blocks](https://www.cwp.govt.nz/updates/news/cwp-2-0-release/) through the silverstripe-elemental module. This release builds on that functionality by introducing a feature developed as a co-fund submission that focuses on improving the page history viewer.
+
+With a need for CMS users to confidently and accurately understand what has changed on a page that utilises content blocks, improvements have been made to allow users to review the edit history of both the content blocks as individual components as well as a group of content blocks sitting on a particular page.
+
+This improvement allows content blocks to be auditable and supports compliance with Official Information Act requests and Information and Records Management standards.
+
 ### Caching Improvements
 
 HTTP caching is an important part of making websites fast and reliable. This CWP release aims to avoid mistakes in the process by providing more high level [HTTP Caching APIs](https://docs.silverstripe.org/en/4/changelogs/4.2.0/#http-cache-header-changes). The default system behaviour will also pick up more situations where caching needs to be disabled automatically, for example when previewing draft content. CWP projects can choose to make this behaviour more secure by opting out of [session-based draft stages](https://docs.silverstripe.org/en/4/changelogs/4.2.0/#disable-session-based-stage-setting) and solely relying on the `?stage=Stage` parameter.
@@ -76,14 +84,11 @@ Inclusion of the new Installed Module Report, mentioned above, requires both the
 
 A stable version of `silverstripe/textextraction` (3.0.0) is now available for use in CWP 2.1.
 
-## Notable changes
+## Other Notable changes
 
  * The default project name has been changed from `mysite` to `app`
  * Disable session-based stage setting in `Versioned`
  * Versioned cache segmentation by stage
- * Improvements to HTTP caching APIs
- * New "installed modules" report in the CMS
- * History Viewer added for content blocks and pages using content blocks
 
 ## Accepted Failing Tests
 
