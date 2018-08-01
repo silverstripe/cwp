@@ -20,7 +20,7 @@ The installation of `cwp/agency-extensions` is suggested as it provides addition
 
 ## Getting started
 
-This theme is designed to augment the base functionality and framework provided by the [CWP Starter theme]-(https://github.com/silverstripe/cwp-starter-theme). As such, [all of the documentation for the CWP Starter theme](05_Customising_the_starter_theme) is relevant to this theme as well. We suggest you familiarise yourself with this documentation.
+This theme is designed to augment the base functionality and framework provided by the [CWP Starter theme](https://github.com/silverstripe/cwp-starter-theme). As such, [all of the documentation for the CWP Starter theme](05_Customising_the_starter_theme.md) is relevant to this theme as well. We suggest you familiarise yourself with this documentation.
 
 As a general rule, the CWP Team have endeavoured to constrain changes for this theme to CSS and Javascript wherever 
 possible, as opposed to modifying and duplicating the templates. As a cascading theme, all templates in this theme will 
@@ -31,12 +31,12 @@ If you need to modify template markup from the SilverStripe framework, other mod
 ## Development
 
 <div class="alert alert-info" markdown='1'>
-Please familiarise yourself with [Customising the starter theme](05_Customising_the_starter_theme), as all documentation there is relevant for this subtheme as well.
+Please familiarise yourself with [Customising the starter theme](05_Customising_the_starter_theme.md), as all documentation there is relevant for this subtheme as well.
 </div>
 
 ### Setup
 
-For development you will need Node.js and npm installed. Please see the [Customising the starter theme](05_Customising_the_starter_theme) article for more information.
+For development you will need Node.js and npm installed. Please see the [Customising the starter theme](05_Customising_the_starter_theme.md) article for more information.
 
 Next, you need to install the required npm packages. You will need to do this both in the CWP Starter theme and in the "starter_watea" subtheme, as this subtheme imports components from the "starter" theme during Sass building. Ensure you have changed each theme's directory first:
 
@@ -95,4 +95,4 @@ npm run lint-js
 npm run lint-sass
 ```
 
-For information on the rules and configuration around these linters, please see the [CWP Starter theme](05_Customising_the_starter_theme) documentation regarding "working with standards".
+For information on the rules and configuration around these linters, please see the [CWP Starter theme](05_Customising_the_starter_theme.md) documentation regarding "working with standards".
