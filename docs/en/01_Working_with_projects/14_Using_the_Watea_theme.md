@@ -26,7 +26,7 @@ As a general rule, the CWP Team have endeavoured to constrain changes for this t
 possible, as opposed to modifying and duplicating the templates. As a cascading theme, all templates in this theme will 
 be applied over the top (with priority) of the CWP Starter theme.
 
-If you need to modify template markup from the SilverStripe framework, other modules or even the Starter theme, you can copy them into the "starter_watea" subtheme directory and modify them there.
+If you need to modify template markup from the SilverStripe framework, other modules or even the Starter theme, you can copy them into the "watea" subtheme directory and modify them there.
 
 ## Development
 
@@ -38,12 +38,12 @@ Please familiarise yourself with [Customising the starter theme](customising_the
 
 For development you will need Node.js and npm installed. Please see the [Customising the starter theme](customising_the_starter_theme) article for more information.
 
-Next, you need to install the required npm packages. You will need to do this both in the CWP Starter theme and in the "starter_watea" subtheme, as this subtheme imports components from the "starter" theme during Sass building. Ensure you have changed each theme's directory first:
+Next, you need to install the required npm packages. You will need to do this both in the CWP Starter theme and in the "watea" subtheme, as this subtheme imports components from the "starter" theme during Sass building. Ensure you have changed each theme's directory first:
 
 ```
 cd themes/starter
 npm install
-cd ../starter_watea
+cd ../watea
 npm install
 ```
 
