@@ -2,17 +2,57 @@
 
 ## Overview
 
+We are happy to announce the 1.9.0 quarterly release of the CWP recipe. 
+
 This upgrade includes CMS and Framework version 3.7.1
 
  * [SilverStripe 3.7.0](https://docs.silverstripe.org/en/3/changelogs/3.7.0)
  * [SilverStripe 3.7.1](https://docs.silverstripe.org/en/3/changelogs/3.7.1)
 
-Upgrade to Recipe 1.9.0 is optional, but is recommended for all CWP sites currently on CWP 1.0.0 or above.
+Upgrade to Recipe 1.9.0 is optional, but is recommended for all CWP sites.
+
+It contains new features which help you make decisions on an upgrade path (via the Installed Modules Report), as well as important changes to make caching of your sites safer and easier. As part of the caching changes, we’ve deprecated the (optional) [controllerpolicy module](https://github.com/silverstripe/silverstripe-controllerpolicy), and recommend new core APIs for sending HTTP cache headers instead. If you are not caching your site, this is a great time to start: Fast sites make happy users, and are more resilient to traffic spikes. Read our [CWP Performance Guide](https://www.cwp.govt.nz/developer-docs/en/1/performance_guide/) for details.
+
+## New Features
+
+### Installed Modules Report
+
+Developed for the Common Web Platform as a co-fund submission, the Installed Modules Report otherwise named in the submission as the ‘Site Summariser’ has been built to provide agencies with access to module information, allowing them to make faster and more informed decisions about upgrading their site and modules. 
+
+Bringing site and module information to the CMS, the Installed Modules Report aims to:
+
+* Provide those responsible for agency sites to access a snapshot on the current build of their site and what upgrades are available.
+* Provide a list of what modules are utilised by the site and where further information can be found relating to user help documentation and module features.
+* Highlight known module security issues.
+* Provide a ‘health’ rating of each module based on the security and build quality.
+
+The Installed Modules report can be added to your site through the combination of the below repositories. Consult with your development team to have this added to your site.
+
+* [SilverStripe maintenance module](https://addons.silverstripe.org/add-ons/bringyourownideas/silverstripe-maintenance)
+* [SilverStripe composer security checker](https://addons.silverstripe.org/add-ons/bringyourownideas/silverstripe-composer-security-checker)
+* [SilverStripe composer update checker](https://addons.silverstripe.org/add-ons/bringyourownideas/silverstripe-composer-update-checker)
+
+Information on accessing the report is covered in this [user guide](https://github.com/bringyourownideas/silverstripe-maintenance/blob/1/docs/en/userguide/index.md).
+
+### Caching Improvements
+
+HTTP caching is an important part of making websites fast and reliable. This CWP release aims to avoid mistakes in the process by providing more high level [HTTP Caching APIs](https://docs.silverstripe.org/en/3/changelogs/3.7.0#http-cache-header-changes). The default system behaviour will also pick up more situations where caching needs to be disabled automatically, for example when previewing draft content. CWP projects can choose to make this behaviour more secure by opting out of [session-based draft stages](https://docs.silverstripe.org/en/3/changelogs/3.7.0#disable-session-based-stage-setting) and solely relying on the `?stage=Stage` parameter.
+
+## Security Changes
+
+* Resolved a potential low level object injection exploit in the silverstripe-multivaluefield module. See [SS-2018-017](https://www.silverstripe.org/download/security-releases/ss-2018-017).
+* Resolved a potential low level cross site scripting vulnerability in the silverstripe-multivaluefield module. See [SS-2018-017](https://www.silverstripe.org/download/security-releases/ss-2018-017).
+* Resolved a potential low level vulnerability where in some circumstances a form could populate a PasswordField with submitted data back to the user who submitted it. See [SS-2018-013](https://www.silverstripe.org/download/security-releases/ss-2018-013).
+
+For details on these and previous security fixes, please refer to our [security release announcement page](http://www.silverstripe.org/software/download/security-releases/).
+
 
 ## Upgrading Instructions
 
 This upgrade can be carried out by any development team familiar with SilverStripe CMS, but if would like
 SilverStripe's assistance, you can request support via the [Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
+
+In order to update an existing site to use the new basic recipe the following changes to your composer.json can be made:
 
 ```json
 "require": {
@@ -23,12 +63,9 @@ SilverStripe's assistance, you can request support via the [Service Desk](https:
 "prefer-stable": true
 ```
 
+The new Installed Module Report, mentioned above, is included by default as part of “cwp-recipe-basic”.
+
 More information on upgrading major versions of CWP can be found in the [online documentation](https://www.cwp.govt.nz/developer-docs/en/2/working_with_projects/upgrading/)
-
-## Notable changes
-
- * New "installed modules" report in the CMS
- * Caching improvements. See the [CWP Performance Guide](https://www.cwp.govt.nz/developer-docs/en/1/performance_guide/)
 
 ## Accepted Failing Tests
 
