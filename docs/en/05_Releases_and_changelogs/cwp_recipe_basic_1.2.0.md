@@ -27,10 +27,10 @@ the contract. This is a last resort as it will incur cost and creates a risk of 
   provides a subsite-filterable report of all files and pages on the site. This provides an easy to access
   high level summary of site size and structure. This module is installed and available by default.
   
-* The [Realme authentication module](https://github.com/silverstripe/silverstripe-realme) Provides CWP
+* The [RealMe authentication module](https://github.com/silverstripe/silverstripe-realme) Provides CWP
   site authentication via [www.realme.govt.nz](https://www.realme.govt.nz/).
   This module must be installed separately, and requires server side configuration before it may be used.
-  See the [CWP realme documentation](/cwp-features/realme_authentication) for more information.
+  See the [CWP RealMe documentation](/cwp-features/realme_authentication) for more information.
 
 
 * Update of framework to version 3.2. This includes a large number of major changes.
