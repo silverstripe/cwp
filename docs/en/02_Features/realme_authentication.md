@@ -1,47 +1,50 @@
 title: RealMe Authentication
 summary: User authentication using RealMe for SilverStripe CMS websites.
 
-# RealMe Authentication module
+# RealMe Authentication 
 
-The [RealMe module](https://github.com/silverstripe/silverstripe-realme/) enables agencies to use RealMe, the 
-government's preferred approach for website authentication, to deliver online services or restrict information to 
-specific people.
+## RealMe authentication
+[RealMe® login service](https://developers.realme.govt.nz/how-realme-works/how-realme-works-2/) provides a single login, letting citizens use one username and password to access a wide range of government services online. It also offers two-factor login where the online service requires a higher level of security.
 
-<div class="alert alert-info" markdown='1'>This module is only supported from cwp recipe 1.2.0 and above.</div>
+The RealMe module enables agencies to use RealMe authentication, to deliver online services or restrict information to specific people.
 
-The module facilitates the log-on process; agencies need to work with the RealMe team to conduct the 
-integration, and will need to work with web developers to build whatever the system performs after you have logged in 
-(e.g. a form that initiates a service from government). The module supports different strength logons (username/password 
-only, or with SMS/Token as second factor) and only RealMe logon accounts. Support for RealMe verified accounts is 
-something that an interested agency could commission SilverStripe to add.
+<div class="alert alert-info" markdown='1'> We strongly recommend using the most recent version of the module.</div>
 
-This module doesn't come bundled in the CWP installer, as it requires a number of steps to be completed by the 
-agency prior to being enabled, these are outlined below.
+The module provides the foundation to support easy integration with the RealMe login service. Web developers will still need to build the service provided following successful authentication. 
 
-Agencies are encouraged to [discuss their requirements with the RealMe team](https://www.realme.govt.nz/realme-business/) 
-as a first step. Prior to using this module, an agreement should be reached with the RealMe team, and access to the DIA 
-Shared Workspace for RealMe should be granted.
+This module doesn't come bundled in the CWP installer, as it requires a number of steps to be completed by the agency prior to being enabled, these are outlined below.
 
-Once this access is available, your development team will be able to begin following the 
-[module installation process](https://github.com/silverstripe/silverstripe-realme/blob/master/docs/en/configuration.md) 
-and working through the requirements.
+Agencies are encouraged to [discuss their requirements](https://www.realme.govt.nz/realme-business/) with the [RealMe team](https://developers.realme.govt.nz/about/contact-us/) as a first step. Developers can use the module to connect the CWP UAT environment to the [RealMe Message Testing Service](https://developers.realme.govt.nz/try-it-out-now/) for initial system development. Prior to connecting UAT to the RealMe Integrated Testing Environment (ITE) - pre-production platform, contact the RealMe integration team to get access to the online configuration tool and discuss the project’s business context.
 
-The CWP Operations team is available to assist with the integration of the ITE (Integrated Test Environment) and 
-production environments, which map to your CWP UAT and production environments. Please 
-[create a CWP Service Desk ticket](https://www.cwp.govt.nz/service-desk/new-request/) once you are ready for integration to 
-be setup. The CWP Operations team will then generate the required SSL certificates, configure your UAT and production 
-environments, and provide you with the necessary XML metadata to submit to RealMe in order to establish the two-way 
-trusted chain that your developers set up while running through the installation instructions for their own development 
-environments.
+Once this access is available, your development team will be able to begin following the [module installation process](https://github.com/silverstripe/silverstripe-realme/blob/master/docs/en/configuration.md) and working through the requirements.
 
-Note that while the process of integrating RealMe into your website is largely automated for CWP Operations, it still 
-requires a significant amount of manual work by your agency, your development partners, and the RealMe team. Getting the 
-UAT environment working with RealMe is likely to take 2-3 weeks once connectivity with the development environment is 
-confirmed, as your checklists need to be submitted to Realme and then provisioned for installation. The same timeframe 
-can be expected for release into production.
+The CWP Operations team is available to assist with the integration of the ITE (Integrated Test Environment) and production environments, which map to your CWP UAT and production environments. Please [create a CWP Service Desk ticket](https://www.cwp.govt.nz/service-desk/new-request/) once you are ready for integration to be setup. The CWP Operations team will then generate the required SSL certificates, configure your UAT and production environments, and provide you with the necessary XML metadata to submit to RealMe in order to establish the two-way trusted chain that your developers set up while running through the installation instructions for their own development environments.
 
-If there are any further questions, please don't hesitate to 
-[get in touch](https://www.cwp.govt.nz/service-desk/new-request/).
+Note that while the process of integrating RealMe into your website is largely automated for CWP Operations, it still requires manual work by your agency, your development partners, and the RealMe team. Getting the UAT environment working with RealMe is likely to take 2-3 weeks once connectivity with the development environment is confirmed, as your configuration details need to be submitted to the RealMe integration team and then provisioned for installation. A similar timeframe can be expected for release into production.
+
+If there are any further questions, please don't hesitate to [get in touch](https://www.cwp.govt.nz/service-desk/new-request/).
+
+## RealMe assertion
+[RealMe® assertion service](https://developers.realme.govt.nz/how-realme-works/how-realme-works-4/) provides the means for a customer to prove personal information online. At present, we offer verified identity (name, date and place of birth, gender) and verified residential address. Over time, other attributes will be included such as citizenship, visa status and key professional qualifications. The service is often referred to as RealMe verified identity as this is usually the most essential set of personal data. 
+
+The SilverStripe RealMe module enables both government agencies and approved private sector organisations to use verified attributes via RealMe to determine eligibility for entitlements or to participate in compliance processes for individuals such as AML/CFT and Police vetting. 
+
+<div class="alert alert-info" markdown='1'>We strongly recommend using the most recent version of the module.</div>
+
+The module provides the foundation to support easy integration with the RealMe assertion service. Typically, the successfully asserted identity and optional address information is returned to a web form where the applicant is entering the other information required by the online service.
+
+This module doesn't come bundled in the CWP installer, as it requires a number of steps to be completed by the agency prior to being enabled, these are outlined below.
+
+Agencies are encouraged to [discuss their requirements](https://www.realme.govt.nz/realme-business/) with [the RealMe team](https://developers.realme.govt.nz/about/contact-us/) as a first step. Developers can use the module to connect the CWP UAT environment to the [RealMe Message Testing Service](https://developers.realme.govt.nz/try-it-out-now/) for initial system development. Prior to connecting UAT to the RealMe Integrated Testing Environment (ITE) - pre-production platform, contact the RealMe integration team to get access to the online configuration tool and discuss the project’s business context and the verified attributes that are required.
+
+Once this access is available, your development team will be able to begin following the [module installation process](https://github.com/silverstripe/silverstripe-realme/blob/master/docs/en/configuration.md) and working through the requirements.
+
+The CWP Operations team is available to assist with the integration of the ITE (Integrated Test Environment) and production environments, which map to your CWP UAT and production environments. Please [create a CWP Service Desk ticket](https://www.cwp.govt.nz/service-desk/new-request/) once you are ready for integration to be setup. The CWP Operations team will then generate the required SSL certificates, configure your UAT and production environments, and provide you with the necessary XML metadata to submit to RealMe in order to establish the two-way trusted chain that your developers set up while running through the installation instructions for their own development environments.
+
+Note that while the process of integrating RealMe into your website is largely automated for CWP Operations, it still requires manual work by your agency, your development partners, and the RealMe team. Getting the UAT environment working with RealMe is likely to take 2-3 weeks once connectivity with the development environment is confirmed, as your configuration details need to be submitted to the RealMe integration team and then provisioned for installation. A similar timeframe can be expected for release into production.
+
+If there are any further questions, please don't hesitate to [get in touch](https://www.cwp.govt.nz/service-desk/new-request/).
+
 
 ## See Also
 
