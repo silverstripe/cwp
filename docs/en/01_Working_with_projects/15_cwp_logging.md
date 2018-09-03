@@ -6,15 +6,15 @@ When trying to identify the source of an issue or problem with your website, you
 
 ## Introduction
 
-CWP use Graylog as an internal logging collection and display dashboard. This has a lot of built in functionality that can be used for searching logs which you can find here. http://docs.graylog.org/en/2.4/pages/queries.html
+CWP uses Graylog as an internal logging collection and display dashboard. This tool has a lot of built in functionality that can be used for searching logs which you can find here. http://docs.graylog.org/en/2.4/pages/queries.html
 
 CWP sends almost every server log into this system so you won’t just be dealing with PHP / SilverStripe logs, you will also be seeing infrastructure and system logs.
 
 ### Log types
 
 ```filter
-log_type:”apache”
-log_type:”SilverStripe_log”
+log_type:"apache"
+log_type:"SilverStripe_log"
 ```
 
 When searching through logs, it can often be a good idea to restrict your search based on a specific log type. This helps to remove all the non-related logs from your view and find the logs you are searching for a bit easier.
@@ -84,11 +84,11 @@ log_type:apache AND http_response:404
 #### Filter requests made by IP
 
 ```filter
-log_type:apache AND http_clientip:”x.x.x.x”
+log_type:apache AND http_clientip:"x.x.x.x"
 ```
 
 #### Filter requests made by User agent
 
 ```filter
-log_type:apache AND http_agent:”Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)”
+log_type:apache AND http_agent:"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 ```
