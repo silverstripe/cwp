@@ -10,6 +10,7 @@ use SilverStripe\Forms\Form;
  * Customises the comment form to conform to government usability standards
  *
  * {@see CommentingController}
+ * @skipUpgrade
  */
 class CwpCommentingExtension extends Extension
 {
@@ -17,9 +18,9 @@ class CwpCommentingExtension extends Extension
     {
         $fields = $form->Fields();
 
-        if ($emailField = $fields->dataFieldByName(Email::class)) {
+        if ($emailField = $fields->dataFieldByName('Email')) {
             $emailField
-                ->setTitle(_t(__CLASS__ . '.EMAIL_TITLE', Email::class))
+                ->setTitle(_t(__CLASS__ . '.EMAIL_TITLE', 'Email'))
                 ->setDescription(_t(__CLASS__ . '.WILL_NOT_BE_PUBLISHED', 'Will not be published.'));
         }
 
