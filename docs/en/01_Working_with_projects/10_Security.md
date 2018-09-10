@@ -38,9 +38,8 @@ it may be necessary to reset their browser auto-complete history before this wil
 
 After logging in, any user will remain in an active state as long as there is no extended period of inactivity.
 In order to reduce the risk that active browser sessions may be exploited, it may be necessary
-to reduce the timeout period for each session. By default, active sessions will expire after 1 hour of inactivity.
-This value may be reduced by setting the `SilverStripe\Control\Session.timeout` value (in units of seconds) to a
-shorter interval.
+to reduce the timeout period for each session. By default, active sessions will expire after 24 minutes of inactivity.
+This value may be adjusted by setting the `SilverStripe\Control\Session.timeout` value (in units of seconds).
 
 For instance, to set the session timeout to 10 minutes add the following to your `mysite/_config/config.yml` file:
 
@@ -48,11 +47,13 @@ For instance, to set the session timeout to 10 minutes add the following to your
 SilverStripe\Control\Session:
   timeout: 600
 ```
-
 Note: Setting this value to zero will instead terminate the session when the user closes their browser window,
 but this does not enforce any maximum session duration.
 
-More information can be found at [php's session configuration page](http://www.php.net/manual/en/session.configuration.php#ini.session.cookie-lifetime)
+Note: This value adjusts how long a users _browser_ remembers the session. To adjust how long the server remembers
+sessions you will have to adjust your `php.ini` configuration setting `session.gc_lifetime`. More information can be
+found at [php's session configuration page](http://www.php.net/manual/en/session.configuration.php#ini.session.cookie-lifetime).
+A lifetime of 24 minutes matches the default timeout configuration on CWP.
 
 ### Saved user logins
 

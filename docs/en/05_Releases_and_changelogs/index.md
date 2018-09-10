@@ -6,6 +6,7 @@ introduction: The status of the recipe releases is summarised in the table below
 
 | Recipe version | Description | Release date | Support ends date |
 | -------------- | ----------- | ------------ | ----------------- |
+| [2.1.1](cwp_recipe_basic_2.1.1) | Tracks the Framework release 4.2.1 | 20/09/2018 | current |
 | [2.1.0](cwp_recipe_basic_2.1.0) | Tracks the Framework release 4.2.0, enhancements, low impact security fixes, and bug fixes. | 26/07/2018 | current |
 | [2.0.1](cwp_recipe_basic_2.0.1) | Upgrades CWP Core to 2.0.1 | 15/06/2018 | 26/01/2020 |
 | [2.0.0](cwp_recipe_basic_2.0.0) | Upgrades to SilverStripe 4, and all modules to support this. | 30/05/2018 | 26/01/2020 |
