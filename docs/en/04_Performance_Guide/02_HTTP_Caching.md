@@ -204,28 +204,6 @@ CWP is responsible for managing this header:
   any responses sent back to visitors. In particular, this ensures
   that Incapsula’s caching remains operational.
 
-
-#### Varying content with HTTPS and X-Forwarded-Protocol
-
-On CWP, both HTTPS and HTTP requests are sent to your PHP process via HTTP.
-HTTPS requests have a `X-Fowarded-Protocol: https` header added.
-SilverStripe is built to automatically pick this up and respond
-appropriately for methods such as `Director::is_ssl()`.
-
-
-SilverStripe adds a `Vary: X-Forwarded-Protocol` header by default
-to prepare for cases where the returned content might vary on protocol.
-The most common case is an absolute domain in the `<base>` tag.
-
-CWP is responsible for managing this header:
-
-* The `X-Forwarded-Protocol` header will be removed from any incoming requests
-  from the outside world before being passed to PHP.
-* The `Vary: X-Forwarded-Protocol` that your PHP generates will be removed from
-  any responses sent back to visitors. In particular, this ensures
-  that Incapsula’s caching remains operational.
-
-
 #### Custom static response headers
 
 Although we recommend to stick with the CWP-configured headers for static files so that CWP operations can keep an eye on the site performance, you can customise these through your `.htaccess` file.
