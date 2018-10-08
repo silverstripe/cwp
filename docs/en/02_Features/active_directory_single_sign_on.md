@@ -9,6 +9,12 @@ multiple applications. The process authenticates the user for all
 the applications they have been given access to and eliminates
 further prompts when they switch applications.
 
+## SilverStripe 4.x
+
+Note: This module will not be supported on SilverStripe 4. Please use either 
+[silverstripe/ldap](https://github.com/silverstripe/silverstripe-ldap) or 
+[silverstripe/saml](https://github.com/silverstripe/silverstripe-saml) for SilverStripe 4 compatibility.
+
 ## Introduction
 
 Single sign-on is provided by the open sourced module 
