@@ -51,8 +51,8 @@ Note: Setting this value to zero will instead terminate the session when the use
 but this does not enforce any maximum session duration.
 
 Note: This value adjusts how long a users _browser_ remembers the session. To adjust how long the server remembers
-sessions you will have to adjust your `php.ini` configuration setting `session.gc_lifetime`. More information can be
-found at [php's session configuration page](http://www.php.net/manual/en/session.configuration.php#ini.session.cookie-lifetime).
+sessions you will have to adjust your `php.ini` configuration setting `session.gc_maxlifetime`. More information can be
+found at [php's session configuration page](http://www.php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime).
 A lifetime of 24 minutes matches the default timeout configuration on CWP.
 
 ### Saved user logins
