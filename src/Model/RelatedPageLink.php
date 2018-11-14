@@ -4,7 +4,6 @@ namespace CWP\CWP\Model;
 
 use CWP\CWP\PageTypes\BasePage;
 use SilverStripe\ORM\DataObject;
-use SilverStripe\ORM\FieldType\DBInt;
 use SilverStripe\Versioned\Versioned;
 
 class RelatedPageLink extends DataObject
@@ -12,11 +11,11 @@ class RelatedPageLink extends DataObject
     private static $table_name = 'BasePage_RelatedPages';
 
     private static $extensions = [
-        Versioned::class
+        Versioned::class,
     ];
 
     private static $db = [
-        'SortOrder' => DBInt::class
+        'SortOrder' => 'Int',
     ];
 
     /**
