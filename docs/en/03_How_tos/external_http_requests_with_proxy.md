@@ -7,16 +7,18 @@ summary: How to access external
 All CWP environments are positioned behind a proxy. All requests out to external services must go through this proxy.
 
 By default, we configure the PHP environment with `http_proxy` and `https_proxy` variables which will be automatically
-picked up by curl. This means both `RestfulService` and any curl requests made by upstream modules should work out of
+picked up by cURL. This means both `RestfulService` and any cURL requests made by upstream modules should work out of
 the box.
 
 If you are seeing issues connecting to an external service, double check to make sure you are going through the proxy
-(compare against the constants SS_OUTBOUND_PROXY and SS_OUTBOUND_PROXY_PORT).
+(compare against the constants `SS_OUTBOUND_PROXY` and `SS_OUTBOUND_PROXY_PORT`).
 
 Because of this proxy, outgoing requests have a different IP than configured for incoming requests to your CWP hostname.
 
 If third party providers require whitelisting of IPs (for example on API requests performed through PHP on a CWP server),
-please add the following IP addresses: 202.55.102.136 and 202.55.96.178.
+please add the following IP addresses: 
+* 202.55.102.136 
+* 202.55.96.178
 
 You can look up the implementation details in the `CwpInitialisationFilter` in the `cwp-core` module.
 
@@ -51,7 +53,7 @@ if(Environment::getEnv('SS_OUTBOUND_PROXY') && Environment::getEnv('SS_OUTBOUND_
 
 ## Disabling egress proxy
 
-In some situations you might want to disable the proxy. You can do it by customising curl configuration per request:
+In some situations you might want to disable the proxy for requests that remain within the CWP network. You can do it by customising cURL configuration per request:
 
 ```php
 $ch = curl_init();
@@ -87,3 +89,31 @@ CwpInitialisationFilter:
   egress_proxy_exclude_domains:
     - somewhere.cwp.govt.nz
 ```
+
+<div class="alert alert-warning" markdown='1'>
+Regardless of the excluded domains in your configuration, any external request not passed through the proxy will result in a 400-type error response code.
+</div> 
+
+## Troubleshooting external requests
+If you're unable to make a connection to an external endpoint, verify that your request is being set with the `SS_OUTBOUND_PROXY` and `SS_OUTBOUND_PROXY_PORT` constants. You can use the [`curl_getinfo`](http://php.net/manual/en/function.curl-getinfo.php) function to see what configuration was used for the request.
+
+Some third-party libraries like Guzzle may not automatically configure the proxy, meaning you'll need to ensure the environment variables are used when initialising the client:
+
+```php
+use SilverStripe\Control\Director;
+use SilverStripe\Core\Environment;
+
+$proxy = null;
+if(!Director::isDev()) {
+    $proxy = sprintf('%s:%s', Environment::getEnv('SS_OUTBOUND_PROXY'), Environment::getEnv('SS_OUTBOUND_PROXY_PORT'));
+}
+
+$client = new GuzzleHttp\Client([
+    'proxy' => $proxy
+]);
+```
+
+If you're still not able to make external requests and have confirmed that your requests are using the CWP proxy settings, please raise a ticket via the [CWP Service Desk](https://www.cwp.govt.nz/service-desk) and include: 
+* the URL of the external service you're attempting to connect to
+* the relevant portion of code making the external request
+* steps to reproduce the issue, such as a URL or the name of a BuildTask
