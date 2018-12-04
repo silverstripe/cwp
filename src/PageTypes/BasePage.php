@@ -2,6 +2,7 @@
 
 namespace CWP\CWP\PageTypes;
 
+use CWP\CWP\Model\RelatedPageLink;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridField;
@@ -14,11 +15,9 @@ use SilverStripe\Forms\GridField\GridFieldFilterHeader;
 use SilverStripe\Forms\TreeMultiselectField;
 use SilverStripe\Taxonomy\TaxonomyTerm;
 use SilverStripe\View\ArrayData;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use TractorCow\Fluent\Model\Locale;
 use TractorCow\Fluent\State\FluentState;
-use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
-use SilverStripe\ORM\FieldType\DBInt;
-use CWP\CWP\Model\RelatedPageLink;
 
 /**
  * `BasePage` is a foundation page class which can be used for constructing your own page types. By default it is
@@ -62,7 +61,6 @@ class BasePage extends SiteTree
 
     private static $many_many = [
         'Terms' => TaxonomyTerm::class,
-        'RelatedPages' => BasePage::class,
         'RelatedPagesThrough' => [
             'through' => RelatedPageLink::class,
             'from' => 'BasePage',
@@ -80,7 +78,7 @@ class BasePage extends SiteTree
      */
     private static $many_many_extraFields = [
         'RelatedPages' => [
-            'SortOrder' => DBInt::class,
+            'SortOrder' => 'Int',
         ],
     ];
 
@@ -94,9 +92,12 @@ class BasePage extends SiteTree
         return FooterHolder::get_one(FooterHolder::class);
     }
 
+    /**
+     * @deprecated 2.2.0:3.0.0 Please use RelatedPagesThrough() instead
+     */
     public function RelatedPages()
     {
-        return $this->getManyManyComponents('RelatedPages')->sort('SortOrder');
+        return $this->getManyManyComponents('RelatedPagesThrough');
     }
 
     public function RelatedPagesTitle()
