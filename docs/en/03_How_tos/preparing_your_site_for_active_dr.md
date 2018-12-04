@@ -6,13 +6,14 @@ summary: How to Prepare your website to use Active DR infrastructure.
 This guide describes the steps needed to get your site ready for Active Disaster Recovery (DR) stacks. None of these
 modifications are needed on regular stacks.
 
-Active DR stacks have two properties:
+Active DR stacks have the following properties:
 
  * They are load-balanced. The traffic is served from two data centres, increasing the maximum potential capacity of the
  stack.
  * They are highly-available. If one data centre / node exhibits a problem and is not reachable, or emits 5xx HTTP status
  codes, this node will be pulled out of the pool and all traffic will be redirected to the other data centre.
-
+ * Files are synchronised from the ./www/public/assets/ directory but no other directories are synchronised between nodes.
+ * The databases on each node is synchronised seamlessly by the infrastructure.
 
 Your custom domains will be actively load balanced between the two nodes. *.cwp.govt.nz domains are not load balanced and point to either the Wellington or Auckland node. We supply two domains for Active DR environments for both UAT and PROD to help debug issues:
  * stack.cwp.govt.nz - points to Wellington
