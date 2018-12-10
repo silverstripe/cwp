@@ -9,7 +9,7 @@ website.
 ### API endpoint
 
 By default the SilverStripe API endpoint is exposed publicly, to lock down access to the API endpoint you can add
-the following to your `mysite/_config/api.yml` file:
+the following to your `app/_config/api.yml` file:
 
 ```yaml
 CWP\CWP\PageTypes\BasePage:
@@ -24,7 +24,7 @@ By default CMS users are able to save login credentials in their browser passwor
 If necessary, this auto-completion may be disabled by setting the `SilverStripe\Security\Security.remember_username`
 setting to false.
 
-In your `mysite/_config/config.yml` file, add the following:
+In your `app/_config/config.yml` file, add the following:
 
 ```yaml
 SilverStripe\Security\Security:
@@ -41,7 +41,7 @@ In order to reduce the risk that active browser sessions may be exploited, it ma
 to reduce the timeout period for each session. By default, active sessions will expire after 24 minutes of inactivity.
 This value may be adjusted by setting the `SilverStripe\Control\Session.timeout` value (in units of seconds).
 
-For instance, to set the session timeout to 10 minutes add the following to your `mysite/_config/config.yml` file:
+For instance, to set the session timeout to 10 minutes add the following to your `app/_config/config.yml` file:
 
 ```yaml
 SilverStripe\Control\Session:
@@ -65,7 +65,7 @@ If the computer used is not physically secured, it may be necessary to disable t
 subsequent users from automatically logging in and impersonating someone else. This is done by setting
 the `SilverStripe\Security\Security.autologin_enabled` setting to false.
 
-In your `mysite/_config/config.yml` file, add the following:
+In your `app/_config/config.yml` file, add the following:
 
 ```yaml
 SilverStripe\Security\Security:
@@ -82,13 +82,21 @@ the assets folder. By default this includes file types such as html, and in some
 security risk to allow these file types. See the
 [OWASP wiki on File Upload](https://www.owasp.org/index.php/Unrestricted_File_Upload) for details.
 
-Individual extensions may be added using this configuration in your `mysite/_config/mimetypes.yml` file:
+Individual extensions may be added using this configuration in your `app/_config/mimetypes.yml` file:
 
 ```yaml
 SilverStripe\Assets\File:
-  allowed_extesions:
+  allowed_extensions:
     - xhtml
     - xml
+```
+
+From CWP 2.1 onwards, you can also remove extensions:
+
+```yaml
+SilverStripe\Assets\File:
+  allowed_extensions:
+    xml: false
 ```
 
 Uploaded files have their extension checked against known MIME types in the `HTTP.MimeTypes` config setting.
@@ -111,7 +119,7 @@ dependency on each domain having its own SSL certificate.
 In the case that the user wishes to access content on the front-end of a specific domain, however,
 it's necessary that the user logs into that one, rather than the designated secure login domain.
 
-To disable the redirection add the following to `mysite/_config/security.yml`:
+To disable the redirection add the following to `app/_config/security.yml`:
 
 ```yaml
 ---
@@ -130,3 +138,35 @@ for each domain. If you are unsure, contact the [CWP Service Desk](https://www.c
 Alternatively, you can completely disable SSL redirection by setting the 
 `CanonicalURLMiddleware.ForceSSL` property to false via Injector configuration (as in the example above),
 however any data accessed or submitted by users would be unencrypted.
+
+## HTTP request proxies and filtering
+
+### Whitelist embedded resource domains {#whitelist-embed-domains}
+
+The SilverStripe CMS allows CMS users to embed external content such as YouTube or Vimeo vidoes in page content.
+CWP recommends that you configure a whitelist of allowed domains to embed content from. If you aren't using this
+feature then we recommend you configure the domain whitelist anyway.
+
+Please ensure you use the HTTPS protocol on domains wherever possible.
+
+```yaml
+---
+Name: mysiteembedproviders
+---
+SilverStripe\AssetAdmin\Forms\RemoteFileFormFactory:
+  # Disable http protocol, prefer https
+  fileurl_scheme_blacklist:
+    - http
+  fileurl_port_blacklist:
+    - 80
+
+  # Specify a whitelist of domains to allow embedded resources from
+  fileurl_domain_whitelist:
+    - youtube.com
+    - vimeo.com
+    - videoprovider.cwp.govt.nz
+
+  # Optionally, blacklist specific domains
+  fileurl_domain_blacklist:
+    - knowndangerousdomain.com
+```
