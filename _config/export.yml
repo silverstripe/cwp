@@ -1,0 +1,7 @@
+---
+Name: cwpqueuedexportconfig
+---
+SilverStripe\GridfieldQueuedExport\Jobs\GenerateCSVJob:
+  # Wait 15 seconds before marking gridfieldqueuedexport jobs as complete to prevent asset synchronisation
+  # timing issues
+  sync_sleep_seconds: 15
