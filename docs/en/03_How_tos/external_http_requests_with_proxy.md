@@ -6,9 +6,7 @@ summary: How to access external
 
 All CWP environments are positioned behind a proxy. All requests out to external services must go through this proxy.
 
-By default, we configure the PHP environment with `http_proxy` and `https_proxy` variables which will be automatically
-picked up by cURL. This means both `RestfulService` and any cURL requests made by upstream modules should work out of
-the box.
+By default, we configure the PHP environment with `http_proxy` and `https_proxy` environment variables, as well as the `SS_OUTBOUND_PROXY` and `SS_OUTBOUND_PROXY_PORT` constants. These environment variables can be used within your code to send requests through the proxy.
 
 If you are seeing issues connecting to an external service, double check to make sure you are going through the proxy
 (compare against the constants `SS_OUTBOUND_PROXY` and `SS_OUTBOUND_PROXY_PORT`).
