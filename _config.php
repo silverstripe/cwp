@@ -96,7 +96,7 @@ $cwpEditor
         'sslinkexternal' => $adminModule->getResource('client/dist/js/TinyMCE_sslink-external.js'),
         'sslinkemail' => $adminModule->getResource('client/dist/js/TinyMCE_sslink-email.js'),
     ])
-    ->setOption('contextmenu', 'sslink inserttable | cell row column deletetable');
+    ->setOption('contextmenu', 'sslink ssmedia ssembed inserttable | cell row column deletetable');
 
 $cwpEditor->enablePlugins('template');
 $cwpEditor->enablePlugins('visualchars');
