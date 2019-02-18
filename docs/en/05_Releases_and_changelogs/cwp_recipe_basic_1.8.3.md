@@ -22,6 +22,7 @@
  * 2018-06-01 [60a98be](https://github.com/silverstripe/cwp/commit/60a98be6391ec70f7fc6c4847ed2c9f60a44686c) Fix broken links in developer docs (Raissa North)
  * 2018-05-29 [1cbf27e0f](https://github.com/silverstripe/silverstripe-framework/commit/1cbf27e0f47c3547914b03193d0f5f77c87ff8d5) PHP 5.3 compat for referencing $this in closure, and make method public for same reason (Robbie Averill)
  * 2018-04-17 [af3a9f3ec](https://github.com/silverstripe/silverstripe-framework/commit/af3a9f3ec8a5465f841c5aa8ee1faf40c1b76bf4) Duplicating many_many relationships looses the extra fields (fixes #7973) (UndefinedOffset)
+ * 2018-03-15 [d17d93f7](https://github.com/silverstripe/silverstripe-cms/commit/d17d93f784a6e01f3d396c55adc623d69a90261a) Remove SearchForm results() function from allowed_actions (Steve Dixon)
  * 2018-02-16 [86addea1d](https://github.com/silverstripe/silverstripe-framework/commit/86addea1d2a7b2e28ae8115279ae358bcb46648a) Split HTML manipulation to onadd, so elements are not accidentally duplicated (Christopher Joe)
  * 2018-02-13 [c767e472d](https://github.com/silverstripe/silverstripe-framework/commit/c767e472dc494408460ef47c27b8d34475da4ac6) DataObject singleton creation (Jonathon Menz)
 
