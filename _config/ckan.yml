@@ -1,0 +1,7 @@
+---
+Name: cwpckanconfig
+Only:
+  moduleexists: silverstripe/ckan-registry
+---
+SilverStripe\CKANRegistry\Forms\ResourceLocatorField:
+  default_endpoint: https://catalogue.data.govt.nz/

@@ -59,7 +59,7 @@ To help explain how actively the content could be cached on CWP let's split the 
 
 ### Configuration via headers
 
-Your best approach in controlling the caching behaviour is setting the `Cache-Control` response header (see [Google's Web Fundaments - HTTP Caching](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching)). 
+Your best approach in controlling the caching behaviour is setting the `Cache-Control` response header (see [Google's Web Fundaments - HTTP Caching](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching)).
 This will ensure that all caches on the way of the response will be able to make reasonable decisions. This includes CWP's Local Cache, the CDN (Incapsula), any other public proxies (such as corporate gateways) and the browser cache.
 
 We will now explain some simple techniques on how to increase your cache utilisation. Let's have a look at the mapping between the cache levels and specific response headers.
@@ -79,7 +79,7 @@ With the basic recipe all SilverStripe Framework responses come with the followi
 This means the response is classified as the "None" cache level.
 
 ```
-Cache-Control: no-store, no-cache, must-revalidate
+Cache-Control: no-cache, max-age=0, must-revalidate, no-transform
 ```
 
 Furthermore, all CWP instances are configured to set the following header on anything that is NOT served by the framework.
@@ -309,7 +309,7 @@ There are various triggers in the CWP infrastructure which could detect unusuall
 
 *Q: Can I use HTTP-based caching with SSL?*
 
-Yes. Since SSL traffic is terminated before it hits CWP's Local Cache layer, you can also cache content delivered through HTTPS.
+Since SSL traffic is terminated before it hits CWP's Local Cache layer, you can also cache content delivered through HTTPS.
 
 *If you have any other questions, please contact the CWP Service Desk.*
 
