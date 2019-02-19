@@ -6,7 +6,7 @@ introduction: The status of the recipe releases is summarised in the table below
 
 | Recipe version | Description | Release date | Support ends date |
 | -------------- | ----------- | ------------ | ----------------- |
-| [1.9.0](cwp_recipe_basic_1.9.0) | Tracks the Framework release 3.7.0, and includes security fixes. | 26/07/2018 | 26/01/2020 |
+| [1.9.0](cwp_recipe_basic_1.9.0) | Tracks the Framework release 3.7.0, and includes security fixes. | 26/07/2018 | 30/09/2020 |
 | [1.8.2](cwp_recipe_basic_1.8.2) | Tracks the Framework release 3.6.6, and includes security fixes. | 28/05/2018 | 30/11/2019 |
 | [1.8.1](cwp_recipe_basic_1.8.1) | Tracks the Framework release 3.6.5, and includes minor module bug fixes. | 12/03/2018 | 30/11/2019 |
 | [1.8.0](cwp_recipe_basic_1.8.0) | Tracks the Framework release 3.6.3 and includes security fixes. | 11/12/2017 | 12/09/2019 |
