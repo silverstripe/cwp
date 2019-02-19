@@ -25,9 +25,14 @@ following code in your `config.yml`:
 ---
 Name: mysitesecuritytest
 After: '#cwpsecuritytest'
+Only:
+  environment: test
 ---
-SilverStripe\Security\BasicAuth:
-  entire_site_protected: false
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Security\BasicAuthMiddleware:
+    properties:
+      URLPatterns:
+        '#.*#': false
 ```
 
 ## Enabling in production
