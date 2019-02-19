@@ -11,6 +11,7 @@ introduction: The status of the recipe releases is summarised in the table below
 | [1.8.1](cwp_recipe_basic_1.8.1) | Tracks the Framework release 3.6.5, and includes minor module bug fixes. | 12/03/2018 | 30/11/2019 |
 | [1.8.0](cwp_recipe_basic_1.8.0) | Tracks the Framework release 3.6.3 and includes security fixes. | 11/12/2017 | 12/09/2019 |
 | [1.7.0](cwp_recipe_basic_1.7.0) | Tracks the Framework release 3.6.1 and includes security fixes. | 28/09/2017 | 11/06/2019 |
+| [1.6.1](cwp_recipe_basic_1.6.1) | Update to framework 3.6.7 | 19/02/2019 | 28/03/2019 |
 | [1.6.0](cwp_recipe_basic_1.6.0) | Tracks the Framework release 3.6.0 and includes security fixes. | 02/06/2017 | 28/03/2019 |
 | [1.5.2](cwp_recipe_basic_1.5.2) | Tracks the Framework release 3.5.3 and includes a security fix. | 27/02/2017 | 02/12/2018 |
 | [1.5.1](cwp_recipe_basic_1.5.1) | Upgrades recipe 1.5.0 to userforms 4.2.1 | 22/12/2016 | 27/08/2018 |
