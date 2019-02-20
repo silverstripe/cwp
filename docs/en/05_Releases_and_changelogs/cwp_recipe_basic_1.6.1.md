@@ -1,6 +1,6 @@
 # 1.6.1
 
-This release includes SilverStripe 3.6.7, which contains a critical security fix for CVE-2019-5715 (SS-2018-021). See the [related blog post](https://www.silverstripe.org/download/security-releases/ss-2018-021) for details.
+_**Important:** Please use [CWP 1.6.2](cwp_recipe_basic_1.6.2) instead._
 
 <!--- Changes below this line will be automatically regenerated -->
 
