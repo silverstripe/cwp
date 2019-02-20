@@ -1,6 +1,43 @@
-# 1.6.1
+# 1.6.2
 
-_**Important:** Please use [CWP 1.6.2](cwp_recipe_basic_1.6.2) instead._
+This release includes SilverStripe 3.6.7, which contains a critical security fix for CVE-2019-5715 (SS-2018-021). See
+the [related blog post](https://www.silverstripe.org/download/security-releases/ss-2018-021) for details.
+
+This recipe supersedes CWP recipe 1.6.1, which contains a conflict between packages silverstripe/multivaluefield and
+symbiote/silverstripe-gridfieldextensions resulting in the package being installed twice. silverstripe/multivaluefield
+was renamed to symbiote/silverstripe-gridfieldextensions, but must remain as the former in CWP 1.6. This problem does
+not affect CWP recipes newer than 1.6.
+
+## Upgrading from 1.6.0
+
+Recipe 1.6.2 contains project level Composer configuration to point directly to the distributable package for
+silverstripe/multivaluefield 2.3.4, which is otherwise un-installable:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "silverstripe/multivaluefield",
+                "type": "silverstripe-module",
+                "version": "2.3.4",
+                "dist": {
+                    "url": "https://github.com/symbiote/silverstripe-multivaluefield/archive/2.3.4.zip",
+                    "type": "zip"
+                }
+            }
+        }
+    ]
+}
+```
+
+If you are upgrading from CWP 1.6.0 to 1.6.2, you will need to copy this block of configuration into your
+`composer.json` file before running `composer update` to pull in the new packages.
+
+We recommend upgrading to use the latest version of CWP if possible.
+
+The changelog below contains all changes from CWP 1.6.1 as well as 1.6.2.
 
 <!--- Changes below this line will be automatically regenerated -->
 
@@ -26,6 +63,7 @@ _**Important:** Please use [CWP 1.6.2](cwp_recipe_basic_1.6.2) instead._
 
 ### Bugfixes
 
+ * 2019-02-20 [4d15355](https://github.com/silverstripe/cwp-recipe-basic/commit/4d15355a41b36819a85c311bd49b45346e8d67ce) Fix userforms to 4.3.1 (Robbie Averill)
  * 2019-01-23 [746c0679a](https://github.com/silverstripe/silverstripe-framework/commit/746c0679ad1d6ceac03d2adf167367f0ca2259cd) Injector may instantiate prototypes as if they're singletons (fixes #8567) (Loz Calver)
  * 2018-11-15 [86701b8cd](https://github.com/silverstripe/silverstripe-framework/commit/86701b8cd0cd5f8de813a7c9347e7c8055d878f4) Redirect loop with multiple URL tokens (fixes #8607) (Loz Calver)
  * 2018-06-04 [41e601a03](https://github.com/silverstripe/silverstripe-framework/commit/41e601a036307065d9ea2ba8862f67be738d402f) Regression from #8009 (Daniel Hensby)
