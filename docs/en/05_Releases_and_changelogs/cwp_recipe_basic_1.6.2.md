@@ -8,33 +8,6 @@ symbiote/silverstripe-gridfieldextensions resulting in the package being install
 was renamed to symbiote/silverstripe-gridfieldextensions, but must remain as the former in CWP 1.6. This problem does
 not affect CWP recipes newer than 1.6.
 
-## Upgrading from 1.6.0
-
-Recipe 1.6.2 contains project level Composer configuration to point directly to the distributable package for
-silverstripe/multivaluefield 2.3.4, which is otherwise un-installable:
-
-```json
-{
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "silverstripe/multivaluefield",
-                "type": "silverstripe-module",
-                "version": "2.3.4",
-                "dist": {
-                    "url": "https://github.com/symbiote/silverstripe-multivaluefield/archive/2.3.4.zip",
-                    "type": "zip"
-                }
-            }
-        }
-    ]
-}
-```
-
-If you are upgrading from CWP 1.6.0 to 1.6.2, you will need to copy this block of configuration into your
-`composer.json` file before running `composer update` to pull in the new packages.
-
 We recommend upgrading to use the latest version of CWP if possible.
 
 The changelog below contains all changes from CWP 1.6.1 as well as 1.6.2.
