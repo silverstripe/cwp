@@ -28,7 +28,7 @@ class CustomSiteConfig extends DataExtension
             )
         );
 
-        $gaCode->setRightTitle(
+        $gaCode->setDescription(
             DBField::create_field('HTMLFragment', _t(
                 __CLASS__ . '.GaFieldDesc',
                 'Account number to be used all across the site (in the format <strong>UA-XXXXX-X</strong>)'
@@ -44,7 +44,7 @@ class CustomSiteConfig extends DataExtension
                 _t(__CLASS__ . '.FbField', 'Facebook UID or username')
             )
         );
-        $facebookURL->setRightTitle(
+        $facebookURL->setDescription(
             DBField::create_field('HTMLFragment', _t(
                 __CLASS__ . '.FbFieldDesc',
                 'Facebook link (everything after the "http://facebook.com/", eg http://facebook.com/'
@@ -59,7 +59,7 @@ class CustomSiteConfig extends DataExtension
                 _t(__CLASS__ . '.TwitterField', 'Twitter username')
             )
         );
-        $twitterUsername->setRightTitle(
+        $twitterUsername->setDescription(
             DBField::create_field('HTMLFragment', _t(
                 __CLASS__ . '.TwitterFieldDesc',
                 'Twitter username (eg, http://twitter.com/<strong>username</strong>)'
