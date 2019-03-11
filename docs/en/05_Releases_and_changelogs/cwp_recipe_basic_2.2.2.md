@@ -1,5 +1,10 @@
 # 2.2.2
 
+As well as the changes listed below, the following changes are also included in the wider CWP 2.2.2 package:
+
+* [SilverStripe 4.3.2](https://docs.silverstripe.org/en/4/changelogs/4.3.2/)
+* New module: [silverstripe/ckan-registry](https://github.com/silverstripe/silverstripe-ckan-registry/releases)
+
 <!--- Changes below this line will be automatically regenerated -->
 
 ## Change Log
