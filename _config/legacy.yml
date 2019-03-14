@@ -1,0 +1,13 @@
+SilverStripe\ORM\DatabaseAdmin:
+  classname_value_remapping:
+    Quicklink: CWP\CWP\Model\Quicklink
+    EventPage: CWP\CWP\PageTypes\EventPage
+    DatedUpdatePage: CWP\CWP\PageTypes\DatedUpdatePage
+    NewsHolder: CWP\CWP\PageTypes\NewsHolder
+    SitemapPage: CWP\CWP\PageTypes\SitemapPage
+    BasePage: CWP\CWP\PageTypes\BasePage
+    EventHolder: CWP\CWP\PageTypes\EventHolder
+    FooterHolder: CWP\CWP\PageTypes\FooterHolder
+    DatedUpdateHolder: CWP\CWP\PageTypes\DatedUpdateHolder
+    BaseHomePage: CWP\CWP\PageTypes\BaseHomePage
+    NewsPage: CWP\CWP\PageTypes\NewsPage
