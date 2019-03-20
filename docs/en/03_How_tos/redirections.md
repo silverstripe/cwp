@@ -14,7 +14,7 @@ Implementing in `.htaccess` is more performant than using PHP to redirect and al
 
 ```
 RewriteCond %{HTTP_HOST} ^redirection\.com(.*)$ [NC]
-RewriteRule ^(.*)$ http://www\.redirection\.com/$1 [R=301,L]
+RewriteRule ^(.*)$ http://www\.redirection\.com/$1 [R=302,L]
 ```
 
 You may also want to enforce a global redirection to HTTPS in the `.htaccess` file in which case there's some things to consider due to requests coming through CWP's cache server which runs Varnish. You will need the following in your htaccess above your `<IfModule mod_rewrite.c>` section:
@@ -26,7 +26,7 @@ You may also want to enforce a global redirection to HTTPS in the `.htaccess` fi
 </IfModule>
 ```
 
-If we don't vary on `X-Fowarded-Proto`, Varnish will cache the 301 HTTPS redirects. This will send users who request uncached HTTP pages into infinite redirect loops until the cache times out (redirects sends the user into the same URI, just with different X-Fowarded-Proto).
+If we don't vary on `X-Fowarded-Proto`, Varnish will cache the 301/302 HTTPS redirects. This will send users who request uncached HTTP pages into infinite redirect loops until the cache times out (redirects sends the user into the same URI, just with different X-Fowarded-Proto).
 
 Once you have that then the redirection should be as follows:
 
@@ -34,7 +34,7 @@ Once you have that then the redirection should be as follows:
 RewriteCond %{HTTP_HOST} ^my\.domain\.govt\.nz$
 RewriteCond %{HTTPS} !=on
 Rewritecond %{HTTP:X-Forwarded-Proto} !https [NC]
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=302]
 ```
 
 This will then force all traffic to redirect to HTTPS on `my.domain.govt.nz`.
