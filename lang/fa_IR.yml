@@ -4,7 +4,7 @@ fa_IR:
     SortOrderLabel: 'ترتیب مرتب‌سازی'
   CWP\CWP\PageTypes\BaseHomePage:
     DESCRIPTION: 'صفحه محتوای عمومی'
-    FeatureContentFieldLabel: 'محتوا'
+    FeatureContentFieldLabel: محتوا
     Title: عنوان
   CWP\CWP\PageTypes\BasePage:
     ColumnTitle: عنوان
