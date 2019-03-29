@@ -18,7 +18,6 @@
  * 2018-12-12 [50aa85e](https://github.com/silverstripe/recipe-authoring-tools/commit/50aa85eb4c6f774d5d734c7dede2910fb1e03cd3) Update path to global composer bin in Travis builds (Robbie Averill)
  * 2018-12-12 [581b3cd](https://github.com/silverstripe/recipe-blog/commit/581b3cda50f17664cee9f0bd4296e8482b689af4) Bump postgresql version in Travis (Robbie Averill)
  * 2018-12-04 [2ba6d36](https://github.com/silverstripe/cwp/commit/2ba6d36c5d040ab71622cb8dd2721e3f9456f65c) detail what is synced in Active DR cwp2.x (Moss Cantwell)
- * 2018-11-21 [0a49158](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/0a49158a09659a95ca4663e11ad36c814f0d7a0b) Update Slack notification token (Robbie Averill)
  * 2018-11-08 [22d88db](https://github.com/silverstripe/recipe-authoring-tools/commit/22d88db5050713990ff2262505b2390f97b89854) Update path to global composer bin (Robbie Averill)
  * 2018-11-07 [7878059](https://github.com/silverstripe/cwp-recipe-cms/commit/7878059afaed9bfcae2fdddcae987df699d914cf) Update path to global composer bin (Robbie Averill)
  * 2018-11-07 [aebbb6e](https://github.com/silverstripe/cwp-recipe-core/commit/aebbb6e06b525edbe3b037371f3bebb6f3f2525b) Update path to global composer bin (Robbie Averill)
