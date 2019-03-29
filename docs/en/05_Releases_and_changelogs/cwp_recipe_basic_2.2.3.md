@@ -6,7 +6,7 @@ This upgrade includes CMS and Framework version 4.3.3, which improves the behavi
 
 - [SilverStripe 4.3.3](https://docs.silverstripe.org/en/4/changelogs/4.3.3/)
 
-Upgrading to Recipe 2.2.3 is optional, but is recommended for all CWP sites.
+This patch release is being made available outside of the regular quarterly release cycle. While all changes have been checked to ensure they do not include any security issues or feature regressions, the release has not undergone an external code review. The change logs should be reviewed and the impact to your particular site assessed before upgrading. For more information on this release, please see the [CWP 2.2.3 release announcement](https://www.cwp.govt.nz/updates/news/important-release-for-broken-file-links-cwp-2-2-3/).
 
 This upgrade can be carried out by any development team familiar with SilverStripe CMS, but if you would like SilverStripe's assistance, please let us know.
 

@@ -5,6 +5,8 @@ As well as the changes listed below, the following changes are also included in 
 * [SilverStripe 4.3.2](https://docs.silverstripe.org/en/4/changelogs/4.3.2/)
 * New module: [silverstripe/ckan-registry](https://github.com/silverstripe/silverstripe-ckan-registry/releases)
 
+*Please note that this release has been superseded by a patch release outside of the regular CWP quarterly release cycle. It is recommended you review the [CWP 2.2.3 release announcement](https://www.cwp.govt.nz/updates/news/important-release-for-broken-file-links-cwp-2-2-3/) if you are investigating an upgrade to CWP 2.2.2.*
+
 <!--- Changes below this line will be automatically regenerated -->
 
 ## Change Log
