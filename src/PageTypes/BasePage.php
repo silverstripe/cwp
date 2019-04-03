@@ -68,6 +68,10 @@ class BasePage extends SiteTree
         ]
     ];
 
+    private static $owns = [
+        'RelatedPagesThrough',
+    ];
+
     private static $belongs_many_many = [
         'SimilarPages' => BasePage::class
     ];
