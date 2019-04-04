@@ -20,6 +20,11 @@ please add the following IP addresses:
 
 You can look up the implementation details in the `CwpInitialisationFilter` in the `cwp-core` module.
 
+## Known limitations
+
+Requests to internally resolved CWP hostnames will fail to connect when using the proxy.
+Additionally requests over https (i.e. https://yourstack-uat.cwp.govt.nz) will fail to connect to the webserver via the CWP proxy and will fail without using the proxy too. We recommend adding a custom domain to the stack via the [CWP Service Desk](https://www.cwp.govt.nz/service-desk) and using that instead (i.e. yourstack-test.govt.nz). This will ensure that the request is resolved via external DNS.
+
 ## Stream-based requests
 
 Stream-based requests however will need extra manual configuration. For example, the following will not work, resulting
