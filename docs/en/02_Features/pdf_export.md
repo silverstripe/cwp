@@ -48,19 +48,8 @@ The instructions below assume you're on a Debian or Ubuntu Linux environment.
 There is a Mac OS X download, and there may be a Windows binary for `wkhtmltopdf` but they have not been tested.
 </div>
 
-* [Download wkhtmltopdf](https://wkhtmltopdf.org/downloads.html) for your system type:
-
-  ```
-  wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.1.1/wkhtmltox-0.12.1.1.tar.bz2
-  ```
-
-* Install it into `/usr/local/bin` so that it can be accessed on the path:
-
-  ```
-  tar -jxvf wkhtmltox-0.12.1.1.tar.bz2
-  mv wkhtmltopdf-amd64 /usr/local/bin/wkhtmltopdf
-  ```
-
+* [Download wkhtmltopdf](https://wkhtmltopdf.org/downloads.html) for your system type. CWP currently uses version 0.12.5.
+* Install it into `/usr/local/bin` so that it can be accessed on the path.
 * Test it works:
 
   ```
@@ -127,23 +116,6 @@ shows in the exported PDF, you would create a file called `Page_pdf.ss` in your 
 folder.
 
 To customise the footer of the PDF, you can modify the `Page_pdffooter.ss` template in your theme.
-
-## Defining the version of wkhtmltopdf to use
-
-We currently provide two versions of wkhtmltopdf for CWP customers to use.
-
-The version that is used by default is version 0.9.6, and is an older, stable version that doesn't support as many
-features, but has been tested to work well with the default CWP templates.
-
-Some CWP customers have requested an updated version, and so we have also installed version 0.12.1.1. In order to use
-this updated version, you must define the binary to use.
-
-Since CWP Recipe release 1.0.4, the only configuration that is needed is an addition to your YAML configuration:
-
-```yaml
-CWP\CWP\PageTypes\BasePage:
-  wkhtmltopdf_binary: '/usr/local/bin/wkhtmltopdf_12'
-```
 
 ## Customising parameters to wkhtmltopdf
 
