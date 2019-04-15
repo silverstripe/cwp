@@ -68,6 +68,10 @@ class BasePage extends SiteTree
         ]
     ];
 
+    private static $owns = [
+        'RelatedPagesThrough',
+    ];
+
     private static $belongs_many_many = [
         'SimilarPages' => BasePage::class
     ];
@@ -140,21 +144,6 @@ class BasePage extends SiteTree
             $hasMany = $this->hasMany();
             $manyMany = $this->manyMany();
             if (!isset($hasMany['Tags']) && !isset($manyMany['Tags'])) {
-                $components = GridFieldConfig_RelationEditor::create();
-                $components->removeComponentsByType(GridFieldAddNewButton::class);
-                $components->removeComponentsByType(GridFieldEditButton::class);
-
-                /** @var GridFieldAddExistingAutocompleter $autoCompleter */
-                $autoCompleter = $components->getComponentByType(GridFieldAddExistingAutocompleter::class);
-                $autoCompleter->setResultsFormat('$Name ($TaxonomyName)');
-
-                /** @var GridFieldDataColumns $dataColumns */
-                $dataColumns = $components->getComponentByType(GridFieldDataColumns::class);
-                $dataColumns->setDisplayFields([
-                    'Name' => _t(__CLASS__ . '.Term', 'Term'),
-                    'TaxonomyName' => _t(__CLASS__ . '.Taxonomy', 'Taxonomy')
-                ]);
-
                 $fields->findOrMakeTab('Root.Tags', _t(__CLASS__ . '.TagsTabTitle', 'Tags'));
                 $fields->addFieldToTab(
                     'Root.Tags',
