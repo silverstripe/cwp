@@ -18,7 +18,7 @@ For example, assuming you want to take advantage of a security patch in a new ve
 ...
 ```
 
-*If you're not using the `cwp/cwp-installer` recipe your `composer.json` may instead reference the `cwp/cwp-core` recipe_*
+*If you're not using the `cwp/cwp-installer` recipe your `composer.json` may instead reference the `cwp/cwp-recipe-core` or `cwp/cwp-recipe-cms` recipe.*
 
 To update to a new version of SilverStripe core, say version `4.3.1`, you should add an alias to the `require` section of the `composer.json` file, like:
 
