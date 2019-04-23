@@ -26,6 +26,12 @@ To update to a new version of SilverStripe core, say version `4.3.1`, you should
 "silverstripe/framework": "4.3.1 as 4.3.0"
 ```
 
+To then apply this change and update your `composer.lock` file, run the following command:
+
+```
+composer update silverstripe/framework
+```
+
 This will satisfy the `"silverstripe/framework": "4.3.0"` requirement embedded in the [cwp-installer](https://github.com/silverstripe/cwp-installer/tree/2.2) or [cwp-core](https://github.com/silverstripe/cwp-core/tree/2.2) recipe that you have installed. You can found out what version you currently have installed by running the following command:
 
 ```
