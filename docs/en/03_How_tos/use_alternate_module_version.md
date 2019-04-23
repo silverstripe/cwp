@@ -32,7 +32,7 @@ This will satisfy the `"silverstripe/framework": "4.3.0"` requirement embedded i
 composer show
 ```
 
-Please note that generally you should only do this if you are sure about the impact of switching the module version, and after you have tested it yourself for regressions with other modules
+Please note that generally you should only do this if you are sure about the impact of switching the module version, and after you have tested it yourself for regressions with other modules.
 
 Upgrading to a new version of a commercially supported module before it has been released through a CWP quarterly release means that it won't yet have gone through the standard external code review.
 
