@@ -13,7 +13,7 @@ For example, assuming you want to take advantage of a security patch in a new ve
 ```
 ...
 "require": {
-        "cwp/cwp-installer": "2.2.0@stable"
+    "cwp/cwp-installer": "2.2.0@stable"
 },
 ...
 ```
