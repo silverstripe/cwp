@@ -17,10 +17,9 @@ Install this theme module with Composer:
 composer require cwp/watea-theme
 ```
 
-This will also install the `cwp/starter-theme` dependency, which is the foundation for this subtheme. 
-
-The installation of `cwp/agency-extensions` is suggested as it provides additional functionality to the CMS for
-agency-style SilverStripe websites.
+This will also install the `cwp/starter-theme` dependency, which is the foundation for this theme, and the
+`cwp/agency-extensions` module which provides additional functionality to the CMS for agency-style SilverStripe
+websites.
 
 ## Getting started
 
@@ -33,30 +32,30 @@ As a general rule, the CWP Team have endeavoured to constrain changes for this t
 possible, as opposed to modifying and duplicating the templates. As a cascading theme, all templates in this theme will 
 be applied over the top (with priority) of the CWP Starter theme.
 
-If you need to modify template markup from the SilverStripe framework, other modules or even the Starter theme, you can
-copy them into the "watea" subtheme directory and modify them there.
+If you need to modify template markup from the SilverStripe framework, other modules, or even the Starter theme, you can
+copy them into the "watea" theme directory and modify them there.
 
 ## Development
 
 <div class="alert alert-info" markdown='1'>
 Please familiarise yourself with [Customising the starter theme](customising_the_starter_theme), as all documentation
-there is relevant for this subtheme as well.
+there is relevant for this theme as well.
 </div>
 
 ### Setup
 
-For development you will need Node.js and npm installed. Please see the
+For development you will need Node.js and `yarn` installed. Please see the
 [Customising the starter theme](customising_the_starter_theme) article for more information.
 
 Next, you need to install the required npm packages. You will need to do this both in the CWP Starter theme and in the
-"watea" subtheme, as this subtheme imports components from the "starter" theme during Sass building. Ensure you have
+"watea" theme, as this theme imports components from the "starter" theme during Sass building. Ensure you have
 changed each theme's directory first:
 
 ```
 cd themes/starter
-npm install
+yarn install
 cd ../watea
-npm install
+yarn install
 ```
 
 ### Backend changes
@@ -67,31 +66,31 @@ parts of the CMS, rename some settings fields and provide a little bit of extra 
 work.
 
 If you need to extend or modify these changes at all, you can control the theme's extensions with YAML configuration,
-or create your own extensions in your `mysite` code.
+or create your own extensions in your `app` code.
 
 ### Compiling assets
 
-Similarly to the CWP Starter theme, you can compile assets using npm commands:
+Similarly to the CWP Starter theme, you can compile assets using yarn commands:
 
 ```
-npm run build   # Produces unminified (development) distributable files in dist/
-npm run package # Produces minified (production) distributable files in dist/
+yarn build   # Produces unminified (development) distributable files in dist/
+yarn package # Produces minified (production) distributable files in dist/
 ```
 
 Or to "watch" for changes in real time as you develop (faster):
 
 ```
-npm run watch  # Compiles as "build", then watches for changes and recompiles as necessary
+yarn watch  # Compiles as "build", then watches for changes and recompiles as necessary
 ```
 <div class="alert alert-info" markdown='1'>
-Please note: This subtheme's compiled Javascript assets are only relevant to this theme, and should be applied on top
+Please note: This theme's compiled Javascript assets are only relevant to this theme, and should be applied on top
 of the CWP Starter theme's assets. Ensure that you include them in the correct order.
 </div>
 
 For CSS, this theme contains _a fully compiled_ set of styles for both themes. You should only include this theme's
 CSS (not the CWP Starter theme).
 
-To be able to "npm run build" in the Wātea theme, you will also be required to have run "npm install" in the CWP
+To be able to "yarn build" in the Wātea theme, you will also be required to have run `yarn install` in the CWP
 Starter theme.
 
 For example:
@@ -111,9 +110,13 @@ Every now and then (e.g. before you commit) you should run a quick linter check 
 code:
 
 ```
-npm run lint-js
-npm run lint-sass
+yarn lint-js
+yarn lint-sass
 ```
 
 For information on the rules and configuration around these linters, please see the
 [CWP Starter theme](customising_the_starter_theme) documentation regarding "working with standards".
+
+### Using mixins for configurable theme colours
+
+If you are using the cwp/agency-extension
