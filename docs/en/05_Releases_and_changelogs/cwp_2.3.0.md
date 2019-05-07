@@ -34,6 +34,11 @@ can be made:
 "prefer-stable": true
 ```
 
+### Bootstrap 4
+
+Version 3.0.0 of the Starter and Wātea themes, available with CWP 2.3.0, are updated to use Bootstrap 4.3. Please
+[see the Bootstrap migration guide](https://getbootstrap.com/docs/4.3/migration/) for Bootstrap specific changes. 
+
 ## Known issues
 
 TBC.
