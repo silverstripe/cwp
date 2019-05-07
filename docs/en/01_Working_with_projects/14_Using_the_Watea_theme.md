@@ -119,4 +119,48 @@ For information on the rules and configuration around these linters, please see 
 
 ### Using mixins for configurable theme colours
 
-If you are using the cwp/agency-extension
+If you are using the [theme colour picker](https://github.com/silverstripe/cwp-agencyextensions/blob/2.2/docs/en/01_Features/ThemeColors.md)
+from the cwp/agency-extensions module, or if you are contributing to the open source theme itself, you may want to
+consider using [the provided mixins](https://github.com/silverstripe/cwp-watea-theme/blob/3.0/src/scss/utils/theme-styles.scss)
+to allow colours to be configured by the theme colour picker in the CMS.
+
+These mixins work by providing the area name and configured theme colour as CSS selector context, and will assign
+colours or other properties from a value map of pre-defined values in the theme that map to the settings chosen from
+the CMS.
+
+**Example:** you want to use a slightly darker link colour in a specific area of your page, because the area has
+a slightly darker background than normal, and the default link colour would not meet contrast standards. Instead
+of defining the colour explicitly, use a configurability-aware mixin instead:
+
+```diff
+.my-area {
+  // Make link colours darker to ensure they meet contrast standards on a slighty darker background
+  a {
+-    color: darken($link-color, 5%);
++    @include theme-color("accent", "color", "darken", 5%);
+  }
+}
+```
+
+**Example:** you have a section of the page that has a dark background, and you want to use a light text colour.
+Instead of defining the text colour explicitly as white, you can use a configurability-aware mixin for contrast. This
+will ensure that if a CMS user changes the colour that is used in this background, the text colour will be adjusted
+to match.
+
+```diff
+.page-footer__quotes {
+  @include theme-color("footer", "background-color");
+
+  // Make text colour white/light, because the background is usually dark
+-  color: $white;
++  // If it's changed to a light background in the CMS, this will automatically switch to a dark text colour
++  @include theme-contrast-color("footer", "color");
+}
+```
+
+It's important to ensure that you use theme colour mixins whenever you are defining colours that are used in areas
+which may be modified by CMS colour customisations to ensure that the colours you define are also changed when their
+surrounding context changes, otherwise you may end up with text that is unreadable against various backgrounds.
+
+For more information on customising the colour configuration settings in the CMS, see the
+[cwp/agency-extensions documentation](https://github.com/silverstripe/cwp-agencyextensions/blob/2.2/docs/en/01_Features/ThemeColors.md).
