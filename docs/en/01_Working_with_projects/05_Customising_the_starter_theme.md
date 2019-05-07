@@ -135,7 +135,7 @@ Now when you go into GitHub/GitLab, you'll see a commit from yourself "Add custo
 
 ## Bootstrap
 
-The CWP Starter theme is built on top of a fork of the [Bootstrap 4](http://getbootstrap.com/) front-end framework.
+The CWP Starter theme is built on top of the [Bootstrap 4](http://getbootstrap.com/) front-end framework.
 
 Bootstrap is a free collection of tools for creating websites and web applications. It contains HTML and
 CSS-based design templates for typography, forms, buttons, charts, navigation and other interface components, as well
