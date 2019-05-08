@@ -37,10 +37,10 @@ can be made:
 ### Major theme updates
 
 Version 3.0.0 of the Starter and Wātea themes, available with CWP 2.3.0, are updated to use Bootstrap 4.x. Please
-[see the Bootstrap migration guide](https://getbootstrap.com/docs/4.3/migration/) for Bootstrap-specific changes.
+[see the Bootstrap migration guide](https://getbootstrap.com/docs/4.3/migration/) for Bootstrap-specific changes. These updates also include an upgrade to Laravel Mix 4, along with other dependency upgrades (including Webpack 4 and
+Babel 7).
 
-These updates also include an upgrade to Laravel Mix 4, along with other dependency upgrades (including Webpack 4 and
-Babel 7). If you have modified any build configuration, this may need adjustment for compatibility.
+If you rely on either of these themes as a base for your own, the 3.x upgrade will be a fairly significant undertaking, so you may wish to keep using the latest 2.0.x release when upgrading to CWP 2.3.0.
 
 ## Known issues
 
