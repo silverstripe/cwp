@@ -15,7 +15,7 @@ When customising the theme, you can choose to work either with the powerful SASS
 use the CSS stylesheets directly. In the latter case we recommend you to remove the `.scss` files to make it clear they
 are not used.
 
-We recommend you follow the CWP Starter theme as a guideline and use the provided npm configuration to build and
+We recommend you follow the CWP Starter theme as a guideline and use the provided configuration to build and
 recompile your frontend dependencies.
 
 <div class="alert alert-info" markdown='1'>
@@ -97,7 +97,7 @@ theme with others by adding them as team members to your project, or even making
 
 Note that you will need to add `"private": "true"` to the `repositories` array if you are using a private repository
 hosted on GitLab. This is not required for GitHub repositories. See [Working with modules](working_with_modules) for
-more information on this features.
+more information on this feature.
 
 ### Committing a theme to your project repository
 
@@ -108,13 +108,13 @@ Starter theme is updated.
  1. Edit your project's `.gitignore` file and remove the `themes/` line.
  2. Remove the `/themes/starter/.git` directory and the `/themes/starter/.gitignore` file.
  3. Rename the "starter" folder to your projects name (it should be all lower case and preferably one word).
-    * If you're also using the [Wātea theme](https://github.com/silverstripe/cwp-watea-theme) may also wish to change
-    the theme name from "watea" to something else as well. If you do this, ensure you update your `theme.yml`.
- 4. Add the `.gitignore` file and the `themes` folder to your git project, commit it and push it back to the upstream 
+    * If you're also using the [Wātea theme](https://github.com/silverstripe/cwp-watea-theme) you may also wish to
+    change the theme name from "watea" to something else as well. If you do this, ensure you update your `theme.yml`.
+ 4. Add the `.gitignore` file and the `themes` folder to your git project, commit it and push it back to the upstream
     repository.
- 5. Remove the "cwp/starter-theme" line from the `"require"` list in `composer.json`. This will prevent Composer from 
-    re-adding the *starter* theme to your project.
- 6. Edit `app/_config/theme.yml` and add your theme name to the list in `SilverStripe\View\SSViewer.themes`. 
+ 5. Remove the "cwp/starter-theme" line from the `"require"` list in `composer.json`. This will prevent Composer from
+    re-installing the *starter* theme in your project.
+ 6. Edit `app/_config/theme.yml` and add your theme name to the list in `SilverStripe\View\SSViewer.themes`.
     If you're using the public webroot feature (enabled by default from CWP 2.0 onwards) ensure you add your custom
     theme _after_ `'$public'`.
 
@@ -215,11 +215,11 @@ templates and `Requirements` calls you should use the "dist" files.
 
 ### Installing Webpack and Laravel Mix
 
-You'll need to have a recent versions of [Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com/), and 
-[yarn](https://yarnpkg.com/en/) installed for this build chain to work. We recommend Node `v7.x` or later and npm
-`v4.x` or later. You can check which version you have by running `node -v` and `npm version`.
+You'll need to have recent versions of [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/en/) installed
+for this build chain to work. We recommend Node `v10.x` or later and the latest version of Yarn. You can check which
+versions you have by running `node -v` and `yarn -v` respectively.
 
-Once you have npm and yarn installed, you can install the required package dependencies for the theme:
+Once you have Node and Yarn installed, you can install the required package dependencies for the theme:
 
 ```
 cd themes/starter
@@ -231,12 +231,12 @@ in the theme directory - an example `package.json` might contain a section like 
 
 ```
 "dependencies": {
-  "bootstrap-sass": "^3.3.7",
+  "bootstrap": "^4.3",
   "expose-loader": "^0.7",
   "font-awesome": "^4.7.0",
   "jquery": "^3.1.1",
   "jquery-highlight": "^3.3.0",
-  "laravel-mix": "^0.5"
+  "laravel-mix": "^4.0"
 },
 "devDependencies": {
   "babel-eslint": "^7.1.1",
@@ -246,7 +246,7 @@ in the theme directory - an example `package.json` might contain a section like 
   "eslint-plugin-jsx-a11y": "^3.0.2",
   "eslint-plugin-react": "^6.9.0",
   "sass-lint": "^1.10.2",
-  "webpack": "^2"
+  "webpack": "^4"
 }
 ```
 
@@ -334,7 +334,7 @@ code vs. writing code. That what we write needs to be entirely focused on being 
 That writing something succinctly is a waste of time if the effort makes understanding it harder.
 
 That's the main reason that the CWP Starter and Wātea themes have opted to use
-[AirBnB code styles for Javascript](https://github.com/airbnb/javascript) and 
+[AirBnB code styles for Javascript](https://github.com/airbnb/javascript) and
 [AirBnB CSS/Sass styleguide](https://github.com/airbnb/css) for Sass and CSS (with a minor adjustment to follow
 Bootstrap's class naming convention of single dashes rather than BEM). You don't have to use these, in your project,
 but if you do all of your code will resemble the style used in the Sass and JS theme files.

@@ -5,7 +5,7 @@ introduction: Describes how to use the CWP Wātea theme
 # Using the Wātea theme
 
 The [Wātea theme](https://github.com/silverstripe/cwp-watea-theme) can be installed on top of the
-[Starter theme](https://github.com/silverstripe/cwp-starter-theme) (see 
+[Starter theme](https://github.com/silverstripe/cwp-starter-theme) (see
 [cascading themes](https://docs.silverstripe.org/en/4/developer_guides/templates/themes)) to provide a more visually
 appealing start to a CWP website.
 
@@ -28,8 +28,8 @@ This theme is designed to augment the base functionality and framework provided 
 [all of the documentation for the CWP Starter theme](customising_the_starter_theme) is relevant to this theme as well.
 We suggest you familiarise yourself with this documentation.
 
-As a general rule, the CWP Team have endeavoured to constrain changes for this theme to CSS and Javascript wherever 
-possible, as opposed to modifying and duplicating the templates. As a cascading theme, all templates in this theme will 
+As a general rule, the CWP Team have endeavoured to constrain changes for this theme to CSS and Javascript wherever
+possible, as opposed to modifying and duplicating the templates. As a cascading theme, all templates in this theme will
 be applied over the top (with priority) of the CWP Starter theme.
 
 If you need to modify template markup from the SilverStripe framework, other modules, or even the Starter theme, you can
@@ -124,17 +124,17 @@ from the cwp/agency-extensions module, or if you are contributing to the open so
 consider using [the provided mixins](https://github.com/silverstripe/cwp-watea-theme/blob/3.0/src/scss/utils/theme-styles.scss)
 to allow colours to be configured by the theme colour picker in the CMS.
 
-These mixins work by providing the area name and configured theme colour as CSS selector context, and will assign
-colours or other properties from a value map of pre-defined values in the theme that map to the settings chosen from
-the CMS.
+These mixins work by taking the area name, and which property the variable colour should be applied to, and producing a
+set of CSS rules that set the value of the specified property based on the configuration in the CMS. You can find a
+current list of configurable areas [here](https://github.com/silverstripe/cwp-watea-theme/blob/3.0/src/scss/utils/theme-styles.scss#L95).
 
-**Example:** you want to use a slightly darker link colour in a specific area of your page, because the area has
-a slightly darker background than normal, and the default link colour would not meet contrast standards. Instead
-of defining the colour explicitly, use a configurability-aware mixin instead:
+**Example:** you want to use a slightly darker link colour in a specific section of your page, because the section has a
+slightly darker background than normal, and the default link colour would not match contrast standards. Instead of
+defining the colour explicitly, use a configurability-aware mixin instead:
 
 ```diff
 .my-area {
-  // Make link colours darker to ensure they meet contrast standards on a slighty darker background
+  // Make link colours darker to ensure they match contrast standards on a slighty darker background
   a {
 -    color: darken($link-color, 5%);
 +    @include theme-color("accent", "color", "darken", 5%);
@@ -142,25 +142,25 @@ of defining the colour explicitly, use a configurability-aware mixin instead:
 }
 ```
 
-**Example:** you have a section of the page that has a dark background, and you want to use a light text colour.
-Instead of defining the text colour explicitly as white, you can use a configurability-aware mixin for contrast. This
-will ensure that if a CMS user changes the colour that is used in this background, the text colour will be adjusted
-to match.
+**Example:** there is a section of the page that you want to have match the background of the configurable footer area,
+and you need to set an appropriate text colour. Instead of defining the text colour explicitly as white, which would
+work for most but not all configurable colours, you should use a configurability-aware mixin for contrast. This will
+ensure that if a CMS user changes the colour that is used in this background, the text colour will be adjusted to match.
 
 ```diff
 .page-footer__quotes {
   @include theme-color("footer", "background-color");
 
-  // Make text colour white/light, because the background is usually dark
+-  // Make text colour white/light, because the background is usually dark
 -  color: $white;
-+  // If it's changed to a light background in the CMS, this will automatically switch to a dark text colour
++  // If the footer is changed to a light background in the CMS, this will automatically apply a dark text colour
 +  @include theme-contrast-color("footer", "color");
 }
 ```
 
-It's important to ensure that you use theme colour mixins whenever you are defining colours that are used in areas
-which may be modified by CMS colour customisations to ensure that the colours you define are also changed when their
-surrounding context changes, otherwise you may end up with text that is unreadable against various backgrounds.
+It's important that you use these theme colour mixins whenever you are defining colours that are used in areas which may
+be modified by CMS colour customisations. This will ensure that the colours you define are also changed when their
+surrounding context changes - otherwise, you may end up with text that is unreadable in certain configurations.
 
 For more information on customising the colour configuration settings in the CMS, see the
 [cwp/agency-extensions documentation](https://github.com/silverstripe/cwp-agencyextensions/blob/2.2/docs/en/01_Features/ThemeColors.md).
