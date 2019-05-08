@@ -6,7 +6,7 @@ This upgrade includes CMS and Framework version 4.4.0.
 
  * [Framework 4.4.0](https://github.com/silverstripe/silverstripe-framework/blob/4.4.0/docs/en/04_Changelogs/4.4.0.md)
 
-Upgrade to Recipe 2.3.0 is optional, but is recommended for all CWP sites.
+Upgrading to Recipe 2.3.0 is optional, but is recommended for all CWP sites.
 
 This upgrade can be carried out by any development team familiar with SilverStripe CMS, but if you
 would like SilverStripe's assistance, please let us know.
@@ -34,10 +34,13 @@ can be made:
 "prefer-stable": true
 ```
 
-### Bootstrap 4
+### Major theme updates
 
-Version 3.0.0 of the Starter and Wātea themes, available with CWP 2.3.0, are updated to use Bootstrap 4.3. Please
-[see the Bootstrap migration guide](https://getbootstrap.com/docs/4.3/migration/) for Bootstrap specific changes. 
+Version 3.0.0 of the Starter and Wātea themes, available with CWP 2.3.0, are updated to use Bootstrap 4.x. Please
+[see the Bootstrap migration guide](https://getbootstrap.com/docs/4.3/migration/) for Bootstrap-specific changes. These updates also include an upgrade to Laravel Mix 4, along with other dependency upgrades (including Webpack 4 and
+Babel 7).
+
+If you rely on either of these themes as a base for your own, the 3.x upgrade will be a fairly significant undertaking, so you may wish to keep using the latest 2.0.x release when upgrading to CWP 2.3.0.
 
 ## Known issues
 
