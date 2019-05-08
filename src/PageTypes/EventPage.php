@@ -18,7 +18,7 @@ class EventPage extends DatedUpdatePage
 
     private static $can_be_root = false;
 
-    private static $icon = 'cwp/cwp:images/icons/sitetree_images/event_page.png';
+    private static $icon_class = 'font-icon-p-event';
 
     private static $singular_name = 'Event Page';
 

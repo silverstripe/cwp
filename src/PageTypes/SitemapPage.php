@@ -13,4 +13,6 @@ class SitemapPage extends Page
     private static $plural_name = 'Sitemap Pages';
 
     private static $table_name = 'SitemapPage';
+
+    private static $icon_class = 'font-icon-sitemap';
 }
