@@ -15,7 +15,7 @@ class NewsPage extends DatedUpdatePage
 
     private static $can_be_root = false;
 
-    private static $icon = 'cwp/cwp:images/icons/sitetree_images/news.png';
+    private static $icon_class = 'font-icon-p-news-item';
 
     private static $singular_name = 'News Page';
 

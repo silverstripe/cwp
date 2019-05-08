@@ -19,7 +19,7 @@ class NewsHolder extends DatedUpdateHolder
 
     private static $update_class = NewsPage::class;
 
-    private static $icon = 'cwp/cwp:images/icons/sitetree_images/news_listing.png';
+    private static $icon_class = 'font-icon-news';
 
     private static $singular_name = 'News Holder';
 
