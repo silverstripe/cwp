@@ -8,8 +8,12 @@ en:
     TwitterField: 'Twitter username'
     TwitterFieldDesc: 'Twitter username (eg, http://twitter.com/<strong>username</strong>)'
   CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Email
     WEBSITE_TITLE: 'Your website (optional)'
     WILL_NOT_BE_PUBLISHED: 'Will not be published.'
+  CWP\CWP\Extensions\CwpSiteSummaryExtension:
+    FilterSupported: 'CWP recipe modules'
+    FilterUnsupported: 'Non CWP modules'
   CWP\CWP\Extensions\CwpSiteTreeExtension:
     SHOW_PAGE_UTILITIES: 'Show page utilities?'
     SHOW_PAGE_UTILITIES_HELP: 'You can disable page utilities (print, share, etc) for this page'
@@ -29,6 +33,12 @@ en:
     ParentRelationLabel: Parent
     SINGULARNAME: Quicklink
     SortOrderLabel: 'Sort Order'
+  CWP\CWP\Model\RelatedPageLink:
+    PLURALNAME: 'Related Page Links'
+    PLURALS:
+      one: 'A Related Page Link'
+      other: '{count} Related Page Links'
+    SINGULARNAME: 'Related Page Link'
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Add new'
     ButtonTextRequired: 'Button text must be filled in'
@@ -55,8 +65,6 @@ en:
     RelatedPages: 'Related pages'
     SINGULARNAME: 'Base Page'
     TagsTabTitle: Tags
-    Taxonomy: Taxonomy
-    Term: Term
     Terms: Terms
     TermsDescription: 'Click to search for additional terms'
   CWP\CWP\PageTypes\DateUpdatePage:
@@ -66,7 +74,7 @@ en:
     LocationFieldLabel: Location
     StartTimeFieldLabel: 'Start Time'
   CWP\CWP\PageTypes\DatedUpdateHolder:
-    DATE_EXAMPLE: '(example: 2017/12/30)'
+    DATE_EXAMPLE: '(example: 30/12/2017)'
     FILTER_BETWEEN: between
     FILTER_IN: in
     FILTER_ON: 'on'

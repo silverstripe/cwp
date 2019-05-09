@@ -26,7 +26,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
  */
 class BaseHomePage extends Page
 {
-    private static $icon = 'cwp/cwp:images/icons/sitetree_images/home.png';
+    private static $icon_class = 'font-icon-p-home';
 
     private static $hide_ancestor = BaseHomePage::class;
 
