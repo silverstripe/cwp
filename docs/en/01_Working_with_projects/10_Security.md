@@ -20,7 +20,7 @@ CWP\CWP\PageTypes\BasePage:
 
 ### Login auto-completion
 
-By default the username of anyone who logs into the website is saved in their browser's autocomplete cache when logging into a website. This username, by default, is the email address. If necessary, the autocompletion by the browser can be disabled on the ‘Email’ field by setting `SilverStripe\Security\Security.remember_username`to false. 
+By default the username of anyone who logs into the website is saved in their browser's autocomplete cache when logging into a website. This username, by default, is the email address. If necessary, the autocompletion by the browser can be disabled on the 'Email' field by setting `SilverStripe\Security\Security.remember_username` to false. 
 
 This is done in your `app/_config/config.yml` file, by adding the following:
 
@@ -30,11 +30,11 @@ SilverStripe\Security\Security:
 ```
 Note that if a user has already saved their username prior to changing this value, it may be necessary to reset their browser autocomplete history before this will take effect.
 
-This setting does not affect the behaviour of the browser’s built in password manager or third-party password manager auto-filling the stored credentials.
+This setting does not affect the behaviour of the browser's built in password manager or third-party password manager auto-filling the stored credentials.
 
 Disabling the browser autocomplete functionality does make the email field more susceptible to malicious keyloggers capturing the email address/username.
 
-The password field has autocomplete from the browser’s autocomplete cache disabled by default for security reasons.
+The password field has autocomplete from the browser's autocomplete cache disabled by default for security reasons.
 
 ### User session expiration
 
