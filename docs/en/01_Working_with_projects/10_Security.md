@@ -20,19 +20,21 @@ CWP\CWP\PageTypes\BasePage:
 
 ### Login auto-completion
 
-By default CMS users are able to save login credentials in their browser password store when logging into a website.
-If necessary, this auto-completion may be disabled by setting the `SilverStripe\Security\Security.remember_username`
-setting to false.
+By default the username of anyone who logs into the website is saved in their browser's autocomplete cache when logging into a website. This username, by default, is the email address. If necessary, the autocompletion by the browser can be disabled on the ‘Email’ field by setting `SilverStripe\Security\Security.remember_username`to false. 
 
-In your `app/_config/config.yml` file, add the following:
+This is done in your `app/_config/config.yml` file, by adding the following:
 
 ```yaml
 SilverStripe\Security\Security:
   remember_username: false
 ```
+Note that if a user has already saved their username prior to changing this value, it may be necessary to reset their browser autocomplete history before this will take effect.
 
-Note that if a user has already saved their username and/or password prior to changing this value,
-it may be necessary to reset their browser auto-complete history before this will take effect.
+This setting does not affect the behaviour of the browser’s built in password manager or third-party password manager auto-filling the stored credentials.
+
+Disabling the browser autocomplete functionality does make the email field more susceptible to malicious keyloggers capturing the email address/username.
+
+The password field has autocomplete from the browser’s autocomplete cache disabled by default for security reasons.
 
 ### User session expiration
 
@@ -50,14 +52,14 @@ SilverStripe\Control\Session:
 Note: Setting this value to zero will instead terminate the session when the user closes their browser window,
 but this does not enforce any maximum session duration.
 
-Note: This value adjusts how long a users _browser_ remembers the session. To adjust how long the server remembers
-sessions you will have to adjust your `php.ini` configuration setting `session.gc_maxlifetime`. More information can be
+Note: This value adjusts how long a user's _browser_ remembers the session. To adjust how long the server remembers
+sessions, you will have to adjust your `php.ini` configuration setting `session.gc_maxlifetime`. More information can be
 found at [php's session configuration page](http://www.php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime).
 A lifetime of 24 minutes matches the default timeout configuration on CWP.
 
 ### Saved user logins
 
-Users have the option to check a box during login labeled "Remember me next time?".
+Users have the option to check a box during login labeled "Remember me next time?"
 If checked, that user will remain logged into the site even after the browser has been closed, and will be
 automatically logged in when they come back at a later time, up to a maximum period of 90 days.
 
@@ -112,7 +114,7 @@ If it's necessary to require secure authentication to certain areas of the front
 password protected forms or information) then there are some configuration changes that must be made.
 
 By default all attempts to access secure pages will redirect the user to an SSL protected domain
-specific to that environment (e.g. mystack.cwp.govt.nz). This is in place in order to prevent
+specific to that environment (e.g. mystack.cwp.govt.nz). This is in place to prevent
 users wishing to access the CMS having to log in for each individual domain, as well as the
 dependency on each domain having its own SSL certificate.
 
@@ -135,15 +137,13 @@ SilverStripe\Core\Injector\Injector:
 In this case it is necessary to ensure that an SSL certificate has been purchased and configured
 for each domain. If you are unsure, contact the [CWP Service Desk](https://www.cwp.govt.nz/service-desk/).
 
-Alternatively, you can completely disable SSL redirection by setting the 
-`CanonicalURLMiddleware.ForceSSL` property to false via Injector configuration (as in the example above),
-however any data accessed or submitted by users would be unencrypted.
+Alternatively, you can completely disable SSL redirection by setting the `CanonicalURLMiddleware.ForceSSL` property to false via Injector configuration (as in the example above). However, any data accessed or submitted by users would be unencrypted.
 
 ## HTTP request proxies and filtering
 
 ### Whitelist embedded resource domains {#whitelist-embed-domains}
 
-The SilverStripe CMS allows CMS users to embed external content such as YouTube or Vimeo vidoes in page content.
+The SilverStripe CMS allows CMS users to embed external content such as YouTube or Vimeo videos in page content.
 CWP recommends that you configure a whitelist of allowed domains to embed content from. If you aren't using this
 feature then we recommend you configure the domain whitelist anyway.
 
