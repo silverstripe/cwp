@@ -31,8 +31,6 @@ use TractorCow\Fluent\State\FluentState;
 
 class BasePage extends SiteTree
 {
-    private static $icon = 'cwp/cwp:images/icons/sitetree_images/page.png';
-
     /**
      * Hide this page type from the CMS. hide_ancestor is slightly misnamed, should really be just "hide"
      *
