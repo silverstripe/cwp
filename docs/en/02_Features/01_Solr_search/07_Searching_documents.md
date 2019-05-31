@@ -33,7 +33,7 @@ In mysite/\_config/search.yml:
 ```yaml
 ---
 Name: mysearchconfig
-After: #cwpsearch
+After: '#cwpsearch'
 ---
 SilverStripe\Core\Injector\Injector:
   CWP\Search\CwpSearchEngine.search_index:
