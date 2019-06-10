@@ -82,11 +82,15 @@ The following optional CWP modules are yet to be upgraded for CWP 2.0 compatibil
 CWP 2.0 enforces the default SilverStripe 4.1 configuration to serve web requests from the `/public` project subfolder.
 This also applies to any frontend CSS, JavaScript and images that are
 [exposed from modules and project code](https://docs.silverstripe.org/en/4/changelogs/4.1.0/#expose-root-project-files),
-as well as assets uploaded via the CMS.
+as well as assets uploaded via the CMS. 
 
-When configuring your local development environment, ensure to set `/public` as the document root. The Common Web 
-Platform servers are already configured for this.
+The Common Web Platform servers set their webroot to your project root,
+but are automatically sending all requests to the `/public` folder
+via an [.htaccess passthrough](https://github.com/silverstripe/cwp-installer/blob/2.0.0/.htaccess).
 
+When configuring your local development environment, 
+either set `/public` as the document root, or ensure that you're respecting
+the [.htaccess passthrough](https://github.com/silverstripe/cwp-installer/blob/2.0.0/.htaccess).
 Also ensure that you prepend your themes configuration list to contain `$public`.
 
 For more information please [see here](https://docs.silverstripe.org/en/4/changelogs/4.1.0/#upgrade-public-folder-optional), 
