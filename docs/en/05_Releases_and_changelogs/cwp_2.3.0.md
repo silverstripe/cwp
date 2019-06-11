@@ -46,6 +46,18 @@ If you rely on either of these themes as a base for your own, the 3.x upgrade wi
 
 TBC.
 
+### Expected test failures
+
+The following PHPUnit test failures are expected and do not functional issues in CWP:
+
+* `SilverStripe\GridFieldQueuedExport\Tests\GenerateCSVJobTest::testGenerateExport`: label names in the CMS now only
+  uppercase the first letter, this test assertion fails on a case mismatch. It is [already fixed upstream](https://github.com/silverstripe/silverstripe-gridfieldqueuedexport/pull/39).
+* `SilverStripe\GridFieldQueuedExport\Tests\GenerateCSVJobTest::testGenerateExportOverMultipleSteps`: as above
+* `SilverStripe\Comments\Tests\CommentsTest::testFieldLabels`: as above. [Fixed upstream](https://github.com/silverstripe/silverstripe-comments/commit/f65f5b569777b51db1a3c04555b6472b4f1c0bc2).
+* `SilverStripe\AssetAdmin\Tests\Forms\RemoteFileFormFactoryTest::testRejectedURLS`: translations have been updated
+  causing the unit test assertions to fail. [Fixed upstream](https://github.com/silverstripe/silverstripe-asset-admin/commit/58b19fa219923eef6298e9d45079fff57ee4889f).
+* `TractorCow\Fluent\Tests\Extension\FluentSiteTreeExtensionTest::testStatusMessageNotVisible`: as above. [Fixed upstream](https://github.com/tractorcow-farm/silverstripe-fluent/commit/997a1a92dd4aa993348d1c62e1af7c96dc344d20).
+
 ## Security considerations
 
 TBC.
