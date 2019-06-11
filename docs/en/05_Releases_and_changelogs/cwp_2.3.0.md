@@ -60,7 +60,11 @@ The following PHPUnit test failures are expected and do not functional issues in
 
 ## Security considerations
 
-TBC.
+This release includes several security fixes. Please see the release announcements for more detailed descriptions of each,
+but note that the following issues have modified CVSS Environmental scores which take built-in protections from the CWP
+platform into account. We highly encourage upgrading your CWP projects to include these security patches nonetheless.
+
+* CVE-2019-12149: CVSS 0.0 on CWP; mitigated by WAF.
 
 <!--- Changes below this line will be automatically regenerated -->
 
