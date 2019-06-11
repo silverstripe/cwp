@@ -2,8 +2,6 @@
 
 ## Overview
 
-#### Please note, this version is not yet released. See the [release candidate](https://www.cwp.govt.nz/developer-docs/en/2/releases_and_changelogs/cwp_2.3.0-rc1/) for information on what's planned to be released.
-
 This upgrade includes CMS and Framework version 4.4.0.
 
  * [Framework 4.4.0](https://docs.silverstripe.org/en/4/changelogs/4.4.0/)
