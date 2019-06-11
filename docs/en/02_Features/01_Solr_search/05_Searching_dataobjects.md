@@ -81,7 +81,7 @@ Now in your `mysite/_config/search.yml` file (for example), add the following:
 ```yaml
 ---
 Name: mysearchconfig
-After: #cwpsearch
+After: '#cwpsearch'
 ---
 SilverStripe\Core\Injector\Injector:
   CWP\Search\CwpSearchEngine.search_index:
