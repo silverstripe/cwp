@@ -4,7 +4,7 @@
 
 This upgrade includes CMS and Framework version 4.4.0.
 
- * [Framework 4.4.0](https://github.com/silverstripe/silverstripe-framework/blob/4.4.0/docs/en/04_Changelogs/4.4.0.md)
+ * [Framework 4.4.0](https://docs.silverstripe.org/en/4/changelogs/4.4.0/)
 
 Upgrading to Recipe 2.3.0 is optional, but is recommended for all CWP sites.
 
