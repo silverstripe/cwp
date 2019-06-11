@@ -44,7 +44,10 @@ If you rely on either of these themes as a base for your own, the 3.x upgrade wi
 
 ## Known issues
 
-TBC.
+* [Editing in IE 11 breaks at resolutions below 1400px #2432
+](https://github.com/silverstripe/silverstripe-cms/issues/2432)
+* [Gridfield Better Buttons don't handle sorting and pagination #886
+](https://github.com/silverstripe/silverstripe-admin/issues/886)
 
 ### Expected test failures
 
