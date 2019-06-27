@@ -21,6 +21,9 @@
         "silverstripe/crontask": "Allows CWP cleanup tasks to be scheduled"
     },
     "extra": {
+        "branch-alias": {
+            "dev-master": "2.x-dev"
+        },
         "expose": [
             "css",
             "javascript",
