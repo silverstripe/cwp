@@ -2,13 +2,13 @@ language: php
 
 env:
   global:
-    - COMPOSER_ROOT_VERSION=2.3.x-dev
+    - COMPOSER_ROOT_VERSION=2.4.x-dev
 
 matrix:
   include:
-    - php: 5.6
+    - php: 7.1
       env: DB=MYSQL PHPCS_TEST=1 PHPUNIT_TEST=1
-    - php: 7.0
+    - php: 7.2
       env: DB=MYSQL PHPUNIT_TEST=1
     - php: 7.1
       env: DB=MYSQL PHPUNIT_COVERAGE_TEST=1
@@ -25,7 +25,7 @@ before_script:
 
   # Install composer dependencies
   - composer validate
-  - composer require --no-update cwp/cwp-recipe-cms:2.3.x-dev cwp/starter-theme:2.x-dev symbiote/silverstripe-advancedworkflow:5.0.x-dev silverstripe/userforms:^5
+  - composer require --no-update cwp/cwp-recipe-cms:2.4.x-dev cwp/starter-theme:2.x-dev symbiote/silverstripe-advancedworkflow:5.0.x-dev silverstripe/userforms:^5
   - composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
 
 script:
