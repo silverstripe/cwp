@@ -1,8 +1,7 @@
 title: External HTTP requests with proxy
-summary: How to access external  
+summary: How to access external resources via the CWP proxy.
 
 # External HTTP requests with proxy
-
 
 All CWP environments are positioned behind a proxy. All requests out to external services must go through this proxy.
 
@@ -25,38 +24,17 @@ You can look up the implementation details in the `CwpInitialisationFilter` in t
 Requests to internally resolved CWP hostnames will fail to connect when using the proxy.
 Additionally requests over https (i.e. https://yourstack-uat.cwp.govt.nz) will fail to connect to the webserver via the CWP proxy and will fail without using the proxy too. We recommend adding a custom domain to the stack via the [CWP Service Desk](https://www.cwp.govt.nz/service-desk) and using that instead (i.e. yourstack-test.govt.nz). This will ensure that the request is resolved via external DNS.
 
-## Stream-based requests
+## A note on `fopen()` and `file_get_contents()`
 
-Stream-based requests however will need extra manual configuration. For example, the following will not work, resulting
-in a "Connection refused" error:
+<div class="alert alert-warning" markdown='1'>
+Use of `fopen()` and `file_get_contents()` to retrieve remote content are discouraged - and are disabled by default on new CWP stacks - due to security risks.
+</div>
 
-```php
-echo file_get_contents('http://www.silverstripe.org/blog/rss');
-```
-
-We can modify it to use the proxy. Proxy URL on CWP environments is provided via `SS_OUTBOUND_PROXY` define, and port is
-provided via `SS_OUTBOUND_PROXY_PORT`. We can check for the existence of these so we are not forced to use the proxy on
-the development machine:
-
-```php
-// use proxy if the environment file has a proxy definition
-if(Environment::getEnv('SS_OUTBOUND_PROXY') && Environment::getEnv('SS_OUTBOUND_PROXY_PORT')) {
-    $context = stream_context_create([
-        'http' => [
-            'proxy' => sprintf('tcp://%s:%s', Environment::getEnv('SS_OUTBOUND_PROXY'), Environment::getEnv('SS_OUTBOUND_PROXY_PORT')),
-            'request_fulluri' => true
-        ]
-    ]);
-    
-    echo file_get_contents('http://www.silverstripe.org/blog/rss', false, $context);
-} else {
-    echo file_get_contents('http://www.silverstripe.org/blog/rss');
-}
-```
+Instead, CWP recommends using cURL commands, or ideally using a PHP library such as [Guzzle](https://github.com/guzzle/guzzle).
 
 ## Disabling egress proxy
 
-In some situations you might want to disable the proxy for requests that remain within the CWP network. You can do it by customising cURL configuration per request:
+In some situations you might want to disable the proxy for requests that remain within the CWP network. You can do so by customising cURL configuration per request:
 
 ```php
 $ch = curl_init();
