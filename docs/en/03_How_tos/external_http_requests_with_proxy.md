@@ -30,7 +30,7 @@ Additionally requests over https (i.e. https://yourstack-uat.cwp.govt.nz) will f
 Use of `fopen()` and `file_get_contents()` to retrieve remote content are discouraged - and are disabled by default on new CWP stacks - due to security risks.
 </div>
 
-Instead, CWP recommends using curl commands, or ideally using a PHP library such as [Guzzle](https://github.com/guzzle/guzzle).
+Instead, CWP recommends using cURL commands, or ideally using a PHP library such as [Guzzle](https://github.com/guzzle/guzzle).
 
 ## Disabling egress proxy
 
