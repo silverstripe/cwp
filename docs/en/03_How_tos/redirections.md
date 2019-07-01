@@ -10,7 +10,9 @@ There's a few ways developers can implement redirections on their CWP stacks:
 
 ## .htaccess
 
-Implementing in `.htaccess` is more performant than using PHP to redirect and allows more control than your standard `Director` redirection. The below example redirects redirection.com to www.redirection.com.
+Implementing in `.htaccess` is more performant than using PHP to redirect and allows more control than your standard `Director` redirection. If you are running your site with a [public/ webroot folder](https://docs.silverstripe.org/en/4/getting_started/directory_structure/), ensure that any rules are placed in `public/.htaccess`.
+
+The below example redirects redirection.com to www.redirection.com.
 
 ```
 RewriteCond %{HTTP_HOST} ^redirection\.com(.*)$ [NC]
