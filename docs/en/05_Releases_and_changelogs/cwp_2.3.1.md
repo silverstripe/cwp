@@ -39,8 +39,6 @@ In order to update an existing site to use the new CWP recipe the following chan
 
 <!--- Changes below this line will be automatically regenerated -->
 
-
-
 ## Change Log
 
 ### Features and Enhancements
@@ -50,16 +48,11 @@ In order to update an existing site to use the new CWP recipe the following chan
 ### Bugfixes
 
  * 2019-06-30 [99b4f7c](https://github.com/silverstripe/silverstripe-hybridsessions/commit/99b4f7c16886803c0af5e0b5862d85ad6dac95f7) DatabaseStore binary safety (Serge Latyntcev)
- * 2019-05-16 [9082db1](https://github.com/silverstripe/silverstripe-iframe/commit/9082db159c62432716a82675053eeb637501f440) Add CMS configurable title for iframe to tell screenreaders it contains frame content (Robbie Averill)
 
 ### Other changes
 
  * 2019-06-14 [40ad8d1](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/40ad8d1dacb3b2444313b6119cbf1923c2845cc6) DOCS Twig improvements to change log template (Bryn Whyman)
  * 2019-06-14 [829fabe](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/829fabedc74b5a8de18471f31bc4f0444fd75f9d) DOCS new headings for change log template (Bryn Whyman)
  * 2019-06-13 [fe202c6](https://github.com/silverstripe/cwp/commit/fe202c65d973b9fcd092156cd7a10bbf53c02f6c) DOCS update 2.3 changelog to reference 4.4.1 (Bryn Whyman)
- * 2019-05-17 [097edbc](https://github.com/silverstripe/silverstripe-iframe/commit/097edbc9c2b6d58ac358b655fe36750fa285cff3) Update title and description of IFrameTitle field (Robbie Averill)
  * 2019-05-09 [3fcebd6](https://github.com/silverstripe/silverstripe-hybridsessions/commit/3fcebd6399d18397a59a137856d63cef9170cda7) Update translations (Robbie Averill)
- * 2019-05-09 [60e3d6d](https://github.com/silverstripe/silverstripe-documentconverter/commit/60e3d6d1aa083ff41687a4afcf9b00d01f6b4cb6) Update translations (Robbie Averill)
-
-
 <!--- Changes above this line will be automatically regenerated -->
