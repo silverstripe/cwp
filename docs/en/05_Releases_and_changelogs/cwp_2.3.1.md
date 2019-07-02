@@ -9,7 +9,7 @@ Upgrading to CWP 2.3.1 is recommended for CWP sites with [Active DR](https://www
 ## Description
 
 The issue breaks browser based `?flush`, `?isTest` and `dev/` urls, when used with [SilverStripe 4.4.0](https://docs.silverstripe.org/en/4/changelogs/4.4.0/).
-The fix can be applied to existing CWP environments with existing session data managed in MySQL. It should not cause users from losing session data, or being logged out of the CMS. On the next write to existing sessions, existing session data will automatically be converted to a binary-safe persistence format. New sessions will write in the correct format by default.
+The fix can be applied to existing CWP environments with existing session data managed in MySQL. It will not cause users to lose session data, or be logged out of the CMS. On subsequent writes to existing sessions, existing session data will automatically be converted to a binary-safe persistence format. New sessions will be persisted in the correct format by default.
 
 ## Technical details
 
