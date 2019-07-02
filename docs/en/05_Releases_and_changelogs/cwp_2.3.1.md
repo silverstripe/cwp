@@ -2,7 +2,7 @@
 
 ## Overview
 
-This release includes [silverstripe/hybridsessions:2.1.2](https://github.com/silverstripe/silverstripe-hybridsessions/releases/tag/2.1.2) update.
+This release includes the [silverstripe/hybridsessions:2.1.2](https://github.com/silverstripe/silverstripe-hybridsessions/releases/tag/2.1.2) update.
 
 Upgrading to CWP 2.3.1 is recommended for CWP sites with [Active DR](https://www.cwp.govt.nz/developer-docs/en/2/how_tos/preparing_your_site_for_active_dr), or ones manually activating the `silverstripe/hybridsessions` module. This upgrade can be carried out by any development team familiar with SilverStripe CMS, however if you would like SilverStripe's assistance, you can request support via the [Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
 
