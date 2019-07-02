@@ -2,40 +2,29 @@
 
 ## Overview
 
-This release includes CMS and Framework version X.X.X.
+This release includes [silverstripe/hybridsessions:2.1.2](https://github.com/silverstripe/silverstripe-hybridsessions/releases/tag/2.1.2) update.
 
-- [Framework X.X.X](#)
+Upgrading to Recipe 2.3.1 is recommended for CWP sites with [Active DR](https://www.cwp.govt.nz/developer-docs/en/2/how_tos/preparing_your_site_for_active_dr), or the ones manually activating `silverstripe/hybridsessions` module. This upgrade can be carried out by any development team familiar with SiliverStripe CMS. However, if you would like SilverStripe's assistance, you can request support via the [Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
 
-Upgrading to Recipe 2.3.1 is recommended for all CWP sites. This upgrade can be carried out by any development team familiar with SiliverStripe CMS. However, if you would like SilverStripe's assistance, you can request support via the [Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
+## Description
 
-## New features
+The issue breaks browser based `?flush`, `?isTest` and `dev/` urls, when used with [SilverStripe 4.4](https://docs.silverstripe.org/en/4/changelogs/4.4.0/).
+The fix can be applied to existing CWP environments with existing session data managed in MySQL. It should not cause users from losing session data, or being logged out of the CMS. On the next write to existing sessions, existing session data will automatically be converted to a binary-safe persistence format. New sessions will write in the correct format by default.
 
-The [release announcement](#) includes the note worthy features, but be sure to review the change log for full detail.
+## Technical details
 
+We identified a binary safety issue in `SilverStripe\HybridSessions\Store\DatabaseStore` that may lose session data when trying to
+persist content different from UTF-8 encoded text.
 
-## Known issues
-
-
-### Expected test failures
-
-The following PHPUnit test failures are expected and do not represent functional issues in CWP:
-
-
-## Security considerations
-
-This release includes  security fixes. Please see the release announcements for more detailed descriptions of each[ but note that the following issues have modified CVSS Environmental scores which take built-in protections from the CWP platform into account]. We highly encourage upgrading your CWP projects to include these security patches nonetheless.
-
-
-## Upgrading instructions
-
-In order to update an existing site to use the new CWP recipe the following changes to your composer.json can be made:
+Here is an example:
 
 ```
-...
+$_SESSION['key_a'] = iconv('utf8', 'utf16', 'test');
+$_SESSION['key_b'] = "\x80";
 ```
 
-
-...
+Both keys in the session above are valid PHP strings, but are not valid UTF-8. Before the fix silverstripe/hybridsessions was not be able to save
+that session to the database.
 
 <!--- Changes below this line will be automatically regenerated -->
 
