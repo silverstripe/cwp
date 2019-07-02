@@ -24,7 +24,7 @@ $_SESSION['key_b'] = "\x80";
 ```
 
 Both keys in the session above are valid PHP strings, but are not valid UTF-8. Before the fix silverstripe/hybridsessions was not be able to save
-that session to the database.
+that session value to the database.
 
 <!--- Changes below this line will be automatically regenerated -->
 
