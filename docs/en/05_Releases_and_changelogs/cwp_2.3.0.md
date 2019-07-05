@@ -51,6 +51,7 @@ If you rely on either of these themes as a base for your own, the 3.x upgrade wi
 ](https://github.com/silverstripe/silverstripe-cms/issues/2432)
 * [Gridfield Better Buttons don't handle sorting and pagination #886
 ](https://github.com/silverstripe/silverstripe-admin/issues/886)
+* Browser based `?flush`, `?isTest` and `dev/` urls will break for sites with [Active DR](https://www.cwp.govt.nz/developer-docs/en/2/how_tos/preparing_your_site_for_active_dr), or ones manually activating the `silverstripe/hybridsessions` module. See the patch release [2.3.1](https://www.cwp.govt.nz/developer-docs/en/2/releases_and_changelogs/cwp_2.3.1/) for a fix.
 
 ### Expected test failures
 
