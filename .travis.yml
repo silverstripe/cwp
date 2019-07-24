@@ -19,7 +19,7 @@ matrix:
 before_script:
   - composer self-update || true
   - git clone git://github.com/silverstripe/silverstripe-travis-support.git ~/travis-support
-  - php ~/travis-support/travis_setup.php --source `pwd` --target ~/builds/ss --require cwp/starter-theme:1.x-dev --require symbiote/silverstripe-advancedworkflow:^4 --require silverstripe/userforms:^4
+  - php ~/travis-support/travis_setup.php --source `pwd` --target ~/builds/ss --require cwp/starter-theme:1.x-dev --require symbiote/silverstripe-advancedworkflow:^4 --require silverstripe/userforms:^4 --require cwp/cwp-core:1.10.x-dev
   - cd ~/builds/ss
 
 script:
