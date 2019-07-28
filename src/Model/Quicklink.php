@@ -9,6 +9,10 @@ use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\ORM\DataObject;
 
+/**
+ * @method BaseHomePage Parent()
+ * @method SiteTree InternalLink()
+ */
 class Quicklink extends DataObject
 {
     private static $db = [
@@ -53,14 +57,18 @@ class Quicklink extends DataObject
             }
 
             return $this->ExternalLink;
-        } elseif ($this->InternalLinkID) {
+        }
+
+        if ($this->InternalLinkID) {
             return $this->InternalLink()->Link();
         }
     }
 
     public function canCreate($member = null, $context = [])
     {
-        return $this->Parent()->canCreate($member, $context);
+        // Creating quick links should not be the same permission level as creating parent pages for them, they're
+        // essentially content in the context of the page, so use the edit permission instead.
+        return $this->canEdit($member);
     }
 
     public function canEdit($member = null)
