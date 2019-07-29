@@ -51,6 +51,8 @@ If you rely on either of these themes as a base for your own, the 3.x upgrade wi
 ](https://github.com/silverstripe/silverstripe-cms/issues/2432)
 * [Gridfield Better Buttons don't handle sorting and pagination #886
 ](https://github.com/silverstripe/silverstripe-admin/issues/886)
+* [Post and WebDav Index Stores are requiring 'remotepath' and `path` when it should be optional #260](https://github.com/silverstripe/silverstripe-fulltextsearch/issues/260).
+This has been fixed in CWP [2.3.2](cwp_2.3.2.md).
 
 ### Expected test failures
 
