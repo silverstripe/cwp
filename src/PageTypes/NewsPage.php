@@ -6,6 +6,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\FieldType\DBField;
 
 class NewsPage extends DatedUpdatePage
 {
@@ -63,5 +64,17 @@ class NewsPage extends DatedUpdatePage
             );
         });
         return parent::getCMSFields();
+    }
+
+    /**
+     * Returns the Author DB field for this page type.
+     *
+     * Used to avoid conflicts with `Versioned::Author()`
+     *
+     * @return DBField
+     */
+    public function getNewsPageAuthor()
+    {
+        return $this->dbObject('Author');
     }
 }
