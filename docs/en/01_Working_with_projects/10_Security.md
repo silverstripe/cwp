@@ -139,6 +139,50 @@ for each domain. If you are unsure, contact the [CWP Service Desk](https://www.c
 
 Alternatively, you can completely disable SSL redirection by setting the `CanonicalURLMiddleware.ForceSSL` property to false via Injector configuration (as in the example above). However, any data accessed or submitted by users would be unencrypted.
 
+## HTTP Security Headers
+
+### Strict Transport Security
+
+The [HTTP Strict Transport Security](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) (HSTS)
+headers are an important security mechanism to reduce the chance of man-in-the-middle
+attacks, by signaling to browsers that requests to the site should always
+be encrypted (via accessing on the `https://` protocol).
+
+CWP environments can always be accessed
+via SSL, either through agency-provided certificates, or free certificates
+provided through the Let's Encrypt service ([details](https://www.cwp.govt.nz/working-with-cwp/instance-management/ssl-certificates/)).
+CWP websites already enforce the `https://` protocol for authenticated requests,
+e.g. to `Security/*` and `admin/*`.
+
+Starting with CWP 2.4, new projects will
+automatically be configured to send HSTS headers, and redirect all requests to `https://`.
+
+Projects created prior to CWP 2.4 can opt-in to this behaviour by copying
+the new default configuration into their existing projects:
+[app/_config/security.yml](https://github.com/silverstripe/cwp-installer/blob/master/app/_config/security.yml). 
+
+Note: This will only secure requests to SilverStripe.
+In order to protect access to static assets,
+consider adding HSTS headers to your `.htaccess` file,
+and ensure that every environment (incl. local development)
+are able to serve your site on the `https://` protocol.
+
+### Content-Security-Policy, X-XSS-Protection and more
+
+There are other HTTP security headers that you should consider
+to increase the security of your site. We recommend that you scan
+your site on [securityheaders.com/](https://securityheaders.com/)
+and implement additional headers depending on your use case
+through `.htaccess` configuration.
+
+Since SilverStripe is an extensible system, modules added
+to your website or CMS might embed resources from other domains
+which influence the settings on your particular website.
+Common examples are videos embedded from youtube.com,
+analytics loaded from google-analytics.com,
+or captchas provided through spam protection modules
+and loaded e.g. from google.com.
+
 ## HTTP request proxies and filtering
 
 ### Whitelist embedded resource domains {#whitelist-embed-domains}
