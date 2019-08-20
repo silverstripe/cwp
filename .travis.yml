@@ -5,9 +5,9 @@ dist: xenial
 services:
   - mysql
 
-cache:
-  directories:
-    - $HOME/.composer/cache/files
+env:
+  global:
+    - COMPOSER_ROOT_VERSION=1.9.x-dev
 
 matrix:
   include:
