@@ -51,7 +51,6 @@ sv:
     RelatedPages: 'Relaterade sidor'
     SINGULARNAME: Bas-sida
     TagsTabTitle: Taggar
-    Taxonomy: Taxonomi
     TermsDescription: 'Klicka för att söka efter ytterligare objekt'
   CWP\CWP\PageTypes\DateUpdatePage:
     AuthorFieldLabel: Författare
@@ -59,7 +58,6 @@ sv:
     LocationFieldLabel: Plats
     StartTimeFieldLabel: Starttid
   CWP\CWP\PageTypes\DatedUpdateHolder:
-    DATE_EXAMPLE: '(till exempel: 2017/12/30)'
     FROM_DATE: 'Från datum'
     TO_DATE: 'Till datum'
   CWP\CWP\PageTypes\DatedUpdateHolderController:

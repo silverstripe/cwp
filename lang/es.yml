@@ -28,8 +28,6 @@ es:
     RelatedPages: 'Páginas relacionadas'
     SINGULARNAME: 'Página base'
     TagsTabTitle: Etiquetas
-    Taxonomy: Taxonomía
-    Term: Término
     Terms: Términos
     TermsDescription: 'Hacer clic para buscar términos adicionales'
   CWP\CWP\PageTypes\DatedUpdatePage:

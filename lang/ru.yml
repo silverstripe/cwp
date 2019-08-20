@@ -36,12 +36,9 @@ ru:
     RelatedPages: 'Зависимые страницы'
     SINGULARNAME: 'Основная страница'
     TagsTabTitle: Метки
-    Taxonomy: Таксономия
-    Term: Условие
     Terms: Условия
     TermsDescription: 'Нажмите для расширения условий поиска'
   CWP\CWP\PageTypes\DatedUpdateHolder:
-    DATE_EXAMPLE: '(например: 2017/12/30)'
     FILTER_BETWEEN: между
     FILTER_IN: в
     FILTER_ON: на

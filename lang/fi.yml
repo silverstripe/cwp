@@ -33,8 +33,6 @@ fi:
     RelatedPages: 'Liittyvät sivut'
     SINGULARNAME: Pohjasivu
     TagsTabTitle: Avainsanat
-    Taxonomy: Taksonomia
-    Term: Termi
     Terms: Termit
     TermsDescription: 'Klikkaa etsiäksesi muita termejä'
   CWP\CWP\PageTypes\DatedUpdatePage:

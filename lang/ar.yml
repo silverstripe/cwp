@@ -30,8 +30,6 @@ ar:
     RelatedPages: 'الصفحات المرتبطة'
     SINGULARNAME: 'صفحة رئيسية'
     TagsTabTitle: البطاقات
-    Taxonomy: 'علم التصنيف'
-    Term: عنصر
     Terms: عناصر
   CWP\CWP\PageTypes\DatedUpdateHolder:
     PLURALNAME: 'الصفحات الرئيسية'
