@@ -574,7 +574,7 @@ class BasePage_Controller extends ContentController {
 		/** @var CwpSearchIndex $index */
 		$index = null;
 		if (self::$search_index_class) {
-			$index = Object::singleton(self::$search_index_class);
+			$index = SS_Object::singleton(self::$search_index_class);
 		}
 		return $index;
 	}
