@@ -1,6 +1,6 @@
 # 1.9.2
 
-We're happy to announce the 1.9.2 release of the CWP recipe. This update includes the required module releases to support PHP 7.2 and above. 
+We're happy to announce the 1.9.2 release of the CWP recipe. 
 
 ## Upgrading Instructions
 
