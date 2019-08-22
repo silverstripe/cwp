@@ -2,15 +2,10 @@
 
 <!--- Changes below this line will be automatically regenerated -->
 
-
-
 ## Change Log
 
 ### Bugfixes
 
  * 2019-08-20 [0928fda](https://github.com/silverstripe/cwp/commit/0928fda3998ea33cea7c8fac93c8a2d9a9432e1f) DatedUpdateHolder should use aggregated columns for better MySQL version support (Guy Marriott)
  * 2019-08-20 [671e1b1](https://github.com/silverstripe/cwp/commit/671e1b15d86bf66eccbe7f3f779b1f1376e4a4ed) Ensure PHP 7.2+ compatibility (Guy Marriott)
- * 2018-09-10 [4c79f68](https://github.com/silverstripe/silverstripe-widgets/commit/4c79f68b023c34a969e965e831606ea17743730f) Cast subclassesFor as array and remove isset nesting (Robbie Averill)
-
-
 <!--- Changes above this line will be automatically regenerated -->
