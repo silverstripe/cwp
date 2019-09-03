@@ -123,10 +123,10 @@ class DatedUpdateHolder extends Page {
 	 *     Months => ArrayList:
 	 *     ...
 	 *
-	 * @param $updates DataList DataList to extract months from.
-	 * @param $link Link used as abase to construct the MonthLink.
-	 * @param $currentYear Currently selected year, for computing the link active state.
-	 * @param $currentMonthNumber Currently selected month, for computing the link active state.
+	 * @param DataList$updates DataList to extract months from.
+	 * @param string|null $link Link used as abase to construct the MonthLink.
+	 * @param string|int|null $currentYear Currently selected year, for computing the link active state.
+	 * @param string|int|null $currentMonthNumber Currently selected month, for computing the link active state.
 	 *
 	 * @returns ArrayList
 	 */
@@ -139,7 +139,8 @@ class DatedUpdateHolder extends Page {
 		$dates = $updates->dataQuery()
 			->groupby('YEAR("Date")')
 			->groupby('MONTH("Date")')
-			->sort('Date', 'DESC')
+			->sort('Year', 'DESC')
+			->sort('Month', 'DESC', false)
 			->query()
 			->setSelect(array(
 				'Year' => 'YEAR("Date")',

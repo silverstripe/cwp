@@ -1,11 +1,13 @@
-# See https://github.com/silverstripe/silverstripe-travis-support for setup details
-
-dist: trusty
-
 language: php
 
+dist: xenial
+
+services:
+  - mysql
+
 env:
-  - DB=MYSQL CORE_RELEASE=3.7
+  global:
+    - COMPOSER_ROOT_VERSION=1.9.x-dev
 
 matrix:
   include:
