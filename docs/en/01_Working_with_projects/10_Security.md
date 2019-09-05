@@ -155,11 +155,14 @@ CWP websites already enforce the `https://` protocol for authenticated requests,
 e.g. to `Security/*` and `admin/*`.
 
 Starting with CWP 2.4, new projects will
-automatically be configured to send HSTS headers, and redirect all requests to `https://`.
-
-Projects created prior to CWP 2.4 can opt-in to this behaviour by copying
+automatically be configured to send HSTS headers, and redirect all requests to `https://`. Projects created prior to CWP 2.4 can opt-in to this behaviour by copying
 the new default configuration into their existing projects:
 [app/_config/security.yml](https://github.com/silverstripe/cwp-installer/blob/master/app/_config/security.yml). 
+
+The default short-lived `max-age` for these headers is considered less secure,
+and should be increased once you are confident that your website operates correctly 
+under SSL with HSTS for all domains. Please refer to [OWASP recommendations](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.md)
+for secure `max-age` values (usually 365 days).
 
 Note: This will only secure requests to SilverStripe.
 In order to protect access to static assets,
