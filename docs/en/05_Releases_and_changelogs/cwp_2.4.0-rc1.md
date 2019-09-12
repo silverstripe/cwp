@@ -1,119 +1,29 @@
-# 2.4.0
-
-## Overview
-
-This upgrade includes CMS and Framework version 4.4.2.
-
- * [Framework 4.4.2](https://docs.silverstripe.org/en/4/changelogs/4.4.2/)
-
-Upgrading to Recipe 2.4.0 is recommended for all sites. This upgrade can be carried out by any development team familiar with SilverStripe CMS. However, if you would like SilverStripe’s assistance, you can request support via the [Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
-
-## New Features
-
-The [release announcement](https://www.cwp.govt.nz/updates/news/cwp-2-4-has-landed) includes the note worthy features, but be sure to review the change log for full detail of all new features.
-
-## Upgrading Instructions
-
-In order to update an existing site to use the new basic recipe the following changes to your composer.json
-can be made:
-
-```json
-"require": {
-    "cwp/cwp-recipe-core": "2.4.0@stable",
-    "cwp/cwp-recipe-cms": "2.4.0@stable",
-    "silverstripe/recipe-blog": "1.4.0@stable",
-    "silverstripe/recipe-form-building": "1.4.0@stable",
-    "silverstripe/recipe-authoring-tools": "1.4.0@stable",
-    "silverstripe/recipe-collaboration": "1.4.0@stable",
-    "silverstripe/recipe-reporting-tools": "1.4.0@stable",
-    "cwp/cwp-recipe-search": "2.4.0@stable",
-    "silverstripe/recipe-services": "1.4.0@stable",
-    "silverstripe/subsites": "2.3.2@stable",
-    "tractorcow/silverstripe-fluent": "4.4.1@stable",
-    "cwp/starter-theme": "3.0.1@stable"
-},
-"prefer-stable": true
-```
-
-### Major theme updates
-
-The 3.0.x release lines of the Starter and Wātea themes, first available with CWP 2.3.0, are updated to use Bootstrap 4.x. Please [see the Bootstrap migration guide](https://getbootstrap.com/docs/4.3/migration/) for Bootstrap-specific changes. These updates also include an upgrade to Laravel Mix 4, along with other dependency upgrades (including Webpack 4 and Babel 7).
-
-If you rely on either of these themes as a base for your own, the 3.x upgrade will be a fairly significant undertaking, so you may wish to keep using the latest 2.0.x release when upgrading to CWP 2.3.0 or later.
-
-### Using MFA with Subsites
-
-If you intend to adopt the new MFA module suite, you will need to ensure you are running Subsites 2.3.1 or later, as earlier versions are not compatible with MFA's authentication mechanisms. Composer will refuse to install MFA alongside an earlier version of Subsites.
-
-## Known issues
-
-* [Editing in IE 11 breaks at resolutions below 1400px #2432
-](https://github.com/silverstripe/silverstripe-cms/issues/2432) **(this will be
-resolved in the next CWP release)**
-* [Gridfield Better Buttons don't handle sorting and pagination #886
-](https://github.com/silverstripe/silverstripe-admin/issues/886)
-
-## Security considerations
-
-### HTTP Strict Transport Security Headers
-
-The [HTTP Strict Transport Security](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) (HSTS)
-headers are an important security mechanism to reduce the chance of man-in-the-middle
-attacks, by signaling to browsers that requests to the site should always
-be encrypted (via accessing on the `https://` protocol).
-
-CWP environments can always be accessed
-via SSL, either through agency-provided certificates, or free certificates
-provided through the Let's Encrypt service ([details](https://www.cwp.govt.nz/working-with-cwp/instance-management/ssl-certificates/)).
-CWP websites already enforce the `https://` protocol for authenticated requests,
-e.g. to `Security/*` and `admin/*`.
-
-Until now, securing your site with HSTS has been a [secure coding](https://docs.silverstripe.org/en/4/developer_guides/security/secure_coding/)
-recommendation in SilverStripe. New projects starting with CWP 2.4 will
-automatically be configured to send HSTS headers, and redirect all requests to `https://`.
-
-Existing projects can opt-in to this behaviour by copying
-the new default configuration into their existing projects:
-[app/_config/security.yml](https://github.com/silverstripe/cwp-installer/blob/master/app/_config/security.yml).
-
-The default short-lived `max-age` for these headers is considered less secure,
-and should be increased once you are confident that your website operates correctly 
-under SSL with HSTS for all domains. Please refer to [OWASP recommendations](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.md)
-for secure `max-age` values (usually 365 days).
-
-Note: This will only secure requests to SilverStripe.
-In order to protect access to static assets,
-consider adding HSTS headers to your `.htaccess` file,
-and ensure that every environment (incl. local development)
-are able to serve your site on the `https://` protocol.
-
-There are other HTTP security headers that you should consider
-to increase the security of your site. We recommend that you scan
-your site on [securityheaders.com/](https://securityheaders.com/)
-and implement additional headers depending on your use case
-through `.htaccess` configuration.
-
-Since SilverStripe is an extensible system, modules added
-to your website or CMS might embed resources from other domains
-which influence the settings on your particular website.
-Common examples are videos embedded from youtube.com,
-analytics loaded from google-analytics.com,
-or captchas provided through spam protection modules
-and loaded e.g. from google.com.
-
-See [Working with Projects: Security](/working_with_projects/security) for more details.
+# 2.4.0-rc1
 
 <!--- Changes below this line will be automatically regenerated -->
 
+
+
 ## Change Log
+
+### Security
+
+ * 2019-06-05 [32b727e](https://github.com/silverstripe/silverstripe-graphql/commit/32b727e02dd8d9b907ff0d515d1b9b82737f2b38) Cross Site Request Forgery (CSRF) Protection Bypass in GraphQL (Aaron Carlino) - See [cve-2019-12437](https://www.silverstripe.org/download/security-releases/cve-2019-12437)
+ * 2019-06-05 [3c1dd6b](https://github.com/silverstripe/silverstripe-graphql/commit/3c1dd6b839b7c0e2cbc85074bb5840ebded6097c) Cross Site Request Forgery (CSRF) Protection Bypass (Aaron Carlino) - See [cve-2019-12437](https://www.silverstripe.org/download/security-releases/cve-2019-12437)
+ * 2019-02-27 [ca56e8d78](https://github.com/silverstripe/silverstripe-framework/commit/ca56e8d78e468874b9267c94d8ec75240b6da0ab) Denial of Service on flush and development URL tools (Serge Latyntcev) - See [cve-2019-12246](https://www.silverstripe.org/download/security-releases/cve-2019-12246)
 
 ### API Changes
 
  * 2019-08-02 [76adc1a](https://github.com/dnadesign/silverstripe-elemental/commit/76adc1a9fc897110c89a984771932328eceb8bb6) Deprecate ElementalSolrIndex (Ingo Schommer)
  * 2019-07-01 [282e83c](https://github.com/silverstripe/silverstripe-hybridsessions/commit/282e83c0ac1c48df2998305be66580dd41e0605e) McryptCrypto is now deprecated, use OpenSSLCrypto instead (Serge Latyntcev)
+ * 2019-06-09 [a30fd34](https://github.com/silverstripe/silverstripe-assets/commit/a30fd34e268055fd65098d34e7c059fac2cf6ca9) Enable persistent FileHashCaching (#282) (Maxime Rainville)
+ * 2019-06-06 [8324235ed](https://github.com/silverstripe/silverstripe-framework/commit/8324235eda1b6254b29c28c7ac418027d14c6a4e) Opt-out of in-memory caching factory (Ingo Schommer)
+ * 2019-05-30 [b0743a9](https://github.com/silverstripe/silverstripe-assets/commit/b0743a9651cb99dd8a8971653b185a9585030f01) Remove coupling from Versioned. (Maxime Rainville)
+ * 2019-05-27 [5b6d0946f](https://github.com/silverstripe/silverstripe-framework/commit/5b6d0946f446387ec1a52f17aa474a9f6a867ab9) Add extension points to MigrateFileTask (#8994) (Maxime Rainville)
 
 ### Features and Enhancements
 
+ * 2019-08-20 [ed44168](https://github.com/silverstripe/silverstripe-sharedraftcontent/commit/ed4416894136a8ad789401291a6eaacfd1bdda25) Add extensions with page to allow custom behaviour on previews (Scott Hutchinson)
  * 2019-07-29 [1a4d04e](https://github.com/silverstripe/cwp/commit/1a4d04e8dc35b7fb74e70e9cff5db40854f2a9d6) NewsPage now has a getNewsPageAuthor() accessor for its conf… (#227) (Guy Marriott)
  * 2019-07-29 [beab891](https://github.com/silverstripe/cwp/commit/beab8919d6bc27e79e6064c062bb1ad874854d38) NewsPage now has a getNewsPageAuthor() accessor for its conflicted Author property (Robbie Averill)
  * 2019-07-26 [ef58f9c](https://github.com/silverstripe/cwp-installer/commit/ef58f9cc1b5bce6029eb7330d9fe8ae3a7584a3d) HTTP Strict Transport Security (Ingo Schommer)
@@ -121,42 +31,59 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
  * 2019-07-26 [0391a79](https://github.com/tractorcow-farm/silverstripe-fluent/commit/0391a79c072ff309e79789fa4c6472fbcfab8b86) Configurable policies for handling the deletion of objects (#536) (Damian Mooyman)
  * 2019-07-25 [781e88c](https://github.com/dnadesign/silverstripe-elemental/commit/781e88ce8fe381dfa045073e5dc8acc5845160e5) Page level history now links directly into an elements history view (Robbie Averill)
  * 2019-07-17 [066be09](https://github.com/silverstripe/silverstripe-gridfieldqueuedexport/commit/066be0934f1a41f9972b51b59ba49ec9644701ea) GridFieldQueuedExportButton is now Injectable (Robbie Averill)
+ * 2019-07-15 [9a31731](https://github.com/silverstripe/silverstripe-versioned-admin/commit/9a31731d2c2a58d2bc5b9090558a6c835d736507) Allow fetching history from schema by date rather than version (#122) (Guy Marriott)
  * 2019-07-14 [0b734c2](https://github.com/silverstripe/silverstripe-restfulserver/commit/0b734c21c68fae45fea9fd253e65b585d5766319) Aliases can now be defined for DataObject endpoints (#80) (Sander Hagenaars)
  * 2019-07-08 [30377cb](https://github.com/silverstripe/recipe-core/commit/30377cb03af85b0c00748dca1c9e8f215df4f4fa) | remove deprecated and unnecessary ErrorControlChainMiddleware from index.php (Serge Latyntcev)
  * 2019-06-28 [c25fa07](https://github.com/silverstripe/cwp-watea-theme/commit/c25fa078f310d1ebfe0731f5a5a779aa0e67ac43) Improve ARIA Landmarks by adjusting role attributes (Garion Herman)
+ * 2019-06-28 [1755335](https://github.com/silverstripe/cwp-starter-theme/commit/1755335e04355b3ee6470656bd63f42d5d122d34) Improve ARIA Landmarks by adjusting role attributes (Garion Herman)
+ * 2019-06-28 [0ea71fd](https://github.com/silverstripe/cwp-starter-theme/commit/0ea71fddf83e515e55481c75ab96aece384eae19) Add tabindex="-1" to comment submission message for a11y support (Garion Herman)
  * 2019-06-28 [3cc4725](https://github.com/silverstripe/silverstripe-hybridsessions/commit/3cc4725328c3e46505e6b04b34b6764706a090f4) DatabaseStore binary safety methods exposed as API (Serge Latyntcev)
  * 2019-06-18 [4a8a4b7](https://github.com/silverstripe/cwp-core/commit/4a8a4b7c566922983331f2b285700d29130f1b65) Add PBKDF2 PasswordEncryptor with SHA-512 as the default algorithm for NZISM compliance (Robbie Averill)
+ * 2019-06-16 [06beff7](https://github.com/silverstripe/silverstripe-admin/commit/06beff71a45bca0f42c88ea931f142d8bc10d008) Allow export of injected GraphQL AST alongside HOC (#889) (Aaron Carlino)
+ * 2019-05-30 [c569cec4](https://github.com/silverstripe/silverstripe-cms/commit/c569cec4ea49612ddc9d430d7fe792971c93c586) Add updateHintsCacheKey extension point to fix invalid caching (Garion Herman)
+ * 2019-05-28 [7301b375b](https://github.com/silverstripe/silverstripe-framework/commit/7301b375b82664bf8cf8f05637ef9aa384208447) Clearer file migration output with colours (Ingo Schommer)
+ * 2019-05-27 [ed0ad18](https://github.com/silverstripe/silverstripe-assets/commit/ed0ad18abaf23b76c74e177d912d968b29ff6af7) Speed up file migration (#271) (Maxime Rainville)
  * 2019-05-16 [7a46b9b](https://github.com/bringyourownideas/silverstripe-maintenance/commit/7a46b9becb2c7d9bd6d257a7d39b34ccbee466c1) Update "More information" link to point to user help documentation instead of addons (Robbie Averill)
  * 2019-04-23 [07ea187](https://github.com/silverstripe/silverstripe-auditor/commit/07ea18793b920c0d8a740d27d86ba73f2cd82f69) Auditor now has hooks for silverstripe/mfa method login and registration actions (Robbie Averill)
  * 2019-04-05 [b5dd71b](https://github.com/dnadesign/silverstripe-elemental/commit/b5dd71b895395b0d74983bc4a68647e3eac87594) Content migration task has a bunch of new features...: (Guy Marriott)
 
 ### Bugfixes
 
- * 2019-08-26 [192dcae](https://github.com/silverstripe/cwp-core/commit/192dcaebdc07351fa5ce198ab9449e861171367d) Fix #74 textextraction config to enable it after 'textextractionconfig' defined in silverstripe/silverstripe-textextraction as well as using the use file caching as intended. (Charlie Bergthaler)
  * 2019-08-14 [f963ac4](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/f963ac46cd1e25eccba711087dd9bc9e3815675c) Fix the "clear link" action (#29) (Guy Marriott)
  * 2019-08-13 [8fdc227](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/8fdc227dc17dfe9e85982bbebf46212e0cfd594a) Add behat test for the block link field (Maxime Rainville)
  * 2019-08-13 [acbafb8](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/acbafb8970a61430b5568906157e4831d9a5304e) Update travis to run JS test and test PHP 7.3 (Maxime Rainville)
  * 2019-08-13 [d54288e](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/d54288ecc47f4958340671b1df3ceaa2fa35bc80) Add missing dev dependencies for the tests to run. (Maxime Rainville)
  * 2019-08-13 [d24bede](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/d24bede89c5938e7cb8bae42dbac0867be9ad1f2) Fix the the BlockLinkField clear action and update state on component update (Maxime Rainville)
+ * 2019-08-02 [181dba8](https://github.com/silverstripe/silverstripe-admin/commit/181dba850bf1e73d53b49563f400a12305b35488) FormSchema field title can include html, this will sometimes be used to render form modals (Maxime Rainville)
  * 2019-07-31 [3864623](https://github.com/silverstripe/silverstripe-crontask/commit/3864623170d290c22a34bce39b2fd81073e2bf37) Fix the build to use xenial (Maxime Rainville)
+ * 2019-07-29 [5c794dfcd](https://github.com/silverstripe/silverstripe-framework/commit/5c794dfcdd42b319325c867f4a807429ad93a553) Prevent setting session value when no session exists yet (Robbie Averill)
  * 2019-07-26 [1ce8c3b](https://github.com/silverstripe/silverstripe-externallinks/commit/1ce8c3bbdf2fb5f7b3234198ef1bcee868a654b4) Add missing namespace import - unknown HTTP status codes are now handled (Robbie Averill)
  * 2019-07-24 [6e27953](https://github.com/silverstripe/cwp-watea-theme/commit/6e27953c141ff50d010f19c58427f5f1af7f71d3) Update selector for anchor tags to not target dropdown items (#102) (Guy Marriott)
  * 2019-07-24 [15c8144](https://github.com/silverstripe/cwp-watea-theme/commit/15c81444f907abb8637efae66aeb7452d3f77e34) Update selector for anchor tags to not target dropdown items (Sacha Judd)
  * 2019-07-24 [61d3d04](https://github.com/silverstripe/silverstripe-tagfield/commit/61d3d04ed60fc9b728de9d3091fdb534b0862f50) Removing potentially breaking lower-case change (and fix tests) (Guy Marriott)
  * 2019-07-24 [a1c57f6](https://github.com/silverstripe/silverstripe-tagfield/commit/a1c57f664db5828e26c3cef722b1c942611858cd) redux-form can now control tag fields (Guy Marriott)
  * 2019-07-23 [e2d7a6b](https://github.com/silverstripe/cwp-watea-theme/commit/e2d7a6b70c91209d80c13d86db70fcc0662c8723) Update dist files to pull in new typography styles from star… (#100) (Guy Marriott)
+ * 2019-07-22 [e822e1d](https://github.com/silverstripe/silverstripe-admin/commit/e822e1d1d480c01f612ee8c3219058547c990184) Support array field names when resolving values (Guy Marriott)
+ * 2019-07-22 [d5bd3b0](https://github.com/silverstripe/silverstripe-versioned-admin/commit/d5bd3b0f1890693a5983fcf577a6b3c22d0eeac5) Removing unecessary requirements calls (Guy Marriott)
+ * 2019-07-22 [2af771d](https://github.com/silverstripe/silverstripe-versioned-admin/commit/2af771d02465885fd5eb0880332d4f66575adfd6) Use a more reliable method of including client bundles (Guy Marriott)
  * 2019-07-19 [d147111](https://github.com/tractorcow-farm/silverstripe-fluent/commit/d1471119a060d73e45370e824d2ea780fcd4674b) Fix import CheckboxSetField (Ian Patel)
  * 2019-07-18 [4df7fa2](https://github.com/dnadesign/silverstripe-elemental/commit/4df7fa235a55272d112b99c0473210208ad027b0) Element modifications are no longer persisted between page c… (#693) (Guy Marriott)
  * 2019-07-18 [e97a82f](https://github.com/silverstripe/silverstripe-tagfield/commit/e97a82f0b7d7484a16e783b9432847659f8b0a9d) Ensure tagfield is compatible with both React and Entwine contexts (Guy Marriott)
  * 2019-07-18 [2711b4f](https://github.com/silverstripe/cwp-watea-theme/commit/2711b4f65dabb19744ef9d5be11ab7f64539473e) Update dist files to pull in new typography styles from starter (Sacha Judd)
+ * 2019-07-18 [7c625ab](https://github.com/silverstripe/cwp-starter-theme/commit/7c625ab2e75603a19183c71f7eb9cd811bbc9660) Add missing img styles for TinyMCE and front-end (Sacha Judd)
  * 2019-07-18 [c54f683](https://github.com/silverstripe/silverstripe-fulltextsearch/commit/c54f683e953a87d9adf0bf889be0e86affe44676) Make remotepath optional to restore compatibility with CWP (Garion Herman)
  * 2019-07-17 [f734594](https://github.com/dnadesign/silverstripe-elemental/commit/f7345942ad4f2c2c1f454e32960afe73b66f7862) Drop the TinyMCE toolbar but increase the row count (Guy Marriott)
  * 2019-07-17 [124055f](https://github.com/silverstripe/cwp-watea-theme/commit/124055f4a2c437321ed571fb914e8328b0229124) Add missing aria-current to nav (#98) (Guy Marriott)
  * 2019-07-17 [1eae700](https://github.com/silverstripe/cwp-watea-theme/commit/1eae70029e0740a2a6ade7fe676ab415b648622f) Add missing aria-current to nav (Sacha Judd)
  * 2019-07-17 [806c2c1](https://github.com/dnadesign/silverstripe-elemental/commit/806c2c15cc7180abe45e4bfa032a6c0885d0f47b) LiteralField and LabelField now have correct padding when us… (#694) (Guy Marriott)
  * 2019-07-17 [967bae4](https://github.com/silverstripe/silverstripe-sitewidecontent-report/commit/967bae4c87ee6d6f2c3d9219a41938173c2e5e5b) SitewideContentReport can now be extended to allow support for GridFieldQueuedExport on large projects (Robbie Averill)
+ * 2019-07-17 [ef25468](https://github.com/silverstripe/silverstripe-admin/commit/ef2546889ff35c2a6cf74aa956d818cae72898e0) Inline toolbar placement now works in HTMLEditorFields with less than 6 rows (Robbie Averill)
  * 2019-07-17 [3a8c311](https://github.com/dnadesign/silverstripe-elemental/commit/3a8c311fbdb560d0977a3210f474f9879dc2049d) LiteralField and LabelField now have correct padding when used in inline edit forms (Robbie Averill)
  * 2019-07-17 [1246691](https://github.com/dnadesign/silverstripe-elemental/commit/1246691605c3d41c7e59ac5404497afffd4f7d2d) Element modifications are no longer persisted between page changes with PJAX (Robbie Averill)
+ * 2019-07-17 [00d4f18e](https://github.com/silverstripe/silverstripe-cms/commit/00d4f18ed2b554c59ac8de24b5aebd7c00bf8bda) display recognisable names for dependent content with no ti… (#2458) (Guy Marriott)
+ * 2019-07-17 [e147532](https://github.com/silverstripe/silverstripe-admin/commit/e14753251550cba220f3e396fd296f913dabf8b4) DateField is now controlled (Guy Marriott)
+ * 2019-07-16 [eaa1671](https://github.com/silverstripe/cwp-starter-theme/commit/eaa167157cd252278f4f531c368f508a8b8c0002) Rename date range and tag keys (Sacha Judd)
+ * 2019-07-16 [68f6eaa6](https://github.com/silverstripe/silverstripe-cms/commit/68f6eaa66388957c59a04c65de06d9204c0eb221) display recognisable names for dependent content with no title (Dylan Wagstaff)
  * 2019-07-16 [0b3beef](https://github.com/dnadesign/silverstripe-elemental/commit/0b3beeff1b35ceac47ee1dbc21b6651683f3481a) Non-inline editable element edit links are now absolute, fix… (#690) (Guy Marriott)
  * 2019-07-16 [4b13a9f](https://github.com/dnadesign/silverstripe-elemental/commit/4b13a9f02eed2920784f96abd12d62d074b639e1) Element validation can now be used, and elements with valida… (#691) (Guy Marriott)
  * 2019-07-15 [f920b7e](https://github.com/dnadesign/silverstripe-elemental/commit/f920b7e3955192ced4bfb4bccd9687d40c805a3e) Call onBeforeWrite() to ensure a sort order is assigned in lieu of a full write (Robbie Averill)
@@ -165,88 +92,172 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
  * 2019-07-15 [f7ccc45](https://github.com/dnadesign/silverstripe-elemental/commit/f7ccc4509302374cf3adaf466f70ff632ba2f4ea) Element validation can now be used, and elements with validation rules can be added (Robbie Averill)
  * 2019-07-15 [9c6c469](https://github.com/dnadesign/silverstripe-elemental/commit/9c6c469dfe5d4e9eca3ecab8ef7ae86e21501af4) Non-inline editable element edit links are now absolute, fixes IE11 issue (Robbie Averill)
  * 2019-07-15 [f0c8715](https://github.com/silverstripe/cwp-watea-theme/commit/f0c8715ccd2329d56427a8426cacc23bbe830a93) Remove btn-link styling and add colour picker to btn-secondary (Sacha Judd)
+ * 2019-07-15 [343cf6f](https://github.com/silverstripe/silverstripe-graphql/commit/343cf6f7446d9742c7f9c46f07c333202079103c) Fix error when only nestedQueries and no fields are assigned (#233) (Andre Kiste)
  * 2019-07-14 [f90cb17](https://github.com/silverstripe/recipe-core/commit/f90cb17c552356cfe34467c37194e73165aee18f) Travis PHP versions (#46) (Guy Marriott)
+ * 2019-07-13 [6eba4ad](https://github.com/silverstripe/silverstripe-asset-admin/commit/6eba4ad1ee0119d591cae42282f53ad945b496e4) Add behat test to validate that sorting of files work (Maxime Rainville)
+ * 2019-07-13 [b318caa](https://github.com/silverstripe/silverstripe-asset-admin/commit/b318caa0f52c3b704b679064499dc434f1c234f1) Remove reference to ReactTestUtils in distribution file (Maxime Rainville)
+ * 2019-07-12 [fcd7a1e63](https://github.com/silverstripe/silverstripe-framework/commit/fcd7a1e63e7013a9f36100a05bf723ed68382d8a) core memory limit test (Serge Latyntcev)
+ * 2019-07-12 [973e44c](https://github.com/silverstripe/cwp-starter-theme/commit/973e44cda70ad0d56f4358aa047f20edee4f57e2) Remove sr-only class on filters to be available to all users (Sacha Judd)
+ * 2019-07-12 [be445b8](https://github.com/silverstripe/cwp-starter-theme/commit/be445b87605f6e7f00ec74be2af065701015f967) border-radius to override bootstrap defaults (#151) (Guy Marriott)
  * 2019-07-12 [9e53544](https://github.com/silverstripe/cwp-watea-theme/commit/9e535447c86149807a9e1849ae5267acd41694c5) Revert btn btn-link for fix in starter (#94) (Guy Marriott)
  * 2019-07-10 [c6b3e34](https://github.com/silverstripe/silverstripe-crontask/commit/c6b3e3455ae984a7880e60f1e8c71420db6635ea) Treat empty schedule value as task-disabled. (Sam Minnee)
+ * 2019-07-10 [45c49c0](https://github.com/silverstripe/cwp-starter-theme/commit/45c49c0f62c4a9e1833d30e8f341e0491d4bd26a) Remove mergin top from site header brand (Sacha Judd)
  * 2019-07-10 [c34f720](https://github.com/silverstripe/cwp-watea-theme/commit/c34f720bd0142b8cc40cc8b3cd10081a3b9196e9) Ensure consistency for search across the colour picker themes (Sacha Judd)
  * 2019-07-09 [30bec12](https://github.com/silverstripe/cwp-watea-theme/commit/30bec1240525bb14ed76e268c54d300b52576a59) Add accessible name to reflect components function and  active styling (Sacha Judd)
+ * 2019-07-09 [99a1b08](https://github.com/silverstripe/cwp-starter-theme/commit/99a1b08f0fa8a209daf41f3999d91b6e15837063) Add accessible name to reflect the components function (Sacha Judd)
  * 2019-07-09 [44aed9c](https://github.com/silverstripe/silverstripe-realme/commit/44aed9cc9b578e3b38dcbc721679357b5322432d) Fix overseas RealMe contact phone (Indy Griffiths)
+ * 2019-07-08 [18b2c55](https://github.com/silverstripe/cwp-starter-theme/commit/18b2c5564d6b0031264138e86e760ecadda51f42) Remove redundant roles and titles from sitemap (Sacha Judd)
  * 2019-07-08 [1819336](https://github.com/silverstripe/cwp-agencyextensions/commit/181933682a15d6db3e760d81e79cd84e9df4d935) Add Carousel title field for screen readers (Sacha Judd)
  * 2019-07-08 [cf8f0b3](https://github.com/silverstripe/recipe-core/commit/cf8f0b3961e62aaa52ab8f29ab452a29966cc37a) Travis PHP versions (Serge Latyntcev)
+ * 2019-07-08 [fa9ec71](https://github.com/silverstripe/cwp-starter-theme/commit/fa9ec71ab40b8dcc48d0d6bdfd9cd90ebdb97b50) border-radius to override bootstrap defaults (Sacha Judd)
  * 2019-07-08 [6acb2f4](https://github.com/silverstripe/cwp-watea-theme/commit/6acb2f44ec984eac249732db522489f920c45792) Revert btn btn-link for fix in starter (Sacha Judd)
+ * 2019-07-08 [df93e7d](https://github.com/silverstripe/cwp-starter-theme/commit/df93e7d35d392b3aa9abbb1071390b0e28b307d2) Remove redundant titles from News and Events (#150) (Guy Marriott)
  * 2019-07-08 [ed11267](https://github.com/silverstripe/cwp-watea-theme/commit/ed11267ac343f70f65faf57b4f2adb46194c8a23) Remove gray-400 from nav links and add to hover instead (#89) (Guy Marriott)
  * 2019-07-08 [e3a8b21](https://github.com/silverstripe/cwp-watea-theme/commit/e3a8b21342b815aaafb717c255bfc7f75f425efc) Add colour picker to carousel indicators for accessibility re… (#92) (Guy Marriott)
  * 2019-07-07 [70d2790](https://github.com/silverstripe/cwp-watea-theme/commit/70d279050cea616e6ca0c07e90501af48df44e56) Add text-decoration underline to quicklinks and showcases (#90) (Guy Marriott)
  * 2019-07-07 [e991612](https://github.com/silverstripe/cwp-watea-theme/commit/e991612eb608181a1f72995cf6c7f82624a879d6) Add carousel accessibility requirements for WCAG 2.0 (Sacha Judd)
  * 2019-07-07 [03a3b3a](https://github.com/silverstripe/cwp-watea-theme/commit/03a3b3adfaaa40c9c39a23a8244eb4223591f0ca) Remove btn btn link to remove default bootstrap styling from… (#93) (Guy Marriott)
+ * 2019-07-05 [7ef13e7ef](https://github.com/silverstripe/silverstripe-framework/commit/7ef13e7ef60a935dc75a72a5b63bb49311d469d4) Confirmation components to respect SS_BASE_URL (#9074) (Serge Latyntsev)
+ * 2019-07-05 [78156d2](https://github.com/silverstripe/silverstripe-asset-admin/commit/78156d23649eeeed5d6d8075140d8827b41841cd) Deselect previous item selection when dragging to select items (#956) (Andre Kiste)
  * 2019-07-04 [eeeee9e](https://github.com/silverstripe/cwp-watea-theme/commit/eeeee9e338d27cdda7381bf8de353653c5674712) Add colour picker to carousel indicators for accessibility requirements (Sacha Judd)
  * 2019-07-04 [1f5df6f](https://github.com/silverstripe/cwp-watea-theme/commit/1f5df6f79f81990cd7bfb5ec7dc7630e5d3f1d35) Remove btn btn link to remove default bootstrap styling from navbar-caret (Sacha Judd)
  * 2019-07-04 [d686ea2](https://github.com/silverstripe/cwp-watea-theme/commit/d686ea29986afe9f6cae876d1217272050fdabbb) Add text-decoration underline to quicklinks and showcases (Sacha Judd)
+ * 2019-07-04 [20adcd4](https://github.com/silverstripe/cwp-starter-theme/commit/20adcd4136bf14da48f546f5671e170a6fa4d4e7) Remove redundant titles from News and Events (Sacha Judd)
  * 2019-07-04 [8d86ff8](https://github.com/silverstripe/cwp-watea-theme/commit/8d86ff873ae11daffc5bb9475116cacafd35ba17) Remove gray-400 from nav links and add to hover instead (Sacha Judd)
+ * 2019-07-02 [4e3f848](https://github.com/silverstripe/silverstripe-versioned/commit/4e3f8480c21b794ffe58dbaedba7a521f34dbba7) Add an extension point for updating a conditional subselect (Guy Marriott)
+ * 2019-07-01 [5c3497d](https://github.com/silverstripe/cwp-starter-theme/commit/5c3497d9dee754e9a51e7119f7da55b71ffd2476) Remove redundant tags title (Sacha Judd)
+ * 2019-07-01 [8825b0d](https://github.com/silverstripe/cwp-starter-theme/commit/8825b0dcc1ab0b7c28987afaaea66d596c668d10) Remove redundant title attributes for blog tags (Sacha Judd)
  * 2019-07-01 [7005957](https://github.com/silverstripe/silverstripe-hybridsessions/commit/70059579c5b3bdb5d532ac611cc0613fac1ccadc) Add phpcs ruleset and reformat for PSR-12 (Robbie Averill)
  * 2019-06-30 [99b4f7c](https://github.com/silverstripe/silverstripe-hybridsessions/commit/99b4f7c16886803c0af5e0b5862d85ad6dac95f7) DatabaseStore binary safety (Serge Latyntcev)
+ * 2019-06-30 [404366909](https://github.com/silverstripe/silverstripe-framework/commit/404366909ebaa74a4f47dbc792492c361b701522) Fix MysqlStatement::rewind() (Sam Minnee)
+ * 2019-06-28 [bace8e5](https://github.com/silverstripe/cwp-starter-theme/commit/bace8e54ac82b8cf08b33c88569ca66d920a7f26) Drop "main" role from Blog template to improve accessibility (Garion Herman)
  * 2019-06-28 [54db49a](https://github.com/silverstripe/cwp-watea-theme/commit/54db49aa0e382f67b659ebdcbd307d9af1096ea2) Content block titles no longer have an inconsistent font size (Robbie Averill)
  * 2019-06-28 [86c311f](https://github.com/silverstripe/cwp-watea-theme/commit/86c311f77fdeaf96833cda30a7ce8eb0404f41dc) Footer copyright text is now visible against dark backgrounds (Robbie Averill)
+ * 2019-06-28 [59ba9a717](https://github.com/silverstripe/silverstripe-framework/commit/59ba9a717ddb3cb05c576b48f03bcbd1c60bfea1) Allow extensions to update form scaffolding on DataObjects (Guy Marriott)
+ * 2019-06-28 [3093ed3](https://github.com/silverstripe/silverstripe-assets/commit/3093ed34547f3ac6f8c531d2957edc67b24711d1) Update FileIDHelperResolutionStrategy::stripVariant would get confused if FileID contained a folder with 10 hexadecimal char (Maxime Rainville)
+ * 2019-06-28 [d2deb39](https://github.com/silverstripe/cwp-starter-theme/commit/d2deb3984cf0cea6b3dac1357d83e035e3888b51) Reduce default font size in legends to 1rem (Robbie Averill)
+ * 2019-06-28 [9ab3acb](https://github.com/silverstripe/cwp-starter-theme/commit/9ab3acb01b11a1db31ff9e72c5e7978f3a89d4b3) Remove redundant FilteredUpdates title attribute (Sacha Judd)
+ * 2019-06-28 [696b257](https://github.com/silverstripe/cwp-starter-theme/commit/696b257988b4bfd1e2b78b11fe44388f58a26b92) Ensure that the accessible name starts with the visible label text (Sacha Judd)
  * 2019-06-28 [3fc96cd](https://github.com/silverstripe/cwp-core/commit/3fc96cd2b3a3d3a612a2297b372e47d696ffa5b1) "external link" screen reader label is now translatable (Robbie Averill)
  * 2019-06-28 [981cb28](https://github.com/silverstripe/cwp-watea-theme/commit/981cb28af4c0a178959178425f50fc0de5f9f994) Add tabindex to focus the results notification message (Sacha Judd)
+ * 2019-06-28 [01e5fcd](https://github.com/silverstripe/cwp-starter-theme/commit/01e5fcd7ebaef9a597172ab7961c9f75e0bcbf9b) Add tabindex to focus the results notification message (Sacha Judd)
+ * 2019-06-27 [63abe50](https://github.com/silverstripe/cwp-starter-theme/commit/63abe509e8caa816c76902fbe9fcfbb052d9fb28) Provide focus on error messages (Sacha Judd)
+ * 2019-06-27 [96e7914f2](https://github.com/silverstripe/silverstripe-framework/commit/96e7914f232e0366668be861bcb82ea670308f2a) Fix MySQLQuery::seek() and Query::rewind() to fix repeated iteration (Sam Minnee)
  * 2019-06-27 [c582cc5](https://github.com/silverstripe/cwp-watea-theme/commit/c582cc5cfd12318a3340cba50dd516cdec6b40e0) Add aria-labels and remove redundant span and title attributes (Sacha Judd)
+ * 2019-06-27 [41eb887](https://github.com/silverstripe/cwp-starter-theme/commit/41eb887f67759baff0cc245635d7dfce94874571) Add aria-labels and remove redundant span attributes (Sacha Judd)
+ * 2019-06-27 [183371b](https://github.com/silverstripe/silverstripe-admin/commit/183371b28a9a1496f2a39284eb0d7d667d4b49bb) Update CSS for sitetree new page columns to use new classna… (#899) (Guy Marriott)
+ * 2019-06-27 [b9dcf070](https://github.com/silverstripe/silverstripe-cms/commit/b9dcf070406644f14ab9ae0eb9c22d0f3d1d10cd) Change sitetree new page column class naming to avoid conf… (#2449) (Guy Marriott)
  * 2019-06-27 [72914df](https://github.com/silverstripe/cwp-watea-theme/commit/72914dff731ea03919154cc09715d92f8fe13ecd) Add aria-current attribute to selected page nav links (Sacha Judd)
+ * 2019-06-27 [35ad494](https://github.com/silverstripe/cwp-starter-theme/commit/35ad494da9bf7e14f65bac5041b6f3251613229a) Add aria-current attribute to selected page nav links (Sacha Judd)
  * 2019-06-27 [b8e5da6](https://github.com/silverstripe/cwp-watea-theme/commit/b8e5da67c7a128a2141b6fabf99672fb6db106f7) Add aria-label to Language selector for narrow viewports (Sacha Judd)
+ * 2019-06-27 [c2c516f](https://github.com/silverstripe/cwp-starter-theme/commit/c2c516f731b4dcc1ab793236aca51515f246e783) Add aria-label to Language selector for narrow viewports (Sacha Judd)
+ * 2019-06-26 [b01dc580e](https://github.com/silverstripe/silverstripe-framework/commit/b01dc580e1f9b62c7b8a3a62157ad10930a80342) Protect against undefined index when using nullifyEmpty opt… (#9090) (Guy Marriott)
  * 2019-06-26 [242e5a3](https://github.com/silverstripe/silverstripe-textextraction/commit/242e5a307d0b1f6beb3cea31abba370ca50042e4) Change check for cleanup of temp files only if file is instance of File. (Charlie Bergthaler)
+ * 2019-06-25 [c76d3a5db](https://github.com/silverstripe/silverstripe-framework/commit/c76d3a5db10f9a56a31684354fcd89c1a88de8d4) Protect against undefined index when using nullifyEmpty option (Robbie Averill)
  * 2019-06-23 [4fdf2e2](https://github.com/silverstripe/silverstripe-subsites/commit/4fdf2e24e328c714b571d47b5dfb5b64fc5c185b) LeftAndMainSubsites::canAccess() now accepts a Member argument and falls back to the session member (Robbie Averill)
  * 2019-06-20 [a9270d7](https://github.com/silverstripe/silverstripe-textextraction/commit/a9270d73adfd2d0bf35447a478505dee6e759ff0) Cleanup temporary file after extracting content in TikaServerTextExtractor and TikaTextExtractor (Charlie Bergthaler)
+ * 2019-06-19 [260c89fd5](https://github.com/silverstripe/silverstripe-framework/commit/260c89fd54e1c1ed68e5597ccc4592473a53e983) Fix of delimiter not used bug (Mario Sommereder)
+ * 2019-06-19 [4df7c21](https://github.com/silverstripe/silverstripe-admin/commit/4df7c21f3fa0ee96cc62876abe9be20720bbc0dc) Update CSS for sitetree new page columns to use new classname, fix item placement within (Mikaela Young)
+ * 2019-06-19 [73f4e8c8](https://github.com/silverstripe/silverstripe-cms/commit/73f4e8c8605ea28a2283a1ef96723188c0266706) Change sitetree new page column class naming to avoid conflicts with bootstrap (Mikaela Young)
  * 2019-06-18 [a5cd23c](https://github.com/silverstripe/cwp-core/commit/a5cd23c97a93b8509271dc64987111a77c5b703b) Fix unit test errors when hash_pbkdf2 is not passed a string for password (Robbie Averill)
+ * 2019-06-16 [0a04888](https://github.com/silverstripe/silverstripe-versioned/commit/0a04888f70862990ea66715a6f2f649490bea6ae) Remove empty method (Guy Marriott)
+ * 2019-06-14 [8e8726486](https://github.com/silverstripe/silverstripe-framework/commit/8e87264864cddefd6718351286dcd3723795fc7e) Email::render() generating object instead of string for plaintext part (fixes #9069) (Loz Calver)
  * 2019-06-14 [b1935a5](https://github.com/dnadesign/silverstripe-elemental/commit/b1935a5e045195bf49bf4ae47e2305bcf53070aa) Upgrade vulnerable dependencies (Garion Herman)
  * 2019-06-13 [70c630e](https://github.com/dnadesign/silverstripe-elemental/commit/70c630e578b1e311b51b442ef6ee2ea86f7aa0f7) Upgrade jQuery to patch vulnerability (Garion Herman)
+ * 2019-06-13 [562a8a5](https://github.com/silverstripe/silverstripe-assets/commit/562a8a523b9a50a5a7d4e40c4b4c799a66869ec8) Add FolderNameFilter class: folder names no longer allow dots, and are replaced with dashes (Robbie Averill)
+ * 2019-06-09 [2ec908b](https://github.com/silverstripe/silverstripe-assets/commit/2ec908bd74ae72d0b26a4c573145becc6cf69a10) Add support for migrating miscased files (Maxime Rainville)
+ * 2019-06-09 [0e165ae](https://github.com/silverstripe/silverstripe-versioned/commit/0e165ae9b597e23072f3eb357cfdb544467d93ea) lookupReverseOwners to work in deriving classes (#235) (Guy Marriott)
+ * 2019-06-09 [673d8fd](https://github.com/silverstripe/silverstripe-asset-admin/commit/673d8fd8c475687328ae6ae4cb1ec9753805f7b7) Fix image being small when dragging a folder (#952) (Guy Marriott)
+ * 2019-06-06 [76f8195](https://github.com/silverstripe/silverstripe-assets/commit/76f8195003301ee8d56b0bbbc7410ed2eec81a34) Make FileIDHelperResolutionStrategy Injectable. (Maxime Rainville)
+ * 2019-06-05 [b6ca2d3](https://github.com/silverstripe/silverstripe-admin/commit/b6ca2d3b9d2a8061345a02280e204129fdddb2c1) Update modal designs to match design pattern library (Guy Marriott)
+ * 2019-06-05 [2d4711de0](https://github.com/silverstripe/silverstripe-framework/commit/2d4711de0100edccdbde94dc4794037828d13b14) Fixed logging (Ingo Schommer)
+ * 2019-06-04 [790d05d](https://github.com/silverstripe/silverstripe-versioned/commit/790d05d1ae20fb9704aeed74314d83d4fe7f3275) lookupReverseOwners to work in deriving classes (Serge Latyntcev)
+ * 2019-05-31 [a605f4c](https://github.com/silverstripe/silverstripe-asset-admin/commit/a605f4c3a0ca39f6ad614a82259b0c010b56395d) Fix image size when dragging a folder (bergice)
+ * 2019-05-31 [5759950a](https://github.com/silverstripe/silverstripe-cms/commit/5759950ade736e3c6c9c1e2bafaec4e90d0b2338) Keep New Page type selection if still allowed when changing parent (Garion Herman)
+ * 2019-05-31 [325d227f](https://github.com/silverstripe/silverstripe-cms/commit/325d227fe070de5ba8f06ba3198f7444893f6fe6) Virtual page notice now uses Bootstrap 4 alerts (Robbie Averill)
  * 2019-05-30 [1f51fcd](https://github.com/silverstripe/silverstripe-subsites/commit/1f51fcd90944ea1587c5c98acf00c71b70e47795) Subsites virtual pages now allow you to re-save them when used in conjunction with silverstripe-fluent (Robbie Averill)
  * 2019-05-30 [c60acb3](https://github.com/silverstripe/silverstripe-subsites/commit/c60acb31906af5efc8182ff55c98b82f59a184d9) Field labels for subsites virtual pages are no longer repeated (Robbie Averill)
+ * 2019-05-30 [e0978e2](https://github.com/silverstripe/silverstripe-assets/commit/e0978e2d565bfe67945363ee1ba889828c8b1088) Unset memory limit max so we can increase memory limit (Maxime Rainville)
  * 2019-05-30 [4d7641e](https://github.com/silverstripe/silverstripe-subsites/commit/4d7641e16a50e1c4184710f79a08e70af426f0e5) allowed pagetypes displaying incorrectly when switching subsite (Garion Herman)
  * 2019-05-30 [83f9fb9](https://github.com/tractorcow-farm/silverstripe-fluent/commit/83f9fb975e3de9394f49703b3cc063829406ceb2) Fluent now respects existing base URL prefixes in URL segment fields when no fluent domain exists (Robbie Averill)
  * 2019-05-30 [1e44e1d](https://github.com/silverstripe/silverstripe-subsites/commit/1e44e1d4bad737f310af7e51a95ac0c91f69072c) Domains now default to "Automatic" protocol, and have the correct help description (Robbie Averill)
  * 2019-05-30 [59ecca8](https://github.com/symbiote/silverstripe-advancedworkflow/commit/59ecca89d879414846ac9fb5b91b5fc91110cfcb) Call FieldList::isReadonly() if it exists otherwise default to existing behaviour (Robbie Averill)
+ * 2019-05-27 [4f39e59af](https://github.com/silverstripe/silverstripe-framework/commit/4f39e59aff00ca57e9ebb9694a29f69774964943) Enable file hash caching when running the file migration task (#8993) (Maxime Rainville)
  * 2019-05-27 [d7c76ec](https://github.com/silverstripe/silverstripe-userforms/commit/d7c76ecf80ef4791403b028b07ab65dba21be79c) Preview email link now handles cases where it's loaded in the browser, requested via AJAX and used in a trait or a page context (#887) (Guy Marriott)
+ * 2019-05-24 [25aa3af03](https://github.com/silverstripe/silverstripe-framework/commit/25aa3af032f24314ac458743db78028e1aa66ead) HeaderField requires the optional Title field (Dylan Wagstaff)
+ * 2019-05-22 [cc165e8](https://github.com/silverstripe/silverstripe-assets/commit/cc165e86d2c107aab31c566f8e9ce8c6be5eb2b3) Tweak short code method to look for clean filename (Maxime Rainville)
+ * 2019-05-21 [f449a49](https://github.com/silverstripe/silverstripe-assets/commit/f449a495ca97d9b259a3f00d12310552024104a8) Fix broken rebase. (Maxime Rainville)
+ * 2019-05-21 [b4b021b](https://github.com/silverstripe/silverstripe-assets/commit/b4b021b605fe5648f1bfe3e3546a6c7a6516abdb) Explicitely check hash from folder against the actual hash of their file (Maxime Rainville)
+ * 2019-05-21 [a06094b](https://github.com/silverstripe/silverstripe-assets/commit/a06094bbdec80d860a76e46b72c125416ed628c1) Update HashFileIDHelper to fail hash folder with non hexa-decimal characters (Maxime Rainville)
  * 2019-05-20 [f4cd7a3](https://github.com/silverstripe/silverstripe-userforms/commit/f4cd7a3836dc1ec2c462dc0778d1b155ad21faa6) Allowed text length fields now align correctly with each other (#886) (Guy Marriott)
+ * 2019-05-20 [e85d7af](https://github.com/silverstripe/silverstripe-assets/commit/e85d7af09e17108e916df995179fd9fd43999af3) Do not run legacy thumbnail migration if we don't have the `Filename` DB field (Maxime Rainville)
+ * 2019-05-17 [d60439c](https://github.com/silverstripe/silverstripe-versioned/commit/d60439cbb5780b732bb4a899b425a198e549cdd7) Revert framework constraint bump and add easly returns when non B/C interface does not exist (#232) (Guy Marriott)
+ * 2019-05-17 [5df7f4f](https://github.com/silverstripe/silverstripe-versioned/commit/5df7f4f2708efe98daa6c2be8f0d5a2de6b0742d) Revert framework constraint bump and add easly returns when non B/C interface does not exist (Robbie Averill)
  * 2019-05-17 [9aae076](https://github.com/dnadesign/silverstripe-elemental/commit/9aae0766aa5eec480c5f008845f5d3811ff299ec) ElementalCMSMainExtension is now enabled, fixes double search class filter 'All pages' (Robbie Averill)
  * 2019-05-17 [483fbc8](https://github.com/silverstripe/silverstripe-userforms/commit/483fbc8499a5735a79cbe42a47419b90b682c129) Preview email link now handles cases where it's loaded in the browser, requested via AJAX and used in a trait or a page context (Robbie Averill)
  * 2019-05-17 [d0e937a](https://github.com/silverstripe/silverstripe-userforms/commit/d0e937a5883e5bf4aecea8442d746264717df76a) Allowed text length fields now align correctly with each other (Robbie Averill)
  * 2019-05-17 [5c16689](https://github.com/dnadesign/silverstripe-elemental/commit/5c166892acb07930fc7f1d255b973d3c64623d3f) Don't leave pages in draft when adding ElementalAreasExtension (#669) (Guy Marriott)
  * 2019-05-17 [5cba1e8](https://github.com/symbiote/silverstripe-advancedworkflow/commit/5cba1e8e13a11733db26cabae38a803ea69c9b96) Paragraphs inherit the diff (added/deleted) background colour in workflow transition UI (#398) (Guy Marriott)
+ * 2019-05-17 [5b2de78](https://github.com/silverstripe/cwp-starter-theme/commit/5b2de78b005a55f0215fa680349d6ccdc81a7ee2) Use span over anchor when no href exists (active pagination items) (Robbie Averill)
  * 2019-05-16 [a1b3fa7](https://github.com/dnadesign/silverstripe-elemental/commit/a1b3fa78496d9daa0b2c55d3932bd5421da8e05f) Don't leave pages in draft when adding ElementalAreasExtension (Guy Marriott)
+ * 2019-05-16 [da817b9](https://github.com/silverstripe/cwp-starter-theme/commit/da817b9fd0162cfb39ad1d80a401a9a53ef9de50) Add CMS configurable title for iframe to tell screenreaders it contains frame content (Robbie Averill)
  * 2019-05-16 [9082db1](https://github.com/silverstripe/silverstripe-iframe/commit/9082db159c62432716a82675053eeb637501f440) Add CMS configurable title for iframe to tell screenreaders it contains frame content (Robbie Averill)
  * 2019-05-16 [181e0de](https://github.com/silverstripe/silverstripe-userforms/commit/181e0de171f92b01401b1e36319e322e64900941) Multi page userforms now display their step titles, which were previously broken (Robbie Averill)
  * 2019-05-16 [e179887](https://github.com/symbiote/silverstripe-advancedworkflow/commit/e179887e9b53f979c2c99e82bcc97f0e3926ac50) Paragraphs inherit the diff (added/deleted) background colour in workflow transition UI (Robbie Averill)
+ * 2019-05-16 [8ffae86](https://github.com/silverstripe/cwp-starter-theme/commit/8ffae86a821c5d18b94201fdceb5de1e84b3075c) Pagination text colour is now accessible on hovering the current page button (Robbie Averill)
+ * 2019-05-14 [3f1479edb](https://github.com/silverstripe/silverstripe-framework/commit/3f1479edbbe406a6b9ca1c5284f2daabf455c8b5) DataQuery overwriting _SortColumn selects (#8974) (Aaron Carlino)
  * 2019-05-14 [5c60f4b](https://github.com/silverstripe/silverstripe-ldap/commit/5c60f4baceb203f498daf41311da5f6a011c8edd) prevents users being removed from the LDAPService::$default_group (Tim Kung)
+ * 2019-05-14 [5a3c751](https://github.com/silverstripe/silverstripe-assets/commit/5a3c751b296cbd0b7759d85b2d3afc7da0ac3d9e) fix unit tests. (Maxime Rainville)
+ * 2019-05-14 [e6db5de](https://github.com/silverstripe/silverstripe-assets/commit/e6db5dee3a200019b2bc1259f40a1c9a6ada6cc7) Update FileMigrationHelper to rename files with bad name if another file already exists with that name (Maxime Rainville)
+ * 2019-05-13 [180ee19](https://github.com/silverstripe/silverstripe-assets/commit/180ee195ec6750489c4fe4392036ce72e8f7a4c2) Allow SS3 file with double underscore to be imported. (Maxime Rainville)
+ * 2019-05-13 [3a5c14f7c](https://github.com/silverstripe/silverstripe-framework/commit/3a5c14f7c288ce160012651869cb2458eee18b6b) password validation min length message (#8976) (Guy Marriott)
+ * 2019-05-13 [db0e6f710](https://github.com/silverstripe/silverstripe-framework/commit/db0e6f7104d6250d0afe3d717b70497ee6fade2d) Fix password validation min length message (matt-in-a-hat)
+ * 2019-05-10 [94f3054](https://github.com/silverstripe/silverstripe-admin/commit/94f3054e18f83680864f283f979ac8df4353688a) Add offending class to exception message (Guy Marriott)
  * 2019-05-10 [83c3688](https://github.com/silverstripe/cwp-watea-theme/commit/83c3688bbab5d231d01e18298d2d419096f772b0) List items now have the same font weight as paragraphs (Robbie Averill)
+ * 2019-05-10 [385fbe2](https://github.com/silverstripe/silverstripe-admin/commit/385fbe21871247c6cbb13206043bbd6865405117) Fix OptionField component title generation (Serge Latyntcev)
  * 2019-05-09 [e313f2e](https://github.com/silverstripe/silverstripe-subsites/commit/e313f2ed5d713bc1ca90223e892c39ce43ac85ee) Update Behat assertion to use correct label for "Search or choose Page" (Robbie Averill)
  * 2019-05-09 [536420e](https://github.com/silverstripe/silverstripe-subsites/commit/536420ec687db26dcd355fd3cf969aeed6d61106) Update Behat assertion to use correct field label for SilverStripe 4.4 (Robbie Averill)
  * 2019-05-09 [f65f5b5](https://github.com/silverstripe/silverstripe-comments/commit/f65f5b569777b51db1a3c04555b6472b4f1c0bc2) Remove reliance on translations in fieldLabels test, run textcollector, remove deprecated code from CommentsTest (Robbie Averill)
+ * 2019-05-09 [98ec426](https://github.com/silverstripe/silverstripe-asset-admin/commit/98ec426f98ee8d838eb38e4a16c2d6d21c12d558) Publish button has bad styling for published assets (Serge Latyntcev)
+ * 2019-05-09 [7050dee](https://github.com/silverstripe/silverstripe-asset-admin/commit/7050dee2f0fd79aae92fc56946cb51d4ee60e025) Update RemoteFileFormFactoryTest to ignore translation messages (#941) (Maxime Rainville)
+ * 2019-05-08 [892a91ae](https://github.com/silverstripe/silverstripe-cms/commit/892a91ae3e885c9b9a1b398905da06897cf1c090) Only add page font icon classes if there's no icon image defined (Guy Marriott)
+ * 2019-05-08 [19b10aa](https://github.com/silverstripe/silverstripe-assets/commit/19b10aa53238276e479c46a690c5a8b27963ef6f) Make sure findVariants works for hashless tuples and always return an hash with the variants (Maxime Rainville)
+ * 2019-05-07 [7878891](https://github.com/silverstripe/silverstripe-assets/commit/787889174bce8cccebfe08dcd88751b037691c22) Admin privileges not considered in canView computation (Aaron Carlino)
  * 2019-05-07 [4984023](https://github.com/silverstripe/silverstripe-restfulserver/commit/498402389c47b6a148c6b284c9b2917caee24f5c) Fixes #70 Added extension points for GET requests (User for performing fabric deployments)
+ * 2019-05-07 [fb449a1](https://github.com/silverstripe/silverstripe-assets/commit/fb449a127cfb26d6ca5f3ccdd77bbb0f3a29729c) Increase memory available to travis build to allow coverage test to complete (Maxime Rainville)
+ * 2019-05-07 [b5e1daa](https://github.com/silverstripe/silverstripe-assets/commit/b5e1daad2791b12b10c277623f2ae75a6a730b0c) Escape table name and column with double quote to fix PostgreSQL (Maxime Rainville)
  * 2019-05-03 [56ab977](https://github.com/silverstripe/cwp-search/commit/56ab977944ffea8384408abc860e06a098639b1a) Automatically redirect index action to SearchForm action (#22) (Guy Marriott)
  * 2019-05-02 [80c32bd](https://github.com/silverstripe/cwp-search/commit/80c32bd23460b501bc9700d68d6667ccfff5602e) Automatically redirect index action to SearchForm action (Robbie Averill)
  * 2019-04-29 [3f19c0a](https://github.com/dnadesign/silverstripe-elemental/commit/3f19c0ac05216b162e22a7f11571833735b96ec1) Ensuring write operations when clearing content is captured in a try...catch (Guy Marriott)
  * 2019-04-25 [257d0d5](https://github.com/dnadesign/silverstripe-elemental/commit/257d0d54c28637a564047df7b1210dde9aa9905d) updateAvailableTypesForClass() extension $class param (Christopher Darling)
  * 2019-04-17 [ead0fba](https://github.com/silverstripe/silverstripe-tagfield/commit/ead0fbac6b23e469e9c6e4a5708e45ca58119f06) fixed the issue with filters being taken off from rendering values (Nivanka Fonseka)
+ * 2019-04-17 [e0eaf61](https://github.com/silverstripe/silverstripe-versioned-admin/commit/e0eaf61af4bc9f4fa682c2af143f9f4665464442) Use Firefox compliant polyfill for ResizeAware (Robbie Averill)
+ * 2019-04-17 [e59ca40](https://github.com/silverstripe/silverstripe-campaign-admin/commit/e59ca40d1357be4ba6c1193de690573815d78c6c) Use Firefox compliant polyfill for ResizeAware (Robbie Averill)
  * 2019-04-06 [7eae780](https://github.com/dnadesign/silverstripe-elemental/commit/7eae780835e8191cbaab868bbc1f3f1ce45343d4) Only publish items that were previously published & adding docs (Guy Marriott)
  * 2019-03-27 [4b0eacf](https://github.com/tractorcow-farm/silverstripe-fluent/commit/4b0eacf9cd13b60d4c00f89ac88f60c25624ffc1) fix index when fluent is in use and there is no fallback locale (Aljoša Balažic)
+ * 2019-03-25 [39bd66a](https://github.com/silverstripe/silverstripe-versioned/commit/39bd66aac103c342ba02d0ebb58112f343b35006) Add versioned "latest version" subqueries as a condition in some cases (Guy Marriott)
+ * 2019-02-01 [3900b82](https://github.com/silverstripe/silverstripe-admin/commit/3900b82e2af96c96f20778fb7b9d7c51e84f6218) Scrolling out of auto-selected edit mode not switches back to split mode (Robbie Averill)
+ * 2019-01-18 [a4ec816](https://github.com/silverstripe/silverstripe-assets/commit/a4ec816839449605e579b36691e56a46354e9895) Add missing file upload error types (fixes #205) (Loz Calver)
  * 2018-06-26 [01c1ead](https://github.com/silverstripe/silverstripe-blog/commit/01c1ead069825c383fd31e72b35d835da65be558) Fix blog archive widget bug (3Dgoo)
 
 ### Other changes
 
- * 2019-09-08 [081f0ff](https://github.com/silverstripe/cwp-core/commit/081f0ff94e5ae25e030573426956f543eb8bf605) Increase iterations used by PBKDF2 per security recommendation (Garion Herman)
- * 2019-08-20 [0cdf588](https://github.com/silverstripe/cwp/commit/0cdf588dd487a66edb51ad32e9775489e157e469) Update Travis config to use Xenial (#231) (Guy Marriott)
- * 2019-08-20 [ed9cc1a](https://github.com/silverstripe/cwp/commit/ed9cc1a152236e84581cc619e8f6682d8dfdd7c1) Update Travis config to use Xenial (Garion Herman)
- * 2019-08-20 [c177845](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/c1778452bd409e334602dc95ca3284dc21cf8b6d) Update translations (Guy Marriott)
  * 2019-08-20 [8beb948](https://github.com/silverstripe/silverstripe-gridfieldqueuedexport/commit/8beb948e5650a0bc6d8d0b13c990975ed79936bd) Update translations (Guy Marriott)
+ * 2019-08-20 [c177845](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/c1778452bd409e334602dc95ca3284dc21cf8b6d) Update translations (Guy Marriott)
  * 2019-08-20 [839cbb7](https://github.com/silverstripe/silverstripe-externallinks/commit/839cbb7185f9ac48c9245848fcef436a60c7a13c) Update translations (Guy Marriott)
- * 2019-08-20 [ac45c4c](https://github.com/silverstripe/cwp-core/commit/ac45c4ccf1f093821dc767a82feca30f67c9648d) Update translations (Guy Marriott)
  * 2019-08-20 [1d2f0ac](https://github.com/silverstripe/cwp/commit/1d2f0acce289619f90f4571df98557927d0882b3) Update translations (Guy Marriott)
  * 2019-08-20 [d06fe86](https://github.com/silverstripe/silverstripe-blog/commit/d06fe86d54b474f3dc7abf74354c4cf99729608c) Update translations (Guy Marriott)
- * 2019-08-20 [a3f28bb](https://github.com/silverstripe/silverstripe-iframe/commit/a3f28bb58b981cda3ba3a5335b99b25b0d1eb1c2) Update translations (Guy Marriott)
  * 2019-08-20 [e21a092](https://github.com/silverstripe/silverstripe-comments/commit/e21a09234a3070d3c869218739c9d45f168ced41) Update translations (Guy Marriott)
+ * 2019-08-20 [a3f28bb](https://github.com/silverstripe/silverstripe-iframe/commit/a3f28bb58b981cda3ba3a5335b99b25b0d1eb1c2) Update translations (Guy Marriott)
+ * 2019-08-20 [ac45c4c](https://github.com/silverstripe/cwp-core/commit/ac45c4ccf1f093821dc767a82feca30f67c9648d) Update translations (Guy Marriott)
+ * 2019-08-19 [9148a58](https://github.com/silverstripe/recipe-cms/commit/9148a589a8a78db1b9561fa4b17187e552b234b0) Update development dependencies (Guy Marriott)
+ * 2019-08-19 [6b71113](https://github.com/silverstripe/recipe-core/commit/6b71113aff25b536fdfe1c31a55a9121f741209d) Update development dependencies (Guy Marriott)
  * 2019-08-16 [9425139](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/94251390d612ec5d6c895b81dd24176e765cb792) Increase memory limit for kitchen sink builds (Robbie Averill)
  * 2019-08-15 [d2a295d](https://github.com/symbiote/silverstripe-advancedworkflow/commit/d2a295d28e12a60743980b197fb19227f8980c10) Use trusty distro in Travis builds and update tested SilverStripe versions (Robbie Averill)
+ * 2019-08-15 [05814bd](https://github.com/silverstripe/silverstripe-sharedraftcontent/commit/05814bdc52d5b04d55cc0d32c147e46cd0c266f6) Increase memory limit to 2G in Travis (Robbie Averill)
  * 2019-08-15 [8f1549c](https://github.com/silverstripe/recipe-content-blocks/commit/8f1549c73bfb1d710b9bc80bc0f66dfe6a9825ba) Bump silverstripe-elemental to 4.2.x (Robbie Averill)
  * 2019-08-15 [c7ed94a](https://github.com/silverstripe/silverstripe-sitewidecontent-report/commit/c7ed94abb751d7be98a00d0171d40b229c14d9fd) Use trusty distro in Travis builds (Robbie Averill)
+ * 2019-08-15 [50e24a4](https://github.com/silverstripe/silverstripe-sharedraftcontent/commit/50e24a40ce691e05f8c2b26623f913214fa926b4) Use trusty distro in Travis builds (Robbie Averill)
  * 2019-08-15 [8afcb28](https://github.com/silverstripe/recipe-reporting-tools/commit/8afcb28d1967e7feb32eb6a58e2497c67ba6d96b) Use trusty distro in Travis builds and add PHP 7.3 to Travis (Robbie Averill)
  * 2019-08-15 [03d31b2](https://github.com/silverstripe/recipe-form-building/commit/03d31b2844e1e0cb7704ba532642578e38530b1a) Use trusty distro in Travis builds and add PHP 7.3 to Travis (Robbie Averill)
  * 2019-08-15 [8da5008](https://github.com/silverstripe/recipe-content-blocks/commit/8da500845ab5e1f6d63b683d6d59ebbe2a557285) Use trusty distro in Travis builds (Robbie Averill)
@@ -263,7 +274,6 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
  * 2019-08-15 [40eb69e](https://github.com/silverstripe/silverstripe-blog/commit/40eb69ef6238e827bf23a1fa38ae32b553d89081) Use trusty distro in Travis builds (Robbie Averill)
  * 2019-08-15 [378d6de](https://github.com/silverstripe/silverstripe-auditor/commit/378d6de3d37dfc4842ca57def050481dd28ecfa8) Update Travis to use trusty and existing SilverStripe versions (Robbie Averill)
  * 2019-08-14 [10e0898](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/10e0898fd2bcda94e7aeb5530efef76f623fda7a) Update agency-extensions and gridfieldqueuedexport (Robbie Averill)
- * 2019-08-14 [50c1693](https://github.com/silverstripe/cwp-installer/commit/50c169355c3a891c80ebc6d6e0409a049a56c6ed) Update fluent to 4.4.x (Robbie Averill)
  * 2019-08-14 [4b165d6](https://github.com/silverstripe/recipe-authoring-tools/commit/4b165d63b862d8b938a09d1b1a479e55229c13c4) Update restfulserver (Robbie Averill)
  * 2019-08-14 [3333214](https://github.com/silverstripe/recipe-reporting-tools/commit/3333214f9cbbb11ae29f2e3baf604fea794c9ce9) Update silverstripe-maintenance to 2.3.x (Robbie Averill)
  * 2019-08-14 [acfb8db](https://github.com/silverstripe/recipe-authoring-tools/commit/acfb8db66c2c4fe719304908d7fc52569282a055) Update tagfield to 2.4.x (Robbie Averill)
@@ -287,10 +297,14 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
  * 2019-08-13 [242eb03](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/242eb03ea39bd44c3d134a3911cfa77819f6368e) Build admin before trying to run our tests (Maxime Rainville)
  * 2019-08-13 [b2f2d46](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/b2f2d46018dc0550842583b7061faa35771ed083) Add .nvmrc file to target node 6 on travis builds (Maxime Rainville)
  * 2019-08-13 [163d942](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/163d94284093303dbf78faecc3be28377139a916) Rebuild library (Maxime Rainville)
- * 2019-08-12 [6e7f1f0](https://github.com/silverstripe/recipe-cms/commit/6e7f1f0cb241d9eba76c0430ea9cb54b485deb82) Update development dependencies (Aaron Carlino)
- * 2019-08-12 [fea9e5c](https://github.com/silverstripe/recipe-core/commit/fea9e5c7ccade1926c4230a2e300843c3ab6852b) Update development dependencies (Aaron Carlino)
+ * 2019-08-12 [ca493af](https://github.com/silverstripe/silverstripe-versioned/commit/ca493af88da32a99c74a1adfedd73259f348739a) Update translations (Aaron Carlino)
+ * 2019-08-12 [dabc0a47](https://github.com/silverstripe/silverstripe-cms/commit/dabc0a471f3f44abc9548c4ab7b9cce3cae26cb0) Update translations (Aaron Carlino)
+ * 2019-08-12 [8aa2005f8](https://github.com/silverstripe/silverstripe-framework/commit/8aa2005f8d71731ff3d5acff148659953ba37f2f) Update translations (Aaron Carlino)
+ * 2019-08-08 [4936d265a](https://github.com/silverstripe/silverstripe-framework/commit/4936d265a27eaceed11eeefea0c0d68d4b4602e7) DOCS Remove statement about a strict error when overloading PDOQuery constructor (Robbie Averill)
  * 2019-08-04 [4c6776e](https://github.com/dnadesign/silverstripe-elemental/commit/4c6776e92299a237bb26c7584f4195d9c4febfa0) Bump lodash from 4.17.11 to 4.17.15 (dependabot[bot])
  * 2019-08-04 [86785c3](https://github.com/dnadesign/silverstripe-elemental/commit/86785c3386a9ae70fc262c081007620459b70827) Reduce line length (Robbie Averill)
+ * 2019-08-02 [9ad497f](https://github.com/silverstripe/silverstripe-assets/commit/9ad497ff567ec1beb5bc211ddd73f8a46f993de9) Use trusty distro in Travis builds (Robbie Averill)
+ * 2019-08-02 [9d4b444](https://github.com/silverstripe/silverstripe-versioned/commit/9d4b44451739078028da7aba93beee91f8d21b2f) Use trusty distro in Travis builds (Robbie Averill)
  * 2019-07-31 [6bd547e](https://github.com/silverstripe/silverstripe-crontask/commit/6bd547e0957bcd0fabea96308bed6ed5380dda5d) DOC Explain the falsy behaviour of getSchedule() on the CronTask interface. (Maxime Rainville)
  * 2019-07-30 [f16ce3f](https://github.com/dnadesign/silverstripe-elemental/commit/f16ce3f9dd7b5bbe10df0cd676b0e67428d15cbf) Remove temporary state from BaseElement and rely on CMSEditLink parameter instead (Guy Marriott)
  * 2019-07-30 [68b1b19](https://github.com/tractorcow-farm/silverstripe-fluent/commit/68b1b191698e23f32e7dd972fb06b9da39321e6e) Revert "FIX Fluent now respects existing base URL prefixes in UR… (#539) (Guy Marriott)
@@ -303,12 +317,15 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
  * 2019-07-26 [b39a81b](https://github.com/silverstripe/silverstripe-externallinks/commit/b39a81b60b63c592793ca85e24ef0662cd80e5f6) Use trusty in Travis builds (Robbie Averill)
  * 2019-07-26 [7a33572](https://github.com/silverstripe/silverstripe-externallinks/commit/7a335726c481613e74f62206370699a56dcec709) Remove SilverStripe 4.0-4.2 from Travis builds (Robbie Averill)
  * 2019-07-26 [18eb0fa](https://github.com/silverstripe/cwp/commit/18eb0fa0f9fdcf49b04d1691690f65602f7e5f8b) DOCS HTTP Strict Transport Security (Ingo Schommer)
+ * 2019-07-25 [2d2b0b82f](https://github.com/silverstripe/silverstripe-framework/commit/2d2b0b82f0d10e35d619cfdd990729e6a1cbb5db) DOCS Fix incorrect rendering of note on list item (Robbie Averill)
  * 2019-07-25 [afc4f57](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/afc4f571486a5f81148a809d832568bd01755d21) Enable color and font pickers by default (#42) (Guy Marriott)
  * 2019-07-25 [07db319](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/07db319b88110b83bb96f960a30be8432ad76e26) Enable color and font pickers by default (Ingo Schommer)
  * 2019-07-25 [bd84139](https://github.com/silverstripe/silverstripe-tagfield/commit/bd84139b968ecd1e143647aa2df4e2e4066cd3d1) Code clean-up (Guy Marriott)
  * 2019-07-24 [804c6ba](https://github.com/silverstripe/silverstripe-tagfield/commit/804c6bac2fec2782b6928a8598577d7da9d9fba0) Run automated phpcs linting (Robbie Averill)
  * 2019-07-22 [b8c0a07](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/b8c0a07252dbde21734b2d32ebc519835102e96f) Add inline requirements for MFA modules in Travis builds for PHP 7.1 (Robbie Averill)
  * 2019-07-22 [6b28dd9](https://github.com/dnadesign/silverstripe-elemental/commit/6b28dd925658780e0739f8169b3ab41dbf25590c) Reintroduce statement for $editorField resolving correctly (Robbie Averill)
+ * 2019-07-22 [b9672a3](https://github.com/silverstripe/silverstripe-versioned-admin/commit/b9672a3025c6df38d1b0ab1aedeab2ac5613e627) Use trusty distro in Travis builds (Robbie Averill)
+ * 2019-07-22 [53c0efa](https://github.com/silverstripe/silverstripe-versioned-admin/commit/53c0efa1d7b8b479bfd71170b3f8042a610e314f) DOCS Update deprecation tag syntax to use full semver version number (Robbie Averill)
  * 2019-07-21 [d23f3fc](https://github.com/dnadesign/silverstripe-elemental/commit/d23f3fc04c1cc2c0ecd5f6867fc9d69f3fcd1d45) Shift TinyMCE field adjustments back to EditFormFactory (Garion Herman)
  * 2019-07-19 [e2b89bc](https://github.com/silverstripe/cwp-agencyextensions/commit/e2b89bce57cc9519835b428acdf98c76578468fc) Use specific recipe versions in Travis builds (Robbie Averill)
  * 2019-07-19 [9f77ec4](https://github.com/silverstripe/cwp-agencyextensions/commit/9f77ec47ee2f356ee36f5364bcd96fd081d38517) Change recipe-cms 1.x to 4.x (Robbie Averill)
@@ -317,11 +334,16 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
  * 2019-07-19 [9c165a1](https://github.com/silverstripe/silverstripe-realme/commit/9c165a186128560a2d7ae7f28d99d4782992a432) Update SilverStripe versions in Travis builds (Robbie Averill)
  * 2019-07-19 [13d0cc1](https://github.com/tractorcow-farm/silverstripe-fluent/commit/13d0cc10b0c47622676b9d86e8eb085302c139c7) Update SilverStripe test versions in Travis (Robbie Averill)
  * 2019-07-19 [6040646](https://github.com/tractorcow-farm/silverstripe-fluent/commit/604064672f42e36b20aed2c9280e04fd15fd4c08) Replace filter grid with checkbox set (Ian Patel)
+ * 2019-07-18 [29e8d77](https://github.com/silverstripe/silverstripe-versioned-admin/commit/29e8d776efb69a056299637fdfeb350ebbce56c6) Use trusty distro in Travis builds (Robbie Averill)
+ * 2019-07-18 [ef53f44](https://github.com/silverstripe/silverstripe-versioned-admin/commit/ef53f442621c6e0d4b971ab652e5fac7471fa4b0) Remove CMS requirement from ArchiveAdmin (Morven Lewis-Everley)
  * 2019-07-18 [1fb7830](https://github.com/silverstripe/silverstripe-fulltextsearch/commit/1fb7830ff16b7ccb66f450f9057d885bb23fb341) Update core releases tested against in Travis config (Garion Herman)
  * 2019-07-17 [6c41f00](https://github.com/silverstripe/silverstripe-sitewidecontent-report/commit/6c41f00c4e2ac27f9b4a9ea2999ec6d568ffbafb) Bump contentreview version in Travis (Robbie Averill)
  * 2019-07-17 [b6f8ce3](https://github.com/dnadesign/silverstripe-elemental/commit/b6f8ce3ea757961e4ad35e4b776c37b7b188bc17) Specify trusty distro in Travis builds (Robbie Averill)
  * 2019-07-17 [16fb5fd](https://github.com/silverstripe/silverstripe-gridfieldqueuedexport/commit/16fb5fdbdb0f127cb09cedf726eb597f2040bf7c) DOCS Update namespace referenced classes in readme (Robbie Averill)
+ * 2019-07-16 [b5c11de](https://github.com/silverstripe/cwp-starter-theme/commit/b5c11ded2f0f7651beee7a063d5dd2a6ff2306ee) Update templates/Includes/LanguageSelector.ss (Sacha Judd)
  * 2019-07-16 [2d176e2](https://github.com/tractorcow-farm/silverstripe-fluent/commit/2d176e2582e69547b0edd0cac662f769ba701f85) Add `$SelectedLanguage` template variable to fluent. Already exists in `cwp/cwp` but it should be available in `FluentExtension` (bergice)
+ * 2019-07-15 [d7ee717](https://github.com/silverstripe/cwp-starter-theme/commit/d7ee717d8296b1e2177e99e7b84b6c78febdb281) MINOR: Improve formatting by removing unnecessary whitespace (Aaron Carlino)
+ * 2019-07-14 [924a43b](https://github.com/silverstripe/silverstripe-asset-admin/commit/924a43bfc738dc45094b21b4fc28a8923bf70a69) Pulls/1.4/remove reference to react test utils from dist code (#966) (Guy Marriott)
  * 2019-07-11 [6caee34](https://github.com/bringyourownideas/silverstripe-maintenance/commit/6caee346219d55a3e2fa8ad1d324b8d76a563b2d) Bump lodash.mergewith from 4.6.1 to 4.6.2 (dependabot[bot])
  * 2019-07-09 [3cdbc9d](https://github.com/silverstripe/silverstripe-realme/commit/3cdbc9d0fe373d14c0081f59bf933db0a95e3b6d) Update phone numbers (Indy Griffiths)
  * 2019-07-07 [eec26e5](https://github.com/symbiote/silverstripe-advancedworkflow/commit/eec26e5adfce78e096afe177c6e83e23968082a4) WorkflowReminderJob missing assigned member emails (Will Rossiter)
@@ -337,6 +359,7 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
  * 2019-06-30 [651d6c1](https://github.com/silverstripe/silverstripe-blog/commit/651d6c1da97b05ec81b9fcfef7a92a5c82ca15c4) Remove .idea folder from version control (Ryan Potter)
  * 2019-06-30 [ea2fcd0](https://github.com/silverstripe/silverstripe-blog/commit/ea2fcd0b6ecb4c65cdb7fb2e82d515b7c52aa7e1) Added a method to set the button name in a GridFieldAddByDBField component (Ryan Potter)
  * 2019-06-28 [bb45d27](https://github.com/silverstripe/silverstripe-restfulserver/commit/bb45d27869448c66453a64d8e0805cd20e25a32b) Update Travis build matrix (Robbie Averill)
+ * 2019-06-28 [0f7784a](https://github.com/silverstripe/cwp-starter-theme/commit/0f7784ac2b0da6bfdb7ab270021b184ba5b001c8) Add translation to aria-label (Sacha Judd)
  * 2019-06-28 [85bee89](https://github.com/silverstripe/cwp-watea-theme/commit/85bee89d4aa04059e96ce6d74f0ce823f6e20fae) Add translation to aria-label (Sacha Judd)
  * 2019-06-28 [51c4647](https://github.com/silverstripe/cwp-watea-theme/commit/51c46476ee759b369845468ad33653da92d19f18) Rebuild dist files to pull in legend size change in starter theme (Robbie Averill)
  * 2019-06-27 [098ff28](https://github.com/silverstripe/recipe-authoring-tools/commit/098ff28ebf7eddc7c88809fd247208a42145c2c3) Use trusty in Travis builds (Robbie Averill)
@@ -359,24 +382,53 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
  * 2019-06-25 [67d10ec](https://github.com/silverstripe/silverstripe-subsites/commit/67d10ec0cb514c687c54d9c24194f5e45de7f65f) Remove SilverStripe 4.0-4.2 from Travis builds (Robbie Averill)
  * 2019-06-24 [614819a](https://github.com/silverstripe/silverstripe-subsites/commit/614819a1d373cbb13151ac4520aa8d4df16f3920) Reduce Behat builds to SS 4.3 and update postgres version (Robbie Averill)
  * 2019-06-24 [eddbc90](https://github.com/silverstripe/silverstripe-subsites/commit/eddbc905240b6f87d9416218b7df54c83d95a6a7) Remove SilverStripe 4.0-4.2 from Travis builds (Robbie Averill)
+ * 2019-06-20 [ea1d769](https://github.com/silverstripe/silverstripe-assets/commit/ea1d7693b232228c59c3f4834a867ee2c7b8ce2a) ImageManipulation.php API documentation fix (3Dgoo)
  * 2019-06-19 [994e994](https://github.com/silverstripe/cwp-core/commit/994e99415de17b47e187e4ca506bbd39560bf874) Clarify testEncrypt() uses 10000 iterations to generate its expected result (Robbie Averill)
  * 2019-06-18 [2c7a944](https://github.com/silverstripe/cwp-core/commit/2c7a944e32c02bcba7b9e1c3154391387ffafc94) DOCS Add note that changing the number of iterations in PBKDF2 would break existing hashes (Robbie Averill)
+ * 2019-06-16 [192f96e](https://github.com/silverstripe/silverstripe-asset-admin/commit/192f96e6210c8cc09d814c85179f913adaa3f3ab) Implement new ApolloGraphqlContainer API for optimistic updates (#951) (Robbie Averill)
+ * 2019-06-16 [2e33456e4](https://github.com/silverstripe/silverstripe-framework/commit/2e33456e469132811e07a9a4b7c16fc06a44e2ad) Mention versioned snapshots in the versions documentation (#9057) (Serge Latyntsev)
+ * 2019-06-15 [7e12bee86](https://github.com/silverstripe/silverstripe-framework/commit/7e12bee86a7dffc5efec83067a63d8da5b18d2c8) Requirements_Backend.php API documentation fix (3Dgoo)
  * 2019-06-14 [40ad8d1](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/40ad8d1dacb3b2444313b6119cbf1923c2845cc6) DOCS Twig improvements to change log template (Bryn Whyman)
  * 2019-06-14 [0ac96d3](https://github.com/dnadesign/silverstripe-elemental/commit/0ac96d31a78a5544d8de6249c412ea55913f7c9b) Bump PHP memory limit (Garion Herman)
  * 2019-06-14 [829fabe](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/829fabedc74b5a8de18471f31bc4f0444fd75f9d) DOCS new headings for change log template (Bryn Whyman)
+ * 2019-06-12 [0294029f9](https://github.com/silverstripe/silverstripe-framework/commit/0294029f92362b60916e929cdd862a136d285beb) DOCS Remove confusing API change from changelog (Guy Marriott)
+ * 2019-06-12 [ce58a97](https://github.com/silverstripe/silverstripe-versioned/commit/ce58a97d13918b7123abb00bb3478c2c08c56e05) Update symfony/cache version constraints (closes #236) (Loz Calver)
  * 2019-06-12 [b1c1931](https://github.com/silverstripe/silverstripe-subsites/commit/b1c1931d5d101c64e3a7da8b2bb0aca8414e1b0b) Detect domains correctly in Director sub-calls (Nik Rolls)
  * 2019-06-11 [7e40c59](https://github.com/silverstripe/cwp/commit/7e40c593f3792e401abd36ce67cd9309af81db97) DOCS Add changelog entry for environmentcheck's CVE-2019-12246 patch (Robbie Averill)
+ * 2019-06-11 [1c47cca](https://github.com/silverstripe/silverstripe-versioned/commit/1c47ccaf9b95bef97f3865d30b1b632d7a361917) Remove empty line to fix linting error (Robbie Averill)
  * 2019-06-11 [a3f9bcc](https://github.com/silverstripe/cwp/commit/a3f9bcca8bfb1065c957630a3535388ad09a3c1b) DOCS Remove unreleased notice on CWP 2.3.0 changelog (Robbie Averill)
  * 2019-06-11 [783576c](https://github.com/silverstripe/cwp/commit/783576c716c8b3696e0a41e9d41faa7abdfe7813) DOCS 4.4.0 core release for CWP 2.3.0 (Robbie Averill)
+ * 2019-06-11 [62cdc43e7](https://github.com/silverstripe/silverstripe-framework/commit/62cdc43e781069248f7a4f2f066838d71b0a72e1) DOC Add missing reference to TagToShortcodeTask. (Maxime Rainville)
+ * 2019-06-10 [3c92501dc](https://github.com/silverstripe/silverstripe-framework/commit/3c92501dc5b5b804bd45d46bf87e783addbb7fbc) DOCS: Add React 16 information (Aaron Carlino)
+ * 2019-06-10 [58b19fa](https://github.com/silverstripe/silverstripe-asset-admin/commit/58b19fa219923eef6298e9d45079fff57ee4889f) Update test assertion to match new translation sources (Robbie Averill)
  * 2019-06-10 [94861e5](https://github.com/silverstripe/cwp/commit/94861e5d94cf61decfe69a9872ca85ab9fc5c233) DOCS Clarify public webroot behaviour in CWP (Ingo Schommer)
+ * 2019-06-10 [dad80f5ac](https://github.com/silverstripe/silverstripe-framework/commit/dad80f5acdffb6357429db909fa8c7fe52a6cbaf) DOCS Adding information about better buttons to the release changelog (#9049) (Guy Marriott)
+ * 2019-06-10 [8bf9990](https://github.com/silverstripe/silverstripe-versioned/commit/8bf99905dce06987c450f1f85c1bcafcc1ab5d93) Update translations (Aaron Carlino)
+ * 2019-06-10 [c5cfeda4](https://github.com/silverstripe/silverstripe-cms/commit/c5cfeda4163c4c7882456e29a8d2d74d5b0c173c) Update translations (Aaron Carlino)
+ * 2019-06-10 [e442724e4](https://github.com/silverstripe/silverstripe-framework/commit/e442724e4e7efa814420ef99888fc1fda968a234) Update translations (Aaron Carlino)
+ * 2019-06-10 [4bc0459](https://github.com/silverstripe/silverstripe-admin/commit/4bc04599ee8a00c68d4fec45ceaa84ede5dba3f7) Update translations (Aaron Carlino)
+ * 2019-06-10 [565390c](https://github.com/silverstripe/silverstripe-versioned-admin/commit/565390cc6d9d1cdd2bfc198c44f4aee01778016b) Update translations (Aaron Carlino)
+ * 2019-06-10 [d088979](https://github.com/silverstripe/silverstripe-asset-admin/commit/d088979fb354ffbcbdbe1e45684230adb316d381) Update translations (Aaron Carlino)
  * 2019-06-09 [3ae422c](https://github.com/silverstripe/silverstripe-gridfieldqueuedexport/commit/3ae422cd8b8b9e661adf04a9b3978e1575c60f37) Preserve and restore GridState (Fixes #31) (Will Rossiter)
  * 2019-06-06 [26b79a3](https://github.com/silverstripe/silverstripe-ldap/commit/26b79a391b2167ae3ca606ba41fe8af7279d3215) prevent undefined index error if displayname is not available (Benedikt Hofstaetter)
  * 2019-06-06 [c4c8aef](https://github.com/silverstripe/silverstripe-ldap/commit/c4c8aef91d82b1ddb7a1125092b7cc7bd339ac28) store image fields in yml configuration instead of using an extension to add them (Benedikt Hofstaetter)
+ * 2019-06-06 [f4cdfb06c](https://github.com/silverstripe/silverstripe-framework/commit/f4cdfb06c8801e10459ba4d32713a57a091b2126) Update environment timeouts (Ingo Schommer)
+ * 2019-06-06 [cd9e304](https://github.com/silverstripe/silverstripe-assets/commit/cd9e3046f3e8f4483493de9671cf4d5de3585e9c) Replace all occurences of `new FileIDHelperResolutionStrategy()` with `::create()` (Maxime Rainville)
+ * 2019-06-05 [448505f](https://github.com/silverstripe/silverstripe-admin/commit/448505f5225e9784108e1b6c724dce6cfd8458c8) Improve responsive styles for PopoverOptionSet and truncate long items (#882) (Guy Marriott)
+ * 2019-06-05 [e8fa3d875](https://github.com/silverstripe/silverstripe-framework/commit/e8fa3d8750eccc911d0227f016a7bb8272f29600) DOCS Fix incorrect deprecation reference in MonologErrorHandler (Robbie Averill)
+ * 2019-06-05 [9750355](https://github.com/silverstripe/silverstripe-assets/commit/97503552108a804c7b1327f7732b27603debc915) Reintroduced draft/live wording with more verbosity (Ingo Schommer)
+ * 2019-06-05 [de8fe32](https://github.com/silverstripe/silverstripe-assets/commit/de8fe32d7aff6abcc63aa1df54be89d49bad10f8) Wording in file migration task (Ingo Schommer)
+ * 2019-06-05 [6c2f445](https://github.com/silverstripe/silverstripe-assets/commit/6c2f445e729736f34f4bc6aaf8ac7ff39c2dbb41) Missing use statement (Ingo Schommer)
+ * 2019-06-05 [83927f7](https://github.com/silverstripe/silverstripe-asset-admin/commit/83927f7fd4a2961add7eff25f52987531f11b8b7) Warning on thumbnail migration when file too large (Ingo Schommer)
  * 2019-06-05 [287e8f0](https://github.com/silverstripe/silverstripe-ldap/commit/287e8f03f515bc82c409350303dec863f6733b50) added extends to update gateway filter (Benedikt Hofstaetter)
  * 2019-06-05 [d70dccf](https://github.com/silverstripe/silverstripe-ldap/commit/d70dccf38fd4439382e1dcded2c5655058c7657d) added extend to define multiple ad fields that contain an image (Benedikt Hofstaetter)
+ * 2019-06-05 [b21e5d9e5](https://github.com/silverstripe/silverstripe-framework/commit/b21e5d9e579b62b2b2e156df80657058f045c368) Moved time limit increases from individual job (Ingo Schommer)
+ * 2019-06-05 [30496144b](https://github.com/silverstripe/silverstripe-framework/commit/30496144b992349690be20ffdbaa3796e1e8bb5d) DOCS More detail on queuedjobs file migrations (Ingo Schommer)
  * 2019-06-05 [f650382](https://github.com/silverstripe/silverstripe-subsites/commit/f6503822e8bd55edeb444bf9e988308163f3ec7a) DOCS Fix typos (Robbie Averill)
+ * 2019-06-05 [1a35388](https://github.com/silverstripe/silverstripe-assets/commit/1a3538840f6a3221ab8867aed633d7be280f9705) Move time limits to MigrateFileTask (Ingo Schommer)
  * 2019-05-31 [2b26876](https://github.com/silverstripe/silverstripe-subsites/commit/2b268765965568f929b04ee98c857a2a06678a98) Add test for URLSegment prefix set to primary subsite domain for page (Robbie Averill)
  * 2019-05-31 [900d04d](https://github.com/silverstripe/silverstripe-subsites/commit/900d04d94af650a4ee1ac65ebb40cd0f35fc0574) Add tests and move logic into the if statement (Robbie Averill)
+ * 2019-05-31 [4dfd5b7](https://github.com/silverstripe/silverstripe-asset-admin/commit/4dfd5b7145d0b93a12856b32d00366b90aa43df1) Force refresh of files on upload when file is in edit view (Aaron Carlino)
  * 2019-05-30 [2a9f3ac](https://github.com/silverstripe/silverstripe-subsites/commit/2a9f3ac0f6bf7ef66b5e7692e1269fca14131a29) DOCS Fix phpdoc in summary_fields (Robbie Averill)
  * 2019-05-30 [2644083](https://github.com/silverstripe/silverstripe-subsites/commit/2644083a2d17b8c8f38004a68a9144a33137e587) Remove code coverage, it is segfaulting on SS 4.4 (Robbie Averill)
  * 2019-05-30 [68c763d](https://github.com/silverstripe/silverstripe-subsites/commit/68c763da3e664393b8d3bcb47b41860c6b289fe4) Tidy output of IsPublic value in Subsites admin (Garion Herman)
@@ -384,14 +436,26 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
  * 2019-05-30 [06a1658](https://github.com/dnadesign/silverstripe-elemental/commit/06a1658b31622f5a5f652f8d2d469db90ea2e3db) Renamed hooks to be more explicit (StephenMak)
  * 2019-05-30 [6fac911](https://github.com/dnadesign/silverstripe-elemental/commit/6fac911133445a6cdef40845ba8ea807df4d06fd) Added additional script to .travis.yml before_script section (StephenMak)
  * 2019-05-29 [687b85f](https://github.com/dnadesign/silverstripe-elemental/commit/687b85fd1885f0e654a515b363fac57f0f05f3dc) Add extension hooks to requireDefaultRecords (StephenMak)
+ * 2019-05-29 [3e2fc6aa0](https://github.com/silverstripe/silverstripe-framework/commit/3e2fc6aa0bf21892f3944e56c2819b0601cc41dc) Automated phpcbf linting (Robbie Averill)
  * 2019-05-28 [284aced](https://github.com/silverstripe/silverstripe-restfulserver/commit/284aceddd00db6d407a860058da14a181361efee) Use trusty in Travis builds (Robbie Averill)
+ * 2019-05-28 [c4cda96](https://github.com/silverstripe/silverstripe-asset-admin/commit/c4cda9652819278a618e6caa2179e2829c373ab1) Better formatting of file migration tasks (Ingo Schommer)
+ * 2019-05-28 [ac4245a](https://github.com/silverstripe/silverstripe-assets/commit/ac4245a0af28cac4e8a84438fb572de3751ca332) Better formatting of file migration tasks (Ingo Schommer)
  * 2019-05-28 [ea430a1](https://github.com/silverstripe/cwp/commit/ea430a1c26e8701f5e04cbf02baaf1a70d210cc1) DOCS Update release docs (Bryn Whyman)
+ * 2019-05-28 [f7c1be7ac](https://github.com/silverstripe/silverstripe-framework/commit/f7c1be7ac1aa2268a8a25d897fdf05959fbba8f8) Including canCreate in if statement so that button gets removed if user isn't to be able to create new records (Rafael Marins de Sousa)
+ * 2019-05-27 [2c8c643ce](https://github.com/silverstripe/silverstripe-framework/commit/2c8c643ce39414f56a6bc72dca7a8a88b03095f9) MigrateFileTask now outputs "Done" when it has finished running (#8995) (Andre Kiste)
  * 2019-05-27 [b64df9a](https://github.com/silverstripe/cwp/commit/b64df9a99a206e787357faceb39cccfd91dd5e5f) Replace fancy quotes with standard quotes (Robbie Averill)
  * 2019-05-27 [3910acf](https://github.com/silverstripe/cwp/commit/3910acf7532a8a9f8c41ea6f3e58b9f7ef7a68b0) Update 10_Security.md (JessicaSilverStripe)
+ * 2019-05-22 [951a94b](https://github.com/silverstripe/silverstripe-admin/commit/951a94b85dea101b4539d651cd1c5854b80ebfbd) Improve responsive styles for PopoverOptionSet and truncate long items (Garion Herman)
+ * 2019-05-21 [72f8031](https://github.com/silverstripe/silverstripe-assets/commit/72f8031f742bc6b302eae2b0dbe3bd88c2c98a81) Migrate ss3 file with double underscore (#267) (Maxime Rainville)
+ * 2019-05-21 [d245395](https://github.com/silverstripe/silverstripe-assets/commit/d24539540bdf04710acc9f1dd0a5f185ddb86960) Add some extra doc as requested by PR feedback (Maxime Rainville)
+ * 2019-05-21 [66849eb](https://github.com/silverstripe/silverstripe-assets/commit/66849ebc6bd0b8123b2c18c9b799be1f9b86d270) Peer review (bergice)
+ * 2019-05-17 [cc4b539](https://github.com/silverstripe/silverstripe-versioned/commit/cc4b539b912b8db60a11473d962d0abd778e664b) Revert "FIX Revert framework constraint bump and add easly returns when non B/C interface does not exist" (Robbie Averill)
  * 2019-05-17 [b1c853e](https://github.com/silverstripe/silverstripe-blog/commit/b1c853eafe4a1fbe3a4c554e581d2594c1dad1a9) UX expand custom summary if field has value (#587) (Guy Marriott)
  * 2019-05-17 [679e690](https://github.com/silverstripe/silverstripe-blog/commit/679e690ca5107c0b93b39a6805b648d04ee89ec0) UX expand custom summary if field has value (Nic Horstmeier)
  * 2019-05-17 [d141c83](https://github.com/silverstripe/silverstripe-userforms/commit/d141c83e0a1eda6686ccfca9c30d2d893c8b860a) Import missing PHPDoc doc blocks, switch intval() for (int) casting (Robbie Averill)
  * 2019-05-17 [097edbc](https://github.com/silverstripe/silverstripe-iframe/commit/097edbc9c2b6d58ac358b655fe36750fa285cff3) Update title and description of IFrameTitle field (Robbie Averill)
+ * 2019-05-16 [6fcaf87](https://github.com/silverstripe/silverstripe-campaign-admin/commit/6fcaf879edd2e7468d33027befdb1c1621228d9f) Remove resize-aware from dependencies (Robbie Averill)
+ * 2019-05-16 [4bc1c7f](https://github.com/silverstripe/silverstripe-versioned-admin/commit/4bc1c7fa59df2bbc91e91997459c29a005741c35) Remove resize-aware from dependencies (Robbie Averill)
  * 2019-05-16 [14b35f1](https://github.com/silverstripe/silverstripe-fulltextsearch/commit/14b35f1935c9954041fc995165d39ca82ff604a7) DOCS Fix doc block formatting in SolrService (Robbie Averill)
  * 2019-05-16 [b1ec2ed](https://github.com/silverstripe/silverstripe-fulltextsearch/commit/b1ec2ed6d9cd35d6c5e8669ebc8d4fdb9b320558) Remove unused class imports, import docblock reference for Apache_Solr_Response, use strict comparison (Robbie Averill)
  * 2019-05-16 [617501e](https://github.com/silverstripe/silverstripe-comments/commit/617501efed8644f9726bfba23a13dbc85894fcf3) comments extension filters on Parent Class (Heath Dunlop)
@@ -399,6 +463,7 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
  * 2019-05-15 [6b65424](https://github.com/silverstripe/silverstripe-sharedraftcontent/commit/6b6542450a41c5d10775f0b4ea5bb638ba0971ce) Add legacy.yml for SS3 to SS4 upgrades (Sheila Bañez)
  * 2019-05-15 [7df0659](https://github.com/symbiote/silverstripe-advancedworkflow/commit/7df0659d36037a65f017c3745d0d16af8aacd49d) Add legacy.yml for SS3 to SS4 upgrades (Sheila Bañez)
  * 2019-05-15 [a1b7d39](https://github.com/silverstripe/silverstripe-externallinks/commit/a1b7d3979ef7b8d67d9f3c5cb258ea92c641f141) Add legacy.yml for SS3 to SS4 upgrades (Sheila Bañez)
+ * 2019-05-13 [4da8be3bf](https://github.com/silverstripe/silverstripe-framework/commit/4da8be3bf5b00adeae00ec458cd6f61bbf6dd703) Add extend function in getSchemaValidation function (shoosah)
  * 2019-05-12 [98183ad](https://github.com/silverstripe/silverstripe-blog/commit/98183ad6775bec92739f7956850054d3de67578f) Update references to text fixtures and SS_List class namespace from cherry-picked SilverStripe 3 commit (Robbie Averill)
  * 2019-05-09 [7e09683](https://github.com/symbiote/silverstripe-advancedworkflow/commit/7e09683211740f9925f0258a3e5a07bf358d788f) Update translations (Robbie Averill)
  * 2019-05-09 [5758075](https://github.com/silverstripe/silverstripe-userforms/commit/5758075d42dacb05dba8846d10699b22b55fb525) Update translations (Robbie Averill)
@@ -415,6 +480,11 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
  * 2019-05-09 [22e2a8d](https://github.com/bringyourownideas/silverstripe-maintenance/commit/22e2a8d671c9062fc693dfc60173d37872cab1de) Update translations (Robbie Averill)
  * 2019-05-09 [4d016e0](https://github.com/tractorcow-farm/silverstripe-fluent/commit/4d016e0114f649ed7825116b23104669feb1b046) Add PHP 7.3 and SilverStripe 4.3/4.4 to Travis builds (Robbie Averill)
  * 2019-05-09 [997a1a9](https://github.com/tractorcow-farm/silverstripe-fluent/commit/997a1a92dd4aa993348d1c62e1af7c96dc344d20) Update translations (Robbie Averill)
+ * 2019-05-08 [d6fc3c4](https://github.com/silverstripe/silverstripe-assets/commit/d6fc3c447d42ab3974cc66ccf26f4c12d640ae90) Linting (Aaron Carlino)
+ * 2019-05-08 [0056764](https://github.com/silverstripe/silverstripe-assets/commit/0056764b07a816cb3701ecdf3e4b1a7c5cfda674) Remove cms travis dependency (Aaron Carlino)
+ * 2019-05-07 [f8b4953](https://github.com/silverstripe/silverstripe-assets/commit/f8b4953542c0af071d72db41c56e0630278168ff) Linting, add tests (Aaron Carlino)
+ * 2019-05-06 [a64c747](https://github.com/silverstripe/silverstripe-admin/commit/a64c7473a2d0f54e0f1f7eb4946cbaf1026d46ed) Behat test complies with accessible buttons (#874) (Guy Marriott)
+ * 2019-05-06 [aacc491](https://github.com/silverstripe/silverstripe-admin/commit/aacc49170c5c6c0a5c8d868406b3c8160ed3503d) Behat test complies with accessible buttons (Serge Latyntcev)
  * 2019-05-03 [441b73c](https://github.com/dnadesign/silverstripe-elemental/commit/441b73c37444f6ed8b57e7b3bae93aaee85453ab) DOCS Fix broken userhelp reference to userforms module (Robbie Averill)
  * 2019-05-02 [f3fc1fa](https://github.com/silverstripe/cwp-search/commit/f3fc1fa58abf58c84f3ec85bf4bc4a45d003aafe) Use database in functional test (Robbie Averill)
  * 2019-04-29 [3a9ac5e](https://github.com/dnadesign/silverstripe-elemental/commit/3a9ac5e44edd3e67a3eefa911a52fda5b32ff4e0) DOCS Comment docs updates to new migration task (Robbie Averill)
@@ -445,4 +515,6 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
  * 2018-06-17 [c8ddec1](https://github.com/silverstripe/silverstripe-restfulserver/commit/c8ddec1ecb1857a5a50c0f596fb9aeae1c3f4288) Add supported module badge to readme (#71) (Dylan Wagstaff)
  * 2018-06-15 [67acd83](https://github.com/silverstripe/recipe-authoring-tools/commit/67acd83a231a5e27afd78b3bc535acbf1f0ae7e2) Add supported module badge to readme (Dylan Wagstaff)
  * 2018-06-15 [a94652d](https://github.com/silverstripe/silverstripe-auditor/commit/a94652d3c8adafc38db94c00048616e9683b7c50) Add supported module badge to readme (Dylan Wagstaff)
+
+
 <!--- Changes above this line will be automatically regenerated -->

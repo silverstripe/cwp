@@ -1,5 +1,14 @@
 language: php
 
+dist: xenial
+
+services:
+  - mysql
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
 env:
   global:
     - COMPOSER_ROOT_VERSION=2.4.x-dev

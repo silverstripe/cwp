@@ -55,8 +55,6 @@ eo:
     RelatedPages: 'Rilataj paĝoj'
     SINGULARNAME: 'Baza paĝo'
     TagsTabTitle: Etikedoj
-    Taxonomy: Taksonomio
-    Term: Termino
     Terms: Terminoj
     TermsDescription: 'Alklaku por serĉi pluajn erojn'
   CWP\CWP\PageTypes\DateUpdatePage:
@@ -66,7 +64,6 @@ eo:
     LocationFieldLabel: Loko
     StartTimeFieldLabel: 'Komenca horo'
   CWP\CWP\PageTypes\DatedUpdateHolder:
-    DATE_EXAMPLE: '(ekzemplo: 2017/12/30)'
     FILTER_BETWEEN: inter
     FILTER_IN: en
     FILTER_ON: sur

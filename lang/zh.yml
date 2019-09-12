@@ -30,8 +30,6 @@ zh:
     RelatedPages: 相关页面
     SINGULARNAME: 基本页面
     TagsTabTitle: 标签
-    Taxonomy: 分类法
-    Term: 条款
     Terms: 条款
   CWP\CWP\PageTypes\DatedUpdateHolder:
     PLURALNAME: 基本页面
