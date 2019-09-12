@@ -6,7 +6,7 @@ introduction: The status of the recipe releases is summarised in the table below
 
 | Recipe version | Description | Release date | Support ends date |
 | -------------- | ----------- | ------------ | ----------------- |
-| [2.4.0](cwp_2.4.0) | Tracks the Framework release 4.4.2, enhancements and bugfixes. | 12/09/2019 | current |
+| [2.4.0](cwp_2.4.0) | Tracks the Framework release 4.4.3, enhancements and bugfixes. | 12/09/2019 | current |
 | [2.3.2](cwp_2.3.2) | Upgrades silverstripe/fulltextsearch to 3.5.2. | 29/07/2019 | 12/03/2021 |
 | [2.3.1](cwp_2.3.1) | Upgrades silverstripe/hybridsessions to 2.1.2. | 02/07/2019 | 12/03/2021 |
 | [2.3.0](cwp_2.3.0) | Tracks the Framework release 4.4.0, enhancements, bug fixes and security fixes. | 11/06/2019 | 12/03/2021 |
