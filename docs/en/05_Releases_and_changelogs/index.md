@@ -6,10 +6,9 @@ introduction: The status of the recipe releases is summarised in the table below
 
 | Recipe version                  | Description                                                                                                  | Release date | Support ends date |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------ | ----------------- |
-| [2.4.0](cwp_2.4.0)              | Tracks the Framework release 4.4.2, enhancements and bugfixes.                                               | 12/09/2019   | **current**       |
-| [2.3.2](cwp_2.3.2)              | Upgrades silverstripe/fulltextsearch to 3.5.2.                                                               | 29/07/2019   | 12/03/2021        |
-| [2.3.1](cwp_2.3.1)              | Upgrades silverstripe/hybridsessions to 2.1.2.                                                               | 02/07/2019   | 12/03/2021        |
-| [2.3.0](cwp_2.3.0)              | Tracks the Framework release 4.4.0, enhancements, bug fixes and security fixes.                              | 11/06/2019   | 12/03/2021        |
+| [2.3.2](cwp_2.3.2)              | Upgrades silverstripe/fulltextsearch to 3.5.2.                                                               | 29/07/2019   | current           |
+| [2.3.1](cwp_2.3.1)              | Upgrades silverstripe/hybridsessions to 2.1.2.                                                               | 02/07/2019   | current           |
+| [2.3.0](cwp_2.3.0)              | Tracks the Framework release 4.4.0, enhancements, bug fixes and security fixes.                              | 11/06/2019   | current           |
 | [2.2.3](cwp_recipe_basic_2.2.3) | Tracks the Framework release 4.3.3, and includes fixes for file linking issues in the 2.x release line.      | 26/03/2019   | 11/12/2020        |
 | [2.2.2](cwp_recipe_basic_2.2.2) | Tracks the Framework release 4.3.2, and includes bug fixes to many modules.                                  | 11/03/2019   | 11/12/2020        |
 | [2.2.1](cwp_recipe_basic_2.2.1) | Tracks the Framework release 4.3.1, and includes important security fixes.                                   | 19/02/2019   | 11/12/2020        |
