@@ -2,9 +2,9 @@
 
 ## Overview
 
-This upgrade includes CMS and Framework version 4.4.2.
+This upgrade includes CMS and Framework version 4.4.3.
 
- * [Framework 4.4.2](https://docs.silverstripe.org/en/4/changelogs/4.4.2/)
+ * [Framework 4.4.3](https://docs.silverstripe.org/en/4/changelogs/4.4.3/)
 
 Upgrading to Recipe 2.4.0 is recommended for all sites. This upgrade can be carried out by any development team familiar with SilverStripe CMS. However, if you would like SilverStripe’s assistance, you can request support via the [Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
 
@@ -45,14 +45,6 @@ If you rely on either of these themes as a base for your own, the 3.x upgrade wi
 
 If you intend to adopt the new MFA module suite, you will need to ensure you are running Subsites 2.3.1 or later, as earlier versions are not compatible with MFA's authentication mechanisms. Composer will refuse to install MFA alongside an earlier version of Subsites.
 
-## Known issues
-
-* [Editing in IE 11 breaks at resolutions below 1400px #2432
-](https://github.com/silverstripe/silverstripe-cms/issues/2432) **(this will be
-resolved in the next CWP release)**
-* [Gridfield Better Buttons don't handle sorting and pagination #886
-](https://github.com/silverstripe/silverstripe-admin/issues/886)
-
 ## Security considerations
 
 ### HTTP Strict Transport Security Headers
@@ -77,7 +69,7 @@ the new default configuration into their existing projects:
 [app/_config/security.yml](https://github.com/silverstripe/cwp-installer/blob/master/app/_config/security.yml).
 
 The default short-lived `max-age` for these headers is considered less secure,
-and should be increased once you are confident that your website operates correctly 
+and should be increased once you are confident that your website operates correctly
 under SSL with HSTS for all domains. Please refer to [OWASP recommendations](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.md)
 for secure `max-age` values (usually 365 days).
 
@@ -232,17 +224,21 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
 
 ### Other changes
 
+ * 2019-09-11 [eb8b358](https://github.com/silverstripe/cwp/commit/eb8b35864dbc500760f98cf9e675cea274b95aad) DOC Add EOL dates for CWP 2.3.x (Garion Herman)
  * 2019-09-08 [081f0ff](https://github.com/silverstripe/cwp-core/commit/081f0ff94e5ae25e030573426956f543eb8bf605) Increase iterations used by PBKDF2 per security recommendation (Garion Herman)
+ * 2019-09-05 [d7634ab](https://github.com/silverstripe/cwp/commit/d7634abf65cc83768a6652bf74c10ae703201fa1) DOCS HSTS clarification on max-age (Ingo Schommer)
  * 2019-08-20 [0cdf588](https://github.com/silverstripe/cwp/commit/0cdf588dd487a66edb51ad32e9775489e157e469) Update Travis config to use Xenial (#231) (Guy Marriott)
  * 2019-08-20 [ed9cc1a](https://github.com/silverstripe/cwp/commit/ed9cc1a152236e84581cc619e8f6682d8dfdd7c1) Update Travis config to use Xenial (Garion Herman)
+ * 2019-08-20 [839cbb7](https://github.com/silverstripe/silverstripe-externallinks/commit/839cbb7185f9ac48c9245848fcef436a60c7a13c) Update translations (Guy Marriott)
  * 2019-08-20 [c177845](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/c1778452bd409e334602dc95ca3284dc21cf8b6d) Update translations (Guy Marriott)
  * 2019-08-20 [8beb948](https://github.com/silverstripe/silverstripe-gridfieldqueuedexport/commit/8beb948e5650a0bc6d8d0b13c990975ed79936bd) Update translations (Guy Marriott)
- * 2019-08-20 [839cbb7](https://github.com/silverstripe/silverstripe-externallinks/commit/839cbb7185f9ac48c9245848fcef436a60c7a13c) Update translations (Guy Marriott)
- * 2019-08-20 [ac45c4c](https://github.com/silverstripe/cwp-core/commit/ac45c4ccf1f093821dc767a82feca30f67c9648d) Update translations (Guy Marriott)
- * 2019-08-20 [1d2f0ac](https://github.com/silverstripe/cwp/commit/1d2f0acce289619f90f4571df98557927d0882b3) Update translations (Guy Marriott)
- * 2019-08-20 [d06fe86](https://github.com/silverstripe/silverstripe-blog/commit/d06fe86d54b474f3dc7abf74354c4cf99729608c) Update translations (Guy Marriott)
  * 2019-08-20 [a3f28bb](https://github.com/silverstripe/silverstripe-iframe/commit/a3f28bb58b981cda3ba3a5335b99b25b0d1eb1c2) Update translations (Guy Marriott)
+ * 2019-08-20 [ac45c4c](https://github.com/silverstripe/cwp-core/commit/ac45c4ccf1f093821dc767a82feca30f67c9648d) Update translations (Guy Marriott)
+ * 2019-08-20 [d06fe86](https://github.com/silverstripe/silverstripe-blog/commit/d06fe86d54b474f3dc7abf74354c4cf99729608c) Update translations (Guy Marriott)
+ * 2019-08-20 [1d2f0ac](https://github.com/silverstripe/cwp/commit/1d2f0acce289619f90f4571df98557927d0882b3) Update translations (Guy Marriott)
  * 2019-08-20 [e21a092](https://github.com/silverstripe/silverstripe-comments/commit/e21a09234a3070d3c869218739c9d45f168ced41) Update translations (Guy Marriott)
+ * 2019-08-19 [9148a58](https://github.com/silverstripe/recipe-cms/commit/9148a589a8a78db1b9561fa4b17187e552b234b0) Update development dependencies (Guy Marriott)
+ * 2019-08-19 [6b71113](https://github.com/silverstripe/recipe-core/commit/6b71113aff25b536fdfe1c31a55a9121f741209d) Update development dependencies (Guy Marriott)
  * 2019-08-16 [9425139](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/94251390d612ec5d6c895b81dd24176e765cb792) Increase memory limit for kitchen sink builds (Robbie Averill)
  * 2019-08-15 [d2a295d](https://github.com/symbiote/silverstripe-advancedworkflow/commit/d2a295d28e12a60743980b197fb19227f8980c10) Use trusty distro in Travis builds and update tested SilverStripe versions (Robbie Averill)
  * 2019-08-15 [8f1549c](https://github.com/silverstripe/recipe-content-blocks/commit/8f1549c73bfb1d710b9bc80bc0f66dfe6a9825ba) Bump silverstripe-elemental to 4.2.x (Robbie Averill)
@@ -287,8 +283,6 @@ See [Working with Projects: Security](/working_with_projects/security) for more 
  * 2019-08-13 [242eb03](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/242eb03ea39bd44c3d134a3911cfa77819f6368e) Build admin before trying to run our tests (Maxime Rainville)
  * 2019-08-13 [b2f2d46](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/b2f2d46018dc0550842583b7061faa35771ed083) Add .nvmrc file to target node 6 on travis builds (Maxime Rainville)
  * 2019-08-13 [163d942](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/163d94284093303dbf78faecc3be28377139a916) Rebuild library (Maxime Rainville)
- * 2019-08-12 [6e7f1f0](https://github.com/silverstripe/recipe-cms/commit/6e7f1f0cb241d9eba76c0430ea9cb54b485deb82) Update development dependencies (Aaron Carlino)
- * 2019-08-12 [fea9e5c](https://github.com/silverstripe/recipe-core/commit/fea9e5c7ccade1926c4230a2e300843c3ab6852b) Update development dependencies (Aaron Carlino)
  * 2019-08-04 [4c6776e](https://github.com/dnadesign/silverstripe-elemental/commit/4c6776e92299a237bb26c7584f4195d9c4febfa0) Bump lodash from 4.17.11 to 4.17.15 (dependabot[bot])
  * 2019-08-04 [86785c3](https://github.com/dnadesign/silverstripe-elemental/commit/86785c3386a9ae70fc262c081007620459b70827) Reduce line length (Robbie Averill)
  * 2019-07-31 [6bd547e](https://github.com/silverstripe/silverstripe-crontask/commit/6bd547e0957bcd0fabea96308bed6ed5380dda5d) DOC Explain the falsy behaviour of getSchedule() on the CronTask interface. (Maxime Rainville)
