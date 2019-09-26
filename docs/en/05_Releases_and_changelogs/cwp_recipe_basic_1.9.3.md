@@ -7,8 +7,25 @@ This CWP release ensures compatiblity with PHP 7.2 and newer
 To upgrade, adjust your projects composer.json to reflect the new constraints:
 
 ```json
+    "require": {
         "cwp/cwp-recipe-basic": "^1.9.3@stable",
-        "cwp/cwp-recipe-blog": "^1.9.3@stable"
+        "cwp/cwp-recipe-blog": "^1.9.3@stable",
+        [...]
+    },
+```
+
+## Multi-factor Authentication (MFA)
+
+This version has been released with a minor issue preventing MFA from operating in conjunction with the subsites module. Releases for both Framework and Subsites have been made since in order to rectify this, however as these were not included in the security audit for the 1.9.3 release agencies are encouraged to evaluate the decision to install these, and the impacts for them in deviating from the security audited CWP release.
+
+In addition to following the installation steps of the [MFA module](https://github.com/silverstripe/silverstripe-mfa/tree/3.0), you will need to make the following amendments to the site's composer.json:
+
+```json
+    "require": {
+        [...]
+        "silverstripe/framework": "3.7.4 as 3.7.3",
+        "silverstripe/subsites": "1.4.2 as 1.4.1"
+    },
 ```
 
 <!--- Changes below this line will be automatically regenerated -->
