@@ -16,17 +16,15 @@ To upgrade, adjust your projects composer.json to reflect the new constraints:
 
 ## Multi-factor Authentication (MFA)
 
-In order to comply with CWP agreements in security auditing releases, this version has been released with a minor issue preventing MFA from operating in conjunction with the subsites module. Releases for both Framework and Subsites have been made since in order to rectify this, however as these were not included in the security audit for the 1.9.3 release agencies are encouraged to evaluate the decision to install these, and the impacts for them in deviating from the security audited CWP release.
+This version has been released with a minor issue preventing MFA from operating in conjunction with the subsites module. Releases for both Framework and Subsites have been made since in order to rectify this, however as these were not included in the security audit for the 1.9.3 release agencies are encouraged to evaluate the decision to install these, and the impacts for them in deviating from the security audited CWP release.
 
-To install MFA on a CWP 1.9.3 based site, make the following amendments to the site's composer.json:
+In addition to following the installation steps of the [MFA module](https://github.com/silverstripe/silverstripe-mfa/tree/3.0), you will need to make the following amendments to the site's composer.json:
 
 ```json
     "require": {
         [...]
         "silverstripe/framework": "3.7.4 as 3.7.3",
-        "silverstripe/subsites": "1.4.2 as 1.4.1",
-        "silverstripe/totp-authenticator": "3.0.0",
-        "silverstripe/webauthn-authenticator": "3.0.0"
+        "silverstripe/subsites": "1.4.2 as 1.4.1"
     },
 ```
 
