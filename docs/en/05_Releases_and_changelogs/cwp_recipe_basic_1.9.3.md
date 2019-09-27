@@ -20,7 +20,7 @@ This version has been released with a minor issue preventing MFA from operating 
 
 In addition to following the installation steps of the [MFA module](https://github.com/silverstripe/silverstripe-mfa/tree/3.0.0), you will first need to inline the `cwp/cwp-recipe-basic` if it is in use.
 
-the following amendments to the site's composer.json:
+To inline the requirements of `cwp/cwp-recipe-basic` you should make the following amendments to the site's composer.json:
 
 ```diff
 -        "cwp/cwp-recipe-basic": "~1.9.3@stable",
