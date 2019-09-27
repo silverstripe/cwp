@@ -7,9 +7,61 @@ This CWP release ensures compatiblity with PHP 7.2 and newer
 To upgrade, adjust your projects composer.json to reflect the new constraints:
 
 ```json
+    "require": {
         "cwp/cwp-recipe-basic": "^1.9.3@stable",
-        "cwp/cwp-recipe-blog": "^1.9.3@stable"
+        "cwp/cwp-recipe-blog": "^1.9.3@stable",
+        [...]
+    },
 ```
+
+## Multi-factor Authentication (MFA)
+
+This version has been released with a minor issue preventing MFA from operating in conjunction with the subsites module. Releases for both Framework and Subsites have been made since in order to rectify this, however as these were not included in the security audit for the 1.9.3 release agencies are encouraged to evaluate the decision to install these, and the impacts for them in deviating from the security audited CWP release.
+
+In addition to following the installation steps of the [MFA module](https://github.com/silverstripe/silverstripe-mfa/tree/3.0.0), you will first need to inline the `cwp/cwp-recipe-basic` if it is in use.
+
+To inline the requirements of `cwp/cwp-recipe-basic` you should make the following amendments to the site's composer.json:
+
+```diff
+-        "cwp/cwp-recipe-basic": "~1.9.3@stable",
++        "cwp/cwp": "1.9.3@stable",
++        "cwp/cwp-core": "1.9.3@stable",
++        "silverstripe/cms": "3.7.3@stable",
++        "silverstripe/framework": "3.7.3@stable",
++        "silverstripe/siteconfig": "3.7.3@stable",
++        "silverstripe/reports": "3.7.3@stable",
++        "symbiote/silverstripe-advancedworkflow": "4.2.0@stable",
++        "silverstripe/contentreview": "3.0.8@stable",
++        "silverstripe/documentconverter": "1.0.15@stable",
++        "silverstripe/externallinks": "1.1.0@stable",
++        "silverstripe/fulltextsearch": "2.5.0@stable",
++        "symbiote/silverstripe-gridfieldextensions": "2.1.0@stable",
++        "silverstripe/html5": "1.0.6@stable",
++        "silverstripe/iframe": "1.0.16@stable",
++        "silverstripe/mimevalidator": "1.0.12@stable",
++        "symbiote/silverstripe-multivaluefield": "3.1.1@stable",
++        "symbiote/silverstripe-queuedjobs": "3.1.3@stable",
++        "silverstripe/registry": "1.0.15@stable",
++        "silverstripe/restfulserver": "1.0.8@stable",
++        "silverstripe/secureassets": "1.2.0@stable",
++        "silverstripe/securityreport": "1.0.10@stable",
++        "silverstripe/selectupload": "1.0.7@stable",
++        "silverstripe/sharedraftcontent": "1.4.0@stable",
++        "silverstripe/sitewidecontent-report": "2.0.4@stable",
++        "undefinedoffset/sortablegridfield": "~1.0.3",
++        "silverstripe/spellcheck": "1.1.0@stable",
++        "silverstripe/subsites": "1.4.1@stable",
++        "silverstripe/taxonomy": "1.3.1@stable",
++        "silverstripe/translatable": "2.3.2@stable",
++        "silverstripe/userforms": "4.6.1@stable",
++        "symbiote/silverstripe-versionedfiles": "2.0.2@stable",
++        "silverstripe/versionfeed": "1.2.6@stable",
++        "bringyourownideas/silverstripe-maintenance": "1.1.0@stable",
++        "bringyourownideas/silverstripe-composer-update-checker": "1.1.0@stable",
++        "bringyourownideas/silverstripe-composer-security-checker": "1.1.0@stable"
+```
+
+Then change the requirement of `silverstripe/framework` to `3.7.4` and `silverstripe/subsites` to `1.4.2`.
 
 <!--- Changes below this line will be automatically regenerated -->
 
