@@ -2,6 +2,8 @@ title: Releases and changelogs
 summary: Upgrading guides, changelogs and support timeframes for each released version of the CWP recipe codebase.
 introduction: The status of the recipe releases is summarised in the table below. Upgrading information for each version is available in the changelog.
 
+Support will continue beyond 16 September 2020 when the Lead Agency Agreement ends. [Read more](https://www.cwp.govt.nz/plans/service-continuation/).
+
 # Releases and changelogs
 
 | Recipe version                  | Description                                                                                                  | Release date | Support ends date |
