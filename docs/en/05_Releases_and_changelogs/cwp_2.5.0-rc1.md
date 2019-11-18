@@ -1,45 +1,6 @@
 # 2.5.0-rc1
 
-## Overview
-
-This release includes CMS and Framework version X.X.X.
-
-- [Framework X.X.X](#)
-
-Upgrading to Recipe 2.5.0-rc1 is recommended for all CWP sites. This upgrade can be carried out by any development team familiar with SilverStripe. However, if you would like SilverStripe's assistance, you can request support via the [Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
-
-## New features
-
-The [release announcement](#) includes the note worthy features, but be sure to review the change log for full detail.
-
-
-## Known issues
-
-
-### Expected test failures
-
-The following PHPUnit test failures are expected and do not represent functional issues in CWP:
-
-
-## Security considerations
-
-This release includes  security fixes. Please see the release announcements for more detailed descriptions of each[ but note that the following issues have modified CVSS Environmental scores which take built-in protections from the CWP platform into account]. We highly encourage upgrading your CWP projects to include these security patches nonetheless.
-
-
-## Upgrading instructions
-
-In order to update an existing site to use the new CWP recipe the following changes to your composer.json can be made:
-
-```
-...
-```
-
-
-...
-
 <!--- Changes below this line will be automatically regenerated -->
-
-
 
 ## Change Log
 
@@ -108,6 +69,11 @@ In order to update an existing site to use the new CWP recipe the following chan
 
 ### Other changes
 
+ * 2019-11-18 [03b24e6](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/03b24e629fe3fdec98b519b48096e8bda46f4a26) Update development dependencies (Garion Herman)
+ * 2019-11-18 [5b6c853](https://github.com/silverstripe/recipe-content-blocks/commit/5b6c85314310983291217f1dec59f4c45a915b58) Update development dependencies (Garion Herman)
+ * 2019-11-18 [7875c94](https://github.com/silverstripe/cwp-recipe-search/commit/7875c94c43b5c367886bf9e37f33418153d5b181) Update development dependencies (Garion Herman)
+ * 2019-11-18 [9894d31](https://github.com/silverstripe/recipe-form-building/commit/9894d314fd6ed064b977e081668b8c6e24414f49) Update development dependencies (Garion Herman)
+ * 2019-11-18 [2e0371c](https://github.com/silverstripe/recipe-blog/commit/2e0371cc255b01ed3bc1873abbc7ae43a6b35dd2) Update development dependencies (Garion Herman)
  * 2019-11-18 [e87107b](https://github.com/silverstripe/recipe-cms/commit/e87107b4177869f9b8b046e38ed438ca4fc84e97) Update development dependencies (Serge Latyntcev)
  * 2019-11-18 [ee16ad8](https://github.com/silverstripe/recipe-core/commit/ee16ad83e97d94c640a338587b2b9a64ef4455fc) Update development dependencies (Serge Latyntcev)
  * 2019-11-18 [e1bedfd](https://github.com/silverstripe/recipe-authoring-tools/commit/e1bedfd711b39c6d11af2b5166b1ba454ee6bc16) Update to CMS 4.5 (Garion Herman)
@@ -246,6 +212,4 @@ In order to update an existing site to use the new CWP recipe the following chan
  * 2018-06-15 [34e281d](https://github.com/silverstripe/silverstripe-akismet/commit/34e281d08fc647430141bcb0bdfc561f95a16e4a) Add supported module badge to readme (Dylan Wagstaff)
  * 2018-06-15 [ac2e699](https://github.com/bringyourownideas/silverstripe-composer-security-checker/commit/ac2e699c04d15f66c8b493abaef93831cfb9dc00) Add supported module badge to readme (Dylan Wagstaff)
  * 2018-06-15 [806f44f](https://github.com/bringyourownideas/silverstripe-composer-update-checker/commit/806f44f908472b3249193183737f266246dea50c) Add supported module badge to readme (Dylan Wagstaff)
-
-
 <!--- Changes above this line will be automatically regenerated -->
