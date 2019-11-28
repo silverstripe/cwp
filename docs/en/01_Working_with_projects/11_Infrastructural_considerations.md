@@ -35,14 +35,15 @@ Consider using [caching](/performance_guide/http_caching) to speed up request ex
 
 ## PHP configuration
 
-CWP environments run PHP 7.1 by default. They can be upgraded to run either PHP 7.2 or PHP 7.3 via a request to the helpdesk. SilverStripe sites running Framework/CMS version 3.6 and up support PHP 7.
+CWP environments run PHP 7.1 by default. They can be upgraded to run either PHP 7.2, PHP 7.3 or PHP 7.4 via a request to the helpdesk. SilverStripe sites running Framework/CMS version 3.6 and up support PHP 7.
 
-PHP versions are supported for two years after their initial release, with an additional year for critical security issues only. We recommend keeping your PHP version up to date and set to either 7.2 or 7.3.
+PHP versions are supported for two years after their initial release, with an additional year for critical security issues only. We recommend keeping your PHP version up to date and set to either 7.2, 7.3, or 7.4.
 
 * PHP 5.6: no longer supported
-* PHP 7.1: security support ends 1st December 2019
-* PHP 7.2: active support ends 30th November 2020
-* PHP 7.3: active support ends 6th December 2021
+* PHP 7.1: no longer supported
+* PHP 7.2: security support ends 30th November 2020
+* PHP 7.3: security support ends 6th December 2021
+* PHP 7.4: security support ends 28th November 2022
 
 The default `memory_limit` configuration is 128 MB. You can increase this to 256 MB
 with `ini_set('memory_limit', '256M');` in your code.
