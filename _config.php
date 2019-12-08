@@ -92,11 +92,12 @@ $cwpEditor
     ->enablePlugins([
         'contextmenu' => null,
         'image' => null,
+        'anchor' => null,
         'sslink' => $adminModule->getResource('client/dist/js/TinyMCE_sslink.js'),
         'sslinkexternal' => $adminModule->getResource('client/dist/js/TinyMCE_sslink-external.js'),
         'sslinkemail' => $adminModule->getResource('client/dist/js/TinyMCE_sslink-email.js'),
     ])
-    ->setOption('contextmenu', 'sslink ssmedia ssembed inserttable | cell row column deletetable');
+    ->setOption('contextmenu', 'sslink anchor ssmedia ssembed inserttable | cell row column deletetable');
 
 $cwpEditor->enablePlugins('template');
 $cwpEditor->enablePlugins('visualchars');
