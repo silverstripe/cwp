@@ -91,6 +91,7 @@ en:
     DateRangeFilterMessage: 'Filtered by a single date.'
     Filter: Filter
     FilterAppliedMessage: 'Filter has been applied with the dates reversed.'
+    InvalidDateFormat: 'Dates must be in "y-MM-dd" format.'
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractDesc: 'The abstract is used as a summary on the listing pages. It is limited to 160 characters.'
     AbstractTextFieldLabel: Abstract
