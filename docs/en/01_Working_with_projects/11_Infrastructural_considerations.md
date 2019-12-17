@@ -45,6 +45,17 @@ PHP versions are supported for two years after their initial release, with an ad
 * PHP 7.3: security support ends 6th December 2021
 * PHP 7.4: security support ends 28th November 2022
 
+We generally don't recommend configuring PHP via `ini_set` calls inside your custom PHP code, nor by using `php_value` inside `.htaccess` files (exception: `memory_limit`, see below).
+
+Reconfiguring PHP using those methods may conflict with platform internals and lead to instability and security issues.
+
+The following configuration settings are explicitly reserved for internal purposes:
+
+* `auto_prepend_file`
+* `auto_append_file`
+
+### memory_limit
+
 The default `memory_limit` configuration is 128 MB. You can increase this to 256 MB
 with `ini_set('memory_limit', '256M');` in your code.
 Please call this on a per-script basis. Increasing the limit for all requests increases the likelihood of server instability with high traffic.
