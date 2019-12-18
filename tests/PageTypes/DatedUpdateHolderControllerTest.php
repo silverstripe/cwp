@@ -41,4 +41,12 @@ class DatedUpdateHolderControllerTest extends FunctionalTest
 
         $this->assertContains('Filtered by a single date', $result->getBody());
     }
+
+    public function testInvalidDateFormat()
+    {
+        /** @var EventHolder $holder */
+        $holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
+        $result = $this->get($holder->Link() . '?from=christmas&to=2018-01-10');
+        $this->assertContains(htmlentities('Dates must be in "y-MM-dd" format.'), $result->getBody());
+    }
 }

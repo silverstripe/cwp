@@ -3,6 +3,7 @@
 namespace CWP\CWP\PageTypes;
 
 use CWP\Core\Feed\CwpAtomFeed;
+use InvalidArgumentException;
 use PageController;
 use SilverStripe\Control\Director;
 use SilverStripe\Control\HTTP;
@@ -161,17 +162,26 @@ class DatedUpdateHolderController extends PageController
         if (isset($tag)) {
             $tag = (int)$tag;
         }
-        if (isset($from)) {
-            $from = urldecode($from);
-            $parser = DBDatetime::create();
-            $parser->setValue($from);
-            $from = $parser->Format('y-MM-dd');
-        }
-        if (isset($to)) {
-            $to = urldecode($to);
-            $parser = DBDatetime::create();
-            $parser->setValue($to);
-            $to = $parser->Format('y-MM-dd');
+        try {
+            if (isset($from)) {
+                $from = urldecode($from);
+                $parser = DBDatetime::create();
+                $parser->setValue($from);
+                $from = $parser->Format('y-MM-dd');
+            }
+            if (isset($to)) {
+                $to = urldecode($to);
+                $parser = DBDatetime::create();
+                $parser->setValue($to);
+                $to = $parser->Format('y-MM-dd');
+            }
+        } catch (InvalidArgumentException $e) {
+            if ($produceErrorMessages) {
+                $this->getRequest()->getSession()->set(self::TEMP_FORM_MESSAGE, _t(
+                    __CLASS__ . '.InvalidDateFormat',
+                    'Dates must be in "y-MM-dd" format.'
+                ));
+            }
         }
         if (isset($year)) {
             $year = (int)$year;

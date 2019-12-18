@@ -31,7 +31,7 @@ Solr on CWP is a shared service, and it comes with some limitations:
 ## Source Code
 
 The base `silverstripe/fulltextsearch` module source code is available at 
-[https://github.com/silverstripe/silverstripe-fulltextsearch](github.com/silverstripe/silverstripe-fulltextsearch)
+[https://github.com/silverstripe/silverstripe-fulltextsearch](https://github.com/silverstripe/silverstripe-fulltextsearch)
 
 ## CWP Integration
 
