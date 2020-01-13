@@ -10,7 +10,7 @@ Upgrading to Recipe 2.5.0 is recommended for all CWP sites. This upgrade can be 
 
 ## New features
 
-A release announcement outlining the new features and improvements included in 2.5.0 will be published to the CWP blog and emailed to Stack Managers in January. See the change log below for full details in the meantime.
+The [release announcement](https://www.cwp.govt.nz/updates/news/cwp-2-5-has-arrived) includes the note worthy features, but be sure to review the change log for full detail of all new features.
 
 ## Known Issues
 
