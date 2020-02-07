@@ -75,29 +75,28 @@ The communication between the intranet site and the AD happens over
 a secure VPN link with Lightweight Directory Access Protocol
 (LDAP).
 
-## Getting started
-
 To find more information about the solution, please see the
 SilverStripe Active Directory module [documentation on github](https://github.com/silverstripe/silverstripe-activedirectory/blob/master/README.md#overview).
 
-To start the process of setting up a VPN connection between a CWP
-stack and your internal network, please create a support ticket
-in the [CWP Service Desk](https://www.cwp.govt.nz/service-desk/new-request/) as a **Support request**.
+## Getting started
+
+To start the process of configuring your stack for the single sign-on solution, please create a support ticket
+in the [CWP Service Desk](https://www.cwp.govt.nz/service-desk/new-request/) as a **Support request**. The process will involve the following steps:
+
+* We will generate a SAML key and certificate for your CWP stack. Your ADFS administrator will be able to extract this from the `<stack>.cwp.govt.nz/saml/metadata` URL once the `silverstripe/activedirectory` module is installed.
+* CWP stack must be able to connect to your ADFS server, and this may require VPN connection into your internal network. We will work with you to set this up.
 
 ## CWP technical implementation
 
 The [Developer Guide](https://github.com/silverstripe/silverstripe-activedirectory/blob/master/docs/en/developer.md) contains the information necessary for a developer to configure the module.
 
-The following sections list some necessary changes to configuration for CWP.
+The following sections list some necessary adjustments for CWP compatibility.
 
 ### X.509 certificates
 
-On the CWP platform the [X.509 certificates](https://github.com/silverstripe/silverstripe-activedirectory/blob/master/docs/en/developer.md#make-x509-certificates-available) 
-for the SilverStripe site have already been generated.
-
-To be able to use them on a CWP site you will override the default
+Once the Service Desk request is completed, you will need to override the default
 [YAML configuration](https://github.com/silverstripe/silverstripe-activedirectory/blob/master/docs/en/developer.md#yaml-configuration)
-with the following in `mysite/_config.php`
+with the following in `mysite/_config.php`.
 
 **Replace 'stackname' with the actual stack name so that the URL is correct.**
 
