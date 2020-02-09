@@ -9,16 +9,16 @@ multiple applications. The process authenticates the user for all
 the applications they have been given access to and eliminates
 further prompts when they switch applications.
 
-## SilverStripe 4.x
+## Silverstripe CMS 4 and CWP Recipe 2
 
-Note: This module will not be supported on SilverStripe 4. Please use either 
-[silverstripe/ldap](https://github.com/silverstripe/silverstripe-ldap) or 
-[silverstripe/saml](https://github.com/silverstripe/silverstripe-saml) for SilverStripe 4 compatibility.
+<div class="alert alert-info" markdown='1'>The guide below only covers the Silverstripe CMS 3 [silverstripe/activedirectory](https://github.com/silverstripe/silverstripe-activedirectory) module.</div>
+
+This module will not be supported on Silverstripe CMS 4. Please use either [silverstripe/ldap](https://github.com/silverstripe/silverstripe-ldap) or [silverstripe/saml](https://github.com/silverstripe/silverstripe-saml).
 
 ## Introduction
 
-Single sign-on is provided by the open sourced module 
-[SilverStripe Active Directory](https://github.com/silverstripe/silverstripe-activedirectory).
+Single Sign-on is provided by the open sourced
+module [SilverStripe Active Directory](https://github.com/silverstripe/silverstripe-activedirectory).
 
 This module allows users of a CWP intranet site to seamlessly login once and never be prompted to login to the site again.
 
@@ -56,7 +56,7 @@ The idea is that a user can open their browser, go to the
 intranet site and be automatically logged in with their already
 authenticated Windows user.
 
-This single sign-on solution is "opinionated", which means it has
+This Single Sign-on solution is "opinionated", which means it has
 very firm ideas about how things ought to be done. The solution
 tightly couples a set of services to provide the best user
 experience and therefore the requirements are strict.
@@ -81,48 +81,46 @@ The communication between the intranet site and the AD happens over
 a secure VPN link with Lightweight Directory Access Protocol
 (LDAP).
 
-## Getting started
-
 To find more information about the solution, please see the
 SilverStripe Active Directory module [documentation on github](https://github.com/silverstripe/silverstripe-activedirectory/blob/master/README.md#overview).
 
-To start the process of setting up a VPN connection between a CWP
-stack and your internal network, please create a support ticket
-in the [CWP Service Desk](https://www.cwp.govt.nz/service-desk/new-request/) as a **Support request**.
+## Getting started
+
+To start the process of configuring your stack for the single sign-on solution, please create a support ticket
+in the [CWP Service Desk](https://www.cwp.govt.nz/service-desk/new-request/) as a **Support request**. The process will involve the following steps:
+
+* We will generate a SAML key and certificate for your CWP stack. Your ADFS administrator will be able to extract this from the `<stack>.cwp.govt.nz/saml/metadata` URL once the `silverstripe/activedirectory` module is installed.
+* CWP stack must be able to connect to your ADFS server, and this may require VPN connection into your internal network. We will work with you to set this up.
 
 ## CWP technical implementation
 
 The [Developer Guide](https://github.com/silverstripe/silverstripe-activedirectory/blob/master/docs/en/developer.md) contains the information necessary for a developer to configure the module.
 
-The following sections list some necessary changes to configuration for CWP.
+The following sections list some necessary adjustments for CWP compatibility.
 
 ### X.509 certificates
 
-On the CWP platform the [X.509 certificates](https://github.com/silverstripe/silverstripe-activedirectory/blob/master/docs/en/developer.md#make-x509-certificates-available) 
-for the SilverStripe site have already been generated.
-
-To be able to use them on a CWP site you will override the default
+Once the Service Desk request is completed, you will need to override the default
 [YAML configuration](https://github.com/silverstripe/silverstripe-activedirectory/blob/master/docs/en/developer.md#yaml-configuration)
-with the following in `mysite/_config.php`
+with the following in `mysite/_config.php`.
 
 **Replace 'stackname' with the actual stack name so that the URL is correct.**
-```php
-// Configure SAML certificates for the CWP UAT environment
-if(defined('CWP_ENVIRONMENT') && (CWP_ENVIRONMENT == 'uat' || CWP_ENVIRONMENT == 'uatdr')) {
-    Config::inst()->update('SAMLConfiguration', 'SP', [
-        'entityId' => 'https://stackname-uat.cwp.govt.nz/',
-        'privateKey' => '../../certs/saml.pem',
-        'x509cert' => '../../certs/saml.crt'
-    ]);
-// Configure SAML certificates for the CWP Production environment
-} elseif(defined('CWP_ENVIRONMENT') && (CWP_ENVIRONMENT == 'prod' || CWP_ENVIRONMENT == 'dr')) {
-    Config::inst()->update('SAMLConfiguration', 'SP', [
-        'entityId' => 'https://stackname.cwp.govt.nz/',
-        'privateKey' => '../../certs/saml.pem',
-        'x509cert' => '../../certs/saml.crt'
-    ]);
-}
-```
+
+	// Configure SAML certificates for the CWP UAT environment
+	if(defined('CWP_ENVIRONMENT') && (CWP_ENVIRONMENT == 'uat' || CWP_ENVIRONMENT == 'uatdr')) {
+	    Config::inst()->update('SAMLConfiguration', 'SP', array(
+	        'entityId' => 'https://stackname-uat.cwp.govt.nz/',
+	        'privateKey' => '../../certs/saml.pem',
+	        'x509cert' => '../../certs/saml.crt'
+	    ));
+	// Configure SAML certificates for the CWP Production environment
+	} elseif(defined('CWP_ENVIRONMENT') && (CWP_ENVIRONMENT == 'prod' || CWP_ENVIRONMENT == 'dr')) {
+	    Config::inst()->update('SAMLConfiguration', 'SP', array(
+	        'entityId' => 'https://stackname.cwp.govt.nz/',
+	        'privateKey' => '../../certs/saml.pem',
+	        'x509cert' => '../../certs/saml.crt'
+	    ));
+	}
 	
 ### Disable the basic auth for an intranet site
 
@@ -133,17 +131,12 @@ server from [accessing the metadata](https://github.com/silverstripe/silverstrip
 Since the intranet site should only be reachable over a VPN link,
 this feature can be disabled.
 
-```yaml
----
-Name: mysitesecuritytest
-After: '#cwpsecuritytest'
----
-# The basic authentication popup must be disabled in the UAT
-# environment, otherwise the ADFS server can't get the
-# metadata of the SAML Service Provider
-SilverStripe\Security\BasicAuth:
-  entire_site_protected: false
-```
+	// The basic authentication popup must be disabled in the UAT
+	// environment, otherwise the ADFS server can't get the
+	// metadata of the SAML Service Provider
+	if(defined('CWP_ENVIRONMENT')) {
+	    Config::inst()->update('CwpControllerExtension', 'test_basicauth_enabled', false);
+	}
 
 ## Frequently Asked Questions
 
@@ -166,7 +159,7 @@ The ADFS will step in as a web endpoint on a secure HTTPS
 connection that uses the DC as a Identity Provider.
 
 Mobile devices often can't provide IWA details so that would
-prevent Single sign-on for mobile devices.
+prevent Single Sign-on for mobile devices.
 
 Since ADFS is exposed as a website it can automatically login users
 if their device support IWA or can fall back to a standard login
@@ -193,4 +186,4 @@ site can connect to the AD.
 
 ## See Also
 
- * [Authentication via RealMe](realme_authentication)
+ * [Authentication via RealMe](realme_authentication.md)
