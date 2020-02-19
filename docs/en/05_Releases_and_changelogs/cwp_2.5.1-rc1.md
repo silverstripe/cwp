@@ -2,7 +2,7 @@
 
 ## Overview
 
-This release includes [CMS and Framework version X.X.X](#).
+This release includes [Silverstripe CMS version 4.5.1](https://docs.silverstripe.org/en/4/changelogs/4.5.1/).
 
 
 ## Release Candidate
