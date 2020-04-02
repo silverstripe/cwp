@@ -12,6 +12,8 @@ Upgrading to Recipe 2.5.2 is recommended for all CWP sites. This upgrade can be 
 
 The latest version of the fulltextsearch module enforces compulsory filtering of ShowInSearch and getShowInSearch() on all requests to and from a Solr server.
 
-Previously, records with ShowInSearch=0 were still indexed in the Solr server, though they were later filtered out by most search implementations. However, it was still possible to unintentionally bypass this filtering on a misconfigured search implementation.
+Previously, records with ShowInSearch == false were still indexed in the Solr server, though they were later filtered out by most search implementations. However, it was still possible to unintentionally bypass this filtering on a misconfigured search implementation.
 
-It is highly recommended that after upgrading to this version, that you run a Solr_Reindex on your production site to remove any old data where ShowInSearch=0.  Only data where ShowInSearch=1 will now be indexed.
+Old custom implementations that use $this->addFilterField('ShowInSearch') and $query->addExclude('MyClass_ShowInSearch', 0) are no longer required, though there's no harm in keeping them either.
+
+It is highly recommended that after upgrading to this version, that you run a Solr_Reindex on your production site to remove any old data where ShowInSearch == false.  Only data where ShowInSearch == true will now be indexed.
