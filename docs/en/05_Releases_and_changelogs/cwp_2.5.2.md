@@ -14,6 +14,6 @@ The latest version of the fulltextsearch module enforces compulsory filtering of
 
 Previously, records with ShowInSearch == false were still indexed in the Solr server, though they were later filtered out by most search implementations. However, it was still possible to unintentionally bypass this filtering on a misconfigured search implementation.
 
-Old custom implementations that use $this->addFilterField('ShowInSearch') and $query->addExclude('MyClass_ShowInSearch', 0) are no longer required, though there's no harm in keeping them either.
+Old custom implementations that use $this->addFilterField('ShowInSearch') and $query->addExclude('MyClass_ShowInSearch', 0) are no longer required, though they are still useful in that they do filtering at the solr server rather than in PHP, so they will return more accurate results in terms of total results found and pagination.
 
 It is highly recommended that after upgrading to this version, that you run a Solr_Reindex on your production site to remove any old data where ShowInSearch == false.  Only data where ShowInSearch == true will now be indexed.
