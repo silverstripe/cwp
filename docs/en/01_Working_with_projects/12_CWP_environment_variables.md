@@ -47,3 +47,4 @@ The following additional constants and globals are also configured.
 |SS_TRUSTED_PROXY_IP_HEADER|Header containing real IP|"HTTP_X_FORWARDED_FOR"|
 |SS_TRUSTED_PROXY_HOST_HEADER|Header containing real host|"HTTP_X_FORWARDED_HOST"|
 |SS_TRUSTED_PROXY_PROTOCOL_HEADER|Header containing real protocol|"HTTP_X_FORWARDED_PROTOCOL"|
+|SS_MFA_SECRET_KEY|Secret key used by the multi-factor authentication time-based one-time password (TOTP) module|-|
