@@ -8,9 +8,12 @@ Support will continue beyond 16 September 2020 when the Lead Agency Agreement en
 
 | Recipe version                  | Description                                                                                                  | Release date | Support ends date |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------ | ----------------- |
+| [2.5.2](cwp_2.5.2)              | Tracks the Framework release 4.5.2, and includes security fixes.                                             | 15/04/2020   | current           |
 | [2.5.1](cwp_2.5.1)              | Tracks the Framework release 4.5.1, and includes enhancements, bugfixes and security fixes.                  | 04/03/2020   | current           |
 | [2.5.0](cwp_2.5.0)              | Tracks the Framework release 4.5.0, and includes enhancements, bugfixes and security fixes.                  | 19/12/2019   | current           |
+| [2.4.1](cwp_2.4.1)              | Tracks the Framework release 4.4.6, and includes enhancements, bugfixes and security fixes.                  | 15/04/2020   | 19/06/2021        |
 | [2.4.0](cwp_2.4.0)              | Tracks the Framework release 4.4.3, enhancements and bugfixes.                                               | 12/09/2019   | 19/06/2021        |
+| [2.3.3](cwp_2.3.3)              | Tracks the Framework release 4.4.6, and includes enhancements, bugfixes and security fixes.                  | 15/04/2020   | 12/03/2021        |
 | [2.3.2](cwp_2.3.2)              | Upgrades silverstripe/fulltextsearch to 3.5.2.                                                               | 29/07/2019   | 12/03/2021        |
 | [2.3.1](cwp_2.3.1)              | Upgrades silverstripe/hybridsessions to 2.1.2.                                                               | 02/07/2019   | 12/03/2021        |
 | [2.3.0](cwp_2.3.0)              | Tracks the Framework release 4.4.0, enhancements, bug fixes and security fixes.                              | 11/06/2019   | 12/03/2021        |
