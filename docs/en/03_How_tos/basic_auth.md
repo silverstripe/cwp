@@ -4,7 +4,14 @@ summary: How to Disable or enable basic authentication pop-up on your environmen
 # Introduction
 
 Basic authentication (often referred to as "basic auth") is the pop-up box which asks for a username and password
-that shows up when you first try to access a UAT environment.
+that shows up when you first try to access a UAT environment. 
+
+It secures requests processed by PHP and SilverStripe on your webserver. Most commonly, that applies to page content,
+as well as draft and protected assets. It does not secure requests to published assets, and other files which
+are served directly through the webserver (bypassing PHP and SilverStripe).
+
+**In order to fully prevent unauthorised requests to an environment, we strongly recommend
+implementing an [IP whitelist](https://www.cwp.govt.nz/working-with-cwp/instance-management/whitelists-on-your-instance/).**
 
 ## Getting through the pop-up
 
