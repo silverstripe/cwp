@@ -2,18 +2,18 @@
 
 ## Overview
 
-This hotfix release includes CMS and Framework version updates up to 4.4.6 and UserForms 5.4.2
+This hotfix release includes an update from CMS Recipe 4.4.3 to 4.4.6, and from UserForms 5.4.1 to 5.4.2. Links to changelogs for each included version of the CMS Recipe can be found below.
 
-- [CMS 4.4.4](https://docs.silverstripe.org/en/4/changelogs/4.4.4/)
-- [CMS 4.4.5](https://docs.silverstripe.org/en/4/changelogs/4.4.5/)
-- [CMS 4.4.6](https://docs.silverstripe.org/en/4/changelogs/4.4.6/)
+- [CMS Recipe 4.4.4](https://docs.silverstripe.org/en/4/changelogs/4.4.4/)
+- [CMS Recipe 4.4.5](https://docs.silverstripe.org/en/4/changelogs/4.4.5/)
+- [CMS Recipe 4.4.6](https://docs.silverstripe.org/en/4/changelogs/4.4.6/)
 
-Upgrading to Recipe 2.4.1 is recommended for all CWP sites. This upgrade can be carried out by any development team familiar with SilverStripe. However, if you would like SilverStripe's assistance, you can request support via the [Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
+Upgrading to Recipe 2.4.1 is recommended for all CWP sites. This upgrade can be carried out by any development team familiar with Silverstripe CMS. However, if you would like Silverstripe's assistance, you can request support via the [Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
 
 
 ## Security considerations
 
-This release includes  security fixes. Please see the release announcements for more detailed descriptions of each but note that the following issues have modified CVSS Environmental scores which take built-in protections from the CWP platform into account. We highly encourage upgrading your CWP projects to include these security patches nonetheless.
+This release includes security fixes. Please see the release announcements for more detailed descriptions of each. We highly encourage upgrading your CWP projects to include these security patches.
 
  * [CVE-2020-9280](https://www.silverstripe.org/download/security-releases/CVE-2020-9280) - Folders migrated from 3.x may be unsafe to upload to ([CVSS 5.9](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N&version=3.1))
  * [CVE-2019-19325](https://www.silverstripe.org/download/security-releases/CVE-2019-19325) - XSS through non-scalar FormField attributes (CVSS 0.0 - mitigated on CWP infrastructure level)
@@ -22,6 +22,31 @@ This release includes  security fixes. Please see the release announcements for 
  * [CVE-2019-12245](https://www.silverstripe.org/download/security-releases/CVE-2019-12245) - Incorrect access control vulnerability in files uploaded to protected folders ([CVSS 5.9](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N&version=3.1))
  * [CVE-2019-12204](https://www.silverstripe.org/download/security-releases/CVE-2019-12204) - Missing warning on install.php on public webroot can lead to unauthenticated admin access (CVSS 0.0 - mitigated on CWP infrastructure level)
  * [CVE-2019-12203](https://www.silverstripe.org/download/security-releases/CVE-2019-12203) - Session fixation in "change password" form ([CVSS 6.5](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:L))
+
+
+## Upgrading Instructions
+
+In order to update an existing site to use the new basic recipe the following changes to your composer.json
+can be made:
+
+```json
+"require": {
+    "cwp/cwp-recipe-core": "2.4.1@stable",
+    "cwp/cwp-recipe-cms": "2.4.1@stable",
+    "silverstripe/recipe-blog": "1.4.1@stable",
+    "silverstripe/recipe-form-building": "1.4.1@stable",
+    "silverstripe/recipe-authoring-tools": "1.4.1@stable",
+    "silverstripe/recipe-collaboration": "1.4.1@stable",
+    "silverstripe/recipe-reporting-tools": "1.4.1@stable",
+    "cwp/cwp-recipe-search": "2.4.1@stable",
+    "silverstripe/recipe-services": "1.4.1@stable",
+    "silverstripe/subsites": "2.3.2@stable",
+    "tractorcow/silverstripe-fluent": "4.4.1@stable",
+    "silverstripe/registry": "2.2.1@stable",
+    "cwp/starter-theme": "3.0.1@stable"
+},
+"prefer-stable": true
+```
 
 
 ## Change Log
