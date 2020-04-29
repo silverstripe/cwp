@@ -10,21 +10,37 @@ There's a few ways developers can implement redirections on their CWP stacks:
 
 ## .htaccess
 
-Implementing in `.htaccess` is more performant than using PHP to redirect and allows more control than your standard `Director` redirection. If you are running your site with a [public/ webroot folder](https://docs.silverstripe.org/en/4/getting_started/directory_structure/), ensure that any rules are placed in `public/.htaccess`.
+Implementing in `.htaccess` is more performant than using PHP to redirect and allows more control than your standard `Director` redirection. 
 
 Security Headers should be placed in `public/.htaccess`
 
+More information on [HTTP Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) and [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
+
+Example
+```
+<IfModule mod_headers.c>
+  Header set X-XSS-Protection "1; mode=block"
+  Header set X-Content-Type-Options nosniff
+  Header set X-Frame-Options SAMEORIGIN
+  # Don't set HSTS on local as some browsers prevent access when using self-signed TLS certs
+  SetEnvIf HOST "\.(d|dev|local|localhost|test|vagrant)$" IS_DEV
+  # When stable change to max-age=31536000
+  Header set Strict-Transport-Security "max-age=300" env=!IS_DEV
+</IfModule>
+```
+
 Root `.htaccess` file should be used for redirection purposes.
 
-The below example shows complete `.htaccess` file which redirects redirection.com to www.redirection.com.
+The below example shows complete `.htaccess` file which redirects redirection.com to www.redirection.com. 
+Please note redirection rules should be placed before the `RewriteRule ^(.*)$ public/$1`
 
 ```
-RewriteEngine On
 <IfModule mod_rewrite.c>
+    RewriteEngine On
     RewriteCond %{HTTP_HOST} ^redirection\.com(.*)$ [NC]
     RewriteRule ^(.*)$ http://www\.redirection\.com/$1 [R=301,L]
+    RewriteRule ^(.*)$ public/$1
 </IfModule>
-RewriteRule ^(.*)$ public/$1
 
 ```
 
