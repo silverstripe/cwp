@@ -12,11 +12,20 @@ There's a few ways developers can implement redirections on their CWP stacks:
 
 Implementing in `.htaccess` is more performant than using PHP to redirect and allows more control than your standard `Director` redirection. If you are running your site with a [public/ webroot folder](https://docs.silverstripe.org/en/4/getting_started/directory_structure/), ensure that any rules are placed in `public/.htaccess`.
 
-The below example redirects redirection.com to www.redirection.com.
+Security Headers should be placed in `public/.htaccess`
+
+Root `.htaccess` file should be used for redirection purposes.
+
+The below example shows complete `.htaccess` file which redirects redirection.com to www.redirection.com.
 
 ```
-RewriteCond %{HTTP_HOST} ^redirection\.com(.*)$ [NC]
-RewriteRule ^(.*)$ http://www\.redirection\.com/$1 [R=301,L]
+RewriteEngine On
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_HOST} ^redirection\.com(.*)$ [NC]
+    RewriteRule ^(.*)$ http://www\.redirection\.com/$1 [R=301,L]
+</IfModule>
+RewriteRule ^(.*)$ public/$1
+
 ```
 
 You may also want to enforce a global redirection to HTTPS in the `.htaccess` file in which case there's some things to consider due to requests coming through CWP's cache server which runs Varnish. You will need the following in your htaccess above your `<IfModule mod_rewrite.c>` section:
