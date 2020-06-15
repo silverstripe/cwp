@@ -61,6 +61,16 @@ $results = singleton(MyIndex::class)->search($query);
 
 To find out more about querying and how to write more complex queries, visit the main [fulltextsearch module documentation](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/master/docs/en/04_querying.md). 
 
+### Filtering of records on canView() and ShowInSearch
+
+As of CWP 2.6, a canView() and ShowInSearch check is performed on records before being added to the solr index and also before being shown in search results.
+Prior to 2.6, these checks were not done before being added to the solr index, they were only done before results were shown.  This meant there was potentially
+data residing in the solr index that should not have been there.
+
+When upgrading from CWP 2.5 or earlier, it's highly recommended you run a solr_reindex to flush any old data that should not have been in the solr index.
+
+For further details, see the [fulltextsearch module readme](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/3/README.md). 
+
 ### Indexing Multiple Classes
 
 An index is a denormalized view of your data, so can hold data from more than one model.
