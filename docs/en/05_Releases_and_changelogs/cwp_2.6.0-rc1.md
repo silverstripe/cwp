@@ -2,7 +2,7 @@
 
 ## Overview
 
-This release includes [CMS and Framework version X.X.X](#).
+This release includes [Silverstripe CMS Recipe 4.6.0-rc1](https://docs.silverstripe.org/en/4/changelogs/rc/4.6.0-rc1/).
 
 
 ## Release Candidate
