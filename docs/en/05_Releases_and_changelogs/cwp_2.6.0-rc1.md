@@ -12,8 +12,6 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
 
 <!--- Changes below this line will be automatically regenerated -->
 
-
-
 ## Change Log
 
 ### Security
@@ -28,6 +26,7 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
 
 ### Features and Enhancements
 
+ * 2020-06-10 [cfe937f](https://github.com/silverstripe/silverstripe-fulltextsearch/commit/cfe937fbd1c4103ed934051ab20d56f7467445ee) canView() check on record before indexing and before showing in search results (Steve Boyd)
  * 2020-06-10 [3b40be3](https://github.com/silverstripe/silverstripe-userforms/commit/3b40be3b8f0455591f658fa1dbda9852e55c9bcc) Add folder confirmation modal when adding a new `EditableFileField` to a userform. (#972) (Andre Kiste)
  * 2020-06-09 [14ce51e](https://github.com/silverstripe/silverstripe-userforms/commit/14ce51e517f5d994cb1b270fde1f41f65cf3d68b) Improve Unrestricted Folder warning, bump core requirement to ^4.6 (#965) (Garion Herman)
  * 2020-05-28 [ed53709](https://github.com/silverstripe/silverstripe-userforms/commit/ed53709631261c1e2eeab6c83a39a2f9f0e03598) DB column showing if file is userform upload (Steve Boyd)
@@ -84,13 +83,14 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
 
 ### Other changes
 
+ * 2020-06-16 [67e4f4d](https://github.com/silverstripe/cwp/commit/67e4f4ded7bc803589ab9dcde2993da06783b8e5) Tweak the 2.6.0-rc1 changelog (Maxime Rainville)
  * 2020-06-16 [6c2374a](https://github.com/silverstripe/cwp-core/commit/6c2374aca8e2f576654bcc54bafe224c572f29cd) Update translations (Maxime Rainville)
- * 2020-06-16 [ba1f52c](https://github.com/silverstripe/silverstripe-securityreport/commit/ba1f52c0f36fd2b0b30fb78a30c01b2c1bec5ec1) Update translations (Maxime Rainville)
- * 2020-06-16 [c0c4698](https://github.com/silverstripe/silverstripe-userforms/commit/c0c46981de333adfd3f99c315673a41bea49f12b) Update translations (Maxime Rainville)
+ * 2020-06-16 [a770e09](https://github.com/silverstripe/silverstripe-taxonomy/commit/a770e0907c5078a43890c069d034079274e83a98) Update translations (Maxime Rainville)
  * 2020-06-16 [ee9af65](https://github.com/silverstripe/silverstripe-login-forms/commit/ee9af65f1269b3788299fb2e1eefe766a400ee77) Update translations (Maxime Rainville)
  * 2020-06-16 [71cb55e](https://github.com/silverstripe/silverstripe-mfa/commit/71cb55e3715445396afe54bac080e055bdfd1186) Update translations (Maxime Rainville)
- * 2020-06-16 [a770e09](https://github.com/silverstripe/silverstripe-taxonomy/commit/a770e0907c5078a43890c069d034079274e83a98) Update translations (Maxime Rainville)
+ * 2020-06-16 [c0c4698](https://github.com/silverstripe/silverstripe-userforms/commit/c0c46981de333adfd3f99c315673a41bea49f12b) Update translations (Maxime Rainville)
  * 2020-06-16 [754cedd](https://github.com/symbiote/silverstripe-advancedworkflow/commit/754cedd26ca69eff76716388188e0fc2245a6fb3) Update translations (Maxime Rainville)
+ * 2020-06-16 [ba1f52c](https://github.com/silverstripe/silverstripe-securityreport/commit/ba1f52c0f36fd2b0b30fb78a30c01b2c1bec5ec1) Update translations (Maxime Rainville)
  * 2020-06-16 [887e8ba](https://github.com/tractorcow-farm/silverstripe-fluent/commit/887e8ba7e70fb41069294f62a2bb76090b2eea9d) Update translations (Maxime Rainville)
  * 2020-06-15 [df47884](https://github.com/silverstripe/cwp/commit/df47884095889c0afa87e3deef8b3a06033dcf74) DOC Filtering of records on canView() and ShowInSearch (#266) (Steve Boyd)
  * 2020-06-15 [b2625d9](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/b2625d97d2f036042a44b4e0a551a13799a82f5e) Update for 2.6 (#68) (Steve Boyd)
@@ -100,6 +100,7 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
  * 2020-06-15 [8477674](https://github.com/silverstripe/silverstripe-login-forms/commit/84776747517a98db0962f745c654f69198dd27e2) Update for 4.2 (#59) (Steve Boyd)
  * 2020-06-15 [e51ccd8](https://github.com/silverstripe/cwp-recipe-core/commit/e51ccd883abf13b8ce595ef9d71f1c1828b6682d) Update for 2.6 (#15) (Steve Boyd)
  * 2020-06-15 [e401d69](https://github.com/silverstripe/cwp-search/commit/e401d695258f3e7b2e184cc757c9a8992dfa9d43) Set up 1.3 branch (Maxime Rainville)
+ * 2020-06-15 [203127a](https://github.com/silverstripe/silverstripe-fulltextsearch/commit/203127a68424d219c72362be2ab0e606118fcf5e) Set up 3.7 branch (Maxime Rainville)
  * 2020-06-15 [5940d77](https://github.com/silverstripe/recipe-authoring-tools/commit/5940d77fb02e00bbf52217ddbd12536ca8c90b21) Update for 1.6 (#9) (Steve Boyd)
  * 2020-06-15 [8666f1d](https://github.com/silverstripe/recipe-blog/commit/8666f1d46ee30dd097a34aaf1fbe9ea419efc284) Update for 1.6 (#19) (Steve Boyd)
  * 2020-06-15 [c3cf445](https://github.com/silverstripe/recipe-collaboration/commit/c3cf4453d88669e20ecf0cd9b649a05bb3b98d37) Update for 1.6 (#8) (Steve Boyd)
@@ -273,6 +274,4 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
  * 2018-11-27 [8f2cc50](https://github.com/silverstripe/silverstripe-realme/commit/8f2cc503bf7e823d67ac5727d29ef495ae9de410) Update documentation to reflect changing certificate requirements (Matt Peel)
  * 2018-06-15 [6ae29eb](https://github.com/silverstripe/silverstripe-taxonomy/commit/6ae29eb7cd4055a4025836b753d754403e5082b1) Add supported module badge to readme (Dylan Wagstaff)
  * 2018-05-08 [25bfc9e](https://github.com/silverstripe/silverstripe-userforms/commit/25bfc9eaf54b7fa538391e6b4892423de962df02) Required fields can have display rules. Hidden required fields are dynamically excluded from server and client side validation. (Jess Champion)
-
-
 <!--- Changes above this line will be automatically regenerated -->
