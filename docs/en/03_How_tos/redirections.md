@@ -14,23 +14,6 @@ Implementing in `.htaccess` is more performant than using PHP to redirect and al
 
 Security Headers should be placed in `public/.htaccess`
 
-More information on [HTTP Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) and [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
-
-Example
-```
-<IfModule mod_headers.c>
-  Header set X-XSS-Protection "1; mode=block"
-  Header set X-Content-Type-Options nosniff
-  Header set X-Frame-Options SAMEORIGIN
-  # Don't set HSTS on local as some browsers prevent access when using self-signed TLS certs
-  SetEnvIf HOST "\.(d|dev|local|localhost|test|vagrant)$" IS_DEV
-  # When stable change to max-age=31536000
-  Header set Strict-Transport-Security "max-age=300" env=!IS_DEV
-</IfModule>
-```
-
-Root `.htaccess` file should be used for redirection purposes.
-
 The below example shows complete `.htaccess` file which redirects redirection.com to www.redirection.com. 
 Please note redirection rules should be placed before the `RewriteRule ^(.*)$ public/$1`
 
@@ -38,7 +21,7 @@ Please note redirection rules should be placed before the `RewriteRule ^(.*)$ pu
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{HTTP_HOST} ^redirection\.com(.*)$ [NC]
-    RewriteRule ^(.*)$ http://www\.redirection\.com/$1 [R=301,L]
+    RewriteRule ^(.*)$ https://www\.redirection\.com/$1 [R=301,L]
     RewriteRule ^(.*)$ public/$1
 </IfModule>
 
