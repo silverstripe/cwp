@@ -12,7 +12,7 @@ There's a few ways developers can implement redirections on their CWP stacks:
 
 Implementing in `.htaccess` is more performant than using PHP to redirect and allows more control than your standard `Director` redirection. 
 
-Security Headers should be placed in `public/.htaccess`
+Other HTTP headers, for example HTTP Security Headers, should be placed in `public/.htaccess` and not in `.htaccess`
 
 The below example shows complete `.htaccess` file which redirects redirection.com to www.redirection.com. 
 Please note redirection rules should be placed before the `RewriteRule ^(.*)$ public/$1`
