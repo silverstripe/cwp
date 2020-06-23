@@ -16,13 +16,13 @@ env:
 matrix:
   include:
     - php: 7.1
-      env: DB=MYSQL PHPUNIT_TEST=1
+      env: DB=MYSQL RECIPE_VERSION=2.x-dev PHPUNIT_TEST=1 PHPCS_TEST=1
     - php: 7.2
-      env: DB=MYSQL PHPUNIT_TEST=1 PHPCS_TEST=1
+      env: DB=MYSQL RECIPE_VERSION=2.x-dev PHPUNIT_COVERAGE_TEST=1
     - php: 7.3
-      env: DB=MYSQL PHPUNIT_TEST=1 PHPUNIT_COVERAGE_TEST=1
+      env: DB=MYSQL RECIPE_VERSION=2.x-dev PHPUNIT_TEST=1
     - php: 7.4
-      env: DB=MYSQL PHPUNIT_TEST=1
+      env: DB=MYSQL RECIPE_VERSION=2.x-dev PHPUNIT_TEST=1
 
 before_script:
   # Init PHP
@@ -32,7 +32,9 @@ before_script:
 
   # Install composer dependencies
   - composer validate
-  - composer require --no-update cwp/cwp-recipe-cms:^2 cwp/starter-theme:^3 symbiote/silverstripe-advancedworkflow:^5 silverstripe/userforms:^5
+  - composer require --no-update cwp/cwp-recipe-cms:$RECIPE_VERSION cwp/starter-theme:^3 symbiote/silverstripe-advancedworkflow:^5 silverstripe/userforms:^5
+  # Fix for running phpunit 5 on php 7.4+
+  - composer require --no-update sminnee/phpunit-mock-objects:^3
   - composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
 
 script:
