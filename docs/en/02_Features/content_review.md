@@ -6,7 +6,7 @@ summary: Set up content review times and send reminder emails to ensure content 
 Content review in the CWP basic recipe is implemented using:
 
  * [silverstripe/contentreview](https://github.com/silverstripe/silverstripe-contentreview) - provides the main functionality for the feature.
- * [silverstripe/sitewidecontent-report](https://github.com/silverstripe/silverstripe-sitewidecontent-report) - provides an extension and report to show the review status of all content (including across subsites).
+ * [silverstripe/sitewidecontent-report](https://github.com/silverstripe/silverstripe-sitewidecontent-report) - provides an extension and report to show the review status of all content (including across subsites, if installed).
  * [silverstripe/queuedjobs](https://github.com/symbiote/silverstripe-queuedjobs) - handles sending of reminder emails for content review at regular intervals.
  
 Both modules are pre-configured to apply a series of `DataExtension` classes so no additional configuration is required to enable once installed.

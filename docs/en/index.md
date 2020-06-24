@@ -42,15 +42,15 @@ developed code alongside:
  * The [Common Web Platform Installer](https://github.com/silverstripe/cwp-installer) includes all of the above.
  * The [CWP Agency Extensions Module](https://github.com/silverstripe/cwp-agencyextensions) can be added to any of the 
  above.
- 
-  A base for jump-starting development of a CWP project is the 
-  [Common Web Platform Installer](https://github.com/silverstripe/cwp-installer) package. This is a recommended way of 
-  creating a CWP project. 
-  The package includes the [CWP CMS Recipe](https://github.com/silverstripe/cwp-recipe-cms), the 
-  [CWP Search Recipe](https://github.com/silverstripe/cwp-recipe-search), the 
-  [Registry module](https://github.com/silverstripe/silverstripe-registry), the 
-  [Fluent module](https://github.com/tractorcow/silverstripe-fluent), and the 
-  [Subsites module](https://github.com/silverstripe/silverstripe-subsites).
+
+A base for jump-starting development of a CWP project is the
+[Common Web Platform Installer](https://github.com/silverstripe/cwp-installer) package. This is a recommended way of
+creating a CWP project.
+The package includes the [CWP CMS Recipe](https://github.com/silverstripe/cwp-recipe-cms), the
+[CWP Search Recipe](https://github.com/silverstripe/cwp-recipe-search), the
+[Registry module](https://github.com/silverstripe/silverstripe-registry), and the
+[Fluent module](https://github.com/tractorcow/silverstripe-fluent).
+In versions prior to 2.6.0, the package also included the [Subsites module](https://github.com/silverstripe/silverstripe-subsites).
 
 For general information about working with SilverStripe CMS code, please consult the
 [Official SilverStripe CMS developer documentation](https://docs.silverstripe.org/). 
