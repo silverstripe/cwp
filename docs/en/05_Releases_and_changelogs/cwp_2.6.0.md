@@ -20,11 +20,15 @@ Common Web Platform (CWP infrastructure) has the support for it already, so no e
 Since the modules become a part of [cwp/installer](https://github.com/silverstripe/cwp-installer), the change will only affect
 new projects. An upgrade to 2.6.0 will not install the MFA modules. However, manual installation is as easy as `composer require`.
 
-## Solr no longer indexes draft content
+### Solr no longer indexes draft / restricted content
 
-This CWP release includes an update to the [fulltextsearch module](https://github.com/silverstripe/silverstripe-fulltextsearch) which now has more secure defaults. Most notably, draft content is now no longer added to the solr index by default. There is also a canView() check performed against an anonymous user before adding content to the solr index. After upgrading your website, ensure that you run Solr_Reindex on production to remove previously indexed content that should no longer be there.
+This CWP release includes an update to the [fulltextsearch module](https://github.com/silverstripe/silverstripe-fulltextsearch) to introduce more secure defaults. Most notably, **draft and restricted content will no longer be indexed by default**, due to a `canView()` check being performed against an anonymous user prior to (re)indexing.
 
-If your website requires draft content to be indexed, you can [opt-out](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/3/README.md#important-note-when-upgrading-to-fulltextsearch-37) of the new secure defaults.
+After upgrading your website, ensure that you run the `Solr_Reindex` task on your production environment to remove previously indexed content that should no longer be there.
+
+If your website requires draft or restricted content to be indexed, you can [opt-out](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/3/README.md#important-note-when-upgrading-to-fulltextsearch-37) of the new secure defaults on a per-model basis.
+
+This is a great opportunity to make sure that any custom indexes / search controllers in your project are correctly filtering results based on permissions and search visibility, which you can now achieve via a unified method (see `SilverStripe\FullTextSearch\Search\ServicesSearchableService::isSearchable()`.)
 
 ## Upgrading instructions
 
