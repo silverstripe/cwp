@@ -9,7 +9,11 @@ For more information about the subsites module go to the [github repository](htt
 
 # Setup
 
-The subsites module is already included as part of the CWP basic recipe. To set up a subsite in the CMS visit the [user documentation](https://userhelp.silverstripe.org/en/optional_features/working_with_multiple_sites/set_up).
+This module was provided by default in the CWP basic recipe in versions prior to 2.6.0. From this version onwards, you need to install it manually:
+
+`composer require silverstripe/subsites ^2.3`
+
+To learn how to set up a subsite in the CMS, visit the [user documentation](https://userhelp.silverstripe.org/en/optional_features/working_with_multiple_sites/set_up).
 
 # Technical
 

@@ -26,6 +26,22 @@ This CWP release includes an update to the [fulltextsearch module](https://githu
 
 If your website requires draft content to be indexed, you can [opt-out](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/3/README.md#important-note-when-upgrading-to-fulltextsearch-37) of the new secure defaults.
 
+### Subsites is no longer included in the default CWP installation
+
+The [Subsites module](https://github.com/silverstripe/silverstripe-subsites) has been removed from
+[cwp/installer](https://github.com/silverstripe/cwp-installer) in 2.6.0, in order to reduce the
+default technical footprint of the recipe. Many sites operate without need of Subsites, and we feel
+that including this module should be left as an explicit decision for developers to make.
+
+New projects that need Subsites will need to manually install it via Composer:
+
+```
+composer require silverstripe/subsites ^2.3
+```
+
+We will also no longer reference it in the Upgrading instructions section. If your site depends on
+Subsites, ensure you continue to include and update the module in your Composer requirements.
+
 ## Upgrading instructions
 
 In order to update an existing site to use the new CWP recipe the following changes to your composer.json can be made:
@@ -43,7 +59,6 @@ In order to update an existing site to use the new CWP recipe the following chan
     "silverstripe/recipe-services": "1.6.0@stable",
 
     TODO: confirm new version (below are the old versions, which may still be correct)
-    "silverstripe/subsites": "2.3.3@stable",
     "tractorcow/silverstripe-fluent": "4.4.5@stable",
     "silverstripe/registry": "2.2.1@stable",
     "cwp/starter-theme": "3.0.3@stable"
