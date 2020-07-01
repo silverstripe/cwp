@@ -22,7 +22,7 @@ new projects. An upgrade to 2.6.0 will not install the MFA modules. However, man
 
 ### Solr no longer indexes draft / restricted content
 
-This CWP release includes an update to the [fulltextsearch module](https://github.com/silverstripe/silverstripe-fulltextsearch) to introduce more secure defaults. Most notably, **draft and restricted content will no longer be indexed by default**, due to a `canView()` check being performed against an anonymous user prior to (re)indexing.
+This CWP release includes an update to the [fulltextsearch module](https://github.com/silverstripe/silverstripe-fulltextsearch) to introduce more secure defaults. Most notably, **draft and restricted content will no longer be indexed by default**, due to a `canView()` check being performed against an anonymous user prior to (re)indexing.  Restricted content means that it has a permission level of either `Logged-in users` or `Only these groups`.
 
 After upgrading your website, ensure that you run the `Solr_Reindex` task on your production environment to remove previously indexed content that should no longer be there.
 
