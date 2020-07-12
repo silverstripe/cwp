@@ -8,6 +8,10 @@ This release includes CMS and Framework version 4.6.0.
 
 Upgrading to Recipe 2.6.0 is recommended for all CWP sites. This upgrade can be carried out by any development team familiar with SilverStripe. However, if you would like SilverStripe's assistance, you can request support via the [Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
 
+## New features
+
+The [release announcement](https://www.cwp.govt.nz/updates/news/cwp-2-6-has-arrived) includes the note worthy features, but be sure to review the change log for full detail.
+
 ### Mimevalidator is now a part of silverstripe/recipe-core
 
 For most CWP installations this should be a transparent change. However, if you changed the mimevalidator configuration,
@@ -75,6 +79,14 @@ composer require silverstripe/subsites ^2.3
 We will also no longer reference it in the Upgrading instructions section. If your site depends on
 Subsites, ensure you continue to include and update the module in your Composer requirements.
 
+## Known issues
+
+There are no known CWP issues in this release.
+
+### Expected test failures
+
+There are no known PHPUnit test failures in this release.
+
 ## Upgrading instructions
 
 In order to update an existing site to use the new CWP recipe the following changes to your composer.json can be made:
@@ -90,11 +102,9 @@ In order to update an existing site to use the new CWP recipe the following chan
     "silverstripe/recipe-reporting-tools": "1.6.0@stable",
     "cwp/cwp-recipe-search": "2.6.0@stable",
     "silverstripe/recipe-services": "1.6.0@stable",
-
-    TODO: confirm new version (below are the old versions, which may still be correct)
-    "tractorcow/silverstripe-fluent": "4.4.5@stable",
+    "tractorcow/silverstripe-fluent": "4.5.0@stable",
     "silverstripe/registry": "2.2.1@stable",
-    "cwp/starter-theme": "3.0.3@stable"
+    "cwp/starter-theme": "3.0.4@stable"
 },
 "prefer-stable": true
 ```
