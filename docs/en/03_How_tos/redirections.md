@@ -36,10 +36,17 @@ Once you have that then the redirection should be as follows:
 RewriteCond %{HTTP_HOST} ^my\.domain\.govt\.nz$
 RewriteCond %{HTTPS} !=on
 Rewritecond %{HTTP:X-Forwarded-Proto} !https [NC]
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{REQUEST_URI} ^/(?:public/)?(.*)$ [NC]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/%1 [L,R=301]
 ```
 
 This will then force all traffic to redirect to HTTPS on `my.domain.govt.nz`.
+
+To support both Silverstripe CMS 3.x and Silverstripe CMS 4.x versions (with and without the `/public` folder), DocumentRoot for CWP instance's virtual host points to the root folder (the code repository), regardless of the presence of the `/public` folder.
+
+Root level `.htaccess` is used to redirect all content to the `/public` folder when it's present for Silverstripe CMS 4.x sites.
+
+This needs to be taken into account when using `%{REQUEST_URI}` in your rewrite rules, or using `RewriteMatch` directive — both variables are DocumentRoot based.
 
 ## \_config.php
 
