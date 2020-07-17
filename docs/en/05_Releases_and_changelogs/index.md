@@ -2,16 +2,15 @@ title: Releases and changelogs
 summary: Upgrading guides, changelogs and support timeframes for each released version of the CWP recipe codebase.
 introduction: The status of the recipe releases is summarised in the table below. Upgrading information for each version is available in the changelog.
 
-Support will continue beyond 16 September 2020 when the Lead Agency Agreement ends. [Read more](https://www.cwp.govt.nz/plans/service-continuation/).
 
 # Releases and changelogs
 
 | Recipe version                  | Description                                                                                                  | Release date | Support ends date |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------ | ----------------- |
 | [2.6.0](cwp_2.6.0)              | Tracks the Framework release 4.6.0, and includes security fixes.                                             | 14/07/2020   | current           |
-| [2.5.2](cwp_2.5.2)              | Tracks the Framework release 4.5.2, and includes security fixes.                                             | 15/04/2020   | 14/01/2022        |
-| [2.5.1](cwp_2.5.1)              | Tracks the Framework release 4.5.1, and includes enhancements, bugfixes and security fixes.                  | 04/03/2020   | 14/01/2022        |
-| [2.5.0](cwp_2.5.0)              | Tracks the Framework release 4.5.0, and includes enhancements, bugfixes and security fixes.                  | 19/12/2019   | 14/01/2022        |
+| [2.5.2](cwp_2.5.2)              | Tracks the Framework release 4.5.2, and includes security fixes.                                             | 15/04/2020   | 16/09/2021        |
+| [2.5.1](cwp_2.5.1)              | Tracks the Framework release 4.5.1, and includes enhancements, bugfixes and security fixes.                  | 04/03/2020   | 16/09/2021        |
+| [2.5.0](cwp_2.5.0)              | Tracks the Framework release 4.5.0, and includes enhancements, bugfixes and security fixes.                  | 19/12/2019   | 16/09/2021        |
 | [2.4.1](cwp_2.4.1)              | Tracks the Framework release 4.4.6, and includes enhancements, bugfixes and security fixes.                  | 15/04/2020   | 19/06/2021        |
 | [2.4.0](cwp_2.4.0)              | Tracks the Framework release 4.4.3, enhancements and bugfixes.                                               | 12/09/2019   | 19/06/2021        |
 | [2.3.3](cwp_2.3.3)              | Tracks the Framework release 4.4.6, and includes enhancements, bugfixes and security fixes.                  | 15/04/2020   | 12/03/2021        |
@@ -28,11 +27,11 @@ Support will continue beyond 16 September 2020 when the Lead Agency Agreement en
 | [2.0.2](cwp_recipe_basic_2.0.2) | Tracks the Framework release 4.1.5, and includes important security fixes.                                   | 19/02/2019   | 26/01/2020        |
 | [2.0.1](cwp_recipe_basic_2.0.1) | Upgrades CWP Core to 2.0.1                                                                                   | 15/06/2018   | 26/01/2020        |
 | [2.0.0](cwp_recipe_basic_2.0.0) | Upgrades to SilverStripe 4, and all modules to support this.                                                 | 30/05/2018   | 26/01/2020        |
-| [1.9.4](cwp_recipe_basic_1.9.4) | Tracks the Framework release 3.7.5 and includes security fixes                                               | 15/07/2020   | 30/09/2020        |
-| [1.9.3](cwp_recipe_basic_1.9.3) | Latest bugfixes for CWP 1 - PHP 7.2+ compatiblity                                                            | 19/09/2019   | 30/09/2020        |
-| [1.9.2](cwp_recipe_basic_1.9.2) | Latest bugfixes for CWP 1                                                                                    | 19/08/2019   | 30/09/2020        |
-| [1.9.1](cwp_recipe_basic_1.9.1) | Tracks the Framework release 3.7.3 and includes important security fixes.                                    | 19/02/2019   | 30/09/2020        |
-| [1.9.0](cwp_recipe_basic_1.9.0) | Tracks the Framework release 3.7.0, and includes security fixes.                                             | 26/07/2018   | 30/09/2020        |
+| [1.9.4](cwp_recipe_basic_1.9.4) | Tracks the Framework release 3.7.5 and includes security fixes                                               | 15/07/2020   | 16/09/2021        |
+| [1.9.3](cwp_recipe_basic_1.9.3) | Latest bugfixes for CWP 1 - PHP 7.2+ compatiblity                                                            | 19/09/2019   | 16/09/2021        |
+| [1.9.2](cwp_recipe_basic_1.9.2) | Latest bugfixes for CWP 1                                                                                    | 19/08/2019   | 16/09/2021        |
+| [1.9.1](cwp_recipe_basic_1.9.1) | Tracks the Framework release 3.7.3 and includes important security fixes.                                    | 19/02/2019   | 16/09/2021        |
+| [1.9.0](cwp_recipe_basic_1.9.0) | Tracks the Framework release 3.7.0, and includes security fixes.                                             | 26/07/2018   | 16/09/2021        |
 | [1.8.2](cwp_recipe_basic_1.8.2) | Tracks the Framework release 3.6.6, and includes security fixes.                                             | 28/05/2018   | 30/11/2019        |
 | [1.8.1](cwp_recipe_basic_1.8.1) | Tracks the Framework release 3.6.5, and includes minor module bug fixes.                                     | 12/03/2018   | 30/11/2019        |
 | [1.8.0](cwp_recipe_basic_1.8.0) | Tracks the Framework release 3.6.3 and includes security fixes.                                              | 11/12/2017   | 12/09/2019        |
