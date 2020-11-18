@@ -2,7 +2,7 @@
 
 ## Overview
 
-This release includes [Silverstripe CMS Recipe version X.X.X](#).
+This release includes [Silverstripe CMS Recipe version 4.7.0-rc1](https://docs.silverstripe.org/en/4/changelogs/rc/4.7.0-rc1/#4-7-0-rc1).
 
 
 ## Release Candidate
@@ -25,57 +25,17 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
 ### Features and Enhancements
 
 
- * cwp/cwp-core (2.6.1 -&gt; 2.7.0-rc1)
-    * 2020-11-17 [b47e727](https://github.com/silverstripe/cwp-core/commit/b47e72741cb5a0e27b0e933121dd031bb31a35bc) Update translations (Steve Boyd)
-
- * cwp/cwp (2.6.1 -&gt; 2.7.0-rc1)
-    * 2020-11-17 [31d3ee7](https://github.com/silverstripe/cwp/commit/31d3ee7abe39f8c15662fca90925ebb43e105855) Update translations (Steve Boyd)
-
- * silverstripe/blog (3.5.1 -&gt; 3.6.0)
-    * 2020-11-17 [a07c2bb](https://github.com/silverstripe/silverstripe-blog/commit/a07c2bb9cac5f314bd76592219d470bfcda1540e) Update translations (Steve Boyd)
-
- * silverstripe/comments (3.3.1 -&gt; 3.4.0)
-    * 2020-11-17 [739b211](https://github.com/silverstripe/silverstripe-comments/commit/739b211afb165417ff4e325ae83bae6d6bd5e9e7) Update translations (Steve Boyd)
-
  * silverstripe/userforms (5.6.2 -&gt; 5.8.0)
-    * 2020-11-17 [5c64cc8](https://github.com/silverstripe/silverstripe-userforms/commit/5c64cc825fbf34bc8b0c9ad2b5fad57913fc173a) Update translations (Steve Boyd)
     * 2020-11-03 [2a47b18](https://github.com/silverstripe/silverstripe-userforms/commit/2a47b1821edfec37446a26ba51633623ae4b1ac2) Extension to link file submissions to userform on the used on table (Steve Boyd)
 
- * silverstripe/documentconverter (2.0.3 -&gt; 2.1.0)
-    * 2020-11-17 [9dfa055](https://github.com/silverstripe/silverstripe-documentconverter/commit/9dfa055e0ca69be37f48f89d7a9dc13b78334fe1) Update translations (Steve Boyd)
-
- * silverstripe/iframe (2.0.4 -&gt; 2.1.0)
-    * 2020-11-17 [23ab2ec](https://github.com/silverstripe/silverstripe-iframe/commit/23ab2ecca1cef47c4aca2d39dce7ae9792d5e789) Update translations (Steve Boyd)
-
- * cwp/cwp-search (1.3.0 -&gt; 1.4.0)
-    * 2020-11-17 [365335d](https://github.com/silverstripe/cwp-search/commit/365335dd8f4de315858f9d0190fdff0b24b0c9cf) Update translations (Steve Boyd)
-
- * silverstripe/mfa (4.1.1 -&gt; 4.2.0)
-    * 2020-11-17 [ec14688](https://github.com/silverstripe/silverstripe-mfa/commit/ec14688cbb90e6c750e427f8a47bc78dc1b38e8c) Update translations (Steve Boyd)
-
- * silverstripe/totp-authenticator (4.0.0 -&gt; 4.1.0)
-    * 2020-11-17 [3408d03](https://github.com/silverstripe/silverstripe-totp-authenticator/commit/3408d035e31bfe54df646d277ccce4b060a1e791) Update translations (Steve Boyd)
-
- * silverstripe/ldap (1.1.2 -&gt; 1.2.0)
-    * 2020-11-17 [7f03c26](https://github.com/silverstripe/silverstripe-ldap/commit/7f03c26bd6ec348d0b21ccc8bb5546f5fa483a9a) Update translations (Steve Boyd)
-
- * silverstripe/elemental-fileblock (2.0.0 -&gt; 2.1.1)
-    * 2020-11-17 [9135f82](https://github.com/silverstripe/silverstripe-elemental-fileblock/commit/9135f82f46e7d37a9d799a1422e58ba9c91a7bee) Update translations (Steve Boyd)
+ * silverstripe/elemental-fileblock (2.0.0 -&gt; 2.1.1)   
     * 2020-11-03 [c32cda0](https://github.com/silverstripe/silverstripe-elemental-fileblock/commit/c32cda03ecb6f3d168d9daa9f36d285e4858ecfd) Update singular and plural names to file block(s) (Steve Boyd)
     * 2020-07-30 [3cfec57](https://github.com/silverstripe/silverstripe-elemental-fileblock/commit/3cfec572a428d698c396aa8fb70495740f22abe0) Update singular and plural names (Steve Boyd)
 
  * silverstripe/elemental-bannerblock (2.1.1 -&gt; 2.2.0)
-    * 2020-11-17 [356d524](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/356d5243e0fe01d9c9a18dd2b23c904a0dce0d61) Update translations (Steve Boyd)
     * 2020-11-04 [c7c7808](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/c7c780858e7812285d77a847fe640352a2e84876) Update singular and plural names to banner block(s) (Steve Boyd)
 
- * silverstripe/realme (4.0.0 -&gt; 4.0.1)
-    * 2020-11-17 [0238a24](https://github.com/silverstripe/silverstripe-realme/commit/0238a241450f0483d728d30a8e801bd840da100e) Update translations (Steve Boyd)
-
- * silverstripe/webauthn-authenticator (4.0.1 -&gt; 4.1.0)
-    * 2020-11-17 [603bae6](https://github.com/silverstripe/silverstripe-webauthn-authenticator/commit/603bae6bca407740ba689f94880d82b1ac3e0035) Update translations (Steve Boyd)
-
  * silverstripe/login-forms (4.2.1 -&gt; 4.3.0-rc1)
-    * 2020-11-02 [30cf78d](https://github.com/silverstripe/silverstripe-login-forms/commit/30cf78d108167eb5e16dec7894b1cd71084ab01b) Update translations (Maxime Rainville)
     * 2020-08-27 [a7416f1](https://github.com/silverstripe/silverstripe-login-forms/commit/a7416f10fef93443f6d19b44715a50abab2916dc) Prevent using Page_Controller Requirements (Steve Boyd)
 
     
@@ -253,6 +213,11 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
     
 ### Other changes
 
+ * silverstripe/blog (3.5.1 -&gt; 3.6.0)
+    * 2020-11-17 [a07c2bb](https://github.com/silverstripe/silverstripe-blog/commit/a07c2bb9cac5f314bd76592219d470bfcda1540e) Update translations (Steve Boyd)
+
+ * silverstripe/mfa (4.1.1 -&gt; 4.2.0)
+    * 2020-11-17 [ec14688](https://github.com/silverstripe/silverstripe-mfa/commit/ec14688cbb90e6c750e427f8a47bc78dc1b38e8c) Update translations (Steve Boyd)
 
  * cwp/cwp-recipe-kitchen-sink (2.6.1 -&gt; 2.7.0-rc1)
     * 2020-11-16 [b49915f](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/b49915f8244c03ab9a6263e66302b411d0495559) Update for 2.7 (Steve Boyd)
@@ -270,6 +235,7 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
     * 2020-06-18 [ddeeac7](https://github.com/silverstripe/cwp-recipe-core/commit/ddeeac7a0fd1175f77dc38fe512dda0c9b98ac97) Require phpunit-mock-objects (Steve Boyd)
 
  * cwp/cwp-core (2.6.1 -&gt; 2.7.0-rc1)
+    * 2020-11-17 [b47e727](https://github.com/silverstripe/cwp-core/commit/b47e72741cb5a0e27b0e933121dd031bb31a35bc) Update translations (Steve Boyd)
     * 2020-11-16 [3367926](https://github.com/silverstripe/cwp-core/commit/3367926fe5535bbf00d98bf9dae1fa571311ac49) Update for 2.7 (Steve Boyd)
 
  * cwp/cwp-recipe-cms (2.6.1 -&gt; 2.7.0-rc1)
@@ -277,6 +243,7 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
     * 2020-06-18 [f9988ce](https://github.com/silverstripe/cwp-recipe-cms/commit/f9988ce89689d2753f3fe5260d22ef826c7b853e) Require phpunit-mock-objects (Steve Boyd)
 
  * cwp/cwp (2.6.1 -&gt; 2.7.0-rc1)
+   * 2020-11-17 [31d3ee7](https://github.com/silverstripe/cwp/commit/31d3ee7abe39f8c15662fca90925ebb43e105855) Update translations (Steve Boyd)
     * 2020-07-09 [f7ad03f](https://github.com/silverstripe/cwp/commit/f7ad03f8abae0fb9ae15e87d7eea242dd12fd76d) Clarify DocumentRoot configuration within CWP and its implications (Michal Kleiner)
     * 2020-07-02 [a4cc08c](https://github.com/silverstripe/cwp/commit/a4cc08ce596015859359383c08cf04716a4867fa) Clarify where redirects should go. (Mateusz U)
 
@@ -284,12 +251,14 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
     * 2020-11-16 [440ce89](https://github.com/silverstripe/recipe-blog/commit/440ce89d0183442f094ca4677439f03c40bca0d8) Update for 1.7 (Steve Boyd)
 
  * silverstripe/comments (3.3.1 -&gt; 3.4.0)
+    * 2020-11-17 [739b211](https://github.com/silverstripe/silverstripe-comments/commit/739b211afb165417ff4e325ae83bae6d6bd5e9e7) Update translations (Steve Boyd)
     * 2020-04-19 [82c817c](https://github.com/silverstripe/silverstripe-comments/commit/82c817c45233542a3e30f2ec08b5282296141579) Fixes #300 (torleif)
 
  * silverstripe/recipe-form-building (1.6.1 -&gt; 1.7.0-rc1)
     * 2020-11-16 [6f4b4b6](https://github.com/silverstripe/recipe-form-building/commit/6f4b4b65cbff4193751d2ab09cd595eb6b950fbe) Update for 1.7 (Steve Boyd)
 
  * silverstripe/userforms (5.6.2 -&gt; 5.8.0)
+    * 2020-11-17 [5c64cc8](https://github.com/silverstripe/silverstripe-userforms/commit/5c64cc825fbf34bc8b0c9ad2b5fad57913fc173a) Update translations (Steve Boyd) 
     * 2020-07-06 [d24db18](https://github.com/silverstripe/silverstripe-userforms/commit/d24db1886d3cc7240cf3ecc088cd6ef2c9310c75) Update docs/en/userguide/form-submissions.md (Sacha Judd)
     * 2020-06-18 [7eda3c2](https://github.com/silverstripe/silverstripe-userforms/commit/7eda3c23d9a58fc006d20324962ee213bd1e0958) Require recipe-cms 4.6 (Steve Boyd)
 
@@ -297,10 +266,12 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
     * 2020-11-16 [8c53794](https://github.com/silverstripe/recipe-authoring-tools/commit/8c5379419594df819266cb4622ddc52741bceec5) Update for 1.7 (Steve Boyd)
 
  * silverstripe/documentconverter (2.0.3 -&gt; 2.1.0)
+    * 2020-11-17 [9dfa055](https://github.com/silverstripe/silverstripe-documentconverter/commit/9dfa055e0ca69be37f48f89d7a9dc13b78334fe1) Update translations (Steve Boyd)
     * 2019-12-19 [b38afaf](https://github.com/silverstripe/silverstripe-documentconverter/commit/b38afaf75c710a8e5c547b3590193018e90d9715) META: Add github action to build docs (Aaron Carlino)
     * 2018-06-15 [a6a19a6](https://github.com/silverstripe/silverstripe-documentconverter/commit/a6a19a613a898e292a8a2c70fb1aa8f83a71a9ab) Add supported module badge to readme (Dylan Wagstaff)
 
  * silverstripe/iframe (2.0.4 -&gt; 2.1.0)
+    * 2020-11-17 [23ab2ec](https://github.com/silverstripe/silverstripe-iframe/commit/23ab2ecca1cef47c4aca2d39dce7ae9792d5e789) Update translations (Steve Boyd)
     * 2020-01-15 [e551026](https://github.com/silverstripe/silverstripe-iframe/commit/e551026cad0c029139b433ecbecbfd64c6cfd438) Update load event registration (Maxime Claudel)
     * 2019-12-19 [c4ebf0a](https://github.com/silverstripe/silverstripe-iframe/commit/c4ebf0ad60944ae3af2569f6c0f78254272583cf) META: Add github action to build docs (Aaron Carlino)
     * 2019-11-18 [3e66485](https://github.com/silverstripe/silverstripe-iframe/commit/3e6648558ff6106e43ae0640b156b09f67e3460e) A small code style fix (Serge Latyntcev)
@@ -325,6 +296,7 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
     * 2020-06-18 [0b16118](https://github.com/silverstripe/cwp-recipe-search/commit/0b1611834c0533b788882cffa1f03cc05483d52b) Require phpunit-mock-objects (Steve Boyd)
 
  * cwp/cwp-search (1.3.0 -&gt; 1.4.0)
+    * 2020-11-17 [365335d](https://github.com/silverstripe/cwp-search/commit/365335dd8f4de315858f9d0190fdff0b24b0c9cf) Update translations (Steve Boyd)
     * 2019-10-22 [53fe09e](https://github.com/silverstripe/cwp-search/commit/53fe09e96b457567a7f3ad71eca2aa04460bff42) Make spellcheck configurable (Will Rossiter)
 
  * silverstripe/fulltextsearch (3.7.0 -&gt; 3.8.0)
@@ -342,11 +314,13 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
     * 2019-06-13 [cf2125e](https://github.com/silverstripe/cwp-starter-theme/commit/cf2125effa3e37b1e888bf9a05d63668a888cbda) Update Bootstrap version in scss docs (Robbie Averill)
 
  * silverstripe/totp-authenticator (4.0.0 -&gt; 4.1.0)
+    * 2020-11-17 [3408d03](https://github.com/silverstripe/silverstripe-totp-authenticator/commit/3408d035e31bfe54df646d277ccce4b060a1e791) Update translations (Steve Boyd)
     * 2020-08-05 [bc738a4](https://github.com/silverstripe/silverstripe-totp-authenticator/commit/bc738a49d79b4ce0f95e1fba8fbd32c4db1815b2) PHPCS Move strict_types to seperate lines (Steve Boyd)
     * 2019-11-11 [12841e4](https://github.com/silverstripe/silverstripe-totp-authenticator/commit/12841e45b5a5d95236bbf058ebce1091af6fe0ec) Upgrade dependencies (Maxime Rainville)
     * 2019-06-26 [14fa26e](https://github.com/silverstripe/silverstripe-totp-authenticator/commit/14fa26e787f3761b9f9eb8064b01708ec176fe75) Add 4.x-dev branch alias (Garion Herman)
 
  * silverstripe/ldap (1.1.2 -&gt; 1.2.0)
+    * 2020-11-17 [7f03c26](https://github.com/silverstripe/silverstripe-ldap/commit/7f03c26bd6ec348d0b21ccc8bb5546f5fa483a9a) Update translations (Steve Boyd)
     * 2020-06-09 [8ceee93](https://github.com/silverstripe/silverstripe-ldap/commit/8ceee930967c287fb9a4565a9274b302f1decb98) Fixed old namespaces in developer.md (Amenel Voglozin)
     * 2019-11-17 [fb1930d](https://github.com/silverstripe/silverstripe-ldap/commit/fb1930d1b84c95b28a5e4be296653321b2f2861d) Update config for LDAP 1.x / CMS 4.5.x branches (Garion Herman)
     * 2019-01-24 [fefd57a](https://github.com/silverstripe/silverstripe-ldap/commit/fefd57a474f7e1353c6f131b2cc39767941f575d) Update LDAPService.php (James Davis)
@@ -356,19 +330,26 @@ This version of CWP is a **release candidate** for an upcoming stable version, a
     * 2020-11-16 [6ed0e96](https://github.com/silverstripe/recipe-content-blocks/commit/6ed0e96d46266193e426394ec8408eecc25311d8) Update for 2.7 (Steve Boyd)
 
  * silverstripe/elemental-fileblock (2.0.0 -&gt; 2.1.1)
+    * 2020-11-17 [9135f82](https://github.com/silverstripe/silverstripe-elemental-fileblock/commit/9135f82f46e7d37a9d799a1422e58ba9c91a7bee) Update translations (Steve Boyd)
     * 2020-03-17 [61be5a8](https://github.com/silverstripe/silverstripe-elemental-fileblock/commit/61be5a865d9823682d0a36db6dee7a3a9206401b) Update readme with example screenshots (matt-in-a-hat)
     * 2018-11-27 [3ffe433](https://github.com/silverstripe/silverstripe-elemental-fileblock/commit/3ffe4332cd7042b7b63c9c3a94722f852c19175a) Add supported module badge to readme (Robbie Averill)
 
  * silverstripe/elemental-bannerblock (2.1.1 -&gt; 2.2.0)
+    * 2020-11-17 [356d524](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/356d5243e0fe01d9c9a18dd2b23c904a0dce0d61) Update translations (Steve Boyd)
     * 2020-06-29 [51afbcc](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/51afbcc658046f34cd6a8d91aa0d93db2362a6f2) Use xenial and Node 10 (Steve Boyd)
     * 2020-06-18 [d0acbe9](https://github.com/silverstripe/silverstripe-elemental-bannerblock/commit/d0acbe92977638f914dcebc207252177326aafbb) Modify required versions (Steve Boyd)
 
  * silverstripe/webauthn-authenticator (4.0.1 -&gt; 4.1.0)
+    * 2020-11-17 [603bae6](https://github.com/silverstripe/silverstripe-webauthn-authenticator/commit/603bae6bca407740ba689f94880d82b1ac3e0035) Update translations (Steve Boyd)
     * 2019-11-11 [cc44b38](https://github.com/silverstripe/silverstripe-webauthn-authenticator/commit/cc44b386953a2e55a5cd1f4a6ef130aeb7bac148) Upgrade dependencies (Maxime Rainville)
 
  * silverstripe/login-forms (4.2.1 -&gt; 4.3.0-rc1)
+    * 2020-11-17 [603bae6](https://github.com/silverstripe/silverstripe-webauthn-authenticator/commit/603bae6bca407740ba689f94880d82b1ac3e0035) Update translations (Steve Boyd)
+    * 2020-11-02 [30cf78d](https://github.com/silverstripe/silverstripe-login-forms/commit/30cf78d108167eb5e16dec7894b1cd71084ab01b) Update translations (Maxime Rainville)
     * 2020-07-13 [8bb8f5e](https://github.com/silverstripe/silverstripe-login-forms/commit/8bb8f5e8f76fcc86b2e70f8cf906df2ffe1ebb49) Minor template fixes (3Dgoo)
 
+ * silverstripe/realme (4.0.0 -&gt; 4.0.1)
+    * 2020-11-17 [0238a24](https://github.com/silverstripe/silverstripe-realme/commit/0238a241450f0483d728d30a8e801bd840da100e) Update translations (Steve Boyd)
     
 
 <!--- Changes above this line will be automatically regenerated -->
