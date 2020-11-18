@@ -8,8 +8,12 @@ eo:
     TwitterField: 'Salutnomo por Twitter'
     TwitterFieldDesc: 'Salutnomo por Twitter (eg, http://twitter.com/<strong>salutnomo</strong>)'
   CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Retpoŝto
     WEBSITE_TITLE: 'Via retejo (malnepra)'
     WILL_NOT_BE_PUBLISHED: 'Ne publikiĝos.'
+  CWP\CWP\Extensions\CwpSiteSummaryExtension:
+    FilterSupported: 'CWP-receptaj moduloj'
+    FilterUnsupported: 'Ne CWP-moduloj'
   CWP\CWP\Extensions\CwpSiteTreeExtension:
     SHOW_PAGE_UTILITIES: 'Ĉu vidigu paĝajn utilaĵojn?'
     SHOW_PAGE_UTILITIES_HELP: 'Vi povas malŝalti paĝajn utilaĵojn (presi, kunhavigi, ktp) por ĉi tiu paĝo.'
@@ -29,6 +33,12 @@ eo:
     ParentRelationLabel: Patra
     SINGULARNAME: 'Rapida ligilo'
     SortOrderLabel: 'Ordiga Ordo'
+  CWP\CWP\Model\RelatedPageLink:
+    PLURALNAME: 'Rilataj paĝligiloj'
+    PLURALS:
+      one: 'Unu rilata paĝligilo'
+      other: '{count} rilataj paĝligiloj'
+    SINGULARNAME: 'Rilata paĝligilo'
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Aldoni novan'
     ButtonTextRequired: 'Necesas plenigi butonan tekston'
@@ -64,6 +74,7 @@ eo:
     LocationFieldLabel: Loko
     StartTimeFieldLabel: 'Komenca horo'
   CWP\CWP\PageTypes\DatedUpdateHolder:
+    DATE_EXAMPLE: '(ekzemplo: 2017/12/30)'
     FILTER_BETWEEN: inter
     FILTER_IN: en
     FILTER_ON: sur
@@ -80,6 +91,7 @@ eo:
     DateRangeFilterMessage: 'Filtri laŭ unuopa dato'
     Filter: Filtrilo
     FilterAppliedMessage: 'Aplikis filtron laŭ la inversigitaj datoj'
+    InvalidDateFormat: 'Datoj devas esti en la formato "j-MM-tt"'
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractDesc: 'La resumo uzatas kiel resumo en la listaj paĝoj. Ĝi havas la limon 160 signoj'
     AbstractTextFieldLabel: Resumo
