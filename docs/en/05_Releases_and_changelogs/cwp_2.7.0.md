@@ -6,6 +6,14 @@ This release includes [Silverstripe CMS Recipe version 4.7.0](https://docs.silve
 
 Upgrading to Recipe 2.7.0 is recommended for all CWP sites. This upgrade can be carried out by any development team familiar with the Silverstripe CMS. However, if you would like Silverstripe and the CWP team's assistance, you can request support via the [Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
 
+### Default collation change
+
+In Silverstripe CMS Recipe 4.7.0 the default MySQL collation has changed to `utf8mb4`, which provides better support for multi-byte characters such as emojis. This was originally intended as an opt-in change for existing projects upgrading to 4.7.0, but was unintentionally shipped as an opt-out change instead. See the [CMS Recipe 4.7.0 changelog](https://docs.silverstripe.org/en/4/changelogs/4.7.0/#default-mysql-collation-updated) for further details.
+
+The CWP software stack is equipped to handle the `utf8mb4` collation correctly, so you should not experience any issues with this change. If you do run into problems, you can opt out by removing the new `app/_config/database.yml` configuration file added to your project during the upgrade.
+
+CMS Recipe 4.7.1 and the next CWP Recipe release will correct this change to be opt-in; We highly encourage developers to do so.
+
 ## Upgrading instructions
 
 In order to update an existing site to use the new CWP recipe the following changes to your composer.json can be made:
@@ -33,7 +41,7 @@ In order to update an existing site to use the new CWP recipe the following chan
 
 ## Change Log
 
-    
+
 ### Features and Enhancements
 
  * silverstripe/userforms (5.6.2 -&gt; 5.8.1)
@@ -49,7 +57,7 @@ In order to update an existing site to use the new CWP recipe the following chan
  * silverstripe/login-forms (4.2.1 -&gt; 4.3.0)
     * 2020-08-27 [a7416f1](https://github.com/silverstripe/silverstripe-login-forms/commit/a7416f10fef93443f6d19b44715a50abab2916dc) Prevent using Page_Controller Requirements (Steve Boyd)
 
-    
+
 ### Bugfixes
 
 
@@ -115,7 +123,7 @@ In order to update an existing site to use the new CWP recipe the following chan
  * silverstripe/comments (3.3.1 -&gt; 3.4.0)
     * 2020-04-19 [82c817c](https://github.com/silverstripe/silverstripe-comments/commit/82c817c45233542a3e30f2ec08b5282296141579) Fixes #300 (torleif)
 
-    
+
 ### API Changes
 
 
@@ -123,7 +131,7 @@ In order to update an existing site to use the new CWP recipe the following chan
     * 2020-06-15 [220ec69](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/220ec69f5f7b131e0e8048660a29b3f3fb1dd5e8) Include silverstripe/subsites as it is no longer included in cwp/cwp-installer (Steve Boyd)
     * 2020-06-14 [73bef09](https://github.com/silverstripe/cwp-recipe-kitchen-sink/commit/73bef0996cf96d594767b3e0354bee6f065a889c) Remove mfa (bergice)
 
-    
+
 ### Dependencies
 
 
@@ -199,7 +207,7 @@ In order to update an existing site to use the new CWP recipe the following chan
     * 2020-07-07 [9f83601](https://github.com/silverstripe/silverstripe-login-forms/commit/9f83601d15d359b9e68b036344b79892320d4a03) Bump npm from 6.13.4 to 6.14.6 (dependabot[bot])
     * 2020-06-30 [b71bb53](https://github.com/silverstripe/silverstripe-login-forms/commit/b71bb537b8536ebf0778d4d5b45ac8440d2eb9f3) Bump mixin-deep from 1.3.1 to 1.3.2 (dependabot[bot])
 
-    
+
 ### Documentation
 
 
@@ -232,7 +240,7 @@ In order to update an existing site to use the new CWP recipe the following chan
  * silverstripe/webauthn-authenticator (4.0.1 -&gt; 4.1.0)
     * 2020-05-11 [ee3b401](https://github.com/silverstripe/silverstripe-webauthn-authenticator/commit/ee3b4016bf00ab66693fb422c9d1d53d29a68f51) Add php-gmp extension as a requirement in readme (Robbie Averill)
 
-    
+
 ### Other changes
 
 
@@ -373,6 +381,6 @@ In order to update an existing site to use the new CWP recipe the following chan
     * 2020-11-02 [30cf78d](https://github.com/silverstripe/silverstripe-login-forms/commit/30cf78d108167eb5e16dec7894b1cd71084ab01b) Update translations (Maxime Rainville)
     * 2020-07-13 [8bb8f5e](https://github.com/silverstripe/silverstripe-login-forms/commit/8bb8f5e8f76fcc86b2e70f8cf906df2ffe1ebb49) Minor template fixes (3Dgoo)
 
-    
+
 
 <!--- Changes above this line will be automatically regenerated -->
