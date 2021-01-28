@@ -6,6 +6,10 @@ This release includes [Silverstripe CMS Recipe version 4.7.0](https://docs.silve
 
 Upgrading to Recipe 2.7.0 is recommended for all CWP sites. This upgrade can be carried out by any development team familiar with the Silverstripe CMS. However, if you would like Silverstripe and the CWP team's assistance, you can request support via the [Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
 
+## New features
+
+The [release announcement](https://www.cwp.govt.nz/updates/news/announcing-cwp-2-7/) includes the note worthy features but be sure to review the change log for full details.
+
 ### Default collation change
 
 In Silverstripe CMS Recipe 4.7.0 the default MySQL collation has changed to `utf8mb4`, which provides better support for multi-byte characters such as emojis. This was originally intended as an opt-in change for existing projects upgrading to 4.7.0, but was unintentionally shipped as an opt-out change instead. See the [CMS Recipe 4.7.0 changelog](https://docs.silverstripe.org/en/4/changelogs/4.7.0/#default-mysql-collation-updated) for further details.
