@@ -10,7 +10,9 @@ This release includes [Silverstripe CMS Recipe version 4.7.2](https://docs.silve
 This version of CWP is a **release candidate** for an upcoming stable version, and should not be applied to production websites. We encourage developers to test this version in development / testing environments and report any issues they encounter via GitHub.
 
 
-<!--- Changes below this line will be automatically regenerated -->## Change Log
+<!--- Changes below this line will be automatically regenerated -->
+
+## Change Log
 
 
 ### Features and Enhancements
