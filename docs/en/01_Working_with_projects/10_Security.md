@@ -20,7 +20,7 @@ CWP\CWP\PageTypes\BasePage:
 
 ### Login auto-completion
 
-By default the username of anyone who logs into the website is saved in their browser's autocomplete cache when logging into a website. This username, by default, is the email address. If necessary, the autocompletion by the browser can be disabled on the 'Email' field by setting `SilverStripe\Security\Security.remember_username` to false. 
+By default the username of anyone who logs into the website is saved in their browser's autocomplete cache when logging into a website. This username, by default, is the email address. If necessary, the autocompletion by the browser can be disabled on the 'Email' field by setting `SilverStripe\Security\Security.remember_username` to false.
 
 This is done in your `app/_config/config.yml` file, by adding the following:
 
@@ -61,7 +61,9 @@ A lifetime of 24 minutes matches the default timeout configuration on CWP.
 
 Users have the option to check a box during login labeled "Remember me next time?"
 If checked, that user will remain logged into the site even after the browser has been closed, and will be
-automatically logged in when they come back at a later time, up to a maximum period of 90 days.
+automatically logged in when they come back at a later time, up to a maximum period of 30 days by default.
+For sites running less than version 2.8 of CWP, this value is 90 days by default. This time period can be modified via
+the `SilverStripe\Security\RememberLoginHash.token_expiry_days` config setting.
 
 If the computer used is not physically secured, it may be necessary to disable this feature to prevent
 subsequent users from automatically logging in and impersonating someone else. This is done by setting
@@ -157,10 +159,10 @@ e.g. to `Security/*` and `admin/*`.
 Starting with CWP 2.4, new projects will
 automatically be configured to send HSTS headers, and redirect all requests to `https://`. Projects created prior to CWP 2.4 can opt-in to this behaviour by copying
 the new default configuration into their existing projects:
-[app/_config/security.yml](https://github.com/silverstripe/cwp-installer/blob/master/app/_config/security.yml). 
+[app/_config/security.yml](https://github.com/silverstripe/cwp-installer/blob/master/app/_config/security.yml).
 
 The default short-lived `max-age` for these headers is considered less secure,
-and should be increased once you are confident that your website operates correctly 
+and should be increased once you are confident that your website operates correctly
 under SSL with HSTS for all domains. Please refer to [OWASP recommendations](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.md)
 for secure `max-age` values (usually 365 days).
 
