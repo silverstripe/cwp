@@ -25,15 +25,15 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2021-02-16 [50188c4](https://github.com/silverstripe/silverstripe-admin/commit/50188c44f8d6cc34adfd138f08c90a7e42d9e61b) New event handler for schema transcribe (Aaron Carlino)
     * 2020-11-12 [6bd63f8](https://github.com/silverstripe/silverstripe-admin/commit/6bd63f835b67de8dcb7e7a174f84db2d486d96f9) GraphQL 4 Compatibility (#1148) (Aaron Carlino)
 
- * silverstripe/asset-admin (1.7.1 -&gt; 1.8.0-beta1)
+ * silverstripe/asset-admin (1.7.1 -&gt; 1.8.0-beta2)
     * 2020-12-01 [d8070f00](https://github.com/silverstripe/silverstripe-asset-admin/commit/d8070f0088f51b6e798e4ed80401548046bcaa77) Compliance with new SchemaConfig API (#1164) (Aaron Carlino)
     * 2020-11-13 [6751560a](https://github.com/silverstripe/silverstripe-asset-admin/commit/6751560a28d03ca1f81e0e90cf52de1773f1c616) GraphQL 4 compatibility  (#1154) (Aaron Carlino)
 
- * silverstripe/versioned-admin (1.7.2 -&gt; 1.8.0-beta1)
+ * silverstripe/versioned-admin (1.7.2 -&gt; 1.8.0-beta2)
     * 2021-02-26 [a7e0205](https://github.com/silverstripe/silverstripe-versioned-admin/commit/a7e020500d9bdd3e21cfadd7d0c1bdf6618b2b62) Update Versioned Admin menu title to &amp;quot;Archive&amp;quot;. Fixes #156 (#175) (Chris Penny)
     * 2020-11-12 [721403f](https://github.com/silverstripe/silverstripe-versioned-admin/commit/721403f24bc134baa0645c332bdc47379048dc72) GraphQL 4 Compatibility (#184) (Aaron Carlino)
 
- * silverstripe/cms (4.7.1 -&gt; 4.8.0-beta1)
+ * silverstripe/cms (4.7.1 -&gt; 4.8.0-beta2)
     * 2020-12-01 [36a6fb00](https://github.com/silverstripe/silverstripe-cms/commit/36a6fb002e8c15679ac718233aa411a7cad6db27) Compliance with new SchemaConfig API (#2617) (Aaron Carlino)
     * 2020-11-13 [5ab1ff3e](https://github.com/silverstripe/silverstripe-cms/commit/5ab1ff3e69bb41f7025db3f6202bbc65355332f2) GraphQL Compatibility (#2607) (Aaron Carlino)
 
@@ -43,7 +43,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2020-11-19 [68cbd4f](https://github.com/silverstripe/silverstripe-versioned/commit/68cbd4fdb11d498071911562109b8a41f4697d23) compatibility with new stateless plugins (Aaron Carlino)
     * 2020-11-13 [4a42ca7](https://github.com/silverstripe/silverstripe-versioned/commit/4a42ca707e37e7fd5beae8ae2894c65c65d5fe81) GraphQL 4 Compatibility (#308) (Aaron Carlino)
 
- * silverstripe/graphql (3.4.1 -&gt; 3.5.0)
+ * silverstripe/graphql (3.4.1 -&gt; 3.5.0-beta1)
     * 2020-11-13 [25f654c](https://github.com/silverstripe/silverstripe-graphql/commit/25f654c9fd33327b6107158868a636a6090d4d13) Field formatting API, forward compatibility (#313) (Aaron Carlino)
 
  * silverstripe/comments (3.4.0 -&gt; 3.5.0-beta1)
@@ -68,7 +68,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
  * silverstripe/crontask (2.1.3 -&gt; 2.2.0)
     * 2020-08-26 [45ab00e](https://github.com/silverstripe/silverstripe-crontask/commit/45ab00e9f7c2d0189eded121e75b49d20fdd4dab) Bump minimum PHP requirement to 7.1. (Sam Minnee)
 
- * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0-beta1)
+ * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0-beta2)
     * 2021-02-23 [a30ac14](https://github.com/silverstripe/silverstripe-elemental/commit/a30ac14599812e6925558cf9dc862ee63e4ab75f) Disable actions users does not have permissions for (Steve Boyd)
     * 2020-12-01 [e93c732](https://github.com/silverstripe/silverstripe-elemental/commit/e93c732964287eeb0fb455c1ad6c3bf68a02f251) Compliance with new SchemaConfig API (#854) (Aaron Carlino)
     * 2020-11-13 [320d8fe](https://github.com/silverstripe/silverstripe-elemental/commit/320d8fe43833dd2b02bab23cc28435bc98b55ce5) GraphQL 4 compatibility  (#847) (Aaron Carlino)
@@ -109,19 +109,19 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2020-12-02 [bc9457b](https://github.com/silverstripe/silverstripe-admin/commit/bc9457bdedef3a566e3252403176e7cb414973ed) Fix inforrect modelConfig (Aaron Carlino)
     * 2020-08-28 [7594ef2](https://github.com/silverstripe/silverstripe-admin/commit/7594ef2a5cb842a0ac260a1c85f2826e3ef60030) Do not override grid state with search parameters (Maxime Rainville)
 
- * silverstripe/asset-admin (1.7.1 -&gt; 1.8.0-beta1)
+ * silverstripe/asset-admin (1.7.1 -&gt; 1.8.0-beta2)
     * 2021-03-11 [cd68c693](https://github.com/silverstripe/silverstripe-asset-admin/commit/cd68c6933c9d1d0b47469b174605558e6302af29) Set folder gallery item display to flex to allow it to scale with browser zoom level (Maxime Rainville)
     * 2021-02-09 [6ee29644](https://github.com/silverstripe/silverstripe-asset-admin/commit/6ee29644d08cbc7656b86ea31a101d32cb259904) Remove duplicate url dependency in package.json (Scott Hutchinson)
 
  * silverstripe/campaign-admin (1.7.1 -&gt; 1.8.0-beta1)
     * 2020-09-16 [1a9af45](https://github.com/silverstripe/silverstripe-campaign-admin/commit/1a9af4503fb3fcebbfb4f55fa65db558bc7f39f2) Display a notification after publishing a campaign (Maxime Rainville)
 
- * silverstripe/versioned-admin (1.7.2 -&gt; 1.8.0-beta1)
+ * silverstripe/versioned-admin (1.7.2 -&gt; 1.8.0-beta2)
     * 2020-11-17 [5b42dc8](https://github.com/silverstripe/silverstripe-versioned-admin/commit/5b42dc8ec596f4cfb8cb394015490b71778fd6f2) don&amp;#039;t disable bundle.js / bundle.css with no-cms install (Damian Mooyman)
     * 2020-10-23 [efdf83c](https://github.com/silverstripe/silverstripe-versioned-admin/commit/efdf83ca768dafe820b9559fb8618fe53b789d1b) Fix issue with composer warning about PSR-4 paths (Damian Mooyman)
     * 2020-08-26 [424d4db](https://github.com/silverstripe/silverstripe-versioned-admin/commit/424d4dbe22bdff333cc074f747f0ac019627e1a6) Allow use of ArchiveAdmin on unstaged objects. (Sam Minnee)
 
- * silverstripe/cms (4.7.1 -&gt; 4.8.0-beta1)
+ * silverstripe/cms (4.7.1 -&gt; 4.8.0-beta2)
     * 2021-03-05 [db7efad6](https://github.com/silverstripe/silverstripe-cms/commit/db7efad6ca5cf9e60eb99fb0c270b640f836a8fa) undefined variable inChangeSets (Will Rossiter)
 
  * silverstripe/versioned (1.7.0 -&gt; 1.8.0-beta1)
@@ -171,7 +171,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
  * silverstripe/crontask (2.1.3 -&gt; 2.2.0)
     * 2020-08-26 [e568dba](https://github.com/silverstripe/silverstripe-crontask/commit/e568dba77937b7440b7e6ea769bfebca232caaf5) Drop use of abandoned package in favour of its replacement. (Sam Minnee)
 
- * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0-beta1)
+ * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0-beta2)
     * 2021-02-22 [fdd0f3d](https://github.com/silverstripe/silverstripe-elemental/commit/fdd0f3d5d2d949e45bb3bbf081a53f9b1a3e0939) Prevent users without create permissions from duplicating blocks (Steve Boyd)
 
  * silverstripe/login-forms (4.3.0 -&gt; 4.4.1)
@@ -189,8 +189,18 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2021-01-21 [9ca33950a](https://github.com/silverstripe/silverstripe-framework/commit/9ca33950a276747d0dc4f40b62c1df307e3c572a) Add a CREATE_MEMORY_HYDRATED option to DataObject constructor (#9767) (Maxime Rainville)
     * 2019-08-23 [70ffb3297](https://github.com/silverstripe/silverstripe-framework/commit/70ffb3297acd1e281d8246bb26878a2e35d530fe) Only include gridfield state value that differ from the expected default (Maxime Rainville)
 
- * silverstripe/asset-admin (1.7.1 -&gt; 1.8.0-beta1)
+ * silverstripe/asset-admin (1.7.1 -&gt; 1.8.0-beta2)
+    * 2021-05-10 [0ea08159](https://github.com/silverstripe/silverstripe-asset-admin/commit/0ea081594cf3fc2f6e0bef38b761f30cd31c3cf7) Require graphl 3.5 or greater (Maxime Rainville)
     * 2020-09-02 [5fc57048](https://github.com/silverstripe/silverstripe-asset-admin/commit/5fc570488037624e39023df04426111307645ddd) Add an option to disabled cache busting when showing image thumbnail for people using S3 as their asset store (Maxime Rainville)
+
+ * silverstripe/versioned-admin (1.7.2 -&gt; 1.8.0-beta2)
+    * 2021-05-10 [6748fc9](https://github.com/silverstripe/silverstripe-versioned-admin/commit/6748fc9842fd7f7d92b8f17aaa4e4f0358ac41ae) Bump requirement no GraphQL 3.5 (Maxime Rainville)
+
+ * silverstripe/graphql (3.4.1 -&gt; 3.5.0-beta1)
+    * 2021-05-10 [f8ac3f7](https://github.com/silverstripe/silverstripe-graphql/commit/f8ac3f757b055a8ec8327fddf77db3dee1afae62) Block older version module from using this minor (#379) (Maxime Rainville)
+
+ * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0-beta2)
+    * 2021-05-10 [1b75f27](https://github.com/silverstripe/silverstripe-elemental/commit/1b75f271f2a20924c10c1d769ee1dd8cf4cc1bdd) Bump requirements for graphql to 3.5 (Maxime Rainville)
 
     
 ### Dependencies
@@ -202,6 +212,9 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
  * silverstripe/environmentcheck (2.2.0 -&gt; 2.3.0-beta1)
     * 2020-12-21 [dd037c8](https://github.com/silverstripe/silverstripe-environmentcheck/commit/dd037c8f50a644964b7f9b866f78f70276e31cab) Remove explicit dev requirement for sminnee/phpunit-mock-objects (Maxime Rainville)
 
+ * silverstripe/recipe-cms (4.7.3 -&gt; 4.8.0-beta2)
+    * 2021-05-10 [868710d](https://github.com/silverstripe/recipe-cms/commit/868710df5fd2ad62f2fc05f967314ca9da887473) beta2 requirements (Steve Boyd)
+
  * silverstripe/admin (1.7.3 -&gt; 1.8.0-beta1)
     * 2020-11-16 [fc76297](https://github.com/silverstripe/silverstripe-admin/commit/fc7629708604c0cc60a35ac901ca4f686ed1e9bb) Rebuild assets after node-sass update (Garion Herman)
     * 2020-09-04 [9d6ac18](https://github.com/silverstripe/silverstripe-admin/commit/9d6ac18900c972f9b5333ed46bdaa45345a06ce3) Bump node-sass from 4.13.0 to 4.14.1 (dependabot[bot])
@@ -211,13 +224,13 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2021-04-19 [36d70c5](https://github.com/silverstripe/silverstripe-campaign-admin/commit/36d70c5dec94927f2f0a8f3917be461b4640bc27) Bump ssri from 6.0.1 to 6.0.2 (dependabot[bot])
     * 2020-12-11 [d4bc8da](https://github.com/silverstripe/silverstripe-campaign-admin/commit/d4bc8da0ba2673af1d50e36da0cb77ce1d1be074) Bump ini from 1.3.5 to 1.3.7 (dependabot[bot])
 
- * silverstripe/versioned-admin (1.7.2 -&gt; 1.8.0-beta1)
+ * silverstripe/versioned-admin (1.7.2 -&gt; 1.8.0-beta2)
     * 2020-12-11 [c769bab](https://github.com/silverstripe/silverstripe-versioned-admin/commit/c769bab8a826411b74eab32120ae43011067622e) Bump ini from 1.3.5 to 1.3.7 (dependabot[bot])
     * 2020-11-16 [5dc919d](https://github.com/silverstripe/silverstripe-versioned-admin/commit/5dc919d213d71937560da2dbc5a1840c5f8a07d9) Rebuild assets after node-sass update (Garion Herman)
     * 2020-11-13 [e070cdd](https://github.com/silverstripe/silverstripe-versioned-admin/commit/e070cdd6e04d84cac70835d20582b6b062665133) Bump dot-prop from 4.2.0 to 4.2.1 (dependabot[bot])
     * 2020-09-07 [8828557](https://github.com/silverstripe/silverstripe-versioned-admin/commit/8828557a9422bc263843bde70a2b4b78595ebeb0) Bump node-sass from 4.13.0 to 4.14.1 (dependabot[bot])
 
- * silverstripe/cms (4.7.1 -&gt; 4.8.0-beta1)
+ * silverstripe/cms (4.7.1 -&gt; 4.8.0-beta2)
     * 2020-12-11 [9136c8a5](https://github.com/silverstripe/silverstripe-cms/commit/9136c8a55fed5748fbcc09afa0ab8f9043cc5873) Bump ini from 1.3.5 to 1.3.7 (dependabot[bot])
 
  * silverstripe/blog (3.6.0 -&gt; 3.7.0-beta1)
@@ -289,7 +302,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2019-12-14 [529a649](https://github.com/silverstripe/cwp-watea-theme/commit/529a649bd5d2146d0d9d49dafa49e73d63745e92) build(deps): bump mixin-deep from 1.3.1 to 1.3.2 (dependabot[bot])
     * 2019-11-06 [c6d287f](https://github.com/silverstripe/cwp-watea-theme/commit/c6d287fbea044bbb13f1cebeebc5d746ebae3981) build(deps): bump js-yaml from 3.12.0 to 3.13.1 (dependabot[bot])
 
- * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0-beta1)
+ * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0-beta2)
     * 2021-05-04 [dabe534](https://github.com/silverstripe/silverstripe-elemental/commit/dabe534ef9552b9bca0206a9e59cb51457c7b39f) Allow graphql ^4 (Steve Boyd)
     * 2021-01-19 [41ffe45](https://github.com/silverstripe/silverstripe-elemental/commit/41ffe45c5fbf34a69ce185793019511f1c4c4678) Restore GraphQL 4 support (#865) (Ingo Schommer)
     * 2020-11-04 [4782bf2](https://github.com/silverstripe/silverstripe-elemental/commit/4782bf2d6c008dc8fcf67414f8c5255deedf4a47) Bump dot-prop from 4.2.0 to 4.2.1 (dependabot[bot])
@@ -366,7 +379,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2020-09-17 [4b230d1](https://github.com/symbiote/silverstripe-queuedjobs/commit/4b230d1baabfd223fc992da57bf4f65f6d4cd9dc) Restructure markdown, remove wiki (#318) (Ingo Schommer)
     * 2020-06-23 [b2dc5c3](https://github.com/symbiote/silverstripe-queuedjobs/commit/b2dc5c36f62751acccbf403b4aedd6cafa1d465c) example email should use example domain. (Matt Clegg)
 
- * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0-beta1)
+ * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0-beta2)
     * 2021-03-01 [a2e244b](https://github.com/silverstripe/silverstripe-elemental/commit/a2e244b5b9284d797039de1d881a6649dc7fa507) Update README to account for the transfer of the elemental repo form DNA to Silverstripe (Maxime Rainville)
     * 2020-10-01 [08fe692](https://github.com/silverstripe/silverstripe-elemental/commit/08fe692e6dcd0b792a9a10774e064c4a179ebb74) Docs: Example of how to add additional Elemental Areas. Fixes #759 (Chris Penny)
 
@@ -435,7 +448,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
  * cwp/cwp-recipe-cms (2.7.1 -&gt; 2.8.0-beta1)
     * 2021-01-21 [7976c9a](https://github.com/silverstripe/cwp-recipe-cms/commit/7976c9a8b8b222c21e9ac23cd5ab4459c95214a5) Update build status badge (Steve Boyd)
 
- * silverstripe/recipe-cms (4.7.3 -&gt; 4.8.0-beta1)
+ * silverstripe/recipe-cms (4.7.3 -&gt; 4.8.0-beta2)
     * 2021-01-21 [3e7ecaa](https://github.com/silverstripe/recipe-cms/commit/3e7ecaaaccf718535222343e96925ce571e96935) Update README.md (Steve Boyd)
     * 2020-12-27 [959e61b](https://github.com/silverstripe/recipe-cms/commit/959e61b9e5af5ac505302b801f020333f903d68f) Upgrade silverstripe/recipe-plugin to support composer 2.0 (Tony Air)
     * 2020-11-13 [d69f89d](https://github.com/silverstripe/recipe-cms/commit/d69f89d972c46f4728900b50b18f8a790c421f69) Allow graphql 4 (#41) (Aaron Carlino)
@@ -450,7 +463,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2020-11-16 [13a1232](https://github.com/silverstripe/silverstripe-admin/commit/13a12327e822d4e1e1580f8ff30e024d1ad469d7) GraphQL BACKWARD_COMPAT flag fix (#1157) (Ingo Schommer)
     * 2020-11-13 [9202c18](https://github.com/silverstripe/silverstripe-admin/commit/9202c182eea27b952546336a0e24c80b102d16ae) Move graphql legacy code to _legacy for PSR-4 compat (Aaron Carlino)
 
- * silverstripe/asset-admin (1.7.1 -&gt; 1.8.0-beta1)
+ * silverstripe/asset-admin (1.7.1 -&gt; 1.8.0-beta2)
     * 2021-02-17 [d303bd90](https://github.com/silverstripe/silverstripe-asset-admin/commit/d303bd90411fff950d78eb2e3d2a03568e63f3e1) Linting (Aaron Carlino)
     * 2021-02-16 [af73cf28](https://github.com/silverstripe/silverstripe-asset-admin/commit/af73cf28682c51d359ac3b42b60ee01cb9e99ed6) Remove redundant event handler (Aaron Carlino)
     * 2021-02-16 [1d94a222](https://github.com/silverstripe/silverstripe-asset-admin/commit/1d94a222bb21327f451e7ccb4ec4b0b74ee69677) Reinstate GraphQL type transcriber config (Ingo Schommer)
@@ -464,13 +477,15 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2021-03-18 [9c18955](https://github.com/silverstripe/silverstripe-campaign-admin/commit/9c18955b68f13ea7032a08f972b5e5703a24b4c8) BUGFIX: fix behat test (Aaron Carlino)
     * 2021-01-21 [d16122f](https://github.com/silverstripe/silverstripe-campaign-admin/commit/d16122f55c267b90defc438ef6ee43bd14093f86) Update build status badge (Steve Boyd)
 
- * silverstripe/versioned-admin (1.7.2 -&gt; 1.8.0-beta1)
+ * silverstripe/versioned-admin (1.7.2 -&gt; 1.8.0-beta2)
+    * 2021-05-10 [84bba8b](https://github.com/silverstripe/silverstripe-versioned-admin/commit/84bba8be158efefd7de61b076731254f35a93a0b) Update composer.json (Maxime Rainville)
     * 2021-01-21 [d941d44](https://github.com/silverstripe/silverstripe-versioned-admin/commit/d941d4491653b4026d282f5ded990dfe0605069d) Update build status badge (Steve Boyd)
     * 2020-11-16 [e1ce901](https://github.com/silverstripe/silverstripe-versioned-admin/commit/e1ce901c49121a397778fb88eb72bf10f9c5ab93) GraphQL BACKWARD_COMPAT flag fix (Ingo Schommer)
     * 2020-11-13 [cae464f](https://github.com/silverstripe/silverstripe-versioned-admin/commit/cae464fd25494e24d1e05d863c7bc1d4221d8d57) Allow graphql 4 (Aaron Carlino)
     * 2020-08-26 [9b9e88a](https://github.com/silverstripe/silverstripe-versioned-admin/commit/9b9e88a5fbba61eb62e486dc44e4b05044e04f63) MINOR: Add tests for single-stage ArchiveAdmin (Sam Minnee)
 
- * silverstripe/cms (4.7.1 -&gt; 4.8.0-beta1)
+ * silverstripe/cms (4.7.1 -&gt; 4.8.0-beta2)
+    * 2021-05-07 [67bfdf0f](https://github.com/silverstripe/silverstripe-cms/commit/67bfdf0ff1de0f4a0cb2f4be85c974c54b292415) BUGFIX: Ensure SiteTree is always available in the CMS, along with ancestors (Aaron Carlino)
     * 2021-01-21 [f9b6d582](https://github.com/silverstripe/silverstripe-cms/commit/f9b6d582956e6052c4cdc0a65df20459ab86fcb6) Update build status badge (Steve Boyd)
     * 2020-12-08 [e22fda3f](https://github.com/silverstripe/silverstripe-cms/commit/e22fda3fed9ff677607bb477a4e5c3edd301cfc1) Remove duplicate injector entry (Aaron Carlino)
     * 2020-12-07 [e415d418](https://github.com/silverstripe/silverstripe-cms/commit/e415d41856d4b201fa9f9651dac8fc225447afef) BUGFIX: Restore, refactor getByLink plugin (Aaron Carlino)
@@ -502,7 +517,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2020-11-15 [6404194](https://github.com/silverstripe/silverstripe-versioned/commit/6404194544ac91743b48370b20d59a3941c266e5) Remove classmap (Aaron Carlino)
     * 2020-11-13 [d3b7709](https://github.com/silverstripe/silverstripe-versioned/commit/d3b7709dbafea3227277929f5f52ce2b33238600) Move graphql legacy code to _legacy for PSR-4 compat (Aaron Carlino)
 
- * silverstripe/graphql (3.4.1 -&gt; 3.5.0)
+ * silverstripe/graphql (3.4.1 -&gt; 3.5.0-beta1)
     * 2021-01-21 [2f000b6](https://github.com/silverstripe/silverstripe-graphql/commit/2f000b61c22f41bd1b887749ad8f26fc4c589332) Update build status badge (Steve Boyd)
     * 2020-12-10 [c1db445](https://github.com/silverstripe/silverstripe-graphql/commit/c1db44582bc5fe864a5df9f0236f15625fffe165) Removed non-functional scrutinizer badge (Ingo Schommer)
 
@@ -656,7 +671,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
  * silverstripe/recipe-content-blocks (2.7.1 -&gt; 2.8.0-beta1)
     * 2021-01-21 [96245c1](https://github.com/silverstripe/recipe-content-blocks/commit/96245c12e9b168f31d1f6c28e4a5b8c652b26e7b) Update build status badge (Steve Boyd)
 
- * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0-beta1)
+ * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0-beta2)
     * 2021-02-17 [817c49c](https://github.com/silverstripe/silverstripe-elemental/commit/817c49c6f8395a33919b69138352c79db50f15c7) Add guard for GraphQL 4 only class (Aaron Carlino)
     * 2021-02-16 [dfb356d](https://github.com/silverstripe/silverstripe-elemental/commit/dfb356da6e6df7589a3d5904a81df115edc61f92) Build (Aaron Carlino)
     * 2021-02-16 [127ec99](https://github.com/silverstripe/silverstripe-elemental/commit/127ec99a60df77d4b63d7aa4825cf5d0824966b6) Refactor to use bespoke typenames rather than relying on schema state (Aaron Carlino)
@@ -702,52 +717,3 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     
 
 <!--- Changes above this line will be automatically regenerated -->
-
-###  Other modules
-
-  * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0-beta1)
-    * DEP Allow graphql ^4 (Steve Boyd) - dabe534
-    * MNT Fix graphql mutation test (Steve Boyd) - 2c3214e
-    * MNT Update behat test to click archive button (Steve Boyd) - 31bee39
-    * DOC Update README to account for the transfer of the elemental repo form DNA to Silverstripe (Maxime     Rainville) - a2e244b
-    * ENH Disable actions users does not have permissions for (Steve Boyd) - a30ac14
-    * FIX Prevent users without create permissions from duplicating blocks (Steve Boyd) - fdd0f3d
-    * Add guard for GraphQL 4 only class (Aaron Carlino) - 817c49c
-    * Build (Aaron Carlino) - dfb356d
-    * Refactor to use bespoke typenames rather than relying on schema state (Aaron Carlino) - 127ec99
-    * Refactor getGraphQLTypeName (Aaron Carlino) - 296cbca
-    * Compatibility with new SchemaBuilder changes (Aaron Carlino) - e9c1699
-    * Compatibility with GraphQL 4 changes (Aaron Carlino) - e37ae98
-    * Compatibility with new context providers, build state API changes (Aaron Carlino) - 1942f5c
-    * DEP Restore GraphQL 4 support (#865) (Ingo Schommer) - 41ffe45
-    * Add an extension point to BaseElement::AbsoluteLink() (Chris Penny) - 11a3d4e
-    * BUGFIX: Numerous drag-and-drop issues (#853) (Aaron Carlino) - 5724dc8
-    * MNT Travis shared config (Steve Boyd) - 92b5b08
-    * NEW: Compliance with new SchemaConfig API (#854) (Aaron Carlino) - e93c732
-    * Remove classmap (Aaron Carlino) - 2d13336
-    * Move graphql legacy code to _legacy for PSR-4 compat (Aaron Carlino) - 9687539
-    * Remove graphql 4 travis artifacts (Aaron Carlino) - 160fd45
-    * NEW: GraphQL 4 compatibility  (#847) (Aaron Carlino) - 320d8fe
-    * Bump dot-prop from 4.2.0 to 4.2.1 (dependabot[bot]) - 4782bf2
-    * Docs: Example of how to add additional Elemental Areas. Fixes #759 (Chris Penny) - 08fe692
-    * Add config option to disable ShowTitle option. (Will Rossiter) - 364909f
-  * dnadesign/silverstripe-elemental (4.6.4 -&gt; 4.7.0)
-    * BUG: Allow zero values for integers and floats within queued job rule. (#337) (Mojmir Fendek) - 2f7abff
-    * NEW Doorman runner extensibility improvements (#287) (Mojmir Fendek) - 00938b3
-    * BUG: Doorman manager child processing fix. (#305) (Mojmir Fendek) - b1ce613
-    * FIX Limit duration of INIT state on jobs (#320) (Mojmir Fendek) - e259183
-    * MNT Use Recipe 4.7.x-dev in CI (#332) (Steve Boyd) - 079e4eb
-    * DOCS Call out step requirement to avoid staleness (Ingo Schommer) - 73d2bcd
-    * BUG: Exclude tasks run via a job from health check. (Mojmir Fendek) - 687629a
-    * Use formatters in QueuedJobHandler (Ingo Schommer) - b78f296
-    * FIX Resilient log handler implementation (Ingo Schommer) - f83b8b4
-    * FIX Use logger consistently in QueuedJobService (Ingo Schommer) - a89b7e8
-    * Use PHP7 Throwable consistently (Ingo Schommer) - c404ee2
-    * FIX Avoid double message logging (Ingo Schommer) - a9e33e7
-    * NEW CLI output in ProcessJobQueueTask (Ingo Schommer) - dd56fbf
-    * Avoid serialisation in human readable log messages (Ingo Schommer) - 47b4df9
-    * DOCS Restructure markdown, remove wiki (#318) (Ingo Schommer) - 4b230d1
-    * NEW: Show job data in descriptor edit form. (Mojmir Fendek) - 00cd5bd
-    * NEW: Better Descriptor edit form UI. (#314) (Mojmir Fendek) - bbc147e
-    * NEW: Task runner better UI (#301) (Mojmir Fendek) - 5175489
-    * DOCS: example email should use example domain. (Matt Clegg) - b2dc5c3
