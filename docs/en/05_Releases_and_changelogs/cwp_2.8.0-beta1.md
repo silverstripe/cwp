@@ -2,7 +2,7 @@
 
 ## Overview
 
-This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
+This release includes [Silverstripe CMS Recipe version 4.8.0-beta2](#).
 
 
 <!--- Changes below this line will be automatically regenerated -->
@@ -77,7 +77,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2021-04-14 [5ebdbff](https://github.com/silverstripe/silverstripe-login-forms/commit/5ebdbff9e4d57ccca04a6e230e9bf62d54515e7a) Use popover for help icon (Steve Boyd)
     * 2021-01-21 [1449aac](https://github.com/silverstripe/silverstripe-login-forms/commit/1449aac66db602b032dca50c90b6d04cd6aff3e2) Updating Silverstripe logo to new logo (#75) (3Dgoo)
 
-    
+
 ### Bugfixes
 
 
@@ -180,7 +180,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2021-02-15 [c618b63](https://github.com/silverstripe/silverstripe-login-forms/commit/c618b63529730fb989f4d04179b222745129f54f) Avoid clipping of the Silverstripe CMS logo (Maxime Rainville)
     * 2021-01-21 [1ac3429](https://github.com/silverstripe/silverstripe-login-forms/commit/1ac342993dc40a48ecfd8b566efa18eea9372573) Allow title and form to resize independently (#81) (Garion Herman)
 
-    
+
 ### API Changes
 
 
@@ -202,7 +202,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
  * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0-beta2)
     * 2021-05-10 [1b75f27](https://github.com/silverstripe/silverstripe-elemental/commit/1b75f271f2a20924c10c1d769ee1dd8cf4cc1bdd) Bump requirements for graphql to 3.5 (Maxime Rainville)
 
-    
+
 ### Dependencies
 
 
@@ -321,7 +321,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2020-12-11 [9e097f4](https://github.com/silverstripe/silverstripe-login-forms/commit/9e097f45c815b606a6936a6cb23b47cd206231f1) Bump ini from 1.3.5 to 1.3.7 (dependabot[bot])
     * 2020-11-12 [c06130e](https://github.com/silverstripe/silverstripe-login-forms/commit/c06130e613fcf02c8a64fee37dc323c1766ec1b9) Bump dot-prop from 4.2.0 to 4.2.1 (dependabot[bot])
 
-    
+
 ### Documentation
 
 
@@ -383,7 +383,7 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2021-03-01 [a2e244b](https://github.com/silverstripe/silverstripe-elemental/commit/a2e244b5b9284d797039de1d881a6649dc7fa507) Update README to account for the transfer of the elemental repo form DNA to Silverstripe (Maxime Rainville)
     * 2020-10-01 [08fe692](https://github.com/silverstripe/silverstripe-elemental/commit/08fe692e6dcd0b792a9a10774e064c4a179ebb74) Docs: Example of how to add additional Elemental Areas. Fixes #759 (Chris Penny)
 
-    
+
 ### Other changes
 
 
@@ -714,6 +714,6 @@ This release includes [Silverstripe CMS Recipe version 4.8.0-beta1](#).
     * 2021-01-21 [f38beb9](https://github.com/silverstripe/silverstripe-login-forms/commit/f38beb964af88a277bec05f5a57da39c726e4541) Update build status badge (Steve Boyd)
     * 2020-11-06 [127532c](https://github.com/silverstripe/silverstripe-login-forms/commit/127532cdf67e21d6ff6ba492717dc849f55add4c) Setting form max width (Michael Nowina-Krowicki)
 
-    
+
 
 <!--- Changes above this line will be automatically regenerated -->
