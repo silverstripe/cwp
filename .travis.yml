@@ -2,7 +2,3 @@ version: ~> 1.0
 
 import:
   - silverstripe/silverstripe-travis-shared:config/provision/cwp-jobs-fixed.yml
-
-env:
-  global:
-    - REQUIRE_CWP_CWP_RECIPE_CMS="$COMPOSER_ROOT_VERSION"
