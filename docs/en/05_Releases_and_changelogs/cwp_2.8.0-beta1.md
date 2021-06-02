@@ -2,7 +2,7 @@
 
 ## Overview
 
-This release includes [Silverstripe CMS Recipe version 4.8.0-beta2](#).
+This release includes [Silverstripe CMS Recipe version 4.8.0-beta2](https://docs.silverstripe.org/en/4/changelogs/beta/4.8.0-beta1/).
 
 
 <!--- Changes below this line will be automatically regenerated -->
