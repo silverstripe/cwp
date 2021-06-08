@@ -2,7 +2,7 @@
 
 ## Overview
 
-This release includes [Silverstripe CMS Recipe version X.X.X](#).
+This release includes [Silverstripe CMS Recipe version 4.8.0](https://docs.silverstripe.org/en/4/changelogs/4.8.0/).
 
 
 Upgrading to Recipe 2.8.0 is recommended for all CWP sites. This upgrade can be carried out by any development team familiar with the Silverstripe CMS. However, if you would like Silverstripe and the CWP team's assistance, you can request support via the [Service Desk](https://www.cwp.govt.nz/service-desk/new-request/).
@@ -13,33 +13,46 @@ This release includes security fixes. Please see the release announcements for m
 descriptions of each but note that the following issues may have modified CVSS Environmental
 scores which take built-in protections from the CWP platform into account. We highly encourage upgrading CWP projects to include latest security patches nonetheless.
 
-We have provided a high-level severity rating of the vulnerabilities below based on the CVSS score, however please note this could vary based on the specifics of each project. You can [read the severity rating definitions in the Silverstripe CMS release process](https://docs.silverstripe.org/en/4/contributing/release_process/#severity-rating). 
+We have provided a high-level severity rating of the vulnerabilities below based on the CVSS score, however please note this could vary based on the specifics of each project. You can [read the severity rating definitions in the Silverstripe CMS release process](https://docs.silverstripe.org/en/4/contributing/release_process/#severity-rating).
 
- * [CVE-0000-0000 The Issue Title](https://www.silverstripe.org/download/security-releases/CVE-0000-0000) Severity:  * [CVE-0000-0001 The Issue Title](https://www.silverstripe.org/download/security-releases/CVE-0000-0001) Severity: 
+* [CVE-2020-26136 GraphQL doesn't honour MFA when using basic auth](https://www.silverstripe.org/download/security-releases/CVE-2020-26136) Severity: Medium
+* [CVE-2020-25817 XXE Vulnerability in CSSContentParser](https://www.silverstripe.org/download/security-releases/CVE-2020-25817) Severity: Low
+* [CVE-2020-26138 Validate custom multi-file uploads](https://www.silverstripe.org/download/security-releases/CVE-2020-26138) Severity: Low
+
 ## New features
 
-The [release announcement](#) includes the note worthy features, but be sure to review the change log for full detail.
+The [release announcement](https://www.cwp.govt.nz/updates/news/announcing-cwp-2-8/) includes the note worthy features, but be sure to review the change log for full detail.
 
-
-## Known issues
-
-
-### Expected test failures
-
-The following PHPUnit test failures are expected and do not represent functional issues in CWP:
-
+* [Support for silverstripe/graphql v4](https://docs.silverstripe.org/en/4/changelogs/4.8.0/#graphql-v4)
+* [Improvements to the login form template and signed in period](https://docs.silverstripe.org/en/4/changelogs/4.8.0/#default-period)
 
 ## Upgrading instructions
 
 In order to update an existing site to use the new CWP recipe the following changes to your composer.json can be made:
 
 ```
-...
+"require": {
+    "cwp/cwp-recipe-core": "2.8.0@stable",
+    "cwp/cwp-recipe-cms": "2.8.0@stable",
+    "silverstripe/recipe-blog": "1.8.0@stable",
+    "silverstripe/recipe-form-building": "1.8.0@stable",
+    "silverstripe/recipe-authoring-tools": "1.8.0@stable",
+    "silverstripe/recipe-collaboration": "1.8.0@stable",
+    "silverstripe/recipe-reporting-tools": "1.8.0@stable",
+    "cwp/cwp-recipe-search": "2.8.0@stable",
+    "silverstripe/recipe-services": "1.8.0@stable",
+    "tractorcow/silverstripe-fluent": "4.5.1@stable",
+    "silverstripe/registry": "2.3.0@stable",
+    "cwp/starter-theme": "3.2.0@stable"
+},
+"prefer-stable": true
 ```
 
+## Removed module
 
-...
+The [`bringyourownideas/silverstripe-composer-security-checker`](https://github.com/bringyourownideas/silverstripe-composer-security-checker) will no longer ship with CWP. While it's unusual for a module to be removed from CWP, `bringyourownideas/silverstripe-composer-security-checker` has been rendered useless by the end-of-life of [SensioLabs Security Check Web service](https://github.com/sensiolabs/security-checker)
 
+Read our [Supporting you in dependency vulnerability checks](https://www.silverstripe.org/blog/supporting-you-in-dependency-vulnerability-checks/) blog post for alternatives approaches.
 
 <!--- Changes below this line will be automatically regenerated -->
 
@@ -56,7 +69,7 @@ In order to update an existing site to use the new CWP recipe the following chan
  * silverstripe/graphql (3.4.1 -&gt; 3.5.0)
     * 2021-02-09 [149b4ed](https://github.com/silverstripe/silverstripe-graphql/commit/149b4ed074a7e46750287c22e08c91d421abe1cc) Disable basic-auth for graphql requests (Steve Boyd) - See [cve-2020-26136](https://www.silverstripe.org/download/security-releases/cve-2020-26136)
 
-    
+
 ### Features and Enhancements
 
 
@@ -125,7 +138,7 @@ In order to update an existing site to use the new CWP recipe the following chan
     * 2021-04-14 [5ebdbff](https://github.com/silverstripe/silverstripe-login-forms/commit/5ebdbff9e4d57ccca04a6e230e9bf62d54515e7a) Use popover for help icon (Steve Boyd)
     * 2021-01-21 [1449aac](https://github.com/silverstripe/silverstripe-login-forms/commit/1449aac66db602b032dca50c90b6d04cd6aff3e2) Updating Silverstripe logo to new logo (#75) (3Dgoo)
 
-    
+
 ### Bugfixes
 
 
@@ -231,7 +244,7 @@ In order to update an existing site to use the new CWP recipe the following chan
     * 2021-02-15 [c618b63](https://github.com/silverstripe/silverstripe-login-forms/commit/c618b63529730fb989f4d04179b222745129f54f) Avoid clipping of the Silverstripe CMS logo (Maxime Rainville)
     * 2021-01-21 [1ac3429](https://github.com/silverstripe/silverstripe-login-forms/commit/1ac342993dc40a48ecfd8b566efa18eea9372573) Allow title and form to resize independently (#81) (Garion Herman)
 
-    
+
 ### API Changes
 
 
@@ -253,7 +266,7 @@ In order to update an existing site to use the new CWP recipe the following chan
  * dnadesign/silverstripe-elemental (4.5.0 -&gt; 4.6.0)
     * 2021-05-10 [1b75f27](https://github.com/silverstripe/silverstripe-elemental/commit/1b75f271f2a20924c10c1d769ee1dd8cf4cc1bdd) Bump requirements for graphql to 3.5 (Maxime Rainville)
 
-    
+
 ### Dependencies
 
 
@@ -376,7 +389,7 @@ In order to update an existing site to use the new CWP recipe the following chan
     * 2020-12-11 [9e097f4](https://github.com/silverstripe/silverstripe-login-forms/commit/9e097f45c815b606a6936a6cb23b47cd206231f1) Bump ini from 1.3.5 to 1.3.7 (dependabot[bot])
     * 2020-11-12 [c06130e](https://github.com/silverstripe/silverstripe-login-forms/commit/c06130e613fcf02c8a64fee37dc323c1766ec1b9) Bump dot-prop from 4.2.0 to 4.2.1 (dependabot[bot])
 
-    
+
 ### Documentation
 
 
@@ -440,7 +453,7 @@ In order to update an existing site to use the new CWP recipe the following chan
     * 2021-03-01 [a2e244b](https://github.com/silverstripe/silverstripe-elemental/commit/a2e244b5b9284d797039de1d881a6649dc7fa507) Update README to account for the transfer of the elemental repo form DNA to Silverstripe (Maxime Rainville)
     * 2020-10-01 [08fe692](https://github.com/silverstripe/silverstripe-elemental/commit/08fe692e6dcd0b792a9a10774e064c4a179ebb74) Docs: Example of how to add additional Elemental Areas. Fixes #759 (Chris Penny)
 
-    
+
 ### Other changes
 
 
@@ -760,7 +773,7 @@ In order to update an existing site to use the new CWP recipe the following chan
     * 2021-01-27 [e37ae98](https://github.com/silverstripe/silverstripe-elemental/commit/e37ae980cdda1640d5675397af968624c85219f7) Compatibility with GraphQL 4 changes (Aaron Carlino)
     * 2021-01-19 [1942f5c](https://github.com/silverstripe/silverstripe-elemental/commit/1942f5c87a01592d8b7ab564cfaf97cf223b2628) Compatibility with new context providers, build state API changes (Aaron Carlino)
     * 2021-01-11 [11a3d4e](https://github.com/silverstripe/silverstripe-elemental/commit/11a3d4e992fe545a93f21f5b1af9965b5abcb447) Add an extension point to BaseElement::AbsoluteLink() (Chris Penny)
-    * 2020-12-15 [5724dc8](https://github.com/silverstripe/silverstripe-elemental/commit/5724dc874ba05ee09376ed576d2a35f4cd2d6f22) `UGFIX: Numerous drag-and-drop issues (#853) (Aaron Carlino)
+    * 2020-12-15 [5724dc8](https://github.com/silverstripe/silverstripe-elemental/commit/5724dc874ba05ee09376ed576d2a35f4cd2d6f22) BUGFIX: Numerous drag-and-drop issues (#853) (Aaron Carlino)
     * 2020-11-13 [2d13336](https://github.com/silverstripe/silverstripe-elemental/commit/2d133365acc4eaddb6e1343d6c7a24e357d00198) Remove classmap (Aaron Carlino)
     * 2020-11-13 [9687539](https://github.com/silverstripe/silverstripe-elemental/commit/96875399491754ece34601293284efc06ac4141c) Move graphql legacy code to _legacy for PSR-4 compat (Aaron Carlino)
     * 2020-09-24 [364909f](https://github.com/silverstripe/silverstripe-elemental/commit/364909fdf3c521ef9d494355256cc56b999c2ed7) Add config option to disable ShowTitle option. (Will Rossiter)
@@ -796,6 +809,6 @@ In order to update an existing site to use the new CWP recipe the following chan
     * 2021-01-21 [f38beb9](https://github.com/silverstripe/silverstripe-login-forms/commit/f38beb964af88a277bec05f5a57da39c726e4541) Update build status badge (Steve Boyd)
     * 2020-11-06 [127532c](https://github.com/silverstripe/silverstripe-login-forms/commit/127532cdf67e21d6ff6ba492717dc849f55add4c) Setting form max width (Michael Nowina-Krowicki)
 
-    
+
 
 <!--- Changes above this line will be automatically regenerated -->
