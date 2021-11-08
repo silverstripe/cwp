@@ -26,10 +26,10 @@ class PopulateThemeSampleDataTaskTest extends SapphireTest
         $task = new PopulateThemeSampleDataTask;
 
         // Run the task
-        $this->assertContains($createdMessage, $this->bufferedTask($task));
+        $this->assertStringContainsString($createdMessage, $this->bufferedTask($task));
 
         // Run a second time
-        $this->assertNotContains($createdMessage, $this->bufferedTask($task));
+        $this->assertStringNotContainsString($createdMessage, $this->bufferedTask($task));
 
         // Change the page name
         $form = UserDefinedForm::get()->filter('URLSegment', 'contact')->first();
@@ -37,11 +37,11 @@ class PopulateThemeSampleDataTaskTest extends SapphireTest
         $form->write();
 
         // Ensure the old version is still detected in draft, so not recreated
-        $this->assertNotContains($createdMessage, $this->bufferedTask($task));
+        $this->assertStringNotContainsString($createdMessage, $this->bufferedTask($task));
 
         // Delete the page, then ensure it's recreated again (DataObject::delete will remove staged versions)
         $form->delete();
-        $this->assertContains($createdMessage, $this->bufferedTask($task));
+        $this->assertStringContainsString($createdMessage, $this->bufferedTask($task));
     }
 
     /**

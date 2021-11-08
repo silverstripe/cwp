@@ -13,7 +13,7 @@ class SitemapPageTest extends FunctionalTest
 
     protected static $use_draft_site = true;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

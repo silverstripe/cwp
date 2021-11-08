@@ -13,7 +13,7 @@ class CwpStatsReportTest extends SapphireTest
 {
     protected static $fixture_file = 'CwpStatsReportTest.yml';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         Config::modify()->set(SiteTree::class, 'create_default_pages', false);
 
