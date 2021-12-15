@@ -6,6 +6,7 @@ use CWP\CWP\PageTypes\EventHolder;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Dev\FunctionalTest;
 use SilverStripe\View\SSViewer;
+use SilverStripe\ORM\DB;
 
 class DatedUpdateHolderControllerTest extends FunctionalTest
 {
@@ -24,6 +25,9 @@ class DatedUpdateHolderControllerTest extends FunctionalTest
 
     public function testSettingDateFiltersInReverseOrderShowsMessage()
     {
+        if (!$this->isRunningMySQL()) {
+            $this->markTestSkipped('Not running MySQL');
+        }
         /** @var EventHolder $holder */
         $holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
@@ -34,6 +38,9 @@ class DatedUpdateHolderControllerTest extends FunctionalTest
 
     public function testSettingFromButNotToDateShowsMessage()
     {
+        if (!$this->isRunningMySQL()) {
+            $this->markTestSkipped('Not running MySQL');
+        }
         /** @var EventHolder $holder */
         $holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
@@ -44,9 +51,21 @@ class DatedUpdateHolderControllerTest extends FunctionalTest
 
     public function testInvalidDateFormat()
     {
+        if (!$this->isRunningMySQL()) {
+            $this->markTestSkipped('Not running MySQL');
+        }
         /** @var EventHolder $holder */
         $holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
         $result = $this->get($holder->Link() . '?from=christmas&to=2018-01-10');
         $this->assertStringContainsString(htmlentities('Dates must be in "y-MM-dd" format.'), $result->getBody());
+    }
+
+    /**
+     * CWP was only designed to run on MySQL, will fail on PGSQL in CI due to DatedUpdateHolder::ExtractMonths()
+     * using date functions that don't work in PGSQL
+     */
+    private function isRunningMySQL()
+    {
+        return strpos(strtolower(get_class(DB::get_connector())), 'mysql') !== false;
     }
 }
