@@ -5,6 +5,7 @@ namespace CWP\CWP\Tests\PageTypes;
 use CWP\CWP\PageTypes\EventHolder;
 use SilverStripe\Dev\SapphireTest;
 use SilverStripe\Taxonomy\TaxonomyTerm;
+use SilverStripe\ORM\DB;
 
 class EventHolderTest extends SapphireTest
 {
@@ -68,6 +69,12 @@ class EventHolderTest extends SapphireTest
 
     public function testExtractMonths()
     {
+        // skip test on PGSQL CI, CWP was only designed to work on MySQL
+        // DatedUpdateHolder::ExtractMonths contains date functions e.g. YEAR("Date") which don't work in PGSQL
+        if (strpos(strtolower(get_class(DB::get_connector())), 'mysql') === false) {
+            $this->markTestSkipped('Not running MySQL');
+        }
+
         $holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
         $months = EventHolder::ExtractMonths(
