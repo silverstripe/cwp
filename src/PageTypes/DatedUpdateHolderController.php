@@ -92,9 +92,9 @@ class DatedUpdateHolderController extends PageController
 
         if ($params['from'] || $params['to']) {
             if ($params['from']) {
-                $from = strtotime($params['from']);
+                $from = strtotime($params['from'] ?? '');
                 if ($params['to']) {
-                    $to = strtotime($params['to']);
+                    $to = strtotime($params['to'] ?? '');
                     $filters[] = _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.FILTER_BETWEEN', 'between') . ' '
                         . date('j/m/Y', $from) . ' and ' . date('j/m/Y', $to);
                 } else {
@@ -102,7 +102,7 @@ class DatedUpdateHolderController extends PageController
                         . ' ' . date('j/m/Y', $from);
                 }
             } else {
-                $to = strtotime($params['to']);
+                $to = strtotime($params['to'] ?? '');
                 $filters[] = _t('CWP\\CWP\\PageTypes\\DatedUpdateHolder.FILTER_ON', 'on')
                     . ' ' . date('j/m/Y', $to);
             }
@@ -164,13 +164,13 @@ class DatedUpdateHolderController extends PageController
         }
         try {
             if (isset($from)) {
-                $from = urldecode($from);
+                $from = urldecode($from ?? '');
                 $parser = DBDatetime::create();
                 $parser->setValue($from);
                 $from = $parser->Format('y-MM-dd');
             }
             if (isset($to)) {
-                $to = urldecode($to);
+                $to = urldecode($to ?? '');
                 $parser = DBDatetime::create();
                 $parser->setValue($to);
                 $to = $parser->Format('y-MM-dd');
@@ -196,7 +196,7 @@ class DatedUpdateHolderController extends PageController
         }
 
         // Flip the dates if the order is wrong.
-        if (isset($to) && isset($from) && strtotime($from) > strtotime($to)) {
+        if (isset($to) && isset($from) && strtotime($from ?? '') > strtotime($to ?? '')) {
             list($to, $from) = [$from, $to];
 
             if ($produceErrorMessages) {
