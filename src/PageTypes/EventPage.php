@@ -87,6 +87,6 @@ class EventPage extends DatedUpdatePage
 
     public function NiceLocation()
     {
-        return nl2br(Convert::raw2xml($this->Location), true);
+        return nl2br(Convert::raw2xml($this->Location) ?? '', true);
     }
 }
