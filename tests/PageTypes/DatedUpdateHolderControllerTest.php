@@ -5,6 +5,7 @@ namespace CWP\CWP\Tests\PageTypes;
 use CWP\CWP\PageTypes\EventHolder;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Dev\FunctionalTest;
+use SilverStripe\ORM\Connect\PDOConnector;
 use SilverStripe\View\SSViewer;
 use SilverStripe\ORM\DB;
 
@@ -66,6 +67,7 @@ class DatedUpdateHolderControllerTest extends FunctionalTest
      */
     private function isRunningMySQL()
     {
-        return strpos(strtolower(get_class(DB::get_connector())), 'mysql') !== false;
+        $connector = DB::get_connector();
+        return strpos(strtolower(get_class($connector)), 'mysql') !== false || $connector instanceof PDOConnector;
     }
 }

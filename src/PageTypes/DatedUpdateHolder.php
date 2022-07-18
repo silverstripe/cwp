@@ -92,12 +92,12 @@ class DatedUpdateHolder extends Page
         $monthNumber = null
     ) {
         $items = $className::get();
-        // If there is an error, don't try to filter the list as it will result in a DB exception for some DB types/versions.
-        if (
-            Controller::has_curr()
+        // If there is an error, don't try to filter the list as it will result in a DB exception for some
+        // DB types/versions.
+        if (Controller::has_curr()
             && (Controller::curr()->hasMethod('requestHasBadDates'))
-            && Controller::curr()->requestHasBadDates())
-        {
+            && Controller::curr()->requestHasBadDates()
+        ) {
             return $items->filter('ID', null) ;
         }
 
