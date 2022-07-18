@@ -5,6 +5,7 @@ namespace CWP\CWP\PageTypes;
 use DateTime;
 use Page;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;
 use SilverStripe\Control\HTTP;
 use SilverStripe\Core\Config\Config;
@@ -90,8 +91,16 @@ class DatedUpdateHolder extends Page
         $year = null,
         $monthNumber = null
     ) {
-
         $items = $className::get();
+        // If there is an error, don't try to filter the list as it will result in a DB exception for some DB types/versions.
+        if (
+            Controller::has_curr()
+            && (Controller::curr()->hasMethod('requestHasBadDates'))
+            && Controller::curr()->requestHasBadDates())
+        {
+            return $items->filter('ID', null) ;
+        }
+
         $dbTableName = DataObject::getSchema()->tableForField($className, 'Date');
         if (!$dbTableName) {
             $dbTableName = DatedUpdatePage::class;

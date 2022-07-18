@@ -54,6 +54,11 @@ class DatedUpdateHolderController extends PageController
     const TEMP_FORM_MESSAGE = __CLASS__ . '.TempFormMessage';
 
     /**
+     * Used to indicate bad dates have been provided in this request, so that DB queries can be avoided.
+     */
+    private bool $requestHasBadDates = false;
+
+    /**
      * Get the meta title for the current action
      *
      * @return string
@@ -137,6 +142,7 @@ class DatedUpdateHolderController extends PageController
      */
     public function parseParams($produceErrorMessages = true)
     {
+        $this->requestHasBadDates = false;
         $tag = $this->request->getVar('tag');
         $from = $this->request->getVar('from');
         $to = $this->request->getVar('to');
@@ -177,6 +183,7 @@ class DatedUpdateHolderController extends PageController
             }
         } catch (InvalidArgumentException $e) {
             if ($produceErrorMessages) {
+                $this->requestHasBadDates = true;
                 $this->getRequest()->getSession()->set(self::TEMP_FORM_MESSAGE, _t(
                     __CLASS__ . '.InvalidDateFormat',
                     'Dates must be in "y-MM-dd" format.'
@@ -400,5 +407,14 @@ class DatedUpdateHolderController extends PageController
             $this->getSubscriptionTitle()
         );
         return $atom->outputToBrowser();
+    }
+
+    /**
+     * The request has had an error that can result in a DB exception
+     * if filtering by the dates provided.
+     */
+    public function requestHasBadDates(): bool
+    {
+        return $this->requestHasBadDates;
     }
 }
