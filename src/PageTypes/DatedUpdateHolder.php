@@ -5,11 +5,13 @@ namespace CWP\CWP\PageTypes;
 use DateTime;
 use Page;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;
 use SilverStripe\Control\HTTP;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Convert;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\Connect\DatabaseException;
 use SilverStripe\ORM\DataList;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\PaginatedList;
@@ -146,6 +148,15 @@ class DatedUpdateHolder extends Page
             ));
         }
 
+        try {
+            // Try running query inside try/catch block to handle any invalid date format
+            $items->dataQuery()->execute();
+        } catch (DatabaseException $e) {
+            self::handleInvalidDateFormat($e);
+            // Ensure invalid SQL does not get run again
+            $items = $className::get()->limit(0);
+        }
+
         // Unpaginated DataList.
         return $items;
     }
@@ -185,20 +196,25 @@ class DatedUpdateHolder extends Page
             $link = Director::makeRelative($_SERVER['REQUEST_URI']);
         }
 
-        $dates = $updates->dataQuery()
-            ->groupby('YEAR("Date")')
-            ->groupby('MONTH("Date")')
-            ->query()
-            ->setSelect([
-                'Year' => 'YEAR("Date")',
-                'Month' => 'MONTH("Date")',
-            ])
-            ->addWhere('"Date" IS NOT NULL')
-            ->setOrderBy([
-                'YEAR("Date")' => 'DESC',
-                'MONTH("Date")' => 'DESC',
-            ])
-            ->execute();
+        $dates = [];
+        try {
+            $dates = $updates->dataQuery()
+                ->groupby('YEAR("Date")')
+                ->groupby('MONTH("Date")')
+                ->query()
+                ->setSelect([
+                    'Year' => 'YEAR("Date")',
+                    'Month' => 'MONTH("Date")',
+                ])
+                ->addWhere('"Date" IS NOT NULL')
+                ->setOrderBy([
+                    'YEAR("Date")' => 'DESC',
+                    'MONTH("Date")' => 'DESC',
+                ])
+                ->execute();
+        } catch (DatabaseException $e) {
+            self::handleInvalidDateFormat($e);
+        }
 
         $years = [];
         foreach ($dates as $date) {
@@ -259,5 +275,20 @@ class DatedUpdateHolder extends Page
     public function getSubscriptionTitle()
     {
         return $this->Title;
+    }
+
+    private static function handleInvalidDateFormat(DatabaseException $e): void
+    {
+        $controller = Controller::curr();
+        if ($controller instanceof DatedUpdateHolderController &&
+            strpos($e->getMessage(), 'Incorrect DATETIME value') !== false
+        ) {
+            $controller->getRequest()->getSession()->set(DatedUpdateHolderController::TEMP_FORM_MESSAGE, _t(
+                DatedUpdateHolderController::class . '.InvalidDateFormat',
+                'Dates must be in "y-MM-dd" format.'
+            ));
+        } else {
+            throw $e;
+        }
     }
 }
