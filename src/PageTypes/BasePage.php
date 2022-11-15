@@ -2,6 +2,7 @@
 
 namespace CWP\CWP\PageTypes;
 
+use SilverStripe\Dev\Deprecation;
 use CWP\CWP\Model\RelatedPageLink;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\FieldList;
@@ -95,10 +96,11 @@ class BasePage extends SiteTree
     }
 
     /**
-     * @deprecated 2.2.0:3.0.0 Please use RelatedPagesThrough() instead
+     * @deprecated 2.2.0 Use RelatedPagesThrough() instead
      */
     public function RelatedPages()
     {
+        Deprecation::notice('2.2.0', 'Use RelatedPagesThrough() instead');
         return $this->getManyManyComponents('RelatedPagesThrough');
     }
 
