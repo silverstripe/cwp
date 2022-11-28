@@ -154,7 +154,7 @@ class DatedUpdateHolder extends Page
         } catch (DatabaseException $e) {
             self::handleInvalidDateFormat($e);
             // Ensure invalid SQL does not get run again
-            $items = $className::get()->limit(0);
+            $items = $className::get()->limit(null);
         }
 
         // Unpaginated DataList.

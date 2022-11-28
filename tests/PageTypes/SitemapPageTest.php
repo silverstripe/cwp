@@ -18,7 +18,6 @@ class SitemapPageTest extends FunctionalTest
         parent::setUp();
 
         Config::modify()->set(SSViewer::class, 'themes', ['starter', '$default']);
-        Config::modify()->set(SSViewer::class, 'theme', 'starter');
     }
 
     /**

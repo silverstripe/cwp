@@ -20,7 +20,6 @@ class DatedUpdateHolderControllerTest extends FunctionalTest
 
         // Note: this test requires the starter theme to be installed
         Config::modify()->set(SSViewer::class, 'themes', ['starter', '$default']);
-        Config::modify()->set(SSViewer::class, 'theme', 'starter');
     }
 
     public function testSettingDateFiltersInReverseOrderShowsMessage()

@@ -95,12 +95,8 @@ class BasePage extends SiteTree
         return FooterHolder::get_one(FooterHolder::class);
     }
 
-    /**
-     * @deprecated 2.2.0 Use RelatedPagesThrough() instead
-     */
     public function RelatedPages()
     {
-        Deprecation::notice('2.2.0', 'Use RelatedPagesThrough() instead');
         return $this->getManyManyComponents('RelatedPagesThrough');
     }
 
