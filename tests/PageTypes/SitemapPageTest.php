@@ -25,7 +25,8 @@ class SitemapPageTest extends FunctionalTest
      */
     public function testSitemapShowsNavigationTitleNotNormalTitle()
     {
-        $response = $this->get('sitemap');
+        $this->logInWithPermission('VIEW_DRAFT_CONTENT');
+        $response = $this->get('sitemap?stage=Stage');
         $parser = new CSSContentParser($response->getBody());
         $elements = $parser->getBySelector('.sitemap li.first .sitemap-link');
         $this->assertNotEmpty($elements);
