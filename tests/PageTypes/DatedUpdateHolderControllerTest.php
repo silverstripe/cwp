@@ -30,7 +30,8 @@ class DatedUpdateHolderControllerTest extends FunctionalTest
         /** @var EventHolder $holder */
         $holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
-        $result = $this->get($holder->Link() . '?from=2018-01-10&to=2018-01-01');
+        $this->logInWithPermission('VIEW_DRAFT_CONTENT');
+        $result = $this->get($holder->Link() . '?stage=Stage' . '&from=2018-01-10&to=2018-01-01');
 
         $this->assertStringContainsString('Filter has been applied with the dates reversed', $result->getBody());
     }
@@ -43,7 +44,8 @@ class DatedUpdateHolderControllerTest extends FunctionalTest
         /** @var EventHolder $holder */
         $holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
 
-        $result = $this->get($holder->Link() . '?from=2018-01-10');
+        $this->logInWithPermission('VIEW_DRAFT_CONTENT');
+        $result = $this->get($holder->Link() . '?stage=Stage' . '&from=2018-01-10');
 
         $this->assertStringContainsString('Filtered by a single date', $result->getBody());
     }
@@ -55,7 +57,9 @@ class DatedUpdateHolderControllerTest extends FunctionalTest
         }
         /** @var EventHolder $holder */
         $holder = $this->objFromFixture(EventHolder::class, 'EventHolder1');
-        $result = $this->get($holder->Link() . '?from=christmas&to=2018-01-10');
+
+        $this->logInWithPermission('VIEW_DRAFT_CONTENT');
+        $result = $this->get($holder->Link() . '?stage=Stage' . '&from=christmas&to=2018-01-10');
         $this->assertStringContainsString(htmlentities('Dates must be in "y-MM-dd" format.'), $result->getBody());
     }
 
