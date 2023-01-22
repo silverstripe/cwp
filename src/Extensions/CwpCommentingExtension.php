@@ -10,7 +10,6 @@ use SilverStripe\Forms\Form;
  * Customises the comment form to conform to government usability standards
  *
  * {@see CommentingController}
- * @skipUpgrade
  */
 class CwpCommentingExtension extends Extension
 {
