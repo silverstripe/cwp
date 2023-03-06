@@ -1,0 +1,24 @@
+fi_FI:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Sähköposti
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Muokkaa
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Nimi
+    SortOrderLabel: Järjestys
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Lisää uusi'
+    FeatureContentFieldLabel: Sisältö
+    Title: Otsikko
+  CWP\CWP\PageTypes\BasePage:
+    ColumnTitle: Otsikko
+    PLURALNAME: Pohjasivut
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Kirjoittaja
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Tyhjennä
+    Filter: Suodatin
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: PVM
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Nimi

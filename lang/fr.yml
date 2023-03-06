@@ -1,8 +1,35 @@
 fr:
   CWP\CWP\PageTypes\BaseHomePage:
     Title: Titre
+    AddNewButton: Ajouter
+    FeatureContentFieldLabel: Contenu
   CWP\CWP\PageTypes\BasePage:
     ColumnTitle: Titre
     TagsTabTitle: Tags
+    ColumnPageType: 'Type de page'
+    PLURALNAME: 'Base Pages'
   CWP\CWP\PageTypes\DatedUpdatePage:
     AuthorFieldLabel: Auteur
+    DateLabel: Date
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Email
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Cette liste affiche toutes les pages où le fichier a été ajouté via l''éditeur WYSIWYG.'
+    EDIT: Éditer
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Nom
+    ParentRelationLabel: Parent
+    SortOrderLabel: 'Ordre de tri'
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Auteur
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_IN: dans
+    FILTER_ON: sur
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Effacer
+    Filter: Filtrer
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Nom
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Utilisé dans:'
+    PAGES: page(s)

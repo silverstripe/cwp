@@ -1,0 +1,26 @@
+sr_RS@latin:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: E-pošta
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Izmeni
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Ime
+    SortOrderLabel: 'Poredak sortiranja'
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Dodaj novu'
+    FeatureContentFieldLabel: Sadržaj
+    Title: Naslov
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Tip stranice'
+    ColumnTitle: Naslov
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autor
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: Filter
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Datum
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Ime
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Koristi se na:'
+    PAGES: stranici(a)

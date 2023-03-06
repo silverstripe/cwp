@@ -22,11 +22,15 @@ mi:
     FeatureLink: 'Whārangi hono ki'
     LearnMoreLink: 'Whārangi hono i te pātene "Ako Anō" ki:'
     Title: Taitara
+    FeatureOne: 'Whakaaturanga Tuatahi'
+    FeatureTwo: 'Whakaaturanga Tuarua'
   CWP\CWP\PageTypes\BasePage:
     PLURALNAME: 'Ngā Whārangi Taketake'
     RelatedPages: 'Ngā whārangi pāhono'
     SINGULARNAME: 'Whārangi Taketake'
     Terms: 'Ngā Ture'
+    ColumnPageType: 'Momo wharangi '
+    ColumnTitle: Taitara
   CWP\CWP\PageTypes\DatedUpdateHolder:
     PLURALNAME: 'Ngā Whārangi Taketake'
     SINGULARNAME: 'Pūpupuri Whakahōu Whai Rā'
@@ -56,3 +60,27 @@ mi:
   CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 'Ka whakarārangi i ngā whārangi katoa i te pae'
     SINGULARNAME: 'Whārangi Maherepae'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Īmēra
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Whakatika
+  CWP\CWP\Model\RelatedPageLink:
+    PLURALNAME: 'Ngā Hononga Whārangi Pāhono'
+    SINGULARNAME: 'Hononga Whārangi Pāhono'
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Kaituhi
+    EndTimeFieldLabel: 'Wā Mutu'
+    FeaturedImageFieldLabel: 'Atahanga Kua Whakaaturia'
+    LocationFieldLabel: Tauwāhi
+    StartTimeFieldLabel: 'Wā Tīmata'
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    DateRangeFilterMessage: 'I tātaritia mā te rā kotahi.'
+    Filter: Tātari
+    FilterAppliedMessage: 'Kua hoatu te tātari engari kua kōarotia ngā rā.'
+  CWP\CWP\PageTypes\EventHolderController:
+    Upcoming: 'Ngā takahanga taumai'
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Ingoa
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'I whakamahia i:'
+    PAGES: 'te/ngā whārangi'

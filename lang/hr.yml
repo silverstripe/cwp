@@ -1,0 +1,33 @@
+hr:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Email
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Ova lista pokazuje sve stranice gdje je datoteka dodana kroz WYSIWYG editor.'
+    EDIT: Uredi
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Naziv
+    ParentRelationLabel: Roditelj
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Dodaj novi'
+    FeatureContentFieldLabel: Sadržaj
+    Title: Naslov
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Tip stranice'
+    ColumnTitle: Naslov
+    PLURALNAME: 'Osnovne stranice'
+    TagsTabTitle: Tagovi
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autor
+    FeaturedImageFieldLabel: 'Izdvojena slika'
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_ON: na
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Očisti
+    Filter: Filter
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Datum
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Naziv
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Korišteno na:'
+    PAGES: stranica(e)

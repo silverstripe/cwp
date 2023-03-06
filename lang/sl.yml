@@ -1,0 +1,29 @@
+sl:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: E-pošta
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Ta seznam prikazuje vse strani, kjer so bile datoteke dodane s pomočjo WYSIWYG urejevalnika.'
+    EDIT: Uredi
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Ime
+    SortOrderLabel: 'Način razvrščanja'
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: Dodaj
+    FeatureContentFieldLabel: Vsebina
+    Title: Naziv
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Tip strani'
+    ColumnTitle: Naziv
+    PLURALNAME: 'Izvorna stran'
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Avtor
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Ponastavi
+    Filter: Filter
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Datum
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Ime
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Uporabljeno na:'
+    PAGES: Stran/Strani

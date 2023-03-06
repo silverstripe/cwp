@@ -1,0 +1,32 @@
+pl:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Email
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Zmień
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Nazwa
+    SortOrderLabel: 'Kolejność Sortowania'
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: Dodaj
+    FeatureContentFieldLabel: Zawartość
+    Title: Tytuł
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Rodzaj strony'
+    ColumnTitle: Tytuł
+    PLURALNAME: 'Podstawowe strony'
+    TagsTabTitle: 'Tagi:'
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autor
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_IN: w
+    FILTER_ON: Opublikowano
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Wyczyść
+    Filter: Filtr
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Data
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Nazwa
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Używany na:'
+    PAGES: stron(y)

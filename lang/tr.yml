@@ -1,0 +1,28 @@
+tr:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Eposta
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Edit
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Ad
+    SortOrderLabel: Sırala
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Yeni ekle'
+    FeatureContentFieldLabel: İçerik
+    Title: Başlık
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Sayfa Tipi'
+    ColumnTitle: Başlık
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Yazar
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_IN: ':'
+    FILTER_ON: üzerinde
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: Filtre
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Tarih
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Ad
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    PAGES: sayfa(lar)
