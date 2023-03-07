@@ -1,0 +1,32 @@
+cs:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: E-mail
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Seznam zobrazuje všechny stránky, kde byl soubor přidán pomocí WYSIWYG editoru.'
+    EDIT: Editovat
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Jméno
+    SortOrderLabel: Řazení
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Přidat nový'
+    FeatureContentFieldLabel: Obsah
+    Title: Název
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Typ stránky'
+    ColumnTitle: Název
+    PLURALNAME: 'Základní stránky'
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autor
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_IN: v
+    FILTER_ON: v
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Vyčistit
+    Filter: Filtr
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Datum
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Jméno
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Použito na:'
+    PAGES: stránka(y)

@@ -1,0 +1,21 @@
+uk:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Е-пошта
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Edit
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Додати новий'
+    FeatureContentFieldLabel: Вміст
+    Title: Назва
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Тип сторінки'
+    ColumnTitle: Назва
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Автор
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: Фільтр
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Дата
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Використовується в:'
+    PAGES: сторінка(и)

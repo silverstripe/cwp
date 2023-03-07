@@ -1,0 +1,30 @@
+es_MX:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Email
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Editar
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Nombre
+    SortOrderLabel: 'Orden de Clasificación'
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: Agregar
+    FeatureContentFieldLabel: Contenido
+    Title: Título
+  CWP\CWP\PageTypes\BasePage:
+    ColumnTitle: Título
+    PLURALNAME: 'User Defined Forms'
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autor
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_IN: en
+    FILTER_ON: en
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Limpiar
+    Filter: Filtrar
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Fecha
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Nombre
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Usado en:'
+    PAGES: Página(s)

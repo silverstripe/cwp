@@ -1,0 +1,26 @@
+ro:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: E-mail
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Editare
+  CWP\CWP\Model\Quicklink:
+    ParentRelationLabel: Părinte
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Adăugaţi o nouă'
+    FeatureContentFieldLabel: Continut
+    Title: Titlu
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Tip pagină'
+    ColumnTitle: Titlu
+    TagsTabTitle: Etichete
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autor
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_ON: pe
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: Filtru
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Data
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Folosit la'
+    PAGES: pagină(pagini)

@@ -1,18 +1,44 @@
 it:
   CWP\CWP\Model\Quicklink:
     ParentRelationLabel: Parente
+    NameLabel: Nome
+    SortOrderLabel: 'Tipo ordinamento'
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Aggiungi nuova'
     FeatureContentFieldLabel: Contenuto
     PLURALNAME: 'Pagine Principali'
     Title: Titolo
+    FeatureOne: 'Funzione Uno'
   CWP\CWP\PageTypes\BasePage:
     ColumnTitle: Titolo
+    ColumnPageType: 'Tipo di pagina'
+    PLURALNAME: 'Pagine Base'
+    TagsTabTitle: Etichette
   CWP\CWP\PageTypes\DatedUpdatePage:
     AuthorFieldLabel: Autore
+    DateLabel: Data
   CWP\CWP\PageTypes\FooterHolder:
     PLURALNAME: 'Footer Holder'
   CWP\CWP\PageTypes\NewsHolder:
     SINGULARNAME: 'Holder Notizie'
   CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 'Lista tutte le pagine sul sito'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: E-mail
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Questo elenco mostra tutte le pagine dove il file è stato aggiunto con l''editor WYSIWYG.'
+    EDIT: Modifica
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autore
+    FeaturedImageFieldLabel: 'Immagine in Evidenza'
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_IN: in
+    FILTER_ON: il
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Azzera
+    Filter: Filtra
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Nome
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Usato in:'
+    PAGES: pagina(e)

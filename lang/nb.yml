@@ -1,0 +1,30 @@
+nb:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Epost
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Denne liste viser alle sider med filer lastet opp gjennom en WYSIWYG-editor.'
+    EDIT: Rediger
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Navn
+    SortOrderLabel: Sorteringsrekkefølge
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Opprett ny'
+    FeatureContentFieldLabel: Innhold
+    Title: Tittel
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: Sidetype
+    ColumnTitle: Tittel
+    TagsTabTitle: Tags
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Forfatter
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_IN: i
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: Filtrer
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Dato
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Navn
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Brukt på:'
+    PAGES: side(r)

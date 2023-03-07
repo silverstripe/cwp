@@ -48,3 +48,29 @@ es:
     DESCRIPTION: 'Lista todas las páginas del sitio'
     PLURALNAME: 'Páginas de mapa del sitio'
     SINGULARNAME: 'Página de mapa del sitio'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: 'Correo electrónico'
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'esta lista muestra todas las páginas donde se agregó el archivo mediante un editor WYSIWYG.'
+    EDIT: Editar
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autor
+    EndTimeFieldLabel: 'Hora de fin'
+    FeaturedImageFieldLabel: 'Imagen Destacada'
+    LocationFieldLabel: Ubicación
+    StartTimeFieldLabel: 'Hora de inicio'
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_IN: en
+    FILTER_ON: en
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Limpiar
+    DateRangeFilterMessage: 'Filtrado por una sola fecha.'
+    Filter: Filtrar
+    FilterAppliedMessage: 'El filtro se aplicó con las fechas invertidas.'
+  CWP\CWP\PageTypes\EventHolderController:
+    Upcoming: 'Próximos eventos'
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Nombre
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Usado en:'
+    PAGES: página(s)

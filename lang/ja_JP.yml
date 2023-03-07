@@ -1,0 +1,25 @@
+ja_JP:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: メールアドレス
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Edit
+  CWP\CWP\Model\Quicklink:
+    NameLabel: 名前
+    SortOrderLabel: 並び順
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 新しく追加
+    FeatureContentFieldLabel: 内容
+    Title: タイトル
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: ページの種類
+    ColumnTitle: タイトル
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: 作成者
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: フィルタ
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: 日付
+  CWP\CWP\Report\CwpStatsReport:
+    Name: 名前
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    PAGES: ページ
