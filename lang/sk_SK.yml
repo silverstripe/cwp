@@ -1,0 +1,21 @@
+sk_SK:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: E-mail
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Edit
+  CWP\CWP\Model\Quicklink:
+    ParentRelationLabel: Rodič
+  CWP\CWP\PageTypes\BaseHomePage:
+    FeatureContentFieldLabel: Obsah
+    Title: Názov
+  CWP\CWP\PageTypes\BasePage:
+    ColumnTitle: Názov
+    PLURALNAME: 'Základné stránky'
+    TagsTabTitle: Štítky
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autor
+    FeaturedImageFieldLabel: 'Hlavný obrázok'
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_ON: na
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Dátum

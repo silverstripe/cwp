@@ -1,0 +1,22 @@
+is:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Tölvupóstur
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Breyta
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Nafn
+    SortOrderLabel: Röðun
+  CWP\CWP\PageTypes\BaseHomePage:
+    FeatureContentFieldLabel: Efni
+    Title: Titill
+  CWP\CWP\PageTypes\BasePage:
+    ColumnTitle: Titill
+    TagsTabTitle: Tög
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Höfundur
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_ON: á
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Dags
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Nafn

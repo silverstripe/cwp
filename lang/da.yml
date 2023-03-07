@@ -1,0 +1,27 @@
+da:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Email
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Rediger
+  CWP\CWP\Model\Quicklink:
+    SortOrderLabel: Sortering
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Tilføj ny'
+    FeatureContentFieldLabel: Indhold
+    Title: Titel
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: Sidetype
+    ColumnTitle: Titel
+    TagsTabTitle: Tags
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Forfatter
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_ON: 'd. '
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Ryd
+    Filter: Filtrer
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Dato
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Brugt på:'
+    PAGES: Side(r)

@@ -1,0 +1,23 @@
+hu:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: E-mail
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Szerkeszt
+  CWP\CWP\Model\Quicklink:
+    ParentRelationLabel: Szülő
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Új hozzáadása'
+    FeatureContentFieldLabel: Tartalom
+    Title: Cím
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Oldal típusa'
+    ColumnTitle: Cím
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Szerző
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: Szűrő
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Dátum
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Felhasználva:'
+    PAGES: oldal(ak)

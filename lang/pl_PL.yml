@@ -1,0 +1,24 @@
+pl_PL:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: E-mail
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Edytuj
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Nazwa
+    ParentRelationLabel: Rodzic
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: Dodaj
+    FeatureContentFieldLabel: Zawartość
+    Title: Tytuł
+  CWP\CWP\PageTypes\BasePage:
+    ColumnTitle: Tytuł
+    PLURALNAME: 'Podstawowa strona'
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autor
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_ON: na
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Wyczyść
+    Filter: Filtr
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Nazwa

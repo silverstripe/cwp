@@ -1,0 +1,22 @@
+af:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Epos
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Verander
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Naam
+    SortOrderLabel: 'Sorteerings orde'
+  CWP\CWP\PageTypes\BaseHomePage:
+    FeatureContentFieldLabel: Inhoud
+    Title: Tietel
+  CWP\CWP\PageTypes\BasePage:
+    ColumnTitle: Tietel
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: Filtreer
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Datum
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Naam
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Gebruik op:'
+    PAGES: bladsy(e)

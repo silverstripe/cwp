@@ -1,0 +1,36 @@
+nl:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: E-mail
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Bewerken
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Naam
+    SortOrderLabel: Sorteer-richting
+  CWP\CWP\Model\RelatedPageLink:
+    PLURALNAME: 'Gerelateerde Pagina Links'
+    SINGULARNAME: 'Gerelateerde Pagina Link'
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: Nieuw...
+    FeatureContentFieldLabel: Inhoud
+    Title: Titel
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: Paginatype
+    ColumnTitle: Titel
+    PLURALNAME: 'Formulierpagina''s'
+    TagsTabTitle: Tags
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Auteur
+    FeaturedImageFieldLabel: 'Prominente Afbeelding'
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_IN: in
+    FILTER_ON: op
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Wissen
+    Filter: Filter
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Datum
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Naam
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Gebruikt op:'
+    PAGES: pagina(s)

@@ -1,0 +1,21 @@
+he_IL:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: 'דואר אלקטרוני'
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Edit
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'הוספת חדש'
+    FeatureContentFieldLabel: תוכן
+    Title: כותרת
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'סוג העמוד'
+    ColumnTitle: כותרת
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: 'נוצר על ידי'
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: מסנן
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: תאריך
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'נעשה שימוש בתאריך:'
+    PAGES: עמוד/ים

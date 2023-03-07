@@ -10,6 +10,7 @@ ru:
   CWP\CWP\Extensions\CwpCommentingExtension:
     WEBSITE_TITLE: 'Ваш сайт (опционально)'
     WILL_NOT_BE_PUBLISHED: 'Не будет опубликовано.'
+    EMAIL_TITLE: Email
   CWP\CWP\Extensions\CwpSiteTreeExtension:
     SHOW_PAGE_UTILITIES: 'Показать утилиты?'
     SHOW_PAGE_UTILITIES_HELP: 'Вы можете отключить функционал для этой страницы (распечатать, поделиться, и пр.)'
@@ -18,6 +19,7 @@ ru:
     InternalLinkLabel: 'Внутренняя ссылка'
     NameLabel: Название
     SortOrderLabel: 'Порядок сортировки'
+    ParentRelationLabel: Родительская
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Добавить новую'
     ButtonTextRequired: 'Название кнопок должно быть указано'
@@ -29,6 +31,8 @@ ru:
     PLURALNAME: 'Главные страницы'
     SINGULARNAME: 'Главная Страница'
     Title: Заголовок
+    FeatureOne: 'Первый признак'
+    FeatureTwo: 'Второй признак'
   CWP\CWP\PageTypes\BasePage:
     ColumnPageType: 'Тип страницы'
     ColumnTitle: Заголовок
@@ -62,3 +66,18 @@ ru:
     PagesForSubsite: '- на подсайте ''{SubsiteTitle}'''
     Title: 'Общая статистика'
     TotalPageCount: 'Общее количество страниц - на всех подсайтах и языках'
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'В этом списке находятся все страницы где есть файл добавленный с помощью визуального редактора.'
+    EDIT: Редактировать
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Автор
+    FeaturedImageFieldLabel: Изображение
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Сбросить
+    DateRangeFilterMessage: 'Ограничено одной датой'
+    Filter: Фильтр
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Дата
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Используется на:'
+    PAGES: страниц(ы)

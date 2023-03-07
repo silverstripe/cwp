@@ -1,0 +1,26 @@
+pt_BR:
+  CWP\CWP\Extensions\CustomSiteConfig:
+    FbField: 'Facebook UID or nome do usuário'
+    GaField: 'Conta do Google Analytics'
+    GaFieldDesc: 'Número da conta para ser usada no site (no formato <strong>UA-XXXXX-X</strong>)'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: E-mail
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Edit
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Nome
+    SortOrderLabel: Ordenação
+  CWP\CWP\PageTypes\BaseHomePage:
+    FeatureContentFieldLabel: Conteúdo
+    Title: Título
+  CWP\CWP\PageTypes\BasePage:
+    ColumnTitle: Título
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autor
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_IN: em
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Nome
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Usado em:'
+    PAGES: página(s)

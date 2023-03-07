@@ -1,0 +1,26 @@
+th:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: อีเมล
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: แก้ไข
+  CWP\CWP\Model\Quicklink:
+    NameLabel: ชื่อ
+    SortOrderLabel: จัดลำดับ
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: เพิ่มใหม่
+    FeatureContentFieldLabel: เนื้อหา
+    Title: หัวเรื่อง
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: ประเภทหน้าเว็บ
+    ColumnTitle: หัวเรื่อง
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: ผู้แต่ง
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: ตัวกรองข้อมูล
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: วันที่
+  CWP\CWP\Report\CwpStatsReport:
+    Name: ชื่อ
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'ถูกใช้งานเมื่อ:'
+    PAGES: หน้า
