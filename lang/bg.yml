@@ -1,0 +1,28 @@
+bg:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Еmail
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Редактиране
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Име
+    SortOrderLabel: Сортиране
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Добави нова страница'
+    FeatureContentFieldLabel: Съдържание
+    Title: Заглавие
+  CWP\CWP\PageTypes\BasePage:
+    ColumnTitle: Заглавие
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Автор
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_ON: на
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: 'Изчисти филтъра'
+    Filter: Филтър
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Дата
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Име
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Използвано от:'
+    PAGES: Страница/и

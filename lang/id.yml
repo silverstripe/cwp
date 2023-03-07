@@ -8,6 +8,8 @@ id:
     TwitterField: 'Nama Pengguna Twitter '
   CWP\CWP\Model\Quicklink:
     NameLabel: Nama
+    ParentRelationLabel: Induk
+    SortOrderLabel: Urutkan
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Tambah baru'
     FeatureButtonText: 'Tombol teks'
@@ -43,3 +45,17 @@ id:
     PagesForSubsite: '- pada sub-situs ''{SubsiteTitle}'''
     Title: 'Ringkasan statistik'
     TotalPageCount: 'Jumlah hitungan laman live, mencakup semua terjemahan dan sub-situs'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Email
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Edit
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Penulis
+    EndTimeFieldLabel: 'Tanggal Akhir'
+    LocationFieldLabel: Lokasi
+    StartTimeFieldLabel: 'Waktu Mulai'
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: Saring
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Dipakai pada:'
+    PAGES: laman

@@ -1,0 +1,21 @@
+ko:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: 이메일
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: 편집
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: '새로 추가'
+    FeatureContentFieldLabel: 내용
+    Title: 제목
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: '페이지 유형'
+    ColumnTitle: 제목
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: 작성자
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: 필터
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: 날짜
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: '다음에서 사용중 '
+    PAGES: 페이지

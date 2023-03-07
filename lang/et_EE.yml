@@ -1,0 +1,30 @@
+et_EE:
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Email
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Redigeeri
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Nimi
+    SortOrderLabel: Järjesta
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Lisa uus'
+    FeatureContentFieldLabel: Sisu
+    Title: Pealkiri
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Lehe tüüp'
+    ColumnTitle: Pealkiri
+    PLURALNAME: 'User Defined Forms'
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autor
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_IN: '-'
+    FILTER_ON: '-'
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: Filtreeri
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Kuupäev
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Nimi
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Kasutatakse:'
+    PAGES: 'leht (lehed)'

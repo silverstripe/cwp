@@ -1,0 +1,27 @@
+pt:
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Edit
+  CWP\CWP\Model\Quicklink:
+    NameLabel: Nome
+    SortOrderLabel: 'Ordem de ordenação'
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: Novo
+    FeatureContentFieldLabel: Conteúdo
+    Title: Título
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Tipo de Página'
+    ColumnTitle: Título
+    TagsTabTitle: Marcas
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autor
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_ON: em
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: Filtrar
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Data
+  CWP\CWP\Report\CwpStatsReport:
+    Name: Nome
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Usado em:'
+    PAGES: página(s)

@@ -35,3 +35,28 @@ de:
     Name: Name
     PagesForMainSite: '- auf der Hauptseite'
     PagesForSubsite: '- auf der Unterseite ''{SubsiteTitle}'''
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: E-Mail
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Diese Liste zeigt alle Seiten, bei denen eine Datei mit dem WYSIWIG-Editor hinzugefügt wurde'
+    EDIT: Bearbeiten
+  CWP\CWP\Model\RelatedPageLink:
+    PLURALNAME: 'Links zu abhängigen Seiten'
+    SINGULARNAME: 'Link zu abhängigen Seiten'
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Autor
+    EndTimeFieldLabel: Endzeit
+    FeaturedImageFieldLabel: Titelbild
+    LocationFieldLabel: Ort
+    StartTimeFieldLabel: Startzeit
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_IN: in
+    FILTER_ON: am
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Löschen
+    Filter: Filter
+  CWP\CWP\PageTypes\EventHolderController:
+    Upcoming: 'Anstehende Ereignisse'
+  SilverStripe\CMS\Model\SiteTreeFileExtension:
+    BACKLINKCOUNT: 'Verwendet auf:'
+    PAGES: Seite(n)
