@@ -9,10 +9,10 @@
     "license": "BSD-3-Clause",
     "require": {
         "php": "^7.3 || ^8.0",
-        "silverstripe/framework": "^4.10",
-        "cwp/cwp-core": "^2",
-        "silverstripe/cms": "^4",
-        "silverstripe/taxonomy": "^2",
+        "silverstripe/framework": "4.13.x-dev",
+        "cwp/cwp-core": "2.12.x-dev",
+        "silverstripe/cms": "4.13.x-dev",
+        "silverstripe/taxonomy": "2.5.x-dev",
         "symbiote/silverstripe-gridfieldextensions": "^3.2"
     },
     "require-dev": {
