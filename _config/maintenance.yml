@@ -11,7 +11,3 @@ BringYourOwnIdeas\Maintenance\Util\ComposerLoader:
 BringYourOwnIdeas\Maintenance\Util\ApiLoader:
   extensions:
     - CWP\CWP\Extension\MaintenanceProxyExtension
-
-BringYourOwnIdeas\Maintenance\Reports\SiteSummary:
-  extensions:
-    - CWP\CWP\Extensions\CwpSiteSummaryExtension
