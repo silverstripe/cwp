@@ -3,12 +3,26 @@
 namespace CWP\CWP\Extensions;
 
 use SilverStripe\Core\Extension;
+use SilverStripe\Dev\Deprecation;
 
 /**
  * Extends the site summary report to list the appropriate versions in the report header
+ *
+ * @deprecated 4.13.0 Will be removed without equivalent functionality to replace it
  */
 class CwpSiteSummaryExtension extends Extension
 {
+    public function __construct()
+    {
+        Deprecation::withNoReplacement(function () {
+            Deprecation::notice(
+                '4.13.0',
+                'Will be removed without equivalent functionality to replace it',
+                Deprecation::SCOPE_CLASS
+            );
+        });
+    }
+
     /**
      * Updates the modules used for the version label by:
      *  - Removing SS Framework
