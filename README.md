@@ -3,18 +3,10 @@
 [![CI](https://github.com/silverstripe/cwp/actions/workflows/ci.yml/badge.svg)](https://github.com/silverstripe/cwp/actions/workflows/ci.yml)
 [![Silverstripe supported module](https://img.shields.io/badge/silverstripe-supported-0071C4.svg)](https://www.silverstripe.org/software/addons/silverstripe-commercially-supported-module-list/)
 
-## Requirements
-
-* Silverstripe ^4
-* Optional: symbiote/silverstripe-advancedworkflow
-* Optional: silverstripe/userforms
-
 ## Installation
 
-Install using Composer:
-
-```
-composer require cwp/cwp ^2.0
+```sh
+composer require cwp/cwp
 ```
 
 ## Bugtracker
