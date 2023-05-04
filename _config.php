@@ -20,7 +20,6 @@ $cwpEditor->setOptions([
     'friendly_name' => 'Default CWP',
     'priority' => '60',
     'skin' => 'silverstripe',
-    'mode' => 'none',
     'body_class' => 'typography',
     'document_base_url' => Director::absoluteBaseURL(),
     'cleanup_callback' => "sapphiremce_cleanup",
@@ -90,7 +89,6 @@ if ($assetAdminModule) {
 $adminModule = ModuleLoader::inst()->getManifest()->getModule('silverstripe/admin');
 $cwpEditor
     ->enablePlugins([
-        'contextmenu' => null,
         'image' => null,
         'anchor' => null,
         'sslink' => $adminModule->getResource('client/dist/js/TinyMCE_sslink.js'),
