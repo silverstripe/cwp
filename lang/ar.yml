@@ -7,6 +7,10 @@ ar:
     SocialMediaTab: 'وسائل الإعلام الاجتماعية'
     TwitterField: 'اسم المستخدم الخاص بتويتر'
     TwitterFieldDesc: 'اسم المستخدم الخاص بتويتر (مثلا, /http://twitter.com <strong>اسم المستخدم<strong/>)'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: 'البريد الإلكتروني'
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: تحرير
   CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 'رابط خارجي'
     InternalLinkLabel: 'رابط داخلى'
@@ -15,16 +19,19 @@ ar:
     ParentRelationLabel: والد
     SINGULARNAME: 'رابط سريع'
     SortOrderLabel: 'ترتيب الفرز'
+  CWP\CWP\Model\RelatedPageLink:
+    PLURALNAME: 'روابط الصفحة المتعلقة'
+    SINGULARNAME: 'رابط صفحة متعلق'
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'أضف جديد'
     FeatureButtonText: 'نص الزر'
     FeatureCategoryDropdown: 'أيقونة الفئة'
     FeatureContentFieldLabel: المحتوى
     FeatureLink: 'صفحة للربط ب'
-    LearnMoreLink: 'صفحة لربط زر "تعرف على المزيد" ب:'
-    Title: عنوان
     FeatureOne: 'الميزة رقم واحد'
     FeatureTwo: 'تتميز باثنان'
+    LearnMoreLink: 'صفحة لربط زر "تعرف على المزيد" ب:'
+    Title: عنوان
   CWP\CWP\PageTypes\BasePage:
     ColumnPageType: 'نوع الصفحة'
     ColumnTitle: عنوان
@@ -33,11 +40,21 @@ ar:
     SINGULARNAME: 'صفحة رئيسية'
     TagsTabTitle: البطاقات
     Terms: عناصر
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: الكاتب
+    EndTimeFieldLabel: 'وقت الانتهاء'
+    FeaturedImageFieldLabel: 'صورة مميزة'
+    LocationFieldLabel: موقع
+    StartTimeFieldLabel: 'وقت البدء'
   CWP\CWP\PageTypes\DatedUpdateHolder:
-    PLURALNAME: 'الصفحات الرئيسية'
-    SINGULARNAME: 'حامل التحديث المحدد بموعد'
     FILTER_IN: في
     FILTER_ON: في
+    PLURALNAME: 'الصفحات الرئيسية'
+    SINGULARNAME: 'حامل التحديث المحدد بموعد'
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    DateRangeFilterMessage: 'قد تم تصفيتها حسب تاريخ واحد'
+    Filter: مرشح
+    FilterAppliedMessage: 'قد تم تطبيق الفلتر مع عكس المواعيد.'
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractDesc: 'الملخص يستخدم لتلخيص صفحات القوائم. هى محددة ب 160 حرف.'
     AbstractTextFieldLabel: ملخص
@@ -47,6 +64,8 @@ ar:
     DESCRIPTION: 'صفحة حاوية لصفحات الأحداث, توفر تصفية للأحداث و ترقيم الصفحات'
     PLURALNAME: 'الصفحات الرئيسية'
     SINGULARNAME: 'صاحب الحدث'
+  CWP\CWP\PageTypes\EventHolderController:
+    Upcoming: 'الأحداث القادمة'
   CWP\CWP\PageTypes\EventPage:
     DESCRIPTION: 'يقوم بوصف حدث يحدث فى ميعاد محدد.'
     SINGULARNAME: 'صفحة الأحداث'
@@ -64,25 +83,6 @@ ar:
   CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 'يقوم بعمل قوائم لجميع الصفحات فى الموقع'
     SINGULARNAME: 'صفحة خريطة الموقع'
-  CWP\CWP\Extensions\CwpCommentingExtension:
-    EMAIL_TITLE: 'البريد الإلكتروني'
-  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
-    EDIT: تحرير
-  CWP\CWP\Model\RelatedPageLink:
-    PLURALNAME: 'روابط الصفحة المتعلقة'
-    SINGULARNAME: 'رابط صفحة متعلق'
-  CWP\CWP\PageTypes\DateUpdatePage:
-    AuthorFieldLabel: الكاتب
-    EndTimeFieldLabel: 'وقت الانتهاء'
-    FeaturedImageFieldLabel: 'صورة مميزة'
-    LocationFieldLabel: موقع
-    StartTimeFieldLabel: 'وقت البدء'
-  CWP\CWP\PageTypes\DatedUpdateHolderController:
-    DateRangeFilterMessage: 'قد تم تصفيتها حسب تاريخ واحد'
-    Filter: مرشح
-    FilterAppliedMessage: 'قد تم تطبيق الفلتر مع عكس المواعيد.'
-  CWP\CWP\PageTypes\EventHolderController:
-    Upcoming: 'الأحداث القادمة'
   CWP\CWP\Report\CwpStatsReport:
     Name: الاسم
   SilverStripe\CMS\Model\SiteTreeFileExtension:

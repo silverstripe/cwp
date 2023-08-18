@@ -6,6 +6,10 @@ id:
     GaFieldDesc: 'Angka akun untuk digunakan di seluruh bagian situs (dalam format <strong>UA-XXXXX-X</strong>)'
     SocialMediaTab: 'Media Sosial'
     TwitterField: 'Nama Pengguna Twitter '
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Email
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: Edit
   CWP\CWP\Model\Quicklink:
     NameLabel: Nama
     ParentRelationLabel: Induk
@@ -29,6 +33,13 @@ id:
     TagsTabTitle: Penanda
     Terms: Istilah
     TermsDescription: 'Klik untuk mencari term tambahan'
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Penulis
+    EndTimeFieldLabel: 'Tanggal Akhir'
+    LocationFieldLabel: Lokasi
+    StartTimeFieldLabel: 'Waktu Mulai'
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Filter: Saring
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractTextFieldLabel: Abstrak
     DateLabel: Tanggal
@@ -45,17 +56,6 @@ id:
     PagesForSubsite: '- pada sub-situs ''{SubsiteTitle}'''
     Title: 'Ringkasan statistik'
     TotalPageCount: 'Jumlah hitungan laman live, mencakup semua terjemahan dan sub-situs'
-  CWP\CWP\Extensions\CwpCommentingExtension:
-    EMAIL_TITLE: Email
-  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
-    EDIT: Edit
-  CWP\CWP\PageTypes\DateUpdatePage:
-    AuthorFieldLabel: Penulis
-    EndTimeFieldLabel: 'Tanggal Akhir'
-    LocationFieldLabel: Lokasi
-    StartTimeFieldLabel: 'Waktu Mulai'
-  CWP\CWP\PageTypes\DatedUpdateHolderController:
-    Filter: Saring
   SilverStripe\CMS\Model\SiteTreeFileExtension:
     BACKLINKCOUNT: 'Dipakai pada:'
     PAGES: laman

@@ -1,37 +1,37 @@
 fa_IR:
-  CWP\CWP\Model\Quicklink:
-    ParentRelationLabel: والد
-    SortOrderLabel: 'ترتیب مرتب‌سازی'
-    NameLabel: نام
-  CWP\CWP\PageTypes\BaseHomePage:
-    DESCRIPTION: 'صفحه محتوای عمومی'
-    FeatureContentFieldLabel: محتوا
-    Title: عنوان
-    AddNewButton: جدید
-  CWP\CWP\PageTypes\BasePage:
-    ColumnTitle: عنوان
-    DESCRIPTION: 'صفحه محتوای عمومی'
-    PLURALNAME: 'صفحه اصلی'
-    ColumnPageType: 'نوع صفحه'
-    TagsTabTitle: تگ‌ها
-  CWP\CWP\PageTypes\DatedUpdateHolder:
-    DESCRIPTION: 'صفحه محتوای عمومی'
-    FILTER_IN: در
-    FILTER_ON: در
-  CWP\CWP\PageTypes\DatedUpdatePage:
-    DESCRIPTION: 'صفحه محتوای عمومی'
-    DateLabel: تاریخ
   CWP\CWP\Extensions\CwpCommentingExtension:
     EMAIL_TITLE: ایمیل
   CWP\CWP\Extensions\CwpSiteTreeFileExtension:
     BACKLINK_LIST_DESCRIPTION: 'این لیست نشان‌دهنده‌ی تمامی صفحاتی است که فایل توسط یک ویرایشگر ویزی‌ویگ (WYSIWYG) افزوده شده است.'
     EDIT: ویرایش
+  CWP\CWP\Model\Quicklink:
+    NameLabel: نام
+    ParentRelationLabel: والد
+    SortOrderLabel: 'ترتیب مرتب‌سازی'
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: جدید
+    DESCRIPTION: 'صفحه محتوای عمومی'
+    FeatureContentFieldLabel: محتوا
+    Title: عنوان
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'نوع صفحه'
+    ColumnTitle: عنوان
+    DESCRIPTION: 'صفحه محتوای عمومی'
+    PLURALNAME: 'صفحه اصلی'
+    TagsTabTitle: تگ‌ها
   CWP\CWP\PageTypes\DateUpdatePage:
     AuthorFieldLabel: نگارنده
     FeaturedImageFieldLabel: 'تصویر برجسته'
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    DESCRIPTION: 'صفحه محتوای عمومی'
+    FILTER_IN: در
+    FILTER_ON: در
   CWP\CWP\PageTypes\DatedUpdateHolderController:
     Clear: پاک‌کردن
     Filter: پالایش
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DESCRIPTION: 'صفحه محتوای عمومی'
+    DateLabel: تاریخ
   CWP\CWP\Report\CwpStatsReport:
     Name: نام
   SilverStripe\CMS\Model\SiteTreeFileExtension:
