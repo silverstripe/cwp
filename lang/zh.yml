@@ -7,6 +7,10 @@ zh:
     SocialMediaTab: 社会媒体
     TwitterField: 'Twitter 用户名'
     TwitterFieldDesc: 'Twitter 用户名 (eg, http://twitter.com/<strong>username</strong>)'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: 电子邮件
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    EDIT: 编辑
   CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 外部链接
     InternalLinkLabel: 内部链接
@@ -15,16 +19,19 @@ zh:
     ParentRelationLabel: 父
     SINGULARNAME: 快速链接
     SortOrderLabel: 排序顺序
+  CWP\CWP\Model\RelatedPageLink:
+    PLURALNAME: 多个相关页面链接
+    SINGULARNAME: 相关页面链接
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 新增
     FeatureButtonText: 按钮文字
     FeatureCategoryDropdown: 类别图标
     FeatureContentFieldLabel: 内容
     FeatureLink: 跳转目标页
-    LearnMoreLink: 链接到“了解详情”按钮的页面：
-    Title: 标题
     FeatureOne: 特色一
     FeatureTwo: 特色二
+    LearnMoreLink: 链接到“了解详情”按钮的页面：
+    Title: 标题
   CWP\CWP\PageTypes\BasePage:
     ColumnPageType: 页面类型
     ColumnTitle: 题目
@@ -33,9 +40,20 @@ zh:
     SINGULARNAME: 基本页面
     TagsTabTitle: 标签
     Terms: 条款
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: 作者
+    EndTimeFieldLabel: 结束时间
+    FeaturedImageFieldLabel: 特色图片
+    LocationFieldLabel: 位置
+    StartTimeFieldLabel: 开始时间
   CWP\CWP\PageTypes\DatedUpdateHolder:
     PLURALNAME: 基本页面
     SINGULARNAME: 日期更新持有者
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: 清除
+    DateRangeFilterMessage: 用单一日期过滤。
+    Filter: 过滤器
+    FilterAppliedMessage: 所获取的数据已经应用了筛选器。
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractDesc: '此摘要在清单页面用作概要。其上限是 160 个字符。'
     AbstractTextFieldLabel: 摘要
@@ -45,6 +63,8 @@ zh:
     DESCRIPTION: 事件页面的容器页面，提供事件筛选与分页导航
     PLURALNAME: 基页
     SINGULARNAME: 事件举办者
+  CWP\CWP\PageTypes\EventHolderController:
+    Upcoming: 后续事件
   CWP\CWP\PageTypes\EventPage:
     DESCRIPTION: 描述特定日期发生的事件
     SINGULARNAME: 活动页面
@@ -62,26 +82,6 @@ zh:
   CWP\CWP\PageTypes\SitemapPage:
     DESCRIPTION: 列出站点上的所有页面
     SINGULARNAME: 站点地图页面
-  CWP\CWP\Extensions\CwpCommentingExtension:
-    EMAIL_TITLE: 电子邮件
-  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
-    EDIT: 编辑
-  CWP\CWP\Model\RelatedPageLink:
-    PLURALNAME: 多个相关页面链接
-    SINGULARNAME: 相关页面链接
-  CWP\CWP\PageTypes\DateUpdatePage:
-    AuthorFieldLabel: 作者
-    EndTimeFieldLabel: 结束时间
-    FeaturedImageFieldLabel: 特色图片
-    LocationFieldLabel: 位置
-    StartTimeFieldLabel: 开始时间
-  CWP\CWP\PageTypes\DatedUpdateHolderController:
-    Clear: 清除
-    DateRangeFilterMessage: 用单一日期过滤。
-    Filter: 过滤器
-    FilterAppliedMessage: 所获取的数据已经应用了筛选器。
-  CWP\CWP\PageTypes\EventHolderController:
-    Upcoming: 后续事件
   CWP\CWP\Report\CwpStatsReport:
     Name: 姓名
   SilverStripe\CMS\Model\SiteTreeFileExtension:
