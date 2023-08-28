@@ -5,6 +5,11 @@ de:
     SocialMediaTab: 'Soziale Medien'
     TwitterField: Twitter-Benutzername
     TwitterFieldDesc: 'Twitter-Benutzername (z.B. http://twitter.com/<strong>Benutzername</strong>)'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: E-Mail
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Diese Liste zeigt alle Seiten, bei denen eine Datei mit dem WYSIWIG-Editor hinzugefügt wurde'
+    EDIT: Bearbeiten
   CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 'Externer Link'
     InternalLinkLabel: 'Interner Link'
@@ -13,6 +18,9 @@ de:
     ParentRelationLabel: Übergeordnet
     SINGULARNAME: Schnelllink
     SortOrderLabel: Sortierreihenfolge
+  CWP\CWP\Model\RelatedPageLink:
+    PLURALNAME: 'Links zu abhängigen Seiten'
+    SINGULARNAME: 'Link zu abhängigen Seiten'
   CWP\CWP\PageTypes\BaseHomePage:
     AddNewButton: 'Neue hinzufügen'
     FeatureButtonText: Schaltflächentext
@@ -25,24 +33,6 @@ de:
     PLURALNAME: 'Basis Seiten'
     RelatedPages: 'Abhängige Seiten'
     TagsTabTitle: Schlagwörter
-  CWP\CWP\PageTypes\DatedUpdatePage:
-    DateLabel: Datum
-  CWP\CWP\PageTypes\EventPage:
-    PLURALNAME: Ereignisseiten
-    SINGULARNAME: Ereignisseite
-  CWP\CWP\Report\CwpStatsReport:
-    FileCount: Dateianzahl
-    Name: Name
-    PagesForMainSite: '- auf der Hauptseite'
-    PagesForSubsite: '- auf der Unterseite ''{SubsiteTitle}'''
-  CWP\CWP\Extensions\CwpCommentingExtension:
-    EMAIL_TITLE: E-Mail
-  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
-    BACKLINK_LIST_DESCRIPTION: 'Diese Liste zeigt alle Seiten, bei denen eine Datei mit dem WYSIWIG-Editor hinzugefügt wurde'
-    EDIT: Bearbeiten
-  CWP\CWP\Model\RelatedPageLink:
-    PLURALNAME: 'Links zu abhängigen Seiten'
-    SINGULARNAME: 'Link zu abhängigen Seiten'
   CWP\CWP\PageTypes\DateUpdatePage:
     AuthorFieldLabel: Autor
     EndTimeFieldLabel: Endzeit
@@ -55,8 +45,18 @@ de:
   CWP\CWP\PageTypes\DatedUpdateHolderController:
     Clear: Löschen
     Filter: Filter
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Datum
   CWP\CWP\PageTypes\EventHolderController:
     Upcoming: 'Anstehende Ereignisse'
+  CWP\CWP\PageTypes\EventPage:
+    PLURALNAME: Ereignisseiten
+    SINGULARNAME: Ereignisseite
+  CWP\CWP\Report\CwpStatsReport:
+    FileCount: Dateianzahl
+    Name: Name
+    PagesForMainSite: '- auf der Hauptseite'
+    PagesForSubsite: '- auf der Unterseite ''{SubsiteTitle}'''
   SilverStripe\CMS\Model\SiteTreeFileExtension:
     BACKLINKCOUNT: 'Verwendet auf:'
     PAGES: Seite(n)

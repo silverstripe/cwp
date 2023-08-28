@@ -7,6 +7,11 @@ fi:
     SocialMediaTab: 'Sosiaalinen media'
     TwitterField: Twitter-käyttäjänimi
     TwitterFieldDesc: 'Twitter-käyttäjänimi (esim, http://twitter.com/<strong>käyttäjänimi</strong>)'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: Sähköposti
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'Tämä listaus näyttää kaikki sivut, joissa tiedosto on lisätty WYSIWYG-editorin avulla.'
+    EDIT: Muokkaa
   CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 'Ulkoinen linkki'
     InternalLinkLabel: 'Sisäinen linkki'
@@ -35,9 +40,24 @@ fi:
     TagsTabTitle: Avainsanat
     Terms: Termit
     TermsDescription: 'Klikkaa etsiäksesi muita termejä'
+  CWP\CWP\PageTypes\DateUpdatePage:
+    AuthorFieldLabel: Kirjoittaja
+    EndTimeFieldLabel: Päättyen
+    FeaturedImageFieldLabel: Kuvanosto
+    LocationFieldLabel: Paikka
+    StartTimeFieldLabel: Alkaen
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    FILTER_IN: kohteessa
+    FILTER_ON: pvm
+  CWP\CWP\PageTypes\DatedUpdateHolderController:
+    Clear: Tyhjennä
+    DateRangeFilterMessage: 'Suodatettu yhden päivämäärän mukaan.'
+    Filter: Suodata
   CWP\CWP\PageTypes\DatedUpdatePage:
     AbstractTextFieldLabel: Tiivistelmä
     DateLabel: Päivämäärä
+  CWP\CWP\PageTypes\EventHolderController:
+    Upcoming: 'Tulevat tapahtumat'
   CWP\CWP\PageTypes\EventPage:
     PLURALNAME: Tapahtumasivut
     SINGULARNAME: Tapahtumasivu
@@ -62,26 +82,6 @@ fi:
     PagesForSubsite: '- alasivustolla ''{SubsiteTitle}'''
     Title: Yhteenvetotilasto
     TotalPageCount: 'Julkaistujen sivujen määrä, kaikki käännetyt ja alasivut huomioiden'
-  CWP\CWP\Extensions\CwpCommentingExtension:
-    EMAIL_TITLE: Sähköposti
-  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
-    BACKLINK_LIST_DESCRIPTION: 'Tämä listaus näyttää kaikki sivut, joissa tiedosto on lisätty WYSIWYG-editorin avulla.'
-    EDIT: Muokkaa
-  CWP\CWP\PageTypes\DateUpdatePage:
-    AuthorFieldLabel: Kirjoittaja
-    EndTimeFieldLabel: Päättyen
-    FeaturedImageFieldLabel: Kuvanosto
-    LocationFieldLabel: Paikka
-    StartTimeFieldLabel: Alkaen
-  CWP\CWP\PageTypes\DatedUpdateHolder:
-    FILTER_IN: kohteessa
-    FILTER_ON: pvm
-  CWP\CWP\PageTypes\DatedUpdateHolderController:
-    Clear: Tyhjennä
-    DateRangeFilterMessage: 'Suodatettu yhden päivämäärän mukaan.'
-    Filter: Suodata
-  CWP\CWP\PageTypes\EventHolderController:
-    Upcoming: 'Tulevat tapahtumat'
   SilverStripe\CMS\Model\SiteTreeFileExtension:
     BACKLINKCOUNT: 'Käytössä:'
     PAGES: sivu(t)
