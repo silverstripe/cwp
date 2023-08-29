@@ -6,9 +6,9 @@ sv:
     TwitterField: Twitter-användarnamn
     TwitterFieldDesc: 'Twitter-användarnamn (t.ex. http://twitter.com/<strong>användarnamn</strong>)'
   CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: E-post
     WEBSITE_TITLE: 'Din hemsida (valfritt)'
     WILL_NOT_BE_PUBLISHED: 'Kommer inte att publiceras.'
-    EMAIL_TITLE: E-post
   CWP\CWP\Extensions\CwpSiteTreeExtension:
     SHOW_PAGE_UTILITIES: 'Visa sidverktyg?'
     SHOW_PAGE_UTILITIES_HELP: 'Du kan stänga av sidverktyg (skriv ut, dela, etc) för den här sidan'
@@ -56,14 +56,14 @@ sv:
   CWP\CWP\PageTypes\DateUpdatePage:
     AuthorFieldLabel: Författare
     EndTimeFieldLabel: Sluttid
+    FeaturedImageFieldLabel: 'Utvald bild'
     LocationFieldLabel: Plats
     StartTimeFieldLabel: Starttid
-    FeaturedImageFieldLabel: 'Utvald bild'
   CWP\CWP\PageTypes\DatedUpdateHolder:
-    FROM_DATE: 'Från datum'
-    TO_DATE: 'Till datum'
     FILTER_IN: i
     FILTER_ON: den
+    FROM_DATE: 'Från datum'
+    TO_DATE: 'Till datum'
   CWP\CWP\PageTypes\DatedUpdateHolderController:
     Clear: Rensa
     Filter: Filter

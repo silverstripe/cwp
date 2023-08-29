@@ -1,21 +1,4 @@
 lt:
-  CWP\CWP\PageTypes\BaseHomePage:
-    DESCRIPTION: 'Standartinio turinio puslapis'
-    FeatureContentFieldLabel: Turinys
-    Title: Pavadinimas
-    AddNewButton: 'Pridėti naują'
-  CWP\CWP\PageTypes\BasePage:
-    ColumnPageType: 'Puslapio tipas'
-    ColumnTitle: Pavadinimas
-    DESCRIPTION: 'Standartinio turinio puslapis'
-    PLURALNAME: 'Baziniai puslapiai'
-    TagsTabTitle: Žymos
-  CWP\CWP\PageTypes\DatedUpdateHolder:
-    DESCRIPTION: 'Standartinio turinio puslapis'
-    FILTER_ON: į
-  CWP\CWP\PageTypes\DatedUpdatePage:
-    DESCRIPTION: 'Standartinio turinio puslapis'
-    DateLabel: Data
   CWP\CWP\Extensions\CwpCommentingExtension:
     EMAIL_TITLE: 'E. paštas'
   CWP\CWP\Extensions\CwpSiteTreeFileExtension:
@@ -25,11 +8,28 @@ lt:
     NameLabel: Pavadinimas
     ParentRelationLabel: Priklauso
     SortOrderLabel: 'Rūšiavimo tvarka'
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Pridėti naują'
+    DESCRIPTION: 'Standartinio turinio puslapis'
+    FeatureContentFieldLabel: Turinys
+    Title: Pavadinimas
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Puslapio tipas'
+    ColumnTitle: Pavadinimas
+    DESCRIPTION: 'Standartinio turinio puslapis'
+    PLURALNAME: 'Baziniai puslapiai'
+    TagsTabTitle: Žymos
   CWP\CWP\PageTypes\DateUpdatePage:
     AuthorFieldLabel: Autorius
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    DESCRIPTION: 'Standartinio turinio puslapis'
+    FILTER_ON: į
   CWP\CWP\PageTypes\DatedUpdateHolderController:
     Clear: 'Išvalyti filtrą'
     Filter: Filtruoti
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DESCRIPTION: 'Standartinio turinio puslapis'
+    DateLabel: Data
   CWP\CWP\Report\CwpStatsReport:
     Name: Pavadinimas
   SilverStripe\CMS\Model\SiteTreeFileExtension:
