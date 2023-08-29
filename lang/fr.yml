@@ -1,16 +1,4 @@
 fr:
-  CWP\CWP\PageTypes\BaseHomePage:
-    Title: Titre
-    AddNewButton: Ajouter
-    FeatureContentFieldLabel: Contenu
-  CWP\CWP\PageTypes\BasePage:
-    ColumnTitle: Titre
-    TagsTabTitle: Tags
-    ColumnPageType: 'Type de page'
-    PLURALNAME: 'Base Pages'
-  CWP\CWP\PageTypes\DatedUpdatePage:
-    AuthorFieldLabel: Auteur
-    DateLabel: Date
   CWP\CWP\Extensions\CwpCommentingExtension:
     EMAIL_TITLE: Email
   CWP\CWP\Extensions\CwpSiteTreeFileExtension:
@@ -20,6 +8,15 @@ fr:
     NameLabel: Nom
     ParentRelationLabel: Parent
     SortOrderLabel: 'Ordre de tri'
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: Ajouter
+    FeatureContentFieldLabel: Contenu
+    Title: Titre
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Type de page'
+    ColumnTitle: Titre
+    PLURALNAME: 'Base Pages'
+    TagsTabTitle: Tags
   CWP\CWP\PageTypes\DateUpdatePage:
     AuthorFieldLabel: Auteur
   CWP\CWP\PageTypes\DatedUpdateHolder:
@@ -28,6 +25,9 @@ fr:
   CWP\CWP\PageTypes\DatedUpdateHolderController:
     Clear: Effacer
     Filter: Filtrer
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    AuthorFieldLabel: Auteur
+    DateLabel: Date
   CWP\CWP\Report\CwpStatsReport:
     Name: Nom
   SilverStripe\CMS\Model\SiteTreeFileExtension:

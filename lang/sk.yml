@@ -1,21 +1,4 @@
 sk:
-  CWP\CWP\PageTypes\BaseHomePage:
-    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
-    FeatureContentFieldLabel: Obsah
-    Title: Názov
-    AddNewButton: 'Pridať nový'
-  CWP\CWP\PageTypes\BasePage:
-    ColumnPageType: 'Typ stránky'
-    ColumnTitle: Názov
-    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
-    PLURALNAME: 'Základné stránky'
-    TagsTabTitle: Štítky
-  CWP\CWP\PageTypes\DatedUpdateHolder:
-    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
-    FILTER_ON: na
-  CWP\CWP\PageTypes\DatedUpdatePage:
-    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
-    DateLabel: Dátum
   CWP\CWP\Extensions\CwpCommentingExtension:
     EMAIL_TITLE: E-mail
   CWP\CWP\Extensions\CwpSiteTreeFileExtension:
@@ -25,12 +8,29 @@ sk:
     NameLabel: Meno
     ParentRelationLabel: 'Komentovaný príspevok'
     SortOrderLabel: 'Poradie zoradenia'
+  CWP\CWP\PageTypes\BaseHomePage:
+    AddNewButton: 'Pridať nový'
+    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
+    FeatureContentFieldLabel: Obsah
+    Title: Názov
+  CWP\CWP\PageTypes\BasePage:
+    ColumnPageType: 'Typ stránky'
+    ColumnTitle: Názov
+    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
+    PLURALNAME: 'Základné stránky'
+    TagsTabTitle: Štítky
   CWP\CWP\PageTypes\DateUpdatePage:
     AuthorFieldLabel: Autor
     FeaturedImageFieldLabel: 'Hlavný obrázok'
+  CWP\CWP\PageTypes\DatedUpdateHolder:
+    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
+    FILTER_ON: na
   CWP\CWP\PageTypes\DatedUpdateHolderController:
     Clear: Vyčistiť
     Filter: Filter
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DESCRIPTION: 'Obyčajná jednoduchá stránka s vlastným obsahom.'
+    DateLabel: Dátum
   CWP\CWP\Report\CwpStatsReport:
     Name: Meno
   SilverStripe\CMS\Model\SiteTreeFileExtension:

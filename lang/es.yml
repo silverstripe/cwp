@@ -7,6 +7,11 @@ es:
     SocialMediaTab: 'Medios sociales'
     TwitterField: 'Nombre de usuario de Twitter'
     TwitterFieldDesc: 'Nombre de usuario de Twitter (por ejemplo, http://twitter.com/<strong>nombre de usuario</strong>)'
+  CWP\CWP\Extensions\CwpCommentingExtension:
+    EMAIL_TITLE: 'Correo electrónico'
+  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
+    BACKLINK_LIST_DESCRIPTION: 'esta lista muestra todas las páginas donde se agregó el archivo mediante un editor WYSIWYG.'
+    EDIT: Editar
   CWP\CWP\Model\Quicklink:
     ExternalLinkLabel: 'Enlace externo'
     InternalLinkLabel: 'Enlace interno'
@@ -30,29 +35,6 @@ es:
     TagsTabTitle: Etiquetas
     Terms: Términos
     TermsDescription: 'Hacer clic para buscar términos adicionales'
-  CWP\CWP\PageTypes\DatedUpdatePage:
-    DateLabel: Fecha
-  CWP\CWP\PageTypes\EventHolder:
-    DESCRIPTION: 'La página contenedora para páginas de eventos, proporciona filtrado de eventos y paginación'
-  CWP\CWP\PageTypes\EventPage:
-    DESCRIPTION: 'Describe un evento que ocurre en una fecha específica.'
-    PLURALNAME: 'Páginas de eventos'
-    SINGULARNAME: 'Página de evento'
-  CWP\CWP\PageTypes\NewsHolder:
-    DESCRIPTION: 'La página contenedora de páginas de noticias, provee filtrado de noticias y paginación'
-  CWP\CWP\PageTypes\NewsPage:
-    DESCRIPTION: 'Describe un item de noticias'
-    PLURALNAME: 'Páginas de noticias'
-    SINGULARNAME: 'Página de noticias'
-  CWP\CWP\PageTypes\SitemapPage:
-    DESCRIPTION: 'Lista todas las páginas del sitio'
-    PLURALNAME: 'Páginas de mapa del sitio'
-    SINGULARNAME: 'Página de mapa del sitio'
-  CWP\CWP\Extensions\CwpCommentingExtension:
-    EMAIL_TITLE: 'Correo electrónico'
-  CWP\CWP\Extensions\CwpSiteTreeFileExtension:
-    BACKLINK_LIST_DESCRIPTION: 'esta lista muestra todas las páginas donde se agregó el archivo mediante un editor WYSIWYG.'
-    EDIT: Editar
   CWP\CWP\PageTypes\DateUpdatePage:
     AuthorFieldLabel: Autor
     EndTimeFieldLabel: 'Hora de fin'
@@ -67,8 +49,26 @@ es:
     DateRangeFilterMessage: 'Filtrado por una sola fecha.'
     Filter: Filtrar
     FilterAppliedMessage: 'El filtro se aplicó con las fechas invertidas.'
+  CWP\CWP\PageTypes\DatedUpdatePage:
+    DateLabel: Fecha
+  CWP\CWP\PageTypes\EventHolder:
+    DESCRIPTION: 'La página contenedora para páginas de eventos, proporciona filtrado de eventos y paginación'
   CWP\CWP\PageTypes\EventHolderController:
     Upcoming: 'Próximos eventos'
+  CWP\CWP\PageTypes\EventPage:
+    DESCRIPTION: 'Describe un evento que ocurre en una fecha específica.'
+    PLURALNAME: 'Páginas de eventos'
+    SINGULARNAME: 'Página de evento'
+  CWP\CWP\PageTypes\NewsHolder:
+    DESCRIPTION: 'La página contenedora de páginas de noticias, provee filtrado de noticias y paginación'
+  CWP\CWP\PageTypes\NewsPage:
+    DESCRIPTION: 'Describe un item de noticias'
+    PLURALNAME: 'Páginas de noticias'
+    SINGULARNAME: 'Página de noticias'
+  CWP\CWP\PageTypes\SitemapPage:
+    DESCRIPTION: 'Lista todas las páginas del sitio'
+    PLURALNAME: 'Páginas de mapa del sitio'
+    SINGULARNAME: 'Página de mapa del sitio'
   CWP\CWP\Report\CwpStatsReport:
     Name: Nombre
   SilverStripe\CMS\Model\SiteTreeFileExtension:
