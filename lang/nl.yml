@@ -5,6 +5,7 @@ nl:
     EDIT: Bewerken
   CWP\CWP\Model\Quicklink:
     NameLabel: Naam
+    ParentRelationLabel: Bovenliggende
     SortOrderLabel: Sorteer-richting
   CWP\CWP\Model\RelatedPageLink:
     PLURALNAME: 'Gerelateerde Pagina Links'
