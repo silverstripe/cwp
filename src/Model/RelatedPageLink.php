@@ -6,6 +6,10 @@ use CWP\CWP\PageTypes\BasePage;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
 
+/**
+ * @method BasePage BasePage()
+ * @method BasePage Child()
+ */
 class RelatedPageLink extends DataObject
 {
     private static $table_name = 'BasePage_RelatedPages';

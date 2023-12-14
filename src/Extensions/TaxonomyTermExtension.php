@@ -7,6 +7,9 @@ use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 
+/**
+ * @method SilverStripe\ORM\ManyManyList<BasePage> Pages()
+ */
 class TaxonomyTermExtension extends DataExtension
 {
 

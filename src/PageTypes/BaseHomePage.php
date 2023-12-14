@@ -23,6 +23,10 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
  * **BaseHomePage** is the basic home page.
  * By default it is hidden from the CMS - we rely on developers creating their own
  * `HomePage` class in the `mysite/code` which will extend from the **BaseHomePage**.
+ * @method SiteTree FeatureOneLink()
+ * @method SiteTree FeatureTwoLink()
+ * @method SiteTree LearnMorePage()
+ * @method SilverStripe\ORM\HasManyList<Quicklink> Quicklinks()
  */
 class BaseHomePage extends Page
 {
