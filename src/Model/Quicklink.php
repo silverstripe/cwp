@@ -10,8 +10,8 @@ use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\ORM\DataObject;
 
 /**
- * @method BaseHomePage Parent()
  * @method SiteTree InternalLink()
+ * @method BaseHomePage Parent()
  */
 class Quicklink extends DataObject
 {

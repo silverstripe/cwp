@@ -8,6 +8,9 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\FieldType\DBField;
 
+/**
+ * @method Image FeaturedImage()
+ */
 class NewsPage extends DatedUpdatePage
 {
     private static $description = 'Describes an item of news';

@@ -26,6 +26,9 @@ use TractorCow\Fluent\State\FluentState;
  * Please note: you should generally always extend `Page` with your custom page types. Refrain from subclassing
  * `BasePage` directly. Doing so will omit `Page` from your custom class's hierarchy, and this can have unintended
  * side effects where modules rely on modifying things on the `Page` class, as well as with templates and themes.
+ * @method SilverStripe\ORM\ManyManyThroughList<BasePage> RelatedPagesThrough()
+ * @method SilverStripe\ORM\ManyManyList<BasePage> SimilarPages()
+ * @method SilverStripe\ORM\ManyManyList<TaxonomyTerm> Terms()
  */
 
 class BasePage extends SiteTree
