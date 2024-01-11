@@ -2,6 +2,7 @@
 
 namespace CWP\CWP\Extensions;
 
+use SilverStripe\Comments\Controllers\CommentingController;
 use SilverStripe\Control\Email\Email;
 use SilverStripe\Core\Extension;
 use SilverStripe\Forms\Form;
@@ -9,7 +10,7 @@ use SilverStripe\Forms\Form;
 /**
  * Customises the comment form to conform to government usability standards
  *
- * {@see CommentingController}
+ * @extends Extension<CommentingController>
  */
 class CwpCommentingExtension extends Extension
 {

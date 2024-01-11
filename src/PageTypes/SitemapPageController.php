@@ -5,6 +5,9 @@ namespace CWP\CWP\PageTypes;
 use PageController;
 use SilverStripe\CMS\Model\SiteTree;
 
+/**
+ * @extends PageController<SitemapPage>
+ */
 class SitemapPageController extends PageController
 {
     private static $allowed_actions = [

@@ -5,6 +5,9 @@ namespace CWP\CWP\PageTypes;
 use CWP\Core\Feed\CwpAtomFeed;
 use SilverStripe\Control\RSS\RSSFeed;
 
+/**
+ * @extends DatedUpdateHolderController<NewsHolder>
+ */
 class NewsHolderController extends DatedUpdateHolderController
 {
     private static $allowed_actions = [

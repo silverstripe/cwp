@@ -32,6 +32,9 @@ use SilverStripe\Taxonomy\TaxonomyTerm;
  *
  * When the user clicks on a month, pagination will be reset, but tags retained. Pagination retains all other
  * parameters.
+ *
+ * @template T of DatedUpdateHolder
+ * @extends PageController<T>
  */
 class DatedUpdateHolderController extends PageController
 {

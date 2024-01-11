@@ -2,11 +2,15 @@
 
 namespace CWP\CWP\Extensions;
 
+use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\ORM\DataExtension;
 
+/**
+ * @extends DataExtension<SiteTree>
+ */
 class CwpSiteTreeExtension extends DataExtension
 {
     private static $db = array(

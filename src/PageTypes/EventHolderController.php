@@ -16,6 +16,8 @@ use SilverStripe\ORM\PaginatedList;
  *
  * When the user clicks on a month, pagination will be reset, but tags retained. Pagination retains all other
  * parameters.
+ *
+ * @extends DatedUpdateHolderController<EventHolder>
  */
 class EventHolderController extends DatedUpdateHolderController
 {
