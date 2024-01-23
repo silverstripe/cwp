@@ -3,6 +3,8 @@
 namespace CWP\CWP\Extension;
 
 use BringYourOwnIdeas\Maintenance\Reports\SiteSummary;
+use BringYourOwnIdeas\Maintenance\Util\ApiLoader;
+use BringYourOwnIdeas\Maintenance\Util\ComposerLoader;
 use SilverStripe\Core\Environment;
 use SilverStripe\Core\Extension;
 
@@ -10,6 +12,8 @@ use SilverStripe\Core\Extension;
  * Used to configure proxy settings for bringyourownideas/silverstripe-maintenance and its related modules
  *
  * @see https://www.cwp.govt.nz/developer-docs/en/2/how_tos/external_http_requests_with_proxy
+ *
+ * @extends Extension<ComposerLoader|ApiLoader>
  */
 class MaintenanceProxyExtension extends Extension
 {

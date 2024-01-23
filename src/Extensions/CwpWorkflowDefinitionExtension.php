@@ -9,6 +9,8 @@ use Symbiote\AdvancedWorkflow\DataObjects\WorkflowDefinition;
 
 /**
  * Ensures that the default template is created
+ *
+ * @extends DataExtension<WorkflowDefinition>
  */
 class CwpWorkflowDefinitionExtension extends DataExtension
 {

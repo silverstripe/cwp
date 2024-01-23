@@ -4,6 +4,10 @@ namespace CWP\CWP\PageTypes;
 
 use PageController;
 
+/**
+ * @template T of BaseHomePage
+ * @extends PageController<T>
+ */
 class BaseHomePageController extends PageController
 {
     public function getNewsPage()

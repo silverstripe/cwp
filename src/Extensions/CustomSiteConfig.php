@@ -6,9 +6,12 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\SiteConfig\SiteConfig;
 
 /**
  * Adds new global settings.
+ *
+ * @extends DataExtension<SiteConfig>
  */
 class CustomSiteConfig extends DataExtension
 {
