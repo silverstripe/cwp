@@ -28,7 +28,8 @@ $cwpEditor->setOptions([
         . "|class],-strong/-b[class],-em/-i[class],-strike[class],-u[class],#p[id|dir|class|align|style]"
         . ",-ol[class],"
         . "-ul[class],"
-        . "-li[class],br,img[id|dir|longdesc|usemap|class|src|border|alt=|title|width|height|align|data*],"
+        . "-li[class],br,"
+        . "img[id|dir|longdesc|usemap|class|src|border|alt=|title|width|height|align|hspace|vspace|name|data*],"
         . "-sub[class],-sup[class],-blockquote[dir|class],"
         . "-table[cellspacing|cellpadding|width|height|class|align|dir|id|style],"
         . "-tr[id|dir|class|rowspan|width|height|align|valign|bgcolor|background|bordercolor|style],"
@@ -40,8 +41,7 @@ $cwpEditor->setOptions([
         . "-h4[id|dir|class|align|style],-h5[id|dir|class|align|style],-h6[id|dir|class|align|style],hr[class],"
         . "dd[id|class|title|dir],dl[id|class|title|dir],dt[id|class|title|dir],@[id,style,class]",
     'extended_valid_elements' =>
-        'img[class|src|alt|title|hspace|vspace|width|height|align|name|usemap|data*],'
-        . 'object[classid|codebase|width|height|data|type],'
+        'object[classid|codebase|width|height|data|type],'
         . 'embed[width|height|name|flashvars|src|bgcolor|align|play|loop|quality|'
         . 'allowscriptaccess|type|pluginspage|autoplay],'
         . 'param[name|value],'
