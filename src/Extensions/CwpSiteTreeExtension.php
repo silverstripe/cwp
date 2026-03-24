@@ -28,7 +28,7 @@ class CwpSiteTreeExtension extends Extension
      *
      * @param FieldList $fields
      */
-    public function updateSettingsFields(FieldList $fields)
+    protected function updateSettingsFields(FieldList $fields)
     {
         $helpText = _t(
             __CLASS__ . '.SHOW_PAGE_UTILITIES_HELP',
@@ -44,7 +44,7 @@ class CwpSiteTreeExtension extends Extension
         );
     }
 
-    public function updateFieldLabels(&$labels)
+    protected function updateFieldLabels(&$labels)
     {
         $labels['ShowPageUtilities'] = _t(__CLASS__ . '.SHOW_PAGE_UTILITIES', 'Show page utilities?');
     }

@@ -14,7 +14,7 @@ use SilverStripe\Forms\FieldList;
 class FooterHolder extends RedirectorPage
 {
 
-    private static $description = 'Holder page that displays all child pages as links in the footer';
+    private static $class_description = 'Holder page that displays all child pages as links in the footer';
 
     private static $singular_name = 'Footer Holder';
 

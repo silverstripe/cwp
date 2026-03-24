@@ -13,7 +13,7 @@ use SilverStripe\Forms\GridField\GridFieldEditButton;
 use SilverStripe\Forms\GridField\GridFieldFilterHeader;
 use SilverStripe\Forms\TreeMultiselectField;
 use SilverStripe\Taxonomy\TaxonomyTerm;
-use SilverStripe\View\ArrayData;
+use SilverStripe\Model\ArrayData;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use TractorCow\Fluent\Model\Locale;
 use TractorCow\Fluent\State\FluentState;
@@ -39,7 +39,7 @@ class BasePage extends SiteTree
      *
      * {@inheritDoc}
      */
-    private static $hide_ancestor = BasePage::class;
+    private static $hide_pagetypes = [BasePage::class];
 
     private static $api_access = [
         'view' => [

@@ -3,11 +3,11 @@
 namespace CWP\CWP\PageTypes;
 
 use SilverStripe\ORM\DataList;
-use SilverStripe\ORM\PaginatedList;
+use SilverStripe\Model\List\PaginatedList;
 
 class EventHolder extends DatedUpdateHolder
 {
-    private static $description = 'Container page for Event Pages, provides event filtering and pagination';
+    private static $class_description = 'Container page for Event Pages, provides event filtering and pagination';
 
     private static $allowed_children = [
         EventPage::class,
@@ -19,7 +19,7 @@ class EventHolder extends DatedUpdateHolder
 
     private static $update_class = EventPage::class;
 
-    private static $icon_class = 'font-icon-p-event-alt';
+    private static $cms_icon_class = 'font-icon-p-event-alt';
 
     private static $singular_name = 'Event Holder';
 

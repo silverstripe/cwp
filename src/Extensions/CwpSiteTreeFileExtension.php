@@ -14,7 +14,7 @@ use SilverStripe\View\Requirements;
  */
 class CwpSiteTreeFileExtension extends Extension
 {
-    public function updateCMSFields(FieldList $fields)
+    protected function updateCMSFields(FieldList $fields)
     {
         Requirements::css('cwp/cwp:css/fieldDescriptionToggle.css');
         Requirements::javascript('cwp/cwp:javascript/fieldDescriptionToggle.js');
@@ -53,7 +53,7 @@ class CwpSiteTreeFileExtension extends Extension
                 . Convert::raw2xml($backLink->MenuTitle) . '</a> &ndash; ';
 
             // Add the CMS link
-            $listItem .= '<a href="' . $backLink->CMSEditLink() . '">'
+            $listItem .= '<a href="' . $backLink->getCMSEditLink() . '">'
                 . _t(__CLASS__ . '.EDIT', 'Edit') . '</a>';
 
             $html .= $listItem . '</li>';

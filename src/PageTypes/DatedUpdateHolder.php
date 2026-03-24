@@ -10,11 +10,11 @@ use SilverStripe\Control\Director;
 use SilverStripe\Control\HTTP;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Convert;
-use SilverStripe\ORM\ArrayList;
+use SilverStripe\Model\List\ArrayList;
 use SilverStripe\ORM\Connect\DatabaseException;
 use SilverStripe\ORM\DataList;
 use SilverStripe\ORM\DataObject;
-use SilverStripe\ORM\PaginatedList;
+use SilverStripe\Model\List\PaginatedList;
 use SilverStripe\Taxonomy\TaxonomyTerm;
 
 class DatedUpdateHolder extends Page
@@ -24,7 +24,7 @@ class DatedUpdateHolder extends Page
      *
      * {@inheritDoc}
      */
-    private static $hide_ancestor = DatedUpdateHolder::class;
+    private static $hide_pagetypes = [DatedUpdateHolder::class];
 
     private static $update_name = 'Updates';
 

@@ -13,13 +13,13 @@ use SilverStripe\ORM\FieldType\DBField;
  */
 class NewsPage extends DatedUpdatePage
 {
-    private static $description = 'Describes an item of news';
+    private static $class_description = 'Describes an item of news';
 
     private static $default_parent = 'NewsHolderPage';
 
     private static $can_be_root = false;
 
-    private static $icon_class = 'font-icon-p-news-item';
+    private static $cms_icon_class = 'font-icon-p-news-item';
 
     private static $singular_name = 'News Page';
 

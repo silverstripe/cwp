@@ -3,6 +3,7 @@
 namespace CWP\CWP\Tests\Extensions;
 
 use CWP\CWP\Extensions\CwpWorkflowDefinitionExtension;
+use ReflectionMethod;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Dev\FunctionalTest;
@@ -38,14 +39,14 @@ class WorkflowDefinitionExtensionTest extends FunctionalTest
         // test disabling the default workflow definition
         Config::modify()->set(CwpWorkflowDefinitionExtension::class, 'create_default_workflow', false);
         $workflowExtn = Injector::inst()->create(CwpWorkflowDefinitionExtension::class);
-        $workflowExtn->requireDefaultRecords();
+        ReflectionMethod::createFromMethodName(CwpWorkflowDefinitionExtension::class . '::onRequireDefaultRecords')->invoke($workflowExtn);
         $definition = WorkflowDefinition::get()->first();
         $this->assertNull($definition);
 
         // test enabling the default workflow definition
         Config::modify()->set(CwpWorkflowDefinitionExtension::class, 'create_default_workflow', true);
         $workflowExtn = Injector::inst()->create(CwpWorkflowDefinitionExtension::class);
-        $workflowExtn->requireDefaultRecords();
+        ReflectionMethod::createFromMethodName(CwpWorkflowDefinitionExtension::class . '::onRequireDefaultRecords')->invoke($workflowExtn);
         $definition = WorkflowDefinition::get()->first();
         $this->assertNotNull($definition);
     }

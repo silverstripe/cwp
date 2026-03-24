@@ -14,7 +14,7 @@ use SilverStripe\Forms\Form;
  */
 class CwpCommentingExtension extends Extension
 {
-    public function alterCommentForm(Form $form)
+    protected function alterCommentForm(Form $form)
     {
         $fields = $form->Fields();
 

@@ -21,7 +21,7 @@ class CustomSiteConfig extends Extension
         'TwitterUsername' => 'Varchar(16)', // max length of Twitter username 15
     );
 
-    public function updateCMSFields(FieldList $fields)
+    protected function updateCMSFields(FieldList $fields)
     {
         $fields->addFieldToTab(
             'Root.Main',

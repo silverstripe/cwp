@@ -15,7 +15,7 @@ class DatedUpdatePage extends Page
      *
      * {@inheritDoc}
      */
-    private static $hide_ancestor = DatedUpdatePage::class;
+    private static $hide_pagetypes = [DatedUpdatePage::class];
 
     private static $singular_name = 'Dated Update Page';
 

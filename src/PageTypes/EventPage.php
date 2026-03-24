@@ -12,13 +12,13 @@ use SilverStripe\ORM\FieldType\DBDatetime;
 
 class EventPage extends DatedUpdatePage
 {
-    private static $description = 'Describes an event occurring on a specific date.';
+    private static $class_description = 'Describes an event occurring on a specific date.';
 
     private static $default_parent = EventHolder::class;
 
     private static $can_be_root = false;
 
-    private static $icon_class = 'font-icon-p-event';
+    private static $cms_icon_class = 'font-icon-p-event';
 
     private static $singular_name = 'Event Page';
 

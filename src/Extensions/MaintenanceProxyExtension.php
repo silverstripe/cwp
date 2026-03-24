@@ -23,7 +23,7 @@ class MaintenanceProxyExtension extends Extension
      * bringyourownideas/silverstripe-composer-update-checker to ensure the proxy information is set before Composer
      * is created
      */
-    public function onAfterBuild()
+    protected function onAfterBuild()
     {
         // Provide access for Composer's StreamContextFactory, since it creates its own stream context
         if ($proxy = $this->getCwpProxy()) {
@@ -37,7 +37,7 @@ class MaintenanceProxyExtension extends Extension
      *
      * @param array $options
      */
-    public function updateClientOptions(&$options)
+    protected function updateClientOptions(&$options)
     {
         if ($proxy = $this->getCwpProxy()) {
             $options['proxy'] = $proxy;
