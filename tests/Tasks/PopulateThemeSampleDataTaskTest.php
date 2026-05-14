@@ -5,8 +5,9 @@ namespace CWP\CWP\Tests\Tasks;
 use CWP\CWP\Tasks\PopulateThemeSampleDataTask;
 use SilverStripe\UserForms\Model\UserDefinedForm;
 use SilverStripe\Dev\BuildTask;
-use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Dev\SapphireTest;
+use SilverStripe\PolyExecution\PolyOutput;
+use Symfony\Component\Console\Input\ArrayInput;
 
 class PopulateThemeSampleDataTaskTest extends SapphireTest
 {
@@ -53,7 +54,7 @@ class PopulateThemeSampleDataTaskTest extends SapphireTest
     protected function bufferedTask(BuildTask $task)
     {
         ob_start();
-        $task->run(new HTTPRequest('GET', '/'));
+        $task->run(new ArrayInput([]), new PolyOutput(PolyOutput::FORMAT_ANSI));
         return ob_get_clean();
     }
 }

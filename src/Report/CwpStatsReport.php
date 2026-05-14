@@ -10,7 +10,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldExportButton;
 use SilverStripe\Forms\GridField\GridFieldPrintButton;
 use SilverStripe\Forms\GridField\GridFieldSortableHeader;
-use SilverStripe\ORM\ArrayList;
+use SilverStripe\Model\List\ArrayList;
 use SilverStripe\Reports\Report;
 use SilverStripe\Subsites\Model\Subsite;
 use SilverStripe\Versioned\Versioned;

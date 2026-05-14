@@ -3,7 +3,7 @@
 namespace CWP\CWP\PageTypes;
 
 use SilverStripe\ORM\FieldType\DBDatetime;
-use SilverStripe\ORM\PaginatedList;
+use SilverStripe\Model\List\PaginatedList;
 
 /**
  * The parameters apply in the following preference order:

@@ -4,15 +4,15 @@ namespace CWP\CWP\Extensions;
 
 use SilverStripe\Assets\File;
 use SilverStripe\Core\Convert;
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\ReadonlyField;
-use SilverStripe\ORM\DataExtension;
 use SilverStripe\View\Requirements;
 
 /**
- * @extends DataExtension<File>
+ * @extends Extension<File>
  */
-class CwpSiteTreeFileExtension extends DataExtension
+class CwpSiteTreeFileExtension extends Extension
 {
     public function updateCMSFields(FieldList $fields)
     {
@@ -53,7 +53,7 @@ class CwpSiteTreeFileExtension extends DataExtension
                 . Convert::raw2xml($backLink->MenuTitle) . '</a> &ndash; ';
 
             // Add the CMS link
-            $listItem .= '<a href="' . $backLink->CMSEditLink() . '">'
+            $listItem .= '<a href="' . $backLink->getCMSEditLink() . '">'
                 . _t(__CLASS__ . '.EDIT', 'Edit') . '</a>';
 
             $html .= $listItem . '</li>';

@@ -30,9 +30,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
  */
 class BaseHomePage extends Page
 {
-    private static $icon_class = 'font-icon-p-home';
-
-    private static $hide_ancestor = BaseHomePage::class;
+    private static $cms_icon_class = 'font-icon-p-home';
 
     private static $singular_name = 'Home Page';
 

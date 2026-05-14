@@ -13,7 +13,7 @@ use SilverStripe\Forms\GridField\GridFieldEditButton;
 use SilverStripe\Forms\GridField\GridFieldFilterHeader;
 use SilverStripe\Forms\TreeMultiselectField;
 use SilverStripe\Taxonomy\TaxonomyTerm;
-use SilverStripe\View\ArrayData;
+use SilverStripe\Model\ArrayData;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use TractorCow\Fluent\Model\Locale;
 use TractorCow\Fluent\State\FluentState;
@@ -34,13 +34,6 @@ use SilverStripe\Forms\FormField;
 
 class BasePage extends SiteTree
 {
-    /**
-     * Hide this page type from the CMS. hide_ancestor is slightly misnamed, should really be just "hide"
-     *
-     * {@inheritDoc}
-     */
-    private static $hide_ancestor = BasePage::class;
-
     private static $api_access = [
         'view' => [
             'Locale', 'URLSegment', 'Title', 'MenuTitle', 'Content', 'MetaDescription',

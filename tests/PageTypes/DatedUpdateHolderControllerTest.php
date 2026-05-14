@@ -5,6 +5,7 @@ namespace CWP\CWP\Tests\PageTypes;
 use CWP\CWP\PageTypes\EventHolder;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Dev\FunctionalTest;
+use SilverStripe\SessionManager\Models\LoginSession;
 use SilverStripe\View\SSViewer;
 use SilverStripe\ORM\DB;
 
@@ -17,6 +18,10 @@ class DatedUpdateHolderControllerTest extends FunctionalTest
     protected function setUp(): void
     {
         parent::setUp();
+
+        // Disable IP anonymization to avoid TypeError when session-manager passes a null IP
+        // (from a CLI test request) to IpUtils::anonymize() in PHP 8.3+ / newer symfony versions
+        Config::modify()->set(LoginSession::class, 'anonymize_ip', false);
 
         // Note: this test requires the starter theme to be installed
         Config::modify()->set(SSViewer::class, 'themes', ['starter', '$default']);

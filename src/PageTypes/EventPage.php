@@ -12,13 +12,13 @@ use SilverStripe\ORM\FieldType\DBDatetime;
 
 class EventPage extends DatedUpdatePage
 {
-    private static $description = 'Describes an event occurring on a specific date.';
+    private static $class_description = 'Describes an event occurring on a specific date.';
 
     private static $default_parent = EventHolder::class;
 
     private static $can_be_root = false;
 
-    private static $icon_class = 'font-icon-p-event';
+    private static $cms_icon_class = 'font-icon-p-event';
 
     private static $singular_name = 'Event Page';
 
@@ -65,7 +65,11 @@ class EventPage extends DatedUpdatePage
     public function getCMSFields()
     {
         $this->beforeUpdateCMSFields(function (FieldList $fields) {
-            $fields->removeByName('Date');
+            // SS6 auto-scaffolds the Date / StartTime / EndTime $db fields into
+            // getCMSFields(). We compose them into a custom 'Date and time' FieldGroup
+            // below, so remove the scaffolded duplicates first to avoid the
+            // 'field appears twice' runtime error.
+            $fields->removeByName(['Date', 'StartTime', 'EndTime']);
 
             $dateTimeFields = array();
 

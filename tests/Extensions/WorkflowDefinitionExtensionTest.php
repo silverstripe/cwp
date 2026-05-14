@@ -38,14 +38,14 @@ class WorkflowDefinitionExtensionTest extends FunctionalTest
         // test disabling the default workflow definition
         Config::modify()->set(CwpWorkflowDefinitionExtension::class, 'create_default_workflow', false);
         $workflowExtn = Injector::inst()->create(CwpWorkflowDefinitionExtension::class);
-        $workflowExtn->requireDefaultRecords();
+        $workflowExtn->onRequireDefaultRecords();
         $definition = WorkflowDefinition::get()->first();
         $this->assertNull($definition);
 
         // test enabling the default workflow definition
         Config::modify()->set(CwpWorkflowDefinitionExtension::class, 'create_default_workflow', true);
         $workflowExtn = Injector::inst()->create(CwpWorkflowDefinitionExtension::class);
-        $workflowExtn->requireDefaultRecords();
+        $workflowExtn->onRequireDefaultRecords();
         $definition = WorkflowDefinition::get()->first();
         $this->assertNotNull($definition);
     }

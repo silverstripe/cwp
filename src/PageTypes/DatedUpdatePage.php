@@ -10,13 +10,6 @@ use SilverStripe\ORM\FieldType\DBDatetime;
 
 class DatedUpdatePage extends Page
 {
-    /**
-     * Meant as an abstract base class.
-     *
-     * {@inheritDoc}
-     */
-    private static $hide_ancestor = DatedUpdatePage::class;
-
     private static $singular_name = 'Dated Update Page';
 
     private static $plural_name = 'Dated Update Pages';

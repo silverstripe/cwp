@@ -3,11 +3,11 @@
 namespace CWP\CWP\PageTypes;
 
 use SilverStripe\ORM\DataList;
-use SilverStripe\ORM\PaginatedList;
+use SilverStripe\Model\List\PaginatedList;
 
 class NewsHolder extends DatedUpdateHolder
 {
-    private static $description = 'Container page for News Pages, provides news filtering and pagination';
+    private static $class_description = 'Container page for News Pages, provides news filtering and pagination';
 
     private static $allowed_children = [
         NewsPage::class,
@@ -19,7 +19,7 @@ class NewsHolder extends DatedUpdateHolder
 
     private static $update_class = NewsPage::class;
 
-    private static $icon_class = 'font-icon-news';
+    private static $cms_icon_class = 'font-icon-news';
 
     private static $singular_name = 'News Holder';
 

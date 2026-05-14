@@ -9,10 +9,11 @@ SilverStripe\SiteConfig\SiteConfig:
 SilverStripe\CMS\Model\SiteTree:
   extensions:
     - CWP\CWP\Extensions\CwpSiteTreeExtension
-
-SilverStripe\Taxonomy\TaxonomyTerm:
-  extensions:
-   - CWP\CWP\Extensions\TaxonomyTermExtension
+  hide_pagetypes:
+    - CWP\CWP\PageTypes\BasePage
+    - CWP\CWP\PageTypes\BaseHomePage
+    - CWP\CWP\PageTypes\DatedUpdatePage
+    - CWP\CWP\PageTypes\DatedUpdateHolder
 
 SilverStripe\Security\Member:
   title_format:

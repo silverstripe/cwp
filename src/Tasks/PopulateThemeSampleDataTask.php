@@ -6,20 +6,23 @@ use SilverStripe\Control\Director;
 use SilverStripe\Control\Email\Email;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Dev\BuildTask;
+use SilverStripe\PolyExecution\PolyOutput;
 use SilverStripe\UserForms\Model\EditableFormField\EditableEmailField;
 use SilverStripe\UserForms\Model\EditableFormField\EditableFormStep;
 use SilverStripe\UserForms\Model\EditableFormField\EditableTextField;
 use SilverStripe\UserForms\Model\UserDefinedForm;
 use SilverStripe\Versioned\Versioned;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
 
 /**
  * Used to populate sample data when installing the starter or Wātea theme
  */
 class PopulateThemeSampleDataTask extends BuildTask
 {
-    protected $title = 'Populate sample data for theme demo';
+    protected string $title = 'Populate sample data for theme demo';
 
-    protected $description = 'Populates some sample data for showcasing the functionality of the '
+    protected static string $description = 'Populates some sample data for showcasing the functionality of the '
         . 'starter and Wātea themes';
 
     /**
@@ -27,12 +30,15 @@ class PopulateThemeSampleDataTask extends BuildTask
      *
      * @param HTTPRequest $request
      */
-    public function run($request)
+    protected function execute(InputInterface $input, PolyOutput $output): int
     {
         if (!class_exists(UserDefinedForm::class)) {
-            return;
+            return Command::SUCCESS;
         }
+
         $this->handleContactForm();
+
+        return Command::SUCCESS;
     }
 
     /**
@@ -40,7 +46,7 @@ class PopulateThemeSampleDataTask extends BuildTask
      *
      * @return $this
      */
-    protected function handleContactForm()
+    protected function handleContactForm(): self
     {
         if (!$this->getContactFormExists()) {
             $this->createContactForm();
@@ -53,9 +59,10 @@ class PopulateThemeSampleDataTask extends BuildTask
      *
      * @return bool
      */
-    protected function getContactFormExists()
+    protected function getContactFormExists(): bool
     {
         $exists = false;
+
         foreach (UserDefinedForm::get()->column('ID') as $formId) {
             $count = Versioned::get_all_versions(UserDefinedForm::class, $formId)
                 ->filter('URLSegment', 'contact')
@@ -66,6 +73,7 @@ class PopulateThemeSampleDataTask extends BuildTask
                 break;
             }
         }
+
         return $exists;
     }
 
@@ -76,7 +84,7 @@ class PopulateThemeSampleDataTask extends BuildTask
      *
      * @return $this
      */
-    protected function createContactForm()
+    protected function createContactForm(): self
     {
         $form = UserDefinedForm::create(array(
             'Title' => 'Contact',

@@ -2,16 +2,16 @@
 
 namespace CWP\CWP\Extensions;
 
+use SilverStripe\Core\Extension;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\LiteralField;
-use SilverStripe\ORM\DataExtension;
 
 /**
- * @extends DataExtension<SiteTree>
+ * @extends Extension<SiteTree>
  */
-class CwpSiteTreeExtension extends DataExtension
+class CwpSiteTreeExtension extends Extension
 {
     private static $db = array(
         'ShowPageUtilities' => 'Boolean(1)'

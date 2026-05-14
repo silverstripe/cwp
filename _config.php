@@ -4,7 +4,7 @@ use SilverStripe\Control\Director;
 use SilverStripe\Core\Environment;
 use SilverStripe\Core\Manifest\ModuleLoader;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorConfig;
-use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
+use SilverStripe\TinyMCE\TinyMCEConfig;
 
 // default to the binary being in the usual path on Linux
 if (!Environment::getEnv('WKHTMLTOPDF_BINARY')) {
@@ -13,7 +13,7 @@ if (!Environment::getEnv('WKHTMLTOPDF_BINARY')) {
 
 // TinyMCE configuration
 /** @var TinyMCEConfig $cwpEditor */
-$cwpEditor = HTMLEditorConfig::get('cwp');
+$cwpEditor = TinyMCEConfig::get('cms');
 
 // Start with the same configuration as 'cms' config (defined in framework/admin/_config.php).
 $cwpEditor->setOptions([
@@ -59,28 +59,29 @@ $cwpEditor->setOptions([
 $cwpEditor->enablePlugins('media', 'fullscreen');
 
 // Enable insert-link to internal pages
-$cmsModule = ModuleLoader::inst()->getManifest()->getModule('silverstripe/cms');
+$htmlEditModule = ModuleLoader::inst()->getManifest()->getModule('silverstripe/htmleditor-tinymce');
 
 $cwpEditor
     ->enablePlugins([
-        'sslinkinternal' => $cmsModule
+        'sslinkinternal' => $htmlEditModule
             ->getResource('client/dist/js/TinyMCE_sslink-internal.js'),
-        'sslinkanchor' => $cmsModule
+        'sslinkanchor' => $htmlEditModule
             ->getResource('client/dist/js/TinyMCE_sslink-anchor.js'),
+        'ssmedia' => $htmlEditModule
+            ->getResource('client/dist/js/TinyMCE_ssmedia.js'),
+        'ssembed' => $htmlEditModule
+            ->getResource('client/dist/js/TinyMCE_ssembed.js'),
+        'sslinkfile' => $htmlEditModule
+            ->getResource('client/dist/js/TinyMCE_sslink-file.js'),
+        'sslink' => $htmlEditModule->getResource('client/dist/js/TinyMCE_sslink.js'),
+        'sslinkexternal' => $htmlEditModule->getResource('client/dist/js/TinyMCE_sslink-external.js'),
+        'sslinkemail' => $htmlEditModule->getResource('client/dist/js/TinyMCE_sslink-email.js'),
     ]);
 
 // Re-enable media dialog
 $assetAdminModule = ModuleLoader::inst()->getManifest()->getModule('silverstripe/asset-admin');
+
 if ($assetAdminModule) {
-    $cwpEditor
-        ->enablePlugins([
-            'ssmedia' => $assetAdminModule
-                ->getResource('client/dist/js/TinyMCE_ssmedia.js'),
-            'ssembed' => $assetAdminModule
-                ->getResource('client/dist/js/TinyMCE_ssembed.js'),
-            'sslinkfile' => $assetAdminModule
-                ->getResource('client/dist/js/TinyMCE_sslink-file.js'),
-        ]);
     $cwpEditor->insertButtonsAfter('table', 'ssmedia');
     $cwpEditor->insertButtonsAfter('ssmedia', 'ssembed');
 }
@@ -91,9 +92,6 @@ $cwpEditor
     ->enablePlugins([
         'image' => null,
         'anchor' => null,
-        'sslink' => $adminModule->getResource('client/dist/js/TinyMCE_sslink.js'),
-        'sslinkexternal' => $adminModule->getResource('client/dist/js/TinyMCE_sslink-external.js'),
-        'sslinkemail' => $adminModule->getResource('client/dist/js/TinyMCE_sslink-email.js'),
     ])
     ->setOption('contextmenu', 'sslink anchor ssmedia ssembed inserttable | cell row column deletetable');
 

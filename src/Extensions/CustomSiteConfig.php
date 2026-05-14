@@ -2,9 +2,9 @@
 
 namespace CWP\CWP\Extensions;
 
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
-use SilverStripe\ORM\DataExtension;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\SiteConfig\SiteConfig;
 
@@ -13,7 +13,7 @@ use SilverStripe\SiteConfig\SiteConfig;
  *
  * @extends DataExtension<SiteConfig>
  */
-class CustomSiteConfig extends DataExtension
+class CustomSiteConfig extends Extension
 {
     private static $db = array(
         'GACode' => 'Varchar(16)',
